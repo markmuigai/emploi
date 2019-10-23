@@ -158,7 +158,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <hr>
                     </div>
                     @empty
-                    <p style="text-align: center;">
+                    <p class="col-md-4" style="text-align: center;">
                         You have not specified your skills. <a href="/profile/edit">Edit Profile</a>
                     </p>
                     @endforelse
