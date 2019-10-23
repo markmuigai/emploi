@@ -32,13 +32,27 @@ class JobApplicationController extends Controller
 	    	{
 
                 $caption = "You have applied for ".$post->title;
-                $contents = "Your application for the ".$post->title." has been submitted succesfully. Your Job Application Id is ".$j->id.". 
-The application has been sent to ".$post->company->name." for consideration.
-In the meantime, update your profile with your updated CV to rank better against other applicants.
+                $contents = "Your application for the ".$post->title." has been submitted succesfully. Your Job Application Id is ".$j->id.". <br>
+                The application has been sent to <b>".$post->company->name."</b> for consideration.<br><br>
+                In the meantime, update your profile with your updated CV to rank better against other applicants.
+                <br>
+                All the best.
+                <br><br>
 
-All the best.
+                <a href='/vacancies'>Browse Other Vacancies</a>
                 ";
                 EmailJob::dispatch($user->name, $user->email, 'Applied for '.$post->title, $caption, $contents);
+
+                $caption = "Application Received for ".$post->title;
+                $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position. 
+                <a href='/home'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
+                <br>
+                Thank you for choosing Emploi
+                <br><br>
+
+                <a href='/home'>My Account</a>
+                ";
+                EmailJob::dispatch($post->company->user->name, $post->company->user->email, 'Application for '.$post->title." Received", $caption, $contents);
 	    		return view('seekers.applied')
 	    				->with('post',$post);
 	    	}

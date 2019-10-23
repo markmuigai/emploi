@@ -285,7 +285,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="form-group col-md-12">
                         <label class="col-md-3 control-lable" for="resume">Industry Experience (years)</label>
                         <div class="col-md-9">
-                            <input type="number" name="years_experience" value="{{ $user->seeker->years_experience }}" class="form-control" />
+                            <input type="number" name="years_experience" value="{{ $user->seeker->years_experience }}" required="" class="form-control" />
                         </div>
                     </div>
                  </div>
