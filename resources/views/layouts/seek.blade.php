@@ -36,6 +36,20 @@
 	.location-select {
 		padding: 0.43em; background-color: white
 	}
+	.btn-orange {
+		color: white;
+		background-color: #e88725;
+		border-radius: 12px;
+		padding: 1em 2em;
+		text-decoration: capitalize
+	}
+	@media only screen and (max-width: 700px) {
+		.btn-orange {
+			border-radius: 10px;
+			padding: .8em 1.6em;
+		}
+	}
+
 	@media only screen and (max-width: 400px) {
 		.no-mobile {
 			display: none;
@@ -46,6 +60,9 @@
 
 		.location-select {
 			padding: 0.25em; background-color: white
+		}
+		.btn-orange {
+
 		}
 	}
 	
@@ -86,7 +103,7 @@
 				@else
 				<li><a href="/blog" style="color: white">Career Centre</a></li>
 				@endif
-		        <li class="dropdown">
+		        <li class="dropdown" style="display: none">
 		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">About<b class="caret"></b></a>
 		            <ul class="dropdown-menu multi-column columns-3">
 			            <div class="row">
@@ -186,7 +203,7 @@
 	    <!--/.navbar-collapse-->
 	</nav>
 @yield('content')
-<div class="footer">
+<div class="footer" style="display: none">
 	<div class="container ">
 		<div class="row">
 
@@ -249,25 +266,37 @@
 
 	    <div class="col-sm-2 col-xs-4">
 	  		<ul class="f_list2">
+	  			<li><a href="/about">About Us</a></li>
+	  			<li><a href="/blog">Career Centre</a></li>
+	  			<li><a href="/join">Register</a></li>
+	  			<li><a href="/employers/publish">Advertise</a></li>
 				<li><a href="/vacancies">Vacancies</a></li>
-				<li><a href="/register">Upload CV</a></li>
+				<li><a href="/contact">Contact Us</a></li>
 		    </ul>
 	  	</div>
-	  	<div class="col-sm-2 col-xs-4">
+	  	<div class="col-sm-8 col-xs-6 row">
+	  		<div class="col-sm-10 col-sm-offset-1" style="color: white">
+	  			<h4><i class="fa fa-map-marker"></i> LOCATION</h4>
+		  		<p>
+		  			Syokimau Junction along, Mombasa road, Repen Complex. Fourth Floor Room 414B
+		  		</p>
+		  		<br>
+		  		<h4><i class="fa fa-envelope"></i> <a href="mailto:info@emploi.co">info@emploi.co</a></h4>
+		  		<br>
+		  		<h4><i class="fa fa-phone"></i> <a href="tel:+254702068282">+254 702 068 282</a></h4>
+		  		
+	  		</div>
+	  		
+	  		
+	  	</div>
+	  	<div class="col-sm-2 col-xs-2" style="text-align: center;">
+	  		<h4 style="color: white"> SOCIAL</h4>
 	  		<ul class="f_list2">
-				<li><a href="/employers/publish">Advertise</a></li>
-				<li><a href="/employers/browse">Browse CVs</a></li>
+				<li><a href="https://www.facebook.com/jobsikaz/"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://twitter.com/jobsikaz?lang=en"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="https://ke.linkedin.com/company/jobsikaz-com"><i class="fa fa-linkedin"></i></a></li>
 		    </ul>
-	  	</div>
-	  	<div class="col-sm-2 col-xs-4">
-	  		<ul class="f_list2">
-				<li><a href="/about">About</a></li>
-				<li><a href="/contact">Contact</a></li>
-		    </ul>
-	  	</div>
-	  	<div class="col-sm-6 footer_text no-mobile">
-	       <p>"Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker matching."</p>
-	  	</div>
+	  	
   	</div>
   	<div class="clearfix"> </div>
 	<div class="copy">

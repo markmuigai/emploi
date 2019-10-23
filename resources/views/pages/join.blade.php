@@ -7,7 +7,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
 <div class="container">
     <div class="single">  
 	   

@@ -14,10 +14,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
          <div id="search_form" class="clearfix">
          <h1>Start your job search</h1>
          @include('components.search-form')           
-            <h2 class="title">Top Categories</h2>
+            <h2 class="title" style="display: none;">Top Categories</h2>
          </div>
          <div id="city_1" class="clearfix row">
-             <ul class="orange col-md-4">
+          <p>
+            Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet 
+          </p>
+          <p>
+            <a class="btn-orange" href="/join">REGISTER</a>
+          </p>
+             <ul class="orange col-md-4" style="display: none;">
                 @foreach(\App\Industry::top() as $i)
                  <li>
                  <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
@@ -25,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                  @endforeach
                  
              </ul>
-             <ul class="orange col-md-4">
+             <ul class="orange col-md-4" style="display: none;">
                 @foreach(\App\Location::top() as $i)
                  <li>
                  <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
@@ -37,6 +43,103 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
        </div>
    </div> 
 </div>  
+<div class="container">
+  <div class="grid_1">
+        <h3>Why Emploi</h3>
+        <p style="text-align: center;">
+          Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet. Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet ... <a href="/about">Learn more</a>
+        </p>
+  </div>
+</div>
+<div class="container">
+  <div class="grid_1 row">
+    <div class="col-md-8 row">
+      <h3>Our Services</h3>
+      <div class="card col-md-6">
+        <img class="card-img-top" src="images/employer-join.png" style="width: 100%" alt="Employer Services">
+        <div class="card-body">
+          <h5 class="card-title" style="font-weight: bold">Employers</h5>
+          <p class="card-text" style="display: none">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Browse Talent Database</li>
+          <li class="list-group-item">Recruitment Process Outsourcing</li>
+          <li class="list-group-item">Assess Candidates</li>
+          <li class="list-group-item">Advertise Jobs</li>
+          <li class="list-group-item">Background Checks</li>
+        </ul>
+        <div class="card-body">
+          <a href="/employers/register" class="card-link">Employer Registration</a>
+        </div>
+      </div>
+      <div class="card col-md-6">
+        <img class="card-img-top" src="images/seeker-join.png" style="width: 100%" alt="Job Seeker Services">
+        <div class="card-body">
+          <h5 class="card-title" style="font-weight: bold">Job Seekers</h5>
+          <p class="card-text" style="display: none">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Premium Placement</li>
+          <li class="list-group-item">Professional Coaching</li>
+          <li class="list-group-item">Job Vacancies</li>
+          <li class="list-group-item">Professional CV Editing</li>
+          <li class="list-group-item">Career Centre</li>
+        </ul>
+        <div class="card-body">
+          <a href="/register" class="card-link">Job Seeker Registration</a>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-4">
+      <div class="fb-page" data-href="https://www.facebook.com/jobsikaz" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/jobsikaz" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jobsikaz">JobSikaz</a></blockquote></div>
+    </div>
+        
+        
+  </div>
+</div>
+<div class="about_middle">
+  <div class="container">
+         <div class="wmuSlider example1">
+         <div class="wmuSliderWrapper">
+             <h3>Latest Blogs</h3>
+              @forelse($blogs as $blog)
+               <article style="position: absolute; width: 100%; opacity: 0;"> 
+                    <div class="banner-wrap">
+                      <ul class="grid-1">
+                      <li class="grid-1_left">
+                        <a href="{{ url('blog/'.$blog->slug) }}">
+                          <img src="{{ asset($blog->imageUrl) }}" class="img-responsive" alt=""/>
+                        </a>
+                      </li>
+                      <li class="grid-1_right">
+                        <a href="{{ url('blog/'.$blog->slug) }}" style="text-decoration: none;">
+                          <p>{{ $blog->title }}</p>
+                        </a>
+                          <h4><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->user->name }}</a>
+                           | {{ $blog->category->name }}</h4>
+                      </li>
+                      <div class="clearfix"> </div>
+                    </ul>
+                    </div>
+              </article>
+
+              @empty
+              @endforelse
+           
+         </div>
+        <ul class="wmuSliderPagination">
+                  <li><a href="#" class="">0</a></li>
+                  <li><a href="#" class="">1</a></li>
+                  <li><a href="#" class="wmuActive">2</a></li>
+                </ul>
+            </div>
+            <script src="js/jquery.wmuSlider.js"></script> 
+        <script>
+            $('.example1').wmuSlider();         
+           </script>                    
+      </div>
+</div>
 <div class="container">
   <div class="grid_1">
      <h3>Featured Employers</h3>
@@ -92,7 +195,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </h4>
                 <h6>{{ $p->location->name }} <span class="dot">-</span> {{ $p->since }}</h6>
                 <p>{{ $p->brief }}</p>
-                <br>
+                
                 <i>Apply within <b><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($p->deadline))->diffForHumans() ?></b> </i>
                 <a href="/vacancies/{{$p->slug}}/" class="btn btn-sm read-more">Read More</a>
                 <a href="/vacancies/{{$p->slug}}/apply" class="btn btn-sm btn-success pull-right" style="color: white">Apply</a>
@@ -130,11 +233,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
        </div>
        <div class="col-md-4">
           @include('left-bar')
-          <div class="fb-page" data-href="https://www.facebook.com/jobsikaz" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/jobsikaz" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jobsikaz">JobSikaz</a></blockquote></div>
+          
      </div>
        <div class="clearfix"> </div>
      </div>
 </div>
+
+
 <div class="about_middle">
   <div class="container">
          <div class="wmuSlider example1">

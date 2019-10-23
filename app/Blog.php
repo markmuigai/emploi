@@ -35,4 +35,11 @@ class Blog extends Model
         else
             return '/storage/blogs/'.$this->image2;
     }
+
+    public static function recent($counter = 10){
+        return Blog::where('status','active')
+                    ->limit($counter)
+                    ->orderBy('id','desc')
+                    ->get();
+    }
 }

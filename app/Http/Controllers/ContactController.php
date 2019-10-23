@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Blog;
 use App\Contact;
 use App\Location;
 use App\Post;
@@ -61,6 +62,7 @@ class ContactController extends Controller
     {
         return view('welcome')
                 ->with('posts',Post::recent(5))
+                ->with('blogs',Blog::recent(5))
                 ->with('locations',Location::top());
     }
 }

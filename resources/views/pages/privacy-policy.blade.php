@@ -1,6 +1,6 @@
 @extends('layouts.seek')
 
-@section('title','Emploi')
+@section('title','Emploi :: Privacy Policy')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
