@@ -8,6 +8,8 @@ use Auth;
 use App\JobApplication;
 use App\Post;
 
+use App\Jobs\EmailJob;
+
 class JobApplicationController extends Controller
 {
 	public function __construct()
@@ -28,6 +30,15 @@ class JobApplicationController extends Controller
 
 	    	if(isset($j->id))
 	    	{
+
+                $caption = "You have applied for ".$post->title;
+                $contents = "Your application for the ".$post->title." has been submitted succesfully. Your Job Application Id is ".$j->id.". 
+The application has been sent to ".$post->company->name." for consideration.
+In the meantime, update your profile with your updated CV to rank better against other applicants.
+
+All the best.
+                ";
+                EmailJob::dispatch($user->name, $user->email, 'Applied for '.$post->title, $caption, $contents);
 	    		return view('seekers.applied')
 	    				->with('post',$post);
 	    	}

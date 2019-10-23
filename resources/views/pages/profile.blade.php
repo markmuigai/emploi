@@ -150,7 +150,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
 
                 <div class="row">
-                    <h4 style="text-decoration: underline;">Skills</h4>
+                    <h4 class="col-md-4" style="text-decoration: underline;">Skills</h4>
                     @forelse($user->seeker->skills as $s)
                     <div class="col-md-4" style="margin: 0.5em 0;">
                         <i class="fa fa-check"></i>
