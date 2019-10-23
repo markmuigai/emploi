@@ -1,6 +1,6 @@
 @extends('layouts.seek')
 
-@section('title','Emploi :: Contact Failed')
+@section('title','Emploi :: Contact Sent')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.

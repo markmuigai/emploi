@@ -39,18 +39,18 @@ class JobApplicationController extends Controller
                 All the best.
                 <br><br>
 
-                <a href='/vacancies'>Browse Other Vacancies</a>
+                <a href='".url('/vacancies')."'>Browse Other Vacancies</a>
                 ";
                 EmailJob::dispatch($user->name, $user->email, 'Applied for '.$post->title, $caption, $contents);
 
                 $caption = "Application Received for ".$post->title;
                 $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position. 
-                <a href='/home'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
+                <a href='".url('/home')."'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
                 <br>
                 Thank you for choosing Emploi
                 <br><br>
 
-                <a href='/home'>My Account</a>
+                <a href='".url('/home')."'>My Account</a>
                 ";
                 EmailJob::dispatch($post->company->user->name, $post->company->user->email, 'Application for '.$post->title." Received", $caption, $contents);
 	    		return view('seekers.applied')

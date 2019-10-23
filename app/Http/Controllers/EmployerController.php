@@ -29,6 +29,8 @@ use App\Skill;
 use App\User;
 use App\UserPermission;
 
+use App\Jobs\EmailJob;
+
 class EmployerController extends Controller
 {
     public function register(){
@@ -389,6 +391,48 @@ class EmployerController extends Controller
             'post_id' => $post->id, 
             'monthly_salary' => $request->monthly_salary
         ]);
+
+        $caption = "Candidate Selected ".$post->title;
+        $contents = "You have selected ".$c->seeker->user->name." for the position of ".$post->title." with a monthly salary of ".$post->location->country->currency.$c->monthly_salary.". <br>
+        <b>Candidate Details</b> <br>
+        Name: ".$c->seeker->user->name." <br>
+        Email: ".$c->seeker->user->email." <br>
+        Phone: ".$c->seeker->phone_number." <br>.
+        <br>
+        Thank you for choosing Emploi.
+        <br><br>
+
+        <a href='".url('/vacancies/create')."'>Advertise Vacancy</a>
+        ";
+
+        EmailJob::dispatch($post->company->user->name, $post->company->user->email, $c->seeker->public_name." for ".$post->title, $caption, $contents);
+
+        $caption = "Application for the ".$post->title." position was succesfull";
+        $contents = "You have been selected for <b>".$post->title."</b> position at <b>".$post->company->name."</b>. You have been offered a <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
+        <b>Employer Details</b> <br>
+        Name: ".$post->company->user->name." <br>
+        Email: ".$post->company->user->email." <br>
+        <br>
+        One of <a href='".url('/companies/'.$post->company->id)."'>".$post->company->name."</a>'s representative will get in touch with you for additional details on this position.
+        <br>
+        Thank you for choosing Emploi.
+        <br>
+        ";
+        EmailJob::dispatch($c->seeker->user->name, $c->seeker->user->email, "Application for ".$post->title." Succesfull", $caption, $contents);
+        
+        $caption = "The position ".$post->title." has been closed, ".$c->seeker->user->name." selected";
+        $contents = $c->seeker->user->name." has been selected by <a href='".url('/companies/'.$post->company->id)."'> for the <b>".$post->title."</b> position, and has been offered a  <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
+        <b>Employer Details</b> <br>
+        Name: ".$post->company->user->name." <br>
+        Email: ".$post->company->user->email." <br>
+        <br>
+        <b>Job Seeker Details</b> <br>
+        Name: ".$c->seeker->user->name." <br>
+        Email: ".$c->seeker->user->email." <br>
+        Phone: ".$c->seeker->phone_number." <br>.
+        <br>
+        ";
+        EmailJob::dispatch('Emploi Admin', 'info@emploi.co', "Candidate Selected for ".$post->title." Succesfull", $caption, $contents);
         if($post->positions == count($post->candidates))
         {
             $post->status = 'closed';
