@@ -30,7 +30,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
        	<h3>
             {{ '@'.$user->username }}
             <small class="pull-right">
-                <a href="/home" class="btn btn-sm btn-danger"><i class="fa fa-home"></i> home</a>
+                @if($user->role == 'employer')
+                <a href="/home" class="btn btn-sm btn-danger"><i class="fa fa-home"></i> Dashboard</a>
+                @endif
                 <a href="/profile/edit" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> edit profile</a>
                 @if($user->role == 'seeker')
                 <a href="/storage/resumes/{{ $user->seeker->resume }}" class="btn btn-sm btn-primary"><i class="fa fa-file"></i> my resume</a>

@@ -3,7 +3,7 @@
 /*
 /subscribe
 */
-
+Route::get('/join', function () {                return view('pages.join');           });
 Route::get('/careers', function () {    			return view('pages.careers');			});
 Route::get('/contact', function () {    			return view('pages.contact');			});
 Route::get('/about', function () {	    			return view('pages.about');				});

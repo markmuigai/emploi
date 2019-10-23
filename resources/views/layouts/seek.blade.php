@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <meta name="description" content="@yield('description')" />
-<link rel="icon" href="{{ asset('images/favicon.jpg') }}">
+<link rel="icon" href="{{ asset('images/favicon.png') }}">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="{{ asset('css/bootstrap-3.1.1.min.css') }}" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -70,11 +70,7 @@
 	    <!--/.navbar-header-->
 	    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
 	        <ul class="nav navbar-nav">
-	        	@if (Route::getCurrentRoute()->uri() != '/')
-				<li><a href="/" style="color: white">Home</a></li>
-				@else
-				<li><a href="/blog" style="color: white">Blog</a></li>
-				@endif
+	        	
 		        <li class="dropdown">
 		            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">Jobs<b class="caret"></b></a>
 		            <ul class="dropdown-menu">
@@ -85,6 +81,11 @@
 			            @endforeach
 		            </ul>
 		        </li>
+		        @if (Route::getCurrentRoute()->uri() != '/')
+				<li><a href="/" style="color: white">Home</a></li>
+				@else
+				<li><a href="/blog" style="color: white">Career Centre</a></li>
+				@endif
 		        <li class="dropdown">
 		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">About<b class="caret"></b></a>
 		            <ul class="dropdown-menu multi-column columns-3">
@@ -92,16 +93,16 @@
 				            <div class="col-sm-4">
 					            <ul class="multi-column-dropdown">
 						            <li><a href="/about">About Us</a></li>
-						            <li><a href="/blog">Our Blog</a></li>
+						            
 						            <li><a href="/contact">Contact Us</a></li>
 						            
 					            </ul>
 				            </div>
-				            <div class="col-sm-4" style="display: none">
+				            <div class="col-sm-4">
 					            <ul class="multi-column-dropdown">
-						            <li style="display: none"><a href="/careers">Careers</a></li>
-						            <li><a href="/our-client">Our Clients</a></li>
-						            <li><a href="/our-team">Our Team</a></li>
+					            	<li><a href="/employers/publish" style="font-weight: bold">Advertise a Job</a></li>
+					            	<li><a href="/blog">Career Centre</a></li>
+					            	
 					            </ul>
 				            </div>
 				            <div class="col-sm-4">
@@ -140,36 +141,43 @@
 			            <li><a href="/register" style="font-weight: bold;">Upload CV</a></li>
 			            <li><a href="/job-seekers/cv-editing">CV Editing</a></li>
 			            <li><a href="/job-seekers/cv-templates">CV Templates</a></li>
-			            <li style="display: none;"><a href="/blog">Career Advise</a></li>
+			            
 			            <li><a href="/job-seekers/premium-placement">Premium Placement</a></li>
 			            <li><a href="/vacancies">Job Vacancies</a></li>
+			            <li><a href="/blog">Career Centre</a></li>
+			            @guest
+			            <li><a href="/blog">Register Profile</a></li>
+			            @else
+			            <li><a href="/profile">My Profile</a></li>
+			            @endguest
+			            
 		            </ul>
 		        </li>
 		        @endif
+		        @if(isset(Auth::user()->id))
 		        <li class="dropdown">
 		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold">My Account<b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-		        		@if(isset(Auth::user()->id))
-		        			@if(Auth::user()->role != 'seeker')
-		        			<li><a href="/home">Home</a></li>
-		        			@endif
-		        			<li><a href="/profile">Profile</a></li>
-		        			@if(Auth::user()->role == 'seeker')
-		        			<li><a href="/profile/edit"
-		        				@if(!Auth::user()->seeker->hasCompletedProfile())
-		        				style="color: red; font-weight: bold"
-		        				@endif
-		        				>Edit Profile</a></li>
-		        			@endif
-		        			<li><a href="/logout">Logout</a></li>
-			        	@else
-			        		<li><a href="/register">Job Seeker Registration</a></li>
-			        		<li><a href="/employers/register">Employer Registration</a></li>
-		        			<li><a href="/login" style="font-weight: bold">Login</a></li>
-			        	@endif
+	        			@if(Auth::user()->role != 'seeker')
+	        			<li><a href="/home">Dashboard</a></li>
+	        			@endif
+	        			<li><a href="/profile">Profile</a></li>
+	        			@if(Auth::user()->role == 'seeker')
+	        			<li><a href="/profile/edit"
+	        				@if(!Auth::user()->seeker->hasCompletedProfile())
+	        				style="color: red; font-weight: bold"
+	        				@endif
+	        				>Edit Profile</a></li>
+	        			@endif
+	        			<li><a href="/logout">Logout</a></li>
 		        	</ul>
 	        	
 		        </li>
+		        @else
+		        <li><a href="/login" style="color: white">Login</a></li>
+		        <li><a href="/join" style="color: #e88725; font-weight: bold">Register</a></li>
+		        @endif
+		        
 		        
 	        </ul>
 	    </div>

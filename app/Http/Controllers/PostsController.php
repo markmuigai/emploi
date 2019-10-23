@@ -21,7 +21,7 @@ use App\Jobs\EmailJob;
 class PostsController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth', ['except' => [
+        $this->middleware('employer', ['except' => [
             'index','show'
         ]]);
     }
