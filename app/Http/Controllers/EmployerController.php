@@ -292,6 +292,16 @@ class EmployerController extends Controller
             $m->psychometric_test_score = $request->psychometric_test_score;
             $m->company_size_id = $request->company_size_id;
 
+            $m->education_importance = $request->education_importance;
+            $m->experience_importance = $request->experience_importance;
+            $m->interview_importance = $request->interview_importance;
+            $m->skills_importance = $request->skills_importance;
+            $m->iq_importance = $request->iq_importance;
+            $m->psychometric_importance = $request->psychometric_importance;
+            $m->personality_importance = $request->personality_importance;
+            $m->company_size_importance = $request->company_size_importance;
+            $m->feedback_importance = $request->feedback_importance;
+
             $m->save();
 
             

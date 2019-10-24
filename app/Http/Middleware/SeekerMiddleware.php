@@ -12,7 +12,7 @@ class SeekerMiddleware
         if($user->role == 'seeker') {
             return $next($request);
         }
-        return redirect('/login');
+        return redirect('/home');
         return redirect()->back();
     }
 }

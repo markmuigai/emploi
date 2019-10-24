@@ -12,7 +12,7 @@ class EmployerMiddleware
         if(isset($user->role) && $user->role == 'employer') {
             return $next($request);
         }
-        return redirect('/login');
+        return redirect('/home');
         return redirect()->back();
     }
 }

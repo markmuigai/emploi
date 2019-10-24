@@ -28,63 +28,64 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	    	
 	    </h3>	
 
-	    @if(!$post->hasModelSeeker())
-	    <i>
-	    	By creating an RSI Model, you will be able to rank applicants according by comparing their education, experience, skills, inteview scores and much more.
-	    </i>
-	    @else
-	    <div class="row" style="text-align: center; border-bottom: 0.1em solid black; padding: 0.5em 0">
-	    	<br>
-	    	<h6>Adjust Weights (Total 
-	    			<span v-text="total"></span>
-	    			<span style="color: red" v-show="total != 100">! 
-	    				<span v-show="total < 100">MIN</span>
-	    				<span v-show="total > 100">MAX</span>
-	    			
-	    			TOTAL IS 100 !</span>
-	    		)
-	    	</h6>
-	    	<div class="col-md-3 col-xs-6">
-	    		Education <br>
-	    		<input type="number" style="text-align: center" name="education_importance" class="form-control" v-model="education">
-	    	</div>
-	    	<div class="col-md-3 col-xs-6">
-	    		Experience <br>
-	    		<input type="number" style="text-align: center" name="experience_importance" class="form-control" value=""  v-model="experience">
-	    	</div>
-	    	<div class="col-md-3 col-xs-6">
-	    		Interview <br>
-	    		<input type="number" style="text-align: center" name="interview_importance" class="form-control" v-model="interview">
-	    	</div>
-	    	<div class="col-md-3 col-xs-6">
-	    		Skills <br>
-	    		<input type="number" style="text-align: center" name="skills_importance" class="form-control"  v-model="skills">
-	    	</div>
-	    	<div class="col-md-3 col-xs-6">
-	    		Intellectual Quotent <br>
-	    		<input type="number" style="text-align: center" name="iq_importance" class="form-control"  v-model="iq">
-	    	</div>
-	    	<div class="col-md-3 col-xs-6">
-	    		Psychometric Test <br>
-	    		<input type="number" style="text-align: center" name="psychometric_importance" class="form-control" v-model="psychometric">
-	    	</div>
-	    	<div class="col-md-3 col-xs-6">
-	    		Personality <br>
-	    		<input type="number" style="text-align: center" name="personality_importance" class="form-control" v-model="personalities">
-	    	</div>
-	    	<div class="col-md-3 col-xs-6">
-	    		Company Size <br>
-	    		<input type="number" style="text-align: center" name="personality_importance" class="form-control" v-model="company_size">
-	    	</div>
-	    	
-	    </div>
-	    @endif
-
-	    <hr>
+	    
 		<form method="post">
+			@if(!$post->hasModelSeeker())
+		    <i>
+		    	By creating an RSI Model, you will be able to rank applicants according by comparing their education, experience, skills, inteview scores and much more.
+		    </i>
+		    @else
+		    <div class="row" style="text-align: center; border-bottom: 0.1em solid black; padding: 0.5em 0">
+		    	<br>
+		    	<h6>Adjust Weights 
+		    			
+		    		
+		    	</h6>
+		    	<div class="col-md-4 col-xs-6">
+		    		Education <br>
+		    		<input required="" type="number" style="text-align: center" name="education_importance" class="form-control" value="{{ $post->modelSeeker->education_importance }}">
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Experience <br>
+		    		<input required="" type="number" style="text-align: center" name="experience_importance" class="form-control" value="{{ $post->modelSeeker->experience_importance }}" >
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Interview <br>
+		    		<input required="" type="number" style="text-align: center" name="interview_importance" class="form-control" value="{{ $post->modelSeeker->interview_importance }}">
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Skills <br>
+		    		<input required="" type="number" style="text-align: center" name="skills_importance" class="form-control" value="{{ $post->modelSeeker->skills_importance }}">
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Intellectual Quotent <br>
+		    		<input required="" type="number" style="text-align: center" name="iq_importance" class="form-control"  value="{{ $post->modelSeeker->iq_importance }}">
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Psychometric Test <br>
+		    		<input required="" type="number" style="text-align: center" name="psychometric_importance" class="form-control" value="{{ $post->modelSeeker->psychometric_importance }}">
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Personality <br>
+		    		<input required="" type="number" style="text-align: center" name="personality_importance" class="form-control" value="{{ $post->modelSeeker->personality_importance }}">
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Company Size <br>
+		    		<input required="" type="number" style="text-align: center" name="company_size_importance" class="form-control" value="{{ $post->modelSeeker->company_size_importance }}">
+		    	</div>
+		    	<div class="col-md-4 col-xs-6">
+		    		Referee Feedback <br>
+		    		<input required="" type="number" style="text-align: center" name="feedback_importance" class="form-control" value="{{ $post->modelSeeker->feedback_importance }}">
+		    	</div>
+		    	
+		    </div>
+		    @endif
+
+
+		    <hr>
 			@csrf
 			<p>
-				<label>Company Size</label>
+				<label>Desired Previous Company Size</label>
 				<select name="company_size_id" class="form-control">
 			    	@forelse($companySizes as $l)
 					<option value="{{ $l->id }}"
@@ -93,7 +94,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 								selected=""
 							@endif
 						@endif
-						>{{ $l->lower_limit .' - '.$l->upper_limit }}</option>
+						>{{ $l->lower_limit .' - '.$l->upper_limit }} people</option>
 			    	@empty
 			    	@endforelse
 			    </select>
@@ -352,14 +353,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	rsi = new Vue({
         el: '#rsi-container',
         data: {
-        	education: 15,
-        	experience: 25,
-        	iq: 10,
-        	interview: 20,
-        	personalities: 10,
-        	skills: 10,
-        	psychometric: 5,
-        	company_size: 5
+        	education: false,
+        	experience: false,
+        	iq: false,
+        	interview: false,
+        	personalities: false,
+        	skills: false,
+        	psychometric: false,
+        	company_size: false
         },
         computed: {
         	total(){

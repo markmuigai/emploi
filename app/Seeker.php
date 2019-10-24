@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use App\Company;
+use App\EducationLevel;
 use App\JobApplication;
 use App\Post;
 use App\SeekerSkill;
@@ -99,38 +100,57 @@ class Seeker extends Model
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
             return $perc;
         $model = $post->modelSeeker;
-        $edu = 25;
-        $exp = 25;
-        $skil = 5;
-        $reference = 10;
-        $interview = 20;
-        $iq = 10;
-        $psy = 5;
-        $pers = 5;
+
+        $total = 
+            $model->education_level + 
+            $model->experience_importance + 
+            $model->skills_importance + 
+            $model->personality_importance + 
+            $model->interview_importance + 
+            $model->iq_importance + 
+            $model->psychometric_importance +  
+            $model->company_size_importance +
+            $model->feedback_importance;
+        //dd($total);
+
+        $edu = $model->education_level;
+        $exp = $model->experience_importance;
+        $skil = $model->skills_importance;
+        //$reference = $model->personality_importance;
+        $interview = $model->interview_importance;
+        $iq = $model->iq_importance;
+        $psy = $model->psychometric_importance;
+        $pers = $model->personality_importance;
+        $cosize = $model->company_size_importance;
 
         //education
         if($this->education_level_id == $model->education_level_id)
             $perc += $edu * 0.8;
-        elseif($this->education_level_id > $model->education_level_id)
+        elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
             $perc += $edu;
-        else
-            $perc = $edu * 0.4;
 
         
         //experience
-        if($this->years_experience == $model->experience_duration)
-            $perc += $exp * 0.8;
-        elseif($this->years_experience < $model->experience_duration)
+        if($this->industry_id == $model->post->industry_id)
         {
-            if($model->experience_duration/2 >= $this->years_experience)
-                $perc += $exp * 0.2;
+            if($this->years_experience == $model->experience_duration)
+                $perc += $exp * 0.8;
+            elseif($this->years_experience < $model->experience_duration)
+            {
+                if($model->experience_duration/2 >= $this->years_experience)
+                    $perc += $exp * 0.2;
+                else
+                    $perc += $exp * 0.4;
+            }
             else
-                $perc += $exp * 0.4;
+                $perc += $exp;
         }
-        else
-            $perc += $exp;
+        
+        
 
         //skills
+            //count all skills
+
         //interview
         //reference
         //personality

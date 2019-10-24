@@ -128,7 +128,6 @@ class DatabaseSeeder extends Seeder
 
         $phd = EducationLevel::create([
             'name' => 'PHD', 
-            'superior_id' => 8,
             'inferior_id' => 6
         ]);
 

@@ -53,7 +53,7 @@ class HomeController extends Controller
 
     public function profile(Request $request)
     {
-        return view('pages.profile')
+        return view('pages.profile1')
                 ->with('user',Auth::user());
     }
 

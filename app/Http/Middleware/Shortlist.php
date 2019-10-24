@@ -16,7 +16,7 @@ class Shortlist
         if(isset($user->role) && $user->role == 'employer') {
             return $next($request);
         }
-
+        return redirect('/home');
         return redirect()->back();
     }
 }

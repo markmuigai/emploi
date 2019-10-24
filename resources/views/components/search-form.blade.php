@@ -1,7 +1,7 @@
 <form method="get" action="/vacancies/search">
     <p>
-     <input type="text" name="q" required="" class="text" placeholder="Enter Keyword(s)" style="color: black; background-color: white" value="" onfocus="" onblur="">
-     <select name="location" class="location-select">
+     <input type="text" name="q" required="" class="text" placeholder="Enter Keyword(s)" style="color: grey; background-color: white;border-radius: 5px" value="" onfocus="" onblur="">
+     <select name="location" class="location-select" style="border-radius: 5px; margin-top: 0.3em">
 
          <option value="-1">All Locations</option>
          @foreach(\App\Location::active() as $l)
