@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
          </div>
          <div id="city_1" class="clearfix row">
           <p>
-            Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet 
+            Loremp2 ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet 
           </p>
           <p>
             <a class="btn-orange" href="/join">REGISTER</a>
