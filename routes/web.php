@@ -12,6 +12,7 @@ Route::get('/our-clients', function () {			return view('pages.clients');			});
 Route::get('/terms-and-conditions', function () {   return view('pages.terms');				});
 Route::get('/privacy-policy', function () {		    return view('pages.privacy-policy');	});
 Route::get('/mass-recruitment', function () {       return view('pages.mass-recruitment');    });
+Route::get('/employers/role-suitability-index', function () {       return view('pages.rsi');    });
 
 Route::post('/contact', 'ContactController@save');
 

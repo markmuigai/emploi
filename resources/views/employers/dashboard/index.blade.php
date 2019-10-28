@@ -26,6 +26,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
        
     
     <div class="row" style="width: 98%; margin: 0 1%; ">
+        <div class="card col-md-4" style="border-bottom: 0.1em solid black; padding-bottom: 0.5em;">
+            <div class="card-body">
+                <h4 class="card-title" style="font-weight: bold;">Advertise Jobs</h4>
+                <p class="card-text">Advertise your job to an audience of over 100,000 on our jobseeker database and social media.</p>
+                
+                <a href="/vacancies/create" class="btn btn-sm btn-primary"><i class="fa fa-briefcase"></i> Create Advert</a>
+                <a href="/employers/publish" class="btn btn-sm btn-success pull-right"><i class="fa fa-info-circle"></i> Learn More </a>
+            </div>
+        </div>
         <div class="card col-md-4" style="margin-bottom: 2em; border-bottom: 0.1em solid black; padding-bottom: 0.5em">
             <div class="card-body">
                 <h4 class="card-title" style="font-weight: bold;">Applications</h4>
@@ -99,15 +108,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         
-        <div class="card col-md-4" style="border-bottom: 0.1em solid black; padding-bottom: 0.5em;">
-            <div class="card-body">
-                <h4 class="card-title" style="font-weight: bold;">Advertise Jobs</h4>
-                <p class="card-text">Advertise your job to an audience of over 100,000 on our jobseeker database and social media.</p>
-                
-                <a href="/vacancies/create" class="btn btn-sm btn-primary"><i class="fa fa-briefcase"></i> Create Advert</a>
-                <a href="/employers/publish" class="btn btn-sm btn-success pull-right"><i class="fa fa-info-circle"></i> Learn More </a>
-            </div>
-        </div>
+        
         
         <div class="card col-md-4" style="border-bottom: 0.1em solid black; padding-bottom: 0.5em; display: none;">
             <div class="card-body">

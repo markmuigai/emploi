@@ -147,6 +147,7 @@
 			            <li><a href="/employers/hr-services" style="display: none">HR Services</a></li>
 			            <li><a href="/employers/register">Create Profile</a></li>
 			            <li><a href="/mass-recruitment">Mass Recruitment</a></li>
+			            <li><a href="/employers/role-suitability-index" style="font-weight: bold;">Role Suitability Index</a></li>
 		             </ul>
 		        </li>
 		        @endif

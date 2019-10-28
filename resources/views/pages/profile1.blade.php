@@ -32,6 +32,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 </div>
 @if($user->role == 'seeker')
+@if(!$user->seeker->hasCompletedProfile())
+<p style="text-align: center; font-size: 130%; color: red">
+    <a href="/profile/edit"> <i class="fa fa-info"></i> Update your profile and start applying for jobs</a>
+</p>
+@endif
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 col-xs-4" style="text-align: center;">
 		<small>
@@ -49,7 +54,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</small>
 	</div>
 	<div class="col-md-6 col-md-offset-1 col-xs-8" style="text-align: center;">
-		<div>
+		
+		<div style="margin-bottom: 1em">
 			<h4 style="font-weight: bold;">Career Objective</h4>
 			<p>
 				{{ $user->seeker->objective }}
@@ -57,11 +63,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 		
 		@if(count($user->seeker->experience()) > 0)
-		<div>
+		<div style="margin-bottom: 1em">
 			<h4 style="font-weight: bold;">Work Experience</h4>
 			<?php $exp = $user->seeker->experience();  ?>
 			@for($i=count($exp)-1; $i>=0; $i--)
-				<div style="border-bottom: 0.1em solid gray">
+				<div style="">
 					<b>
                         <?php echo $exp[$i][1].'</b> at <b>'.$exp[$i][0]; ?>
                     </b>
@@ -77,16 +83,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		@endif
 
 		@if(count($user->seeker->education()) > 0)
-		<div>
+		<div style="margin-bottom: 1em">
 			<h4 style="font-weight: bold;">Education</h4>
-		</div>
-		<div class="jb-accordion-wrapper">
-			<div class="jb-accordion-title" style="background-color: #e88725">Education <button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion3-"><i class="fa fa-angle-double-down"> </i></button></div>
-			<p><!-- /.accordion-title -->
-			</p><div id="accordion3-" class="jb-accordion-content collapse row">
+			<div class="row">
 				<?php $exp = $user->seeker->education();  ?>
 				@for($i=count($exp)-1; $i>=0; $i--)
-					<div style="border-bottom: 0.1em solid gray" class="col-md-6">
+					<div style="" class="col-md-6">
 						<b>
                             <?php echo $exp[$i][1]; ?>
                         </b> <br>
@@ -99,23 +101,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					</div>
 				@endfor
 			</div>
-			<p><!-- /.collapse --></p>
 		</div>
+		
 		@endif
 
 		@if(count($user->seeker->skills) > 0)
-		<div class="jb-accordion-wrapper">
-			<div class="jb-accordion-title" style="background-color: #e88725">Skills <button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion4-"><i class="fa fa-angle-double-down"> </i></button></div>
-			<p><!-- /.accordion-title -->
-			</p><div id="accordion4-" class="jb-accordion-content collapse row">
+		<div style="margin-bottom: 1em">
+			<h4>Skills</h4>
+			<div class="row">
 				@forelse($user->seeker->skills as $s)
-				<div class="col-md-4" style="text-align: center;">
+				<div class="col-md-6" style="text-align: center;">
 					{{ $s->skill->name }}
 				</div>
 				@empty
 				@endforelse
 			</div>
-			<p><!-- /.collapse --></p>
 		</div>
 		@endif
 	</div>

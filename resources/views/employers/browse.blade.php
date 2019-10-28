@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="single">  
 	   <div class="form-container row">
         <h2 class="col-md-8 col-md-offset-2" >
+            <i class="fa fa-arrow-left" title="Show Dashboard" onclick="window.location='/employers/dashboard'"></i>
         	Browse Candidates <br>
         	<form method="get" action="/employers/browse">
         		<input type="text" name="q" placeholder="Search" class="btn " value="{{ $query }}" style="border-bottom: 0.1em solid black">
@@ -44,7 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    
         	@forelse($seekers as $s)
 
-        	<div class="col-md-8 col-md-offset-2 row" style=" border-bottom: 0.1em solid black">
+        	<div class="col-md-8 col-md-offset-2 row" style=" ">
         		<a style="font-weight: bold" href="/employers/browse/{{ $s->user->username }}">
         			<img src="{{ asset($s->user->getPublicAvatarUrl()) }}" style="border-radius: 50%" class="col-md-3 col-md-offset-2 col-xs-3">
         		</a>

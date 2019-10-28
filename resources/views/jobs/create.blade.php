@@ -109,11 +109,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 		    	<div id="section3" class="section-view hidden">
 		    		<h3>Step 3 of 3</h3>
-		    		<p>
-				    	<label>Application deadline:</label>
-				    	<input type="datetime-local" name="deadline" required="" class="form-control" style="width: 100%; color: black">
-				    </p>
-				    <br>
+		    		
 
 				    <p>
 				    	<label>Job Location:</label>
@@ -127,7 +123,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 				    <p>
 				    	<label>Monthly Salary *</label>
-		                <input type="number" name="monthly_salary" class="form-control" required="">
+		                <input type="number" name="monthly_salary" class="form-control" required="" placeholder="enter 0 for non-disclosure">
 				    </p>
 				    <br>
 
@@ -138,12 +134,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				    <br>
 
 				    <p>
-				    	<label>Photo</label>
+				    	<label>Optional Photo</label>
 				    	<input type="file" name="image" placeholder="" accept=".jpg, .png,.jpeg">
 				    </p>
 				    <br>
 
-				    <a href="#" class="btn btn-sm btn-danger toSection2">< Previous</a>
+				    <a href="#" class="btn btn-sm btn-danger toSection2">< Previous Page</a>
 				    <input type="submit" value="Save" class="btn btn-sm btn-primary pull-right">
 		    	</div>
 

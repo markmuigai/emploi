@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="single">  
         <div class="col-sm-9 follow_left">
 			<h3>
+				<i class="fa fa-arrow-left" title="Show Dashboard" onclick="window.location='/employers/dashboard'"></i>
 				{{ $shortlist==true ? 'Shortlist '.$post->title : $post->title.' Applications' }}
             	<small>[{{ $post->status }}]</small>
             	
@@ -110,7 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		   
 	    </div>
 		<div class="col-sm-3">
-			<h4 class="m_1">Actions</h4>
+			<h4 class="m_1" style="text-align: center;">Actions</h4>
 			<p style="text-align: center;">
 				@if(!$shortlist)
 		        	<a href="/employers/applications/{{ $post->slug }}?shortlist=true" style=";" class="btn btn-sm btn-info" title="Click to view Shortlist">
@@ -137,8 +138,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	            <a href="/employers/applications/{{ $post->slug }}/invite" class="btn btn-success btn-sm"><i class="fa fa-share"></i> Invite Candidates</a>
 	            <br><br>
 	            <a href="/employers/applications/{{ $post->slug }}/close" class="btn btn-info btn-sm"> <i class="fa fa-users"></i> Select Candidates</a>
-	            @else
-	            <a href="/employers/applications/{{ $post->slug }}/close" class="btn btn-info btn-sm"><i class="fa fa-users"></i> Selected <i class="fa {{ $post->positions == 1 ? 'fa-user' : 'fa-users'}}"></i></a>
 	            @endif
 			</p>
 

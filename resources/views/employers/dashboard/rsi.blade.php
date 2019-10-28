@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<form method="post">
 			@if(!$post->hasModelSeeker())
 		    <i>
-		    	By creating an RSI Model, you will be able to rank applicants according by comparing their education, experience, skills, inteview scores and much more.
+		    	By creating an RSI Model, you will be able to rank applicants according by comparing their education, experience, skills, inteview scores and much more. <a href="/employers/role-suitability-index" class="pull-right">learn more</a>
 		    </i>
 		    @else
 		    <div class="row" style="text-align: center; border-bottom: 0.1em solid black; padding: 0.5em 0">

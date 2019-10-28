@@ -22,12 +22,16 @@ class PostsController extends Controller
 {
     public function __construct() {
         $this->middleware('employer', ['except' => [
-            'index','show'
+            'index','show','apply'
         ]]);
     }
 
     public function apply(Request $request, $slug)
     {
+        if(!isset(Auth::user()->id))
+            return redirect('/login');
+        if(Auth::user()->role != 'seeker')
+            return abort(405);
         if(!Auth::user()->seeker->hasCompletedProfile())
             return view('seekers.update-profile');
         $post = Post::where('slug',$slug)
@@ -107,7 +111,7 @@ class PostsController extends Controller
             'experience_requirements' => $request->experience,
             'responsibilities' => $request->responsibilities, 
             'benefits' => $request->benefits,
-            'deadline' => $request->deadline,
+            'deadline' => Carbon::now()->add(3,'weeks'),
             'status' => 'inactive',
             'positions' => $request->positions,
             'location_id' => $request->location,

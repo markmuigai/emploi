@@ -9,7 +9,7 @@ class SeekerMiddleware
     public function handle($request, Closure $next)
     {
         $user = \Auth::user();
-        if($user->role == 'seeker') {
+        if(isset($user->id) && $user->role == 'seeker') {
             return $next($request);
         }
         return redirect('/home');
