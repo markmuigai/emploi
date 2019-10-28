@@ -45,17 +45,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    
         	@forelse($seekers as $s)
 
-        	<div class="col-md-8 col-md-offset-2 row" style=" ">
+        	<div class="col-md-6 col-xs-6 row hover-bottom" style="margin-bottom: 0.5em">
         		<a style="font-weight: bold" href="/employers/browse/{{ $s->user->username }}">
-        			<img src="{{ asset($s->user->getPublicAvatarUrl()) }}" style="border-radius: 50%" class="col-md-3 col-md-offset-2 col-xs-3">
+        			<img src="{{ asset($s->user->getPublicAvatarUrl()) }}" style="border-radius: 50%" class="col-md-4 col-xs-4">
         		</a>
-        		<div class="col-md-5 col-xs-9" style="padding: 1em; text-align: center;">
+        		<div class="col-md-4 col-xs-4" style="padding: 1em; text-align: center;">
         			<p>
         				<a style="font-weight: bold; font-size: 110%" href="/employers/browse/{{ $s->user->username }}">
         					{{ $s->public_name }}
         				</a>
         				 <br>
-        				<small>{{ $s->industry->name }}</small>
+        				
         			</p>
         			
         			<p>
@@ -65,6 +65,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         {{ $s->country->name }}
                         @endif
         			</p>
+                    <p>
+                        Age: {{ $s->age ? $s->age : 'N/A' }}
+                    </p>
         			@if(count($s->matchSeeker(Auth::user())) > 0)
         			<p>
         				<form method="post" action="/employers/shortlist">
@@ -86,6 +89,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         			@endif
         			
         		</div>
+
+                <div class="col-md-4 col-xs-4" style="text-align: left;">
+                    <small>
+                    <p>
+                        Industry: {{ $s->industry->name }} <br>
+                        Experience: {{ $s->years_experience ? $s->years_experience.' years' : 'N/A' }} <br>
+                        Current Position: {{ $s->current_position ? $s->current_position : 'N/A' }} <br>
+                        
+                    </p>
+                    </small>
+                </div>
         		
         	</div>
         	@empty

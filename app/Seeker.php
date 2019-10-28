@@ -46,6 +46,7 @@ class Seeker extends Model
         return 'Other';
     }
 
+
     public function experience(){
         return $this->experience == null ? [] : json_decode($this->experience);
     }

@@ -43,6 +43,13 @@
 		padding: 1em 2em;
 		text-decoration: capitalize
 	}
+	.hover-bottom {
+		border-bottom: 0.1em solid white;
+	}
+	.hover-bottom:hover {
+		border-bottom: 0.1em solid gray;
+	}
+
 	@media only screen and (max-width: 700px) {
 		.btn-orange {
 			border-radius: 10px;
@@ -305,19 +312,7 @@
 	</div>
   </div>
 </div>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5daebbf3df22d91339a060bb/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+
 
 </body>
 </html>	
