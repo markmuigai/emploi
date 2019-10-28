@@ -185,6 +185,7 @@
 	        				style="color: red; font-weight: bold"
 	        				@endif
 	        				>Edit Profile</a></li>
+	        			<li><a href="/profile/applications">My Applications ({{ count(Auth::user()->applications) }})</a></li>
 	        			@endif
 	        			<li><a href="/logout">Logout</a></li>
 		        	</ul>

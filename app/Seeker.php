@@ -179,6 +179,8 @@ class Seeker extends Model
         return $this->hasMany(SeekerSkill::class);
     }
 
+    
+
     // public function getSkills(){
     //     $sql = "SELECT * FROM seeker_skills WHERE seeker_id=".$this->id;
     //     return $sql;
