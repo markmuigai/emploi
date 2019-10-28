@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
          </div>
          <div id="city_1" class="clearfix row">
           <p>
-            Loremp2 ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet 
+            Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker matching.
           </p>
           <p>
             <a class="btn-orange" href="/join">REGISTER</a>
@@ -47,7 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
   <div class="grid_1">
         <h3>Why Emploi</h3>
         <p style="text-align: center;">
-          Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet. Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet ... <a href="/about">Learn more</a>
+          Emploi has introduced dignity into the job search industry by converting job seekers from being part of an unrecognized pool, to being clients who are treated with dignity and are able to stand out for employers to recognize. <a href="/about">Learn more</a>
         </p>
   </div>
 </div>

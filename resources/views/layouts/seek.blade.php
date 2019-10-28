@@ -69,7 +69,7 @@
 </style>
 <!----font-Awesome----->
 </head>
-<body>
+<body style="font-family: Calibri">
 	<div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0"></script>
 
