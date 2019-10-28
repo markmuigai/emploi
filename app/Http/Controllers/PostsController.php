@@ -311,19 +311,49 @@ class PostsController extends Controller
 
 
         
-        $post = Post::where('slug',$param)->where('status','active')->firstOrFail();
+        $post = Post::where('slug',$param)->where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->firstOrFail();
         return view('seekers.vacancy')
                 ->with('post',$post);
     }
 
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $user = Auth::user();
+        $post = Post::where('slug',$slug)->firstOrFail();
+        if($post->company->user->id != $user->id)
+            abort(403);
+        return view('jobs.edit')
+                ->with('companies',$user->companies)
+                ->with('industries',Industry::active())
+                ->with('vacancyTypes',VacancyType::all())
+                ->with('educationLevels',EducationLevel::all())
+                ->with('locations',Location::active())
+                ->with('post',$post);
+        return 'edit';
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $user = Auth::user();
+        $post = Post::where('slug',$slug)->firstOrFail();
+        if($post->company->user->id != $user->id)
+            abort(403);
+        $post->title = $request->title;
+        $post->industry_id = $request->industry;
+        $post->vacancy_type_id = $request->vacancyType;
+        $post->responsibilities = $request->responsibilities;
+        $post->education_requirements = $request->education;
+        $post->experience_requirements = $request->experience;
+        $post->positions = $request->positions;
+        $post->location_id = $request->location;
+        $post->deadline = $request->deadline;
+        $post->monthly_salary = $request->monthly_salary;
+        $post->how_to_apply = $request->how_to_apply;
+        $post->save();
+        if($post->status == 'active')
+            return redirect('/vacancies/'.$post->slug);
+        return redirect('/employers/applications/'.$post->slug);
+        //return $request->all();
     }
 
     public function destroy($id)
