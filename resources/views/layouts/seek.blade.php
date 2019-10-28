@@ -95,16 +95,8 @@
 	    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" style="height: 1px;">
 	        <ul class="nav navbar-nav">
 	        	
-		        <li class="dropdown">
-		            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">Jobs<b class="caret"></b></a>
-		            <ul class="dropdown-menu">
-			            <li><a href="/vacancies/featured" style="font-weight: bold;">Featured Jobs</a></li>
-			            <li><a href="/vacancies">All Jobs</a></li>
-			            @foreach(\App\VacancyType::all() as $v)
-			            <li><a href="/vacancies/{{ $v->slug }}">{{ $v->name }}</a></li>
-			            @endforeach
-		            </ul>
-		        </li>
+	        	<li><a href="/vacancies" style="color: white">Vacancies</a></li>
+		        
 		        @if (Route::getCurrentRoute()->uri() != '/')
 				<li><a href="/" style="color: white">Home</a></li>
 				@else
