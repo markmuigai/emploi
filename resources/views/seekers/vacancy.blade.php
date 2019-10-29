@@ -40,17 +40,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      </h3>
 	      <div class="row_1">
 	      	<div class="col-sm-5 single_img">
-	      		<?php 
-	      			$img = $post->image == 'unknown.png' ? 'images/a1.jpg' : $post->image;
-	      			if($img == '')
-	      				$img = 'images/a1.jpg';
-	      		?>
-	      		<img src="{{ asset($img) }}" class="img-responsive" alt="{{ $post->title }}" style="width: 100%" />
+	      		<img src="{{ asset($post->imageUrl) }}" class="img-responsive" alt="{{ $post->title }}" style="width: 100%" />
 	      	</div>
 	      	<div class="col-sm-7 single-para">
 	      		<p>
 	      			Position: <b>{{ $post->vacancyType->name }}</b> <br>
-	      			Company: <b>{{ isset(Auth::user()->id) ? $post->company->name : 'Login to view' }}</b><br>
+	      			Company: <b>
+	      				<a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
+
+	      				</b><br>
 	      			Location: <b>{{ $post->location->name }}, {{ $post->location->country->name }}</b><br>
 	      			Apply by: <b>{{ $post->deadline }}</b><br>
 	      			Education: <b>{{ $post->educationLevel->name }}, {{ $post->industry->name }}</b><br>

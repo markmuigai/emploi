@@ -34,7 +34,7 @@
 		display: none;
 	}
 	.location-select {
-		padding: 0.43em; background-color: white
+		padding: 0.5em; background-color: white
 	}
 	.btn-orange {
 		color: white;

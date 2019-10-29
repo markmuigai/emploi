@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
             $table->integer('vacancy_type_id');
             $table->integer('positions')->default(1);
             $table->string('title',50);
-            $table->string('image',500);
+            $table->string('image',500)->nullable();
             $table->integer('industry_id');
             $table->integer('education_requirements');
             $table->integer('experience_requirements');

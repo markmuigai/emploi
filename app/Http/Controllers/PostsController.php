@@ -82,7 +82,7 @@ class PostsController extends Controller
         if(isset($request->image))
         {
             $storage_path = '/public/images/logos';
-            $image_url = Storage::put($storage_path, $request->image);
+            $image_url = basename(Storage::put($storage_path, $request->image));
         }
         else
         {
@@ -338,6 +338,16 @@ class PostsController extends Controller
         $post = Post::where('slug',$slug)->firstOrFail();
         if($post->company->user->id != $user->id)
             abort(403);
+        if(isset($request->image))
+        {
+            
+            $storage_path = '/public/images/logos';
+            $post->image = basename(Storage::put($storage_path, $request->image));
+        }
+        else
+        {
+            $post->image = null;
+        }
         $post->title = $request->title;
         $post->industry_id = $request->industry;
         $post->vacancy_type_id = $request->vacancyType;

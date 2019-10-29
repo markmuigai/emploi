@@ -55,6 +55,19 @@ class Post extends Model
         return false;
     }
 
+    public function monthlySalary(){
+        if(!isset($this->monthly_salary) || $this->monthly_salary == 0)
+            return 'not disclosed';
+        else
+            return $this->location->country->currency.' '.$this->monthly_salary;
+    }
+
+    public function getImageUrlAttribute(){
+        if($this->image == null)
+            return 'images/500g.png';
+        return '/storage/images/logos/'.$this->image;
+    }
+
     public function company(){
     	return $this->belongsTo(Company::class);
     }

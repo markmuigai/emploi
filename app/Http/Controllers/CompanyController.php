@@ -21,7 +21,8 @@ class CompanyController extends Controller
 
     public function index()
     {
-        //
+        return view('companies.index')
+                ->with('companies',Company::where('status','active')->paginate(10));
     }
 
     public function create()
@@ -72,9 +73,12 @@ class CompanyController extends Controller
 
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        return Company::findOrFail($id);
+        $co = Company::where('name',$slug)->firstOrFail();
+        return view('companies.view')
+                ->with('company',$co);
+        
     }
 
     public function edit($id)

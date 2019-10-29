@@ -10,7 +10,7 @@ use App\Post;
 class Company extends Model
 {
     protected $fillable = [
-        'name', 'user_id', 'logo', 'cover','tagline', 'about','website', 'industry_id','company_size_id','location_id'
+        'name', 'user_id', 'logo', 'cover','tagline', 'about','website', 'industry_id','company_size_id','location_id','status'
     ];
 
     public function user(){
@@ -37,5 +37,21 @@ class Company extends Model
         return Post::where('status','active')
                 ->where('deadline','>',Carbon::now()->format('Y-m-d'))
                 ->get();
+    }
+
+    public function getStaffAttribute(){
+        return $this->companySize->lower_limit.' - '.$this->companySize->upper_limit.' people';
+    }
+
+    public function getLogoUrlAttribute(){
+        if($this->logo == null)
+            return '/images/500g.png';
+        return '/storage/companies/'.$this->logo;
+    }
+
+    public function getCoverUrlAttribute(){
+        if($this->cover == null)
+            return '/images/email-banner.jpg';
+        return '/storage/companies/'.$this->cover;
     }
 }

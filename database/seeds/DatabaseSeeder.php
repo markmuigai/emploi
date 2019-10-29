@@ -184,7 +184,8 @@ class DatabaseSeeder extends Seeder
         $c = Company::create([
             'name' => 'Millicent Softwares', 
             'user_id' => $employer->id,
-            'about' => "Insert company brief",
+            'about' => "Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet ",
+            'tagline' => 'we are you',
             'website' => "http://emploi.co", 
             'industry_id' => 1,
             'location_id' => 1,
@@ -207,7 +208,6 @@ class DatabaseSeeder extends Seeder
             'vacancy_type_id'=> 1,
             'how_to_apply' => '',
             'monthly_salary' => 40000,
-            'image' => 'unknown.png'
         ]);
 
         $p2 = Post::create([
@@ -226,7 +226,6 @@ class DatabaseSeeder extends Seeder
             'vacancy_type_id'=> 1,
             'how_to_apply' => '',
             'monthly_salary' => 40000,
-            'image' => 'unknown.png'
         ]);
 
         $p3 = Post::create([
@@ -245,7 +244,6 @@ class DatabaseSeeder extends Seeder
             'vacancy_type_id'=> 1,
             'how_to_apply' => '',
             'monthly_salary' => 40000,
-            'image' => 'unknown.png'
         ]);
 
         BlogCategory::create([

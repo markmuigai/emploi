@@ -28,10 +28,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('/blog', 'BlogController');
+Route::resource('companies', 'CompanyController');
 
 Route::group([ 'middleware' => 'auth'], function(){
     Route::get('profile', 'HomeController@profile');
-    Route::resource('companies', 'CompanyController');
+    
     Route::get('profile/edit', 'HomeController@updateProfile');
     Route::post('profile/update', 'HomeController@saveProfile');
 });

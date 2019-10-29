@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('tagline',5000)->nullable();
             $table->text('about')->nullable();
             $table->string('website',100)->nullable();
+            $table->string('status',20)->default('active');
             $table->timestamps();
         });
     }

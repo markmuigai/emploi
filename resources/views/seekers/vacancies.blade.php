@@ -17,7 +17,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<div id="myTabContent" class="tab-content">
 			<h3 style="border-bottom: 0.1em solid black; padding-bottom: 0.5em">
 				{{ $title }}
-				<a href="#search-input" class="fa fa-search pull-right" style="text-decoration: none;"></a>
+				<a href="#search-input" class="pull-right" style="text-decoration: none; margin-left: 1em">
+					<i class="fa fa-search"></i>
+					<span class="no-mobile">Search</span>
+				</a>
+				<a href="/companies" class="pull-right" title="Companies" style="text-decoration: none; margin-left: 1em">
+					<i class="fa fa-building-o pull-right"></i>
+					<span class="no-mobile">Companies</span>
+				</a>
 			</h3>
 		  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 		    @forelse($posts as $post)
