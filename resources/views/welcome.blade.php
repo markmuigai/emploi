@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div id="search_wrapper">
          <div id="search_form" class="clearfix">
-         <h1>Start your job search</h1>
+         <h1>Emploi is a job matching platform <br> that does it right and does it fast.</h1>
          @include('components.search-form')           
             <h2 class="title" style="display: none;">Top Categories</h2>
          </div>
@@ -47,7 +47,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
   <div class="grid_1">
         <h3>Why Emploi</h3>
         <p style="text-align: center;">
-          Emploi has introduced dignity into the job search industry by converting job seekers from being part of an unrecognized pool, to being clients who are treated with dignity and are able to stand out for employers to recognize. <a href="/about">Learn more</a>
+          What is more exciting than a team that strives to link people driven with a common goal?
+At Emploi, our elite and dedicated team with unique experiences and current technology make it easy for anyone to hire or be hired anywhere on the continent.
+ <a href="/about">Learn more</a>
         </p>
   </div>
 </div>
@@ -249,16 +251,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="banner-wrap">
                   <ul class="grid-1">
                   <li class="grid-1_left">
-                    <img src="images/f5.jpg" class="img-responsive" alt=""/>
+                    <img src="images/avatar.png" class="img-responsive" alt=""/>
                   </li>
                   <li class="grid-1_right">
-                    <p>Garcinia cambogia is one of the main 
-                    components in one of the best-selling 
-                    supplemental weight loss products, 
-                    Hydroxycut., and researchers have 
-                    concluded that "the evidence for G. 
-                    cambogia is not compelling.</p>
-                      <h4><a href="#">annette Doe</a> | Abc Company</h4>
+                    <p>Emploi is the most efficient digital sourcing platform. They are fast and are good at what they do</p>
+                      <h4><a href="#">Anthony Ochieng</a> | Employer</h4>
                   </li>
                   <div class="clearfix"> </div>
                 </ul>
@@ -268,16 +265,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="banner-wrap">
                   <ul class="grid-1">
                   <li class="grid-1_left">
-                    <img src="images/f6.jpg" class="img-responsive" alt=""/>
+                    <img src="images/avatar.png" class="img-responsive" alt=""/>
                   </li>
                   <li class="grid-1_right">
-                    <p>Garcinia cambogia is one of the main 
-                    components in one of the best-selling 
-                    supplemental weight loss products, 
-                    Hydroxycut., and researchers have 
-                    concluded that "the evidence for G. 
-                    cambogia is not compelling.</p>
-                      <h4><a href="#">annette Doe</a> | Abc Company</h4>
+                    <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
+                      <h4><a href="#">Kipkemoi Kizito</a> | Job Seeker</h4>
                   </li>
                   <div class="clearfix"> </div>
                 </ul>
@@ -287,16 +279,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="banner-wrap">
                   <ul class="grid-1">
                   <li class="grid-1_left">
-                    <img src="images/f7.jpg" class="img-responsive" alt=""/>
+                    <img src="images/avatar.png" class="img-responsive" alt=""/>
                   </li>
                   <li class="grid-1_right">
-                    <p>Garcinia cambogia is one of the main 
-                    components in one of the best-selling 
-                    supplemental weight loss products, 
-                    Hydroxycut., and researchers have 
-                    concluded that "the evidence for G. 
-                    cambogia is not compelling.</p>
-                      <h4><a href="#">annette Doe</a> | Abc Company</h4>
+                    <p>The Emploi Team create a great rapport with their candidates and are an invaluable asset to anyone looking for a job </p>
+                      <h4><a href="#">Faith Chepkemoi</a> | Job Seeker</h4>
+                  </li>
+                  <div class="clearfix"> </div>
+                </ul>
+                </div>
+          </article>
+          <article style="position: absolute; width: 100%; opacity: 0;"> 
+                <div class="banner-wrap">
+                  <ul class="grid-1">
+                  <li class="grid-1_left">
+                    <img src="images/avatar.png" class="img-responsive" alt=""/>
+                  </li>
+                  <li class="grid-1_right">
+                    <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable </p>
+                      <h4><a href="#">Sandra Eshitemi</a> | Employer</h4>
                   </li>
                   <div class="clearfix"> </div>
                 </ul>

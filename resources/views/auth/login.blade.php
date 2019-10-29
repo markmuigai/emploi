@@ -12,10 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
  
 <div class="container">
     <div class="single">  
-       <div class="col-md-4">
-          @include('left-bar')
-          
-     </div>
+       
      <div class="col-md-8 single_right">
            <div class="login-form-section">
                 <div class="login-content">
@@ -72,6 +69,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
          </div>
    </div>
+   <div class="col-md-4">
+          @include('left-bar')
+          
+     </div>
   <div class="clearfix"> </div>
  </div>
 </div>

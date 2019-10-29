@@ -57,23 +57,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<td><b>Professional Level</b></td>
 						<td><b>Charges</b></td>
 					</tr>
-					<tr>
+					<tr class="hover-bottom">
 						<td>Entry Level</td>
 						<td>Kshs 2,000</td>
 					</tr>
-					<tr>
+					<tr class="hover-bottom">
 						<td>Mid level</td>
 						<td>Kshs 4,000</td>
 					</tr>
-					<tr>
+					<tr class="hover-bottom">
 						<td>Career Change/Promotion Seeking	CV</td>
 						<td>Kshs 6,000</td>
 					</tr>
-					<tr>
+					<tr class="hover-bottom">
 						<td>Management Level</td>
 						<td>Kshs 6,000</td>
 					</tr>
-					<tr>
+					<tr class="hover-bottom">
 						<td>Senior Management Level</td>
 						<td>Kshs 10,000</td>
 					</tr>

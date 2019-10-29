@@ -97,6 +97,15 @@ Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
 Route::get('/job-seekers/cv-editing', function () {			    return view('seekers.cv-editing');		});
 Route::get('/job-seekers/cv-templates', function () {		    return view('seekers.cv-templates');	})->middleware('auth');
 Route::get('/job-seekers/premium-placement', function () {	    return view('seekers.premium-placement');});
+Route::get('/job-seekers/services', function () {      return view('seekers.services');});
+Route::get('/employers/services', function () {      return view('employers.services');});
+
+Route::get('/employers/background-checks', function () {      return view('employers.background-checks');});
+Route::get('/employers/iq-tests', function () {      return view('employers.iq-tests');});
+Route::get('/employers/proficiency-tests', function () {      return view('employers.proficiency-tests');});
+Route::get('/employers/psychometric-tests', function () {      return view('employers.psychometric-tests');});
+Route::get('/employers/train-employees', function () {      return view('employers.train-employees');});
+
 
 Route::resource('/vacancies', 'PostsController');
 Route::get('/employers/publish', function () {                return view('employers.publish');           });

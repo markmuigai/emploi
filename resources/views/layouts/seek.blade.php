@@ -139,6 +139,7 @@
 		             	@if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
 		             	<li><a href="/employers/dashboard">Dashboard</a></li>
 		             	@endif
+		             	<li><a href="/employers/services">All Services</a></li>
 			            <li><a href="/employers/browse">Browse CVs</a></li>
 			            <li><a href="/employers/publish" style="font-weight: bold;">Advertise Jobs</a></li>
 			            <li><a href="/employers/premium-recruitment">Premium Recruitment</a></li>
@@ -155,18 +156,23 @@
 		        <li class="dropdown">
 		            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">Job Seekers<b class="caret"></b></a>
 		            <ul class="dropdown-menu">
+		            	<li><a href="/job-seekers/services">All Services</a></li>
 			            <li><a href="/register" style="font-weight: bold;">Upload CV</a></li>
+			            
 			            <li><a href="/job-seekers/cv-editing">CV Editing</a></li>
 			            <li><a href="/job-seekers/cv-templates">CV Templates</a></li>
 			            
 			            <li><a href="/job-seekers/premium-placement">Premium Placement</a></li>
-			            <li><a href="/vacancies">Job Vacancies</a></li>
+			            <li><a href="/vacancies">Vacancies</a></li>
 			            <li><a href="/blog">Career Centre</a></li>
 			            @guest
+			            
 			            <li><a href="/blog">Register Profile</a></li>
+			            
 			            @else
-			            <li><a href="/profile">My Profile</a></li>
+			            
 			            @endguest
+
 			            
 		            </ul>
 		        </li>
@@ -186,6 +192,7 @@
 	        				@endif
 	        				>Edit Profile</a></li>
 	        			<li><a href="/profile/applications">My Applications ({{ count(Auth::user()->applications) }})</a></li>
+	        			<li><a href="/job-seekers/services">Job Seeker Services</a></li>
 	        			@endif
 	        			<li><a href="/logout">Logout</a></li>
 		        	</ul>
