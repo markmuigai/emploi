@@ -33,7 +33,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 @if($user->role == 'seeker')
 @if(!$user->seeker->hasCompletedProfile())
-<p style="text-align: center; font-size: 130%; color: red">
+<p style="text-align: center; font-size: 90%; color: red">
     <a href="/profile/edit"> <i class="fa fa-info"></i> Update your profile and start applying for jobs</a>
 </p>
 @endif
@@ -58,7 +58,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<div style="margin-bottom: 1em">
 			<h4 style="font-weight: bold;">Career Objective</h4>
 			<p>
-				{{ $user->seeker->objective }}
+				{{ $user->seeker->objective ? $user->seeker->objective : 'Career objective not stated' }}
 			</p>
 		</div>
 		

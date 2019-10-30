@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	   
 	 <div class="col-md-8 single_right">
 	      <h3>
-	      	<i class="fa fa-arrow-left" title="View All Companies" onclick="window.location='/profile/applications'"></i>
+	      	<i class="fa fa-arrow-left" title="View All Companies" onclick="window.location='/companies'"></i>
 	      	{{ $company->name }}
 	      	<small class="pull-right">[{{ count($company->activePosts) }} vacancies]</small>
 	      	

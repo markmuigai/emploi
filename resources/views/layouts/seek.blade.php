@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <meta name="description" content="@yield('description')" />
+<meta name="csrf-token" content="{{ csrf_token() }}" id="csrf_token">
 <link rel="icon" href="{{ asset('images/favicon.png') }}">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="{{ asset('css/bootstrap-3.1.1.min.css') }}" rel='stylesheet' type='text/css' />
@@ -181,9 +182,7 @@
 		        <li class="dropdown">
 		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold">My Account<b class="caret"></b></a>
 		        	<ul class="dropdown-menu">
-	        			@if(Auth::user()->role != 'seeker')
 	        			<li><a href="/home">Dashboard</a></li>
-	        			@endif
 	        			<li><a href="/profile">Profile</a></li>
 	        			@if(Auth::user()->role == 'seeker')
 	        			<li><a href="/profile/edit"

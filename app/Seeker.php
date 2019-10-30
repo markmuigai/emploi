@@ -179,6 +179,15 @@ class Seeker extends Model
         return $this->hasMany(SeekerSkill::class);
     }
 
+    public function featuredPosts(){
+        //where('industry_id',$this->industry_id)
+                   // ->
+        return Post::where('deadline','>',Carbon::now()->format('Y-m-d'))
+                    ->where('industry_id',$this->industry_id)
+                    ->where('status','active')
+                    ->get();
+    }
+
     
 
     // public function getSkills(){

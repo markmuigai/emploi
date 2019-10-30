@@ -39,7 +39,7 @@ class HomeController extends Controller
                 break;
             
             default:
-                return redirect('/profile');
+                return redirect('/job-seekers/dashboard');
                 return view('home');
                 break;
         }

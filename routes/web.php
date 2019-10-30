@@ -92,7 +92,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
 Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
     Route::get('/', function () {      return redirect('/profile'); });
-    //Route::get('dashboard', 'SeekerController@dashboard');
+    Route::get('dashboard', 'SeekerController@dashboard');
+    Route::get('feed', 'SeekerController@feed');
 });
 Route::get('/job-seekers/cv-editing', function () {			    return view('seekers.cv-editing');		});
 Route::get('/job-seekers/cv-templates', function () {		    return view('seekers.cv-templates');	})->middleware('auth');
