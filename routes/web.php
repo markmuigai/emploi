@@ -37,6 +37,9 @@ Route::group([ 'middleware' => 'auth'], function(){
     Route::post('profile/update', 'HomeController@saveProfile');
 });
 
+Route::post('create-account', 'RegisterSimpleController@create');
+Route::get('/create-account', function () {       return redirect('/join');    });
+
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
     

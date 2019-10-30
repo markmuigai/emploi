@@ -13,33 +13,58 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div id="search_wrapper">
          <div id="search_form" class="clearfix">
          <h1>Emploi is a job matching platform <br> that does it right and does it fast.</h1>
-         @include('components.search-form')           
-            <h2 class="title" style="display: none;">Top Categories</h2>
-         </div>
-         <div id="city_1" class="clearfix row">
-          <p>
-            Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker matching.
-          </p>
-          <p>
-            <a class="btn-orange" href="/join">REGISTER</a>
-          </p>
-             <ul class="orange col-md-4" style="display: none;">
-                @foreach(\App\Industry::top() as $i)
-                 <li>
-                 <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
-                 </li>
-                 @endforeach
+         @guest
+          <h2 class="title">Get Yourself Employed</h2>
+         @else
+         @include('components.search-form')   
+         @endguest
                  
-             </ul>
-             <ul class="orange col-md-4" style="display: none;">
-                @foreach(\App\Location::top() as $i)
-                 <li>
-                 <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
-                 </li>
-                 @endforeach
-             </ul>
-             
+            
          </div>
+         @guest
+          <div id="city_1" class="clearfix row">
+            <form class="col-md-8 " action="/create-account" method="POST">
+              @csrf
+              <p>
+                <label>Full name:</label>
+                <input type="text" name="name" class="form-control" required="">
+              </p>
+              <p>
+                <label>E-mail address:</label>
+                <input type="email" name="email" class="form-control" required="">
+              </p>
+              <p>
+                <input type="submit" class="btn-orange" value="Register" name="">
+              </p>
+            </form>
+                        
+         </div>
+         @else
+         <div id="city_1" class="clearfix row">
+            <p>
+              Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker matching.
+            </p>
+            <p>
+              <a class="btn-orange" href="/join">REGISTER</a>
+            </p>
+               <ul class="orange col-md-4" style="display: none;">
+                  @foreach(\App\Industry::top() as $i)
+                   <li>
+                   <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
+                   </li>
+                   @endforeach
+                   
+               </ul>
+               <ul class="orange col-md-4" style="display: none;">
+                  @foreach(\App\Location::top() as $i)
+                   <li>
+                   <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
+                   </li>
+                   @endforeach
+               </ul>             
+         </div>
+         @endguest
+         
        </div>
    </div> 
 </div>  

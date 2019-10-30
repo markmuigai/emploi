@@ -32,17 +32,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 </div>
 @if($user->role == 'seeker')
-@if(!$user->seeker->hasCompletedProfile())
-<p style="text-align: center; font-size: 90%; color: red">
-    <a href="/profile/edit"> <i class="fa fa-info"></i> Update your profile and start applying for jobs</a>
-</p>
-@endif
+
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 col-xs-4" style="text-align: center;">
 		<small>
-			<i class="fa fa-phone"></i> {{ $user->seeker->phone_number }} <br>
+			<i class="fa fa-phone"></i> {{ $user->seeker->phone_number ? $user->seeker->phone_number : '-no phone number-' }} <br>
 			<i class="fa fa-envelope"></i> {{ $user->email }} <br>
-			<i class="fa fa-map-marker"></i> {{ $user->seeker->location->name }} <br>
+			<i class="fa fa-map-marker"></i> {{ $user->seeker->location_id ? $user->seeker->location->name : '-not set-' }} <br>
 				@if( $user->seeker->gender == 'M' )
 	            Male
 	            @elseif($user->seeker->gender == 'F')
@@ -54,7 +50,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</small>
 	</div>
 	<div class="col-md-6 col-md-offset-1 col-xs-8" style="text-align: center;">
-		
+		@if(!$user->seeker->hasCompletedProfile())
+		<p style="text-align: center; font-size: 90%; ">
+		    <a href="/profile/edit" style="color: red"> <i class="fa fa-info"></i> Update your profile and start applying for jobs</a>
+		</p>
+		@endif
 		<div style="margin-bottom: 1em">
 			<h4 style="font-weight: bold;">Career Objective</h4>
 			<p>

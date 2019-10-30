@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        Industry::create([ 'name' => 'General', 'slug' => 'general' ]);
         Industry::create([ 'name' => 'IT and Telecoms', 'slug' => 'it-and-telecoms' ]);
         Industry::create([ 'name' => 'Sales', 'slug' => 'sales' ]);
         Industry::create([ 'name' => 'Banking and Accounts', 'slug' => 'banking-and-accounts' ]);

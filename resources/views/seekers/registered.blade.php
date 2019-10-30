@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         	<p>
 	        	Your account as a job seeker has been created succesfully.
 	        	<br>
-	        	Check your e-mail inbox for your password and log in.
+	        	Check your  <b>e-mail inbox</b> for your password and log in.
 	        </p>
 
 	        <br>	
