@@ -68,6 +68,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
        </div>
    </div> 
 </div>  
+@guest
+<div class="container py-3" style="margin-bottom: 0">
+      
+  <div class="row">
+  <div class=" col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 clients"  style="padding: 1em">
+    
+    @include('seekers.search-input')
+     
+  
+  </div>
+  
+
+  </div>
+</div>
+@else
+@endguest
+ 
 <div class="container">
   <div class="grid_1">
         <h3>Why Emploi</h3>
