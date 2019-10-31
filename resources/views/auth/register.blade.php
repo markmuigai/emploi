@@ -143,6 +143,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
          </div>
+
+         <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="password">Password</label>
+                <div class="col-md-9">
+                    <input type="password" required="" value="" name="password" id="password" class="form-control input-sm" maxlength="50" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="password_confirmation">Confirm Password</label>
+                <div class="col-md-9">
+                    <input type="password" required="" value="" name="password_confirmation" id="password" class="form-control input-sm" maxlength="50" />
+                </div>
+            </div>
+        </div>
         
         <div class="row">
             <div class="form-actions floatRight">

@@ -137,6 +137,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@emploi.co',
             'username' => 'admin',
             'email_verified_at' => now(),
+            'email_verification' => 'ashHSJhsd',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10),
         ]);
@@ -147,6 +148,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'brian.obare@emploi.co',
             'username' => 'brian',
             'email_verified_at' => now(),
+            'email_verification' => 'ashHssSJhsd',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10),
         ]);
@@ -165,6 +167,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'millicent@emploi.co',
             'username' => 'millicent',
             'email_verified_at' => now(),
+            'email_verification' => 'ashHSsJhsd',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10),
         ]);
@@ -375,6 +378,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'ernest@emploi.co',
             'username' => 'ernest',
             'email_verified_at' => now(),
+            'email_verification' => 'ashHSJhsawsd',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10),
         ]);
@@ -398,6 +402,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'sally@emploi.co',
             'username' => 'sally',
             'email_verified_at' => now(),
+            'email_verification' => 'ashs3HSJhsd',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10),
         ]);
@@ -421,6 +426,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'liza@emploi.co',
             'username' => 'liza',
             'email_verified_at' => now(),
+            'email_verification' => 'ashHSJa2hsd',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10),
         ]);

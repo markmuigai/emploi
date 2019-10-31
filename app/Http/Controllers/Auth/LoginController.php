@@ -24,11 +24,10 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        if(!$user->email_verified_at)
+        //verify users who registered with name and e-mail only
+        if($user->role == 'seeker' && !isset($user->seeker->phone_number))
         {
-            $user->email_verified_at = now();
-            $user->save();
-            //send welcome email
+            $user->verifyAccount();
         }
     }
 }

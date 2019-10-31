@@ -17,7 +17,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         	<p>
 	        	Your account as an employer has been created succesfully.
 	        	<br>
-	        	Check your personal e-mail inbox for your password and log in.
+	        	A confirmation e-mail has been sent. <br>
+	        	To log in, your username is <b>{{ $username }}</b>
 	        </p>
 
 	        <br>	

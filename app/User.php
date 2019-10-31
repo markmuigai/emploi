@@ -10,12 +10,14 @@ use App\Jurisdiction;
 use App\Seeker;
 use App\UserPermission;
 
+use App\Jobs\EmailJob;
+
 class User extends Authenticatable
 {
     use Notifiable;
 
     protected $fillable = [
-        'name', 'username', 'email', 'password','avatar'
+        'name', 'username', 'email', 'password','avatar','email_verification'
     ];
 
     protected $hidden = [
@@ -118,5 +120,37 @@ class User extends Authenticatable
         if(!$this->role == 'seeker')
             return false;
         return Seeker::where('user_id',$this->id)->first();
+    }
+
+    public function verifyAccount(){
+        $this->email_verified_at = now();
+        $this->save();
+
+        if($this->role == 'seeker')
+        {
+            $caption = "Glad to have you on board, Employers are searching on our platform";
+            $contents = "
+
+            Welcome to Emploi, we're excited to have you on board. <br>
+
+            We have solutions tailored for your career, including Professional CV Editing, Premium Placement and much more. 
+            <br>
+            Have a look around and <a href='".url('/contact')."'>contact us</a> for support should you need it.
+            <br><br>
+            Update your profile and start applying for jobs. Employers are always recruiting on our platform, ensure you upload your updated resume.
+            ";
+            EmailJob::dispatch($this->name, $this->email, 'Warm Welcome to Emploi', $caption, $contents);
+        }
+
+        if($this->role == 'employer')
+        {
+            $caption = "Glad to have you on board";
+            $contents = "
+
+            Welcome to Emploi. We've streamlined the recruitment process and introduced the Role Suitability Index which ranks applicants. <br>
+            ";
+            EmailJob::dispatch($this->name, $this->email, 'Warm Welcome to Emploi', $caption, $contents);
+        }
+        return true;
     }
 }

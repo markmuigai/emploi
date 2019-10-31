@@ -49,6 +49,8 @@ class EmployerController extends Controller
     		return 'Email has been registered';
     	}
 
+
+
     	$username = explode(" ", $request->name);
         $username = strtolower(implode("", $username).rand(1000,30000));
         $username = explode(".", $username);
@@ -60,12 +62,17 @@ class EmployerController extends Controller
     		'name' => $request->name,
             'email' => $request->email,
             'username' => $username,
-            'password' => Hash::make($password),
+            'email_verification' => User::generateRandomString(10),
+            'password' => Hash::make($request->password),
     	]);
+
+        
 
     	$country = Country::findOrFail($request->country);
 
     	$country2 = Country::findOrFail($request->coPrefix);
+
+        //return $request->co_name;
 
     	$emp = Employer::create([
     		'user_id' => $user->id, 
@@ -78,6 +85,8 @@ class EmployerController extends Controller
     		'country_id' => $request->country,
     		'address' => $request->address
     	]);
+
+        //return $emp;
 
     	$perm = UserPermission::create([
             'user_id' => $user->id, 
@@ -97,9 +106,18 @@ class EmployerController extends Controller
             'company_size_id' => 1
         ]);
 
+        $caption = "Thank you for registering your profile on Emploi as an Employer";
+        $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
+<br>
+
+Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+        ";
+        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
         //send welcome email to company
         //send credentials to employer
-        return view('employers.registered');
+        return view('employers.registered')
+                ->with('username',$user->username);
     }
 
     public function browse(Request $request)

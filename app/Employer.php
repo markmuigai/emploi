@@ -9,7 +9,7 @@ use App\CvRequest;
 class Employer extends Model
 {
     protected $fillable = [
-        'user_id', 'name', 'industry_id', 'contact_phone','company_phone','company_email','country_id','address','credits'
+        'user_id', 'name', 'industry_id','company_name', 'contact_phone','company_phone','company_email','country_id','address','credits'
     ];
 
     public function industry(){

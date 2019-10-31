@@ -36,6 +36,7 @@ class RegisterSimpleController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'email_verification' => User::generateRandomString(10),
             'username' => $username,
             'password' => Hash::make($password),
         ]);
@@ -63,15 +64,35 @@ class RegisterSimpleController extends Controller
         ]);
         $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
         $contents = "Here are your login credentials for Emploi: <br>
-username: $username <br>
-password: $password
+        username: $username <br>
+        password: $password
 
-<br><br>
-Log in to finish setting up your account for employers to easily find and shortlist you.
+        <br><br>
+        Log in to finish setting up your account for employers to easily find and shortlist you.
         ";
         EmailJob::dispatch($user->name, $user->email, 'Emploi Login Credentials', $caption, $contents);
         return view('seekers.register.success');
     	return 'registered';
     	return $request->all();
+    }
+
+    public function verify($code){
+        $user = User::where('email_verification',$code)->firstOrFail();
+        if(!$user->email_verified_at)
+        {
+            $user->verifyAccount();
+            return 'Account verified succesfully. <a href="/login">Login</a>';
+        }
+        return 'Account has already been verified.  <a href="/login">Login</a>';
+        
+        
+    }
+
+    public function checkEmail(Request $request)
+    {
+        $user = User::where('email',$request->email)->first();
+        if(isset($user->id))
+            return 'true';
+        return 'false';
     }
 }

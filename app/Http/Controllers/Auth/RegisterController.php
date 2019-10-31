@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:50'],
             'phone_number' => ['required', 'string', 'max:15'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
-            //'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
             'resume' => ['required','mimes:pdf,docx,pdf'],
             'country' => ['required','integer'],
             'industry' => ['required','integer'],
@@ -73,14 +73,15 @@ class RegisterController extends Controller
         $username = explode(".", $username);
         $username = implode('',$username);
 
-        $password = User::generateRandomString(10);
+        //$password = User::generateRandomString(10);
         $storage_path = '/public/resumes';
         $resume_url = basename(Storage::put($storage_path, $data['resume']));
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'username' => $username,
-            'password' => Hash::make($password),
+            'email_verification' => User::generateRandomString(10),
+            'password' => Hash::make($data['password']),
         ]);
 
         //$resume_url = Storage::putFile('avatars', $request->file('avatar'));
@@ -104,12 +105,11 @@ class RegisterController extends Controller
         $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
         $contents = "Here are your login credentials for Emploi: <br>
 username: $username <br>
-password: $password
+<br>
 
-<br><br>
-Log in to finish setting up your account for employers to easily find and shortlist you.
+Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
         ";
-        EmailJob::dispatch($user->name, $user->email, 'Emploi Login Credentials', $caption, $contents);
+        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
         return $user;
     }

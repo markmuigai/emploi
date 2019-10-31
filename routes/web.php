@@ -16,6 +16,9 @@ Route::get('/employers/role-suitability-index', function () {       return view(
 
 Route::post('/contact', 'ContactController@save');
 
+Route::get('/verify-account/{code}', 'RegisterSimpleController@verify');
+
+Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');
 
 Auth::routes();
 Route::get('/', 'ContactController@index');
@@ -31,8 +34,7 @@ Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
 
 Route::group([ 'middleware' => 'auth'], function(){
-    Route::get('profile', 'HomeController@profile');
-    
+    Route::get('profile', 'HomeController@profile');    
     Route::get('profile/edit', 'HomeController@updateProfile');
     Route::post('profile/update', 'HomeController@saveProfile');
 });
