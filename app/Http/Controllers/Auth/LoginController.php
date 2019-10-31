@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
+use Auth;
+use App\User;
+
+use App\Jobs\EmailJob;
+
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
@@ -28,6 +33,22 @@ class LoginController extends Controller
         if($user->role == 'seeker' && !isset($user->seeker->phone_number))
         {
             $user->verifyAccount();
+        }
+
+        if(!$user->email_verified_at)
+        {
+            $user->email_verification = User::generateRandomString();
+            $user->save();
+
+            $caption = "Verification code for your Emploi Account";
+        $contents = "
+Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account
+        ";
+        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+            Auth::logout();
+            return view('pages.not-verified');
+            die('Account not verified. <a href="/login">Login</a>');
         }
     }
 }
