@@ -136,7 +136,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					<option value="{{ $l->id }}">{{ $l->name }}, {{ $l->country->code }}</option>
 					@endforeach
 				</select>
-                <input type="text" class="form-control jb_2" id="search-input" name="q" placeholder="Search here">
+                <input type="text" class="form-control jb_2" id="search-input" name="q" placeholder="keywords">
                 <input type="submit" class="btn btn-default" value="Search">
 			</form>
 		  </div>

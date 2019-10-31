@@ -112,21 +112,30 @@ class Seeker extends Model
             $model->psychometric_importance +  
             $model->company_size_importance +
             $model->feedback_importance;
+
+        $application = JobApplication::where('user_id',$this->user->id)
+                    ->where('post_id',$post->id)
+                    ->first();
+        //return $total;
         //dd($total);
 
-        $edu = $model->education_level;
-        $exp = $model->experience_importance;
-        $skil = $model->skills_importance;
+        $edu = $model->education_level == 0 ? 0 : $model->education_level / $total * 100;
+        $exp = $model->experience_importance == 0 ? 0 : $model->experience_importance / $total * 100;
+        $interview = $model->interview_importance == 0 ? 0 : $model->interview_importance / $total * 100;
+        $skil = $model->skills_importance == 0 ? 0 : $model->skills_importance / $total * 100;
         //$reference = $model->personality_importance;
-        $interview = $model->interview_importance;
-        $iq = $model->iq_importance;
-        $psy = $model->psychometric_importance;
-        $pers = $model->personality_importance;
-        $cosize = $model->company_size_importance;
+        
+        $iq = $model->iq_importance == 0 ? 0 : $model->iq_importance / $total * 100;
+        $psy = $model->psychometric_importance == 0 ? 0 : $model->psychometric_importance / $total * 100;
+        $pers = $model->personality_importance == 0 ? 0 : $model->personality_importance / $total * 100;
+        $cosize = $model->company_size_importance == 0 ? 0 : $model->company_size_importance  / $total * 100;
+        $ref = $model->feedback_importance == 0 ? 0 : $model->feedback_importance / $total * 100;
+
+        //return $edu + $exp + $interview + $skil + $iq + $psy + $pers + $cosize+ $ref;
 
         //education
         if($this->education_level_id == $model->education_level_id)
-            $perc += $edu * 0.8;
+            $perc += $edu * 0.5;
         elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
             $perc += $edu;
 
@@ -148,13 +157,43 @@ class Seeker extends Model
         }
         
         
-
+        //interview
+            //average interview vs model seeker
+        if(isset($application->id))
+        {
+            if(count($application->interviewResults) > 0)
+            {
+                if($application->interviewScore > $model->interview_result_score)
+                    $perc += $interview;
+                elseif($application->interviewScore == $model->interview_result_score)
+                    $perc += $interview * 0.8;
+                else
+                    $perc += $interview * 0.4;
+            }
+            else
+            {
+                $perc += $interview;
+            }
+        }
         //skills
             //count all skills
+        //iq
+        //psy
+        
+        if(isset($application->id)) //personality
+        {
+            if(isset($application->seekerPersonality->id))
+            {
+                if($application->seekerPersonality->personality->id == $model->personality_test_id)
+                    $perc += $pers;
+            }
+            else
+                $perc += $pers;
+        }
+        
 
-        //interview
-        //reference
-        //personality
+        //cosize
+        //ref
 
         return $perc;
     }

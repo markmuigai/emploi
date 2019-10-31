@@ -64,10 +64,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						        	<h4 class="modal-title" id="myModalLabel">Actions for {{ $a->user->name }}</h4>
 						      	</div>
 		                        <div class="modal-body row">
-		                        	<div class="col-md-3 col-sm-3 ">
+		                        	<div class="col-md-3 col-sm-3  col-xs-3">
 		                        		<img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="img-responsive" alt="" style="width: 100%" />
 		                        	</div>
-		                        	<div class="col-md-9 col-sm-9">
+		                        	<div class="col-md-9 col-sm-9 col-xs-9">
 		                        		Applied on: {{ $a->created_at }} <br>
 							           Shortlisted: 
 							           @if(!$post->isShortlisted($a->user->seeker))
