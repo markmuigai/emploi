@@ -188,6 +188,14 @@ class Seeker extends Model
                     ->get();
     }
 
+    public function referees(){
+        return $this->hasMany(Referee::class);
+    }
+
+    public function jobApplicationReferees(){
+        return $this->hasMany(JobApplicationReferee::class);
+    }
+
     
 
     // public function getSkills(){

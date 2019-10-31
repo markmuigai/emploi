@@ -14,7 +14,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	   	 <p style="text-align: center;">
 	   	 	RSI - 
 	   	 	<a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a>
-	   	 	 || {{ $application->user->seeker->getRsi($application->post) }}%</p>
+	   	 	 | {{ $application->user->seeker->getRsi($application->post) }}% |
+	   	 	 <a href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/referees">Referees</a>
+	   	 	</p>
 	     
           <div class="row" style="">
 	   	   <div class="addr">
@@ -55,18 +57,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 							</div>
 							<br>
 							<p>
-								{{ $application->user->seeker->industry->name }} <br>
+								{{ $application->user->seeker->years_experience }}yr{{ $application->user->seeker->years_experience > 1 ? 's' : '' }} experience in <b>{{ $application->user->seeker->industry->name }}</b> <br>
 								{{ $application->user->seeker->sex }} <br>
-								{{ $application->user->seeker->years_experience }}yr{{ $application->user->seeker->years_experience > 1 ? 's' : '' }} experience <br><br>
 								{{ $application->user->seeker->location->name }}, {{ $application->user->seeker->location->country->code }}
 							</p>
 						</div>
-						<div style="display: none">
-							<b>Notes</b><br>
-							- Profile not completed<br>
-							- Education requirements not met<br>
-							- Experience not adequate<br><br>
-						</div>
+						
 						
 
 						

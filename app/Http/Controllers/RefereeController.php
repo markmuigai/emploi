@@ -1,0 +1,114 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\JobApplicationReferee;
+use App\Referee;
+
+use Auth;
+use App\Jobs\EmailJob;
+
+class RefereeController extends Controller
+{
+    public function assess($slug){
+    	$r = Referee::where('slug',$slug)->firstOrFail();
+    	$user = Auth::user();
+
+    	if($r->status != 'pending-details')
+    	{
+    		if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+    		{
+    			//do not exit
+    		}
+    		else
+    		{
+    			die('Assessment already submitted. <a href="/join">Register on Emploi</a>');
+    		}
+    		
+    	}
+    	return view('referees.assess')
+    			->with('referee',$r);
+    	return $slug;
+    }
+
+    public function saveAssessment(Request $request, $slug){
+    	$r = Referee::where('slug',$slug)->firstOrFail();
+    	$user = Auth::user();
+    	if($r->status != 'pending-details')
+    	{
+    		if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+    		{
+    			//do not exit
+    		}
+    		else
+    		{
+    			die('Assessment already submitted. <a href="/join">Register on Emploi</a>');
+    		}
+    	}
+    	if($r->ready)
+    	{
+    		$j = $r->jobApplicationReferee;
+    		$j->start_date = $request->start_date;
+    		$j->end_date = $request->end_date;
+    		$j->job_title = $request->job_title;
+    		$j->responsibilities = $request->responsibilities;
+    		$j->relationship = $request->relationship;
+    		$j->reason_for_leaving = $request->reason_for_leaving;
+    		$j->performance = $request->performance;
+    		$j->strengths = $request->strengths;
+    		$j->weaknesses = $request->weaknesses;
+    		$j->discplinary_cases = $request->discplinary_cases;
+    		$j->professionalism = $request->professionalism;
+    		$j->would_you_rehire = $request->would_you_rehire;
+    		$j->comments = $request->comments;
+    		$j->save();
+    	}
+    	else
+    	{
+    		$j = JobApplicationReferee::create([
+	    		'seeker_id' => $r->seeker_id,
+	    		'referee_id' => $r->id,
+	    		'start_date' => $request->start_date,
+	    		'end_date' => $request->end_date,
+	    		'job_title' => $request->job_title,
+	    		'responsibilities' => $request->responsibilities,
+	    		'relationship' => $request->relationship,
+	    		'reason_for_leaving' => $request->reason_for_leaving,
+	    		'performance' => $request->performance,
+	    		'strengths' => $request->strengths,
+	    		'weaknesses' => $request->weaknesses,
+	    		'discplinary_cases' => $request->discplinary_cases,
+	    		'professionalism' => $request->professionalism,
+	    		'would_you_rehire' => $request->would_you_rehire,
+	    		'comments' => $request->comments
+	    	]);
+
+	    	$r->status = 'ready';
+	    	$r->save();
+
+	    	$user = $r->seeker->user;
+
+	    	$caption = "Thank you for submitting your assessment as a referee for ".$user->name;
+	        $contents = "Emploi Team would like to thank you for submitting your assessment on ".$user->seeker->public_name.". Information provided would be used by other employers when analyzing their suitability when recruiting.
+	        <br><br>
+
+	        Have a good day.
+	                ";
+	        EmailJob::dispatch($r->name, $r->email, 'Referee Assessment for '.$user->name.' Received', $caption, $contents);
+
+	        $caption = $r->name." has submitted referee feedback.";
+	        $contents = $r->name." has provided feedback as you had listed them as your referee. This information will be used by current and future employers looking to hire you. <br>
+	        Ensure your profile is up to date to increase your hireablity.
+	        <br><br>
+
+	       Thank you for choosing Emploi.
+	                ";
+	        EmailJob::dispatch($user->name, $user->email, 'Referee Assessment from '.$r->name.' Received', $caption, $contents);
+    	}
+    	
+    	return $j;
+    	return $request->all();
+    }
+}

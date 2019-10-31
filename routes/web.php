@@ -28,6 +28,11 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::get('/test', 'HomeController@test')->name('test');
+Route::get('profile/add-referee', 'HomeController@addReferee');
+Route::post('profile/add-referee', 'HomeController@saveReferee');
+
+Route::get('/referees/{slug}', 'RefereeController@assess');
+Route::post('/referees/{slug}/save', 'RefereeController@saveAssessment');
 
 
 Route::resource('/blog', 'BlogController');
@@ -77,6 +82,11 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::post('/employers/applications/{slug}/{applicationId}/rsi/psychometric', 'EmployerController@savePsy');
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/personality', 'EmployerController@inputPers');
     Route::post('/employers/applications/{slug}/{applicationId}/rsi/personality', 'EmployerController@savePers');
+
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees', 'EmployerController@referees');
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/add', 'EmployerController@addReferee');
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/request', 'EmployerController@requestReferee');
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/toggle', 'EmployerController@toggleReferees');
 });
 
 

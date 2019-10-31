@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container">
     <div class="single">  
-        <div class="col-sm-9 follow_left">
+        <div class="col-sm-9 follow_left row">
 			<h3>
 				<i class="fa fa-arrow-left" title="Show Dashboard" onclick="window.location='/employers/dashboard'"></i>
 				{{ $shortlist==true ? 'Shortlist '.$post->title : $post->title.' Applications' }}
@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         	</h3>
         	<?php $pool = $shortlist ? $post->shortlisted: $post->applications; $kk=0; ?>
         	@forelse($pool as $a)
-            <div class="jobs_follow jobs-single-item">
+            <div class="jobs_follow jobs-single-item col-md-8 col-md-offset-2">
 				<div class="thumb">
 					<img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="img-responsive" alt=""/>
 				</div>

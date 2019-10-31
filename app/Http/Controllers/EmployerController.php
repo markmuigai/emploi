@@ -23,6 +23,7 @@ use App\ModelSeekerSkill;
 use App\Personality;
 use App\Post;
 use App\PsychometricTest;
+use App\Referee;
 use App\Seeker;
 use App\SeekerPersonality;
 use App\Skill;
@@ -108,11 +109,11 @@ class EmployerController extends Controller
 
         $caption = "Thank you for registering your profile on Emploi as an Employer";
         $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
-<br>
+        <br>
 
-Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
-        ";
-        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+        Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+                ";
+                EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
         //send welcome email to company
         //send credentials to employer
@@ -579,6 +580,56 @@ Verify your account <a href='".url('/verify-account/'.$user->email_verification)
         }
         return redirect('/employers/applications/'.$post->slug.'/'.$app->id.'/rsi');
         return $request->all();
+    }
+
+    public function referees(Request $request, $slug, $applicationId){
+        $app = JobApplication::findOrFail($applicationId);
+        if(isset($request->toggle))
+        {
+
+            $app->toggleUseReferee($request->toggle);
+        }
+        
+        return view('employers.rsi.referees')
+                    ->with('app',$app);
+        return $request->all();
+    }
+
+    public function addReferee(Request $request, $slug, $applicationId){
+        $app = JobApplication::findOrFail($applicationId);
+        return view('employers.rsi.addReferee')
+                    ->with('app',$app);
+    }
+
+    public function requestReferee(Request $request, $slug, $applicationId){
+        //send e-mail instructions
+        $app = JobApplication::findOrFail($applicationId);
+        $user =  $app->user;
+        $caption = $app->post->company->name." is interested in getting feedback from your referees";
+        $contents = "Your application has been moved up and ". $app->post->company->name." is requesting for your referees in order to make a hiring decision.<br>
+        <br>
+
+        Kindly but urgently provide your referee details by following the link below <br>
+        <a href='".url('/profile/add-referee')."'>".url('/profile/add-referee')."</a> <br>
+
+        Thank you for your commitment, we wish you the best.
+                ";
+        EmailJob::dispatch($user->name, $user->email, 'Request for Referees', $caption, $contents);
+
+        
+        return view('employers.rsi.refereeRequested')
+                    ->with('app',$app);
+    }
+
+    public function toggleReferees(Request $request, $slug, $applicationId){
+        $app = JobApplication::findOrFail($applicationId);
+        if(isset($request->referee_id))
+        {
+            
+            $app->toggleUseReferee($request->referee_id);
+        }
+        
+        return redirect('/employers/applications/'.$app->post->slug.'/'.$app->id.'/rsi/referees');
     }
 
 

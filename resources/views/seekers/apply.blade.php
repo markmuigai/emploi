@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      <div class="row_1">
 	      	<div class="col-sm-5 single_img">
 	      		<?php $img = $post->image == 'unknown.png' ? 'images/a1.jpg' : $post->image ?>
-	      		<img src="{{ asset($img) }}" class="img-responsive" alt="{{ $post->title }}" style="width: 100%" />
+	      		<img src="{{ asset($post->imageUrl) }}" class="img-responsive" alt="{{ $post->title }}" style="width: 100%" />
 	      	</div>
 	      	<div class="col-sm-7 single-para">
 	      		<p>

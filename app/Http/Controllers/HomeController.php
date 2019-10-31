@@ -10,8 +10,10 @@ use App\Country;
 use App\EducationLevel;
 use App\Industry;
 use App\Location;
+use App\Referee;
 use App\SeekerSkill;
 use App\Skill;
+use App\User;
 
 use App\Jobs\EmailJob;
 
@@ -185,5 +187,50 @@ class HomeController extends Controller
         }
         return 'user role not allowed';
         
+    }
+
+    public function addReferee(){
+        $user = Auth::user();
+        if($user->role != 'seeker')
+            abort(403);
+        return view('seekers.addReferee')
+                ->with('seeker',$user->seeker);
+    }
+
+    public function saveReferee(Request $request){
+        $user = Auth::user();
+        if($user->role != 'seeker')
+            abort(403);
+        $referee = Referee::where('email',$request->email)->where('seeker_id',$user->seeker->id)->first();
+        if(isset($referee->id))
+            die('Referee has already been added. <a href="/profile/add-referee">Add Referee</a>');
+        $r = Referee::create([
+            'seeker_id' => $user->seeker->id,
+            'name' => $request->name, 
+            'email'  => $request->email, 
+            'phone_number'  => $request->phone_number,
+            'organization'  => $request->organization,
+            'position_held'  => $request->position_held,
+            'relationship'  => $request->relationship,
+            'slug'  => User::generateRandomString(20),
+            'seeker_job_title'  => $request->seeker_job_title,
+            'responsibilities'  => $request->responsibilities
+        ]);
+
+        $caption = $user->name." has listed you as a referee. Provide your assessment.";
+        $contents = "Emploi is a sourcing platform linking employers and job seekers. <b>".$user->name."</b> has included you as one of their professional referee. <br>
+        As such, your assessment on their professional skills and abilities will be higly valued. 
+        <br>
+
+        Provide assessment of ".$user->seeker->public_name." by following the link below <br>
+        <a href='".url('/referees/'.$r->slug)."'>Provide Assessment (2 minutes)</a> <br><br>
+
+        Thank you for your cooperation towards growing ".$user->seeker->public_name."'s career.
+                ";
+        EmailJob::dispatch($r->name, $r->email, 'Provide Referee Assessment for '.$user->name, $caption, $contents);
+
+        return 'Referee added succesfully';
+
+        return $request->all();
     }
 }

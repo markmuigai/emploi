@@ -43,39 +43,39 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    	</h6>
 		    	<div class="col-md-4 col-xs-6">
 		    		Education <br>
-		    		<input required="" type="number" style="text-align: center" name="education_importance" class="form-control" value="{{ $post->modelSeeker->education_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="education_importance" class="form-control" value="{{ $post->modelSeeker->education_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Experience <br>
-		    		<input required="" type="number" style="text-align: center" name="experience_importance" class="form-control" value="{{ $post->modelSeeker->experience_importance }}" >
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="experience_importance" class="form-control" value="{{ $post->modelSeeker->experience_importance }}" >
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Interview <br>
-		    		<input required="" type="number" style="text-align: center" name="interview_importance" class="form-control" value="{{ $post->modelSeeker->interview_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="interview_importance" class="form-control" value="{{ $post->modelSeeker->interview_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Skills <br>
-		    		<input required="" type="number" style="text-align: center" name="skills_importance" class="form-control" value="{{ $post->modelSeeker->skills_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="skills_importance" class="form-control" value="{{ $post->modelSeeker->skills_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Intellectual Quotent <br>
-		    		<input required="" type="number" style="text-align: center" name="iq_importance" class="form-control"  value="{{ $post->modelSeeker->iq_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="iq_importance" class="form-control"  value="{{ $post->modelSeeker->iq_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Psychometric Test <br>
-		    		<input required="" type="number" style="text-align: center" name="psychometric_importance" class="form-control" value="{{ $post->modelSeeker->psychometric_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="psychometric_importance" class="form-control" value="{{ $post->modelSeeker->psychometric_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Personality <br>
-		    		<input required="" type="number" style="text-align: center" name="personality_importance" class="form-control" value="{{ $post->modelSeeker->personality_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="personality_importance" class="form-control" value="{{ $post->modelSeeker->personality_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Company Size <br>
-		    		<input required="" type="number" style="text-align: center" name="company_size_importance" class="form-control" value="{{ $post->modelSeeker->company_size_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="company_size_importance" class="form-control" value="{{ $post->modelSeeker->company_size_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		Referee Feedback <br>
-		    		<input required="" type="number" style="text-align: center" name="feedback_importance" class="form-control" value="{{ $post->modelSeeker->feedback_importance }}">
+		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="feedback_importance" class="form-control" value="{{ $post->modelSeeker->feedback_importance }}">
 		    	</div>
 		    	
 		    </div>
