@@ -27,11 +27,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
               @csrf
               <p>
                 <label>Full name:</label>
-                <input type="text" name="name" class="form-control" required="">
+                <input type="text" name="name" class="form-control" required="" style="border-radius: 5px">
               </p>
               <p>
                 <label>E-mail address:</label>
-                <input type="email" name="email" class="form-control" required="">
+                <input type="email" name="email" class="form-control" required="" style="border-radius: 5px">
               </p>
               <p>
                 <input type="submit" class="btn-orange" value="Register" name="">
