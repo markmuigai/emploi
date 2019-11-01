@@ -98,7 +98,7 @@
 	        	
 	        	<li><a href="/vacancies" style="color: white">Vacancies</a></li>
 		        
-		        @if (Route::getCurrentRoute()->uri() != '/')
+		        @if (Route::getCurrentRoute() != null && Route::getCurrentRoute()->uri() != '/')
 				<li><a href="/" style="color: white">Home</a></li>
 				@else
 				<li><a href="/blog" style="color: white">Career Centre</a></li>
