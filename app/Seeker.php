@@ -289,6 +289,10 @@ class Seeker extends Model
         return $this->hasMany(JobApplicationReferee::class);
     }
 
+    public function savedProfiles(){
+        return $this->hasMany(SavedProfile::class);
+    }
+
     
 
     // public function getSkills(){

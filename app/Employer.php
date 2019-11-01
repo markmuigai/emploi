@@ -31,4 +31,8 @@ class Employer extends Model
             return true;
         return false;
     }
+
+    public function savedProfiles(){
+        return $this->hasMany(SavedProfile::class);
+    }
 }
