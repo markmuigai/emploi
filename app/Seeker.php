@@ -140,8 +140,8 @@ class Seeker extends Model
             $perc += $edu;
 
         
-        //experience
-        if($this->industry_id == $model->post->industry_id)
+        
+        if($this->industry_id == $model->post->industry_id)//experience
         {
             if($this->years_experience == $model->experience_duration)
                 $perc += $exp * 0.8;
@@ -156,10 +156,7 @@ class Seeker extends Model
                 $perc += $exp;
         }
         
-        
-        //interview
-            //average interview vs model seeker
-        if(isset($application->id))
+        if(isset($application->id))//interview
         {
             if(count($application->interviewResults) > 0)
             {
@@ -175,10 +172,58 @@ class Seeker extends Model
                 $perc += $interview;
             }
         }
-        //skills
-            //count all skills
-        //iq
-        //psy
+
+        if(count($model->modelSeekerSkills) > 0) //skills
+        {
+            $skills_count = count($model->modelSeekerSkills);
+            $exist_skills = 0;
+            for($i=0; $i<count($model->modelSeekerSkills); $i++)
+            {
+                if($this->hasSkill($model->modelSeekerSkills[$i]->skill->id))
+                    $exist_skills ++;
+            }
+
+            $perc+= $skil * $exist_skills / $skills_count;
+            
+        }
+        else
+        {
+            $perc += $skil;
+        }
+        
+        if(isset($application->id))//iq
+        {
+            if(count($application->iqTests) > 0)
+            {
+                if($application->iqScore > $model->iq_score)
+                    $perc += $interview;
+                elseif($application->iqScore == $model->iq_score)
+                    $perc += $interview * 0.8;
+                else
+                    $perc += $interview * 0.4;
+            }
+            else
+            {
+                $perc += $interview;
+            }
+        }
+        
+        if(isset($application->id)) //psy
+        {
+            if(count($application->psychometricTests) > 0)
+            {
+                if($application->psychometricScore > $model->psychometric_test_score)
+                    $perc += $psy;
+                elseif($application->psychometricScore == $model->psychometric_test_score)
+                    $perc += $psy * 0.8;
+                else
+                    $perc += $psy * 0.4;
+            }
+            else
+            {
+                $perc += $psy;
+            }
+        }
         
         if(isset($application->id)) //personality
         {
@@ -195,7 +240,7 @@ class Seeker extends Model
         //cosize
         //ref
 
-        return $perc;
+        return round($perc);
     }
 
     public function hasCompletedProfile(){
@@ -216,6 +261,15 @@ class Seeker extends Model
 
     public function skills(){
         return $this->hasMany(SeekerSkill::class);
+    }
+
+    public function hasSkill($skill_id){
+        for($i=0; $i<count($this->skills); $i++)
+        {
+            if($this->skills[$i]->skill->id == $skill_id)
+                return true;
+        }
+        return false;
     }
 
     public function featuredPosts(){
