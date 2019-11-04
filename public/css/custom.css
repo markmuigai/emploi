@@ -1,0 +1,163 @@
+:root {
+    --primary: #500095;
+    --secondary: #E88725;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    padding-top: 2.5em;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus {
+    background: none;
+}
+
+.navbar-default {
+    width: 100%;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: var(--secondary);
+    background: white;
+}
+
+.navbar-default .scrolled {
+    transition: all 500ms linear;
+}
+
+.scrolled a.navbar-brand img {
+    height: 40px;
+    transition: all 500ms linear;
+}
+
+a.navbar-brand img {
+    transition: height 0.3s;
+}
+
+.scrolled .navbar-nav {
+    margin: 10px 0 0 0;
+    transition: 0.3s;
+}
+
+.hidden {
+    display: none;
+}
+
+.dropdown {
+    color: white;
+}
+
+.go-mobile {
+    display: none;
+}
+
+.location-select {
+    padding: 0.5em;
+    background-color: white
+}
+
+.btn-orange {
+    color: white;
+    background-color: #e88725;
+    border-radius: 12px;
+    padding: 1em 2em;
+    text-decoration: capitalize
+}
+
+.hover-bottom {
+    border-bottom: 0.1em solid white;
+}
+
+.hover-bottom:hover {
+    border-bottom: 0.1em solid gray;
+}
+
+.footer_bottom {
+    color: white;
+    padding: 2em 0 10px 0;
+}
+
+.footer_bottom .location i {
+    font-size: 2em;
+}
+
+.location .row {
+    align-items: center;
+}
+
+.footer_bottom .social {
+    padding-left: 0.5em
+}
+
+.footer_bottom .social a {
+    font-size: 2em;
+    padding: 0.5em;
+}
+
+.hidden-social {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .btn-orange {
+        border-radius: 10px;
+        padding: .8em 1.6em;
+    }
+
+    a.navbar-brand img {
+        height: 40px;
+        width: auto;
+    }
+
+    .navbar-nav {
+        margin: 10px 0 0 0;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .no-mobile {
+        display: none;
+    }
+
+    .go-mobile {
+        display: inline;
+    }
+
+    .location-select {
+        padding: 0.25em;
+        background-color: white
+    }
+
+    .social {
+        display: none;
+    }
+
+    .hidden-social {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 2em;
+    }
+
+    .footer_bottom .location i {
+        font-size: 1.5em;
+    }
+
+    .footer_bottom p, .footer_bottom a {
+        font-size: 0.8em;
+    }
+
+    .btn-orange {}
+}
