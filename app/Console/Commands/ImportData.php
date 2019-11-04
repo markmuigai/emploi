@@ -6,7 +6,9 @@ use Illuminate\Console\Command;
 use Storage;
 
 use App\Company;
+use App\CvRequest;
 use App\Employer;
+use App\SavedProfile;
 use App\Seeker;
 use App\User;
 use App\UserPermission;
@@ -56,7 +58,7 @@ class ImportData extends Command
                     while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
                         $row++;
                         
-                        // if($row<18517)
+                        // if($row<19517)
                         //     continue;
                         //print_r($data);
                         if(count($data) == 1)
@@ -85,11 +87,9 @@ class ImportData extends Command
                         $objective = htmlspecialchars($data[11]);
                         $resume_url = $data[12];
                         $featured = $data[13];
-                        //dd($education);
                         $industry = abs($data[14]) == 0 ? 1 : abs($data[14]);
                         $password = $data[15];
-                        // if($row !> 89)
-                        //     continue;
+                        
 
                         $resume_url = explode(" ", $resume_url);
                         $resume_url = implode("%20", $resume_url);
@@ -168,8 +168,8 @@ class ImportData extends Command
                 if (($handle = fopen($file, "r")) !== FALSE) {
                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                         $row++;
-                        if($row<190)
-                            continue;
+                        // if($row<2500)
+                        //     continue;
                         $company = $data[0];
                         $industry = $data[1];
                         $mobile = $data[2];
@@ -233,7 +233,81 @@ class ImportData extends Command
 
                 $this->info('4/7 Importing Employers Saved Profiles ');
 
+                $file = $storage_path.'/app/saved-profiles.csv';
+                $count_profiles = 0;
+                $row=1;
+                if (($handle = fopen($file, "r")) !== FALSE) {
+                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                        $row++;
+
+                        // if($row<2500)
+                        //     continue;
+
+                        $employer = User::where('email',$data[0])->first();
+                        if(!isset($employer->id))
+                        {
+                            $this->info(' '.$data[0].' matches no employer');
+                            continue;
+                        }
+
+                        
+
+                        $seeker = User::where('email',$data[1])->first();
+                        if(!isset($seeker->id))
+                            continue;
+
+                        SavedProfile::create([
+                            'employer_id' => $employer->employer->id, 
+                            'seeker_id' => $seeker->seeker->id
+                        ]);
+
+                        $this->info(' '.$employer->name.' saved '.$seeker->name);
+
+                    }
+                }
+
+
                 $this->info('5/7 Importing Employers Resume Requests ');
+
+                $file = $storage_path.'/app/resume-requests.csv';
+                $count_profiles = 0;
+                $row=1;
+                if (($handle = fopen($file, "r")) !== FALSE) {
+                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                        $row++;
+
+
+
+                        $employer = User::where('email',$data[0])->first();
+                        if(!isset($employer->id))
+                        {
+                            $this->info(' '.$data[0].' matches no employer');
+                            continue;
+                        }
+
+                        
+
+                        $seeker = User::where('email',$data[1])->first();
+                        if(!isset($seeker->id))
+                            continue;
+
+                        if(!isset($employer->employer->id) || !isset($seeker->seeker->id))
+                        {
+                            $this->info(' '.$data[0].' '.$data[1].' didnt match');
+                            continue;
+                        }
+
+
+                        CvRequest::create([
+                            'employer_id' => $employer->employer->id, 
+                            'seeker_id' => $seeker->seeker->id,
+                            'status' => $data[2]
+                        ]);
+
+                        $this->info(' '.$employer->name.' requested '.$seeker->name.' as '.$data[2]);
+
+                    }
+                }
 
                 $this->info('6/7 Employers Import completed succesfully ');
                 $this->info('7/7 Changing Import status to imported ');

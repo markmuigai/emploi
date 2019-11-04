@@ -43,7 +43,7 @@ class CvRequest extends Model
 		]);
 		if(isset($r->id))
 		{
-			return $r->acceptRequest()
+			return $r->acceptRequest();
 		}
     	return false;
 
