@@ -12,7 +12,7 @@ class CreateSeekersTable extends Migration
         Schema::create('seekers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->string('public_name',50)->nullable();
+            $table->string('public_name',100)->nullable();
             $table->string('gender',1)->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('phone_number',255)->nullable();
@@ -26,7 +26,7 @@ class CreateSeekersTable extends Migration
             $table->text('objective')->nullable();
             $table->text('education')->nullable();
             $table->text('experience')->nullable();
-            $table->string('resume',255)->nullable();
+            $table->string('resume',1000)->nullable();
             $table->integer('featured')->default(0);
             $table->timestamps();
         });
