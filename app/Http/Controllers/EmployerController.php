@@ -113,7 +113,7 @@ class EmployerController extends Controller
 
         Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
                 ";
-                EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
         //send welcome email to company
         //send credentials to employer

@@ -49,10 +49,28 @@ class ImportData extends Command
                 $storage_path = storage_path();
                 $file = $storage_path.'/app/seekers.csv';
                 $count_seekers = 0;
+                $count_seekers_skipped=0;
+                $lastUser = false;
                 $row = 1;
                 if (($handle = fopen($file, "r")) !== FALSE) {
-                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
                         $row++;
+                        
+                        // if($row<18517)
+                        //     continue;
+                        //print_r($data);
+                        if(count($data) == 1)
+                        {
+                            $lastUser->password = $lastUser->password.$data[0];
+                            $lastUser->save();
+                            continue;
+                        }
+                        if(count($data) != 16)
+                        {
+                            $count_seekers_skipped++;
+                            
+                            continue;
+                        }
                         $name = $data[0];
                         $public_name = $data[1];
                         $dob = $data[2];
@@ -61,14 +79,17 @@ class ImportData extends Command
                         $phone = $data[5];
                         $position = $data[6];
                         $address = $data[7];
-                        $years_experience = $data[8];
-                        $experience = $data[9];
-                        $education = $data[10];
-                        $objective = $data[11];
+                        $years_experience = abs($data[8]);
+                        $experience = htmlspecialchars($data[9]);
+                        $education = htmlspecialchars($data[10]);
+                        $objective = htmlspecialchars($data[11]);
                         $resume_url = $data[12];
                         $featured = $data[13];
-                        $industry = $data[14];
+                        //dd($education);
+                        $industry = abs($data[14]) == 0 ? 1 : abs($data[14]);
                         $password = $data[15];
+                        // if($row !> 89)
+                        //     continue;
 
                         $resume_url = explode(" ", $resume_url);
                         $resume_url = implode("%20", $resume_url);
@@ -91,8 +112,18 @@ class ImportData extends Command
                         if(!isset($user->id))
                             continue;
 
+                        $lastUser = $user;
+
                         if($dob == '0000-00-00')
                             $dob = '2000-1-1';
+
+                        $dob = explode('/', $dob);
+                        if(count($dob)>1)
+                        {
+                            $dob = $dob[2].'-'.$dob[0].'-'.$dob[1];
+                        }
+                        else
+                            $dob = implode("-", $dob);
 
                         $seeker = Seeker::create([
                             'user_id' => $user->id,
@@ -106,6 +137,7 @@ class ImportData extends Command
                             'industry_id' => $industry,
                             'objective' => $objective,
                             'country_id' => 1,
+                            'location_id' => 1,
                             'resume' => $resume_url,
                             'featured' => $featured,
                             'education' => $education,
@@ -125,6 +157,7 @@ class ImportData extends Command
                     }
                     fclose($handle);
                 }
+                $this->info(' '.$count_seekers_skipped.'  skipped');
                 $this->info('2/7 Job Seekers Import completed succesfully ['.$count_seekers.']');
                 $this->info('3/7 Importing Employers ');
 
@@ -135,6 +168,8 @@ class ImportData extends Command
                 if (($handle = fopen($file, "r")) !== FALSE) {
                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                         $row++;
+                        if($row<190)
+                            continue;
                         $company = $data[0];
                         $industry = $data[1];
                         $mobile = $data[2];
@@ -189,7 +224,7 @@ class ImportData extends Command
                             'location_id' => 1
                         ]);
 
-                        $this->info(' '.$count_employers.' '.$company.' Imported');
+                        $this->info(' '.$count_employers.' '.$company->name.' Imported');
                         $count_employers++;
                         // if($count_employers>9 && config('env') != 'production')
                         //     break;
