@@ -13,12 +13,47 @@ body {
     max-width: 100%;
 }
 
+.btn:focus {
+    outline: none;
+}
+
 a {
     color: inherit;
 }
 
-a:focus {
+a:focus, a:hover {
+    color: inherit;
     background: none;
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: 20px;
+    border: 2px solid;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    border-color: var(--secondary);
+    color: var(--secondary);
 }
 
 .navbar-default {
@@ -52,6 +87,12 @@ a.navbar-brand img {
     transition: 0.3s;
 }
 
+.dropdown img {
+    height: 30px;
+    padding: 0 10px 0 0;
+    margin: 0;
+}
+
 .hidden {
     display: none;
 }
@@ -60,6 +101,105 @@ a.navbar-brand img {
     color: white;
 }
 
+/* SIDEBAR */
+.sidebar {
+    background: var(--primary);
+    color: white;
+    position: fixed;
+    padding-top: 5em;
+    padding-left: 3em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    border-radius: 30px 0 0 30px;
+    padding: 1em 3em;
+}
+
+.sidebar a:hover {
+    background: #360066;
+    color: white;
+}
+
+.sidebar a:focus {
+    background-color: var(--secondary);
+    color: white;
+}
+
+/* END OF SIDEBAR */
+/* CARD */
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-column-gap: 2em;
+}
+
+.card-deck .card {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 2em;
+}
+
+.card-deck a:hover {
+    transform: scale(1.05);
+}
+
+/* END OF CARD */
+/* NAVTABS */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li>a:focus {
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.nav-tabs>li.active>a:hover, .nav-tabs>li>a:hover {
+    background-color: #360066;
+}
+
+/* .nav-tabs>li.active>a:focus, .nav-tabs>li>a:focus {
+    background-color: var(--primary);
+} */
+/* END OF NAVTABS */
+/* PANEL */
+.panel {
+    box-shadow: none;
+}
+
+.panel-default {
+    border: 0;
+}
+
+.panel-default>.panel-heading {
+    padding: 0;
+    background-color: inherit;
+    border-bottom: 1px solid white;
+}
+
+.panel-default>.panel-heading:hover {
+    border-bottom-color: grey;
+}
+
+.row.applicant-description {
+    display: flex;
+    align-items: center;
+    padding: 1em 0;
+    border-bottom: 1px solid grey;
+}
+
+.applicant-description img {
+    width: 90%;
+}
+
+.applicant-description ul {
+    list-style: none;
+}
+
+.applicant-description .dropdown-menu {
+    color: #333;
+}
+
+/* END OF PANEL */
 .go-mobile {
     display: none;
 }
@@ -109,6 +249,10 @@ a.navbar-brand img {
 
 .hidden-social {
     display: none;
+}
+
+.copy {
+    background: grey;
 }
 
 @media only screen and (max-width: 768px) {

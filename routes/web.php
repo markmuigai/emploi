@@ -39,7 +39,7 @@ Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
 
 Route::group([ 'middleware' => 'auth'], function(){
-    Route::get('profile', 'HomeController@profile');    
+    Route::get('profile', 'HomeController@profile');
     Route::get('profile/edit', 'HomeController@updateProfile');
     Route::post('profile/update', 'HomeController@saveProfile');
 });
@@ -49,12 +49,18 @@ Route::get('/create-account', function () {       return redirect('/join');    }
 
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
-    
+
 });
 Route::get('/employers/register', 'EmployerController@register');
 Route::post('/employers/register', 'EmployerController@create');
 
 //Route::get('/employers/publish', function () {			    	return view('employers.publish');		});
+
+// *************************
+Route::get('/employers/jobs', function () {    	return view('employers.dashboard.jobs');	});
+Route::get('/employers/applicants', function () {    	return view('employers.dashboard.applicants');	});
+// *************************
+
 Route::get('/employers/premium-recruitment', function () {    	return view('employers.p-recruitment');	});
 Route::get('/employers/candidate-vetting', function () {	    return view('employers.c-vetting');		});
 Route::get('/employers/hr-services', function () {		    	return view('employers.hr-services');	});
@@ -137,10 +143,3 @@ Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
     Route::get('enable-admin', 'SuperAdminController@enable');
     Route::get('disable-admin', 'SuperAdminController@disable');
 });
-
-
-
-
-
-
-
