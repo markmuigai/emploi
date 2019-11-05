@@ -149,13 +149,46 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<div class="col-md-3 team-member text-center">
 	        <img src="images/team/brian.png" class="img-responsive img-circle1" alt=""/>
 			<h5>Obare C. Brian</h5>
-			<h6>Chief Technology Obare</h6>
+			<h6>Chief Technology Officer</h6>
+			<a href="mailto:brian.obare@emploi.co"><i class="fa fa-facebook fa1"> </i></a>
+			<a href="https://www.twitter.com/chiefbrob/"><i class="fa fa-twitter fa1"> </i></a>
+			<a href="https://www.linkedin.com/in/chiefbrob/"><i class="fa fa-linkedin fa1"> </i></a>
+		</div>
+		<div class="col-md-3 team-member text-center">
+		    <img src="images/avatar.png" class="img-responsive img-circle1" alt=""/>
+			<h5>Millicent Kevore</h5>
+			<h6>Lead Recruitment Consultant</h6>
+			<a href="mailto:millicent.kevore@emploi.co"><i class="fa fa-envelope fa1"> </i></a>
+			<a href="https://www.linkedin.com/in/millicent-kevore-056512ab/"><i class="fa fa-linkedin fa1"> </i></a>
+		</div>
+		<div class="col-md-3 team-member text-center">
+		    <img src="images/avatar.png" class="img-responsive img-circle1" alt=""/>
+			<h5>Margaret Ongachi</h5>
+			<h6>Snr Strategist Client Relations</h6>
+			<a href="https://www.linkedin.com/in/margaret-ongachi-6713a0143/"><i class="fa fa-linkedin fa1"> </i></a>
+			<a href="mailto:margaret.ongachi@emploi.co"><i class="fa fa-envelope fa1"> </i></a>
+		</div>
+		<div class="col-md-3 team-member text-center">
+			<img src="images/avatar.png" class="img-responsive img-circle1" alt=""/>
+			<h5>Ernest Wanyonyi</h5>
+			<h6>Head Of Digital Marketting</h6>
+			<a href="mailto:ernest.wanyonyi@emploi.co"><i class="fa fa-envelope fa1"> </i></a>
+			<a href="https://www.linkedin.com/in/ernest-wanyonyi-042590194/"><i class="fa fa-linkedin fa1"> </i></a>
+			<a href="https://twitter.com/ernestwanyonyi9"><i class="fa fa-twitter fa1"> </i></a>
+
+		</div>
+		
+		<div class="col-md-3 team-member text-center">
+	        <img src="images/avatar.png" class="img-responsive img-circle1" alt=""/>
+			<h5>Felicity </h5>
+			<h6>Lead Recruitment Consultant</h6>
 			<a href="mailto:brian.obare@emploi.co"><i class="fa fa-facebook fa1"> </i></a>
 			<a href="https://www.twitter.com/chiefbrob/"><i class="fa fa-twitter fa1"> </i></a>
 			<a href="https://www.linkedin.com/in/chiefbrob/"><i class="fa fa-linkedin fa1"> </i></a>
 		</div>
 		<div class="clearfix"> </div>
 	</div>	
+
 </div>
 @include('components.statistics')
 @endsection
