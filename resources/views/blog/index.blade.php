@@ -11,10 +11,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container">
     <div class="single">  
-      <h2>Our Blog</h2>
+      <h2>
+      	Career Centre
+      </h2>
       <div class="row">
 		@forelse($blogs as $blog)
-			<div class="col-md-4 co-sm-6" style="padding: 0.5em; overflow: hidden;">
+			<div class="col-md-3 co-sm-4" style="padding: 0.5em; overflow: hidden;">
 				<a href="/blog/{{ $blog->slug }}">
 			   	  <img src="{{ asset($blog->imageUrl) }}" class="img-responsive" style="width: 100%" alt=""/>
 			   	  <h4>

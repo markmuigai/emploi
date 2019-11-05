@@ -293,13 +293,4 @@ class Seeker extends Model
         return $this->hasMany(SavedProfile::class);
     }
 
-    
-
-    // public function getSkills(){
-    //     $sql = "SELECT * FROM seeker_skills WHERE seeker_id=".$this->id;
-    //     return $sql;
-    //     dd(DB::select($sql));
-    //     return SeekerSkill::where('seeker_id',$this->id)->get();
-    //     return 0;
-    // }
 }
