@@ -29,11 +29,32 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        Industry::create([ 'name' => 'General', 'slug' => 'general' ]);
-        Industry::create([ 'name' => 'IT and Telecoms', 'slug' => 'it-and-telecoms' ]);
-        Industry::create([ 'name' => 'Sales', 'slug' => 'sales' ]);
-        Industry::create([ 'name' => 'Banking and Accounts', 'slug' => 'banking-and-accounts' ]);
-        Industry::create([ 'name' => 'Human Resource', 'slug' => 'human-resource' ]);
+        Industry::create([ 'name' => 'Office and Admin', 'slug' => 'admin' ]);
+        Industry::create([ 'name' => 'Farming & Agribusiness', 'slug' => 'farming' ]);
+        Industry::create([ 'name' => 'Accounting', 'slug' => 'accounting' ]);
+        Industry::create([ 'name' => 'Banking & Financial Services', 'slug' => 'banking' ]);
+        Industry::create([ 'name' => 'CEO & General Management', 'slug' => 'management' ]);
+        Industry::create([ 'name' => 'Engineering & Construction', 'slug' => 'engineering' ]);
+        Industry::create([ 'name' => 'Project / Programme Management', 'slug' => 'project-management' ]);
+        Industry::create([ 'name' => 'Creative & Design', 'slug' => 'creative-design' ]);
+        Industry::create([ 'name' => 'Customer Service & Call Centre', 'slug' => 'customer-service' ]);
+        Industry::create([ 'name' => 'Education & Training', 'slug' => 'education' ]);
+        Industry::create([ 'name' => 'Government', 'slug' => 'government' ]);
+        Industry::create([ 'name' => 'Human Resources', 'slug' => 'hr' ]);
+        Industry::create([ 'name' => 'IT & Telecoms', 'slug' => 'it-and-telecoms' ]);
+        Industry::create([ 'name' => 'Legal', 'slug' => 'legal' ]);
+        Industry::create([ 'name' => 'Transport & Logistics', 'slug' => 'transport' ]);
+        Industry::create([ 'name' => 'Manufacturing', 'slug' => 'manufacturing' ]);
+        Industry::create([ 'name' => 'Marketing, Media & Brand', 'slug' => 'marketing' ]);
+        Industry::create([ 'name' => 'Security', 'slug' => 'security' ]);
+        Industry::create([ 'name' => 'Healthcare & Pharmaceutical', 'slug' => 'healthcare' ]);
+        Industry::create([ 'name' => 'Strategy & Consulting', 'slug' => 'consulting' ]);
+        Industry::create([ 'name' => 'NGO, Community & Social Devt', 'slug' => 'ngo' ]);
+        Industry::create([ 'name' => 'Research, Science & Biotech', 'slug' => 'research' ]);
+        Industry::create([ 'name' => 'Hospitality, Tourism & Travel', 'slug' => 'hospitality' ]);
+        Industry::create([ 'name' => 'Insurance', 'slug' => 'insurance' ]);
+        Industry::create([ 'name' => 'Real Estate', 'slug' => 'real-estate' ]);
+
 
         Country::create([ 'name' => 'Kenya','code' => 'KE', 'prefix' => '254','currency' => 'KES' ]);
         Country::create([ 'name' => 'Uganda','code' => 'UG', 'prefix' => '256','currency' => 'UGX' ]);
