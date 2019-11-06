@@ -9,6 +9,7 @@
 	<meta name="description" content="@yield('description')" />
 	<meta name="csrf-token" content="{{ csrf_token() }}" id="csrf_token">
 	<link rel="icon" href="{{ asset('images/favicon.png') }}">
+	@laravelPWA
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
