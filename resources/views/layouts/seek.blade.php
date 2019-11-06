@@ -28,7 +28,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	@endif
 	<script src="{{ asset('js/custom.js') }}"></script>
-
+	<!-- ChartJS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
 	<!-- Custom Theme files -->
 	<link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css' />
 	<link href='//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -128,12 +129,8 @@
 							@guest
 
 							<li><a href="/blog">Register Profile</a></li>
-
 							@else
-
 							@endguest
-
-
 						</ul>
 					</li>
 					@endif
@@ -153,26 +150,23 @@
 							@endif
 							<li><a href="/logout">Logout</a></li>
 						</ul>
-
 					</li>
 					@else
 					<li><a href="/login">Login</a></li>
 					<li><a href="/join" style="color: #e88725; font-weight: bold">Register</a></li>
 					@endif
-
-
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 		<!--/.navbar-collapse-->
 	</nav>
+	<!-- Content -->
 	@yield('content')
+	<!-- Content -->
 	<div class="footer" style="display: none">
 		<div class="container ">
 			<div class="row">
-
-
 				<div class="col-md-4 grid_3">
 					<h4>Services</h4>
 					<ul class="f_list f_list1">
