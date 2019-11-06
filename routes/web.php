@@ -37,6 +37,7 @@ Route::post('/referees/{slug}/save', 'RefereeController@saveAssessment');
 
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
+Route::resource('/referrals', 'ReferralController');
 
 Route::group([ 'middleware' => 'auth'], function(){
     Route::get('profile', 'HomeController@profile');

@@ -24,6 +24,7 @@ use App\Personality;
 use App\Post;
 use App\PsychometricTest;
 use App\Referee;
+use App\Referral;
 use App\RsiWeight;
 use App\Seeker;
 use App\SeekerPreviousCompanySize;
@@ -69,7 +70,7 @@ class EmployerController extends Controller
             'password' => Hash::make($request->password),
     	]);
 
-        
+        Referral::creditFor($request->email);
 
     	$country = Country::findOrFail($request->country);
 

@@ -8,6 +8,7 @@ use Auth;
 
 use App\Jobs\EmailJob;
 
+use App\Referral;
 use App\Seeker;
 use App\User;
 use App\UserPermission;
@@ -45,6 +46,8 @@ class RegisterSimpleController extends Controller
         {
         	return view('seekers.register.failed');
         }
+
+        Referral::creditFor($request->email);
 
         $seeker = Seeker::create([
             'user_id' => $user->id,
