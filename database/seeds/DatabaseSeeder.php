@@ -18,6 +18,7 @@ use App\ModelSeekerSkill;
 use App\Permission;
 use App\Personality;
 use App\Post;
+use App\RsiWeight;
 use App\Seeker;
 use App\SeekerSkill;
 use App\Skill;
@@ -83,6 +84,26 @@ class DatabaseSeeder extends Seeder
         CompanySize::create([ 'lower_limit' => 100, 'upper_limit' => 299]);
         CompanySize::create([ 'lower_limit' => 300, 'upper_limit' => 999]);
         CompanySize::create([ 'lower_limit' => 1000, 'upper_limit' => 10000]);
+
+        RsiWeight::create([
+            'name' => 'Not Important',
+            'weight' => 10
+        ]);
+
+        RsiWeight::create([
+            'name' => 'Somewhat Important',
+            'weight' => 300
+        ]);
+
+        RsiWeight::create([
+            'name' => 'Important',
+            'weight' => 700
+        ]);
+
+        RsiWeight::create([
+            'name' => 'Very Important',
+            'weight' => 1000
+        ]);
 
         Skill::create([
             'name' => 'Leadership'
@@ -334,7 +355,8 @@ class DatabaseSeeder extends Seeder
 
         ModelSeekerSkill::create([
             'model_seeker_id' => 1,
-            'skill_id' => 1
+            'skill_id' => 1,
+            'weight' => 1
         ]);
 
         ModelSeekerSkill::create([
@@ -361,11 +383,13 @@ class DatabaseSeeder extends Seeder
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 2,
-            'skill_id' => 3
+            'skill_id' => 3,
+            'weight' => 2
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 2,
-            'skill_id' => 4
+            'skill_id' => 4,
+            'weight' => 3
         ]);
 
         $se3 = ModelSeeker::create([
@@ -387,11 +411,13 @@ class DatabaseSeeder extends Seeder
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 3,
-            'skill_id' => 5
+            'skill_id' => 5,
+            'weight' => 3
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 3,
-            'skill_id' => 6
+            'skill_id' => 6,
+            'weight' => 3
         ]);
 
         $ernest = User::create([

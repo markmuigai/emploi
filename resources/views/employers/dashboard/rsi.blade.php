@@ -35,49 +35,127 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    	By creating an RSI Model, you will be able to rank applicants according by comparing their education, experience, skills, inteview scores and much more. <a href="/employers/role-suitability-index" class="pull-right">learn more</a>
 		    </i>
 		    @else
-		    <div class="row" style="text-align: center; border-bottom: 0.1em solid black; padding: 0.5em 0">
+		    <div class="row" style="text-align: center; border: 0.1em solid #500095;  padding: 0.5em 0; border-radius: 5px">
 		    	<br>
-		    	<h6>Adjust Weights 
-		    			
+		    	<h4>Adjust Importance</h4>
+		    	<div class="col-md-4 col-xs-6">
+		    		<br>
+		    		<p>Education</p>
+		    		<select name="education_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->education_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    		
-		    	</h6>
-		    	<div class="col-md-4 col-xs-6">
-		    		Education <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="education_importance" class="form-control" value="{{ $post->modelSeeker->education_importance }}">
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Experience <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="experience_importance" class="form-control" value="{{ $post->modelSeeker->experience_importance }}" >
+		    		<br>
+		    		<p>Experience</p>
+		    		<select name="experience_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->experience_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Interview <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="interview_importance" class="form-control" value="{{ $post->modelSeeker->interview_importance }}">
+		    		<br>
+		    		<p>Interview</p>
+		    		<select name="interview_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->interview_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Skills <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="skills_importance" class="form-control" value="{{ $post->modelSeeker->skills_importance }}">
+		    		<br>
+		    		<p>Skills </p>
+		    		<select name="skills_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->skills_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Intellectual Quotent <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="iq_importance" class="form-control"  value="{{ $post->modelSeeker->iq_importance }}">
+		    		<br>
+		    		<p>Intellectual Quotent </p>
+		    		<select name="iq_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->iq_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Psychometric Test <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="psychometric_importance" class="form-control" value="{{ $post->modelSeeker->psychometric_importance }}">
+		    		<br>
+		    		<p>Psychometric Test </p>
+		    		<select name="psychometric_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->psychometric_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Personality <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="personality_importance" class="form-control" value="{{ $post->modelSeeker->personality_importance }}">
+		    		<br>
+		    		<p>Personality Profile</p>
+		    		<select name="personality_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->personality_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Company Size <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="company_size_importance" class="form-control" value="{{ $post->modelSeeker->company_size_importance }}">
+		    		<br>
+		    		<p>Previous Company Size </p>
+		    		<select name="company_size_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->company_size_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
-		    		Referee Feedback <br>
-		    		<input required="" type="number" min="0" max="1000" style="text-align: center" name="feedback_importance" class="form-control" value="{{ $post->modelSeeker->feedback_importance }}">
+		    		<br>
+		    		<p>Referee Feedback</p>
+		    		<select name="feedback_importance" class="form-control">
+		    			@foreach($weights as $w)
+		    			<option value="{{ $w->weight }}"
+		    				@if($post->modelSeeker->feedback_importance == $w->weight)
+		    				selected="selected"
+		    				@endif
+		    				>{{ $w->name }}</option>
+		    			@endforeach
+		    		</select>
 		    	</div>
-		    	
 		    </div>
 		    @endif
 
@@ -155,7 +233,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<p>
 				<label>Desired Experience Duration</label>
 				<select name="experience_duration" class="form-control">
-			    	@forelse([1,2,3,5,10,15,20,25] as $l)
+			    	@forelse([1,2,3,4,5,10,15,20,25] as $l)
 					<option value="{{ $l }}"
 						@if($post->hasModelSeeker())
 							@if($post->modelSeeker->experience_duration == $l)
@@ -252,8 +330,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					@forelse($post->modelSeeker->modelSeekerSkills as $mskill)
 					<div class="col-md-6 ms-skill" skill_id="{{ $mskill->skill->id }}">
 						<input type="hidden" name="skill_id[]" value="{{ $mskill->skill->id }}">
+						<input type="hidden" name="skill_weight[]" value="{{ $mskill->weight }}">
 						<p>
-							{{ $mskill->skill->name }}
+							<b>{{ $mskill->skill->name }}</b> || <i>{{ $mskill->weightName }}</i>
 							<span class="pull-right btn btn-sm btn-danger remove-skill" skill_id="{{ $mskill->skill->id }}">x</span>
 						</p>
 					</div>
@@ -269,6 +348,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 							@foreach($skills as $s)
 							<option value="{{ $s->id }}">{{ $s->name }}</option>
 							@endforeach
+						</select>
+						<select id="skill-weight" class="btn btn-sm">
+							<option value="3">Necessary</option>
+							<option value="2">Desired</option>
+							<option value="1">Bonus</option>
 						</select>
 						<span class="btn btn-success btn-sm" id="add-skill">Add</span>
 					</p>
@@ -295,6 +379,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
      <div class="clearfix"> </div>
  </div>
 </div>
+
 <script type="text/javascript">
 	<?php
 		$sk = '';
@@ -305,69 +390,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		$sk = '['.$sk.']';
 		echo 'var skills='.$sk.';';
 	?>
-	$().ready(function(){
-
-		$('#add-skill').click(function(){
-			var s = $('#select-skill').val();
-			if(s == -1)
-				return;
-			var added = false;
-			$('.ms-skill').each(function(){
-				if($(this).attr('skill_id') == s)
-					added = true;
-			});
-			if(!added)
-			{
-				var t = 'Skill Name';
-				for(var i=0; i<skills.length; i++)
-				{
-					if(skills[i][0] == s)
-					{
-						t = skills[i][1];
-						break;
-					}
-				}
-				var $s = ''+
-				'<div class="col-md-6 ms-skill" skill_id="'+s+'">'+
-					'<p>'+
-						t+
-						'<input type="hidden" name="skill_id[]" value="'+s+'">'+
-						'<span class="pull-right btn btn-sm btn-danger remove-new-skill" skill_id="'+s+'">x</span>'+
-					'</p>'+
-				'</div>';
-				$('.selected-skills').append($s);
-				$('.remove-new-skill').click(function(){
-				//var s = $(this).attr('skill_id');
-				$(this).parent().parent().remove();
-			});
-			}
-		});
-
-		$('.remove-skill').click(function(){
-			//var s = $(this).attr('skill_id');
-			$(this).parent().parent().remove();
-		});
-	});
+	
 </script>
-<script type="text/javascript">
-	rsi = new Vue({
-        el: '#rsi-container',
-        data: {
-        	education: false,
-        	experience: false,
-        	iq: false,
-        	interview: false,
-        	personalities: false,
-        	skills: false,
-        	psychometric: false,
-        	company_size: false
-        },
-        computed: {
-        	total(){
-        		return parseFloat(this.education) + parseFloat(this.experience) + parseFloat(this.iq) + parseFloat(this.interview) + parseFloat(this.personalities) + parseFloat(this.skills) + parseFloat(this.psychometric) + parseFloat(this.company_size);
-        	}
-        }
-    });
-</script>
+<script type="text/javascript" src="/js/rsi.js"></script>
 
 @endsection

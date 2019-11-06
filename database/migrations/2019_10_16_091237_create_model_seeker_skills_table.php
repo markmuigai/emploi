@@ -12,6 +12,7 @@ class CreateModelSeekerSkillsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('skill_id');
             $table->integer('model_seeker_id');
+            $table->integer('weight')->default(1);
             $table->timestamps();
         });
     }

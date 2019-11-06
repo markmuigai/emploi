@@ -97,13 +97,14 @@ class Seeker extends Model
     public function getRsi($post){
         $perc = 0;
 
-        //Edu 25%, Exp 35%, Interview 20%, iq 10%, psy 5%, personality 5%
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
             return $perc;
         $model = $post->modelSeeker;
 
+        //dd($model);
+
         $total = 
-            $model->education_level + 
+            $model->education_level_importance + 
             $model->experience_importance + 
             $model->skills_importance + 
             $model->personality_importance + 
@@ -113,29 +114,64 @@ class Seeker extends Model
             $model->company_size_importance +
             $model->feedback_importance;
 
+
+
         $application = JobApplication::where('user_id',$this->user->id)
                     ->where('post_id',$post->id)
                     ->first();
-        //return $total;
-        //dd($total);
 
-        $edu = $model->education_level == 0 ? 0 : $model->education_level / $total * 100;
-        $exp = $model->experience_importance == 0 ? 0 : $model->experience_importance / $total * 100;
-        $interview = $model->interview_importance == 0 ? 0 : $model->interview_importance / $total * 100;
-        $skil = $model->skills_importance == 0 ? 0 : $model->skills_importance / $total * 100;
-        //$reference = $model->personality_importance;
+        if($model->iq_test)
+        {
+            
+            $iq = $model->iq_importance == 0 ? 0 : $model->iq_importance / $total * 100;
+        }
+        else
+        {
+            $total -= $model->iq_importance;
+            $iq = 0;
+        }
+
+        if($model->interview)
+        {
+            
+            $interview = $model->interview_importance == 0 ? 0 : $model->interview_importance / $total * 100;
+        }
+        else
+        {
+            $total -= $model->interview_importance;
+            $interview = 0;
+        }
+            
+        if($model->psychometric)
+        {
+            
+            $psy = $model->psychometric_importance == 0 ? 0 : $model->psychometric_importance / $total * 100;
+        }
+        else
+        {
+            $total -= $model->psychometric_importance;
+            $psy = 0;
+        }
+            
+
         
-        $iq = $model->iq_importance == 0 ? 0 : $model->iq_importance / $total * 100;
-        $psy = $model->psychometric_importance == 0 ? 0 : $model->psychometric_importance / $total * 100;
+
+        $edu = $model->education_level_importance == 0 ? 0 : $model->education_level_importance / $total * 100;
+        $exp = $model->experience_importance == 0 ? 0 : $model->experience_importance / $total * 100;
+        $skil = $model->skills_importance == 0 ? 0 : $model->skills_importance / $total * 100;
         $pers = $model->personality_importance == 0 ? 0 : $model->personality_importance / $total * 100;
         $cosize = $model->company_size_importance == 0 ? 0 : $model->company_size_importance  / $total * 100;
         $ref = $model->feedback_importance == 0 ? 0 : $model->feedback_importance / $total * 100;
 
-        //return $edu + $exp + $interview + $skil + $iq + $psy + $pers + $cosize+ $ref;
+        //return $iq + $interview + $psy + $edu + $exp + $skil + $pers + $cosize + $ref;
+        
+        //return round($cosize,2);
 
-        //education
-        if($this->education_level_id == $model->education_level_id)
-            $perc += $edu * 0.5;
+        
+        if($this->industry_id != $model->industry_id)//education should match job industry
+            $perc += 0;
+        elseif($this->education_level_id == $model->education_level_id)
+            $perc += $edu * 0.8;
         elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
             $perc += $edu;
 
@@ -173,14 +209,17 @@ class Seeker extends Model
             }
         }
 
+
+
         if(count($model->modelSeekerSkills) > 0) //skills
         {
-            $skills_count = count($model->modelSeekerSkills);
+
+            $skills_count = $model->skillsWeight;
             $exist_skills = 0;
             for($i=0; $i<count($model->modelSeekerSkills); $i++)
             {
                 if($this->hasSkill($model->modelSeekerSkills[$i]->skill->id))
-                    $exist_skills ++;
+                    $exist_skills += $model->modelSeekerSkills[$i]->weight;
             }
 
             $perc+= $skil * $exist_skills / $skills_count;
@@ -196,15 +235,15 @@ class Seeker extends Model
             if(count($application->iqTests) > 0)
             {
                 if($application->iqScore > $model->iq_score)
-                    $perc += $interview;
+                    $perc += $iq;
                 elseif($application->iqScore == $model->iq_score)
-                    $perc += $interview * 0.8;
+                    $perc += $iq * 0.8;
                 else
-                    $perc += $interview * 0.4;
+                    $perc += $iq * 0.4;
             }
             else
             {
-                $perc += $interview;
+                $perc += $iq;
             }
         }
         
@@ -240,7 +279,7 @@ class Seeker extends Model
         //cosize
         //ref
 
-        return round($perc);
+        return round($perc,2);
     }
 
     public function hasCompletedProfile(){

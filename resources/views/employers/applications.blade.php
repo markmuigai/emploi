@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 							30 <span>Jul</span>
 					</div>
 					<h6 class="title">
-						<a href="#">{{ $a->user->name }}</a>
+						<a href="/employers/browse/{{ $a->user->username }}">{{ $a->user->name }}</a>
 						
 					</h6>
 					<span class="meta">{{ $a->user->seeker->location->name }}, 
@@ -39,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						</li>
 					</ul>
 					<p>{{ $a->user->seeker->industry->name }}
-						<a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">
+						<a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
 							<span style="float: right; color: #500095; font-weight: bold">RSI {{ $a->user->seeker->getRsi($post) }}%</span>
 						</a>
 					</p>
@@ -78,9 +78,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				        				<a href="/employers/shortlist-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-sm btn-link">Remove</a>
 				        				@endif 
 				        				<br>
-				        				RSI: 
+				        				RSI: <b> {{ $a->user->seeker->getRsi($post) }}% </b>
 				        				<a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">
-			                                <b>RSI {{ $a->user->seeker->getRsi($post) }}% </b>
+			                                view details
 			                            </a> 
 			                            <br>
 			                            Profile: <a href="/employers/browse/{{ $a->user->username }}" class="btn btn-sm btn-link" style=""><i class="fa fa-user"></i> View</a>

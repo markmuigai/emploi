@@ -18,7 +18,7 @@ class CreateSeekersTable extends Migration
             $table->string('phone_number',255)->nullable();
             $table->string('current_position',255)->nullable();
             $table->string('post_address',255)->nullable();
-            $table->string('years_experience',255)->nullable();
+            $table->integer('years_experience')->default(0);
             $table->integer('industry_id');
             $table->integer('country_id');
             $table->integer('location_id')->nullable();
