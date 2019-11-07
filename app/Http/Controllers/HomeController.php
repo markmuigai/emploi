@@ -207,7 +207,12 @@ class HomeController extends Controller
             abort(403);
         $referee = Referee::where('email',$request->email)->where('seeker_id',$user->seeker->id)->first();
         if(isset($referee->id))
-            die('Referee has already been added. <a href="/profile/add-referee">Add Referee</a>');
+        {
+            return view('referees.already-added')
+                    ->with('name',$request->name)
+                    ->with('email',$request->email);
+            //die('Referee has already been added. <a href="/profile/add-referee">Add Referee</a>');
+        }
         $r = Referee::create([
             'seeker_id' => $user->seeker->id,
             'name' => $request->name, 
@@ -233,6 +238,8 @@ class HomeController extends Controller
                 ";
         EmailJob::dispatch($r->name, $r->email, 'Provide Referee Assessment for '.$user->name, $caption, $contents);
 
+        return view('referees.added')
+                ->with('referee',$r);
         return 'Referee added succesfully';
 
         return $request->all();

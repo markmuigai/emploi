@@ -10,8 +10,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container">
     <div class="single">  
-       <div class="form-container">
-        <h2>Add Referee</h2>
+       <div class="form-container col-md-8">
+        <h3>Add Referee
+            <a href="/profile/referees" class="btn btn-success btn-sm pull-right">My Referees</a>
+        </h3>
+        <hr>
+        
         <form method="POST" action="/profile/add-referee">
             @csrf
             
@@ -105,6 +109,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     
                 
     </div>
+    <div class="col-md-4">
+          @include('left-bar')
+          
+     </div>
  </div>
 </div>
 

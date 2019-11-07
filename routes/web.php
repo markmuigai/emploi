@@ -141,6 +141,7 @@ Route::get('/employers/publish', function () {                return view('emplo
 Route::get('/vacancies/{slug}/apply','PostsController@apply')->middleware('seeker');
 Route::post('/vacancies/{slug}/apply','JobApplicationController@accept')->middleware('seeker');
 Route::get('/profile/applications/{id?}','SeekerController@applications')->middleware('seeker');
+Route::get('/profile/referees/{id?}','RefereeController@view')->middleware('seeker');
 //Route::get('/employers/publish', 'PostsController@create')->middleware('auth'); //create
 
 Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
