@@ -10,6 +10,7 @@ use App\Country;
 use App\EducationLevel;
 use App\Industry;
 use App\Location;
+use App\Parser;
 use App\Referee;
 use App\SeekerSkill;
 use App\Skill;
@@ -130,7 +131,10 @@ class HomeController extends Controller
                 if(isset($request->resume))
                 {
                     $storage_path = '/public/resumes';
-                    $seeker->resume = basename(Storage::put($storage_path, $request->resume));
+                    $resume_url = basename(Storage::put($storage_path, $request->resume));
+                    $seeker->resume = $resume_url;
+                    $parser = new Parser($resume_url);
+                    $seeker->resume_contents = $parser->convertToText();
                 }
 
                
