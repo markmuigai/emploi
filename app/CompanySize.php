@@ -13,4 +13,8 @@ class CompanySize extends Model
     public function companies(){
     	return $this->hasMany(Company::class);
     }
+
+    public function seekerPreviousCompanySizes(){
+    	return $this->hasMany(SeekerPreviousCompanySize::class);
+    }
 }

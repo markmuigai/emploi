@@ -25,6 +25,10 @@ class JobApplication extends Model
     	return $this->hasMany(InterviewResult::class);
     }
 
+    public function seekerPreviousCompanySizes(){
+        return $this->hasMany(SeekerPreviousCompanySize::class);
+    }
+
     public function getInterviewScoreAttribute(){
         $total = 0;
         $counter = 0;

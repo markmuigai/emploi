@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Country;
 use App\Industry;
 use App\Seeker;
+use App\Referral;
 use App\User;
 use App\UserPermission;
 
@@ -83,6 +84,8 @@ class RegisterController extends Controller
             'email_verification' => User::generateRandomString(10),
             'password' => Hash::make($data['password']),
         ]);
+
+        Referral::creditFor($data['email']);
 
         //$resume_url = Storage::putFile('avatars', $request->file('avatar'));
 

@@ -23,4 +23,13 @@ class ModelSeeker extends Model
     public function educationLevel(){
         return $this->belongsTo(EducationLevel::class,'education_level_id');
     }
+
+    public function getSkillsWeightAttribute(){
+        $total = 0;
+        if(count($this->modelSeekerSkills) == 0)
+            return $total;
+        foreach($this->modelSeekerSkills as $m)
+            $total += $m->weight;
+        return $total;
+    }
 }

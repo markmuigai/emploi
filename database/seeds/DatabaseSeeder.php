@@ -18,6 +18,7 @@ use App\ModelSeekerSkill;
 use App\Permission;
 use App\Personality;
 use App\Post;
+use App\RsiWeight;
 use App\Seeker;
 use App\SeekerSkill;
 use App\Skill;
@@ -29,11 +30,32 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        Industry::create([ 'name' => 'General', 'slug' => 'general' ]);
-        Industry::create([ 'name' => 'IT and Telecoms', 'slug' => 'it-and-telecoms' ]);
-        Industry::create([ 'name' => 'Sales', 'slug' => 'sales' ]);
-        Industry::create([ 'name' => 'Banking and Accounts', 'slug' => 'banking-and-accounts' ]);
-        Industry::create([ 'name' => 'Human Resource', 'slug' => 'human-resource' ]);
+        Industry::create([ 'name' => 'Office and Admin', 'slug' => 'admin' ]);
+        Industry::create([ 'name' => 'Farming & Agribusiness', 'slug' => 'farming' ]);
+        Industry::create([ 'name' => 'Accounting', 'slug' => 'accounting' ]);
+        Industry::create([ 'name' => 'Banking & Financial Services', 'slug' => 'banking' ]);
+        Industry::create([ 'name' => 'CEO & General Management', 'slug' => 'management' ]);
+        Industry::create([ 'name' => 'Engineering & Construction', 'slug' => 'engineering' ]);
+        Industry::create([ 'name' => 'Project / Programme Management', 'slug' => 'project-management' ]);
+        Industry::create([ 'name' => 'Creative & Design', 'slug' => 'creative-design' ]);
+        Industry::create([ 'name' => 'Customer Service & Call Centre', 'slug' => 'customer-service' ]);
+        Industry::create([ 'name' => 'Education & Training', 'slug' => 'education' ]);
+        Industry::create([ 'name' => 'Government', 'slug' => 'government' ]);
+        Industry::create([ 'name' => 'Human Resources', 'slug' => 'hr' ]);
+        Industry::create([ 'name' => 'IT & Telecoms', 'slug' => 'it-and-telecoms' ]);
+        Industry::create([ 'name' => 'Legal', 'slug' => 'legal' ]);
+        Industry::create([ 'name' => 'Transport & Logistics', 'slug' => 'transport' ]);
+        Industry::create([ 'name' => 'Manufacturing', 'slug' => 'manufacturing' ]);
+        Industry::create([ 'name' => 'Marketing, Media & Brand', 'slug' => 'marketing' ]);
+        Industry::create([ 'name' => 'Security', 'slug' => 'security' ]);
+        Industry::create([ 'name' => 'Healthcare & Pharmaceutical', 'slug' => 'healthcare' ]);
+        Industry::create([ 'name' => 'Strategy & Consulting', 'slug' => 'consulting' ]);
+        Industry::create([ 'name' => 'NGO, Community & Social Devt', 'slug' => 'ngo' ]);
+        Industry::create([ 'name' => 'Research, Science & Biotech', 'slug' => 'research' ]);
+        Industry::create([ 'name' => 'Hospitality, Tourism & Travel', 'slug' => 'hospitality' ]);
+        Industry::create([ 'name' => 'Insurance', 'slug' => 'insurance' ]);
+        Industry::create([ 'name' => 'Real Estate', 'slug' => 'real-estate' ]);
+
 
         Country::create([ 'name' => 'Kenya','code' => 'KE', 'prefix' => '254','currency' => 'KES' ]);
         Country::create([ 'name' => 'Uganda','code' => 'UG', 'prefix' => '256','currency' => 'UGX' ]);
@@ -62,6 +84,26 @@ class DatabaseSeeder extends Seeder
         CompanySize::create([ 'lower_limit' => 100, 'upper_limit' => 299]);
         CompanySize::create([ 'lower_limit' => 300, 'upper_limit' => 999]);
         CompanySize::create([ 'lower_limit' => 1000, 'upper_limit' => 10000]);
+
+        RsiWeight::create([
+            'name' => 'Not Important',
+            'weight' => 10
+        ]);
+
+        RsiWeight::create([
+            'name' => 'Somewhat Important',
+            'weight' => 300
+        ]);
+
+        RsiWeight::create([
+            'name' => 'Important',
+            'weight' => 700
+        ]);
+
+        RsiWeight::create([
+            'name' => 'Very Important',
+            'weight' => 1000
+        ]);
 
         Skill::create([
             'name' => 'Leadership'
@@ -313,7 +355,8 @@ class DatabaseSeeder extends Seeder
 
         ModelSeekerSkill::create([
             'model_seeker_id' => 1,
-            'skill_id' => 1
+            'skill_id' => 1,
+            'weight' => 1
         ]);
 
         ModelSeekerSkill::create([
@@ -340,11 +383,13 @@ class DatabaseSeeder extends Seeder
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 2,
-            'skill_id' => 3
+            'skill_id' => 3,
+            'weight' => 2
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 2,
-            'skill_id' => 4
+            'skill_id' => 4,
+            'weight' => 3
         ]);
 
         $se3 = ModelSeeker::create([
@@ -366,11 +411,13 @@ class DatabaseSeeder extends Seeder
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 3,
-            'skill_id' => 5
+            'skill_id' => 5,
+            'weight' => 3
         ]);
         ModelSeekerSkill::create([
             'model_seeker_id' => 3,
-            'skill_id' => 6
+            'skill_id' => 6,
+            'weight' => 3
         ]);
 
         $ernest = User::create([

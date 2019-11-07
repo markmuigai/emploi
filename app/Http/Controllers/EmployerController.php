@@ -24,7 +24,10 @@ use App\Personality;
 use App\Post;
 use App\PsychometricTest;
 use App\Referee;
+use App\Referral;
+use App\RsiWeight;
 use App\Seeker;
+use App\SeekerPreviousCompanySize;
 use App\SeekerPersonality;
 use App\Skill;
 use App\User;
@@ -67,7 +70,7 @@ class EmployerController extends Controller
             'password' => Hash::make($request->password),
     	]);
 
-        
+        Referral::creditFor($request->email);
 
     	$country = Country::findOrFail($request->country);
 
@@ -288,6 +291,7 @@ class EmployerController extends Controller
                     ->with('companySizes',CompanySize::all())
                     ->with('personalities',Personality::orderBy('name')->get())
                     ->with('skills',Skill::all())
+                    ->with('weights',RsiWeight::all())
                     ->with('post',$post);
         //return $request->all();
     }
@@ -323,6 +327,12 @@ class EmployerController extends Controller
 
             $m->save();
 
+            if(count($m->modelSeekerSkills) > 0)
+            {
+                foreach($m->modelSeekerSkills as $s)
+                    $s->delete();
+            }
+
             
         }
         else
@@ -345,18 +355,17 @@ class EmployerController extends Controller
 
             ]);
         }
-        if(count($m->modelSeekerSkills) > 0)
-        {
-            foreach($m->modelSeekerSkills as $s)
-                $s->delete();
-        }
+        
         if(count($request->skill_id) > 0 )
         {
+            $counter = 0;
             foreach ($request->skill_id as $e) {
                 ModelSeekerSkill::create([
                     'model_seeker_id' => $m->id,
-                    'skill_id' => $e
+                    'skill_id' => $e,
+                    'weight' => $request->skill_weight[$counter]
                 ]);
+                $counter ++;
             }
         }
         
@@ -632,5 +641,40 @@ class EmployerController extends Controller
         return redirect('/employers/applications/'.$app->post->slug.'/'.$app->id.'/rsi/referees');
     }
 
+    public function cosizes(Request $request, $slug, $applicationId){
+        $post = Post::where('slug',$slug)->firstOrFail();
+        $app = JobApplication::findOrFail($applicationId);
+        //return $app;
+        return view('employers.rsi.cosizes')
+                ->with('personalities',Personality::all())
+                ->with('sizes',CompanySize::all())
+                ->with('application',$app);
+    }
+
+    public function saveCosizes(Request $request, $slug, $applicationId){
+        $post = Post::where('slug',$slug)->firstOrFail();
+        $app = JobApplication::findOrFail($applicationId);
+        if(count($app->seekerPreviousCompanySizes) > 0)
+        {
+            foreach($app->seekerPreviousCompanySizes as $c)
+                $c->delete();
+        }
+        $i = 0;
+        foreach($request->company_name as $cname)
+        {
+            SeekerPreviousCompanySize::create([
+                'job_application_id' => $app->id,
+                'name' => $cname, 
+                'company_size_id' => $request->company_size[$i]
+            ]);
+            $i++;
+        }
+        //return $app;
+        //return $request->all();
+        return redirect('/employers/applications/'.$app->post->slug.'/'.$app->id.'/rsi/company-sizes');
+        return view('employers.rsi.cosizes')
+                ->with('personalities',Personality::all())
+                ->with('application',$app);
+    }
 
 }

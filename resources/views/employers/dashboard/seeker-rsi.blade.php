@@ -14,8 +14,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	   	 <p style="text-align: center;">
 	   	 	RSI - 
 	   	 	<a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a>
-	   	 	 | {{ $application->user->seeker->getRsi($application->post) }}% |
-	   	 	 <a href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/referees">Referees</a>
+	   	 	 | {{ $application->user->seeker->getRsi($application->post) }}%
+	   	 	 
 	   	 	</p>
 	     
           <div class="row" style="">
@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3" style="text-align: center;">
 						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
+							<div class="col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
 								Personality <br>
 								<a class="btn btn-sm btn-edit btn-link" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/personality">
 									@if(isset($application->seekerPersonality->id))
@@ -37,23 +37,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 									@endif
 								</a>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
+							<div class="col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
 								IQ Scores <br>
 								<a class="btn btn-sm btn-edit btn-link" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/iq">
 									{{ $application->iqScore }}%
 								</a>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
+							<div class="col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
 								Interview <br>
 								<a class="btn btn-sm btn-edit btn-link" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/interview">
 									{{ $application->interviewScore }}%
 								</a>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
+							<div class="col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
 								Psychometric <br>
 								<a class="btn btn-sm btn-edit btn-link" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/psychometric">
 									{{ $application->psychometricScore }}%
 								</a>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
+								Company Size <br>
+								<a class="btn btn-sm btn-edit btn-link" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/company-sizes">
+									@if(count($application->seekerPreviousCompanySizes) > 0)
+									{{ count($application->seekerPreviousCompanySizes) }} added
+									@else
+									- not set -
+									@endif
+								</a>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
+								Referees <br>
+								<a  class="btn btn-sm btn-edit btn-link"  href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/referees">Manage</a>
+
 							</div>
 							<br>
 							<p>

@@ -40,6 +40,23 @@ class User extends Authenticatable
         return $this->hasMany(Blog::class);
     }
 
+    public function credits(){
+        return $this->hasMany(Credit::class);
+    }
+
+    public function referrals(){
+        return $this->hasMany(Referral::class);
+    }
+
+    public function getTotalCreditsAttribute(){
+        $total = 0;
+        if(count($this->credits) == 0)
+            return 0;
+        foreach($this->credits as $c)
+            $total += $c->value;
+        return $total;
+    }
+
     public function getRoleAttribute(){
         $perm = $this->userPermission;
         if($perm->status == 'active')
