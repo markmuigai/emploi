@@ -44,6 +44,7 @@ class RefereeController extends Controller
     		}
     		else
     		{
+                return view('referees.already-assessed');
     			die('Assessment already submitted. <a href="/join">Register on Emploi</a>');
     		}
     	}
@@ -108,7 +109,23 @@ class RefereeController extends Controller
 	        EmailJob::dispatch($user->name, $user->email, 'Referee Assessment from '.$r->name.' Received', $caption, $contents);
     	}
     	
+        return view('referees.assessment-saved')
+                ->with('j',$j);
     	return $j;
     	return $request->all();
+    }
+
+    public function view(Request $request, $id=null)
+    {
+        $user = Auth::user();
+        if(!isset(Auth::user()->id) || Auth::user()->role != 'seeker')
+            abort(403);
+        if(is_null($id))
+        {
+            return view('referees.all')
+                    ->with('referees',$user->seeker->referees);
+        }
+        else
+            return view('referees.view');
     }
 }

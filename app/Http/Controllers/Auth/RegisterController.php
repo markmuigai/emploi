@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Country;
 use App\Industry;
+use App\Parser;
 use App\Seeker;
 use App\Referral;
 use App\User;
@@ -59,7 +60,7 @@ class RegisterController extends Controller
             'phone_number' => ['required', 'string', 'max:15'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'resume' => ['required','mimes:pdf,docx,pdf'],
+            'resume' => ['required','mimes:pdf,docx,doc'],
             'country' => ['required','integer'],
             'industry' => ['required','integer'],
             'prefix' => ['required','integer'],
@@ -77,6 +78,8 @@ class RegisterController extends Controller
         //$password = User::generateRandomString(10);
         $storage_path = '/public/resumes';
         $resume_url = basename(Storage::put($storage_path, $data['resume']));
+
+        $parser = new Parser($resume_url);
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -89,6 +92,7 @@ class RegisterController extends Controller
 
         //$resume_url = Storage::putFile('avatars', $request->file('avatar'));
 
+
         $country = Country::findOrFail($data['prefix']);
 
         $seeker = Seeker::create([
@@ -98,7 +102,8 @@ class RegisterController extends Controller
             'phone_number' => $country->prefix.$data['phone_number'],
             'country_id' => $data['country'],
             'industry_id' => $data['industry'],
-            'resume' => $resume_url
+            'resume' => $resume_url,
+            'resume_contents' => $parser->convertToText()
         ]);
 
         $perm = UserPermission::create([

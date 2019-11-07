@@ -47,6 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	            Other
 	            @endif <br>
 	            <a href="/profile/edit" class="btn btn-link"> edit</a>
+	            <a href="/profile/referees" class="btn btn-success"> referees</a>
 		</small>
 	</div>
 	<div class="col-md-6 col-md-offset-1 col-xs-8" style="text-align: center;">

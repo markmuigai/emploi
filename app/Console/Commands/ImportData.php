@@ -8,6 +8,7 @@ use Storage;
 use App\Company;
 use App\CvRequest;
 use App\Employer;
+use App\Parser;
 use App\SavedProfile;
 use App\Seeker;
 use App\User;
@@ -150,6 +151,9 @@ class ImportData extends Command
                         $to_path = storage_path().'/app/public/resumes/'.$resume_url;
                         copy($resume, $to_path );
                         $this->info(' '.$count_seekers.' '.$name.' Imported');
+
+                        $parser = new Parser($resume_url);
+                        $seeker->resume_contents = $parser->convertToText();
                         
                         $count_seekers++;
                         // if($count_seekers>1 && config('env') != 'production')

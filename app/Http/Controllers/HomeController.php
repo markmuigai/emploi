@@ -10,6 +10,7 @@ use App\Country;
 use App\EducationLevel;
 use App\Industry;
 use App\Location;
+use App\Parser;
 use App\Referee;
 use App\SeekerSkill;
 use App\Skill;
@@ -130,7 +131,10 @@ class HomeController extends Controller
                 if(isset($request->resume))
                 {
                     $storage_path = '/public/resumes';
-                    $seeker->resume = basename(Storage::put($storage_path, $request->resume));
+                    $resume_url = basename(Storage::put($storage_path, $request->resume));
+                    $seeker->resume = $resume_url;
+                    $parser = new Parser($resume_url);
+                    $seeker->resume_contents = $parser->convertToText();
                 }
 
                
@@ -203,7 +207,12 @@ class HomeController extends Controller
             abort(403);
         $referee = Referee::where('email',$request->email)->where('seeker_id',$user->seeker->id)->first();
         if(isset($referee->id))
-            die('Referee has already been added. <a href="/profile/add-referee">Add Referee</a>');
+        {
+            return view('referees.already-added')
+                    ->with('name',$request->name)
+                    ->with('email',$request->email);
+            //die('Referee has already been added. <a href="/profile/add-referee">Add Referee</a>');
+        }
         $r = Referee::create([
             'seeker_id' => $user->seeker->id,
             'name' => $request->name, 
@@ -229,6 +238,8 @@ class HomeController extends Controller
                 ";
         EmailJob::dispatch($r->name, $r->email, 'Provide Referee Assessment for '.$user->name, $caption, $contents);
 
+        return view('referees.added')
+                ->with('referee',$r);
         return 'Referee added succesfully';
 
         return $request->all();
