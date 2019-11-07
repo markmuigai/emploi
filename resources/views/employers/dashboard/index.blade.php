@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-sidebar')
+@extends('layouts.general-layout')
 
 @section('title','Emploi :: Dashboard')
 
@@ -8,28 +8,59 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
+
+<h1 class="py-2">Dashboard</h1>
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body">
+            <h1>186</h1>
+            <p>Candidates viewed your profile</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1>35</h1>
+            <p>Job views</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h1>14</h1>
+            <p>Search appearances</p>
+        </div>
+    </div>
+</div>
+<div class="card mt-4">
+    <div class="card-body">
+        <canvas id="myChart" width="400" height="150"></canvas>
+    </div>
+</div>
+<div class="row mt-4 recents">
+    <div class="col-12 col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h6>Recent Applications</h6>
+                <ul>
+                    <li><a href="#">John Doe</a> has applied for the <a href="#">Web and Graphics</a> job.</li>
+                    <li><a href="#">Jane Doe</a> has completed the <a href="#">General Test</a>.</li>
+                    <li><a href="#">A person</a> has applied for <a href="#">Software Developer</a> job.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h6>Recent Profile Visits</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-12">
             <div class="single">
-                <h2>Dashboard</h2>
-                <div class="card-deck">
-                    <a href="#" class="card">
-                        <h1>100</h1>
-                        <p>Candidate Applications</p>
-                    </a>
-                    <a href="#" class="card">
-                        <h1>53</h1>
-                        <p>Shortlisted Candidates</p>
-                    </a>
-                    <a href="#" class="card">
-                        <h1>Engineer</h1>
-                        <p>Highest Applied Job</p>
-                    </a>
-                </div>
-                <div class="card">
-                    <canvas id="myChart" width="400" height="150"></canvas>
-                </div>
                 <div class="box_1" style="margin-bottom: 1em; border-bottom: 0.1em solid black">
                     <h3>Dashboard
                         <a class="btn btn-sm btn-success pull-right" href="/contact" target="_blank">
