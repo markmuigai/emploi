@@ -541,53 +541,53 @@ class DatabaseSeeder extends Seeder
         ]);
 
         SeekerSkill::create([
-            'seeker_id' => $ernest->id,
+            'seeker_id' => 1,
             'skill_id' => 1
         ]);
         SeekerSkill::create([
-            'seeker_id' => $ernest->id,
+            'seeker_id' => 1,
             'skill_id' => 2
         ]);
         SeekerSkill::create([
-            'seeker_id' => $ernest->id,
+            'seeker_id' => 1,
             'skill_id' => 3
         ]);
         SeekerSkill::create([
-            'seeker_id' => $ernest->id,
+            'seeker_id' => 1,
             'skill_id' => 4
         ]);
 
         SeekerSkill::create([
-            'seeker_id' => $sally->id,
+            'seeker_id' => 2,
             'skill_id' => 1
         ]);
         SeekerSkill::create([
-            'seeker_id' => $sally->id,
+            'seeker_id' => 2,
             'skill_id' => 3
         ]);
         SeekerSkill::create([
-            'seeker_id' => $sally->id,
+            'seeker_id' => 2,
             'skill_id' => 5
         ]);
         SeekerSkill::create([
-            'seeker_id' => $sally->id,
+            'seeker_id' => 2,
             'skill_id' => 7
         ]);
 
         SeekerSkill::create([
-            'seeker_id' => $liza->id,
+            'seeker_id' => 3,
             'skill_id' => 3
         ]);
         SeekerSkill::create([
-            'seeker_id' => $liza->id,
+            'seeker_id' => 3,
             'skill_id' => 4
         ]);
         SeekerSkill::create([
-            'seeker_id' => $liza->id,
+            'seeker_id' => 3,
             'skill_id' => 5
         ]);
         SeekerSkill::create([
-            'seeker_id' => $liza->id,
+            'seeker_id' => 3,
             'skill_id' => 2
         ]);
 

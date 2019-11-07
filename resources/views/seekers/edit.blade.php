@@ -26,7 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h3 style="text-align: center;">Step 1 of 3 : Personal Details</h3>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="fullName">Full Name</label>
+                        <label class="col-md-3 control-lable" for="fullName">Full Name *</label>
                         <div class="col-md-9">
                             <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control input-sm" maxlength="50" value="{{ $user->name }}" />
                         </div>
@@ -34,7 +34,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="public_name">Public Name</label>
+                        <label class="col-md-3 control-lable" for="public_name">Public Name *</label>
                         <div class="col-md-9">
                             <input type="text" required="" value="{{ $user->seeker->public_name }}" name="public_name" id="public_name" class="form-control input-sm" maxlength="50" />
                         </div>
@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="username">Username</label>
+                        <label class="col-md-3 control-lable" for="username">Username *</label>
                         <div class="col-md-9">
                             <input type="text" required="" value="{{ $user->username }}" name="username" id="username" class="form-control input-sm" maxlength="50" />
                         </div>
@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="phone_number">Phone Number</label>
+                        <label class="col-md-3 control-lable" for="phone_number">Phone Number *</label>
                         <div class="col-md-9 row">
                             
                             <input type="number" required="" path="phone_number" value="{{ $user->seeker->phone_number }}" name="phone_number" id="phone_number" class="form-control input-sm col-md-10" style="" placeholder="254712312313" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "15"/>
@@ -84,7 +84,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="email">Email</label>
+                        <label class="col-md-3 control-lable" for="email">Email *</label>
                         <div class="col-md-9">
                             <input type="email" required="" value="{{ $user->email }}" disabled="" path="email" id="email" class="form-control input-sm" maxlength="50" />
                         </div>
@@ -92,7 +92,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="country">Country</label>
+                        <label class="col-md-3 control-lable" for="country">Country *</label>
                         <div class="col-md-9">
                             <select path="country" id="country" name="country" class="form-control input-sm">
                                 @foreach($countries as $c)
@@ -128,7 +128,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="date_of_birth">Date of Birth</label>
+                        <label class="col-md-3 control-lable" for="date_of_birth">Date of Birth *</label>
                         <div class="col-md-9">
                             <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" value="{{ $user->seeker->date_of_birth }}">
                             
@@ -137,7 +137,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="post_address">Address</label>
+                        <label class="col-md-3 control-lable" for="post_address">Address *</label>
                         <div class="col-md-9">
                             <textarea class="form-control" name="post_address" id="address" rows="2">{{ $user->seeker->post_address }}</textarea>
                             
@@ -164,7 +164,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h3 style="text-align: center;">Step 2 of 3 : Education and Skills</h3>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="education_level_id">Highest Education</label>
+                        <label class="col-md-3 control-lable" for="education_level_id">Highest Education *</label>
                         <div class="col-md-9">
                             <select id="education_level_id" name="education_level_id" class="form-control input-sm">
                                 @foreach($educationLevels as $e)
@@ -183,7 +183,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <hr><hr>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="education_records">Education Records</label>
+                        <label class="col-md-3 control-lable" for="education_records">Education Records *</label>
                         <div class="col-md-9 row" id="education_records">
                             <?php $edu_counter = 100; ?>
                             @forelse($user->seeker->education() as $edu)
@@ -225,7 +225,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <hr><hr>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="education_level_id">My Skills</label>
+                        <label class="col-md-3 control-lable" for="education_level_id">My Skills *</label>
                         <div class="col-md-9 row">
                             <div id="skills-pool">
                                 @forelse($user->seeker->skills as $s)
@@ -265,7 +265,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h3 style="text-align: center;">Step 3 of 3 : Employment</h3>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="industry">Industry</label>
+                        <label class="col-md-3 control-lable" for="industry">Industry *</label>
                         <div class="col-md-9">
                             <select path="industry" id="industry" name="industry" class="form-control input-sm">
                                 @foreach($industries as $c)
@@ -283,7 +283,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="resume">Industry Experience (years)</label>
+                        <label class="col-md-3 control-lable" for="resume">Industry Experience (in years) *</label>
                         <div class="col-md-9">
                             <input type="number" name="years_experience" value="{{ $user->seeker->years_experience }}" required="" class="form-control" />
                         </div>
@@ -291,9 +291,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                  </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="resume">Attach Resume</label>
+                        <label class="col-md-3 control-lable" for="resume">{{ isset($user->seeker->resume) ? 'Update Resume' : 'Attach Resume *'  }}</label>
                         <div class="col-md-9">
-                            <input type="file" path="resume" name="resume" id="resume" class="btn btn-sm" accept=".doc, .docx,.pdf"/>
+                            <input type="file" path="resume" name="resume" {{ isset($user->seeker->resume) ? '' : 'required=""'  }} id="resume" class="btn btn-sm" accept=".doc, .docx,.pdf"/>
                         </div>
                     </div>
                  </div>
@@ -323,7 +323,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <hr><hr>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="">Work Experience</label>
+                        <label class="col-md-3 control-lable" for="">Work Experience *</label>
                         <div class="col-md-9 row" id="employment_records">
                             <?php $exp=100;?>
                             @forelse($user->seeker->experience() as $emp)
