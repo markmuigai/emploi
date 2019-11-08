@@ -27,4 +27,16 @@ class Referee extends Model
     public function seekerJobs(){
         return $this->hasMany(SeekerJob::class);
     }
+
+    public function seekerPersonalityTraits(){
+        return $this->hasMany(SeekerPersonalityTrait::class);
+    }
+
+    public function otherSeekerSkills(){
+        return $this->hasMany(OtherSeekerSkill::class);
+    }
+
+    public function seekerIndustrySkills(){
+        return $this->hasMany(SeekerIndustrySkill::class);
+    }
 }

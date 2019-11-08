@@ -13,4 +13,8 @@ class IndustrySkill extends Model
     public function industry(){
     	return $this->belongsTo(Industry::class);
     }
+
+    public function seekerIndustrySkills(){
+        return $this->hasMany(SeekerIndustrySkill::class);
+    }
 }

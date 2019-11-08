@@ -67,6 +67,18 @@ class Seeker extends Model
         return $this->hasMany(Candidate::class);
     }
 
+    public function seekerPersonalityTraits(){
+        return $this->hasMany(SeekerPersonalityTrait::class);
+    }
+
+    public function seekerIndustrySkills(){
+        return $this->hasMany(SeekerIndustrySkill::class);
+    }
+
+    public function otherSeekerSkills(){
+        return $this->hasMany(OtherSeekerSkill::class);
+    }
+
     public function matchSeeker($user){
         //return 'asa';
         if($user->role == 'employer' || $user->role == 'admin')

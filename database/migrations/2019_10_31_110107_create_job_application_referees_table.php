@@ -12,19 +12,13 @@ class CreateJobApplicationRefereesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('seeker_id');
             $table->integer('referee_id');
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            $table->string('job_title',50);
-            $table->text('responsibilities');
-            $table->string('relationship',50);
             $table->string('reason_for_leaving',500);
-            $table->integer('performance'); //0-100
-            $table->text('strengths');
-            $table->text('weaknesses');
+            $table->text('strengths')->nullable();
+            $table->text('weaknesses')->nullable();
             $table->text('discplinary_cases');
             $table->integer('professionalism'); //0-100
-            $table->integer('would_you_rehire'); //0-100
-            $table->text('comments');
+            $table->string('would_you_rehire'); //0-100
+            $table->text('comments')->nullable();
             $table->string('status',50)->default('active');
             $table->timestamps();
         });

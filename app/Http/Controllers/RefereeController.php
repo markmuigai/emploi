@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\IndustrySkill;
 use App\JobApplicationReferee;
+use App\OtherSeekerSkill;
+use App\PersonalityTrait;
 use App\Referee;
+use App\SeekerIndustrySkill;
+use App\SeekerJob;
+use App\SeekerPersonalityTrait;
 
 use Auth;
 use App\Jobs\EmailJob;
@@ -28,12 +34,16 @@ class RefereeController extends Controller
     		}
     		
     	}
+        //dd($r->seeker->industry->industrySkills);
     	return view('referees.assess')
+                ->with('skills',$r->seeker->industry->industrySkills)
+                ->with('personalities',PersonalityTrait::orderBy('name')->get())
     			->with('referee',$r);
     	return $slug;
     }
 
     public function saveAssessment(Request $request, $slug){
+
     	$r = Referee::where('slug',$slug)->firstOrFail();
     	$user = Auth::user();
     	if($r->status != 'pending-details')
@@ -48,13 +58,11 @@ class RefereeController extends Controller
     			die('Assessment already submitted. <a href="/join">Register on Emploi</a>');
     		}
     	}
+        //return $request->all();
     	if($r->ready)
     	{
     		$j = $r->jobApplicationReferee;
     		$j->start_date = $request->start_date;
-    		$j->end_date = $request->end_date;
-    		$j->job_title = $request->job_title;
-    		$j->responsibilities = $request->responsibilities;
     		$j->relationship = $request->relationship;
     		$j->reason_for_leaving = $request->reason_for_leaving;
     		$j->performance = $request->performance;
@@ -71,20 +79,81 @@ class RefereeController extends Controller
     		$j = JobApplicationReferee::create([
 	    		'seeker_id' => $r->seeker_id,
 	    		'referee_id' => $r->id,
-	    		'start_date' => $request->start_date,
-	    		'end_date' => $request->end_date,
-	    		'job_title' => $request->job_title,
-	    		'responsibilities' => $request->responsibilities,
-	    		'relationship' => $request->relationship,
 	    		'reason_for_leaving' => $request->reason_for_leaving,
 	    		'performance' => $request->performance,
 	    		'strengths' => $request->strengths,
 	    		'weaknesses' => $request->weaknesses,
 	    		'discplinary_cases' => $request->discplinary_cases,
 	    		'professionalism' => $request->professionalism,
-	    		'would_you_rehire' => $request->would_you_rehire,
+	    		'would_you_rehire' => $request->rehire,
 	    		'comments' => $request->comments
 	    	]);
+
+            $r->position_held = $request->position;
+            $r->relationship = $request->relationship;
+
+            for($i=0; $i<count($r->seekerJobs); $i++)
+            {
+                $r->seekerJobs[$i]->delete();
+            }
+
+            for($i=0; $i<count($request->job_title); $i++)
+            {
+                SeekerJob::create([
+                    'seeker_id' => $r->seeker->id, 
+                    'referee_id' => $r->id, 
+                    'job_title' => $request->job_title[$i], 
+                    'start_date' => $request->start_date[$i],
+                    'end_date' => $request->end_date[$i],
+                    'work_performance' => $request->performance[$i],
+                    'work_quality' => $request->work_quality[$i],
+
+                ]);
+            }
+
+            if(isset($request->industry_skill_id))
+            {
+                for($i=0; $i<count($request->industry_skill_id); $i++)
+                {
+                    SeekerIndustrySkill::create([
+                        'industry_skill_id' => $request->industry_skill_id[$i],
+                         'seeker_id' => $r->seeker->id,
+                         'referee_id' => $r->id,
+                         'weight' => $request->industry_skill_weight[$i]
+                    ]);
+                }
+            }
+
+            
+            if(isset($request->skillName))
+            {
+                for($i=0; $i<count($request->skillName); $i++)
+                {
+                    OtherSeekerSkill::create([
+                        'seeker_id' => $r->seeker->id, 
+                        'referee_id' => $r->id, 
+                        'name' => $request->skillName[$i]
+                    ]);
+                }
+            }
+            
+            if(isset($request->personality_id))
+            {
+                for($i=0; $i<count($request->personality_id); $i++)
+                {
+                    SeekerPersonalityTrait::create([
+                        'seeker_id' => $r->seeker->id, 
+                        'referee_id' => $r->id, 
+                        'personality_trait_id' => $request->personality_id[$i],
+                        'weight' => $request->personality_weight[$i]
+                    ]);
+                }
+            }
+
+            
+
+            
+
 
 	    	$r->status = 'ready';
 	    	$r->save();
