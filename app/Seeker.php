@@ -291,10 +291,10 @@ class Seeker extends Model
             return false;
         if( is_null($this->education_level_id) )
             return false;
-        // if( is_null($this->education) )
-        //     return false;
-        // if( is_null($this->experience) )
-        //     return false;
+        if( is_null($this->education) )
+            return false;
+        if( is_null($this->experience) )
+            return false;
         return true;
     }
 
@@ -330,6 +330,10 @@ class Seeker extends Model
 
     public function savedProfiles(){
         return $this->hasMany(SavedProfile::class);
+    }
+
+    public function seekerJobs(){
+        return $this->hasMany(SeekerJob::class);
     }
 
 }

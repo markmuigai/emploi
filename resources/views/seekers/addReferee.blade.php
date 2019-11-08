@@ -68,23 +68,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
             <hr>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" >My Position at Organization</label>
-                    <div class="col-md-9">
-                        <input type="text" required="" placeholder="" name="seeker_job_title" class="form-control input-sm" maxlength="50" value="" />
-                    </div>
-                </div>
+            <h4>Positions at Organization</h4>
+            <div id="positions-at-org">
+
+                
+                
+                
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" >My Responsibilities</label>
-                    <div class="col-md-9">
-                        <textarea class="form-control" rows="4" name="responsibilities" required="" placeholder="State your duties"></textarea>
-                        
-                    </div>
-                </div>
-            </div>
+            <p style="text-align: center;">
+                <br>
+                <span class="btn btn-primary btn-sm" id="add-position">Add Position</span>
+                <br>
+                <hr>
+            </p>
 
             <div style="text-align: center;">
                 <br>
@@ -115,5 +111,46 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
      </div>
  </div>
 </div>
+<script type="text/javascript">
+    $().ready(function(){
+        addPosition();
+        function addPosition(){
+            $pos = ''+
+            '<div class="position-at-org">'+
+                '<div class="row">'+
+                    '<div class="form-group col-md-12">'+
+                        '<label class="col-md-3 control-lable" >Job Title </label>'+
+                        '<div class="col-md-9">'+
+                            '<input type="text" required="" placeholder="" name="job_title[]" class="form-control input-sm" maxlength="50" value="" />'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+                '<div class="row">'+
+                    '<div class="form-group col-md-6 col-xs-6">'+
+                        '<label class="col-md-3 control-lable" >Start Date </label>'+
+                        '<div class="col-md-9">'+
+                            '<input type="date" required="" placeholder="" name="start_date[]" class="form-control input-sm" maxlength="50" value="" />'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="form-group col-md-6 col-xs-6">'+
+                        '<label class="col-md-3 control-lable" >End Date </label>'+
+                        '<div class="col-md-9">'+
+                            '<input type="date" required="" placeholder="" name="end_date[]" class="form-control input-sm" maxlength="50" value="" />'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+                '<br><span class="btn btn-sm btn-danger pull-right remove-position">remove this position</span><br> <hr>'+
+            '</div>';
+            $('#positions-at-org').append($pos);
+            $('.remove-position').click(function(){
+                if($('.position-at-org').length > 1)
+                    $(this).parent().remove();
+            });
+        }
+        $('#add-position').click(function(){
+            addPosition();
+        });
+    });
+</script>
 
 @endsection

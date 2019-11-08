@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3" style="text-align: center;">
 						Hi {{ Auth::user()->name }},<br><br>
-						Your profile has not been updated. Please edit your profile and include experience and education background first before applying for jobs.
+						Your profile has not been updated. Please edit your profile and include experience and education background first before applying for jobs or adding referees.
 						 <br><br>
 						<a href="#" class="btn btn-danger" onclick="window.history.back()">Back</a>
 						<a href="/profile/edit" class="btn btn-success">Edit Profile</a>

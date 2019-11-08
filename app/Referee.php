@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Referee extends Model
 {
     protected $fillable = [
-        'seeker_id','name', 'email', 'phone_number','organization','position_held','relationship','slug','seeker_job_title','responsibilities','status'
+        'seeker_id','name', 'email', 'phone_number','organization','position_held','relationship','slug','status'
     ];
 
     public function seeker(){
@@ -22,5 +22,9 @@ class Referee extends Model
     	if(isset($this->jobApplicationReferee->id))
     		return true;
     	return false;
+    }
+
+    public function seekerJobs(){
+        return $this->hasMany(SeekerJob::class);
     }
 }

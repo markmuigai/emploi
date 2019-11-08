@@ -10,6 +10,7 @@ use App\Country;
 use App\EducationLevel;
 use App\Employer;
 use App\Industry;
+use App\IndustrySkill;
 use App\JobApplication;
 use App\Jurisdiction;
 use App\Location;
@@ -17,11 +18,13 @@ use App\ModelSeeker;
 use App\ModelSeekerSkill;
 use App\Permission;
 use App\Personality;
+use App\PersonalityTrait;
 use App\Post;
 use App\RsiWeight;
 use App\Seeker;
 use App\SeekerSkill;
 use App\Skill;
+use App\SoftSkill;
 use App\User;
 use App\UserPermission;
 use App\VacancyType;
@@ -31,31 +34,425 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Industry::create([ 'name' => 'Office and Admin', 'slug' => 'admin' ]);
-        Industry::create([ 'name' => 'Farming & Agribusiness', 'slug' => 'farming' ]);
-        Industry::create([ 'name' => 'Accounting', 'slug' => 'accounting' ]);
-        Industry::create([ 'name' => 'Banking & Financial Services', 'slug' => 'banking' ]);
-        Industry::create([ 'name' => 'CEO & General Management', 'slug' => 'management' ]);
-        Industry::create([ 'name' => 'Engineering & Construction', 'slug' => 'engineering' ]);
-        Industry::create([ 'name' => 'Project / Programme Management', 'slug' => 'project-management' ]);
-        Industry::create([ 'name' => 'Creative & Design', 'slug' => 'creative-design' ]);
-        Industry::create([ 'name' => 'Customer Service & Call Centre', 'slug' => 'customer-service' ]);
-        Industry::create([ 'name' => 'Education & Training', 'slug' => 'education' ]);
-        Industry::create([ 'name' => 'Government', 'slug' => 'government' ]);
-        Industry::create([ 'name' => 'Human Resources', 'slug' => 'hr' ]);
-        Industry::create([ 'name' => 'IT & Telecoms', 'slug' => 'it-and-telecoms' ]);
-        Industry::create([ 'name' => 'Legal', 'slug' => 'legal' ]);
-        Industry::create([ 'name' => 'Transport & Logistics', 'slug' => 'transport' ]);
-        Industry::create([ 'name' => 'Manufacturing', 'slug' => 'manufacturing' ]);
-        Industry::create([ 'name' => 'Marketing, Media & Brand', 'slug' => 'marketing' ]);
-        Industry::create([ 'name' => 'Security', 'slug' => 'security' ]);
-        Industry::create([ 'name' => 'Healthcare & Pharmaceutical', 'slug' => 'healthcare' ]);
-        Industry::create([ 'name' => 'Strategy & Consulting', 'slug' => 'consulting' ]);
-        Industry::create([ 'name' => 'NGO, Community & Social Devt', 'slug' => 'ngo' ]);
-        Industry::create([ 'name' => 'Research, Science & Biotech', 'slug' => 'research' ]);
-        Industry::create([ 'name' => 'Hospitality, Tourism & Travel', 'slug' => 'hospitality' ]);
-        Industry::create([ 'name' => 'Insurance', 'slug' => 'insurance' ]);
-        Industry::create([ 'name' => 'Real Estate', 'slug' => 'real-estate' ]);
+            IndustrySkill::create([ 'name' => 'Customer centric', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Ownership and Commitment', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Organizational skills', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Planning skills', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Team player', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Stakeholder management', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Proficiency in Microsoft Office', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Office policy implementation', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Creating agendas', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Minute taking', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Managing front office', 'industry_id' => 1 ]);
+            IndustrySkill::create([ 'name' => 'Documentation', 'industry_id' => 1 ]);
 
+        Industry::create([ 'name' => 'Farming & Agribusiness', 'slug' => 'farming' ]);
+            IndustrySkill::create([ 'name' => 'Management skills', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Training skills', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Budgeting', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Mareket research', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Monitoring commercial flow', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Developing farm units', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Contolling farm assets', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Implementation of projects', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Report writing', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Quality control', 'industry_id' => 2  ]);
+            IndustrySkill::create([ 'name' => 'Grant mangement', 'industry_id' => 2  ]);
+
+        Industry::create([ 'name' => 'Accounting', 'slug' => 'accounting' ]);
+            IndustrySkill::create([ 'name' => 'Data analysis', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Book keeping', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Bank reconciliation', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Corporate finance', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Record keeping', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Communication', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Computer literacy', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Preparation of financial reports', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Inventory control', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Stock management', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Credit control', 'industry_id' => 3 ]);
+            IndustrySkill::create([ 'name' => 'Income audit', 'industry_id' => 3 ]);
+
+
+        Industry::create([ 'name' => 'Banking & Financial Services', 'slug' => 'banking' ]);
+            IndustrySkill::create([ 'name' => 'Numeracy skills', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Corporate banking', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Customer relations', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Compliance', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Marketing', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Mobile banking registration', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Numeracy skills', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Corporate banking', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Customer relations', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Compliance', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Marketing', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Communication', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Budgeting', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Forecasting', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Creating Interim', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Facilitating mergers', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Facilitating Acquisitions', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Numeracy skills', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Generate ledger', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Tax compliance', 'industry_id' => 4 ]);
+            IndustrySkill::create([ 'name' => 'Knowledge of accounting softwares', 'industry_id' => 4 ]);
+
+        Industry::create([ 'name' => 'CEO & General Management', 'slug' => 'management' ]);
+            IndustrySkill::create([ 'name' => 'Programme management', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Project implementation', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Strategic planning', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Communication', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Leadership skills', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Policy making and implementation', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Business strategy', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Budgeting', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Monitoring and evaluation', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Business management', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Strategic thinker', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Project development', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Investment management', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Conflict management', 'industry_id' => 5 ]);
+            IndustrySkill::create([ 'name' => 'Crisis management', 'industry_id' => 5 ]);
+
+        Industry::create([ 'name' => 'Engineering & Construction', 'slug' => 'engineering' ]);
+            IndustrySkill::create([ 'name' => 'Quality Control', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Computer numerical control', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Material selection', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Continuos improvement', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Hydraulics', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Design', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Machining', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Product development', 'industry_id' => 6 ]);
+            IndustrySkill::create([ 'name' => 'Metals', 'industry_id' => 6 ]);
+
+        Industry::create([ 'name' => 'Project / Programme Management', 'slug' => 'project-management' ]);
+            IndustrySkill::create([ 'name' => 'Risk management', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Project documentation', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Information Technology', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Project management', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Project monitoring and eveluation', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Financial management', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Packging materials', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Time management', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Entrepreneurial skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Organizational skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Project supervision skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Written skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Presentation skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Service oriented', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Contract management', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Accountability', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Leadership skills', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Budget management', 'industry_id' => 7 ]);
+            IndustrySkill::create([ 'name' => 'Staff management', 'industry_id' => 7 ]);
+
+        Industry::create([ 'name' => 'Creative & Design', 'slug' => 'creative-design' ]);
+            IndustrySkill::create([ 'name' => 'Creativity', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Typography', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Communication', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Branding', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Coding', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Adobe apps ', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Design optimization', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 8 ]);
+            IndustrySkill::create([ 'name' => 'Digital marketing Skills', 'industry_id' => 8 ]);
+
+        Industry::create([ 'name' => 'Customer Service & Call Centre', 'slug' => 'customer-service' ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Negotiation Skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Decision making skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Maintaining Customer database', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Customer Relations', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Computer skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Writing skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Active listening', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Client care skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Problem Solving skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Analytical Skills', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Translation', 'industry_id' => 9 ]);
+            IndustrySkill::create([ 'name' => 'Data Entry', 'industry_id' => 9 ]);
+
+
+        Industry::create([ 'name' => 'Education & Training', 'slug' => 'education' ]);
+            //IndustrySkill::create([ 'name' => '', 'industry_id' => 10 ]);
+
+        Industry::create([ 'name' => 'Government', 'slug' => 'government' ]);
+            //IndustrySkill::create([ 'name' => '', 'industry_id' => 11 ]);
+
+        Industry::create([ 'name' => 'Human Resources', 'slug' => 'hr' ]);
+            IndustrySkill::create([ 'name' => 'Problem solving', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Management skills', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Personnel management', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'HR policies', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Performance management', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Recruiting', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Business Strategy', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Job evaluation', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Strategic Management', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Operations management', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Workforce planning', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Administration', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Performance Appraisal', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Talent management', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Interviewing', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Policy Development', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Reward management', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Counseling', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Team management', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Employee training', 'industry_id' => 12 ]);
+            IndustrySkill::create([ 'name' => 'Labour relations', 'industry_id' => 12 ]);
+
+        Industry::create([ 'name' => 'IT & Telecoms', 'slug' => 'it-and-telecoms' ]);
+            IndustrySkill::create([ 'name' => 'Front-End Development', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Back-End Development', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Application Programming Interfaces (APIs)', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'SQL Databases', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'NoSQL Databases', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Android App Development', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'IOS App Development', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Desktop App Development', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Hybrid App Development', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Network security', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Website Development', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Networking', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Computer hardware troubleshooting', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Hardware Installation', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Operating systems', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Data center Management', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Solution selling', 'industry_id' => 13 ]);
+            IndustrySkill::create([ 'name' => 'Software Troubleshooting', 'industry_id' => 13 ]);
+
+        Industry::create([ 'name' => 'Legal', 'slug' => 'legal' ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 14 ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 14 ]);
+            IndustrySkill::create([ 'name' => 'Writing skills', 'industry_id' => 14 ]);
+            IndustrySkill::create([ 'name' => 'Research planning', 'industry_id' => 14 ]);
+            IndustrySkill::create([ 'name' => 'Legal analysis', 'industry_id' => 14 ]);
+
+        Industry::create([ 'name' => 'Transport & Logistics', 'slug' => 'transport' ]);
+            IndustrySkill::create([ 'name' => 'Driving skills', 'industry_id' => 15 ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 15 ]);
+            IndustrySkill::create([ 'name' => 'Mechanical Knowledge', 'industry_id' => 15 ]);
+            IndustrySkill::create([ 'name' => 'Traffic rules knowledge', 'industry_id' => 15 ]);
+            IndustrySkill::create([ 'name' => 'Time management', 'industry_id' => 15 ]);
+            IndustrySkill::create([ 'name' => 'Computer skills', 'industry_id' => 15 ]);
+            IndustrySkill::create([ 'name' => 'Good with directions', 'industry_id' => 15 ]);
+
+        Industry::create([ 'name' => 'Manufacturing', 'slug' => 'manufacturing' ]);
+            IndustrySkill::create([ 'name' => 'Supervising', 'industry_id' => 16 ]);
+            IndustrySkill::create([ 'name' => 'Analytical', 'industry_id' => 16 ]);
+            IndustrySkill::create([ 'name' => 'Research planning', 'industry_id' => 16 ]);
+            IndustrySkill::create([ 'name' => 'Results oriented', 'industry_id' => 16 ]);
+            IndustrySkill::create([ 'name' => 'Personnel management', 'industry_id' => 16 ]);
+
+        Industry::create([ 'name' => 'Marketing, Media & Brand', 'slug' => 'marketing' ]);
+            IndustrySkill::create([ 'name' => 'Design', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Content creation', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Campaign management', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Social media management', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Report writing', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Content management systems', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Manage digital content', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Promoting products', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Marketing strategies', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Developing Content', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Writing skills', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Online journalism', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Idea generation', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Brand penetration', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'News dissemination', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Report writing', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Customer service skills', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Advertising skills', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Editing', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Digital marketing content ', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Content creation', 'industry_id' => 17 ]);
+            IndustrySkill::create([ 'name' => 'Search engine marketing', 'industry_id' => 17 ]);
+
+        Industry::create([ 'name' => 'Security', 'slug' => 'security' ]);
+            IndustrySkill::create([ 'name' => 'Proactive', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Problem analysis', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Solution implementation', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Thoughtful planner', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Badge management', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Vehicle registration', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Contraband detection', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Patrolling', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Safety monitoring', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Policy making', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Security reports', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Risk management', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Security operations', 'industry_id' => 18 ]);
+            IndustrySkill::create([ 'name' => 'Monitoring security systems', 'industry_id' => 18 ]);
+
+        Industry::create([ 'name' => 'Healthcare & Pharmaceutical', 'slug' => 'healthcare' ]);
+            IndustrySkill::create([ 'name' => 'Healthcare management', 'industry_id' => 19 ]);
+            IndustrySkill::create([ 'name' => 'Clinical research', 'industry_id' => 19 ]);
+            IndustrySkill::create([ 'name' => 'Public Health', 'industry_id' => 19 ]);
+            IndustrySkill::create([ 'name' => 'Medical Education', 'industry_id' => 19 ]);
+            IndustrySkill::create([ 'name' => 'Surgery', 'industry_id' => 19 ]);
+            IndustrySkill::create([ 'name' => 'Emergency medicine', 'industry_id' => 19 ]);
+            IndustrySkill::create([ 'name' => 'Internal medicine', 'industry_id' => 19 ]);
+
+        Industry::create([ 'name' => 'Strategy & Consulting', 'slug' => 'consulting' ]);
+        //IndustrySkill::create([ 'name' => '', 'industry_id' => 20 ]);
+        Industry::create([ 'name' => 'NGO, Community & Social Devt', 'slug' => 'ngo' ]);
+            IndustrySkill::create([ 'name' => 'Project development', 'industry_id' => 21 ]);
+            IndustrySkill::create([ 'name' => 'Customer service', 'industry_id' => 21 ]);
+            IndustrySkill::create([ 'name' => 'Communication for development', 'industry_id' => 21 ]);
+            IndustrySkill::create([ 'name' => 'Crisis mitigation', 'industry_id' => 21 ]);
+            IndustrySkill::create([ 'name' => 'Democratic Governance', 'industry_id' => 21 ]);
+            IndustrySkill::create([ 'name' => 'Public sector management', 'industry_id' => 21 ]);
+            IndustrySkill::create([ 'name' => 'Situational analysis', 'industry_id' => 21 ]);
+            IndustrySkill::create([ 'name' => 'Relationship maintainance', 'industry_id' => 21 ]);
+
+        Industry::create([ 'name' => 'Research, Science & Biotech', 'slug' => 'research' ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Project supervision skills', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Written skills', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Presentation skills', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Service oriented', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Contract management', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Accountability', 'industry_id' => 22 ]);
+            IndustrySkill::create([ 'name' => 'Leadership skills', 'industry_id' => 22 ]);
+
+        Industry::create([ 'name' => 'Hospitality, Tourism & Travel', 'slug' => 'hospitality' ]);
+            IndustrySkill::create([ 'name' => 'Organizational skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Conflict management', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Compliant resolution', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Customer service', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Telephone skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Call management', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Customer care skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Verbal skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Interpersonal skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Patience', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Catering skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Computer Skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Organizational skills', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Maintain budget', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Staff training', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Maintaining corporate identity', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'People management', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Inventory management', 'industry_id' => 23 ]);
+            IndustrySkill::create([ 'name' => 'Restaurant management', 'industry_id' => 23 ]);
+
+        Industry::create([ 'name' => 'Insurance', 'slug' => 'insurance' ]);
+            IndustrySkill::create([ 'name' => 'Results oriented', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Presentation skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Customer service skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Client service', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Computer skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Problem solving skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Market research', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Business Dvelopment', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Sales strategy', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Negotiation skills', 'industry_id' => 25 ]);
+
+        Industry::create([ 'name' => 'Real Estate', 'slug' => 'real-estate' ]);
+            IndustrySkill::create([ 'name' => 'Property management', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Negotiation skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Customer service', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Strategic execution', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Security management', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Market research', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Feedback solution skills', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Innovative', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Operational management', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Brand image', 'industry_id' => 25 ]);
+            IndustrySkill::create([ 'name' => 'Facility management', 'industry_id' => 25 ]);
+
+        Industry::create([ 'name' => 'Communication & Public Relations', 'slug' => 'public-relations' ]);
+            IndustrySkill::create([ 'name' => 'Writing skills', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Crisis mangagement ', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Negotiation skills', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Conflict management', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Project management', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Events planning and management', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Corporate relations', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Marketing', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Branding', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Social media management', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Corporate social responsibilities', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Research', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Planning and implementation', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Media Relations', 'industry_id' => 26 ]);
+            IndustrySkill::create([ 'name' => 'Analytical skills', 'industry_id' => 26 ]);
+
+        Industry::create([ 'name' => 'Electricians', 'slug' => 'electricians' ]);
+            IndustrySkill::create([ 'name' => 'Electrical Troubleshooting', 'industry_id' => 27 ]);
+            IndustrySkill::create([ 'name' => 'Understand technical diagrams', 'industry_id' => 27 ]);
+            IndustrySkill::create([ 'name' => 'Electrical wiring', 'industry_id' => 27 ]);
+            IndustrySkill::create([ 'name' => 'Construction', 'industry_id' => 27 ]);
+            IndustrySkill::create([ 'name' => 'Electricity', 'industry_id' => 27 ]);
+            IndustrySkill::create([ 'name' => 'Commissioning', 'industry_id' => 27 ]);
+            IndustrySkill::create([ 'name' => 'Preventive maintainance', 'industry_id' => 27 ]);
+            IndustrySkill::create([ 'name' => 'Inspection', 'industry_id' => 27 ]);
+
+        Industry::create([ 'name' => 'Masons', 'slug' => 'masons' ]);
+            IndustrySkill::create([ 'name' => 'Plastering', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Read blueprints', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Wall retention', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Lays bricks', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Stone work', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Carpentry', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Construction skills', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Mantainance of masonary work', 'industry_id' => 28 ]);
+            IndustrySkill::create([ 'name' => 'Brick repair and maintainance', 'industry_id' => 28 ]);
+
+        Industry::create([ 'name' => 'Sales', 'slug' => 'sales' ]);
+            IndustrySkill::create([ 'name' => 'Communication skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Negotiation Skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Decision making skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Maintaining Customer database', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Customer Relations', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Computer skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Writing skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Active listening', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Client care skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Problem Solving skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Analytical Skills', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Attention to detail ', 'industry_id' => 29 ]);
+            IndustrySkill::create([ 'name' => 'Market analysis', 'industry_id' => 29 ]);
+
+        Industry::create([ 'name' => 'Procurement', 'slug' => 'procurement' ]);
+            IndustrySkill::create([ 'name' => 'Information management skills', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'RFX Documentation', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Technical knowledge', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Cordination skills', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Contract management', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Project management', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Communication', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Computer literacy', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Preparation of financial', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Inventory control', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Stock management', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Credit control', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Income audit', 'industry_id' => 30 ]);
+            IndustrySkill::create([ 'name' => 'Accountability', 'industry_id' => 30 ]);
+
+        Industry::create([ 'name' => 'Plumbers', 'slug' => 'plumbers' ]);
+            IndustrySkill::create([ 'name' => 'Pipe installation', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Water distribution', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Sanitation systems', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Domestic appliances fixtures', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Drainage inspection', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Mechanical skills', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Technical skills', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Plumbing skills', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Valve installation', 'industry_id' => 31 ]);
+            IndustrySkill::create([ 'name' => 'Building plan reveiew', 'industry_id' => 31 ]);
 
         Country::create([ 'name' => 'Kenya','code' => 'KE', 'prefix' => '254','currency' => 'KES' ]);
         Country::create([ 'name' => 'Uganda','code' => 'UG', 'prefix' => '256','currency' => 'UGX' ]);
@@ -204,392 +601,444 @@ class DatabaseSeeder extends Seeder
         VacancyType::create([ 'slug' => 'volunteer', 'name' => 'Volunteer']);
         VacancyType::create([ 'slug' => 'remote', 'name' => 'Remote']);
 
-        $employer = User::create([
-            'name' => 'Millicent Kevore',
-            'email' => 'millicent@emploi.co',
-            'username' => 'millicent',
-            'email_verified_at' => now(),
-            'email_verification' => 'ashHSsJhsd',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'remember_token' => Str::random(10),
-        ]);
-        UserPermission::create([ 'user_id' => $employer->id, 'permission_id' => 3 ]);
+        
 
-        $emp = Employer::create([
-            'user_id' => $employer->id, 
-            'name' => 'Millicent Kevore', 
-            'industry_id' => 1, 
-            'company_name' => 'Millicent Softwares',
-            'contact_phone' => '2547218281034',
-            'company_phone' => '2547212937464',
-            'company_email' => 'info@emploi.co',
-            'country_id' => 1,
-            'address' => 'P.O. Box 383-00100 Nairobi'
-        ]);
+        SoftSkill::create([ 'name' => 'Verbal communication']);
+        SoftSkill::create([ 'name' => 'Listening']);
+        SoftSkill::create([ 'name' => 'Confidence']);
+        SoftSkill::create([ 'name' => 'Negotiation']);
+        SoftSkill::create([ 'name' => 'Persuasion']);
+        SoftSkill::create([ 'name' => 'Presentation']);
+        SoftSkill::create([ 'name' => 'Publc speaking']);
+        SoftSkill::create([ 'name' => 'Empathy']);
+        SoftSkill::create([ 'name' => 'Humour']);
+        SoftSkill::create([ 'name' => 'Sensitive']);
+        SoftSkill::create([ 'name' => 'Tolerance']);
+        SoftSkill::create([ 'name' => 'Observation']);
+        SoftSkill::create([ 'name' => 'Persistance']);
+        SoftSkill::create([ 'name' => 'Authenticity']);
+        SoftSkill::create([ 'name' => 'Generosity']);
+        SoftSkill::create([ 'name' => 'Inspired']);
+        SoftSkill::create([ 'name' => 'Attentive']);
+        SoftSkill::create([ 'name' => 'Ethical']);
+        SoftSkill::create([ 'name' => 'Committed']);
+        SoftSkill::create([ 'name' => 'Disciplined']);
+        SoftSkill::create([ 'name' => 'Organized']);
+        SoftSkill::create([ 'name' => 'Independent']);
+        SoftSkill::create([ 'name' => 'Open minded']);
+        SoftSkill::create([ 'name' => 'Trainable']);
+        SoftSkill::create([ 'name' => 'Respectfull']);
 
-        $c = Company::create([
-            'name' => 'Millicent Softwares', 
-            'user_id' => $employer->id,
-            'about' => "Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet ",
-            'tagline' => 'we are you',
-            'website' => "http://emploi.co", 
-            'industry_id' => 1,
-            'location_id' => 1,
-            'company_size_id' => 1
-        ]);
+        PersonalityTrait::create([ 'name' => 'Humble']);
+        PersonalityTrait::create([ 'name' => 'Honest']);
+        PersonalityTrait::create([ 'name' => 'Modest']);
+        PersonalityTrait::create([ 'name' => 'Loving']);
+        PersonalityTrait::create([ 'name' => 'Friendly']);
+        PersonalityTrait::create([ 'name' => 'Patient']);
+        PersonalityTrait::create([ 'name' => 'Generous']);
+        PersonalityTrait::create([ 'name' => 'Loyal']);
+        PersonalityTrait::create([ 'name' => 'Integrity']);
+        PersonalityTrait::create([ 'name' => 'Respectful']);
+        PersonalityTrait::create([ 'name' => 'Responsible']);
+        PersonalityTrait::create([ 'name' => 'Compassionate']);
+        PersonalityTrait::create([ 'name' => 'Fair']);
+        PersonalityTrait::create([ 'name' => 'Forgiving']);
+        PersonalityTrait::create([ 'name' => 'Polite']);
+        PersonalityTrait::create([ 'name' => 'Kind']);
+        PersonalityTrait::create([ 'name' => 'Optimistic']);
+        PersonalityTrait::create([ 'name' => 'Selflessness']);
+        PersonalityTrait::create([ 'name' => 'Reliable']);
 
-        $p1 = Post::create([
-            'slug' =>'laravel-developer', 
-            'company_id' => $c->id, 
-            'title' => 'Laravel Developer', 
-            'industry_id' => 1,
-            'education_requirements' => 1, 
-            'experience_requirements' => 3,
-            'responsibilities' => 'We require a capable man to handle code', 
-            'benefits' => 'no benefits',
-            'deadline' => now()->addDays(rand(3,10)),
-            'status' => 'active',
-            'positions' => 2,
-            'location_id' => 1,
-            'vacancy_type_id'=> 1,
-            'how_to_apply' => '',
-            'monthly_salary' => 40000,
-        ]);
+        //DUMMY DATA - CLEAR BEFORE SEEDING PRODUCTION
 
-        $p2 = Post::create([
-            'slug' =>'web-developer', 
-            'company_id' => $c->id, 
-            'title' => 'Web Developer', 
-            'industry_id' => 1,
-            'education_requirements' => 2, 
-            'experience_requirements' => 4,
-            'responsibilities' => 'We require a capable man to handle code', 
-            'benefits' => 'no benefits',
-            'deadline' => now()->addDays(rand(3,10)),
-            'status' => 'active',
-            'positions' => 1,
-            'location_id' => 1,
-            'vacancy_type_id'=> 1,
-            'how_to_apply' => '',
-            'monthly_salary' => 40000,
-        ]);
+            $employer = User::create([
+                'name' => 'Millicent Kevore',
+                'email' => 'millicent@emploi.co',
+                'username' => 'millicent',
+                'email_verified_at' => now(),
+                'email_verification' => 'ashHSsJhsd',
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                'remember_token' => Str::random(10),
+            ]);
+            UserPermission::create([ 'user_id' => $employer->id, 'permission_id' => 3 ]);
 
-        $p3 = Post::create([
-            'slug' =>'angular-developer', 
-            'company_id' => $c->id, 
-            'title' => 'Angular Developer', 
-            'industry_id' => 1,
-            'education_requirements' => 2, 
-            'experience_requirements' => 4,
-            'responsibilities' => 'We require a capable man to handle code', 
-            'benefits' => 'no benefits',
-            'deadline' => now()->addDays(rand(3,10)),
-            'status' => 'active',
-            'positions' => 1,
-            'location_id' => 1,
-            'vacancy_type_id'=> 1,
-            'how_to_apply' => '',
-            'monthly_salary' => 40000,
-        ]);
+            $emp = Employer::create([
+                'user_id' => $employer->id, 
+                'name' => 'Millicent Kevore', 
+                'industry_id' => 1, 
+                'company_name' => 'Millicent Softwares',
+                'contact_phone' => '2547218281034',
+                'company_phone' => '2547212937464',
+                'company_email' => 'info@emploi.co',
+                'country_id' => 1,
+                'address' => 'P.O. Box 383-00100 Nairobi'
+            ]);
 
-        BlogCategory::create([
-            'name' => 'Productivity', 
-            'slug' => 'productivity'
-        ]);
+            $c = Company::create([
+                'name' => 'Millicent Softwares', 
+                'user_id' => $employer->id,
+                'about' => "Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet ",
+                'tagline' => 'we are you',
+                'website' => "http://emploi.co", 
+                'industry_id' => 1,
+                'location_id' => 1,
+                'company_size_id' => 1
+            ]);
 
-        BlogCategory::create([
-            'name' => 'CV Writing', 
-            'slug' => 'cv-writing'
-        ]);
+            $p1 = Post::create([
+                'slug' =>'laravel-developer', 
+                'company_id' => $c->id, 
+                'title' => 'Laravel Developer', 
+                'industry_id' => 1,
+                'education_requirements' => 1, 
+                'experience_requirements' => 3,
+                'responsibilities' => 'We require a capable man to handle code', 
+                'benefits' => 'no benefits',
+                'deadline' => now()->addDays(rand(3,10)),
+                'status' => 'active',
+                'positions' => 2,
+                'location_id' => 1,
+                'vacancy_type_id'=> 1,
+                'how_to_apply' => '',
+                'monthly_salary' => 40000,
+            ]);
 
-        BlogCategory::create([
-            'name' => 'Interviews', 
-            'slug' => 'interviews'
-        ]);
+            $p2 = Post::create([
+                'slug' =>'web-developer', 
+                'company_id' => $c->id, 
+                'title' => 'Web Developer', 
+                'industry_id' => 1,
+                'education_requirements' => 2, 
+                'experience_requirements' => 4,
+                'responsibilities' => 'We require a capable man to handle code', 
+                'benefits' => 'no benefits',
+                'deadline' => now()->addDays(rand(3,10)),
+                'status' => 'active',
+                'positions' => 1,
+                'location_id' => 1,
+                'vacancy_type_id'=> 1,
+                'how_to_apply' => '',
+                'monthly_salary' => 40000,
+            ]);
 
-        Blog::create([
-            'user_id' => $admin->id, 
-            'blog_category_id' => 1, 
-            'title' => 'How automation can boost your productivity',
-            'slug' => 'automation-and-productivity',
-            'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
-        ]);
+            $p3 = Post::create([
+                'slug' =>'angular-developer', 
+                'company_id' => $c->id, 
+                'title' => 'Angular Developer', 
+                'industry_id' => 1,
+                'education_requirements' => 2, 
+                'experience_requirements' => 4,
+                'responsibilities' => 'We require a capable man to handle code', 
+                'benefits' => 'no benefits',
+                'deadline' => now()->addDays(rand(3,10)),
+                'status' => 'active',
+                'positions' => 1,
+                'location_id' => 1,
+                'vacancy_type_id'=> 1,
+                'how_to_apply' => '',
+                'monthly_salary' => 40000,
+            ]);
 
-        Blog::create([
-            'user_id' => $admin->id, 
-            'blog_category_id' => 1, 
-            'title' => 'Benefits of a must do list',
-            'slug' => 'must-do-list',
-            'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
-        ]);
+            BlogCategory::create([
+                'name' => 'Productivity', 
+                'slug' => 'productivity'
+            ]);
 
-        Blog::create([
-            'user_id' => $admin->id, 
-            'blog_category_id' => 2, 
-            'title' => 'Recruiters never read CVs',
-            'slug' => 'recruit-no-cv',
-            'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
-        ]);
+            BlogCategory::create([
+                'name' => 'CV Writing', 
+                'slug' => 'cv-writing'
+            ]);
 
-        Blog::create([
-            'user_id' => $admin->id, 
-            'blog_category_id' => 1, 
-            'title' => 'Inactive Blog Post',
-            'slug' => 'inactive-blog-post',
-            'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet ',
-            'status' => 'inactive'
-        ]);
+            BlogCategory::create([
+                'name' => 'Interviews', 
+                'slug' => 'interviews'
+            ]);
 
-        $se1 = ModelSeeker::create([
-            'post_id' => $p1->id,
-            'education_level_id' => $dip->id,
-            'education_level_importance' => 50,
-            'personality_test_id' => $vision->id,
-            'experience_duration' => 3,
-            'experience_level_importance' => 50,
-            'iq_score' => 70,
-            'interview_result_score' => 70,
-            'psychometric_test_score' => 80,
-            'company_size_id' => 3
-        ]);
+            Blog::create([
+                'user_id' => $admin->id, 
+                'blog_category_id' => 1, 
+                'title' => 'How automation can boost your productivity',
+                'slug' => 'automation-and-productivity',
+                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
+            ]);
 
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 1,
-            'skill_id' => 1,
-            'weight' => 1
-        ]);
+            Blog::create([
+                'user_id' => $admin->id, 
+                'blog_category_id' => 1, 
+                'title' => 'Benefits of a must do list',
+                'slug' => 'must-do-list',
+                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
+            ]);
 
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 1,
-            'skill_id' => 2
-        ]);
+            Blog::create([
+                'user_id' => $admin->id, 
+                'blog_category_id' => 2, 
+                'title' => 'Recruiters never read CVs',
+                'slug' => 'recruit-no-cv',
+                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
+            ]);
 
-        $se2 = ModelSeeker::create([
-            'post_id' => $p2->id,
-            'education_level_id' => $deg->id,
-            'education_level_importance' => 70,
-            'personality_test_id' => $master->id,
-            'experience_duration' => 4,
-            'experience_level_importance' => 70,
-            'iq_score' => 70,
-            'interview_result_score' => 70,
-            'psychometric_test_score' => 80,
-            'company_size_id' => 4
-        ]);
+            Blog::create([
+                'user_id' => $admin->id, 
+                'blog_category_id' => 1, 
+                'title' => 'Inactive Blog Post',
+                'slug' => 'inactive-blog-post',
+                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet ',
+                'status' => 'inactive'
+            ]);
 
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 2,
-            'skill_id' => 1
-        ]);
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 2,
-            'skill_id' => 3,
-            'weight' => 2
-        ]);
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 2,
-            'skill_id' => 4,
-            'weight' => 3
-        ]);
+            $se1 = ModelSeeker::create([
+                'post_id' => $p1->id,
+                'education_level_id' => $dip->id,
+                'education_level_importance' => 50,
+                'personality_test_id' => $vision->id,
+                'experience_duration' => 3,
+                'experience_level_importance' => 50,
+                'iq_score' => 70,
+                'interview_result_score' => 70,
+                'psychometric_test_score' => 80,
+                'company_size_id' => 3
+            ]);
 
-        $se3 = ModelSeeker::create([
-            'post_id' => $p3->id,
-            'education_level_id' => $seco->id,
-            'education_level_importance' => 30,
-            'personality_test_id' => $idealist->id,
-            'experience_duration' => 1,
-            'experience_level_importance' => 90,
-            'iq_score' => 30,
-            'interview_result_score' => 90,
-            'psychometric_test_score' => 80,
-            'company_size_id' => 5
-        ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 1,
+                'skill_id' => 1,
+                'weight' => 1
+            ]);
 
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 3,
-            'skill_id' => 2
-        ]);
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 3,
-            'skill_id' => 5,
-            'weight' => 3
-        ]);
-        ModelSeekerSkill::create([
-            'model_seeker_id' => 3,
-            'skill_id' => 6,
-            'weight' => 3
-        ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 1,
+                'skill_id' => 2
+            ]);
 
-        $ernest = User::create([
-            'name' => 'Ernest Wanyonyi',
-            'email' => 'ernest@emploi.co',
-            'username' => 'ernest',
-            'email_verified_at' => now(),
-            'email_verification' => 'ashHSJhsawsd',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'remember_token' => Str::random(10),
-        ]);
-        UserPermission::create([ 'user_id' => $ernest->id, 'permission_id' => 4 ]);
-        Seeker::create([
-            'user_id' => $ernest->id,
-            'public_name' => 'Ernest W',
-            'gender' => 'M',
-            'phone_number' => '254723193712',
-            'country_id' => 1,
-            'industry_id' => 1,
-            'resume' => 'sample-resume.pdf',
-            'date_of_birth' => now(),
-            'years_experience' => 5,
-            'location_id' => 1,
-            'education_level_id' => $dip->id
-        ]);
+            $se2 = ModelSeeker::create([
+                'post_id' => $p2->id,
+                'education_level_id' => $deg->id,
+                'education_level_importance' => 70,
+                'personality_test_id' => $master->id,
+                'experience_duration' => 4,
+                'experience_level_importance' => 70,
+                'iq_score' => 70,
+                'interview_result_score' => 70,
+                'psychometric_test_score' => 80,
+                'company_size_id' => 4
+            ]);
 
-        $sally = User::create([
-            'name' => 'Sally Muya',
-            'email' => 'sally@emploi.co',
-            'username' => 'sally',
-            'email_verified_at' => now(),
-            'email_verification' => 'ashs3HSJhsd',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'remember_token' => Str::random(10),
-        ]);
-        UserPermission::create([ 'user_id' => $sally->id, 'permission_id' => 4 ]);
-        Seeker::create([
-            'user_id' => $sally->id,
-            'public_name' => 'Sally M',
-            'gender' => 'F',
-            'phone_number' => '254728217712',
-            'country_id' => 1,
-            'industry_id' => 2,
-            'resume' => 'sample-resume.pdf',
-            'date_of_birth' => now(),
-            'years_experience' => 2,
-            'location_id' => 2,
-            'education_level_id' => $deg->id
-        ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 2,
+                'skill_id' => 1
+            ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 2,
+                'skill_id' => 3,
+                'weight' => 2
+            ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 2,
+                'skill_id' => 4,
+                'weight' => 3
+            ]);
 
-        $liza = User::create([
-            'name' => 'Liza Adhiambo',
-            'email' => 'liza@emploi.co',
-            'username' => 'liza',
-            'email_verified_at' => now(),
-            'email_verification' => 'ashHSJa2hsd',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'remember_token' => Str::random(10),
-        ]);
-        UserPermission::create([ 'user_id' => $liza->id, 'permission_id' => 4 ]);
-        Seeker::create([
-            'user_id' => $liza->id,
-            'public_name' => 'Liza L',
-            'gender' => 'F',
-            'phone_number' => '2541022992381',
-            'country_id' => 1,
-            'industry_id' => 2,
-            'resume' => 'sample-resume.pdf',
-            'date_of_birth' => now(),
-            'years_experience' => 2,
-            'location_id' => 1,
-            'education_level_id' => $mast->id
-        ]);
+            $se3 = ModelSeeker::create([
+                'post_id' => $p3->id,
+                'education_level_id' => $seco->id,
+                'education_level_importance' => 30,
+                'personality_test_id' => $idealist->id,
+                'experience_duration' => 1,
+                'experience_level_importance' => 90,
+                'iq_score' => 30,
+                'interview_result_score' => 90,
+                'psychometric_test_score' => 80,
+                'company_size_id' => 5
+            ]);
 
-        JobApplication::create([
-            'user_id' => $ernest->id,
-            'post_id' => $p1->id,
-            'cover' => 'Sample cover letter for the position. <br>Please hire me!'
-        ]);
-        JobApplication::create([
-            'user_id' => $ernest->id,
-            'post_id' => $p2->id,
-            'cover' => 'Sample cover letter for the position. <br>Please hire me!'
-        ]);
-        JobApplication::create([
-            'user_id' => $ernest->id,
-            'post_id' => $p3->id,
-            'cover' => 'Sample cover letter for the position. <br>Please hire me!'
-        ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 3,
+                'skill_id' => 2
+            ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 3,
+                'skill_id' => 5,
+                'weight' => 3
+            ]);
+            ModelSeekerSkill::create([
+                'model_seeker_id' => 3,
+                'skill_id' => 6,
+                'weight' => 3
+            ]);
 
-        JobApplication::create([
-            'user_id' => $sally->id,
-            'post_id' => $p1->id,
-            'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
-        ]);
-        JobApplication::create([
-            'user_id' => $sally->id,
-            'post_id' => $p2->id,
-            'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
-        ]);
-        JobApplication::create([
-            'user_id' => $sally->id,
-            'post_id' => $p3->id,
-            'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
-        ]);
+            $ernest = User::create([
+                'name' => 'Ernest Wanyonyi',
+                'email' => 'ernest@emploi.co',
+                'username' => 'ernest',
+                'email_verified_at' => now(),
+                'email_verification' => 'ashHSJhsawsd',
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                'remember_token' => Str::random(10),
+            ]);
+            UserPermission::create([ 'user_id' => $ernest->id, 'permission_id' => 4 ]);
+            Seeker::create([
+                'user_id' => $ernest->id,
+                'public_name' => 'Ernest W',
+                'gender' => 'M',
+                'phone_number' => '254723193712',
+                'country_id' => 1,
+                'industry_id' => 1,
+                'resume' => 'sample-resume.pdf',
+                'date_of_birth' => now(),
+                'years_experience' => 5,
+                'location_id' => 1,
+                'education_level_id' => $dip->id
+            ]);
 
-        JobApplication::create([
-            'user_id' => $liza->id,
-            'post_id' => $p1->id,
-            'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
-        ]);
-        JobApplication::create([
-            'user_id' => $liza->id,
-            'post_id' => $p2->id,
-            'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
-        ]);
-        JobApplication::create([
-            'user_id' => $liza->id,
-            'post_id' => $p3->id,
-            'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
-        ]);
+            $sally = User::create([
+                'name' => 'Sally Muya',
+                'email' => 'sally@emploi.co',
+                'username' => 'sally',
+                'email_verified_at' => now(),
+                'email_verification' => 'ashs3HSJhsd',
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                'remember_token' => Str::random(10),
+            ]);
+            UserPermission::create([ 'user_id' => $sally->id, 'permission_id' => 4 ]);
+            Seeker::create([
+                'user_id' => $sally->id,
+                'public_name' => 'Sally M',
+                'gender' => 'F',
+                'phone_number' => '254728217712',
+                'country_id' => 1,
+                'industry_id' => 2,
+                'resume' => 'sample-resume.pdf',
+                'date_of_birth' => now(),
+                'years_experience' => 2,
+                'location_id' => 2,
+                'education_level_id' => $deg->id
+            ]);
 
-        SeekerSkill::create([
-            'seeker_id' => 1,
-            'skill_id' => 1
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 1,
-            'skill_id' => 2
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 1,
-            'skill_id' => 3
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 1,
-            'skill_id' => 4
-        ]);
+            $liza = User::create([
+                'name' => 'Liza Adhiambo',
+                'email' => 'liza@emploi.co',
+                'username' => 'liza',
+                'email_verified_at' => now(),
+                'email_verification' => 'ashHSJa2hsd',
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                'remember_token' => Str::random(10),
+            ]);
+            UserPermission::create([ 'user_id' => $liza->id, 'permission_id' => 4 ]);
+            Seeker::create([
+                'user_id' => $liza->id,
+                'public_name' => 'Liza L',
+                'gender' => 'F',
+                'phone_number' => '2541022992381',
+                'country_id' => 1,
+                'industry_id' => 2,
+                'resume' => 'sample-resume.pdf',
+                'date_of_birth' => now(),
+                'years_experience' => 2,
+                'location_id' => 1,
+                'education_level_id' => $mast->id
+            ]);
 
-        SeekerSkill::create([
-            'seeker_id' => 2,
-            'skill_id' => 1
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 2,
-            'skill_id' => 3
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 2,
-            'skill_id' => 5
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 2,
-            'skill_id' => 7
-        ]);
+            JobApplication::create([
+                'user_id' => $ernest->id,
+                'post_id' => $p1->id,
+                'cover' => 'Sample cover letter for the position. <br>Please hire me!'
+            ]);
+            JobApplication::create([
+                'user_id' => $ernest->id,
+                'post_id' => $p2->id,
+                'cover' => 'Sample cover letter for the position. <br>Please hire me!'
+            ]);
+            JobApplication::create([
+                'user_id' => $ernest->id,
+                'post_id' => $p3->id,
+                'cover' => 'Sample cover letter for the position. <br>Please hire me!'
+            ]);
 
-        SeekerSkill::create([
-            'seeker_id' => 3,
-            'skill_id' => 3
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 3,
-            'skill_id' => 4
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 3,
-            'skill_id' => 5
-        ]);
-        SeekerSkill::create([
-            'seeker_id' => 3,
-            'skill_id' => 2
-        ]);
+            JobApplication::create([
+                'user_id' => $sally->id,
+                'post_id' => $p1->id,
+                'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
+            ]);
+            JobApplication::create([
+                'user_id' => $sally->id,
+                'post_id' => $p2->id,
+                'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
+            ]);
+            JobApplication::create([
+                'user_id' => $sally->id,
+                'post_id' => $p3->id,
+                'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
+            ]);
+
+            JobApplication::create([
+                'user_id' => $liza->id,
+                'post_id' => $p1->id,
+                'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
+            ]);
+            JobApplication::create([
+                'user_id' => $liza->id,
+                'post_id' => $p2->id,
+                'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
+            ]);
+            JobApplication::create([
+                'user_id' => $liza->id,
+                'post_id' => $p3->id,
+                'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
+            ]);
+
+            SeekerSkill::create([
+                'seeker_id' => 1,
+                'skill_id' => 1
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 1,
+                'skill_id' => 2
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 1,
+                'skill_id' => 3
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 1,
+                'skill_id' => 4
+            ]);
+
+            SeekerSkill::create([
+                'seeker_id' => 2,
+                'skill_id' => 1
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 2,
+                'skill_id' => 3
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 2,
+                'skill_id' => 5
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 2,
+                'skill_id' => 7
+            ]);
+
+            SeekerSkill::create([
+                'seeker_id' => 3,
+                'skill_id' => 3
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 3,
+                'skill_id' => 4
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 3,
+                'skill_id' => 5
+            ]);
+            SeekerSkill::create([
+                'seeker_id' => 3,
+                'skill_id' => 2
+            ]);
+
+        
 
     }
 }
