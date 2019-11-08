@@ -12,6 +12,14 @@ a {
     transition: 0.3s;
 }
 
+a:hover {
+    color: var(--secondary);
+}
+
+p {
+    margin: .2rem 0;
+}
+
 .btn {
     border-radius: 20px;
 }
@@ -23,6 +31,10 @@ a {
 .btn-orange {
     background: var(--secondary);
     color: white;
+}
+
+.orange {
+    color: var(--secondary);
 }
 
 .prompts {
@@ -59,6 +71,11 @@ a {
     background: #2c0152;
 }
 
+.badge-orange {
+    background: var(--secondary);
+    color: white;
+}
+
 .invite {
     background: var(--primary);
     color: white;
@@ -88,7 +105,7 @@ a {
 }
 
 .nav-item {
-    padding: .5rem .8rem;
+    padding: .5rem;
 }
 
 img.profile-avatar {
@@ -99,6 +116,45 @@ img.profile-avatar {
     color: white;
 }
 
+/* .search-form.hide input {
+    width: 0;
+    animation: hideSearch 1s;
+}
+
+.search-form.show input {
+    width: 100%;
+    animation: showSearch 1s;
+}
+
+@keyframes hideSearch {
+    0% {
+        padding: 0.2rem 0.5rem;
+        width: 100%
+    }
+
+    100% {
+        padding: 0;
+        width: 0%;
+    }
+}
+
+@keyframes showSearch {
+    0% {
+        padding: 0;
+        width: 0%
+    }
+
+    100% {
+        padding: 0.2rem 0.5rem;
+        width: 100%;
+    }
+}
+
+#search.form-control {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    height: auto;
+} */
 /* FOOTER */
 footer {
     background-color: #F2F2F2;
@@ -106,10 +162,9 @@ footer {
     font-size: 0.9rem;
 }
 
-footer a:hover {
+/* footer a:hover {
     color: black;
-}
-
+} */
 footer ul.footer-menu {
     list-style: none;
     padding-left: 0;
@@ -172,8 +227,18 @@ main {
     height: 100%;
 }
 
+#postAlt {
+    display: none;
+}
+
+#postJob {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .card {
-    box-shadow: 0 0 10px 2px rgba(200, 200, 200, 0.5);
+    box-shadow: 0 0 7px 2px rgba(200, 200, 200, 0.5);
 }
 
 .nav-pills {
@@ -207,10 +272,48 @@ main {
     color: blue;
 }
 
+.recents a:hover {
+    color: var(--secondary);
+}
+
 .recents ul {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
 }
 
-@media only screen and (max-width: 996px) {}
+.nav-tabs .nav-link.active {
+    color: var(--secondary);
+    border: 0;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.nav-tabs .nav-link {
+    border-bottom: 2px solid transparent;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active:hover, .nav-tabs .nav-link:hover {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+@media only screen and (max-width: 996px) {
+    .nav-item {
+        padding: 0;
+    }
+
+    .navbar-brand img {
+        height: 35px;
+    }
+
+    main {
+        padding: 4.5rem 0 2rem;
+    }

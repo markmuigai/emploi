@@ -9,7 +9,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 
-<h1 class="py-2">Dashboard</h1>
+@section('page_title', 'Dashboard')
 <div class="card-deck">
     <div class="card">
         <div class="card-body">

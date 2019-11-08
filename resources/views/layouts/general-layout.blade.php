@@ -15,7 +15,7 @@
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap" rel="stylesheet">
     <!--Font Awesome-->
@@ -28,11 +28,11 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
     <!-- Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
     <!-- Bootstrap -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
     <!-- Vue JS -->
@@ -66,6 +66,17 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mr-0">
+                        <li class="nav-item d-md-none d-block">
+                            <a class="nav-link" href="/employers/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/jobs"">Jobs</a></li>
+                      <li class=" nav-item d-md-none d-block"><a class="nav-link" href="#v-pills-messages">Candidates</a></li>
+                        <li class="nav-item d-md-none d-block">
+                            <a class="nav-link" href="#v-pills-settings">Test Center</a>
+                        </li>
+                        <li class="nav-item d-md-none d-block">
+                            <a class="nav-link" href="#v-pills-reviews">Reviews</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Jobs</a>
                         </li>
@@ -79,8 +90,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
                             </li>
+                            <!-- <li class="nav-item search-form hide">
+                                <form action="" class="form-inline mt-2">
+                                    <input type="text" name="search" placeholder="Search" class="form-control" id="search">
+                                </form>
+                            </li> -->
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                                <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
                             </li>
                         </div>
                     </ul>
@@ -90,10 +106,10 @@
                         <img src="{{asset('images/avatar.png')}}" class="profile-avatar" alt="">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">View Profile</a>
+                        <a class="dropdown-item" href="/profile">View Profile</a>
                         <a class="dropdown-item" href="#">Account Settings</a>
                         <a class="dropdown-item" href="#">Billings</a>
-                        <a class="dropdown-item" href="#">Sign Out</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </div>
             </div>
@@ -105,19 +121,30 @@
         <!-- SIDEBAR FOR EMPLOYERS -->
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-2">
+                <div class="col-md-3 d-md-block d-none">
                     <div class="sidebar">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-profile-tab" href="/test" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Candidates <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-reviews-tab" href="#v-pills-reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a>
                         </div>
+                        <!-- ADD JOB AS AN EMPLOYER -->
+                        <div class="mt-3">
+                            <a href="/vacancies/create" class="btn btn-orange" id="postAlt"><i class="fas fa-plus"></i> Post A Job</a>
+                        </div>
+                        <!-- END OF ADD JOB AS AN EMPLOYER -->
                     </div>
                 </div>
                 <!-- END OF SIDEBAR FOR EMPLOYERS -->
-                <div class="col-md-9 col-9">
+                <div class="col-md-9 col-12">
+                    <!-- ADD JOB AS AN EMPLOYER -->
+                    <div id="postJob">
+                        <h1>@yield('page_title')</h1>
+                        <a href="/vacancies/create" class="btn btn-orange"><i class="fas fa-plus"></i> Post A Job</a>
+                    </div>
+                    <!-- END OF ADD JOB AS AN EMPLOYER -->
                     @yield('content')
                 </div>
             </div>
@@ -207,11 +234,11 @@
                         <div class="form-group">
                             <label for="new_invitee">Enter Email address</label>
                             <div class="row">
-                                <div class="col-10" id="invitees">
-                                    <input type="email" class="form-control" id="new_invitee" placeholder="name@example.com">
+                                <div class="col-9 col-md-10" id="invitees">
+                                    <input type="email" class="form-control my-1" id="new_invitee" placeholder="name@example.com">
                                     <input type="hidden" value="1" id="totalInvitees">
                                 </div>
-                                <div class="col-2">
+                                <div class="col-3 col-md-2">
                                     <button type="button" name="button" class="btn btn-purple add"><i class="fas fa-plus"></i></button>
                                 </div>
                             </div>
@@ -233,12 +260,29 @@
 
         function add() {
             var newInvitee = parseInt($('#totalInvitees').val()) + 1;
-            var new_input = '<input type="email" id="new_invitee' + newInvitee + '" class="form-control" placeholder="name@example.com">';
+            var new_input = '<input type="email" id="new_invitee' + newInvitee + '" class="form-control my-1" placeholder="name@example.com">';
 
             $('#invitees').append(new_input);
 
             $('#totalInvitees').val(newInvitee);
         }
+        // Slide in search bar
+        $('#search-prompt').on('click', function() {
+            $(".search-form").toggleClass("hide show")
+        })
+
+        // Post a Job Alternative
+        var isVisible = false;
+        $(window).scroll(function() {
+            var shouldBeVisible = $(window).scrollTop() > 70;
+            if (shouldBeVisible && !isVisible) {
+                isVisible = true;
+                $('#postAlt').fadeIn();
+            } else if (isVisible && !shouldBeVisible) {
+                isVisible = false;
+                $('#postAlt').fadeOut();
+            }
+        });
     </script>
 </body>
 
