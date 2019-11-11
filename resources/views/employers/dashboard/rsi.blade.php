@@ -80,7 +80,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		<br>
-		    		<p>Skills </p>
+		    		<p>Industry Skills </p>
 		    		<select name="skills_importance" class="form-control">
 		    			@foreach($weights as $w)
 		    			<option value="{{ $w->weight }}"
@@ -91,7 +91,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="col-md-4 col-xs-6">
+		    	<div class="col-md-4 col-xs-6" style="display: none;">
 		    		<br>
 		    		<p>Intellectual Quotent </p>
 		    		<select name="iq_importance" class="form-control">
@@ -119,7 +119,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		<br>
-		    		<p>Personality Profile</p>
+		    		<p>Personal Traits</p>
 		    		<select name="personality_importance" class="form-control">
 		    			@foreach($weights as $w)
 		    			<option value="{{ $w->weight }}"
@@ -264,7 +264,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 			<hr>
 
-			<p style="text-align: center;">
+			<p style="text-align: center; display: none;">
 				<label>IQ Test Required</label>
 				<input type="checkbox" name="iq_test" 
 				@if($post->hasModelSeeker())
@@ -277,12 +277,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				>
 			</p>
 
-			<p>
+			<p style="display: none">
 				<label>Min IQ Score (0-100)</label>
 				<input type="number" name="iq_score" class="form-control" value="{{ isset($post->modelSeeker->id) ? $post->modelSeeker->iq_score : 50 }}" step="0" min="0" max="100" required="required">
 			</p>
 
-			<hr>
+			
 
 			<p style="text-align: center;">
 				<label>Interview Required</label>
@@ -325,27 +325,27 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			@if($post->hasModelSeeker())
 			<div class="row" style="border-top: 0.1em solid black">
 				<br>
-				<h4 style="text-align: center;">Skills</h4>
+				<h4 style="text-align: center;">Industry Skills</h4>
 				<div class="selected-skills">
 					@forelse($post->modelSeeker->modelSeekerSkills as $mskill)
-					<div class="col-md-6 ms-skill" skill_id="{{ $mskill->skill->id }}">
-						<input type="hidden" name="skill_id[]" value="{{ $mskill->skill->id }}">
-						<input type="hidden" name="skill_weight[]" value="{{ $mskill->weight }}">
+
+					<div class="col-md-6 ms-skill" skill_id="{{ $mskill->industrySkill->id }}">
+						<input type="hidden" name="skill_id[]" value="{{ $mskill->industrySkill->id }}">
+						<input type="hidden" class="skill-weight" name="skill_weight[]" value="{{ $mskill->weight }}">
 						<p>
-							<b>{{ $mskill->skill->name }}</b> || <i>{{ $mskill->weightName }}</i>
-							<span class="pull-right btn btn-sm btn-danger remove-skill" skill_id="{{ $mskill->skill->id }}">x</span>
+							<b>{{ $mskill->industrySkill->name }}</b> || <i>{{ $mskill->weightName }}</i>
+							<span class="pull-right btn btn-sm btn-danger remove-skill" skill_id="{{ $mskill->industrySkill->id }}">x</span>
 						</p>
 					</div>
 					@empty
 					@endforelse
 				</div>
-				
 				<div class="col-md-8 col-md-offset-2">
 					<p>
 						Add new skill <br>
 						<select class="form-control" id="select-skill">
 							<option value="-1">Select</option>
-							@foreach($skills as $s)
+							@foreach($industrySkills as $s)
 							<option value="{{ $s->id }}">{{ $s->name }}</option>
 							@endforeach
 						</select>
@@ -359,13 +359,79 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					
 				</div>
 			</div>
+
 			@endif
 
 			<br>
 			<hr>
+
+			<p>
+				<h4 style="text-align: center;">Other Skills</h4>
+
+				<div class="row other-skills-pool" style="text-align: center;">
+					
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-7">
+						<input type="text" name="" id="other-skill-name" class="form-control" placeholder="enter skill name">
+					</div>
+					<div class="col-md-3">
+						<select class="btn btn-sm" id="other-skill-weight">
+							<option value="3">Very Important</option>
+							<option value="2">Important</option>
+							<option value="1">Bonus</option>
+						</select>
+					</div>
+					
+					<span id="add-other-skill" class="btn btn-success btn-sm">Add</span>
+				</div>
+
+			</p>
+
+			<hr>
+			@if($post->hasModelSeeker())
+			<div class="row" style="border-top: 0.1em solid black">
+				<br>
+				<h4 style="text-align: center;">Personal Traits</h4>
+				<div class="selected-traits">
+
+					@forelse($post->modelSeeker->modelSeekerPersonalityTraits as $trait)
+					<div class="col-md-6 ms-trait" trait_id="{{ $trait->personalityTrait->id }}">
+						<input type="hidden" name="trait_id[]" value="{{ $trait->personalityTrait->id }}">
+						<input type="hidden" class="trait-weight" name="personal_trait_weight[]" value="{{ $trait->weight }}">
+						<p>
+							<b>{{ $trait->personalityTrait->name }}</b> || <i>{{ $mskill->weightName }}</i>
+							<span class="pull-right btn btn-sm btn-danger remove-trait" trait_id="">x</span>
+						</p>
+					</div>
+					@empty
+					@endforelse
+					
+				</div>
+				<div class="col-md-8 col-md-offset-2">
+					<p>
+						Add new Personal trait <br>
+						<select class="form-control" id="select-trait">
+							<option value="-1">Select</option>
+							@forelse($personalityTraits as $trait)							
+							<option value="{{ $trait->id }}">{{ $trait->name }}</option>
+							@empty
+							@endforelse
+						</select>
+						<select id="trait-weight" class="btn btn-sm">
+							<option value="3">Very Important</option>
+							<option value="2">Important</option>
+							<option value="1">Bonus</option>
+						</select>
+						<span class="btn btn-success btn-sm" id="add-trait">Add</span>
+					</p>
+				</div>
+			</div>
+			@endif
 			<br>
 
-			<input type="submit"  class="btn btn-primary" value="Save RSI Model" name="">
+			<input type="submit"  class="btn btn-primary pull-right" value="Save RSI Model" name="">
 
 			<br><br>
 	    
@@ -383,12 +449,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script type="text/javascript">
 	<?php
 		$sk = '';
-		foreach($skills as $s)
+		foreach($industrySkills as $s)
 		{
 			$sk .= "[".$s->id.", '".$s->name."'],"; 
 		}
 		$sk = '['.$sk.']';
 		echo 'var skills='.$sk.';';
+
+		$allTraits = '';
+		foreach($personalityTraits as $t)
+		{
+			$allTraits .= "[".$t->id.", '".$t->name."'],"; 
+		}
+		$allTraits = '['.$allTraits.']';
+		echo 'var allTraits='.$allTraits.';';
+
+		if($post->hasModelSeeker())
+		{
+			echo 'var other_skills='.$post->modelSeeker->other_skills.';';
+			echo 'var other_skills_weight='.$post->modelSeeker->other_skills_weight.';';
+		}
+		else
+		{
+
+			echo 'var other_skills=false;';
+			echo 'var other_skills_weight=false;';
+		}
 	?>
 	
 </script>

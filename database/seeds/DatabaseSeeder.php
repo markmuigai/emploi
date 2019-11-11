@@ -802,13 +802,13 @@ class DatabaseSeeder extends Seeder
 
             ModelSeekerSkill::create([
                 'model_seeker_id' => 1,
-                'skill_id' => 1,
+                'industrySkill_id' => 1,
                 'weight' => 1
             ]);
 
             ModelSeekerSkill::create([
                 'model_seeker_id' => 1,
-                'skill_id' => 2
+                'industrySkill_id' => 2
             ]);
 
             $se2 = ModelSeeker::create([
@@ -826,16 +826,16 @@ class DatabaseSeeder extends Seeder
 
             ModelSeekerSkill::create([
                 'model_seeker_id' => 2,
-                'skill_id' => 1
+                'industrySkill_id' => 1
             ]);
             ModelSeekerSkill::create([
                 'model_seeker_id' => 2,
-                'skill_id' => 3,
+                'industrySkill_id' => 3,
                 'weight' => 2
             ]);
             ModelSeekerSkill::create([
                 'model_seeker_id' => 2,
-                'skill_id' => 4,
+                'industrySkill_id' => 4,
                 'weight' => 3
             ]);
 
@@ -854,16 +854,16 @@ class DatabaseSeeder extends Seeder
 
             ModelSeekerSkill::create([
                 'model_seeker_id' => 3,
-                'skill_id' => 2
+                'industrySkill_id' => 2
             ]);
             ModelSeekerSkill::create([
                 'model_seeker_id' => 3,
-                'skill_id' => 5,
+                'industrySkill_id' => 5,
                 'weight' => 3
             ]);
             ModelSeekerSkill::create([
                 'model_seeker_id' => 3,
-                'skill_id' => 6,
+                'industrySkill_id' => 6,
                 'weight' => 3
             ]);
 
