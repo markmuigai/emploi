@@ -179,7 +179,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</p>
 			<hr>
 			<p>
-				<label>Desired Education Level</label>
+				<label>Desired Highest Education Level</label>
 				<select name="education_level_id" class="form-control">
 			    	@forelse($educationLevels as $l)
 					<option value="{{ $l->id }}"
@@ -193,6 +193,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			    	@endforelse
 			    </select>
 			</p>
+
+			@if($post->hasModelSeeker())
+			<div>
+				<h6 style="text-align: center;">Accepted Courses</h6>
+				<div class=" accepted-courses">
+					
+					@forelse($post->modelSeeker->modelSeekerCourses as $course)
+					<div class="col-md-4 col-xs-6 hover-bottom">
+						{{ $course->name }} 
+						<span class="pull-right btn btn-sm btn-danger">x</span>
+					</div>
+					@empty
+					@endforelse
+				</div>
+				<br>
+				<div class="row">
+					<br>
+					<div class="col-md-9 col-xs-9">
+						<select class="form-control">
+							@forelse($courses as $course)
+							<option value="{{ $course->id }}">{{ $course->name }}</option>
+							@empty
+							@endforelse
+						</select>
+					</div>
+					<div class="col-xs-3 col-md-3">
+						<span class="btn btn-success">Add</span>
+					</div>
+				</div>
+
+			</div>
+			@endif
 
 			<p style="display: none;">
 				<label>Education Importance</label>

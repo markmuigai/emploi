@@ -11,6 +11,7 @@ use App\Candidate;
 use App\Company;
 use App\CompanySize;
 use App\Country;
+use App\Course;
 use App\EducationLevel;
 use App\Employer;
 use App\IqTest;
@@ -20,6 +21,7 @@ use App\InterviewResult;
 use App\JobApplication;
 use App\Location;
 use App\ModelSeeker;
+use App\ModelSeekerCourse;
 use App\ModelSeekerSkill;
 use App\ModelSeekerPersonalityTrait;
 use App\Personality;
@@ -294,6 +296,7 @@ class EmployerController extends Controller
                     ->with('companySizes',CompanySize::all())
                     ->with('personalities',Personality::orderBy('name')->get())
                     ->with('skills',Skill::all())
+                    ->with('courses',Course::all())
                     ->with('personalityTraits',PersonalityTrait::orderBy('name')->get())
                     ->with('industrySkills',IndustrySkill::where('industry_id',$post->industry_id)->orderBy('name')->get())
                     ->with('weights',RsiWeight::all())

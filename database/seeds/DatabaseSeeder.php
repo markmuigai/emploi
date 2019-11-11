@@ -7,6 +7,7 @@ use App\BlogCategory;
 use App\Company;
 use App\CompanySize;
 use App\Country;
+use App\Course;
 use App\EducationLevel;
 use App\Employer;
 use App\Industry;
@@ -648,6 +649,89 @@ class DatabaseSeeder extends Seeder
         PersonalityTrait::create([ 'name' => 'Optimistic']);
         PersonalityTrait::create([ 'name' => 'Selflessness']);
         PersonalityTrait::create([ 'name' => 'Reliable']);
+
+        Course::create([ 'name' => 'Purchasing And Supplies', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Policy Planning And Implementation', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Management Skills', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Adult Education Community Development', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Open And Distance Learning', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Youth In Development Work', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Early Childhood', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Sales And Marketing', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Business Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Public Relations', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Human Resource Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Guidance And Counseling', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Purchasing And Supplies', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Programmes in Agriculture and Veterinary Sciences', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Agricultural Information And Communication Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Dairy Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Poultry Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Artificial Insemination And Fertility Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Artificial Insemination', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Epidemiology And Disease Surveillance', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Floriculture', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Phytosanitary Measures', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Business Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Purchasing And Supplies Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Public Relations', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Guidance And Counseling – L16', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Human Resource Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Programmes in Mombasa Campus', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Project Planning And Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Purchasing And Supplies', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Business Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Sales And Marketing', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Human Resource Management', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Guidance And Counseling', 'education_level_id' => $cert->id ]);
+        Course::create([ 'name' => 'Public Relations', 'education_level_id' => $cert->id ]);
+
+
+        Course::create([ 'name' => 'Business Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Sales & Marketing', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Adult Education And Community Development', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Youth Development Work', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Early Childhood Education', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Purchasing & Supplies Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Business Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Sales & Marketing', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Human Resource Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Public Relations', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Guidance And Counseling', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Leather Technology', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Estate Agency And Property Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Medical Diagnostic Ultrasound', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Audiology And Public Health Otology', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Women, Leadership And Governance In Africa', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Chinese Language And Culture', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'International Studies/strategic Studies', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'International Studies', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Theatre And Film Studies', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Criminology And Social Order', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Social Work And Social Development', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Purchasing And Supplies Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Human Resource Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Guidance And Counseling', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Sales And Marketing', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Guidance And Counseling', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Project Planning And Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Human Resource Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Public Relations', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Purchasing And Supplies Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Business Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Project Planning And Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Adult Education And Community Development', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Youth Development Work', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Business Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Sales And Marketing', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Human Resource Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Purchasing And Supplies Management', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Public Relations', 'education_level_id' => $dip->id ]);
+        Course::create([ 'name' => 'Guidance And Counseling', 'education_level_id' => $dip->id ]);
+
+        // Course::create([ 'name' => '', 'education_level_id' => $deg->id ]);
+        
+        // Course::create([ 'name' => '', 'education_level_id' => $mast->id ]);
 
         //DUMMY DATA - CLEAR BEFORE SEEDING PRODUCTION
 

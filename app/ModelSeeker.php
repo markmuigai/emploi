@@ -20,6 +20,11 @@ class ModelSeeker extends Model
     	return $this->hasMany(ModelSeekerSkill::class);
     }
 
+    public function modelSeekerCourses(){
+
+        return $this->hasMany(ModelSeekerCourse::class);
+    }
+
     public function modelSeekerPersonalityTraits(){
 
         return $this->hasMany(ModelSeekerPersonalityTrait::class);
