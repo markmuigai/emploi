@@ -22,15 +22,11 @@ p {
 
 .btn {
     border-radius: 20px;
+    border: 2px solid;
 }
 
 .btn:focus, button:focus {
     outline: none;
-}
-
-.btn-orange {
-    background: var(--secondary);
-    color: white;
 }
 
 .orange {
@@ -48,13 +44,27 @@ p {
     background: var(--secondary);
 }
 
-.btn-orange:hover {
+.btn-orange {
+    background: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+}
+
+.btn-orange-alt {
+    background: white;
+    color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.btn-orange:hover, .btn-orange-alt:hover {
+    border-color: #EDAD36;
     background: #EDAD36;
     color: white;
 }
 
-.btn-orange:focus {
+.btn-orange:focus, .btn-orange-alt:focus {
     background: #b96613;
+    border-color: #b96613;
 }
 
 .btn-purple {
@@ -88,6 +98,11 @@ p {
 
 .invite:hover {
     box-shadow: 0 0 10px 2px rgba(80, 0, 149, 0.3);
+}
+
+img.avatar-small {
+    /* height: 90px; */
+    width: 100%;
 }
 
 .navbar {
@@ -197,8 +212,8 @@ footer i {
 /* MODAL */
 button.close {
     position: absolute;
-    right: -0.7rem;
-    top: -0.7rem;
+    right: -1.9rem;
+    top: -1.9rem;
     background-color: var(--primary);
     opacity: 1;
     color: white;
@@ -305,6 +320,33 @@ main {
     border-bottom: 0;
 }
 
+.job-actions {
+    text-align: right;
+}
+
+.about-icons .fas {
+    font-size: 2rem;
+}
+
+.edu {
+    border-left: 4px solid rgb(200, 200, 200);
+}
+
+.edu:nth-last-child() {
+    border-left: 4px solid transparent;
+}
+
+.circle {
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 4px solid rgb(200, 200, 200);
+    border-radius: 50%;
+    position: relative;
+    left: -13px;
+    top: 0;
+}
+
 @media only screen and (max-width: 996px) {
     .nav-item {
         padding: 0;
@@ -317,3 +359,14 @@ main {
     main {
         padding: 4.5rem 0 2rem;
     }
+
+    .job-actions {
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    /* img.avatar-small {
+        height: 0px;
+    } */
+}

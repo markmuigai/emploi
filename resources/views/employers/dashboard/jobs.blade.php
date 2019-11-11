@@ -39,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <span class="badge badge-info">Freelancer</span>
                         </p>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-4 job-actions">
                         <p><i class="far fa-calendar-check"></i> Sep 3, 2019</p>
                         <p>
                             <strong>KSH 12,000 - 15,000 P.M.</strong>
@@ -53,7 +53,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p><i class="fas fa-share-alt"></i> Share: <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-google-plus-g"></i></a> <a href="#"><i
                                   class="fab fa-pinterest"></i></a></p>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-4 job-actions">
                         <a href="#" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
                         <a href="#"><i class="far fa-eye"></i> Publish</a> |
                         <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>

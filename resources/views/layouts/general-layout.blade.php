@@ -62,7 +62,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fas fa-bars"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" alt="Emploi Logo" /></a>
+                <a class="navbar-brand" href="/"><img src="{{ asset('images/logo.png') }}" alt="Emploi Logo" /></a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mr-0">
@@ -78,7 +78,7 @@
                             <a class="nav-link" href="#v-pills-reviews">Reviews</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Jobs</a>
+                            <a class="nav-link" href="/jobs">Jobs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Career Center</a>
@@ -126,7 +126,7 @@
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Candidates <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/test" role="tab" aria-controls="v-pills-messages" aria-selected="false">Candidates <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-reviews-tab" href="#v-pills-reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a>
                         </div>
@@ -224,7 +224,7 @@
     <!-- INVITE FRIEND MODAL -->
     <div class="modal fade" id="inviteFriends" tabindex="-1" role="dialog" aria-labelledby="inviteFriendsLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content p-3">
                 <div class="modal-body">
                     <h5 class="modal-title" id="inviteFriendsLabel">Invite Friends to Use Emploi</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
