@@ -12,6 +12,7 @@ use App\Industry;
 use App\Location;
 use App\Parser;
 use App\Referee;
+use App\SeekerJob;
 use App\SeekerSkill;
 use App\Skill;
 use App\User;
@@ -197,6 +198,8 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user->role != 'seeker')
             abort(403);
+        if(!$user->seeker->hasCompletedProfile())
+            return view('seekers.update-profile');
         return view('seekers.addReferee')
                 ->with('seeker',$user->seeker);
     }
@@ -213,6 +216,7 @@ class HomeController extends Controller
                     ->with('email',$request->email);
             //die('Referee has already been added. <a href="/profile/add-referee">Add Referee</a>');
         }
+        //return $request->all();
         $r = Referee::create([
             'seeker_id' => $user->seeker->id,
             'name' => $request->name, 
@@ -221,10 +225,19 @@ class HomeController extends Controller
             'organization'  => $request->organization,
             'position_held'  => $request->position_held,
             'relationship'  => $request->relationship,
-            'slug'  => User::generateRandomString(20),
-            'seeker_job_title'  => $request->seeker_job_title,
-            'responsibilities'  => $request->responsibilities
+            'slug'  => User::generateRandomString(20)
         ]);
+
+        for($i=0; $i<count($request->job_title); $i++)
+        {
+            SeekerJob::create([
+                'seeker_id' => $user->seeker->id, 
+                'referee_id' => $r->id, 
+                'job_title' => $request->job_title[$i], 
+                'start_date' => $request->start_date[$i],
+                'end_date' => $request->end_date[$i]
+            ]);
+        }
 
         $caption = $user->name." has listed you as a referee. Provide your assessment.";
         $contents = "Emploi is a sourcing platform linking employers and job seekers. <b>".$user->name."</b> has included you as one of their professional referee. <br>

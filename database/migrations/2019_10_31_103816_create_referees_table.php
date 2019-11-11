@@ -18,8 +18,6 @@ class CreateRefereesTable extends Migration
             $table->string('organization',50);
             $table->string('position_held',50);
             $table->string('relationship',50);
-            $table->string('seeker_job_title',50);
-            $table->string('responsibilities',50);
             $table->string('status',20)->default('pending-details');
             $table->timestamps();
         });

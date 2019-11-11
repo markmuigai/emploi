@@ -67,6 +67,18 @@ class Seeker extends Model
         return $this->hasMany(Candidate::class);
     }
 
+    public function seekerPersonalityTraits(){
+        return $this->hasMany(SeekerPersonalityTrait::class);
+    }
+
+    public function seekerIndustrySkills(){
+        return $this->hasMany(SeekerIndustrySkill::class);
+    }
+
+    public function otherSeekerSkills(){
+        return $this->hasMany(OtherSeekerSkill::class);
+    }
+
     public function matchSeeker($user){
         //return 'asa';
         if($user->role == 'employer' || $user->role == 'admin')
@@ -291,10 +303,10 @@ class Seeker extends Model
             return false;
         if( is_null($this->education_level_id) )
             return false;
-        // if( is_null($this->education) )
-        //     return false;
-        // if( is_null($this->experience) )
-        //     return false;
+        if( is_null($this->education) )
+            return false;
+        if( is_null($this->experience) )
+            return false;
         return true;
     }
 
@@ -330,6 +342,10 @@ class Seeker extends Model
 
     public function savedProfiles(){
         return $this->hasMany(SavedProfile::class);
+    }
+
+    public function seekerJobs(){
+        return $this->hasMany(SeekerJob::class);
     }
 
 }

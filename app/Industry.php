@@ -33,4 +33,8 @@ class Industry extends Model
     public static function top($counter = 10){
         return Industry::where('status','active')->limit($counter)->get();
     }
+
+    public function industrySkills(){
+        return $this->hasMany(IndustrySkill::class);
+    }
 }

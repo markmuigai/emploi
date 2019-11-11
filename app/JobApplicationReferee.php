@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class JobApplicationReferee extends Model
 {
     protected $fillable = [
-        'seeker_id','referee_id','start_date','end_date','job_title','responsibilities','relationship','reason_for_leaving','performance','strengths','weaknesses','discplinary_cases','professionalism','would_you_rehire','comments','status'
+        'seeker_id','referee_id','reason_for_leaving','strengths','weaknesses','discplinary_cases','professionalism','would_you_rehire','comments','status'
     ];
 
     public function seeker(){
