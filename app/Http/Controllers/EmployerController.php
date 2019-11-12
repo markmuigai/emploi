@@ -231,6 +231,16 @@ class EmployerController extends Controller
                 ->with('title',$title);
     }
 
+    public function jobs(Request $request)
+    {
+        $employer = Auth::user()->employer;
+        //return $employer->posts;
+        return view('employers.dashboard.jobs')
+                ->with('activePosts',$employer->activePosts)
+                ->with('closedPosts',$employer->closedPosts)
+                ->with('posts',$employer->posts);
+    }
+
     public function applyForUser(Request $request){
         $seeker = Seeker::findOrFail($request->seeker_id);
         $post = Post::findOrFail($request->post_id);
@@ -449,6 +459,35 @@ class EmployerController extends Controller
             ->with('message','An error occurred while processing your request. Please try again later');
     }
 
+    public function toggleReject(Request $request, $slug, $username){
+        $user = User::where('username',$username)->firstOrFail();
+        $post = Post::where('slug',$slug)->firstOrFail();
+        if($user->seeker->hasApplied($post))
+        {
+            $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
+            if($j->status == 'rejected')
+            {
+                $j->status = 'active';
+                $j->save();
+            }
+            else
+            {
+                if($j->status != 'selected')
+                {
+                    $j->status = 'rejected';
+                    $j->save();
+                }
+                
+            }
+            
+            
+        }
+        return redirect('/employers/applications/'.$post->slug);
+        return view('employers.dashboard.message')
+            ->with('title','An Error Occurred')
+            ->with('message','An error occurred while processing your request. Please try again later');
+    }
+
     public function viewCover(Request $request, $slug, $applicationId){
         $app = JobApplication::findOrFail($applicationId);
         return view('employers.cover')
@@ -474,6 +513,15 @@ class EmployerController extends Controller
             'post_id' => $post->id, 
             'monthly_salary' => $request->monthly_salary
         ]);
+
+        $seeker = Seeker::findOrFail($request->seeker_id);
+
+        $j = JobApplication::where('user_id',$seeker->user->id)
+                ->where('post_id',$post->id)
+                ->first();
+
+        $j->status = 'selected';
+        $j->save();
 
         $caption = "Candidate Selected ".$post->title;
         $contents = "You have selected ".$c->seeker->user->name." for the position of ".$post->title." with a monthly salary of ".$post->location->country->currency.$c->monthly_salary.". <br>

@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 use App\CvRequest;
+use App\JobApplication;
 
 class Employer extends Model
 {
@@ -24,6 +26,10 @@ class Employer extends Model
     	return $this->belongsTo(User::class,'user_id');
     }
 
+    public function getCompaniesAttribute(){
+        return $this->user->companies;
+    }
+
     public function hasRequestedCV($seeker)
     {
         $r = CvRequest::where('employer_id',$this->id)->where('seeker_id',$seeker->id)->first();
@@ -34,5 +40,75 @@ class Employer extends Model
 
     public function savedProfiles(){
         return $this->hasMany(SavedProfile::class);
+    }
+
+    public function getPostsAttribute(){
+        $companies = $this->user->companies;
+        $posts = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            for($k=0; $k<count($companies[$i]->posts); $k++)
+            {
+                array_push($posts, $companies[$i]->posts[$k]);
+            }
+        }
+        return $posts;
+    }
+
+    public function getActivePostsAttribute(){
+        $companies = $this->user->companies;
+        $posts = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            for($k=0; $k<count($companies[$i]->posts); $k++)
+            {
+                if($companies[$i]->posts[$k]->status == 'active')
+                    array_push($posts, $companies[$i]->posts[$k]);
+            }
+        }
+        return $posts;
+    }
+
+    public function getClosedPostsAttribute(){
+        $companies = $this->user->companies;
+        $posts = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            for($k=0; $k<count($companies[$i]->posts); $k++)
+            {
+                if($companies[$i]->posts[$k]->status != 'active')
+                    array_push($posts, $companies[$i]->posts[$k]);
+            }
+        }
+        return $posts;
+    }
+
+    public function recentApplications($counter = 5){
+        $posts = array();
+        for($i=0; $i<count($this->companies); $i++)
+        {
+            for($k=0; $k<count($this->companies[$i]->posts); $k++)
+            {
+                array_push($posts, $this->companies[$i]->posts[$k]);
+            }
+        }
+        $new_posts = '(';
+        for($i=0; $i<count($posts); $i++)
+        {
+            $new_posts .= $posts[$i]->id;
+            if($i < count($posts)-1)
+                $new_posts .= ',';
+        }
+        $new_posts .= ')';
+
+        $sql = "SELECT id FROM job_applications WHERE post_id IN  $new_posts ORDER BY created_at DESC LIMIT $counter";
+        $results = DB::select($sql);
+
+        $applications = array();
+
+        for($i=0; $i<count($results); $i++)
+            array_push($applications,JobApplication::find($results[$i]->id));
+
+        return $applications;
     }
 }

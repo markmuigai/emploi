@@ -69,7 +69,7 @@
                         <li class="nav-item d-md-none d-block">
                             <a class="nav-link" href="/employers/dashboard">Dashboard</a>
                         </li>
-                        <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/jobs"">Jobs</a></li>
+                        <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/jobs">Jobs</a></li>
                       <li class=" nav-item d-md-none d-block">
                                 <a class="nav-link" href="#v-pills-messages">Candidates</a>
                         </li>
@@ -80,10 +80,10 @@
                             <a class="nav-link" href="#v-pills-reviews">Reviews</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/jobs">Jobs</a>
+                            <a class="nav-link" href="/vacancies">Vacancies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Career Center</a>
+                            <a class="nav-link" href="/blog">Career Center</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">See Who's Hiring</a>
@@ -128,9 +128,9 @@
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="/test" role="tab" aria-controls="v-pills-messages" aria-selected="false">Candidates <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/employers/browse/" role="tab" aria-controls="v-pills-messages" aria-selected="false">Browse Candidates <i class="fas fa-chevron-right"></i></a>
                             <!-- <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a> -->
-                            <a class="nav-link" id="v-pills-reviews-tab" href="/employers/reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-reviews-tab" style="display: none;" href="/employers/reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a>
                         </div>
                         <!-- ADD JOB AS AN EMPLOYER -->
                         <div class="mt-3">

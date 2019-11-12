@@ -58,9 +58,9 @@ Route::post('/employers/register', 'EmployerController@create');
 //Route::get('/employers/publish', function () {			    	return view('employers.publish');		});
 
 // *************************
-Route::get('/test', function () {    	return view('new-design.test');	});
+//Route::get('/test', function () {    	return view('new-design.test');	});
 
-Route::get('/employers/jobs', function () {    	return view('employers.dashboard.jobs');	});
+Route::get('/employers/jobs', 'EmployerController@jobs');
 Route::get('/employers/reviews', function () {    	return view('employers.dashboard.reviews');	});
 Route::get('/employers/applicants', function () {    	return view('employers.dashboard.applicants');	});
 // *************************
@@ -78,6 +78,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/applications/{slug}/rsi', 'EmployerController@rsi');
     Route::post('/employers/applications/{slug}/rsi', 'EmployerController@saveRsi');
     Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@toggleShortlist');
+    Route::get('/employers/reject-toggle/{slug}/{username}', 'EmployerController@toggleReject');
     Route::get('/employers/applications/{slug}/close', 'EmployerController@closeJob');
     Route::post('/employers/applications/{slug}/close', 'EmployerController@saveCandidate');
     Route::get('/employers/applications/{slug}/invite', 'EmployerController@invite');
