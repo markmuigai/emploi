@@ -18,8 +18,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container">
 
-    
-    <div class="single">  
+
+    <div class="single">
 
        <div class="box_1">
         @if($user->role == 'seeker' && !$user->seeker->hasCompletedProfile())
@@ -38,11 +38,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/storage/resumes/{{ $user->seeker->resume }}" class="btn btn-sm btn-primary"><i class="fa fa-file"></i> my resume</a>
                 @endif
             </small>
-            
+
         </h3>
         <div class="col-md-4 row">
         	<img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive col-md-6 col-md-offset-3" alt="My Avatar" style="" />
-            
+
         </div>
         <div class="col-md-8 service_box1">
 
@@ -148,7 +148,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                     @endfor
                 </div>
-                    
+
                 @endif
 
                 <div class="row">
@@ -188,49 +188,49 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <b>Name</b>: {{ $c->name }}
                 </div>
                 <div class="col-md-6">
-                    <b>Tagline</b>: 
+                    <b>Tagline</b>:
                     {{ $c->tagline ? $c->tagline : '-No tagline-' }}
                 </div>
                 <div class="col-md-6">
-                    <b>Website</b>: 
+                    <b>Website</b>:
                     <a href="{{ $c->website ? $c->website : '#' }}">{{ $c->website ? $c->website : '-website not provided-' }}</a>
                 </div>
                 <br>
                 <div class="col-md-6" >
-                    <b>About</b>: 
+                    <b>About</b>:
                     {{ $c->about ? $c->about : '-Company Brief not stated-' }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Industry</b>: 
+                    <b>Industry</b>:
                     {{ $c->industry->name }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Company Size</b>: 
+                    <b>Company Size</b>:
                     {{ $c->companySize->lower_limit }} - {{ $c->companySize->upper_limit }} people
                 </div>
                 <div class="col-md-6" >
-                    <b>Country</b>: 
+                    <b>Country</b>:
                     {{ $c->location->country->name }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Location</b>: 
+                    <b>Location</b>:
                     {{ $c->location->name }}
                 </div>
                 <hr>
                 <div class="col-md-6" >
-                    <b>All Vacancies</b>: 
+                    <b>All Vacancies</b>:
                     {{ count($c->posts) }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Live Vacancies</b>: 
+                    <b>Live Vacancies</b>:
                     {{ count($c->activePosts) }}
                 </div>
                 @empty
                 <p>No company records found. <a href="/vacancies/create">Create Company</a></p>
                 @endforelse
 
-            
-            
+
+
 
         	@elseif($user->role == 'admin')
 
@@ -248,12 +248,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         	@endif
 
-        	
-        	
+
+
         </div>
         <div class="clearfix"> </div>
        </div>
-       
+
 	</div>
 </div>
 

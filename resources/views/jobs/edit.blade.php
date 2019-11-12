@@ -7,15 +7,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', $post->title)
+@section('page_title', 'Edit')
 
 
 <form method="post" action="/vacancies/{{ $post->slug }}" class="" enctype="multipart/form-data">
     @csrf
     {{ method_field('PUT') }}
-    <div class="card">
-        <div class="card-body p-5">
-            <div id="section1" class="section-view ">
+    <div id="section1" class="section-view ">
+        <div class="card">
+            <div class="card-body p-5">
                 <h3>Step 1 of 3</h3>
                 <p>
                     <label>Company *</label>
@@ -66,9 +66,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body p-5">
-            <div id="section2" class="section-view hidden">
+    <div id="section2" class="section-view d-none">
+        <div class="card">
+            <div class="card-body p-5">
                 <h3>Step 2 of 3</h3>
                 <p>
                     <label>Job Description *</label>
@@ -118,9 +118,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body p-5">
-            <div id="section3" class="section-view hidden">
+    <div id="section3" class="section-view d-none">
+        <div class="card">
+            <div class="card-body p-5">
                 <h3>Step 3 of 3</h3>
 
 
@@ -171,20 +171,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script type="text/javascript">
     $().ready(function() {
         $('.toSection1').click(function() {
-            $('.section-view').addClass('hidden');
-            $('#section1').removeClass('hidden');
+            $('.section-view').addClass('d-none');
+            $('#section1').removeClass('d-none');
         });
         $('.toSection2').click(function() {
             var title = $('#job-title').val();
             if (title.length < 5)
                 return alert('job title too short');
-            $('.section-view').addClass('hidden');
-            $('#section2').removeClass('hidden');
+            $('.section-view').addClass('d-none');
+            $('#section2').removeClass('d-none');
         });
         $('.toSection3').click(function() {
 
-            $('.section-view').addClass('hidden');
-            $('#section3').removeClass('hidden');
+            $('.section-view').addClass('d-none');
+            $('#section3').removeClass('d-none');
         });
     });
 </script>

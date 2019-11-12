@@ -14,6 +14,7 @@ a {
 
 a:hover {
     color: var(--secondary);
+    cursor: pointer;
 }
 
 p {
@@ -30,7 +31,7 @@ p {
 }
 
 .orange {
-    color: var(--secondary);
+    color: var(--secondary) !important;
 }
 
 .prompts {
@@ -42,6 +43,11 @@ p {
 
 .send-message {
     background: var(--secondary);
+}
+
+.purple-bg {
+    background: var(--primary);
+    color: white;
 }
 
 .btn-orange {
@@ -345,6 +351,14 @@ main {
     position: relative;
     left: -13px;
     top: 0;
+}
+
+.progress {
+    height: 10px;
+}
+
+.sign-page {
+    min-height: 100vh;
 }
 
 @media only screen and (max-width: 996px) {

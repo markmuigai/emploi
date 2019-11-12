@@ -119,104 +119,26 @@
         <!-- END OF NAVBAR -->
     </header>
     <!-- MAIN CONTENT FOR EMPLOYER -->
-    <main>
+    <main class="sign-page">
         <!-- SIDEBAR FOR EMPLOYERS -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 d-md-block d-none">
-                    <div class="sidebar">
-                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="/test" role="tab" aria-controls="v-pills-messages" aria-selected="false">Candidates <i class="fas fa-chevron-right"></i></a>
-                            <!-- <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a> -->
-                            <a class="nav-link" id="v-pills-reviews-tab" href="/employers/reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                        <!-- ADD JOB AS AN EMPLOYER -->
-                        <div class="mt-3">
-                            <a href="/vacancies/create" class="btn btn-orange" id="postAlt"><i class="fas fa-plus"></i> Post A Job</a>
-                        </div>
-                        <!-- END OF ADD JOB AS AN EMPLOYER -->
-                    </div>
+        <div class="row align-items-center m-0 h-100">
+            <div class="col-md-6 px-5 purple-bg">
+                <div class="container">
+                    <h2>@yield('user_title')</h2>
+                    <p>Emploi is an online placement platform that advertises job seekers to employers.</p>
+                    <a href="{{ route('register') }}" class="btn btn-orange px-5">Sign Up</a>
                 </div>
-                <!-- END OF SIDEBAR FOR EMPLOYERS -->
-                <div class="col-md-9 col-12">
-                    <!-- ADD JOB AS AN EMPLOYER -->
-                    <div id="postJob" class="mb-3">
-                        <h2>@yield('page_title')</h2>
-                        <a href="/vacancies/create" class="btn btn-orange"><i class="fas fa-plus"></i> Post A Job</a>
-                    </div>
-                    <!-- END OF ADD JOB AS AN EMPLOYER -->
+            </div>
+            <!-- END OF SIDEBAR FOR EMPLOYERS -->
+            <div class="col-md-6">
+                <div class="container">
                     @yield('content')
                 </div>
             </div>
         </div>
     </main>
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
-    <!-- FOOTER -->
-    <footer>
-        <div class="container pt-3 pb-1">
-            <div class="row justify-content-between">
-                <div class="col-md-4 col-sm-4 col-5">
-                    <h4>MENU</h4>
-                    <ul class="footer-menu">
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/blog">Career Centre</a></li>
-                        <li><a href="/join">Register</a></li>
-                        <li><a href="/employers/publish">Advertise</a></li>
-                        <li><a href="/vacancies">Vacancies</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                    </ul>
-                    <div class="d-block d-md-none social">
-                        <a href="https://www.facebook.com/jobsikaz/" target="_blank"><i class="fab fa-facebook-f pr-3"></i></a>
-                        <a href="https://twitter.com/jobsikaz?lang=en" target="_blank"><i class="fab fa-twitter pr-3"></i></a>
-                        <a href="https://ke.linkedin.com/company/jobsikaz-com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-5 col-7 location">
-                    <h4>FIND US</h4>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="col-10">
-                            <p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="col-10">
-                            <a href="mailto:info@emploi.co">info@emploi.co</a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="col-10">
-                            <a href="tel:+254702068282">+254 702 068 282</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 offset-md-2 d-none d-md-block social ">
-                    <h4>SOCIAL</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/jobsikaz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/jobsikaz?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://ke.linkedin.com/company/jobsikaz-com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copy pt-3">
-                <p>Copyright &copy; {{ date('Y') }} Emploi . All Rights Reserved </p>
-            </div>
-        </div>
-    </footer>
-    <!-- END OF FOOTER -->
+
     <!-- INVITE FRIENDS -->
     <div class="prompts">
         <button type="button" name="button" class="invite" data-toggle="modal" data-target="#inviteFriends"><i class="fas fa-user-plus"></i></button>

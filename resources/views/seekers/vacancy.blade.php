@@ -1,151 +1,131 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
-@section('title','Emploi :: '.$post->title)
+@section('title','Emploi :: Dashboard')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<style type="text/css">
-	.fa-s {
-		font-size: 150%;
-		margin: 0.5em 1em;
-		border-radius: 50%;
-		opacity: 0.7;
-	}
-	.fa-s:hover {
-		opacity: 1.0
-	}
-</style>
-<div class="container">
-    <div class="single">  
-	   
-	 <div class="col-md-8 single_right">
-	      <h3>
-	      	{{ $post->title }} 
-	      	<a href="
-	      	{{ $post->how_to_apply != '' ? '#how-to-apply' : '/vacancies/'.$post->slug.'/apply' }}" class="btn btn-sm btn-success pull-right">apply</a>
+@section('page_title', $post->title )
+<!-- NAV-TABS -->
+<ul class="nav nav-tabs" id="jobDetails" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="job-description-tab" data-toggle="tab" href="#job-description" role="tab" aria-controls="job-description" aria-selected="true">Job Description</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="shortlist-tab" data-toggle="tab" href="#shortlist" role="tab" aria-controls="shortlist" aria-selected="false">Shortlisted Candidates</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="selected-tab" data-toggle="tab" href="#selected" role="tab" aria-controls="selected" aria-selected="false">Selected Candidates</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="rejected-jobs-tab" data-toggle="tab" href="#rejected-jobs" role="tab" aria-controls="rejected-jobs" aria-selected="false">Rejected Candidates</a>
+    </li>
+</ul>
+<div class="row">
+    <div class="col-lg-9 col-md-8 col-12">
+        <!-- NAV-TAB CONTENT -->
+        <div class="tab-content pt-2" id="jobDetailsContent">
+            <!-- ALL JOBS -->
+            <div class="tab-pane fade show active" id="job-description" role="tabpanel" aria-labelledby="job-description-tab">
+                <!-- JOB CARD -->
+                <div class="card py-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-12 d-flex justify-content-between align-items-center">
+                                <p>
+                                    <i class="fas fa-share-alt"></i> Share:</p>
+                                <a href="http://www.facebook.com/sharer.php?u={{ url('/vacancies/'.$post->slug) }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/share?url={{ url('/vacancies/'.$post->slug) }}&amp;text={{ urlencode($post->title) }}&amp;hashtags=Emploi{{ $post->location->country->code }}" target="_blank"><i
+                                      class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                <a href="#"><i class="fab fa-pinterest"></i></a></p>
+                            </div>
+                            <div class="col-lg-7 col-md-12 text-right">
+                                <p>
+                                    <a href="/vacancies/{{ $post->slug}}/edit"><i class="fas fa-edit"></i> Edit</a> |
+                                    <a href="#"><i class="far fa-eye"></i> Publish</a> |
+                                    <a href="#" class="text-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row pb-3">
+                            <div class="col-12 col-md-6 col-lg-7">
+                                <h5>{{ $post->title }} <span class="badge badge-light">{{ $post->positions }} Positions</span></h5>
+                                <a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
+                                <p>
+                                    <span class="badge badge-orange">{{ $post->vacancyType->name }}</span>
+                                    <span class="badge badge-success">Full Time</span>
+                                    <span class="badge badge-danger">Internship</span>
+                                    <span class="badge badge-info">Freelancer</span>
+                                </p>
 
-	      	<a href="#share-links" class="btn btn-sm btn-primary pull-right hidden">share</a>
-	      	<br><br>
-	      	<div style="font-size: 60%">
-	      		<b>{{ $post->since }}</b>
-	      		<i class="pull-right">Apply within <b><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->deadline))->diffForHumans() ?></b></i>
-	      	</div>
-	      </h3>
-	      <div class="row_1">
-	      	<div class="col-sm-5 single_img">
-	      		<img src="{{ asset($post->imageUrl) }}" class="img-responsive" alt="{{ $post->title }}" style="width: 100%" />
-	      	</div>
-	      	<div class="col-sm-7 single-para">
-	      		<p>
-	      			Position: <b>{{ $post->vacancyType->name }}</b> <br>
-	      			Company: <b>
-	      				<a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
-
-	      				</b><br>
-	      			Location: <b>{{ $post->location->name }}, {{ $post->location->country->name }}</b><br>
-	      			Apply by: <b>{{ $post->deadline }}</b><br>
-	      			Education: <b>{{ $post->educationLevel->name }}, {{ $post->industry->name }}</b><br>
-	      			Experience: <b>{{ $post->experience_requirements }}</b> <br>
-	      			Salary: <b>{{ isset(Auth::user()->id) ? '~ '.$post->location->country->currency.' '.$post->monthly_salary.' p.m.' : 'Login to view' }}</b>
-	      			<br>
-	      			No of positions: <b>{{ $post->positions }}</b>
-
-	      		</p>
-	      		
-	      		
-	      	</div>
-	      	<div class="clearfix"> </div>
-	      	<br>
-	      	<div>
-	      		<b>About {{ isset(Auth::user()->id) ? $post->company->name : ' the Company' }}</b>
-	      		<p><?php echo $post->company->about; ?></p>
-	      	</div>
-	      	<div class="clearfix"> </div>
-	      </div>
-	      
-	      <div>
-	      	<?php echo $post->responsibilities; ?>
-
-	      </div>
-
-	      	<h5>How to Apply</h5>
-	      	@if(isset(Auth::user()->id))
-	      	<div id="how-to-apply">
-				@if($post->how_to_apply != '')
-					<?php  echo $post->how_to_apply; ?>
-				@else
-					<p>
-						Click <a href="/vacancies/{{ $post->slug }}/apply">here</a> to apply for this position.
-					</p>
-				@endif
-
-			</div>
-	      	@else
-	      	<div>
-				<a href="/login">Login</a> or <a href="/register">register</a> to view application procedures
-			</div>
-	      	@endif
-
-	      	<h5 id="share-links">
-	      		Share this position
-	      	</h5>
-	      	<div class="social">    
-                <a class="btn_1" href="http://www.facebook.com/sharer.php?u={{ url('/vacancies/'.$post->slug) }}" target="_blank">
-                    <i class="fa fa-facebook fb"></i>
-                    <span class="share1 fb">Share</span>                                
-                </a>
-                <a class="btn_1" href="https://twitter.com/share?url={{ url('/vacancies/'.$post->slug) }}&amp;text={{ urlencode($post->title) }}&amp;hashtags=Emploi{{ $post->location->country->code }}" target="_blank">
-                    <i class="fa fa-twitter tw"></i>
-                    <span class="share1">Tweet</span>                               
-                </a>
-                <a class="btn_1" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/vacancies/'.$post->slug) }}" target="_blank">
-                    <i class="fa fa-linkedin fb"></i>
-                    <span class="share1 fb">Share</span>
-                </a>
-           </div>
-			
-	      
-	      <div class="comments" style="display: none;">
-	      	<h6>Comments</h6>
-			<div class="media media_1">
-			  <div class="media-left"><a href="#"> </a></div>
-			  <div class="media-body">
-			    <h4 class="media-heading"><a class="author" href="#">Sollicitudin</a><a class="reply" href="#">Reply</a><div class="clearfix"> </div></h4>
-			    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-			  </div>
-			  <div class="clearfix"> </div>
-			</div>
-			<div class="media">
-			  <div class="media-left"><a href="#"> </a></div>
-			  <div class="media-body">
-			    <h4 class="media-heading"><a class="author" href="#">Sollicitudin</a><a class="reply" href="#">Reply</a><div class="clearfix"> </div></h4>
-			    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-			  </div>
-			</div>
-		  </div>
-		  <form style="display: none;">
-			<div class="to">
-             	<input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-			 	<input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:3%">
-			</div>
-			<div class="text">
-               <textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-right">
+                                <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->name }}, {{ $post->location->country->name }}</p>
+                                <p>
+                                    <strong>{{ isset(Auth::user()->id) ? ' '.$post->location->country->currency.' '.$post->monthly_salary.' p.m.' : 'Login to view' }}</strong>
+                                </p>
+                                <p>
+                                    <i class="orange far fa-calendar-check"></i> {{ $post->deadline }}
+                                    <br>
+                                    <?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->deadline))->diffForHumans() ?>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- ABOUT THE COMPANY -->
+                        <h5 class="pt-3 pb-2">About {{ isset(Auth::user()->id) ? $post->company->name : ' the Company' }}</h5>
+                        <p><?php echo $post->company->about; ?></p>
+                        <!-- JOB DESCRIPTION -->
+                        <h5 class="pt-3 pb-2">Job Description</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                            laborum.</p>
+                        <!-- RESPONSIBILITIES -->
+                        <h5 class="pt-3 pb-2">Responsibilities</h5>
+                        <ul>
+                            <li><?php echo $post->responsibilities; ?></li>
+                        </ul>
+                        <!-- REQUIREMENTS -->
+                        <h5 class="pt-3 pb-2">Requirements</h5>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, placeat voluptas.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END OF JOB CARD -->
             </div>
-            <div class="form-submit1">
-	           <input name="submit" type="submit" id="submit" value="Submit"><br>
-	        </div>
-			<div class="clearfix"></div>
-          </form>
-	   </div>
-	   <div class="col-md-4">
-	   	  @include('left-bar')
-	   	  
-	 </div>
-	   <div class="clearfix"> </div>
-	 </div>
+            <!-- END OF ALL JOBS -->
+            <!-- ACTIVE JOBS -->
+            <div class="tab-pane fade" id="shortlist" role="tabpanel" aria-labelledby="shortlist-tab">
+
+
+            </div>
+            <!-- END OF ACTIVE JOBS -->
+
+            <!-- CLOSED JOBS -->
+            <div class="tab-pane fade" id="selected-jobs" role="tabpanel" aria-labelledby="selected-jobs-tab">
+
+
+            </div>
+            <!-- END OF CLOSED JOBS -->
+            <!-- CLOSED JOBS -->
+            <div class="tab-pane fade" id="rejected-jobs" role="tabpanel" aria-labelledby="rejected-jobs-tab">
+
+
+            </div>
+            <!-- END OF CLOSED JOBS -->
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-12">
+        <div class="card mt-2">
+            <div class="card-body">
+                <h6>Recent Applications</h6>
+            </div>
+        </div>
+    </div>
 </div>
+
 @endsection

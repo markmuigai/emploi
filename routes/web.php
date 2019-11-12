@@ -61,7 +61,7 @@ Route::post('/employers/register', 'EmployerController@create');
 Route::get('/test', function () {    	return view('new-design.test');	});
 
 Route::get('/employers/jobs', function () {    	return view('employers.dashboard.jobs');	});
-Route::get('/employers/job', function () {    	return view('employers.dashboard.job');	});
+Route::get('/employers/reviews', function () {    	return view('employers.dashboard.reviews');	});
 Route::get('/employers/applicants', function () {    	return view('employers.dashboard.applicants');	});
 // *************************
 

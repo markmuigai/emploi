@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Emploi :: @'.$user->username)
 
@@ -18,15 +18,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			{{ '@'.$user->username }}
 			<br>
 			<small>
-			@if($user->role == 'seeker')
-			Job Seeker
-			@elseif($user->role == 'employer')
-			Employer
-			@elseif($user->role == 'admin')
-			Administrator
-			@endif
-			
-				
+				@if($user->role == 'seeker')
+				Job Seeker
+				@elseif($user->role == 'employer')
+				Employer
+				@elseif($user->role == 'admin')
+				Administrator
+				@endif
+
+
 			</small>
 		</p>
 	</div>
@@ -39,21 +39,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<i class="fa fa-phone"></i> {{ $user->seeker->phone_number ? $user->seeker->phone_number : '-no phone number-' }} <br>
 			<i class="fa fa-envelope"></i> {{ $user->email }} <br>
 			<i class="fa fa-map-marker"></i> {{ $user->seeker->location_id ? $user->seeker->location->name : '-not set-' }} <br>
-				@if( $user->seeker->gender == 'M' )
-	            Male
-	            @elseif($user->seeker->gender == 'F')
-	            Female
-	            @else
-	            Other
-	            @endif <br>
-	            <a href="/profile/edit" class="btn btn-link"> edit</a>
-	            <a href="/profile/referees" class="btn btn-success"> referees</a>
+			@if( $user->seeker->gender == 'M' )
+			Male
+			@elseif($user->seeker->gender == 'F')
+			Female
+			@else
+			Other
+			@endif <br>
+			<a href="/profile/edit" class="btn btn-link"> edit</a>
+			<a href="/profile/referees" class="btn btn-success"> referees</a>
 		</small>
 	</div>
 	<div class="col-md-6 col-md-offset-1 col-xs-8" style="text-align: center;">
 		@if(!$user->seeker->hasCompletedProfile())
 		<p style="text-align: center; font-size: 90%; ">
-		    <a href="/profile/edit" style="color: red"> <i class="fa fa-info"></i> Update your profile and start applying for jobs</a>
+			<a href="/profile/edit" style="color: red"> <i class="fa fa-info"></i> Update your profile and start applying for jobs</a>
 		</p>
 		@endif
 		<div style="margin-bottom: 1em">
@@ -62,23 +62,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				{{ $user->seeker->objective ? $user->seeker->objective : 'Career objective not stated' }}
 			</p>
 		</div>
-		
+
 		@if(count($user->seeker->experience()) > 0)
 		<div style="margin-bottom: 1em">
 			<h4 style="font-weight: bold;">Work Experience</h4>
 			<?php $exp = $user->seeker->experience();  ?>
 			@for($i=count($exp)-1; $i>=0; $i--)
-				<div style="">
-					<b>
-                        <?php echo $exp[$i][1].'</b> at <b>'.$exp[$i][0]; ?>
-                    </b>
-                    <?php echo $exp[$i][2].' - '.$exp[$i][3]; ?>
+			<div style="">
+				<b>
+					<?php echo $exp[$i][1].'</b> at <b>'.$exp[$i][0]; ?>
+				</b>
+				<?php echo $exp[$i][2].' - '.$exp[$i][3]; ?>
 
-                    <br>
-                    <p>
-                    	{{ $exp[$i][4] }}
-                    </p>
-				</div>
+				<br>
+				<p>
+					{{ $exp[$i][4] }}
+				</p>
+			</div>
 			@endfor
 		</div>
 		@endif
@@ -89,21 +89,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<div class="row">
 				<?php $exp = $user->seeker->education();  ?>
 				@for($i=count($exp)-1; $i>=0; $i--)
-					<div style="" class="col-md-6">
-						<b>
-                            <?php echo $exp[$i][1]; ?>
-                        </b> <br>
-                        <?php echo $exp[$i][2] ?>
+				<div style="" class="col-md-6">
+					<b>
+						<?php echo $exp[$i][1]; ?>
+					</b> <br>
+					<?php echo $exp[$i][2] ?>
 
-                        <br>
-                        <p>
-                        	{{ $exp[$i][0] }}
-                        </p>
-					</div>
+					<br>
+					<p>
+						{{ $exp[$i][0] }}
+					</p>
+				</div>
 				@endfor
 			</div>
 		</div>
-		
+
 		@endif
 
 		@if(count($user->seeker->skills) > 0)
