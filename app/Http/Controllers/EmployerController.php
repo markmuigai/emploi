@@ -11,16 +11,21 @@ use App\Candidate;
 use App\Company;
 use App\CompanySize;
 use App\Country;
+use App\Course;
 use App\EducationLevel;
 use App\Employer;
 use App\IqTest;
 use App\Industry;
+use App\IndustrySkill;
 use App\InterviewResult;
 use App\JobApplication;
 use App\Location;
 use App\ModelSeeker;
+use App\ModelSeekerCourse;
 use App\ModelSeekerSkill;
+use App\ModelSeekerPersonalityTrait;
 use App\Personality;
+use App\PersonalityTrait;
 use App\Post;
 use App\PsychometricTest;
 use App\Referee;
@@ -291,6 +296,9 @@ class EmployerController extends Controller
                     ->with('companySizes',CompanySize::all())
                     ->with('personalities',Personality::orderBy('name')->get())
                     ->with('skills',Skill::all())
+                    ->with('courses',Course::all())
+                    ->with('personalityTraits',PersonalityTrait::orderBy('name')->get())
+                    ->with('industrySkills',IndustrySkill::where('industry_id',$post->industry_id)->orderBy('name')->get())
                     ->with('weights',RsiWeight::all())
                     ->with('post',$post);
         //return $request->all();
@@ -325,12 +333,27 @@ class EmployerController extends Controller
             $m->company_size_importance = $request->company_size_importance;
             $m->feedback_importance = $request->feedback_importance;
 
+            $m->other_skills = '[]';
+            $m->other_skills_weight = '[]';
+
+            if(isset($request->other_skill_name))
+            {
+                $m->other_skills = $request->other_skill_name;
+                $m->other_skills_weight = $request->other_skill_weight;
+            }
+
             $m->save();
 
             if(count($m->modelSeekerSkills) > 0)
             {
                 foreach($m->modelSeekerSkills as $s)
                     $s->delete();
+            }
+
+            if(count($m->modelSeekerPersonalityTraits) > 0)
+            {
+                foreach($m->modelSeekerPersonalityTraits as $t)
+                    $t->delete();
             }
 
             
@@ -355,15 +378,37 @@ class EmployerController extends Controller
 
             ]);
         }
+
+        $m->other_skills = '[]';
+        $m->other_skills_weight = '[]';
+
+        if(isset($request->other_skill_name))
+        {
+            $m->other_skills = $request->other_skill_name;
+            $m->other_skills_weight = $request->other_skill_weight;
+        }
         
-        if(count($request->skill_id) > 0 )
+        if(isset($request->skill_id) && count($request->skill_id) > 0 )
         {
             $counter = 0;
             foreach ($request->skill_id as $e) {
                 ModelSeekerSkill::create([
                     'model_seeker_id' => $m->id,
-                    'skill_id' => $e,
+                    'industrySkill_id' => $e,
                     'weight' => $request->skill_weight[$counter]
+                ]);
+                $counter ++;
+            }
+        }
+
+        if(isset($request->trait_id) && count($request->trait_id) > 0 )
+        {
+            $counter = 0;
+            foreach ($request->trait_id as $e) {
+                ModelSeekerPersonalityTrait::create([
+                    'model_seeker_id' => $m->id,
+                    'personality_trait_id' => $e,
+                    'weight' => $request->trait_weight[$counter]
                 ]);
                 $counter ++;
             }

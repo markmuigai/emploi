@@ -5,9 +5,11 @@ $().ready(function(){
 		if(s == -1)
 			return;
 		var added = false;
+		
 		$('.ms-skill').each(function(){
 			if($(this).attr('skill_id') == s)
 				added = true;
+
 		});
 		if(!added)
 		{
@@ -22,6 +24,13 @@ $().ready(function(){
 			}
 			var w = $('#skill-weight').val();
 			var wn = 'Bonus';
+			var top5SkillsCounter = 0;
+			$('.skill-weight').each(function(){
+				if($(this).val() == 3)
+					top5SkillsCounter++;
+			});
+			if(top5SkillsCounter > 4 && w ==3)
+				w = 2;
 			if(w == 3)
 				wn = 'Necessary';
 			if(w == 2)
@@ -33,7 +42,7 @@ $().ready(function(){
 				'<p><b>'+
 					t+'</b> || <i>'+wn+'</i>'+
 					'<input type="hidden" name="skill_id[]" value="'+s+'">'+
-					'<input type="hidden" name="skill_weight[]" value="'+w+'">'+
+					'<input type="hidden"  class="skill-weight" name="skill_weight[]" value="'+w+'">'+
 					'<span class="pull-right btn btn-sm btn-danger remove-new-skill" skill_id="'+s+'">x</span>'+
 				'</p>'+
 			'</div>';
@@ -49,23 +58,106 @@ $().ready(function(){
 		//var s = $(this).attr('skill_id');
 		$(this).parent().parent().remove();
 	});
-});
 
-rsi = new Vue({
-    el: '#rsi-container',
-    data: {
-    	education: false,
-    	experience: false,
-    	iq: false,
-    	interview: false,
-    	personalities: false,
-    	skills: false,
-    	psychometric: false,
-    	company_size: false
-    },
-    computed: {
-    	total(){
-    		return parseFloat(this.education) + parseFloat(this.experience) + parseFloat(this.iq) + parseFloat(this.interview) + parseFloat(this.personalities) + parseFloat(this.skills) + parseFloat(this.psychometric) + parseFloat(this.company_size);
-    	}
-    }
+	$('#add-trait').click(function(){
+		var s = $('#select-trait').val();
+		if(s == -1)
+			return;
+		var added = false;
+		
+		$('.ms-trait').each(function(){
+			if($(this).attr('trait_id') == s)
+				added = true;
+
+		});
+		if(!added)
+		{
+			var t = 'Trait Name';
+			for(var i=0; i<allTraits.length; i++)
+			{
+				if(allTraits[i][0] == s)
+				{
+					t = allTraits[i][1];
+					break;
+				}
+			}
+			var w = $('#trait-weight').val();
+			var wn = 'Bonus';
+			if(w == 3)
+				wn = 'Very Important';
+			if(w == 2)
+				wn = 'Important';
+
+
+			var $trait = ''+
+			'<div class="col-md-6 ms-trait" trait_id="'+s+'">'+
+				'<p><b>'+
+					t+'</b> || <i>'+wn+'</i>'+
+					'<input type="hidden" name="trait_id[]" value="'+s+'">'+
+					'<input type="hidden"  class="trait-weight" name="trait_weight[]" value="'+w+'">'+
+					'<span class="pull-right btn btn-sm btn-danger remove-new-trait" trait_id="'+s+'">x</span>'+
+				'</p>'+
+			'</div>';
+			$('.selected-traits').append($trait);
+			$('.remove-new-trait').click(function(){
+				$(this).parent().parent().remove();
+			});
+		}
+	});
+
+	$('.remove-trait').click(function(){
+		//var s = $(this).attr('skill_id');
+		$(this).parent().parent().remove();
+	});
+
+	$('#add-other-skill').click(function(){
+		var name = $('#other-skill-name').val();
+		if(name.length < 3)
+			return;
+		var weight = $('#other-skill-weight').val();
+		addOtherSkill(name,weight);
+		
+		
+	});
+
+	function addOtherSkill(name,weight){
+		var added = false;
+		$('.other-skill').each(function(){
+			if($(this).attr('skill_name') == name)
+				added = true;
+		});
+		if(added)
+			return;
+		
+		
+		var weightName = 'Bonus';
+		if(weight == 2)
+			weightName = 'Important';
+		if(weight == 3)
+			weightName = 'Very Important';
+		$o = ''+
+		'<div class="col-md-4 col-xs-6 hover-bottom other-skill" skill_name="'+name+'">'+
+			'<input type="hidden" name="other_skill_name[]" class="other-skill" value="'+name+'">'+
+			'<input type="hidden" name="other_skill_weight[]" value="'+weight+'">'+
+			name +' || <i>'+weightName+'</i>'+
+			'<span style="border-radius: 50%" class="btn btn-sm btn-danger pull-right remove-other-skill">x</span>'+
+		'</div>';
+		$('.other-skills-pool').append($o);
+		$('.remove-other-skill').click(function(){
+			$(this).parent().remove();
+		});
+		$('#other-skill-name').val('');
+	}
+
+	$('.remove-other-skill').click(function(){
+		$(this).parent().remove();
+	});
+
+	if(other_skills.length > 0)
+	{
+		for(var i=0; i<other_skills.length; i++)
+		{
+			addOtherSkill(other_skills[i],other_skills_weight[i]);
+		}
+	}
 });

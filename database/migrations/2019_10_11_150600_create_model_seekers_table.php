@@ -36,6 +36,8 @@ class CreateModelSeekersTable extends Migration
             $table->integer('personality_importance')->default(5);
             $table->integer('company_size_importance')->default(5);
             $table->integer('feedback_importance')->default(5);
+            $table->text('other_skills')->nullable();
+            $table->text('other_skills_weight')->nullable();
             $table->timestamps();
         });
     }

@@ -1,72 +1,194 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+#EMPLOI
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## About Emploi
 
-## About Laravel
+Emploi is an end-to-end recruitment platform with the following features:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Employers Post Vacancies
+- Job Seekers Apply vacancies
+- Employers Shortlisting
+- Role suitability Index to rank applicants
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installing Emploi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Ideal installation is on an Ubuntu 18.04 VPS. 
 
-## Learning Laravel
+###Requirements
+- Ubuntu 18.04
+- EngineX Server
+- PHP 7.3-fpm
+- Composer
+- Supervisor
+- Git repository
+- MySQL Database
+- Certbot
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+###1. On server
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+a) Create directory
+mkdir -p /var/www/emploi.co
 
-## Laravel Sponsors
+b) Create Nginx server block in /etc/nginx/sites-available/emploi.co and paste contents below
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+server {
+    listen 80;
+    root /var/www/emploi.co/public;
+    index index.php index.html index.htm;
+    server_name emploi.co;
+    location / {
+           try_files $uri $uri/ /index.php$is_args$args;
+    }
+    location ~ \.php$ {
+           try_files $uri /index.php = 404;
+           fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+           fastcgi_index index.php;
+           fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+           include fastcgi_params;
+    }
+}
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
+c) Make server block accessible
 
-## Contributing
+ln -s /etc/nginx/sites-available/emploi.co /etc/nginx/sites-enabled/emploi.co
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+d) Create git repo
+
+mkdir -p /var/repo/emploi.git
+cd /var/repo/emploi.git
+git init --bare
+
+e) Enable receiving updates from development center by creating a hook, pasting contents and giving correct permissions
+
+nano /var/repo/emploi.git/hooks/post-receive
+
+#!/bin/sh
+Unset GIT_INDEX_FILE
+git --work-tree=/var/www/emploi.co --git-dir=/var/repo/emploi.git checkout -f
+
+>>exit and give permissions
+
+chmod +x /var/repo/emploi.git/hooks/post-receive
+
+###2. On Local Machine
+
+>>edit database/seeds/DatabaseSeeder.php and remove dummy data (At the bottom)
+>>update admin passwords which by replacing them with Hashed Equivalent
+
+>>add remote host and push code
+git remote add production ssh://root@emploi.co:22/var/repo/emploi.git
+git push production master
+
+###3. Server
+
+a) Create mysql database
+
+mysql
+CREATE DATABASE emploi;
+GRANT ALL PRIVILEGES ON emploi.* to 'emploi'@'localhost' IDENTIFIED BY 'AVeryHardPass!';
+FLUSH PRIVILEGES;
+exit;
+
+b) Continue installation
+
+cd /var/www/emploi.co
+composer install
+chown -R :www-data /var/www/emploi.co
+chmod -R 777 /var/www/emploi.co
+composer dump-autoload
+
+c) Create .env file (Environment file)
+
+APP_NAME=Emploi
+APP_ENV=production
+APP_KEY=
+APP_DEBUG=false
+APP_URL=https://emploi.co
+LOG_CHANNEL=stack
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=emploi
+DB_USERNAME=emploi
+DB_PASSWORD=AVeryHardPass!
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=database
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailgun.org
+MAIL_PORT=587
+MAIL_USERNAME=postmaster@mg.emploi.co
+MAIL_FROM_NAME='Emploi Team'
+MAIL_PASSWORD=b494db25c0c0a5a9355bc8ec121ae36d-9c988ee3-d124ce79
+MAIL_ENCRYPTION=null
+MAILGUN_DOMAIN=info@emploi.co
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+d) Finish up installation
+
+php artisan key:generate
+php artisan config:cache
+php artisan migrate
+php artisan db:seed
+php artisan storage:link
+composer dump-autoload
+
+e) Setup SSL with Certbot and enable auto renew
+
+certbot --nginx -d emploi.co
+certbot renew --dry-run
+
+f) Import data from Cv-portal
+
+>>visit jobsikaz.com/cpanel
+>>navigate to databases and execute these queries, exporting data to csv
+
+[i] Export job seekers and save as seekers.csv
+
+SELECT job_seekers.names, job_seekers.public_name, job_seekers.dob, job_seekers.email, job_seekers.gender, job_seekers.phone, job_seekers.current_position, job_seekers.post_address, job_seekers.years_experience, job_seekers.experience, job_seekers.education, job_seekers.objective, job_seekers.resume, job_seekers.featured, job_seekers.industry, users.password FROM job_seekers
+LEFT JOIN users ON job_seekers.user_id = users.id
+
+[ii] Export employers and save as employers.csv
+
+SELECT employers.company, employers.industry, employers.mobile, employers.phone, employers.location, employers.post_address, users.email, users.password, users.name FROM employers
+LEFT JOIN users ON employers.user_id = users.id
+
+[iii] Export Employers saved Cvs and save as saved-profiles.csv
+
+SELECT users.email as employer_email, job_seekers.email as seeker_email, accounts.created_at FROM accounts
+LEFT JOIN users on accounts.user_id = users.id
+LEFT JOIN job_seekers on accounts.id = job_seekers.id
+
+[iv] Export Employers cv requests and save as resume-requests.csv
+
+SELECT users.email as employer_email, job_seekers.email as seeker_email, resume_requests.status, resume_requests.created_at FROM resume_requests
+LEFT JOIN users ON resume_requests.user_id = users.id
+LEFT JOIN job_seekers ON resume_requests.resume_id = job_seekers.id
+
+>>copy .csv files to /var/www/emploi.co/storage/app directory using scp
+
+>>open tmux as below and start import
+
+tmux
+php artisan command:ImportData
+
+>> press ctrl+b then d to exit. This will keep the process running when terminal is closed
+
+g) Setup supervisor to manage queues
+
+All Done
+
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Emploi, please send an e-mail to Obare C. Brian via [brian.obare@emploi.co](mailto:brian.obare@emploi.co) or raise the issue on Slack. All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Emploi is a product of Jobsikaz Afrique.
