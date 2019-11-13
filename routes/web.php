@@ -20,6 +20,8 @@ Route::get('/verify-account/{code}', 'RegisterSimpleController@verify');
 
 Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');
 
+Route::get('/courses/{id}', 'HomeController@getCourse');
+
 Auth::routes();
 Route::get('/', 'ContactController@index');
 //Route::get('/', function () {   /*dd(\Auth::user()->role );*/ return view('welcome'); 	});

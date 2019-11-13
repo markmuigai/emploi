@@ -11,6 +11,7 @@ class CreateCompanySizesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('lower_limit');
             $table->integer('upper_limit');
+            $table->string('title',50);
             $table->timestamps();
         });
     }

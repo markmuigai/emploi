@@ -120,6 +120,57 @@ $().ready(function(){
 		
 	});
 
+	$('.remove-course').click(function(){
+		$(this).parent().remove();
+	});
+
+	$('#course-add').click(function(){
+		var id = $('#course-select').val();
+		var added = false;
+		$('.listed-course').each(function(){
+			if($(this).val() == id)
+				added = true;
+		});
+		if(added)
+			return;
+
+		$.ajax({
+	        type: 'GET',
+	        url: '/courses/'+id,
+	        success: function(response) {
+
+	        	var name = response.name;
+
+	        	if(response.education_level_id == 3)
+	        		name = 'Certificate in ' + name;
+
+	        	if(response.education_level_id == 4)
+	        		name = 'Diploma in ' + name;
+
+
+	        	var $c = ''+
+	        	'<div class="col-md-4 col-xs-6 hover-bottom">'+
+					name +
+					'<input type="hidden" name="modelSeekerCourses[]" class="listed-course" value="'+response.id+'">'+
+					'<span class="pull-right btn btn-sm btn-danger remove-course">x</span>'+
+				'</div>';
+
+				$('.accepted-courses').append($c);
+
+				$('.remove-course').click(function(){
+					$(this).parent().remove();
+				});
+
+	        		                
+	        },
+	        error: function(e) {
+	            
+	            alert('Failed to add course');
+	        },
+	    });
+
+	});
+
 	function addOtherSkill(name,weight){
 		var added = false;
 		$('.other-skill').each(function(){

@@ -366,6 +366,12 @@ class EmployerController extends Controller
                     $t->delete();
             }
 
+            if(count($m->modelSeekerCourses) > 0)
+            {
+                foreach($m->modelSeekerCourses as $s)
+                    $s->delete();
+            }
+
             
         }
         else
@@ -419,6 +425,18 @@ class EmployerController extends Controller
                     'model_seeker_id' => $m->id,
                     'personality_trait_id' => $e,
                     'weight' => $request->trait_weight[$counter]
+                ]);
+                $counter ++;
+            }
+        }
+
+        if(isset($request->modelSeekerCourses) && count($request->modelSeekerCourses) > 0 )
+        {
+            $counter = 0;
+            foreach ($request->modelSeekerCourses as $e) {
+                ModelSeekerCourse::create([
+                    'model_seeker_id' => $m->id,
+                    'course_id' => $e
                 ]);
                 $counter ++;
             }
