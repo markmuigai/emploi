@@ -41,13 +41,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <h6>Recent Applications</h6>
                 <ul>
-                    @forelse(Auth::user()->employer->recentApplications() as $app)
-                    <li><a href="/employers/browse/{{ $app->user->username }}">{{ $app->user->name }}</a> has applied for the <a href="/employers/applications/{{ $app->post->slug }}">{{ $app->post->title }}</a> job.</li>
-                    @empty
+                    @if(count(Auth::user()->employer->recentApplications()) > 0)
+                        <?php 
+                            $recent = Auth::user()->employer->recentApplications(); 
+                        ?>
+
+                        @for($i=0; $i < count($recent); $i++)
+                        <li>
+                            <a href="/employers/browse/{{ $recent[$i]->user->username }}">
+                                {{ $recent[$i]->user->name }}
+                            </a> has applied for the 
+                            <a href="/employers/applications/{{ $recent[$i]->post->slug }}">{{ $recent[$i]->post->title }}</a> job.
+                        </li>
+                        @endfor
+                    @else
 
                     <li>No Applications have been received</li>
 
-                    @endforelse
+                    @endif
                     
                 </ul>
             </div>
