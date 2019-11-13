@@ -69,7 +69,7 @@
                         <li class="nav-item d-md-none d-block">
                             <a class="nav-link" href="/employers/dashboard">Dashboard</a>
                         </li>
-                        <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/jobs"">Jobs</a></li>
+                        <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/vacancies">Vacancies</a></li>
                       <li class=" nav-item d-md-none d-block">
                                 <a class="nav-link" href="#v-pills-messages">Candidates</a>
                         </li>
