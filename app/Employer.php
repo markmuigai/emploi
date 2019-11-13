@@ -92,6 +92,7 @@ class Employer extends Model
                 array_push($posts, $this->companies[$i]->posts[$k]);
             }
         }
+
         $new_posts = '(';
         for($i=0; $i<count($posts); $i++)
         {
@@ -100,6 +101,9 @@ class Employer extends Model
                 $new_posts .= ',';
         }
         $new_posts .= ')';
+
+        if($new_posts == '()')
+            return array();
 
         $sql = "SELECT id FROM job_applications WHERE post_id IN  $new_posts ORDER BY created_at DESC LIMIT $counter";
         $results = DB::select($sql);
