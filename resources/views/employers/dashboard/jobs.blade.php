@@ -26,53 +26,184 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- ALL JOBS -->
     <div class="tab-pane fade show active" id="all-jobs" role="tabpanel" aria-labelledby="all-jobs-tab">
         <!-- JOB CARD -->
+        @forelse($posts as $post)
         <div class="card py-2">
             <div class="card-body">
                 <div class="row">
+                    
                     <div class="col-12 col-md-6 col-lg-8">
-                        <h4><a href="/test">HTML Developer <span class="badge badge-light">5 Positions</span></a></h4>
-                        <p><i class="fas fa-map-marker-alt orange"></i> California P.O.Box 1234</p>
+                        <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
+                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                         <p>
-                            <span class="badge badge-orange">Part Time</span>
-                            <span class="badge badge-success">Full Time</span>
-                            <span class="badge badge-danger">Internship</span>
-                            <span class="badge badge-info">Freelancer</span>
+
+                            <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <p><i class="far fa-calendar-check"></i> Sep 3, 2019</p>
+                        <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
                         <p>
-                            <strong>KSH 12,000 - 15,000 P.M.</strong>
+                            <strong>{{ $post->monthlySalary() }} P.M.</strong>
                         </p>
-                        <p>No. of Applicants: 5</p>
+                        @if($post->how_to_apply)
+                        <p>Alternative Application</p>
+                        @else
+                        <p>No. of Applicants: {{ count($post->applications) }}</p>
+                        @endif
+                        
                     </div>
+                    
                 </div>
                 <hr>
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-6 col-lg-4">
-                        <p><i class="fas fa-share-alt"></i> Share: <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-google-plus-g"></i></a> <a href="#"><i
-                                  class="fab fa-pinterest"></i></a></p>
+                        <p>
+                            @if($post->isActive)
+                            <i class="fas fa-share-alt"></i> 
+                            Share: 
+                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a> 
+                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a> 
+                            @else
+                            <span>Sharing Disabled</span>
+                            @endif
+                        </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <a href="#" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
-                        <a href="#"><i class="far fa-eye"></i> Publish</a> |
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
+                        @if($post->status != 'active')
+                        <a href="#"><i class="far fa-eye"></i> Publish</a>
+                        @else
                         <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @empty
+        <p style="text-align: center;">No Job posts found</p>
+        @endforelse
     </div>
     <!-- END OF ALL JOBS -->
     <!-- ACTIVE JOBS -->
     <div class="tab-pane fade" id="active-jobs" role="tabpanel" aria-labelledby="active-jobs-tab">
+        @forelse($activePosts as $post)
+        <div class="card py-2">
+            <div class="card-body">
+                <div class="row">
+                    
+                    <div class="col-12 col-md-6 col-lg-8">
+                        <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
+                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
+                        <p>
 
+                            <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 job-actions">
+                        <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
+                        <p>
+                            <strong>{{ $post->monthlySalary() }} P.M.</strong>
+                        </p>
+                        @if($post->how_to_apply)
+                        <p>Alternative Application</p>
+                        @else
+                        <p>No. of Applicants: {{ count($post->applications) }}</p>
+                        @endif
+                        
+                    </div>
+                    
+                </div>
+                <hr>
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <p>
+                            @if($post->isActive)
+                            <i class="fas fa-share-alt"></i> 
+                            Share: 
+                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a> 
+                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a> 
+                            @else
+                            <span>Sharing Disabled</span>
+                            @endif
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 job-actions">
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
+                        @if($post->status != 'active')
+                        <a href="#"><i class="far fa-eye"></i> Publish</a>
+                        @else
+                        <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @empty
+        <p style="text-align: center;">No Active Job posts found</p>
+        @endforelse
 
     </div>
     <!-- END OF ACTIVE JOBS -->
 
     <!-- CLOSED JOBS -->
     <div class="tab-pane fade" id="closed-jobs" role="tabpanel" aria-labelledby="closed-jobs-tab">
+        @forelse($closedPosts as $post)
+        <div class="card py-2">
+            <div class="card-body">
+                <div class="row">
+                    
+                    <div class="col-12 col-md-6 col-lg-8">
+                        <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
+                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
+                        <p>
 
+                            <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 job-actions">
+                        <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
+                        <p>
+                            <strong>{{ $post->monthlySalary() }} P.M.</strong>
+                        </p>
+                        @if($post->how_to_apply)
+                        <p>Alternative Application</p>
+                        @else
+                        <p>No. of Applicants: {{ count($post->applications) }}</p>
+                        @endif
+                        
+                    </div>
+                    
+                </div>
+                <hr>
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <p>
+                            @if($post->isActive)
+                            <i class="fas fa-share-alt"></i> 
+                            Share: 
+                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a> 
+                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a> 
+                            @else
+                            <span>Sharing Disabled</span>
+                            @endif
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 job-actions">
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
+                        @if($post->status != 'active')
+                        <a href="#"><i class="far fa-eye"></i> Publish</a>
+                        @else
+                        <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @empty
+        <p style="text-align: center;">No Job posts found</p>
+        @endforelse
 
     </div>
     <!-- END OF CLOSED JOBS -->

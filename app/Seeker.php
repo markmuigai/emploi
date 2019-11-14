@@ -228,9 +228,11 @@ class Seeker extends Model
 
             $skills_count = $model->skillsWeight;
             $exist_skills = 0;
+
             for($i=0; $i<count($model->modelSeekerSkills); $i++)
             {
-                if($this->hasSkill($model->modelSeekerSkills[$i]->skill->id))
+                //dd($model->modelSeekerSkills);
+                if($this->hasSkill($model->modelSeekerSkills[$i]->industrySkill->id))
                     $exist_skills += $model->modelSeekerSkills[$i]->weight;
             }
 

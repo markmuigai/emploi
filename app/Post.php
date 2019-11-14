@@ -21,6 +21,32 @@ class Post extends Model
                     ->get();
     }
 
+    public function getShareTextAttribute(){
+        $tit = explode(" ", $this->title);
+        return implode("+", $tit).' '.$this->location->country->currency.' '.$this->monthly_salary;
+    }
+
+    public function getShareFacebookLinkAttribute(){
+        return 'https://www.facebook.com/sharer.php?u='.url('/vacancies/'.$this->slug);
+    }
+
+    public function getShareTwitterLinkAttribute(){
+        return 'https://twitter.com/share?url='.url('/vacancies/'.$this->slug).'&text='.$this->shareText.'&hashtags=Emploi'.$this->location->country->code;
+    }
+
+    public function getShareLinkedinLinkAttribute(){
+        return 'http://www.linkedin.com/shareArticle?mini=true&url='.url('/vacancies/'.$this->slug);
+    }
+
+    public function getIsActiveAttribute(){
+        $deadline = Carbon::parse($this->deadline);
+        $today = Carbon::now();
+
+        if($this->status == 'active' && $deadline > $today)
+            return true;
+        return false;
+    }
+
     
 
     public function modelSeeker(){
@@ -94,6 +120,18 @@ class Post extends Model
                     ->get();
     }
 
+    public function getSelectedAttribute(){
+        return JobApplication::where('post_id',$this->id)
+                    ->where('status','selected')
+                    ->get();
+    }
+
+    public function getRejectedAttribute(){
+        return JobApplication::where('post_id',$this->id)
+                    ->where('status','rejected')
+                    ->get();
+    }
+
     public function isShortlisted($seeker){
         if(!$seeker->hasApplied($this))
             return false;
@@ -133,8 +171,14 @@ class Post extends Model
     }
 
     public function getBriefAttribute(){
-        $peo = $this->position == 1 ? 'person' : 'people';
-        return 'This position requires '.$this->positions." $peo with ".$this->experience_requirements." experience. Ideal candidate should be located in ".$this->location->name." with a ".$this->education_requirements." qualification in ".$this->industry->name.". Applications to be submitted on or  before ".$this->deadline;
+        $peo = $this->positions == 1 ? 'person' : 'people';
+        //$exp = /24;
+        return 'This position requires '.$this->positions." $peo with ".$this->experience_requirements." years experience. Ideal candidate should be located in ".$this->location->name." with a ".$this->education_requirements." qualification in ".$this->industry->name.". Applications to be submitted on or  before ".$this->deadline;
+    }
+
+    public function getReadableDeadlineAttribute(){
+        $date = Carbon::parse($this->deadline);
+        return $date->isoFormat('MMM Do YYYY');
     }
 
     public static function featured($counter = 10){

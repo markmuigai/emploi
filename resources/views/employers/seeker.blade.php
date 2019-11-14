@@ -42,9 +42,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <h4>About {{ $user->name }}</h4>
                         <div class="row mb-2 text-center about-icons">
                             <div class="col-md-4 col-6 my-3">
-                                <i class="orange fas fa-wallet"></i>
-                                <p>Offered Salary</p>
-                                <p><strong>KSH 12,000 P.M.</strong></p>
+                                <i class="orange fas fa-map-marker"></i>
+                                <p>Location</p>
+                                <p><strong>{{ $user->seeker->location_id ? $user->seeker->location->name.', '.$user->seeker->location->country->code : 'Not set' }}</strong></p>
                             </div>
                             <div class="col-md-4 col-6 my-3">
                                 <i class="orange fas fa-network-wired"></i>
@@ -54,7 +54,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="col-md-4 col-6 my-3">
                                 <i class="orange fas fa-user"></i>
                                 <p>Gender</p>
-                                <p><strong>{{ $user->seeker->gender }}</strong></p>
+                                <p><strong>{{ $user->seeker->sex }}</strong></p>
                             </div>
                             <div class="col-md-4 col-6 my-3">
                                 <i class="orange fas fa-briefcase"></i>
@@ -64,7 +64,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="col-md-4 col-6 my-3">
                                 <i class="orange fas fa-graduation-cap"></i>
                                 <p>Qualification</p>
-                                <p><strong>{{ $user->seeker->highest_education }}</strong></p>
+                                <p><strong>{{ $user->seeker->education_level_id ? $user->seeker->educationLevel->name : 'Not set' }}</strong></p>
                             </div>
                             <div class="col-md-4 col-6 my-3">
                                 <i class="orange fas fa-sort-amount-up-alt"></i>
@@ -72,11 +72,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <p><strong>Manager</strong></p>
                             </div>
                         </div>
-                        <h4>Candidate Description</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, expedita fugit. Ipsam velit molestias similique quod, delectus, dolore animi nihil.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.</p>
+                        <h4>Career Objective</h4>
+                        <p>{{  $user->seeker->objective ? $user->seeker->objective : 'Career Objective not included' }}</p>
+                        
                     </div>
                 </div>
                 <!-- END OF INFO CARD -->
@@ -87,19 +85,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card py-2">
                     <div class="card-body">
                         <h4>Education and Qualification</h4>
+                        @forelse($user->seeker->education() as $edu)
                         <div class="row no-gutters justify-content-between edu pb-5">
                             <div class="circle"></div>
                             <div class="col-lg-3 col-12 ml-3">
-                                <p>Walter University</p>
-                                <p class="orange">2002 -2004</p>
+                                <p>{{ $edu[0] }}</p>
+                                
                             </div>
                             <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                <h6>Masters</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                                    anim id est laborum.</p>
+                                <h6>{{ $edu[1] }}</h6>
+                                <p class="orange">{{ $edu[2] }}</p>
                             </div>
                         </div>
+                        @empty
+                        <p>
+                            No education records highlighted.
+                        </p>
+                        
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -109,19 +112,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card py-2">
                     <div class="card-body">
                         <h4>Experience</h4>
+                        @forelse($user->seeker->experience() as $emp)
                         <div class="row no-gutters justify-content-between edu pb-5">
                             <div class="circle"></div>
                             <div class="col-lg-3 col-12 ml-3">
-                                <p>Atract Soluions</p>
-                                <p class="orange">2002 -2004</p>
+                                <p>{{ $emp[0] }}</p>
+                                
                             </div>
                             <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                <h6>Development Manager</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                                    anim id est laborum.</p>
+                                <h6>{{ $emp[1] }}</h6>
+                                <p class="orange">{{ $emp[2] }} to {{ $emp[3] }}</p>
+                                <p>{{ $emp[4] }}</p>
                             </div>
                         </div>
+                        @empty
+                        <p>
+                            No experience records have been highlighted
+                        </p>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -132,13 +140,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <h4>Skills</h4>
                         <h5>
-                            <span class="badge badge-secondary">HTML</span>
-                            <span class="badge badge-secondary">CSS</span>
-                            <span class="badge badge-secondary">Javascript</span>
-                            <span class="badge badge-secondary">PHP</span>
-                            <span class="badge badge-secondary">Laravel</span>
-                            <span class="badge badge-secondary">JQuery</span>
-                            <span class="badge badge-secondary">Photoshop</span>
+                            @forelse($user->seeker->skills as $s)
+                            <span class="badge badge-secondary">{{ $s->skill->name }}</span>
+                            @empty
+                            <p>No skills highlighted</p>
+                            @endforelse
                         </h5>
                     </div>
                 </div>
@@ -146,11 +152,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="col-lg-4 col-12 pt-2 text-center">
-        <h3>Candidate Rating</h3>
-        <h1 class="text-success">88%</h1>
-        <h5><a href="#" class="btn btn-orange-alt"><i class="fas fa-plus-circle"></i> Invite For Interview</a></h5>
-        <button class="btn btn-orange" data-toggle="modal" data-target="#inviteForInterviewModal"><i class="fas fa-plus-circle"></i> Invite For Test</button>
-        <div class="card mt-4">
+        
+        <div class="card">
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-5">
@@ -159,8 +162,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="text-center">
                     <p>{{ $user->name }}</p>
-                    <p>{{ $user->seeker->current_position }}</p>
-                    <p>{{ $user->seeker->location->name }}</p>
+                    @if( $user->seeker->featured != 0 )
+                    <p style="color: green; font-weight: bold;"><i class='fa fa-star'></i> Featured</p>
+                    @endif
+                    <p>{{ $user->seeker->date_of_birth ? $user->seeker->age.' years old' : '' }}</p>
                     <p><a href="/storage/resumes/{{ $user->seeker->resume }}" class="btn btn-orange"><i class="fas fa-download"></i> Download CV</a></p>
                     <p></p>
                     <p></p>
@@ -179,106 +184,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 
-<div class="container">
-    <div class="single">
-        <div class="box_1">
-            <div class="col-md-8 service_box1">
-                @if($user->role == 'seeker')
 
-                <div class="row" style="margin: 1em 0">
-                    @if(count($user->seeker->experience()) > 0)
-                    <div class="col-md-10 col-md-offset-1">
-                        <h4 style="text-decoration: underline;">Work Experience:</h4> <br>
-                        <?php $exp = $user->seeker->experience();  ?>
-                        @for($i=count($exp)-1; $i>=0; $i--)
-                        <div style="margin-bottom: 1em; border-bottom: 0.1em solid black">
-                            <b>
-                                <?php echo $exp[$i][1].'</b> at <b>'.$exp[$i][0]; ?>
-                            </b>
-                            <i class="pull-right">
-                                <?php echo $exp[$i][2].' - '.$exp[$i][3]; ?>
-                            </i>
-                            <br><br>
-                            {{ $exp[$i][4] }}
-
-                        </div>
-                        @endfor
-                    </div>
-                    @endif
-
-                    @if(count($user->seeker->education()) > 0)
-                    <div class="col-md-10 col-md-offset-1">
-                        <h4 style="text-decoration: underline;">Education Background:</h4> <br>
-                        <?php $exp = $user->seeker->education();  ?>
-                        @for($i=count($exp)-1; $i>=0; $i--)
-                        <div style="margin-bottom: 1em; border-bottom: 0.1em solid black">
-                            <b>
-                                <?php echo $exp[$i][1]; ?>
-                            </b>
-                            <i class="pull-right">
-                                <?php echo $exp[$i][2] ?>
-                            </i>
-                            <br><br>
-                            {{ $exp[$i][0] }}
-
-                        </div>
-                        @endfor
-                    </div>
-
-                    @endif
-                </div>
-                @if(count($user->seeker->matchSeeker(Auth::user())) > 0)
-                <hr>
-                <hr>
-                <div>
-                    <form method="post" action="/employers/shortlist">
-                        @csrf
-                        <input type="hidden" name="seeker_id" value="{{ $user->id }}">
-                        <select class="btn " name="post_id" required="required">
-                            <option>Shortlist for:</option>
-                            @forelse($user->seeker->matchSeeker(Auth::user()) as $post)
-                            <option value="{{ $post->id }}">{{ $post->title }}</option>
-                            @empty
-                            @endforelse
-
-                        </select>
-                        <button class="btn btn-sm btn-success">Go</button>
-                    </form>
-                </div>
-                @endif
-
-
-                @elseif($user->role == 'employer')
-
-                <h5>Role: Employer</h5>
-                <p>
-                    Name: <b>{{ $user->name }}</b> <br>
-                </p>
-
-                @elseif($user->role == 'admin')
-
-                <h5>Role: Administrator</h5>
-                <p>
-                    Name: <b>{{ $user->name }}</b> <br>
-                </p>
-
-                @elseif($user->role == 'super')
-
-                <h5>Role: Super Administrator</h5>
-                <p>
-                    Name: <b>{{ $user->name }}</b> <br>
-                </p>
-
-                @endif
-
-
-
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-
-    </div>
-</div>
 
 
 

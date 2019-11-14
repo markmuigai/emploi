@@ -68,7 +68,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
    	   				<label>Select Candidate</label>
    	   				<select class="form-control" name="seeker_id" required="">
    	   					<option value="">Select Candidate</option>
-   	   					@forelse($post->otherApplicants() as $a)
+   	   					@forelse($post->shortlisted as $a)
 
    	   						<option value="{{ $a->user->seeker->id }}">RSI {{ $a->user->seeker->getRsi($post) }}% || {{ $a->user->name }} </option>
    	   					@empty

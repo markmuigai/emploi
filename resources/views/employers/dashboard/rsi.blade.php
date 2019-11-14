@@ -172,7 +172,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 								selected=""
 							@endif
 						@endif
-						>{{ $l->lower_limit .' - '.$l->upper_limit }} people</option>
+						>{{ $l->title }}</option>
 			    	@empty
 			    	@endforelse
 			    </select>
@@ -201,8 +201,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					
 					@forelse($post->modelSeeker->modelSeekerCourses as $course)
 					<div class="col-md-4 col-xs-6 hover-bottom">
-						{{ $course->name }} 
-						<span class="pull-right btn btn-sm btn-danger">x</span>
+						{{ $course->course->title }} 
+						<input type="hidden" name="modelSeekerCourses[]" class="listed-course" value="{{ $course->course->id }}">
+						<span class="pull-right btn btn-sm btn-danger remove-course">x</span>
 					</div>
 					@empty
 					@endforelse
@@ -211,15 +212,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<div class="row">
 					<br>
 					<div class="col-md-9 col-xs-9">
-						<select class="form-control">
+						<select class="form-control" id="course-select">
 							@forelse($courses as $course)
-							<option value="{{ $course->id }}">{{ $course->name }}</option>
+							<option value="{{ $course->id }}">{{ $course->title }}</option>
 							@empty
 							@endforelse
 						</select>
 					</div>
 					<div class="col-xs-3 col-md-3">
-						<span class="btn btn-success">Add</span>
+						<span class="btn btn-success" id="course-add">Add</span>
 					</div>
 				</div>
 
@@ -244,7 +245,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 			<hr>
 
-			<p>
+			<p style="display: none;">
 				<label>Personality Profile</label>
 				<select name="personality_test_id" class="form-control">
 			    	@forelse($personalities as $l)
@@ -260,7 +261,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			    </select>
 			</p>
 
-			<hr>
+			<hr style="display: none;">
 
 			<p>
 				<label>Desired Experience Duration</label>
@@ -480,6 +481,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <script type="text/javascript">
 	<?php
+
 		$sk = '';
 		foreach($industrySkills as $s)
 		{
@@ -508,6 +510,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			echo 'var other_skills_weight=false;';
 		}
 	?>
+	console.log(courses);
 	
 </script>
 <script type="text/javascript" src="/js/rsi.js"></script>

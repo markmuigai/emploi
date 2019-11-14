@@ -7,6 +7,7 @@ use Auth;
 use Storage;
 
 use App\Country;
+use App\Course;
 use App\EducationLevel;
 use App\Industry;
 use App\Location;
@@ -48,6 +49,11 @@ class HomeController extends Controller
                 break;
         }
         
+    }
+
+    public function getCourse($id)
+    {
+        return Course::findOrFail($id);
     }
 
     // public function test(Request $request){
