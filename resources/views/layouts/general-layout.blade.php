@@ -22,6 +22,9 @@
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <!-- ChartJS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+    <!-- Slick JS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.css')}}" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
@@ -35,13 +38,17 @@
     <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
+
     <!-- Vue JS -->
     @if (config('app.env') === 'production')
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     @else
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     @endif
-    <script type="application/x-javascript">
+    <!-- CountUp JS -->
+    <script src="/js/jquery.countup.js"></script>
+
+    <!-- <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -49,7 +56,9 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-    </script>
+    </script> -->
+    <!-- Slick JS -->
+    <script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}"></script>
 </head>
@@ -118,11 +127,19 @@
         </nav>
         <!-- END OF NAVBAR -->
     </header>
+    <!-- MAIN CONTENT  -->
+    @guest
+    <main>
+        @yield('content')
+    </main>
+    <!-- END OF MAIN CONTENT  -->
+
+    @else
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main>
         <!-- SIDEBAR FOR EMPLOYERS -->
         <div class="container">
-            <div class="row">
+            <div class="row pt-4">
                 <div class="col-md-3 d-md-block d-none">
                     <div class="sidebar">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -140,7 +157,7 @@
                     </div>
                 </div>
                 <!-- END OF SIDEBAR FOR EMPLOYERS -->
-                <div class="col-md-9 col-12">
+                <div class="col-md-9 col-12 align-items-center">
                     <!-- ADD JOB AS AN EMPLOYER -->
                     <div id="postJob" class="mb-3">
                         <h2>@yield('page_title')</h2>
@@ -152,6 +169,7 @@
             </div>
         </div>
     </main>
+    @endguest
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
     <!-- FOOTER -->
     <footer>

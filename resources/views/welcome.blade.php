@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Welcome to Emploi')
 
@@ -8,357 +8,376 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
-<div class="banner" style="">
+<!-- LANDING PAGE -->
+<div class="landing">
     <div class="container">
-        <div id="search_wrapper">
-         <div id="search_form" class="clearfix">
-         <h1>Emploi is a job matching platform <br> that does it right and does it fast.</h1>
-         @guest
-          <h2 class="title">Get Yourself Employed</h2>
-         @else
-         @include('components.search-form')   
-         @endguest
-                 
-            
-         </div>
-         @guest
-          <div id="city_1" class="clearfix row">
-            <form class="col-md-8 " action="/create-account" method="POST">
-              @csrf
-              <p>
-                <label>Full name:</label>
-                <input type="text" name="name" class="form-control" required="" style="border-radius: 5px">
-              </p>
-              <p>
-                <label>E-mail address:</label>
-                <input type="email" name="email" class="form-control" required="" style="border-radius: 5px">
-              </p>
-              <p>
-                <input type="submit" class="btn-orange" value="Register" name="">
-              </p>
-            </form>
-                        
-         </div>
-         @else
-         <div id="city_1" class="clearfix row">
-            <p>
-              Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker matching.
-            </p>
-            <p>
-              <a class="btn-orange" href="/join">REGISTER</a>
-            </p>
-               <ul class="orange col-md-4" style="display: none;">
-                  @foreach(\App\Industry::top() as $i)
-                   <li>
-                   <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
-                   </li>
-                   @endforeach
-                   
-               </ul>
-               <ul class="orange col-md-4" style="display: none;">
-                  @foreach(\App\Location::top() as $i)
-                   <li>
-                   <a href="/vacancies/{{ $i->slug }}">{{ $i->name }}</a>
-                   </li>
-                   @endforeach
-               </ul>             
-         </div>
-         @endguest
-         
-       </div>
-   </div> 
-</div>  
-@guest
-<div class="container py-3" style="margin-bottom: 0">
-      
-  <div class="row">
-  <div class=" col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 clients"  style="padding: 1em">
-    
-    @include('seekers.search-input')
-     
-  
-  </div>
-  
+        <div class="content">
+            <h4 class="text-uppercase">Get Your Job Done</h4>
+            <h1>Blast Off Your Career</h1>
+            <p>Welcome to Emploi, an online placement platform that advertises job seekers to employers</p>
+            <a href="#" class="btn btn-orange">Join Now</a>
+        </div>
+    </div>
+</div>
+<!-- END OF LANDING PAGE -->
 
-  </div>
-</div>
-@else
-@endguest
- 
-<div class="container">
-  <div class="grid_1">
-        <h3>Why Emploi</h3>
-        <p style="text-align: center;">
-          What is more exciting than a team that strives to link people driven with a common goal?
-At Emploi, our elite and dedicated team with unique experiences and current technology make it easy for anyone to hire or be hired anywhere on the continent.
- <a href="/about">Learn more</a>
-        </p>
-  </div>
-</div>
-<div class="container">
-  <div class="grid_1 row">
-    <div class="col-md-8 row">
-      <h3>Our Services</h3>
-      <div class="card col-md-6">
-        <img class="card-img-top" src="images/employer-join.png" style="width: 100%" alt="Employer Services">
-        <div class="card-body">
-          <h5 class="card-title" style="font-weight: bold">Employers</h5>
-          <p class="card-text" style="display: none">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<!-- SEARCH BAR -->
+@include('components.search-form')
+<!-- END OF SEARCH BAR -->
+
+<!-- ABOUT SECTION -->
+<div class="about">
+    <div class="container">
+        <div class="card pb-5">
+            <div class="card-body text-center">
+                <h2 class="orange">Who Are We?</h2>
+                <p>Emploi is a job matching platform that does it right and does it fast. Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker
+                    matching.
+                </p>
+                <a href="#" class="btn btn-orange">Learn More</a>
+            </div>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Browse Talent Database</li>
-          <li class="list-group-item">Recruitment Process Outsourcing</li>
-          <li class="list-group-item">Assess Candidates</li>
-          <li class="list-group-item">Advertise Jobs</li>
-          <li class="list-group-item">Background Checks</li>
-        </ul>
-        <div class="card-body">
-          <a href="/employers/register" class="card-link">Employer Registration</a>
-        </div>
-      </div>
-      <div class="card col-md-6">
-        <img class="card-img-top" src="images/seeker-join.png" style="width: 100%" alt="Job Seeker Services">
-        <div class="card-body">
-          <h5 class="card-title" style="font-weight: bold">Job Seekers</h5>
-          <p class="card-text" style="display: none">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Premium Placement</li>
-          <li class="list-group-item">Professional Coaching</li>
-          <li class="list-group-item">Job Vacancies</li>
-          <li class="list-group-item">Professional CV Editing</li>
-          <li class="list-group-item">Career Centre</li>
-        </ul>
-        <div class="card-body">
-          <a href="/register" class="card-link">Job Seeker Registration</a>
-        </div>
-      </div>
-      
     </div>
-    <div class="col-md-4">
-      <div class="fb-page" data-href="https://www.facebook.com/jobsikaz" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/jobsikaz" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jobsikaz">JobSikaz</a></blockquote></div>
-    </div>
-        
-        
-  </div>
 </div>
-<div class="about_middle">
-  <div class="container">
-         <div class="wmuSlider example1">
-         <div class="wmuSliderWrapper">
-             <h3>Latest Blogs</h3>
-              @forelse($blogs as $blog)
-               <article style="position: absolute; width: 100%; opacity: 0;"> 
-                    <div class="banner-wrap">
-                      <ul class="grid-1">
-                      <li class="grid-1_left">
-                        <a href="{{ url('blog/'.$blog->slug) }}">
-                          <img src="{{ asset($blog->imageUrl) }}" class="img-responsive" alt=""/>
-                        </a>
-                      </li>
-                      <li class="grid-1_right">
-                        <a href="{{ url('blog/'.$blog->slug) }}" style="text-decoration: none;">
-                          <p>{{ $blog->title }}</p>
-                        </a>
-                          <h4><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->user->name }}</a>
-                           | {{ $blog->category->name }}</h4>
-                      </li>
-                      <div class="clearfix"> </div>
-                    </ul>
+<!-- END OF ABOUT SESSION -->
+<!-- STATISTICS -->
+<div class="statistics">
+    <div class="container">
+        <div class="card mx-5">
+            <div class="card-body text-center py-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fas fa-user"></i>
+                        <h5>Total Jobs</h5>
+                        <h1 class="counter">14515</h1>
+                        <p>Find your next job effortlessly.</p>
                     </div>
-              </article>
-
-              @empty
-              @endforelse
-           
-         </div>
-        <ul class="wmuSliderPagination">
-                  <li><a href="#" class="">0</a></li>
-                  <li><a href="#" class="">1</a></li>
-                  <li><a href="#" class="wmuActive">2</a></li>
-                </ul>
+                    <div class="col-md-4">
+                        <i class="fas fa-user"></i>
+                        <h5>Total Candidates</h5>
+                        <h1 class="counter">2451</h1>
+                        <p>Get hired will minimal effort.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-user"></i>
+                        <h5>Total Companies</h5>
+                        <h1 class="counter">451</h1>
+                        <p>Get discovered by top comapanies.</p>
+                    </div>
+                </div>
             </div>
-            <script src="js/jquery.wmuSlider.js"></script> 
-        <script>
-            $('.example1').wmuSlider();         
-           </script>                    
-      </div>
+        </div>
+    </div>
 </div>
+<!-- END OF STATISTICS -->
+<!-- SERVICES -->
+<div class="services my-3">
+    <div class="container">
+        <div class="card">
+            <div class="card-body text-center">
+                <h2 class="orange">Our Services</h2>
+                <p>We provide you with seamless job placement though superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards. </p>
+                <div class="service-carousel m-3 py-1">
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Browse Talent Database</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Recruitment Process Outsourcing</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Assess Candidate</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Advertise Jobs</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Background Checks</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Premium Placement</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Professional Coaching</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Job Vacancies</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Professional CV Editing</p>
+                        </div>
+                    </div>
+                    <div class="card mx-3 py-2 px-1">
+                        <div class="card-body">
+                            <i class="fas fa-user"></i>
+                            <p>Career Centre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF SERVICES -->
+
+<!-- FEATURED JOBS -->
+<div class="container text-center">
+    <h2>Featured Jobs</h2>
+    @if(is_null($posts))
+    <h4 class="text-center">No Jobs Available Yet.</h4>
+    @else
+    <div class="featured-carousel">
+        @foreach($posts as $p)
+        <a class="card m-4" href="/vacancies/{{ $p->slug }}">
+            <div class="card-body">
+                <div class="d-flex justify-content-center mb-3">
+                    <img src="images/a1.jpg" alt="" />
+                </div>
+                <p class="badge badge-secondary">{{$p->positions}} Postions</p>
+                <h5>{{ $p->title }}</h5>
+                <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
+                <p>{{ $p->location->country->currency }} {{ $p->monthly_salary }} P.M.</p>
+                @guest
+                @else
+                @endguest
+            </div>
+        </a>
+        @endforeach
+    </div>
+    <a href="#" class="btn btn-orange my-5">View All Jobs</a>
+    @endif
+</div>
+<!-- END OF FEATURED JOBS -->
+
+<!-- TESTIMONALS -->
 <div class="container">
-  <div class="grid_1">
-     <h3>Featured Employers</h3>
-       <ul id="flexiselDemo3">
-          <li><img src="images/Africote.png"  class="img-responsive" /></li>
-          <li><img src="images/Batiment-group-limited.png"  class="img-responsive" /></li>
-          <li><img src="images/Cartridge-mania.png"  class="img-responsive" /></li>
-          <li><img src="images/Jubilee-insurance.png"  class="img-responsive" /></li>
-          <li><img src="images/Kendirita-tours-and-travel.png"  class="img-responsive" /></li>
-          <li><img src="images/Sprout-ke.png"  class="img-responsive" /></li>  
-        </ul>
-        <script type="text/javascript">
-         $(window).load(function() {
-            $("#flexiselDemo3").flexisel({
-                visibleItems: 6,
-                animationSpeed: 1000,
-                autoPlay:false,
-                autoPlaySpeed: 3000,            
-                pauseOnHover: true,
-                enableResponsiveBreakpoints: true,
-                responsiveBreakpoints: { 
-                    portrait: { 
-                        changePoint:480,
-                        visibleItems: 1
-                    }, 
-                    landscape: { 
-                        changePoint:640,
-                        visibleItems: 2
-                    },
-                    tablet: { 
-                        changePoint:768,
-                        visibleItems: 3
-                    }
-                }
-            });
-            
+    <div class="testimonials">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center">Testimonials</h2>
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-10">
+                        <p>Emploi is the most efficient digital sourcing platform. They are fast and are good at what they do.</p>
+                        <hr class="short">
+                        <h5>Anthony Ochieng</h5>
+                        <p>Employer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center">Testimonials</h2>
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-10">
+                        <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
+                        <hr class="short">
+                        <h5>Kipkemoi Kizito</h5>
+                        <p>Job Seeker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center">Testimonials</h2>
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-10">
+                        <p>The Emploi Team create a great rapport with their candidates and are an invaluable asset to anyone looking for a job.</p>
+                        <hr class="short">
+                        <h5>Faith Chepkemoi</h5>
+                        <p>Job Seeker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center">Testimonials</h2>
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-10">
+                        <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.</p>
+                        <hr class="short">
+                        <h5>Sandra Eshitemi</h5>
+                        <p>Employer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF TESTIMONIALS -->
+
+<!-- BLOGS -->
+<div class="blogs">
+    <div class="container">
+        <h2 class="text-center">Blogs And News</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        B1
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                @forelse($blogs as $blog)
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="{{ asset($blog->imageUrl) }}" alt="" class="w-100">
+                            </div>
+                            <div class="col-10">
+                                <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
+                                <div class="d-flex">
+                                    <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
+                                </div>
+                                <p class="badge badge-secondary">{{ $blog->category->name }}</p>
+                                <p><?php echo $blog->contents; ?></p>
+                                <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                @endforelse
+            </div>
+        </div>
+        <a href="" class="btn btn-orange">View All Blogs</a>
+    </div>
+</div>
+<!-- END OF BLOGS -->
+
+<!-- FEATURED EMPLOYERS -->
+<div class="container py-5 text-center">
+    <h2>Featured Employers</h2>
+    <div class="employers-carousel py-4">
+        <div>
+            <img src="images/Africote.png" alt="">
+        </div>
+        <div>
+            <img src="images/Batiment-group-limited.png" alt="">
+        </div>
+        <div>
+            <img src="images/Cartridge-mania.png" alt="">
+        </div>
+        <div>
+            <img src="images/Jubilee-insurance.png" alt="">
+        </div>
+        <div>
+            <img src="images/Kendirita-tours-and-travel.png" alt="">
+        </div>
+        <div>
+            <img src="images/Sprout-ke.png" alt="">
+        </div>
+        <div>
+            <img src="{{asset('images/avatar.png')}}" alt="">
+        </div>
+        <div>
+            <img src="{{asset('images/avatar.png')}}" alt="">
+        </div>
+        <div>
+            <img src="{{asset('images/avatar.png')}}" alt="">
+        </div>
+        <div>
+            <img src="{{asset('images/avatar.png')}}" alt="">
+        </div>
+        <div>
+            <img src="{{asset('images/avatar.png')}}" alt="">
+        </div>
+    </div>
+    <a href="#" class="btn btn-orange">See Who Is Hiring</a>
+</div>
+<!-- END OF FEATURED EMPLOYERS -->
+
+<!-- GET STARTED -->
+<div class="get-started">
+    <div class="container">
+        <div class="content">
+            <h1>Find the Right Job for you.</h1>
+            <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
+            <h4>More than <span>2165</span> professional got their path to success.</h4>
+            <a href="#" class="btn btn-orange">Get Started</a>
+        </div>
+    </div>
+</div>
+<!-- END OF GET STARTED -->
+<script>
+    $(document).ready(function() {
+        $('.service-carousel').slick({
+            infinite: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            dots: true,
+            autoplay: true,
+            speed: 300,
         });
-       </script>
-       <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-     </div>
-     <div class="single">  
-       
-       <div class="col-md-8">
-          <h2>Latest Vacancies</h2>
-            @forelse($posts as $p)
-          <div class="col_1">
-            <div class="col-sm-4 row_2">
-                <a href="/vacancies/{{ $p->slug }}"><img src="images/a1.jpg" class="img-responsive" alt=""/></a>
-            </div>
-            <div class="col-sm-8 row_1">
-                <h4>
-                  <a href="/vacancies/{{ $p->slug }}">{{ $p->title }}</a>
-                </h4>
-                <h6>{{ $p->location->name }} <span class="dot">-</span> {{ $p->since }}</h6>
-                <p>{{ $p->brief }}</p>
-                
-                <i>Apply within <b><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($p->deadline))->diffForHumans() ?></b> </i>
-                <a href="/vacancies/{{$p->slug}}/" class="btn btn-sm read-more">Read More</a>
-                <a href="/vacancies/{{$p->slug}}/apply" class="btn btn-sm btn-success pull-right" style="color: white">Apply</a>
-                <div class="social">    
-                    <a class="btn_1" href="http://www.facebook.com/sharer.php?u={{ url('/vacancies/'.$p->slug) }}" target="_blank">
-                        <i class="fa fa-facebook fb"></i>
-                        <span class="share1 fb">Share</span>                                
-                    </a>
-                    <a class="btn_1" href="https://twitter.com/share?url={{ url('/vacancies/'.$p->slug) }}&amp;text={{ urlencode($p->title) }}&amp;hashtags=Emploi{{ $p->location->country->code }}" target="_blank">
-                        <i class="fa fa-twitter tw"></i>
-                        <span class="share1">Tweet</span>                               
-                    </a>
-                    <a class="btn_1" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/vacancies/'.$p->slug) }}" target="_blank">
-                        <i class="fa fa-linkedin fb"></i>
-                        <span class="share1 fb">Share</span>
-                    </a>
-               </div>
-            </div>
-            <div class="clearfix"> </div>
-           </div>
-           @empty
+        $('.featured-carousel').slick({
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 2,
+            arrows: true,
+            autoplay: true,
+            speed: 300,
+        });
+        $('.testimonials').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            autoplay: true,
+            speed: 300,
+        });
+        $('.employers-carousel').slick({
+            infinite: true,
+            rows: 2,
+            slidesToShow: 3,
+            slidesToScroll: 2,
+            arrows: true,
+            autoplay: true,
+            speed: 300,
+        });
 
-           <p>No job posts available</p>
-
-           @endforelse
-           
-           
-           
-           
-           <div class="col_2">
-             
-            
-            <div class="clearfix"> </div>
-           </div>
-       </div>
-       <div class="col-md-4">
-          @include('left-bar')
-          
-     </div>
-       <div class="clearfix"> </div>
-     </div>
-</div>
-
-
-<div class="about_middle">
-  <div class="container">
-         <div class="wmuSlider example1">
-         <div class="wmuSliderWrapper">
-             <h3>Testimonials</h3>
-           <article style="position: absolute; width: 100%; opacity: 0;"> 
-                <div class="banner-wrap">
-                  <ul class="grid-1">
-                  <li class="grid-1_left">
-                    <img src="images/avatar.png" class="img-responsive" alt=""/>
-                  </li>
-                  <li class="grid-1_right">
-                    <p>Emploi is the most efficient digital sourcing platform. They are fast and are good at what they do</p>
-                      <h4><a href="#">Anthony Ochieng</a> | Employer</h4>
-                  </li>
-                  <div class="clearfix"> </div>
-                </ul>
-                </div>
-          </article>
-           <article style="position: absolute; width: 100%; opacity: 0;"> 
-                <div class="banner-wrap">
-                  <ul class="grid-1">
-                  <li class="grid-1_left">
-                    <img src="images/avatar.png" class="img-responsive" alt=""/>
-                  </li>
-                  <li class="grid-1_right">
-                    <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
-                      <h4><a href="#">Kipkemoi Kizito</a> | Job Seeker</h4>
-                  </li>
-                  <div class="clearfix"> </div>
-                </ul>
-                </div>
-          </article>
-           <article style="position: absolute; width: 100%; opacity: 0;"> 
-                <div class="banner-wrap">
-                  <ul class="grid-1">
-                  <li class="grid-1_left">
-                    <img src="images/avatar.png" class="img-responsive" alt=""/>
-                  </li>
-                  <li class="grid-1_right">
-                    <p>The Emploi Team create a great rapport with their candidates and are an invaluable asset to anyone looking for a job </p>
-                      <h4><a href="#">Faith Chepkemoi</a> | Job Seeker</h4>
-                  </li>
-                  <div class="clearfix"> </div>
-                </ul>
-                </div>
-          </article>
-          <article style="position: absolute; width: 100%; opacity: 0;"> 
-                <div class="banner-wrap">
-                  <ul class="grid-1">
-                  <li class="grid-1_left">
-                    <img src="images/avatar.png" class="img-responsive" alt=""/>
-                  </li>
-                  <li class="grid-1_right">
-                    <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable </p>
-                      <h4><a href="#">Sandra Eshitemi</a> | Employer</h4>
-                  </li>
-                  <div class="clearfix"> </div>
-                </ul>
-                </div>
-          </article>
-         </div>
-        <ul class="wmuSliderPagination">
-                  <li><a href="#" class="">0</a></li>
-                  <li><a href="#" class="">1</a></li>
-                  <li><a href="#" class="wmuActive">2</a></li>
-                </ul>
-            </div>
-            <script src="js/jquery.wmuSlider.js"></script> 
-        <script>
-            $('.example1').wmuSlider();         
-           </script>                    
-      </div>
-</div>
-
-@include('components.statistics')
+        $('.counter').countUp();
+    });
+</script>
 
 @endsection

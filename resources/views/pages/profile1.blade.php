@@ -7,37 +7,119 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-<div class="row" style="padding: 1em 0;  border-bottom: 0.1em solid grey">
-	<div class="col-md-2 col-md-offset-1 col-xs-4">
-		<img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive col-md-6 col-md-offset-3" alt="My Avatar" style="width: 80%; margin-left: 10%" />
-	</div>
-	<div class="col-md-8 col-xs-8" style="text-align: center;">
-		<br class="no-mobile">
-		<h3 style="text-transform: uppercase;">{{ $user->name }}</h3>
-		<p>
-			{{ '@'.$user->username }}
-			<br>
-			<small>
+@section('page_title', 'Profile')
+
+<div class="card">
+	<div class="card-body p-4">
+		<div class="row align-items-center">
+			<div class="col-lg-2 col-md-3 col-4">
+				<img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive w-100" alt="My Avatar" />
+			</div>
+			<div class="col-lg-8 col-md-7 col-8">
+				<h3 class="text-uppercase">{{ $user->name }}</h3>
+
+				<!-- IF JOB SEEKER -->
 				@if($user->role == 'seeker')
-				Job Seeker
+				<h5>Job Seeker</h5>
+				<!-- END OF JOB SEEKER -->
+
+				<!-- IF EMPLOYER -->
 				@elseif($user->role == 'employer')
-				Employer
+				<h5>Employer</h5>
+				<!-- END OF EMPLOER -->
+
+				<!-- IF ADMIN -->
 				@elseif($user->role == 'admin')
-				Administrator
+				<h5>Administrator</h5>
+				<!-- END OF ADMIN -->
+
 				@endif
+			</div>
+
+			@if(isset(Auth::user()->id))
+			<div class="col-md-2 col-12">
+				<a href="/profile/edit" class="orange"><i class="fas fa-edit"></i> Edit</a>
+			</div>
+			@endif
+		</div>
 
 
-			</small>
-		</p>
+
+		<!-- IF EMPLOYER -->
+		@if($user->role == 'employer')
+		<div class="row mt-4">
+			<div class="col-md-6">
+				<p><strong>Website: </strong><a href="#">website.com</a></p>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Company Size: </strong>201 - 500 People</p>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Industry: </strong>E-Commerce &amp; Internet</p>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Type: </strong>Privately Held</p>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Headquarters: </strong>Nairobi, Kenya</p>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Founded: </strong>30 January 2001</p>
+			</div>
+			<div class="col-md-6">
+				<p><strong>Speciality: </strong>Wordpres</p>
+			</div>
+		</div>
+		<!-- END OF EMPLOYER -->
+		<!-- IF SEEKER -->
+		@elseif($user->role == 'seeker')
+		<div class="row text-center">
+			<div class="col-md-6 py-2">
+				<h2 class="orange"><i class="fas fa-phone-alt"></i></h2>
+				<h6>Phone Number</h6>
+				<h5>{{ $user->seeker->phone_number ? $user->seeker->phone_number : '-no phone number-' }}</h5>
+			</div>
+			<div class="col-md-6 py-2">
+				<h2 class="orange"><i class="fas fa-envelope"></i></h2>
+				<h6>Email Address</h6>
+				<h5><a href="#">{{ $user->email }}</a></h5>
+			</div>
+			<div class="col-md-6 py-2">
+				<h2 class="orange"><i class="fas fa-network-wired"></i></h2>
+				<h6>Industry</h6>
+				<h5>Banking</h5>
+			</div>
+			<div class="col-md-6 py-2">
+				<h2 class="orange"><i class="fas fa-user"></i></h2>
+				<h6>Profession</h6>
+				<h5>Project Manager</h5>
+			</div>
+		</div>
+		@endif
+		<!-- END OF SEEKER -->
+		<div class="d-flex justify-content-between align-items-center mt-4">
+			<h5>About</h5>
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quae, vero aliquam harum sapiente officiis aliquid quod nobis pariatur voluptatum suscipit illum in necessitatibus animi quis excepturi, dolor dolorum magnam qui quibusdam
+			laborum incidunt. Hic soluta sunt odio dicta itaque enim facere repudiandae, architecto aperiam magni aspernatur delectus, amet culpa.</p>
+
+		<hr>
+
+		@if($user->role == 'employer')
+		<h5 class="mt-4">Office Location</h5>
+		<p>Repen Complex, Syokimau Junction</p>
+		<iframe
+		  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6634497341915!2d36.92601481464639!3d-1.378599798994531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0ce7aa2120e1%3A0x2905bde1b42e68a!2sREPEN%20Complex!5e0!3m2!1sen!2ske!4v1573633191589!5m2!1sen!2ske"
+		  frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+		@endif
 	</div>
 </div>
+
 @if($user->role == 'seeker')
 
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 col-xs-4" style="text-align: center;">
 		<small>
-			<i class="fa fa-phone"></i> {{ $user->seeker->phone_number ? $user->seeker->phone_number : '-no phone number-' }} <br>
-			<i class="fa fa-envelope"></i> {{ $user->email }} <br>
 			<i class="fa fa-map-marker"></i> {{ $user->seeker->location_id ? $user->seeker->location->name : '-not set-' }} <br>
 			@if( $user->seeker->gender == 'M' )
 			Male
@@ -46,7 +128,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			@else
 			Other
 			@endif <br>
-			<a href="/profile/edit" class="btn btn-link"> edit</a>
 			<a href="/profile/referees" class="btn btn-success"> referees</a>
 		</small>
 	</div>

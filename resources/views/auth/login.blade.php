@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('user_title','Employer Login')
+@section('user_title','Login')
 
 {{--@include('seekers.search-input')--}}
 
