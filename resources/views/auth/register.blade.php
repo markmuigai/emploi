@@ -46,7 +46,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="form-group">
         <label for="sex">Gender</label>
-
         <div class="radios">
             <label for="radio-01" class="label_radio">
                 <input type="radio" name="gender" value="M" @if(old('gender') && old('gender')=='M' ) checked="" @endif @if(!old('gender')) checked="" @endif> Male
@@ -106,14 +105,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="form-group">
         <label for="password_confirmation">Confirm Password</label>
-
         <input type="password" required="" value="" name="password_confirmation" id="password" class="form-control" maxlength="50" />
-
     </div>
-    <div class="row">
-        <div class="form-actions floatRight">
-            <input type="submit" value="Register" class="btn btn-primary btn-sm">
-        </div>
+    <div class="text-center">
+        <button type="submit" name="button" class="btn btn-orange-alt">Register</button>
     </div>
 </form>
 <div class="login-bottom">
