@@ -136,6 +136,12 @@
     <!-- END OF MAIN CONTENT  -->
 
     @else
+
+    @if(is_null(\Route::current()->getName()))
+        <main>
+            @yield('content')
+        </main>
+    @else
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main>
         <!-- SIDEBAR FOR EMPLOYERS -->
@@ -189,6 +195,7 @@
             </div>
         </div>
     </main>
+    @endif
     @endguest
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
     <!-- FOOTER -->

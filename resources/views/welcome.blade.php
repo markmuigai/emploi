@@ -15,7 +15,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h4 class="text-uppercase">Get Your Job Done</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that advertises job seekers to employers</p>
-            <a href="#" class="btn btn-orange">Join Now</a>
+            <a href="/join" class="btn btn-orange">Join Now</a>
+            <a href="/login" class="btn btn-success">Login</a>
         </div>
     </div>
 </div>
@@ -34,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Emploi is a job matching platform that does it right and does it fast. Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker
                     matching.
                 </p>
-                <a href="#" class="btn btn-orange">Learn More</a>
+                <a href="/join" class="btn btn-orange">Learn More</a>
             </div>
         </div>
     </div>
@@ -250,14 +251,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <h2 class="text-center">Blogs And News</h2>
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        B1
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
+            
+            <div class="col-lg-8 offset-md-2">
                 @forelse($blogs as $blog)
                 <div class="card mb-3">
                     <div class="card-body">
@@ -281,7 +276,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endforelse
             </div>
         </div>
-        <a href="" class="btn btn-orange">View All Blogs</a>
+        <p style="text-align: center;">
+            <a href="/blog" class="btn btn-orange">View All Blogs</a>
+        </p>
+        
     </div>
 </div>
 <!-- END OF BLOGS -->
