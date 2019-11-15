@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
-                <div class="container pl-ld-5 pl-auto">
+                <div class="container pl-lg-5 pl-auto">
                     @yield('content')
                 </div>
             </div>

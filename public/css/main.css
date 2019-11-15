@@ -458,10 +458,12 @@ main {
 }
 
 main.sign-page {
-    background: linear-gradient(97deg, #500095 48%, #8900FF 48%, #8900FF 50%, #FFFFFF 0);
+    background: linear-gradient(97deg, #500095 45%, #8900FF 45%, #8900FF 47%, #FFFFFF 0);
     min-height: calc(100vh - 4.7em);
     margin-top: 4.7em;
     padding: 5em 10%;
+    display: grid;
+    align-items: center;
 }
 
 main.sign-page p {
