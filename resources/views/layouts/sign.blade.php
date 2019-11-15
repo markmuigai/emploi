@@ -92,7 +92,7 @@
 
     <main class="sign-page">
         <div class="row">
-            <div class="col-lg-6 pr-4">
+            <div class="col-lg-6 col-md-12 pr-4">
                 <div class="container">
                     <div class="sign-left">
                         <h1>@yield('user_title')</h1>
@@ -103,8 +103,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="container pl-5">
+            <div class="col-lg-6 col-md-12">
+                <div class="container pl-ld-5 pl-auto">
                     @yield('content')
                 </div>
             </div>
