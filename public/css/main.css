@@ -458,16 +458,12 @@ main {
 }
 
 main.sign-page {
-    background: linear-gradient(97deg, #500095 48%, #8900FF 48%, #8900FF 50%, #FFFFFF 0);
+    background: linear-gradient(97deg, #500095 45%, #8900FF 45%, #8900FF 47%, #FFFFFF 0);
     min-height: calc(100vh - 4.7em);
     margin-top: 4.7em;
     padding: 5em 10%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: center;
     align-items: center;
-    grid-column-gap: 20%;
-    grid-row-gap: 1em;
 }
 
 main.sign-page p {
@@ -498,10 +494,31 @@ main.sign-page p {
     .job-actions {
         text-align: left;
     }
+
+    main.sign-page {
+        background: linear-gradient(-183deg, #500095 19.5rem, #8900FF 19.5rem, #8900FF 21rem, #FFFFFF 0);
+        min-height: auto;
+        margin-top: 3em;
+        padding: 5em 10%;
+    }
+
+    .sign-left {
+        width: 100%;
+        position: relative;
+        top: auto;
+        transform: translateY(0%);
+        padding-bottom: 5rem;
+    }
 }
 
 @media only screen and (max-width: 425px) {
-    /* img.avatar-small {
-        height: 0px;
-    } */
+    main.sign-page {
+        background: linear-gradient(-183deg, #500095 16.5rem, #8900FF 16.5rem, #8900FF 18rem, #FFFFFF 0);
+        padding: 2rem 0;
+        overflow-x: hidden;
+    }
+
+    main.sign-page p {
+        font-size: 1em;
+    }
 }
