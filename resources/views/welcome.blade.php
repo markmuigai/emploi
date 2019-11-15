@@ -44,22 +44,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="statistics">
     <div class="container">
         <div class="card mx-5">
-            <div class="card-body text-center py-5">
+            <div class="card-body text-center py-4">
                 <div class="row">
                     <div class="col-md-4">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-briefcase"></i>
                         <h5>Total Jobs</h5>
                         <h1 class="counter">14515</h1>
                         <p>Find your next job effortlessly.</p>
                     </div>
                     <div class="col-md-4">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-clipboard-check"></i>
                         <h5>Total Candidates</h5>
                         <h1 class="counter">2451</h1>
                         <p>Get hired will minimal effort.</p>
                     </div>
                     <div class="col-md-4">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-building"></i>
                         <h5>Total Companies</h5>
                         <h1 class="counter">451</h1>
                         <p>Get discovered by top comapanies.</p>
@@ -146,7 +146,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- END OF SERVICES -->
 
 <!-- FEATURED JOBS -->
-<div class="container text-center">
+<div class="container mt-5 text-center">
     <h2>Featured Jobs</h2>
     @if(is_null($posts))
     <h4 class="text-center">No Jobs Available Yet.</h4>
@@ -177,9 +177,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- TESTIMONALS -->
 <div class="container">
     <div class="testimonials">
-        <div class="card">
+        <div class="card mx-2 my-3">
             <div class="card-body">
-                <h2 class="text-center">Testimonials</h2>
+                <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center">
                     <div class="col-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
@@ -193,9 +193,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card mx-2 my-3">
             <div class="card-body">
-                <h2 class="text-center">Testimonials</h2>
+                <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center">
                     <div class="col-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
@@ -209,9 +209,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card mx-2 my-3">
             <div class="card-body">
-                <h2 class="text-center">Testimonials</h2>
+                <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center">
                     <div class="col-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
@@ -225,9 +225,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card mx-2 my-3">
             <div class="card-body">
-                <h2 class="text-center">Testimonials</h2>
+                <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center">
                     <div class="col-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
@@ -246,19 +246,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- END OF TESTIMONIALS -->
 
 <!-- BLOGS -->
-<div class="blogs">
+<div class="blogs mt-3 py-5">
     <div class="container">
         <h2 class="text-center">Blogs And News</h2>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
+                @foreach($blogs->slice(0,1) as $blog)
                 <div class="card">
                     <div class="card-body">
-                        B1
+                        <div class="latest-blog-image" style="background-image: url('{{ asset($blog->imageUrl) }}')"></div>
+                        <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
+                        <div class="d-flex">
+                            <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
+                        </div>
+                        <p class="badge badge-secondary">{{ $blog->category->name }}</p>
+                        <p class="truncate-long"><?php echo $blog->contents; ?></p>
+                        <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                     </div>
                 </div>
+                @endforeach
             </div>
-            <div class="col-lg-6">
-                @forelse($blogs as $blog)
+            <div class="col-lg-7">
+                @foreach ($blogs->slice(1, 3) as $blog)
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="row">
@@ -271,17 +280,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
                                 </div>
                                 <p class="badge badge-secondary">{{ $blog->category->name }}</p>
-                                <p><?php echo $blog->contents; ?></p>
+                                <p class="truncate"><?php echo $blog->contents; ?></p>
                                 <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                @empty
-                @endforelse
+                @endforeach
             </div>
         </div>
-        <a href="" class="btn btn-orange">View All Blogs</a>
+        <div class="text-center">
+            <a href="" class="btn btn-orange">View All Blogs</a>
+        </div>
     </div>
 </div>
 <!-- END OF BLOGS -->
@@ -290,37 +300,37 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container py-5 text-center">
     <h2>Featured Employers</h2>
     <div class="employers-carousel py-4">
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="images/Africote.png" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="images/Batiment-group-limited.png" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="images/Cartridge-mania.png" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="images/Jubilee-insurance.png" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="images/Kendirita-tours-and-travel.png" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="images/Sprout-ke.png" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="{{asset('images/avatar.png')}}" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="{{asset('images/avatar.png')}}" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="{{asset('images/avatar.png')}}" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="{{asset('images/avatar.png')}}" alt="">
         </div>
-        <div>
+        <div class="d-flex justify-content-center my-2">
             <img src="{{asset('images/avatar.png')}}" alt="">
         </div>
     </div>
@@ -340,31 +350,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <!-- END OF GET STARTED -->
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         $('.service-carousel').slick({
             infinite: true,
             slidesToShow: 2,
             slidesToScroll: 1,
+            arrows: false,
             dots: true,
             autoplay: true,
-            speed: 300,
+            speed: 1000,
         });
         $('.featured-carousel').slick({
             infinite: true,
             slidesToShow: 4,
             slidesToScroll: 2,
             arrows: true,
-            autoplay: true,
-            speed: 300,
+            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
         });
         $('.testimonials').slick({
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: true,
+            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
             autoplay: true,
-            speed: 300,
+            speed: 2000,
         });
         $('.employers-carousel').slick({
             infinite: true,
@@ -372,11 +385,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             slidesToShow: 3,
             slidesToScroll: 2,
             arrows: true,
+            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
             autoplay: true,
-            speed: 300,
+            speed: 500,
         });
 
-        $('.counter').countUp();
+        $(function() {
+            $('.counter').countUp();
+        });
+
     });
 </script>
 

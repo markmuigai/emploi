@@ -46,8 +46,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     @endif
     <!-- CountUp JS -->
-    <script src="/js/jquery.countup.js"></script>
-
+    <script src="{{asset('js/jquery.countup.js')}}"></script>
+    <!-- Succinct JS -->
+    <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
     <!-- <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -80,8 +81,8 @@
                             <a class="nav-link" href="/employers/dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/jobs">Jobs</a></li>
-                      <li class=" nav-item d-md-none d-block">
-                                <a class="nav-link" href="#v-pills-messages">Candidates</a>
+                        <li class=" nav-item d-md-none d-block">
+                            <a class="nav-link" href="#v-pills-messages">Candidates</a>
                         </li>
                         <li class="nav-item d-md-none d-block">
                             <a class="nav-link" href="#v-pills-settings">Test Center</a>
@@ -99,9 +100,18 @@
                             <a class="nav-link" href="#">See Who's Hiring</a>
                         </li>
                         <div class="d-md-flex">
+                            @if(isset(Auth::user()->id))
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
                             </li>
+                            @else
+                            <LI class="nav-item">
+                                <a href="#" class="nav-link btn btn-white">Login</a>
+                            </LI>
+                            <LI class="nav-item">
+                                <a href="#" class="nav-link btn btn-orange">Register</a>
+                            </LI>
+                            @endif
                             <!-- <li class="nav-item search-form hide">
                                 <form action="" class="form-inline mt-2">
                                     <input type="text" name="search" placeholder="Search" class="form-control" id="search">
@@ -113,6 +123,7 @@
                         </div>
                     </ul>
                 </div>
+                @if(isset(Auth::user()->id))
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="{{asset('images/avatar.png')}}" class="profile-avatar" alt="">
@@ -124,6 +135,7 @@
                         <a class="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </div>
+                @endif
             </div>
         </nav>
         <!-- END OF NAVBAR -->
@@ -158,7 +170,7 @@
                             @else
 
                             @endif
-                            
+
                             <!-- <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a> -->
                             <a class="nav-link" id="v-pills-reviews-tab" style="display: none;" href="/employers/reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a>
                         </div>
@@ -171,7 +183,7 @@
                         <!-- END OF ADD JOB AS AN EMPLOYER -->
 
                         @endif
-                        
+
                     </div>
                 </div>
                 <!-- END OF SIDEBAR FOR EMPLOYERS -->

@@ -2,7 +2,7 @@
     <div class="col-md-8 col-12">
         <h2>Choose A Job You Love</h2>
         <form method="get" action="/vacancies/search" class="text-center">
-            <div class="row">
+            <div class="row no-gutters">
                 <div class="col-md-6">
                     <input type="text" name="q" required="" class="form-control" placeholder="Enter Keyword(s)" value="" onfocus="" onblur="">
                 </div>
@@ -16,7 +16,7 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <button class="btn btn-orange" type="submit">Search</button>
+                    <button class="btn btn-orange px-5" type="submit">Search</button>
                 </div>
             </div>
         </form>

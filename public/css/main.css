@@ -3,6 +3,10 @@
     --secondary: #E88725;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
@@ -56,6 +60,10 @@ iframe {
     color: white;
 }
 
+.navbar a:hover {
+    color: var(--secondary);
+}
+
 .btn-orange {
     background: var(--secondary);
     color: white;
@@ -63,18 +71,18 @@ iframe {
 }
 
 .btn-orange-alt {
-    background: white;
+    background: none;
     color: var(--secondary);
     border-color: var(--secondary);
 }
 
-.btn-orange:hover, .btn-orange-alt:hover {
+.btn-orange:hover, .btn-orange-alt:hover, .btn-white:hover {
     border-color: #EDAD36;
     background: #EDAD36;
     color: white;
 }
 
-.btn-orange:focus, .btn-orange-alt:focus {
+.btn-orange:focus, .btn-orange-alt:focus, .btn-white:focus {
     background: #b96613;
     border-color: #b96613;
 }
@@ -93,9 +101,51 @@ iframe {
     background: #2c0152;
 }
 
+.btn-white {
+    background: none;
+    color: white;
+    border-color: white;
+}
+
 .badge-orange {
     background: var(--secondary);
     color: white;
+}
+
+.slick-prev .fas, .slick-next .fas {
+    color: var(--primary);
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 0 5px 2px rgba(193, 193, 193, 0.5);
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    z-index: 1001;
+    transform: translateY(-50%);
+}
+
+.slick-prev .fas {
+    left: -5px;
+}
+
+.slick-next .fas {
+    right: -5px;
+}
+
+.slick-dots {
+    bottom: -35px;
+}
+
+.slick-dots li button {
+    background: none;
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+    border: 2px solid var(--primary);
+}
+
+.slick-dots li.slick-active button {
+    background: var(--primary);
 }
 
 .invite {
@@ -125,10 +175,6 @@ img.avatar-small {
 
 .navbar-brand img {
     height: 50px;
-}
-
-.navbar a:hover {
-    color: var(--secondary);
 }
 
 .nav-item {
@@ -244,7 +290,7 @@ button.close {
 }
 
 main {
-    padding: 4.9rem 0 0;
+    padding: 4.7rem 0 0;
     /* background: #F9F9F9; */
 }
 
@@ -320,6 +366,11 @@ main {
     color: white;
 }
 
+.statistics i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
 /* END OF STATISTICS */
 /* SERVICES */
 .service-carousel .card:nth-child(odd) {
@@ -343,6 +394,24 @@ main {
 }
 
 /* END OF FEATURED JOBS */
+/* BLOG */
+.blogs {
+    background: linear-gradient(140deg, #8900FF 0, #500095 60%);
+}
+
+.blogs h2 {
+    color: white;
+}
+
+.latest-blog-image {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* END OF BLOG */
 /* FEATURED EMPLOYER */
 .employers-carousel img {
     height: 80px;
@@ -350,6 +419,12 @@ main {
 }
 
 /* END OF FEATURED EMPLOYER */
+/* TESTIMONIALS */
+.testimonials .card-body {
+    padding: 3rem 5%;
+}
+
+/* END OF TESTIMONIALS */
 /* GET STARTED */
 .get-started {
     background: linear-gradient(#500095 60%, #F2F2F2 100%);
@@ -488,7 +563,7 @@ main.sign-page p {
     }
 
     main {
-        padding: 4.5rem 0 2rem;
+        padding: 3.8rem 0 2rem;
     }
 
     .job-actions {
@@ -509,6 +584,34 @@ main.sign-page p {
         transform: translateY(0%);
         padding-bottom: 5rem;
     }
+
+    .landing {
+        height: 50vh;
+    }
+
+    /* STATISTICS */
+    .statistics {
+        height: 100px;
+    }
+
+    .statistics .card {
+        position: absolute;
+        top: -180px;
+        z-index: 100;
+        width: 80%;
+        left: 50%;
+        transform: translateX(-58%);
+    }
+
+    .slick-prev .fas {
+        left: 20px;
+    }
+
+    .slick-next .fas {
+        right: 20px;
+    }
+
+    /* END OF STATISTICS */
 }
 
 @media only screen and (max-width: 425px) {
