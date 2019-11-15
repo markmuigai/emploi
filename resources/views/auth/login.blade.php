@@ -7,9 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('user_title','Employer Login')
-
-{{--@include('seekers.search-input')--}}
+@section('user_title','Login')
 
 <form method="post" action="{{ route('login') }}">
     @csrf

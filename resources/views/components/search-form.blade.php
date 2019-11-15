@@ -1,13 +1,24 @@
-<form method="get" action="/vacancies/search">
-    <p>
-     <input type="text" name="q" required="" class="text" placeholder="Enter Keyword(s)" style="color: grey; background-color: white;border-radius: 5px" value="" onfocus="" onblur="">
-     <select name="location" class="location-select" style="border-radius: 5px; margin-top: 0.3em">
-
-         <option value="-1">All Locations</option>
-         @foreach(\App\Location::active() as $l)
-         <option value="{{ $l->id }}">{{ $l->name }}</option>
-         @endforeach
-     </select>
-     <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"></label>
-    </p>
-</form> 
+<div class="row justify-content-center search-bar m-0">
+    <div class="col-md-8 col-12">
+        <h2>Choose A Job You Love</h2>
+        <form method="get" action="/vacancies/search" class="text-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" name="q" required="" class="form-control" placeholder="Enter Keyword(s)" value="" onfocus="" onblur="">
+                </div>
+                <div class="col-md-4">
+                    <select name="location" class="custom-select">
+                        <option value="-1">All Locations</option>
+                        @foreach(\App\Location::active() as $l)
+                        <option value="{{ $l->id }}">{{ $l->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-orange" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

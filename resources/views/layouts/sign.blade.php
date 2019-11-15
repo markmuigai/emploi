@@ -66,22 +66,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mr-0">
-                        <li class="nav-item d-md-none d-block">
-                            <a class="nav-link" href="/employers/dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/vacancies">Vacancies</a></li>
-                      <li class=" nav-item d-md-none d-block">
-                                <a class="nav-link" href="#v-pills-messages">Candidates</a>
-                        </li>
-                        <li class="nav-item d-md-none d-block">
-                            <a class="nav-link" href="#v-pills-settings">Test Center</a>
-                        </li>
-                        <li class="nav-item d-md-none d-block">
-                            <a class="nav-link" href="#v-pills-reviews">Reviews</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/jobs">Jobs</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Career Center</a>
                         </li>
@@ -89,9 +73,6 @@
                             <a class="nav-link" href="#">See Who's Hiring</a>
                         </li>
                         <div class="d-md-flex">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-                            </li>
                             <!-- <li class="nav-item search-form hide">
                                 <form action="" class="form-inline mt-2">
                                     <input type="text" name="search" placeholder="Search" class="form-control" id="search">
@@ -103,35 +84,27 @@
                         </div>
                     </ul>
                 </div>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{asset('images/avatar.png')}}" class="profile-avatar" alt="">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/profile">View Profile</a>
-                        <a class="dropdown-item" href="#">Account Settings</a>
-                        <a class="dropdown-item" href="#">Billings</a>
-                        <a class="dropdown-item" href="/logout">Logout</a>
-                    </div>
-                </div>
             </div>
         </nav>
         <!-- END OF NAVBAR -->
     </header>
     <!-- MAIN CONTENT FOR EMPLOYER -->
+
     <main class="sign-page">
-        <!-- SIDEBAR FOR EMPLOYERS -->
-        <div class="row align-items-center m-0 h-100">
-            <div class="col-md-6 px-5 purple-bg">
+        <div class="row">
+            <div class="col-lg-6 pr-4">
                 <div class="container">
-                    <h2>@yield('user_title')</h2>
-                    <p>Emploi is an online placement platform that advertises job seekers to employers.</p>
-                    <a href="{{ route('register') }}" class="btn btn-orange px-5">Sign Up</a>
+                    <div class="sign-left">
+                        <h1>@yield('user_title')</h1>
+                        <p>Emploi is an online placement platform that advertises job seekers to employers.</p>
+                        @yield('register')
+                        <h5 class="mt-4">Don't have an account?
+                            <a href="{{ route('register') }}" class="btn btn-orange px-5">Sign Up</a></h5>
+                    </div>
                 </div>
             </div>
-            <!-- END OF SIDEBAR FOR EMPLOYERS -->
-            <div class="col-md-6">
-                <div class="container">
+            <div class="col-lg-6">
+                <div class="container pl-5">
                     @yield('content')
                 </div>
             </div>
