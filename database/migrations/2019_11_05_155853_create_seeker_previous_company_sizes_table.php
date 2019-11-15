@@ -11,7 +11,7 @@ class CreateSeekerPreviousCompanySizesTable extends Migration
         Schema::create('seeker_previous_company_sizes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('job_application_id');
-            $table->string('name');
+            $table->string('name',100);
             $table->integer('company_size_id');
             $table->timestamps();
         });

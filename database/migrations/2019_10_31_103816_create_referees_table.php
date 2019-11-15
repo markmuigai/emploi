@@ -11,13 +11,13 @@ class CreateRefereesTable extends Migration
         Schema::create('referees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('seeker_id');
-            $table->string('slug',50)->unique();
-            $table->string('name',50);
-            $table->string('email',50);
-            $table->string('phone_number',50);
-            $table->string('organization',50);
-            $table->string('position_held',50);
-            $table->string('relationship',50);
+            $table->string('slug',500)->unique();
+            $table->string('name',500);
+            $table->string('email',500);
+            $table->string('phone_number',500);
+            $table->string('organization',500);
+            $table->string('position_held',500);
+            $table->string('relationship',500);
             $table->string('status',20)->default('pending-details');
             $table->timestamps();
         });

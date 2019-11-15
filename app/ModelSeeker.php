@@ -40,6 +40,25 @@ class ModelSeeker extends Model
             return $total;
         foreach($this->modelSeekerSkills as $m)
             $total += $m->weight;
+
+        if(!is_null($this->other_skills))
+        {
+            $other_skills_weight = json_decode($this->other_skills_weight);
+            for($i=0; $i<count($other_skills_weight); $i++)
+                $total += $other_skills_weight[$i];
+        }
         return $total;
     }
+
+    public function getTraitsWeightAttribute(){
+        $total = 0;
+        if(count($this->modelSeekerPersonalityTraits) > 0)
+        {
+            for($i=0; $i<count($this->modelSeekerPersonalityTraits); $i++)
+                $total += $this->modelSeekerPersonalityTraits[$i]->weight;
+        }
+
+        return $total;
+    }
+    
 }

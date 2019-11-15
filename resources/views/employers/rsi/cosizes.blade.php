@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    					@if($i->company_size_id == $s->id)
 		    					selected="selected"
 		    					@endif
-		    					>{{ $s->lower_limit.' - '.$s->upper_limit }} people</option>
+		    					>{{ $s->title }}</option>
 		    				@endforeach
 		    			</select>
 		    		</p>
@@ -54,7 +54,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    			<select required="" name="company_size[]" class="form-control">
 		    				<option value="">- Select -</option>
 		    				@foreach($sizes as $s)
-		    				<option value="{{ $s->id }}">{{ $s->lower_limit.' - '.$s->upper_limit }} people</option>
+		    				<option value="{{ $s->id }}">{{ $s->title }} people</option>
 		    				@endforeach
 		    			</select>
 		    		</p>

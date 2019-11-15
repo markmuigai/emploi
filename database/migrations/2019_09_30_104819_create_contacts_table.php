@@ -12,9 +12,9 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code',50)->unique();
-            $table->string('name',50);
-            $table->string('email',50);
-            $table->string('phone_number',50);
+            $table->string('name',500);
+            $table->string('email',500);
+            $table->string('phone_number',500);
             $table->text('message');
             $table->integer('resolved_by')->nullable();
             $table->timestamp('resolved_on')->nullable();

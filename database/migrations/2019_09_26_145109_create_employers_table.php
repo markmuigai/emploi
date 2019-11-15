@@ -14,13 +14,13 @@ class CreateEmployersTable extends Migration
             $table->integer('user_id');
             $table->string('name',100);
             $table->integer('industry_id');
-            $table->string('company_name',50);
+            $table->string('company_name',500);
             $table->string('contact_phone',500);
             $table->string('company_phone',500);
-            $table->string('company_email',50);
+            $table->string('company_email',100);
             $table->integer('country_id');
             $table->integer('credits')->default(1000);
-            $table->string('address',500);
+            $table->string('address',1000);
             $table->timestamps();
         });
     }

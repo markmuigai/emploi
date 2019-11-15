@@ -13,7 +13,7 @@ class CreateOtherSeekerSkillsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('seeker_id');
             $table->integer('referee_id');
-            $table->string('name',100);
+            $table->string('name',1000);
             $table->timestamps();
         });
     }

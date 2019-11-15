@@ -10,12 +10,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('slug',50)->unique();
+            $table->string('slug',500)->unique();
             $table->integer('company_id');
             $table->integer('location_id');
             $table->integer('vacancy_type_id');
             $table->integer('positions')->default(1);
-            $table->string('title',50);
+            $table->string('title',500);
             $table->string('image',500)->nullable();
             $table->integer('industry_id');
             $table->integer('education_requirements');

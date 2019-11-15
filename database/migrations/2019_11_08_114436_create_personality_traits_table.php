@@ -15,7 +15,7 @@ class CreatePersonalityTraitsTable extends Migration
     {
         Schema::create('personality_traits', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();
+            $table->string('name',500)->unique();
             $table->timestamps();
         });
     }

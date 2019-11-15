@@ -10,7 +10,7 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',50)->unique();
+            $table->string('name',500)->unique();
             $table->integer('user_id')->nullable();
             $table->integer('industry_id');
             $table->integer('company_size_id');

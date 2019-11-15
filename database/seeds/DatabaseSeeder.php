@@ -1453,7 +1453,9 @@ class DatabaseSeeder extends Seeder
                 'date_of_birth' => now(),
                 'years_experience' => 5,
                 'location_id' => 1,
-                'education_level_id' => $dip->id
+                'education_level_id' => $dip->id,
+                'education' => '[]',
+                'experience' => '[]'
             ]);
 
             $sally = User::create([
@@ -1477,7 +1479,9 @@ class DatabaseSeeder extends Seeder
                 'date_of_birth' => now(),
                 'years_experience' => 2,
                 'location_id' => 2,
-                'education_level_id' => $deg->id
+                'education_level_id' => $deg->id,
+                'education' => '[]',
+                'experience' => '[]'
             ]);
 
             $liza = User::create([
@@ -1501,7 +1505,9 @@ class DatabaseSeeder extends Seeder
                 'date_of_birth' => now(),
                 'years_experience' => 2,
                 'location_id' => 1,
-                'education_level_id' => $mast->id
+                'education_level_id' => $mast->id,
+                'education' => '[]',
+                'experience' => '[]'
             ]);
 
             JobApplication::create([

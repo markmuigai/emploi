@@ -15,7 +15,7 @@ class CreateIndustrySkillsTable extends Migration
     {
         Schema::create('industry_skills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',100);
+            $table->string('name',1000);
             $table->integer('industry_id');
             $table->timestamps();
         });

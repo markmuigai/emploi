@@ -113,15 +113,12 @@ class Seeker extends Model
             return $perc;
         $model = $post->modelSeeker;
 
-        //dd($model);
-
         $total = 
             $model->education_level_importance + 
             $model->experience_importance + 
             $model->skills_importance + 
             $model->personality_importance + 
             $model->interview_importance + 
-            $model->iq_importance + 
             $model->psychometric_importance +  
             $model->company_size_importance +
             $model->feedback_importance;
@@ -131,17 +128,6 @@ class Seeker extends Model
         $application = JobApplication::where('user_id',$this->user->id)
                     ->where('post_id',$post->id)
                     ->first();
-
-        if($model->iq_test)
-        {
-            
-            $iq = $model->iq_importance == 0 ? 0 : $model->iq_importance / $total * 100;
-        }
-        else
-        {
-            $total -= $model->iq_importance;
-            $iq = 0;
-        }
 
         if($model->interview)
         {
@@ -175,35 +161,24 @@ class Seeker extends Model
         $cosize = $model->company_size_importance == 0 ? 0 : $model->company_size_importance  / $total * 100;
         $ref = $model->feedback_importance == 0 ? 0 : $model->feedback_importance / $total * 100;
 
-        //return $iq + $interview + $psy + $edu + $exp + $skil + $pers + $cosize + $ref;
-        
-        //return round($cosize,2);
 
-        
-        if($this->industry_id != $model->industry_id)//education should match job industry
-            $perc += 0;
-        elseif($this->education_level_id == $model->education_level_id)
-            $perc += $edu * 0.8;
-        elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
-            $perc += $edu;
-
-        
-        
-        if($this->industry_id == $model->post->industry_id)//experience
+        if(isset($application->id)) //psychometric
         {
-            if($this->years_experience == $model->experience_duration)
-                $perc += $exp * 0.8;
-            elseif($this->years_experience < $model->experience_duration)
+            if(count($application->psychometricTests) > 0)
             {
-                if($model->experience_duration/2 >= $this->years_experience)
-                    $perc += $exp * 0.2;
+                if($application->psychometricScore > $model->psychometric_test_score)
+                    $perc += $psy;
+                elseif($application->psychometricScore == $model->psychometric_test_score)
+                    $perc += $psy * 0.8;
                 else
-                    $perc += $exp * 0.4;
+                    $perc += $psy * 0.4;
             }
             else
-                $perc += $exp;
+            {
+                //$perc += $psy;
+            }
         }
-        
+
         if(isset($application->id))//interview
         {
             if(count($application->interviewResults) > 0)
@@ -217,83 +192,223 @@ class Seeker extends Model
             }
             else
             {
-                $perc += $interview;
+                //$perc += $interview;
             }
         }
 
+        //education
+        if(isset($this->industry_id) && $this->industry_id == $model->post->industry_id) 
+        {
+            //accepted courses
+            if(count($model->modelSeekerCourses) > 0)
+            {
+                $found = false;
+                for($i=0; $i< count($model->modelSeekerCourses); $i++)
+                {
+                    $courseName = $model->modelSeekerCourses[$i]->course->name;
+                    if(!is_null($this->education) )
+                    {
+                        if( strpos($this->education, "%$courseName%") )
+                            $found = true;                        
+                    }
 
+                    if(!is_null($this->resume_contents) )
+                    {
+                        if( strpos($this->resume_contents, "%$courseName%") )
+                            $found = true;                        
+                    }
+                    if($found)
+                        break;
+                }
 
-        if(count($model->modelSeekerSkills) > 0) //skills
+                if($found)
+                {
+                    $perc += $edu;
+                }
+                elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
+                {
+                    $perc += $edu * 0.5;
+                }
+                elseif($this->education_level_id == $model->education_level_id)
+                {
+                    $perc += $edu * 0.25;
+                }
+                
+            }
+
+        }
+
+        if($this->industry_id == $model->post->industry_id)//experience
+        {
+            if($this->years_experience == $model->experience_duration)
+                $perc += $exp * 0.8;
+            elseif($this->years_experience < $model->experience_duration)
+            {
+                if($model->experience_duration/2 >= $this->years_experience)
+                    $perc += $exp * 0.2;
+                else
+                    $perc += $exp * 0.4;
+            }
+            // else
+            //     $perc += $exp;
+        }
+
+        if(count($model->modelSeekerSkills) > 0 || count(json_decode($model->other_skills)) > 0) //skills
         {
 
             $skills_count = $model->skillsWeight;
             $exist_skills = 0;
 
-            for($i=0; $i<count($model->modelSeekerSkills); $i++)
+            if(count($model->modelSeekerSkills) > 0)
             {
-                //dd($model->modelSeekerSkills);
-                if($this->hasSkill($model->modelSeekerSkills[$i]->industrySkill->id))
-                    $exist_skills += $model->modelSeekerSkills[$i]->weight;
+                for($i=0; $i<count($model->modelSeekerSkills); $i++)
+                {
+                    if($this->hasSkill($model->modelSeekerSkills[$i]->industrySkill->id))
+                        $exist_skills += $model->modelSeekerSkills[$i]->weight;
+                }
             }
 
+            if(count(json_decode($model->other_skills)) > 0)
+            {
+                if( !is_null($this->resume_contents) )
+                {
+                    $other_skills = json_decode($model->other_skills);
+                    $other_skills_weights = json_decode($model->other_skills_weight);
+
+                    for($i=0; $i<count($other_skills); $i++)
+                    {
+                        if(strpos($this->resume_contents, "%".$other_skills[$i]."%"))
+                        {
+                            $exist_skills += $other_skills_weights[$i];
+                        }
+                    }
+                }
+            }
             $perc+= $skil * $exist_skills / $skills_count;
             
         }
         else
         {
-            $perc += $skil;
+            //$perc += $skil;
         }
-        
-        if(isset($application->id))//iq
-        {
-            if(count($application->iqTests) > 0)
-            {
-                if($application->iqScore > $model->iq_score)
-                    $perc += $iq;
-                elseif($application->iqScore == $model->iq_score)
-                    $perc += $iq * 0.8;
-                else
-                    $perc += $iq * 0.4;
-            }
-            else
-            {
-                $perc += $iq;
-            }
-        }
-        
-        if(isset($application->id)) //psy
-        {
-            if(count($application->psychometricTests) > 0)
-            {
-                if($application->psychometricScore > $model->psychometric_test_score)
-                    $perc += $psy;
-                elseif($application->psychometricScore == $model->psychometric_test_score)
-                    $perc += $psy * 0.8;
-                else
-                    $perc += $psy * 0.4;
-            }
-            else
-            {
-                $perc += $psy;
-            }
-        }
-        
-        if(isset($application->id)) //personality
-        {
-            if(isset($application->seekerPersonality->id))
-            {
-                if($application->seekerPersonality->personality->id == $model->personality_test_id)
-                    $perc += $pers;
-            }
-            else
-                $perc += $pers;
-        }
-        
 
-        //cosize
-        //ref
+        if( $model->traitsWeight != 0 ) //personality
+        {
+
+            $total_traits = 0;
+
+            if(count($this->referees) != 0) //personality traits
+            {
+                $assessed = array();
+                for($i=0; $i<count($this->referees); $i++)
+                {
+                    if($this->referees[$i]->status != 'pending-details')
+                        array_push($assessed, $this->referees[$i]);
+                }
+
+
+                if(count($assessed) > 0)
+                {
+                    for($i=0; $i<count($model->modelSeekerPersonalityTraits); $i++)
+                    {
+                        $total_traits += $this->getPersonalityTraitWeight($model->modelSeekerPersonalityTraits[$i]->personality_trait_id);
+                        
+                    }
+
+                    $perc += $total_traits/$model->traitsWeight * $pers;
+                }
+                else
+                {
+
+                    //$perc += $pers;
+                }
+
+            }
+            else
+            {
+                //$perc += $pers;
+            }
+
+        }
+        else
+        {
+            //$perc += $pers;
+        }
+
+        //previous company size
+        $user_id = $this->user->id;
+        $post_id = $post->id;
+        $model_co_size = $model->company_size_id;
+
+        $sql = "SELECT id FROM job_applications WHERE user_id=$user_id AND post_id=$post_id LIMIT 1";
+        $results = DB::select($sql);
+        if(count($results) == 1)
+        {
+            $application_id = $results[0]->id;
+            $sql = "SELECT company_size_id FROM seeker_previous_company_sizes WHERE job_application_id = $application_id AND company_size_id = $model_co_size LIMIT 1";
+
+            $results = DB::select($sql);
+            if(count($results) > 0)
+                $perc += $cosize;
+        }
+
+        
+        
+        
+        //referee feedback 
+        // $sql = "SELECT id FROM job_applications WHERE user_id=$user_id AND post_id=$post_id LIMIT 1";
+        // $results = DB::select($sql);
+        // if(count($results) == 1)
+        // {
+        //     $application_id = $results[0]->id;
+        //     $sql = "SELECT * FROM seeker_applications WHERE job_application_id = $application_id";
+        //     $results = DB::select($sql);
+        //     if(count($results) > 0)
+        //     {
+        //         //has referees
+        //     }
+        // }
+        // $multiplier = 1;
+
+        //(starts at x1) as standing
+            //performance (avg/100 * standing)
+            //work quality (avg/100 * standing)
+            //ability to meet targets (avg/100 * standing )
+            //would you rehire (avg/100 * standing)
+        //discplinary cases (overall multiplier)
+
+        //$perc += $ref;
+
+        
 
         return round($perc,2);
+    }
+
+    public function hasPersonalityTrait($trait_id){
+        $sql = "SELECT id FROM seeker_personality_traits WHERE seeker_id = ".$this->id." LIMIT 1";
+        $result = DB::select($sql);
+        if(count($result) == 0)
+            return false;
+        return true;
+    }
+
+    public function getPersonalityTraitWeight($trait_id){
+        if(!$this->hasPersonalityTrait($trait_id))
+            return 0;
+        $sql = "SELECT weight FROM seeker_personality_traits WHERE seeker_id = ".$this->id. " AND personality_trait_id = $trait_id";
+        $traitstotal = 0;
+        $counter = 0;
+        $results = DB::select($sql);
+
+        for($i=0; $i<count($results); $i++ )
+        {
+            $counter ++;
+
+            $traitstotal += $results[$i]->weight;
+        }
+        if($traitstotal == 0)
+            return $traitstotal;
+        return $traitstotal/$counter;
     }
 
     public function hasCompletedProfile(){

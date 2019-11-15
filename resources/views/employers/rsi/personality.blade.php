@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    <form method="POST" class="col-md-8 col-md-offset-2" action="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/personality">
 		    	@csrf
 		    	<p>
-						<label>Select Personality </label>
+						<label>Select Personality Traits</label>
 						<select required="" name="personality" class="form-control">
 							<option value="">Select</option>
 							@foreach($personalities as $p)
