@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Company;
 use App\EducationLevel;
 use App\JobApplication;
+use App\JobApplicationReferee;
 use App\Post;
 use App\SeekerSkill;
 
@@ -356,26 +357,42 @@ class Seeker extends Model
         
         
         //referee feedback 
-        // $sql = "SELECT id FROM job_applications WHERE user_id=$user_id AND post_id=$post_id LIMIT 1";
-        // $results = DB::select($sql);
-        // if(count($results) == 1)
-        // {
-        //     $application_id = $results[0]->id;
-        //     $sql = "SELECT * FROM seeker_applications WHERE job_application_id = $application_id";
-        //     $results = DB::select($sql);
-        //     if(count($results) > 0)
-        //     {
-        //         //has referees
-        //     }
-        // }
-        // $multiplier = 1;
+        if(count($this->jobApplicationReferees) > 0)
+        {
+            $performance = array();
+            $workQuality = array();
+            $targets = array();
+            $rehire = array();
+            $discplinary = array();
+            for($i=0; $i<count($this->jobApplicationReferees); $i++)
+            {
+                $rf = $this->jobApplicationReferees[$i];
+                
+                    array_push($discplinary, $rf->discplinary_cases);
+                    array_push($rehire, $rf->would_you_rehire);
+            }
 
-        //(starts at x1) as standing
-            //performance (avg/100 * standing)
-            //work quality (avg/100 * standing)
-            //ability to meet targets (avg/100 * standing )
-            //would you rehire (avg/100 * standing)
-        //discplinary cases (overall multiplier)
+            for($i=0; $i<count($this->seekerJobs); $i++)
+            {
+                if($this->seekerJobs[$i]->referee->status != 'ready')
+                    continue;
+                $sj = $this->seekerJobs[$i];
+                array_push($performance, $sj->work_performance);                
+                array_push($workQuality, $sj->work_quality);
+                array_push($targets, $sj->meeting_targets);
+            }
+            $performance = array_sum($performance ) / count($performance);
+            $workQuality = array_sum($workQuality ) / count($workQuality);
+            $targets = array_sum($targets ) / count($targets);
+            // dd($discplinary);
+            // $discplinary_multiplier = 1;
+            // for($i=0; $i<count($discplinary); $i++)
+            // {
+            //     if($discplinary[$i] == 'many')
+            //         $discplinary_multiplier = 
+
+            // }
+        }
 
         //$perc += $ref;
 

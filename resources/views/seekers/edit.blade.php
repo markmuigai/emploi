@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="form-group">
                     <label for="phone_number">Phone Number *</label>
-                    <input type="number" required="" path="phone_number" value="{{ $user->seeker->phone_number }}" name="phone_number" id="phone_number" class="form-control input-sm col-md-10" style="" placeholder="254712312313"
+                    <input type="number" required="" path="phone_number" value="{{ $user->seeker->phone_number }}" name="phone_number" id="phone_number" class="form-control input-sm" style="" placeholder="254712312313"
                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" />
                 </div>
                 <div class="form-group">
@@ -323,18 +323,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 
 <script type="text/javascript">
-    < ? php
+    <?php
     $sk = '';
     foreach($skills as $s) {
-        $sk. = "[".$s - > id.
-        ", '".$s - > name.
-        "'],";
+        $sk .= "[".$s->id.", '".$s->name."'],";
     }
-    $sk = '['.$sk.
-    ']';
+    $sk = '['.$sk.']';
     echo 'var allSkills='.$sk.
-    ';'; ?
-    >
+    ';'; 
+    ?>
 </script>
 <script type="text/javascript" src="{{ asset('js/edit-seeker.js') }}"></script>
 @endsection

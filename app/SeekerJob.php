@@ -17,4 +17,10 @@ class SeekerJob extends Model
     public function referee(){
     	return $this->belongsTo(Referee::class);
     }
+
+    public function getReadyAttribute(){
+    	if($this->referee->status == 'ready')
+    		return true;
+    	return false;
+    }
 }
