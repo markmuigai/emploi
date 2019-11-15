@@ -15,7 +15,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h4 class="text-uppercase">Get Your Job Done</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that advertises job seekers to employers</p>
-            <a href="#" class="btn btn-orange">Join Now</a>
+            <a href="/join" class="btn btn-orange">Join Now</a>
+            <a href="/login" class="btn btn-success">Login</a>
         </div>
     </div>
 </div>
@@ -34,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Emploi is a job matching platform that does it right and does it fast. Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker
                     matching.
                 </p>
-                <a href="#" class="btn btn-orange">Learn More</a>
+                <a href="/join" class="btn btn-orange">Learn More</a>
             </div>
         </div>
     </div>

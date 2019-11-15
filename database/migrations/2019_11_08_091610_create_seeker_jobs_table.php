@@ -12,7 +12,7 @@ class CreateSeekerJobsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('seeker_id');
             $table->integer('referee_id');
-            $table->string('job_title',50);
+            $table->string('job_title',500);
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->integer('meeting_targets')->default(100);

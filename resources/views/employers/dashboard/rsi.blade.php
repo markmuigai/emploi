@@ -80,7 +80,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		<br>
-		    		<p>Industry Skills </p>
+		    		<p>Skills </p>
 		    		<select name="skills_importance" class="form-control">
 		    			@foreach($weights as $w)
 		    			<option value="{{ $w->weight }}"
@@ -434,7 +434,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<input type="hidden" name="trait_id[]" value="{{ $trait->personalityTrait->id }}">
 						<input type="hidden" class="trait-weight" name="personal_trait_weight[]" value="{{ $trait->weight }}">
 						<p>
-							<b>{{ $trait->personalityTrait->name }}</b> || <i>{{ $mskill->weightName }}</i>
+							<b>{{ $trait->personalityTrait->name }}</b> || <i>{{ $trait->weightName }}</i>
 							<span class="pull-right btn btn-sm btn-danger remove-trait" trait_id="">x</span>
 						</p>
 					</div>
@@ -498,7 +498,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		$allTraits = '['.$allTraits.']';
 		echo 'var allTraits='.$allTraits.';';
 
-		if($post->hasModelSeeker())
+		if($post->hasModelSeeker() && !is_null($post->modelSeeker->other_skills))
 		{
 			echo 'var other_skills='.$post->modelSeeker->other_skills.';';
 			echo 'var other_skills_weight='.$post->modelSeeker->other_skills_weight.';';
@@ -510,7 +510,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			echo 'var other_skills_weight=false;';
 		}
 	?>
-	console.log(courses);
+	
 	
 </script>
 <script type="text/javascript" src="/js/rsi.js"></script>

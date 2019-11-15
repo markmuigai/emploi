@@ -420,11 +420,12 @@ class EmployerController extends Controller
         if(isset($request->trait_id) && count($request->trait_id) > 0 )
         {
             $counter = 0;
+            //dd($request->trait_weight);
             foreach ($request->trait_id as $e) {
                 ModelSeekerPersonalityTrait::create([
                     'model_seeker_id' => $m->id,
                     'personality_trait_id' => $e,
-                    'weight' => $request->trait_weight[$counter]
+                    'weight' => (int) $request->trait_weight[$counter]
                 ]);
                 $counter ++;
             }

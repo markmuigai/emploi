@@ -13,7 +13,7 @@ class CreateJobApplicationsTable extends Migration
             $table->integer('user_id');
             $table->integer('post_id');
             $table->text('cover')->nullable();
-            $table->string('status')->default('active');
+            $table->string('status',50)->default('active');
             $table->timestamps();
         });
     }

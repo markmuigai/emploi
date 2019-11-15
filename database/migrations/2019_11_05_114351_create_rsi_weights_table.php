@@ -10,7 +10,7 @@ class CreateRsiWeightsTable extends Migration
     {
         Schema::create('rsi_weights', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name',100);
             $table->integer('weight');
             $table->timestamps();
         });
