@@ -23,8 +23,8 @@ return [
         'redirect' => '/auth-with/facebook/callback',
     ],
     'linkedin' => [
-        'client_id' => env('LINKEDIN_CLIENT_ID'),
-        'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
+        'client_id' => '77klubztrgirb3',
+        'client_secret' => 'DojN6sivbqqbxaAQ',
         'redirect' => '/auth-with/linkedin/callback',
     ],
     'google' => [
