@@ -15,8 +15,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h4 class="text-uppercase">Get Your Job Done</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that advertises job seekers to employers</p>
-            <a href="/join" class="btn btn-orange">Join Now</a>
-            <a href="/login" class="btn btn-success">Login</a>
+            <a href="/join" class="btn btn-orange px-4">Join Now</a>
+            <a href="/login" class="btn btn-white px-4">Login</a>
         </div>
     </div>
 </div>
@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Emploi is a job matching platform that does it right and does it fast. Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker
                     matching.
                 </p>
-                <a href="/join" class="btn btn-orange">Learn More</a>
+                <a href="/about" class="btn btn-orange">Learn More</a>
             </div>
         </div>
     </div>
@@ -170,7 +170,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </a>
         @endforeach
     </div>
-    <a href="#" class="btn btn-orange my-5">View All Jobs</a>
+    <a href="#" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
     @endif
 </div>
 <!-- END OF FEATURED JOBS -->
@@ -291,7 +291,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         <div class="text-center">
-            <a href="" class="btn btn-orange">View All Blogs</a>
+            <a href="/blog" class="btn btn-orange">View All Blogs</a>
         </div>
     </div>
 </div>

@@ -24,6 +24,7 @@ a:hover {
 
 p {
     margin: .2rem 0;
+    font-size: 0.9rem;
 }
 
 iframe {
@@ -110,6 +111,10 @@ iframe {
 .badge-orange {
     background: var(--secondary);
     color: white;
+}
+
+.form-control, .custom-select {
+    border-radius: 20px;
 }
 
 .slick-prev .fas, .slick-next .fas {
@@ -314,6 +319,11 @@ main {
 .landing {
     height: calc(100vh - 5rem);
     background: var(--primary);
+    background: linear-gradient(to right, rgba(80, 0, 149, 1), rgba(80, 0, 149, 0.3)), url("../images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: white;
 }
 
@@ -428,6 +438,10 @@ main {
 /* GET STARTED */
 .get-started {
     background: linear-gradient(#500095 60%, #F2F2F2 100%);
+    background: linear-gradient(to right, rgba(80, 0, 149, 1), rgba(80, 0, 149, 0.3)), url("../images/connect.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center left;
     color: white;
     padding: 5rem 0;
 }
@@ -553,6 +567,35 @@ main.sign-page p {
     color: white;
 }
 
+/* ABOUT US PAGE */
+.team-member img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.icon-service .icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin: 10px;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 5px rgb(122, 0, 230),
+        0 0 0 10px rgb(195, 128, 255),
+        0 0 0 15px rgb(243, 230, 255);
+}
+
+.icon-service .icon .fas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+/* END OF ABOUT US PAGE */
 @media only screen and (max-width: 996px) {
     .nav-item {
         padding: 0;

@@ -106,10 +106,10 @@
                             </li>
                             @else
                             <LI class="nav-item">
-                                <a href="#" class="nav-link btn btn-white">Login</a>
+                                <a href="/login" class="nav-link btn btn-white px-3">Login</a>
                             </LI>
                             <LI class="nav-item">
-                                <a href="#" class="nav-link btn btn-orange">Register</a>
+                                <a href="/join" class="nav-link btn btn-orange px-3">Register</a>
                             </LI>
                             @endif
                             <!-- <li class="nav-item search-form hide">
@@ -150,9 +150,9 @@
     @else
 
     @if(is_null(\Route::current()->getName()))
-        <main>
-            @yield('content')
-        </main>
+    <main>
+        @yield('content')
+    </main>
     @else
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main>

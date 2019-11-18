@@ -1,6 +1,6 @@
 <div class="row justify-content-center search-bar m-0">
     <div class="col-md-8 col-12">
-        <h2>Choose A Job You Love</h2>
+        <h2 class="orange text-center">Choose A Job You Love</h2>
         <form method="get" action="/vacancies/search" class="text-center">
             <div class="row no-gutters">
                 <div class="col-md-6">
