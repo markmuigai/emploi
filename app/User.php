@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 use App\Jurisdiction;
 use App\Seeker;
@@ -169,5 +170,60 @@ class User extends Authenticatable
             EmailJob::dispatch($this->name, $this->email, 'Warm Welcome to Emploi', $caption, $contents);
         }
         return true;
+    }
+
+    public static function subscriptionStatus($email){
+        $sql = "SELECT * FROM unsubscriptions WHERE email = \"$email\" LIMIT 1";
+        $result = DB::select($sql);
+        if(count($result) == 1)
+        {
+            if($result[0]->status == 'active')
+            {
+                return false;
+            }
+            
+        }
+        return true;
+    }
+
+    public static function unsubscribeEmails($email){
+        $sql = "SELECT * FROM unsubscriptions WHERE email = \"$email\" LIMIT 1";
+        $result = DB::select($sql);
+        if(count($result) == 1)
+        {
+            if($result[0]->status == 'inactive')
+            {
+                $sql = "UPDATE unsubscriptions SET status = \"active\" WHERE email = \"$email\" LIMIT 1";
+                DB::update($sql);
+            }
+            return true;  
+        }
+        else
+        {
+            $sql = "INSERT INTO unsubscriptions (email,status) VALUES (\"$email\",\"active\")";
+            DB::insert($sql);
+            return true;
+        }
+    }
+
+    public static function subscribeEmails($email){
+        $sql = "SELECT * FROM unsubscriptions WHERE email = \"$email\" LIMIT 1";
+        $result = DB::select($sql);
+        if(count($result) == 1)
+        {
+            if($result[0]->status == 'active')
+            {
+                $sql = "UPDATE unsubscriptions SET status = \"inactive\" WHERE email = \"$email\" LIMIT 1";
+                DB::update($sql);
+            }
+        }
+        return true;  
+    }
+
+    public static function cleanEmail($string) {
+        //return iconv(mb_detect_encoding($string, mb_detect_order(), true), "UTF-8", $output);
+        $string = str_replace(' ', '', $string);
+
+        return preg_replace('/[^A-Za-z0-9\-.@]/', '', $string);
     }
 }

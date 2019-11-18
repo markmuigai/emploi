@@ -157,3 +157,6 @@ Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
 
 Route::get('auth-with/{provider}', 'SocialiteController@redirectToProvider');
 Route::get('auth-with/{provider}/callback', 'SocialiteController@handleProviderCallback');
+
+Route::get('/unsubscribe/{email}', 'EmailController@unsubscribe')->name('unsubscribe');
+Route::get('/subscribe/{email}', 'EmailController@subscribe')->name('subscribe');
