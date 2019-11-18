@@ -23,14 +23,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      	
 
 	      	<div class="col-md-4 col-md-offset-2 col-xs-6" style="padding: 1em">
+	      		<img src="/images/employer-join.png" style="width: 100%">
 	      		<a href="/employers/register" style="width: 100%">
-	      			<img src="/images/employer-join.png" style="width: 100%">
+	      			
 	      			<h4 style="color: black">Employer Registration <i class="fa fa-arrow-right"></i> </h4>
 	      		</a>
 	      	</div>
 	      	<div class="col-md-4 col-xs-6" style="padding: 1em">
+	      		<img src="/images/seeker-join.png" style="width: 100%">
 	      		<a href="/register" style="width: 100%">
-	      			<img src="/images/seeker-join.png" style="width: 100%">
+	      			
 	      			<h4 style="color: black">Register as Job Seeker <i class="fa fa-arrow-right"></i></h4>
 	      		</a>
 	      	</div>
