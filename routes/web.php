@@ -154,3 +154,6 @@ Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
     Route::get('enable-admin', 'SuperAdminController@enable');
     Route::get('disable-admin', 'SuperAdminController@disable');
 });
+
+Route::get('auth-with/{provider}', 'SocialiteController@redirectToProvider');
+Route::get('auth-with/{provider}/callback', 'SocialiteController@handleProviderCallback');
