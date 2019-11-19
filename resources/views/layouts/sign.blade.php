@@ -100,6 +100,12 @@
                         @yield('register')
                         <h5 class="mt-4">Don't have an account?
                             <a href="{{ route('register') }}" class="btn btn-orange px-5">Sign Up</a></h5>
+                        <div class="pt-4">
+                            <h5>- Sign Up With -</h5>
+                            <a href="#" class="pr-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="pr-2"><i class="fab fa-google"></i></a>
+                            <a href="#" class="pr-2"><i class="fab fa-twitter"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>

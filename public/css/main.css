@@ -563,8 +563,25 @@ main.sign-page p {
     width: 35%;
     position: fixed;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-45%);
     color: white;
+}
+
+.sign-left .fab {
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+}
+
+.sign-left .fa-facebook-f {
+    background: #4267B2;
+}
+
+.sign-left .fa-google {
+    background: #DB4437;
+}
+
+.sign-left .fa-twitter {
+    background: #1DA1F2;
 }
 
 /* ABOUT US PAGE */
@@ -596,6 +613,17 @@ main.sign-page p {
 }
 
 /* END OF ABOUT US PAGE */
+/* 404 */
+.error-page {
+    background: var(--primary);
+    background: linear-gradient(to right, rgba(80, 0, 149, 0.5), rgba(80, 0, 149, 0.5)), url("../images/door.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 89vh;
+    color: white;
+}
+
+/* END OF 404 */
 @media only screen and (max-width: 996px) {
     .nav-item {
         padding: 0;
