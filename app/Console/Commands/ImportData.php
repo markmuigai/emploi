@@ -169,7 +169,7 @@ class ImportData extends Command
                         $seeker->save();
                         
                         $count_seekers++;
-                        sleep(rand(10,20));
+                        sleep(rand(5,19));
                         // if($count_seekers>1 && config('env') != 'production')
                         //     break;
                     }
