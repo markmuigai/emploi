@@ -63,6 +63,9 @@ class Parser extends Model
 
         $this->filepath = storage_path().'/app/public/resumes/'.$this->filename;
 
+        if(!file_exists($this->filepath))
+            return null;
+
         $contents = "";
         if($file_ext == "doc" || $file_ext == "docx" || $file_ext == "pdf")
         {
