@@ -149,10 +149,12 @@ class ImportData extends Command
 
                         $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.$resume_url;
                         $to_path = storage_path().'/app/public/resumes/'.$resume_url;
+                        
+                        $this->info(' '.$count_seekers.' '.$name.' Imported');
+                        $count_seekers++;
                         if(!file_exists($resume))
                             continue;
                         copy($resume, $to_path );
-                        $this->info(' '.$count_seekers.' '.$name.' Imported');
 
                         $parser = new Parser($resume_url);
                         $seeker->resume_contents = $parser->convertToText();
