@@ -77,6 +77,7 @@ class Parser extends Model
 
             return $contents;
         } else {
+            return null;
             return file_get_contents($this->filename);
         }
     }

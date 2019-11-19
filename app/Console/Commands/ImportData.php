@@ -151,9 +151,12 @@ class ImportData extends Command
                         $to_path = storage_path().'/app/public/resumes/'.$resume_url;
                         
                         $this->info(' '.$count_seekers.' '.$name.' Imported');
-                        $count_seekers++;
-                        if(!file_exists($resume))
-                            continue;
+                        //$count_seekers++;
+                        // if(!file_exists($resume))
+                        // {
+                        //     $this->info(' '.$name.' resume is invalid');
+                        //     continue;
+                        // }
                         copy($resume, $to_path );
 
                         $parser = new Parser($resume_url);
