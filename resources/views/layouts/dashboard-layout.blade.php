@@ -72,16 +72,88 @@
     </header>
     <!-- MAIN CONTENT  -->
 
-    {{--@if(is_null(\Route::current()->getName()))--}}
+    <!-- MAIN CONTENT FOR EMPLOYER -->
     <main>
-        @yield('content')
-    </main>
-    {{--@endif--}}
-    <!-- END OF MAIN CONTENT -->
+        <!-- SIDEBAR -->
+        <div class="container">
+            <div class="row pt-4">
+                <div class="col-md-3 d-md-block d-none">
+                    <div class="sidebar">
+                        <!-- EMPLOYER SIDEBAR -->
+                        @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/employers/browse/" role="tab" aria-controls="v-pills-messages" aria-selected="false">Browse Candidates <i class="fas fa-chevron-right"></i></a>
 
-    <!-- TOP SEARCHES -->
-    @include('components.top-search')
-    <!-- END OF TOP SEARCHES -->
+                            <!-- <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a> -->
+                            <!-- <a class="nav-link" id="v-pills-reviews-tab" href="/employers/reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a> -->
+                        </div>
+                        <!-- END OF EMPLOYER SIDEBAR -->
+
+                        <!-- JOB SEEKER SIDEBAR -->
+                        @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-home-tab" href="/seeker/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/jobs" role="tab" aria-controls="v-pills-messages" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false">Applications <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <!-- END OF JOB SEEKER SIDEBAR -->
+
+                        <!-- ADMIN SIDEBAR -->
+                        @elseif( isset(Auth::user()->id) && Auth::user()->role == 'admin' )
+
+                        <!-- END OF ADMIN SIDEBAR -->
+
+                        <!-- GUEST SIDEBAR -->
+                        @else
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>Sign Up To Apply</h5>
+                                <a href="" class="btn btn-orange">Register</a>
+                                <h6 class="mt-3">- Have An Account -</h6>
+                                <a href="" class="btn btn-orange-alt">Login</a>
+                            </div>
+                        </div>
+                        <!-- END OF GUEST SIDEBAR -->
+                        @endif
+
+                        @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
+
+                        <!-- ADD JOB AS AN EMPLOYER -->
+                        <div class="mt-3">
+                            <a href="/vacancies/create" class="btn btn-orange" id="postAlt"><i class="fas fa-plus"></i> Post A Job</a>
+                        </div>
+                        <!-- END OF ADD JOB AS AN EMPLOYER -->
+
+                        @endif
+
+                    </div>
+                </div>
+                <!-- END OF SIDEBAR FOR EMPLOYERS -->
+                <div class="col-md-9 col-12 align-items-center">
+                    <!-- ADD JOB AS AN EMPLOYER -->
+                    <div id="postJob" class="mb-2">
+                        <h2>@yield('page_title')</h2>
+                        @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
+                        <a href="/vacancies/create" class="btn btn-orange"><i class="fas fa-plus"></i> Post A Job</a>
+                        @endif
+                    </div>
+                    <!-- END OF ADD JOB AS AN EMPLOYER -->
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+
+        @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+        @include('components.search-form')
+        @endif
+
+        @guest
+        @include('components.search-form')
+        @endguest
+    </main>
+    <!-- END OF MAIN CONTENT FOR EMPLOYER -->
 
     <!-- FOOTER -->
     @include('components.footer')
@@ -156,7 +228,7 @@
             }
         });
 
-        // Changing Active
+        // Changing Active for Nav Pills
         $('.nav-pills .nav-link.active').removeClass('active');
         $('a[href="' + location.pathname + '"]').closest('.nav-pills .nav-link').addClass('active');
 

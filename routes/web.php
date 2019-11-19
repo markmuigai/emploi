@@ -60,7 +60,7 @@ Route::post('/employers/register', 'EmployerController@create');
 //Route::get('/employers/publish', function () {			    	return view('employers.publish');		});
 
 // *************************
-//Route::get('/test', function () {    	return view('new-design.test');	});
+Route::get('/test', function () {    	return view('new-design.test');	});
 
 Route::get('/employers/jobs', 'EmployerController@jobs');
 Route::get('/employers/reviews', function () {    	return view('employers.dashboard.reviews');	});

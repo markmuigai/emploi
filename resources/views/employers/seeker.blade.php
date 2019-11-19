@@ -1,5 +1,4 @@
-{{--@extends('layouts.seek')--}}
-@extends('layouts.general-layout')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: @'.$user->username)
 
@@ -37,7 +36,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- CANDIDATE DETAILS -->
             <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
                 <!-- INFO CARD -->
-                <div class="card py-2">
+                <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>About {{ $user->name }}</h4>
                         <div class="row mb-2 text-center about-icons">
@@ -74,7 +73,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <h4>Career Objective</h4>
                         <p>{{  $user->seeker->objective ? $user->seeker->objective : 'Career Objective not included' }}</p>
-                        
+
                     </div>
                 </div>
                 <!-- END OF INFO CARD -->
@@ -82,7 +81,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- END OF CANDIDATE DETAILS -->
             <!-- EDUCATION -->
             <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
-                <div class="card py-2">
+                <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>Education and Qualification</h4>
                         @forelse($user->seeker->education() as $edu)
@@ -90,7 +89,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="circle"></div>
                             <div class="col-lg-3 col-12 ml-3">
                                 <p>{{ $edu[0] }}</p>
-                                
+
                             </div>
                             <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
                                 <h6>{{ $edu[1] }}</h6>
@@ -101,7 +100,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p>
                             No education records highlighted.
                         </p>
-                        
+
                         @endforelse
                     </div>
                 </div>
@@ -109,7 +108,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- END OF EDUCATION -->
             <!-- EXPERIENCE -->
             <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
-                <div class="card py-2">
+                <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>Experience</h4>
                         @forelse($user->seeker->experience() as $emp)
@@ -117,7 +116,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="circle"></div>
                             <div class="col-lg-3 col-12 ml-3">
                                 <p>{{ $emp[0] }}</p>
-                                
+
                             </div>
                             <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
                                 <h6>{{ $emp[1] }}</h6>
@@ -136,7 +135,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- END OF EXPERIENCE -->
             <!-- EXPERIENCE -->
             <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
-                <div class="card py-2">
+                <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>Skills</h4>
                         <h5>
@@ -152,7 +151,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="col-lg-4 col-12 pt-2 text-center">
-        
+
         <div class="card">
             <div class="card-body">
                 <div class="row justify-content-center">

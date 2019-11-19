@@ -5,6 +5,7 @@
 
 body {
     overflow-x: hidden;
+    position: relative;
 }
 
 * {
@@ -183,7 +184,7 @@ img.avatar-small {
 }
 
 .nav-item {
-    padding: .5rem;
+    margin: .5rem;
 }
 
 img.profile-avatar {
@@ -192,6 +193,14 @@ img.profile-avatar {
 
 .navbar-toggler {
     color: white;
+}
+
+.navbar-nav .nav-link {
+    border-bottom: 1px solid transparent;
+}
+
+.navbar-nav .nav-link.active {
+    border-bottom-color: white;
 }
 
 /* .search-form.hide input {
@@ -296,6 +305,7 @@ button.close {
 
 main {
     padding: 4.7rem 0 0;
+    min-height: 64vh;
     /* background: #F9F9F9; */
 }
 
@@ -342,13 +352,13 @@ main {
 /* SEARCH BAR */
 .search-bar {
     background: rgb(235, 235, 235);
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 /* END OF SEARCH BAR */
 /* ABOUT */
 .about {
-    margin: 3rem 0 7rem;
+    margin: 3rem 0;
 }
 
 .about .card-body, .services>.container>.card>.card-body {
@@ -359,12 +369,12 @@ main {
 /* STATISTICS */
 .statistics {
     position: relative;
-    height: 100px;
+    height: 140px;
 }
 
 .statistics .card {
     position: absolute;
-    top: -180px;
+    top: -110px;
     z-index: 100;
     width: 70%;
     left: 50%;
@@ -448,7 +458,7 @@ main {
 
 /* END OF GET STARTED */
 .card {
-    box-shadow: 0 0 7px 2px rgba(200, 200, 200, 0.5);
+    box-shadow: 0 0 5px 0px rgba(200, 200, 200, 0.5);
 }
 
 .nav-pills {
@@ -596,12 +606,14 @@ main.sign-page p {
     height: 50px;
     position: relative;
     margin: 10px;
-    padding: 1rem;
+    margin-right: 15px;
+    padding: 2rem;
     border-radius: 50%;
-    box-shadow:
-        0 0 0 5px rgb(122, 0, 230),
-        0 0 0 10px rgb(195, 128, 255),
-        0 0 0 15px rgb(243, 230, 255);
+    border: 3px solid #595959;
+    /* box-shadow:
+        0 0 0 4px #595959,
+        0 0 0 7px #808080,
+        0 0 0 10px #a6a6a6; */
 }
 
 .icon-service .icon .fas {
@@ -609,7 +621,7 @@ main.sign-page p {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 /* END OF ABOUT US PAGE */
@@ -621,9 +633,33 @@ main.sign-page p {
     background-size: cover;
     min-height: 89vh;
     color: white;
+    font-size:
 }
 
 /* END OF 404 */
+.circle-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/* TOP SEARCH */
+.top-search {
+    background: #e4e4e4;
+    color: #656565;
+}
+
+/* END OF TOP SEARCH */
+/* CONTACT */
+.contact {
+    background: linear-gradient(to right, #500095 48%, #8900FF 48%, #8900FF 50%, #FFFFFF 0);
+}
+
+.contact .address {
+    color: white;
+}
+
+/* END OF CONTACT */
 @media only screen and (max-width: 996px) {
     .nav-item {
         padding: 0;
@@ -695,4 +731,11 @@ main.sign-page p {
     main.sign-page p {
         font-size: 1em;
     }
+
+    /* CONTACT */
+    .contact {
+        background: linear-gradient(#500095 30%, #8900FF 30%, #8900FF 32%, #FFFFFF 0);
+    }
+
+    /* END OF CONTACT */
 }

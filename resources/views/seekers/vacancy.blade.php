@@ -1,4 +1,4 @@
-@extends('layouts.general-layout')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Dashboard')
 
@@ -24,7 +24,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- ALL JOBS -->
             <div class="tab-pane fade show active" id="job-description" role="tabpanel" aria-labelledby="job-description-tab">
                 <!-- JOB CARD -->
-                <div class="card py-2">
+                <div class="card py-2 mb-4">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-5 col-md-12 d-flex justify-content-between align-items-center">
@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 </a>
                             </div>
                             <div class="col-lg-7 col-md-12 text-right">
-                                
+
                             </div>
                         </div>
                         <hr>
@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <h5>{{ $post->title }} <span class="badge badge-light">{{ $post->positions }} Positions</span></h5>
                                 <a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
                                 <p>
-                                    <i class="fas fa-map-marker-alt orange"></i> 
+                                    <i class="fas fa-map-marker-alt orange"></i>
                                     {{ $post->location->name }}, {{ $post->location->country->name }}
                                 </p>
                                 <p>
@@ -124,7 +124,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <!-- END OF ACTIVE JOBS -->
 
-            
+
         </div>
     </div>
 </div>
