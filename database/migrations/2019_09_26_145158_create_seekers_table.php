@@ -26,7 +26,7 @@ class CreateSeekersTable extends Migration
             $table->text('objective')->nullable();
             $table->text('education')->nullable();
             $table->text('experience')->nullable();
-            $table->string('resume_contents',50000)->nullable();
+            $table->text('resume_contents')->nullable();
             $table->string('resume',1000)->nullable();
             $table->integer('featured')->default(0);
             $table->timestamps();

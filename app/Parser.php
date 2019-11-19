@@ -87,6 +87,8 @@ class Parser extends Model
             	$contents = $this->read_pdf();
             }
 
+            return substr($contents, 0, 50000);
+
             return $contents;
         } else {
             return null;
