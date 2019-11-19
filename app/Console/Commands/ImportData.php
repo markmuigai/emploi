@@ -91,9 +91,12 @@ class ImportData extends Command
                         $industry = abs($data[14]) == 0 ? 1 : abs($data[14]);
                         $password = $data[15];
                         
+                        // dd($resume_url);
+                        
+                        //$resume_url = 
 
-                        $resume_url = explode(" ", $resume_url);
-                        $resume_url = implode("%20", $resume_url);
+                        // $resume_url = explode(" ", $resume_url);
+                        // $resume_url = implode("%20", $resume_url);
 
                         if(!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/@.+\./', $email))
                             continue;
@@ -147,7 +150,9 @@ class ImportData extends Command
 
                         UserPermission::create([ 'user_id' => $user->id, 'permission_id' => 4 ]);
 
-                        $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.$resume_url;
+                        
+                        $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.str_replace(' ', '%20', $resume_url);
+                        //$resume = urlencode($resume);
                         $to_path = storage_path().'/app/public/resumes/'.$resume_url;
                         
                         $this->info(' '.$count_seekers.' '.$name.' Imported');
@@ -164,6 +169,7 @@ class ImportData extends Command
                         $seeker->save();
                         
                         $count_seekers++;
+                        sleep(rand(10,20));
                         // if($count_seekers>1 && config('env') != 'production')
                         //     break;
                     }
