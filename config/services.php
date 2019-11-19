@@ -28,8 +28,8 @@ return [
         'redirect' => '/auth-with/linkedin/callback',
     ],
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'client_id' => '283801290702-7n9b866jvpr8395m0n5e3fgg4br72855.apps.googleusercontent.com',
+        'client_secret' => 'la2NmgKQ-D1g046Hy0akXkmR',
         'redirect' => '/auth-with/google/callback',
     ],
 

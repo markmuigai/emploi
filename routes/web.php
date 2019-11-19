@@ -62,7 +62,6 @@ Route::post('/employers/register', 'EmployerController@create');
 // *************************
 //Route::get('/test', function () {    	return view('new-design.test');	});
 
-Route::get('/complete-register', function () {    	return view('auth.social-register');	});
 Route::get('/employers/jobs', 'EmployerController@jobs');
 Route::get('/employers/reviews', function () {    	return view('employers.dashboard.reviews');	});
 Route::get('/employers/applicants', function () {    	return view('employers.dashboard.applicants');	});
@@ -158,3 +157,6 @@ Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
 
 Route::get('auth-with/{provider}', 'SocialiteController@redirectToProvider');
 Route::get('auth-with/{provider}/callback', 'SocialiteController@handleProviderCallback');
+
+Route::get('/unsubscribe/{email}', 'EmailController@unsubscribe')->name('unsubscribe');
+Route::get('/subscribe/{email}', 'EmailController@subscribe')->name('subscribe');
