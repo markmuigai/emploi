@@ -53,7 +53,16 @@ class Parser extends Model
     }
 
     private function read_pdf(){
-    	return Pdf::getText($this->filepath);
+        $contents = null;
+        try {
+            $contents = Pdf::getText($this->filepath);
+          $this->buildXMLHeader();
+
+        } catch (\Exception $e) {
+
+            return $contents;
+        }
+        return $contents;
     }
 
     public function convertToText() {
