@@ -18,7 +18,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="row align-items-center">
                     <div class="col-4">
                         <?php $img = $post->image == 'unknown.png' ? 'images/a1.jpg' : $post->image; if($img == '') $img = 'images/a1.jpg'; ?>
-                        <a href="/vacancies/{{$post->slug}}/"><img src="{{ asset($img) }}" class="w-100" alt="" /></a>
+                        <a href="/vacancies/{{$post->slug}}/">
+                            <img src="{{ asset($post->imageUrl) }}" class="w-100" alt="" />
+                        </a>
                     </div>
                     <div class="col-8">
                         <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->title }}</a></h4>

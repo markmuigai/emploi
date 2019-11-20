@@ -47,7 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			    	<label>Company Size:</label>
 			    	<select name="company_size" class="form-control">
 			    		@foreach($sizes as $i)
-			    		<option value="{{ $i->id }}">{{ $i->size }}</option>
+			    		<option value="{{ $i->id }}">{{ $i->title }}</option>
 			    		@endforeach
 			    	</select>
 			    </p>
