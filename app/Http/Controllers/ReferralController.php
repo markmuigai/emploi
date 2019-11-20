@@ -41,7 +41,7 @@ class ReferralController extends Controller
             $caption = Auth::user()->name." has invited you to Emploi, a Job seeker - Employer matching Platform";
             $title = $user->name.' Invited you to Emploi';
 
-            $line = "<b>".$user->name."</b> has invited you to create a free profile on our platform, so you too can have access to our superior services.";
+            $line = "<strong>".$user->name."</strong> has invited you to create a free profile on our platform, so you too can have access to our superior services.";
         }
         else
         {
@@ -51,12 +51,12 @@ class ReferralController extends Controller
         }
 
         Referral::create([
-            'user_id' => isset($user->id) ? $user->id : null, 
+            'user_id' => isset($user->id) ? $user->id : null,
             'name' => $request->name,
             'email' => $request->email
         ]);
 
-        
+
         $contents = "Emploi is a sourcing platform linking employers and job seekers. $line<br>
         You can register as an employer - where you have access to our powerful advertising and shortlisting tools, or as a job seeker - for quick and efficient placement services. <br>
 

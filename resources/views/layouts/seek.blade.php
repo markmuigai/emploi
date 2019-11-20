@@ -32,18 +32,18 @@
 	<meta name="msapplication-TileColor" content="#e88725">
 	<meta name="msapplication-TileImage" content="/images/icons/icon-512x512.png">
 	<script type="text/javascript">
-    	// Initialize the service worker
-	    if ('serviceWorker' in navigator) {
-	        navigator.serviceWorker.register('/serviceworker.js', {
-	            scope: '.' 
-	        }).then(function (registration) {
-	            // Registration was successful
-	            console.log('Emploi PWA: ServiceWorker registration successful with scope: ', registration.scope);
-	        }, function (err) {
-	            // registration failed :(
-	            console.log('Emploi PWA: ServiceWorker registration failed: ', err);
-	        });
-	    }
+		// Initialize the service worker
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/serviceworker.js', {
+				scope: '.'
+			}).then(function(registration) {
+				// Registration was successful
+				console.log('Emploi PWA: ServiceWorker registration successful with scope: ', registration.scope);
+			}, function(err) {
+				// registration failed :(
+				console.log('Emploi PWA: ServiceWorker registration failed: ', err);
+			});
+		}
 	</script>
 
 	<!-- END PWA -->
@@ -102,7 +102,7 @@
 					<li><a href="/blog">Career Centre</a></li>
 					@endif
 					<li class="dropdown" style="display: none">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>
 						<ul class="dropdown-menu multi-column columns-3">
 							<div class="row">
 								<div class="col-sm-4">
@@ -133,7 +133,7 @@
 					@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
 					@else
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Employers<b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Employers<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
 							@if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
 							<li><a href="/employers/dashboard">Dashboard</a></li>
@@ -153,7 +153,7 @@
 					@if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
 					@else
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seekers<b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seekers<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
 							<li><a href="/job-seekers/services">All Services</a></li>
 							<li><a href="/register" style="font-weight: bold;">Upload CV</a></li>
@@ -174,7 +174,7 @@
 					@endif
 					@if(isset(Auth::user()->id))
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold">My Account<b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold">My Account<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
 							<li><a href="/home">Dashboard</a></li>
 							<li><a href="/profile">Profile</a></li>

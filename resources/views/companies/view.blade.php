@@ -10,17 +10,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @include('seekers.search-input')
 
 <div class="container">
-    <div class="single">  
-	   
+    <div class="single">
+
 	 <div class="col-md-8 single_right">
 	      <h3>
 	      	<i class="fa fa-arrow-left" title="View All Companies" onclick="window.location='/companies'"></i>
 	      	{{ $company->name }}
 	      	<small class="pull-right">[{{ count($company->activePosts) }} vacancies]</small>
-	      	
+
 	      </h3>
 	      <div class="row_1">
-	      	
+
 	      	<div class="clearfix"> </div>
 	      </div>
 
@@ -55,17 +55,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      		@endif
 	      	</div>
 
-	      	
-	      	
+
+
 	      </div>
 
 	      <div class="row">
 	      	<div class="col-md-6 col-md-offset-3" style="text-align: center;">
 	      		<img src="{{ asset($company->coverUrl) }}" style="width: 100%">
 	      		<br>
-	      		<b>{{ $company->tagline }}</b><br>
+	      		<strong>{{ $company->tagline }}</strong><br>
 	      	</div>
-	      	
+
 	      </div>
 
 	      <div class="row" >
@@ -103,11 +103,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      @endif
 
 
-	      
+
 	   </div>
 	   <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
 	   <div class="clearfix"> </div>
 	 </div>

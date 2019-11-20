@@ -150,9 +150,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<?php $exp = $user->seeker->experience();  ?>
 			@for($i=count($exp)-1; $i>=0; $i--)
 			<div style="">
-				<b>
-					<?php echo $exp[$i][1].'</b> at <b>'.$exp[$i][0]; ?>
-				</b>
+				<strong>
+					<?php echo $exp[$i][1].'<strong> at </strong>'.$exp[$i][0]; ?>
+				</strong>
 				<?php echo $exp[$i][2].' - '.$exp[$i][3]; ?>
 
 				<br>
@@ -171,9 +171,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<?php $exp = $user->seeker->education();  ?>
 				@for($i=count($exp)-1; $i>=0; $i--)
 				<div style="" class="col-md-6">
-					<b>
+					<strong>
 						<?php echo $exp[$i][1]; ?>
-					</b> <br>
+					</strong> <br>
 					<?php echo $exp[$i][2] ?>
 
 					<br>

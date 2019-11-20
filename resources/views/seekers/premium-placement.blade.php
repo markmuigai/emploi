@@ -9,24 +9,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="contact_top">
 	   	 <h2>Premium Placement</h2>
-	     
+
           <div class="row" style="">
 	   	   <div class="addr col-md-8 col-md-offset-2">
-	   	   		
 
 
-                <b>1. Top of the list search</b><br>
+
+                <strong>1. Top of the list search</strong><br>
 				<p>Top of the search list-Allows your Profile to come up top of of the search list for employers to spot you faster.
 					</p><br>
 
-				<b>2. Professional CV editing</b><br>
+				<strong>2. Professional CV editing</strong><br>
 				<p>We understand the challenges of creating that eye catching CV, and a CV template only may not be enough. We are able to help in preparing a professional CV that matches your requirements at friendly rates.
 					</p><br>
 
-				<b>3. Exclusive Placement Services</b><br>
+				<strong>3. Exclusive Placement Services</strong><br>
 				<p>Through this service, we shall take you up as a special client and endeavor to get you employment within the shortest time possible, in an industry and location of your choice.
 					</p><br>
 
@@ -41,31 +41,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 				<p>Our services as a career placement agency extend far beyond lining up an interview. Once we’ve identified an opportunity that suits you, we make sure that you’re equipped to land the job, and to impress your new employer from day one. And it doesn’t stop there. We periodically check in with you to see how it’s going and get an update on any new skills, promotions or other goals you’ve achieved. This enables us to continue working on your behalf as new opportunities arise in the future. Together, we’ll continuously work to move your career forward towards a personally and professionally rewarding future.
 				</p><br>
-				<b>4. Interview coaching</b><br>
+				<strong>4. Interview coaching</strong><br>
 				<p>Interview coaching can increase your chances of getting a job for many reasons. Coaching gives you experience answering many different interview questions and pretending to interact with potential employers.</p><br>
-				
+
 
 				<br><br><br>
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3" style="text-align: center;">
-						<b>Get in touch with us and for Premium Placement</b> <br>
+						<strong>Get in touch with us and for Premium Placement</strong> <br>
 						Phone: +254 702 068 282 <br>
 						E-mail: <a href="mailto:info@emploi.co">info@emploi.co</a> <br>
 						<a href="/contact" class="btn btn-success">Contact Us</a>
 					</div>
 				</div>
 				<p>
-					
+
 				</p>
-				
-				
-				
-                
+
+
+
+
            </div>
           </div>
           <div class="clearfix"> </div>
 	   </div>
-	   
+
     </div>
 </div>
 

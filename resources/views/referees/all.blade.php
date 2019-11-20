@@ -10,11 +10,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @include('seekers.search-input')
 
 <div class="container">
-    <div class="single">  
-	   
+    <div class="single">
+
 	 <div class="col-md-8 single_right">
 	      <h3>
-	      	My Referees 
+	      	My Referees
 	      	<a href="/profile" class="btn btn-sm btn-success pull-right">My Profile</a>
 	      	<a href="/profile/add-referee" class="btn btn-sm btn-primary pull-right">Add</a>
 	      </h3>
@@ -31,13 +31,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      			</h5>
 	      			<p>
 	      				{{ $ref->position_held }} <i> at </i>
-	      				<b>
+	      				<strong>
 	      					{{ $ref->organization }}
-	      				</b>
+	      				</strong>
 	      				<small class="pull-right">
 	      					[ {{ $ref->relationship }} ]
 	      				</small>
-	      				
+
 	      			</p>
 	      			<hr>
 	      			<p>
@@ -55,16 +55,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      		</p>
 
 	      		@endforelse
-	      	
+
 	      	<div class="clearfix"> </div>
 	      </div>
-	      
-	      
-		  
+
+
+
 	   </div>
 	   <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
 	   <div class="clearfix"> </div>
 	 </div>

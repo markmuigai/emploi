@@ -13,7 +13,7 @@
 
     <style>
         /* Reset styles */
-        
+
         body {
             margin: 0;
             padding: 0;
@@ -21,7 +21,7 @@
             width: 100% !important;
             height: 100% !important;
         }
-        
+
         body,
         table,
         td,
@@ -34,7 +34,7 @@
             -webkit-text-size-adjust: 100%;
             line-height: 100%;
         }
-        
+
         table,
         td {
             mso-table-lspace: 0pt;
@@ -42,7 +42,7 @@
             border-collapse: collapse !important;
             border-spacing: 0;
         }
-        
+
         img {
             border: 0;
             line-height: 100%;
@@ -50,19 +50,19 @@
             text-decoration: none;
             -ms-interpolation-mode: bicubic;
         }
-        
+
         #outlook a {
             padding: 0;
         }
-        
+
         .ReadMsgBody {
             width: 100%;
         }
-        
+
         .ExternalClass {
             width: 100%;
         }
-        
+
         .ExternalClass,
         .ExternalClass p,
         .ExternalClass span,
@@ -72,7 +72,7 @@
             line-height: 100%;
         }
         /* Rounded corners for advanced mail clients only */
-        
+
         @media all and (min-width: 560px) {
             .container {
                 border-radius: 8px;
@@ -91,7 +91,7 @@
         a:hover {
             color:  #500095;;
         }
-        
+
         .footer a,
         .footer a:hover {
             color: #999999;
@@ -133,7 +133,7 @@
                                 Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker matching
                             </div>
 
-                            
+
                             <a target="_blank" style="text-decoration: none;" href="https://github.com/konsav/email-templates/"><img border="0" vspace="0" hspace="0" src="{{ asset('images/logo.png') }}" width="100" height="30" alt="Logo" title="Logo" style="
 				color: #000000;
 				font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
@@ -171,7 +171,7 @@
                         </td>
                     </tr>
 
-                    
+
                     <tr>
                         <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;			padding-top: 20px;" class="hero">                  <a target="_blank" style="text-decoration: none;" href="{{ url('/') }}"><img border="0" vspace="0" hspace="0" src="{{ asset('images/email-banner.jpg') }}" alt="Empire state bridge" title="Emploi" width="560" style="	width: 100%;			max-width: 560px;			color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
                         </td>
@@ -181,10 +181,10 @@
                     <!-- Set text color and font family ("sans-serif" or "Georgia, serif"). Duplicate all text styles in links, including line-height -->
                     <tr>
                         <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 17px; font-weight: 400; line-height: 160%;
-                            padding-top: 25px; 
+                            padding-top: 25px;
                             color: #000000;
                             font-family: sans-serif;" class="paragraph">
-                            Hello<b>{{ ' '.$name }}</b>,
+                            Hello<strong>{{ ' '.$name }}</strong>,
                             <br>
                     <?php echo $contents; ?>
 
@@ -233,7 +233,7 @@
 							font-family: sans-serif;" class="footer">
 							We've introduced dignity into the job search industry by converting jobseekers from being part of an unrecognized pool, to being clients who are treated with dignity and are able to stand out for employers to recognize.
 
-                            
+
                             <br>
 
                             <a href="{{ url('/') }}" style="text-align: center;">Emploi</a>

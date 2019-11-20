@@ -73,7 +73,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <p>
                                             {{ $post->brief }}
                                             <br>
-                                            <i>Apply within <b><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->deadline))->diffForHumans() ?></b> </i>
+                                            <i>Apply within <strong><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->deadline))->diffForHumans() ?></strong> </i>
                                             <a href="/vacancies/{{$post->slug}}/" class="btn btn-sm read-more">Read More</a>
                                             <a href="/vacancies/{{$post->slug}}/apply" class="btn btn-sm btn-success pull-right" style="color: white">Apply</a>
                                         </p>

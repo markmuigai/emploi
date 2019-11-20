@@ -158,7 +158,7 @@ $().ready(function(){
             }
             var $skill = ''+
             '<div class="col-md-6 user-skill" skill_id="'+skill_id+'">'+
-                '<b>'+name+'</b>'+
+                '</strong>'+name+'</strong>'+
                 '<input type="hidden" name="skills[]" value="'+skill_id+'">'+
                 '<span class="btn btn-sm btn-danger pull-right remove-new-skill" skill_id="'+skill_id+'">x</span>'+
             '</div>';

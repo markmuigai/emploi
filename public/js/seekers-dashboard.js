@@ -57,11 +57,11 @@ $().ready(function(){
 	        				'<br class="no-mobile">'+
 	        				'<h4 style="font-weight: bold">'+job.title+'</h4>'+
 	        				'<p>'+
-	        					'<b>'+
+	        					'</strong>'+
 	        						'<a href="/companies/'+company.name+'">'+
 	        							company.name+
 	        						'</a>'+
-	        					'</b>'+
+	        					'</strong>'+
 	        					'<br>'+
 	        					vacancyType.name+' in '+
 	        					location.name + ', '+ country.code +
@@ -86,7 +86,7 @@ $().ready(function(){
 	        				'<br class="no-mobile">'+
 	        				'<h4>'+blog.title+'</h4>'+
 	        				'<p>'+
-	        					'<b>'+ user.name +'</b><br>'+ 
+	        					'</strong>'+ user.name +'</strong><br>'+ 
 	        					'<a href="/blog/'+category.slug+'" style="text-decoration: none">'+
 	        						category.name +
 	        					'</a>'+

@@ -39,8 +39,8 @@ $().ready(function(){
 
 			var $s = ''+
 			'<div class="col-md-6 ms-skill" skill_id="'+s+'">'+
-				'<p><b>'+
-					t+'</b> || <i>'+wn+'</i>'+
+				'<p></strong>'+
+					t+'</strong> || <i>'+wn+'</i>'+
 					'<input type="hidden" name="skill_id[]" value="'+s+'">'+
 					'<input type="hidden"  class="skill-weight" name="skill_weight[]" value="'+w+'">'+
 					'<span class="pull-right btn btn-sm btn-danger remove-new-skill" skill_id="'+s+'">x</span>'+
@@ -91,8 +91,8 @@ $().ready(function(){
 
 			var $trait = ''+
 			'<div class="col-md-6 ms-trait" trait_id="'+s+'">'+
-				'<p><b>'+
-					t+'</b> || <i>'+wn+'</i>'+
+				'<p></strong>'+
+					t+'</strong> || <i>'+wn+'</i>'+
 					'<input type="hidden" name="trait_id[]" value="'+s+'">'+
 					'<input type="hidden"  class="trait-weight" name="trait_weight[]" value="'+w+'">'+
 					'<span class="pull-right btn btn-sm btn-danger remove-new-trait" trait_id="'+s+'">x</span>'+

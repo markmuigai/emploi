@@ -10,16 +10,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @include('seekers.search-input')
 
 <div class="container">
-    <div class="single">  
-	   
+    <div class="single">
+
 	 <div class="col-md-8 single_right">
 	      <h3>
-	      	Apply {{ $post->title }} 
+	      	Apply {{ $post->title }}
 	      	<a href="/vacancies/{{ $post->slug }}" class="btn btn-sm btn-success pull-right">view job</a>
 
 	      	<a href="#share-links" class="btn btn-sm btn-primary pull-right">share</a>
 	      	<br>
-	      	<small><b>{{ $post->since }}</b></small>
+	      	<small><strong>{{ $post->since }}</strong></small>
 	      </h3>
 	      <div class="row_1">
 	      	<div class="col-sm-5 single_img">
@@ -28,28 +28,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      	</div>
 	      	<div class="col-sm-7 single-para">
 	      		<p>
-	      			Position: <b>{{ $post->vacancyType->name }}</b> <br>
-	      			Company: <b>{{ isset(Auth::user()->id) ? $post->company->name : 'Login to view' }}</b><br>
-	      			Location: <b>{{ $post->location->name }}, {{ $post->location->country->name }}</b><br>
-	      			Apply by: <b>{{ $post->deadline }}</b><br>
-	      			Education: <b>{{ $post->education_requirements }}, {{ $post->industry->name }}</b><br>
-	      			Experience: <b>{{ $post->experience_requirements }}</b> <br>
-	      			Salary: <b>{{ isset(Auth::user()->id) ? '~ '.$post->location->country->currency.' '.$post->monthly_salary.' p.m.' : 'Login to view' }}</b>
+	      			Position: <strong>{{ $post->vacancyType->name }}</strong> <br>
+	      			Company: <strong>{{ isset(Auth::user()->id) ? $post->company->name : 'Login to view' }}</strong><br>
+	      			Location: <strong>{{ $post->location->name }}, {{ $post->location->country->name }}</strong><br>
+	      			Apply by: <strong>{{ $post->deadline }}</strong><br>
+	      			Education: <strong>{{ $post->education_requirements }}, {{ $post->industry->name }}</strong><br>
+	      			Experience: <strong>{{ $post->experience_requirements }}</strong> <br>
+	      			Salary: <strong>{{ isset(Auth::user()->id) ? '~ '.$post->location->country->currency.' '.$post->monthly_salary.' p.m.' : 'Login to view' }}</strong>
 	      			<br>
-	      			No of positions: <b>{{ $post->positions }}</b>
+	      			No of positions: <strong>{{ $post->positions }}</strong>
 
 	      		</p>
-	      		
-	      		
+
+
 	      	</div>
 	      	<div class="clearfix"> </div>
 	      	<br>
 	      	<div>
-	      		<b>Application for {{ $post->title }}</b>
+	      		<strong>Application for {{ $post->title }}</strong>
 	      	</div>
 	      	<div class="clearfix"> </div>
 	      </div>
-	      
+
 	      <form method="post" action="/vacancies/{{ $post->slug }}/apply">
 	      	@csrf
 	      	<p>
@@ -70,13 +70,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      	</p>
 
 
-	      	
+
 
 	      </form>
 
-	      	
-			
-	      
+
+
+
 	      <div class="comments" style="display: none;">
 	      	<h6>Comments</h6>
 			<div class="media media_1">
@@ -111,7 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	   </div>
 	   <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
 	   <div class="clearfix"> </div>
 	 </div>
@@ -123,7 +123,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         CKEDITOR.replace('cover');
 
     },3000);
-    
+
 </script>
 
 @endsection

@@ -84,9 +84,9 @@ class EmployerController extends Controller
         //return $request->co_name;
 
     	$emp = Employer::create([
-    		'user_id' => $user->id, 
-    		'name' => $request->name, 
-    		'industry_id' => $request->industry, 
+    		'user_id' => $user->id,
+    		'name' => $request->name,
+    		'industry_id' => $request->industry,
             'company_name' => $request->co_name,
     		'contact_phone' => $country->prefix.$request->phone_number,
     		'company_phone' => $country2->prefix.$request->co_phone_number,
@@ -98,7 +98,7 @@ class EmployerController extends Controller
         //return $emp;
 
     	$perm = UserPermission::create([
-            'user_id' => $user->id, 
+            'user_id' => $user->id,
             'permission_id' => 3
         ]);
 
@@ -106,17 +106,17 @@ class EmployerController extends Controller
         $co_name = $request->co_name.User::generateRandomString(4);
 
         $c = Company::create([
-            'name' => $co_name, 
+            'name' => $co_name,
             'user_id' => $user->id,
             'about' => "Insert company brief",
-            'website' => "http://emploi.co", 
+            'website' => "http://emploi.co",
             'industry_id' => $request->industry,
             'location_id' => 1,
             'company_size_id' => 1
         ]);
 
         $caption = "Thank you for registering your profile on Emploi as an Employer";
-        $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
+        $contents = "Your account has been created succesfully. Log in with username: <strong>$username</strong> <br>
         <br>
 
         Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
@@ -220,7 +220,7 @@ class EmployerController extends Controller
 
 
 
-        
+
         return view('employers.browse')
                 ->with('seekers',$seekers)
                 ->with('industries',Industry::active())
@@ -372,7 +372,7 @@ class EmployerController extends Controller
                     $s->delete();
             }
 
-            
+
         }
         else
         {
@@ -403,7 +403,7 @@ class EmployerController extends Controller
             $m->other_skills = $request->other_skill_name;
             $m->other_skills_weight = $request->other_skill_weight;
         }
-        
+
         if(isset($request->skill_id) && count($request->skill_id) > 0 )
         {
             $counter = 0;
@@ -442,7 +442,7 @@ class EmployerController extends Controller
                 $counter ++;
             }
         }
-        
+
 
         return redirect('/employers/applications/'.$post->slug.'/rsi');
     }
@@ -469,8 +469,8 @@ class EmployerController extends Controller
                 //     ->with('title','Removed from Shortlist')
                 //     ->with('message',$user->seeker->public_name.' has been removed from '.$post->title.' shortlist');
             }
-            
-            
+
+
         }
         return redirect('/employers/applications/'.$post->slug);
         return view('employers.dashboard.message')
@@ -496,10 +496,10 @@ class EmployerController extends Controller
                     $j->status = 'rejected';
                     $j->save();
                 }
-                
+
             }
-            
-            
+
+
         }
         return redirect('/employers/applications/'.$post->slug);
         return view('employers.dashboard.message')
@@ -528,8 +528,8 @@ class EmployerController extends Controller
     public function saveCandidate(Request $request, $slug){
         $post = Post::where('slug',$slug)->firstOrFail();
         $c = Candidate::create([
-            'seeker_id' => $request->seeker_id, 
-            'post_id' => $post->id, 
+            'seeker_id' => $request->seeker_id,
+            'post_id' => $post->id,
             'monthly_salary' => $request->monthly_salary
         ]);
 
@@ -544,7 +544,7 @@ class EmployerController extends Controller
 
         $caption = "Candidate Selected ".$post->title;
         $contents = "You have selected ".$c->seeker->user->name." for the position of ".$post->title." with a monthly salary of ".$post->location->country->currency.$c->monthly_salary.". <br>
-        <b>Candidate Details</b> <br>
+        <strong>Candidate Details</strong> <br>
         Name: ".$c->seeker->user->name." <br>
         Email: ".$c->seeker->user->email." <br>
         Phone: ".$c->seeker->phone_number." <br>.
@@ -558,8 +558,8 @@ class EmployerController extends Controller
         EmailJob::dispatch($post->company->user->name, $post->company->user->email, $c->seeker->public_name." for ".$post->title, $caption, $contents);
 
         $caption = "Application for the ".$post->title." position was succesfull";
-        $contents = "You have been selected for <b>".$post->title."</b> position at <b>".$post->company->name."</b>. You have been offered a <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
-        <b>Employer Details</b> <br>
+        $contents = "You have been selected for <strong>".$post->title."</strong> position at <strong>".$post->company->name."</strong>. You have been offered a <strong>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</strong>. <br>
+        <strong>Employer Details</strong> <br>
         Name: ".$post->company->user->name." <br>
         Email: ".$post->company->user->email." <br>
         <br>
@@ -569,14 +569,14 @@ class EmployerController extends Controller
         <br>
         ";
         EmailJob::dispatch($c->seeker->user->name, $c->seeker->user->email, "Application for ".$post->title." Succesfull", $caption, $contents);
-        
+
         $caption = "The position ".$post->title." has been closed, ".$c->seeker->user->name." selected";
-        $contents = $c->seeker->user->name." has been selected by <a href='".url('/companies/'.$post->company->id)."'> for the <b>".$post->title."</b> position, and has been offered a  <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
-        <b>Employer Details</b> <br>
+        $contents = $c->seeker->user->name." has been selected by <a href='".url('/companies/'.$post->company->id)."'> for the <strong>".$post->title."</strong> position, and has been offered a  <strong>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</strong>. <br>
+        <strong>Employer Details</strong> <br>
         Name: ".$post->company->user->name." <br>
         Email: ".$post->company->user->email." <br>
         <br>
-        <b>Job Seeker Details</b> <br>
+        <strong>Job Seeker Details</strong> <br>
         Name: ".$c->seeker->user->name." <br>
         Email: ".$c->seeker->user->email." <br>
         Phone: ".$c->seeker->phone_number." <br>.
@@ -710,7 +710,7 @@ class EmployerController extends Controller
 
             $app->toggleUseReferee($request->toggle);
         }
-        
+
         return view('employers.rsi.referees')
                     ->with('app',$app);
         return $request->all();
@@ -737,7 +737,7 @@ class EmployerController extends Controller
                 ";
         EmailJob::dispatch($user->name, $user->email, 'Request for Referees', $caption, $contents);
 
-        
+
         return view('employers.rsi.refereeRequested')
                     ->with('app',$app);
     }
@@ -746,10 +746,10 @@ class EmployerController extends Controller
         $app = JobApplication::findOrFail($applicationId);
         if(isset($request->referee_id))
         {
-            
+
             $app->toggleUseReferee($request->referee_id);
         }
-        
+
         return redirect('/employers/applications/'.$app->post->slug.'/'.$app->id.'/rsi/referees');
     }
 
@@ -776,7 +776,7 @@ class EmployerController extends Controller
         {
             SeekerPreviousCompanySize::create([
                 'job_application_id' => $app->id,
-                'name' => $cname, 
+                'name' => $cname,
                 'company_size_id' => $request->company_size[$i]
             ]);
             $i++;

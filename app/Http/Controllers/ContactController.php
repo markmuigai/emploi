@@ -20,31 +20,31 @@ class ContactController extends Controller
     	$code = strtoupper(User::generateRandomString(10));
     	$c = Contact::create([
     		'code' => $code,
-    		'name' => $request->name, 
-    		'email' => $request->email, 
-    		'phone_number' => $request->phone, 
+    		'name' => $request->name,
+    		'email' => $request->email,
+    		'phone_number' => $request->phone,
     		'message' => $request->message
     	]);
 
     	if(isset($c->id))
     	{
     		$caption = "We have received your message";
-            $contents = "Your message has been received and one of our administrators will get back to you shortly. Your Tracking code is <b>".$c->code."</b><br><br>
+            $contents = "Your message has been received and one of our administrators will get back to you shortly. Your Tracking code is <strong>".$c->code."</strong><br><br>
             Here are your submissions: <br>
-            Name: <b>".$c->name."</b> <br>
-            Email: <b>".$c->email."</b> <br>
-            Phone Number: <b>".$c->phone_number."</b> <br>
+            Name: <strong>".$c->name."</strong> <br>
+            Email: <strong>".$c->email."</strong> <br>
+            Phone Number: <strong>".$c->phone_number."</strong> <br>
             Message: <br><i>".$c->message."</i> <br><br>
             Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br>
             Thank you for choosing Emploi.";
             EmailJob::dispatch($c->name, $c->email, 'Contact Received', $caption, $contents);
 
             $caption = $c->name." contacted us";
-            $contents = "We have received a new message on Emploi, with a Tracking code of <b>".$c->code."</b><br><br>
+            $contents = "We have received a new message on Emploi, with a Tracking code of <strong>".$c->code."</strong><br><br>
             Here are the Details: <br>
-            Name: <b>".$c->name."</b> <br>
-            Email: <b>".$c->email."</b> <br>
-            Phone Number: <b>".$c->phone_number."</b> <br>
+            Name: <strong>".$c->name."</strong> <br>
+            Email: <strong>".$c->email."</strong> <br>
+            Phone Number: <strong>".$c->phone_number."</strong> <br>
             Message: <br><i>".$c->message."</i> <br><br>
 
             <a href='".url('/admin/contacts/'.$c->id)."'>Click here</a> to respond to ".$c->name;

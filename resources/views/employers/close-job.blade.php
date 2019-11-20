@@ -10,21 +10,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="contact_top">
 	   	 <h2 style="margin-bottom: 0">{{ $post->title }}</h2>
 
 	   	 <p class="col-md-8 col-md-offset-2" style="text-align: center; padding: 0.5em; border-bottom: 0.1em solid black">
         	<a href="/employers/applications/{{ $post->slug }}" class="btn btn-sm btn-info">Applications ({{ count($post->applications) }})</a>
             <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger">
-                
+
                 @if(!$post->hasModelSeeker())
                 <i class="fa fa-warning"  title="RSI Model Not Created"></i>
                 @else
                 <i class="fa fa-check" title=""></i>
                 @endif
                 RSI Model
-                
+
             </a>
             <br class="go-mobile">
 
@@ -34,8 +34,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @endif
 
         </p>
-	     
-          
+
+
           <div class="clearfix"> </div>
 	   </div>
 
@@ -44,21 +44,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	   	   	@forelse($post->candidates as $c)
 	   	   	<div class="col-md-8 col-md-offset-2 row" style="padding: 1em; overflow: hidden; border-bottom: 0.1em solid gray">
 	   	   		<img src="{{ asset($c->seeker->user->getPublicAvatarUrl()) }}" style="border-radius: 50%" class="col-md-3 col-xs-3" style="width: 100%">
-	   	   		
+
 	   	   		<p class="col-md-9 col-xs-9" style="text-align: center; ">
-	   	   			
-	   	   			<a href="/employers/browse/{{ $c->seeker->user->username }}"><b>{{ $c->seeker->user->name }}</b></a> <br>
+
+	   	   			<a href="/employers/browse/{{ $c->seeker->user->username }}"><strong>{{ $c->seeker->user->name }}</strong></a> <br>
 	   	   			<span>RSI {{ $c->seeker->getRsi($post) }}%</span> <br>
 	   	   			<span>{{ $post->location->country->currency }} {{ $c->monthly_salary }} p.m.</span> <br>
-	   	   			
+
 	   	   		</p>
 	   	   	</div>
 	   	   	@empty
-	   	   	<p style="text-align: center;">No Candidates selected</p>	   	   		
+	   	   	<p style="text-align: center;">No Candidates selected</p>
 	   	   	@endforelse
 
 	   	   	@if($post->positions > count($post->candidates))
-	   	   	
+
 
    	   		<form class="col-md-6 col-md-offset-3" method="post">
 				<hr>
@@ -88,7 +88,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
    	   				<br>All Positions have been filled</p>
    	   		@endif
        	</div>
-	   
+
     </div>
 </div>
 

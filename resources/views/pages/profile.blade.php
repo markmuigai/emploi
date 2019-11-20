@@ -50,38 +50,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="row seeker-details">
                 <div>
-                    <b>Job Seeker</b>
+                    <strong>Job Seeker</strong>
                     <br><br>
                 </div>
                 <div class="col-md-6">
-                    Name: <b>{{ $user->name }}</b>
+                    Name: <strong>{{ $user->name }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Public name: <b>{{ $user->seeker->public_name }}</b>
+                    Public name: <strong>{{ $user->seeker->public_name }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Current Position: <b>{{ $user->seeker->current_position }}</b>
+                    Current Position: <strong>{{ $user->seeker->current_position }}</strong>
                 </div>
                 <div class="col-md-6">
-                    E-mail: <b>{{ $user->email }}</b>
+                    E-mail: <strong>{{ $user->email }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Years of Experience: <b>{{ $user->seeker->years_experience }}</b>
+                    Years of Experience: <strong>{{ $user->seeker->years_experience }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Date of Birth: <b>{{ $user->seeker->date_of_birth ? $user->seeker->date_of_birth : '-not set-' }}</b>
+                    Date of Birth: <strong>{{ $user->seeker->date_of_birth ? $user->seeker->date_of_birth : '-not set-' }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Phone Number: <b>{{ $user->seeker->phone_number }}</b>
+                    Phone Number: <strong>{{ $user->seeker->phone_number }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Address: <b>{{ $user->seeker->post_address ? $user->seeker->post_address : '-not set-' }}</b>
+                    Address: <strong>{{ $user->seeker->post_address ? $user->seeker->post_address : '-not set-' }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Highest Education: <b>{{ $user->seeker->education_level_id ? $user->seeker->educationLevel->name : '-not set-' }}</b>
+                    Highest Education: <strong>{{ $user->seeker->education_level_id ? $user->seeker->educationLevel->name : '-not set-' }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Gender: <b>
+                    Gender: <strong>
                         @if( $user->seeker->gender == 'M' )
                         Male
                         @elseif($user->seeker->gender == 'F')
@@ -89,18 +89,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @else
                         Other
                         @endif
-                    </b>
+                    </strong>
                 </div>
                 @if(isset($user->seeker->location_id))
                 <div class="col-md-6">
-                    Location: <b>{{ $user->seeker->location->name }}</b>
+                    Location: <strong>{{ $user->seeker->location->name }}</strong>
                 </div>
                 @endif
                 <div class="col-md-6">
-                    Country: <b>{{ $user->seeker->country->name }}</b>
+                    Country: <strong>{{ $user->seeker->country->name }}</strong>
                 </div>
                 <div class="col-md-6">
-                    Industry/Profession: <b>{{ $user->seeker->industry->name }}</b>
+                    Industry/Profession: <strong>{{ $user->seeker->industry->name }}</strong>
                 </div>
                 @if(isset($user->seeker->objective))
                 <div class="col-md-8 col-md-offset-2" style="padding: 1em">
@@ -116,9 +116,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <?php $exp = $user->seeker->experience();  ?>
                     @for($i=count($exp)-1; $i>=0; $i--)
                         <div style="margin-bottom: 1em; border-bottom: 0.1em solid black">
-                            <b>
-                                <?php echo $exp[$i][1].'</b> at <b>'.$exp[$i][0]; ?>
-                            </b>
+                            <strong>
+                                <?php echo $exp[$i][1].'</strong> at <strong>'.$exp[$i][0]; ?>
+                            </strong>
                                 <i class="pull-right">
                                     <?php echo $exp[$i][2].' - '.$exp[$i][3]; ?>
                                 </i>
@@ -136,9 +136,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <?php $exp = $user->seeker->education();  ?>
                     @for($i=count($exp)-1; $i>=0; $i--)
                         <div style="margin-bottom: 1em; border-bottom: 0.1em solid black">
-                            <b>
+                            <strong>
                                 <?php echo $exp[$i][1]; ?>
-                            </b>
+                            </strong>
                                 <i class="pull-right">
                                     <?php echo $exp[$i][2] ?>
                                 </i>
@@ -172,7 +172,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 @forelse($user->companies as $c)
                 <div>
-                    <b>Company Details</b>
+                    <strong>Company Details</strong>
                     <a href="{{ url('/companies/'.$c->id.'/edit') }}" class="pull-right">edit company</a>
                     <br><br>
                 </div>
@@ -185,44 +185,44 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
                 @endif
                 <div class="col-md-6">
-                    <b>Name</b>: {{ $c->name }}
+                    <strong>Name</strong>: {{ $c->name }}
                 </div>
                 <div class="col-md-6">
-                    <b>Tagline</b>:
+                    <strong>Tagline</strong>:
                     {{ $c->tagline ? $c->tagline : '-No tagline-' }}
                 </div>
                 <div class="col-md-6">
-                    <b>Website</b>:
+                    <strong>Website</strong>:
                     <a href="{{ $c->website ? $c->website : '#' }}">{{ $c->website ? $c->website : '-website not provided-' }}</a>
                 </div>
                 <br>
                 <div class="col-md-6" >
-                    <b>About</b>:
+                    <strong>About</strong>:
                     {{ $c->about ? $c->about : '-Company Brief not stated-' }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Industry</b>:
+                    <strong>Industry</strong>:
                     {{ $c->industry->name }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Company Size</b>:
+                    <strong>Company Size</strong>:
                     {{ $c->companySize->lower_limit }} - {{ $c->companySize->upper_limit }} people
                 </div>
                 <div class="col-md-6" >
-                    <b>Country</b>:
+                    <strong>Country</strong>:
                     {{ $c->location->country->name }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Location</b>:
+                    <strong>Location</strong>:
                     {{ $c->location->name }}
                 </div>
                 <hr>
                 <div class="col-md-6" >
-                    <b>All Vacancies</b>:
+                    <strong>All Vacancies</strong>:
                     {{ count($c->posts) }}
                 </div>
                 <div class="col-md-6" >
-                    <b>Live Vacancies</b>:
+                    <strong>Live Vacancies</strong>:
                     {{ count($c->activePosts) }}
                 </div>
                 @empty
@@ -236,14 +236,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         	<h5>Role: Administrator</h5>
         	<p>
-        		Name: <b>{{ $user->name }}</b> <br>
+        		Name: <strong>{{ $user->name }}</strong> <br>
         	</p>
 
         	@elseif($user->role == 'super')
 
         	<h5>Role: Super Administrator</h5>
         	<p>
-        		Name: <b>{{ $user->name }}</b> <br>
+        		Name: <strong>{{ $user->name }}</strong> <br>
         	</p>
 
         	@endif

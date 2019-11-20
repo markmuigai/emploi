@@ -9,27 +9,27 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @include('seekers.search-input')
 <div class="container">
-    <div class="single">  
+    <div class="single">
        <div class="form-container">
         <h2>Account Created</h2>
-        
+
         <div style="text-align: center;">
         	<p>
 	        	Your account as an employer has been created succesfully.
 	        	<br>
 	        	A confirmation e-mail has been sent. <br>
-	        	To log in, your username is <b>{{ $username }}</b>
+	        	To log in, your username is <strong>{{ $username }}</strong>
 	        </p>
 
-	        <br>	
+	        <br>
 
 	        <p>
 	        	<a href="/login" class="btn btn-sm btn-success">Login</a>
 	        </p>
         </div>
-        
-    
-                
+
+
+
     </div>
  </div>
 </div>
