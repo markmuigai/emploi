@@ -1,4 +1,4 @@
-@extends('layouts.general-layout')
+@extends('layouts.dashboard-layout')
 {{--@extends('layouts.seek')--}}
 
 @section('title','Emploi :: Dashboard')
@@ -53,9 +53,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     {{ $a->user->seeker->location->country->name }}</p>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
-                                
+
                                 <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                
+
                             </div>
                         </div>
                         <hr>
@@ -71,7 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                                         @if($post->isShortlisted($a->user->seeker))
                                             <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
-                                            
+
                                         @else
                                             <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
                                         @endif
@@ -82,17 +82,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                                     @endif
 
-                                    
+
 
                                 @endif
 
-                                
 
-                                
 
-                                
 
-                                
+
+
+
+
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
                                 <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
@@ -126,9 +126,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     {{ $a->user->seeker->location->country->name }}</p>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
-                                
+
                                 <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                
+
                             </div>
                         </div>
                         <hr>
@@ -136,7 +136,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="col-12 col-md-6 col-lg-6">
                                 @if($post->isShortlisted($a->user->seeker))
                                     <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
-                                    
+
                                 @else
                                     <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
                                 @endif
@@ -178,17 +178,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     {{ $a->user->seeker->location->country->name }}</p>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
-                                
+
                                 <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                
+
                             </div>
                         </div>
                         <hr>
                         <div class="row justify-content-between align-items-center">
                             <div class="col-12 col-md-6 col-lg-6">
-                                
 
-                                
+
+
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
                                 <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
@@ -223,20 +223,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     {{ $a->user->seeker->location->country->name }}</p>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
-                                
+
                                 <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                
+
                             </div>
                         </div>
                         <hr>
                         <div class="row justify-content-between align-items-center">
                             <div class="col-12 col-md-6 col-lg-6">
-                                
+
 
                                 <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" style="color: red; font-weight: bold;"> Cancel Reject</a>
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-                                
+
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange pull-right">View Profile</a>
                             </div>
                         </div>
@@ -258,7 +258,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <h4 class="m_1" style="text-align: center;">Actions</h4>
                 <p style="text-align: center;">
-                    
+
                     <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger">
                         @if(!$post->hasModelSeeker())
                         <i class="fa fa-warning" title="RSI Model Not Created"></i>
@@ -299,7 +299,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 <div class="col-12">
-    
+
 </div>
 
 @endsection

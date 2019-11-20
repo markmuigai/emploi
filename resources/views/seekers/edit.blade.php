@@ -1,4 +1,4 @@
-@extends('layouts.general-layout')
+@extends('layouts.dashboard-layout')
 
 @section('title','Edit Profile')
 
@@ -330,7 +330,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     }
     $sk = '['.$sk.']';
     echo 'var allSkills='.$sk.
-    ';'; 
+    ';';
     ?>
 </script>
 <script type="text/javascript" src="{{ asset('js/edit-seeker.js') }}"></script>

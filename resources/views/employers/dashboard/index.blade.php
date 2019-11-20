@@ -1,4 +1,4 @@
-@extends('layouts.general-layout')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Dashboard')
 
@@ -35,39 +35,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <canvas id="myChart" width="400" height="150"></canvas>
     </div>
 </div>
-<div class="row mt-4 recents">
+<div class="row my-4 recents">
     <div class="col-12 col-md-8 offset-md-2">
         <div class="card">
             <div class="card-body">
                 <h6>Recent Applications</h6>
                 <ul>
                     @if(count(Auth::user()->employer->recentApplications()) > 0)
-                        <?php 
-                            $recent = Auth::user()->employer->recentApplications(); 
+                        <?php
+                            $recent = Auth::user()->employer->recentApplications();
                         ?>
-
                         @for($i=0; $i < count($recent); $i++)
                         <li>
                             <a href="/employers/browse/{{ $recent[$i]->user->username }}">
                                 {{ $recent[$i]->user->name }}
-                            </a> has applied for the 
+                            </a> has applied for the
                             <a href="/employers/applications/{{ $recent[$i]->post->slug }}">{{ $recent[$i]->post->title }}</a> job.
                         </li>
                         @endfor
                     @else
-
                     <li>No Applications have been received</li>
-
                     @endif
-                    
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script>

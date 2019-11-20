@@ -1,4 +1,4 @@
-@extends('layouts.general-layout')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Create Job Post')
 

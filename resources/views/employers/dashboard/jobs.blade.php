@@ -1,4 +1,4 @@
-@extends('layouts.general-layout')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Jobs Listed')
 
@@ -27,10 +27,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="tab-pane fade show active" id="all-jobs" role="tabpanel" aria-labelledby="all-jobs-tab">
         <!-- JOB CARD -->
         @forelse($posts as $post)
-        <div class="card py-2">
+        <div class="card py-2 mb-4">
             <div class="card-body">
                 <div class="row">
-                    
+
                     <div class="col-12 col-md-6 col-lg-8">
                         <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
@@ -49,20 +49,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @else
                         <p>No. of Applicants: {{ count($post->applications) }}</p>
                         @endif
-                        
+
                     </div>
-                    
+
                 </div>
                 <hr>
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-6 col-lg-4">
                         <p>
                             @if($post->isActive)
-                            <i class="fas fa-share-alt"></i> 
-                            Share: 
-                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a> 
-                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a> 
-                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a> 
+                            <i class="fas fa-share-alt"></i>
+                            Share:
+                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
                             @else
                             <span>Sharing Disabled</span>
                             @endif
@@ -87,10 +87,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- ACTIVE JOBS -->
     <div class="tab-pane fade" id="active-jobs" role="tabpanel" aria-labelledby="active-jobs-tab">
         @forelse($activePosts as $post)
-        <div class="card py-2">
+        <div class="card py-2 mb-4">
             <div class="card-body">
                 <div class="row">
-                    
+
                     <div class="col-12 col-md-6 col-lg-8">
                         <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
@@ -109,20 +109,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @else
                         <p>No. of Applicants: {{ count($post->applications) }}</p>
                         @endif
-                        
+
                     </div>
-                    
+
                 </div>
                 <hr>
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-6 col-lg-4">
                         <p>
                             @if($post->isActive)
-                            <i class="fas fa-share-alt"></i> 
-                            Share: 
-                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a> 
-                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a> 
-                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a> 
+                            <i class="fas fa-share-alt"></i>
+                            Share:
+                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
                             @else
                             <span>Sharing Disabled</span>
                             @endif
@@ -149,10 +149,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- CLOSED JOBS -->
     <div class="tab-pane fade" id="closed-jobs" role="tabpanel" aria-labelledby="closed-jobs-tab">
         @forelse($closedPosts as $post)
-        <div class="card py-2">
+        <div class="card py-2 mb-4">
             <div class="card-body">
                 <div class="row">
-                    
+
                     <div class="col-12 col-md-6 col-lg-8">
                         <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
@@ -171,20 +171,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @else
                         <p>No. of Applicants: {{ count($post->applications) }}</p>
                         @endif
-                        
+
                     </div>
-                    
+
                 </div>
                 <hr>
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-6 col-lg-4">
                         <p>
                             @if($post->isActive)
-                            <i class="fas fa-share-alt"></i> 
-                            Share: 
-                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a> 
-                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a> 
-                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a> 
+                            <i class="fas fa-share-alt"></i>
+                            Share:
+                            <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
                             @else
                             <span>Sharing Disabled</span>
                             @endif

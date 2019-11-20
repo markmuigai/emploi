@@ -67,213 +67,26 @@
 <body>
     <header>
         <!-- NAVBAR -->
-        <nav class="navbar fixed-top navbar-expand-lg">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="fas fa-bars"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img src="{{ asset('images/logo.png') }}" alt="Emploi Logo" /></a>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <ul class="navbar-nav ml-auto mr-0">
-                        <li class="nav-item d-md-none d-block">
-                            <a class="nav-link" href="/employers/dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/jobs">Jobs</a></li>
-                        <li class=" nav-item d-md-none d-block">
-                            <a class="nav-link" href="#v-pills-messages">Candidates</a>
-                        </li>
-                        <li class="nav-item d-md-none d-block">
-                            <a class="nav-link" href="#v-pills-settings">Test Center</a>
-                        </li>
-                        <li class="nav-item d-md-none d-block">
-                            <a class="nav-link" href="#v-pills-reviews">Reviews</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/vacancies">Vacancies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blog">Career Center</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">See Who's Hiring</a>
-                        </li>
-                        <div class="d-md-flex">
-                            @if(isset(Auth::user()->id))
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-                            </li>
-                            @else
-                            <LI class="nav-item">
-                                <a href="#" class="nav-link btn btn-white">Login</a>
-                            </LI>
-                            <LI class="nav-item">
-                                <a href="#" class="nav-link btn btn-orange">Register</a>
-                            </LI>
-                            @endif
-                            <!-- <li class="nav-item search-form hide">
-                                <form action="" class="form-inline mt-2">
-                                    <input type="text" name="search" placeholder="Search" class="form-control" id="search">
-                                </form>
-                            </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
-                            </li>
-                        </div>
-                    </ul>
-                </div>
-                @if(isset(Auth::user()->id))
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{asset('images/avatar.png')}}" class="profile-avatar" alt="">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/profile">View Profile</a>
-                        <a class="dropdown-item" href="#">Account Settings</a>
-                        <a class="dropdown-item" href="#">Billings</a>
-                        <a class="dropdown-item" href="/logout">Logout</a>
-                    </div>
-                </div>
-                @endif
-            </div>
-        </nav>
+        @include('components.navbar')
         <!-- END OF NAVBAR -->
     </header>
     <!-- MAIN CONTENT  -->
-    @guest
+
+    {{--@if(is_null(\Route::current()->getName()))--}}
     <main>
         @yield('content')
     </main>
-    <!-- END OF MAIN CONTENT  -->
+    {{--@endif--}}
+    <!-- END OF MAIN CONTENT -->
 
-    @else
+    <!-- TOP SEARCHES -->
+    @include('components.top-search')
+    <!-- END OF TOP SEARCHES -->
 
-    @if(is_null(\Route::current()->getName()))
-        <main>
-            @yield('content')
-        </main>
-    @else
-    <!-- MAIN CONTENT FOR EMPLOYER -->
-    <main>
-        <!-- SIDEBAR FOR EMPLOYERS -->
-        <div class="container">
-            <div class="row pt-4">
-                <div class="col-md-3 d-md-block d-none">
-                    <div class="sidebar">
-                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-
-                            @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
-
-                            <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="/employers/browse/" role="tab" aria-controls="v-pills-messages" aria-selected="false">Browse Candidates <i class="fas fa-chevron-right"></i></a>
-
-                            @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
-
-                            @elseif( isset(Auth::user()->id) && Auth::user()->role == 'admin' )
-
-                            @else
-
-                            @endif
-
-                            <!-- <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a> -->
-                            <a class="nav-link" id="v-pills-reviews-tab" style="display: none;" href="/employers/reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                        @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
-
-                        <!-- ADD JOB AS AN EMPLOYER -->
-                        <div class="mt-3">
-                            <a href="/vacancies/create" class="btn btn-orange" id="postAlt"><i class="fas fa-plus"></i> Post A Job</a>
-                        </div>
-                        <!-- END OF ADD JOB AS AN EMPLOYER -->
-
-                        @endif
-
-                    </div>
-                </div>
-                <!-- END OF SIDEBAR FOR EMPLOYERS -->
-                <div class="col-md-9 col-12 align-items-center">
-                    <!-- ADD JOB AS AN EMPLOYER -->
-                    <div id="postJob" class="mb-3">
-                        <h2>@yield('page_title')</h2>
-                        @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
-                        <a href="/vacancies/create" class="btn btn-orange"><i class="fas fa-plus"></i> Post A Job</a>
-                        @endif
-                    </div>
-                    <!-- END OF ADD JOB AS AN EMPLOYER -->
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </main>
-    @endif
-    @endguest
-    <!-- END OF MAIN CONTENT FOR EMPLOYER -->
     <!-- FOOTER -->
-    <footer>
-        <div class="container pt-3 pb-1">
-            <div class="row justify-content-between">
-                <div class="col-md-4 col-sm-4 col-5">
-                    <h4>MENU</h4>
-                    <ul class="footer-menu">
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/blog">Career Centre</a></li>
-                        <li><a href="/join">Register</a></li>
-                        <li><a href="/employers/publish">Advertise</a></li>
-                        <li><a href="/vacancies">Vacancies</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                    </ul>
-                    <div class="d-block d-md-none social">
-                        <a href="https://www.facebook.com/jobsikaz/" target="_blank"><i class="fab fa-facebook-f pr-3"></i></a>
-                        <a href="https://twitter.com/jobsikaz?lang=en" target="_blank"><i class="fab fa-twitter pr-3"></i></a>
-                        <a href="https://ke.linkedin.com/company/jobsikaz-com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-5 col-7 location">
-                    <h4>FIND US</h4>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="col-10">
-                            <p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="col-10">
-                            <a href="mailto:info@emploi.co">info@emploi.co</a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="col-10">
-                            <a href="tel:+254702068282">+254 702 068 282</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 offset-md-2 d-none d-md-block social ">
-                    <h4>SOCIAL</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/jobsikaz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/jobsikaz?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://ke.linkedin.com/company/jobsikaz-com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copy pt-3">
-                <p>Copyright &copy; {{ date('Y') }} Emploi . All Rights Reserved </p>
-            </div>
-        </div>
-    </footer>
+    @include('components.footer')
     <!-- END OF FOOTER -->
+
     <!-- INVITE FRIENDS -->
     <div class="prompts">
         <button type="button" name="button" class="invite" data-toggle="modal" data-target="#inviteFriends"><i class="fas fa-user-plus"></i></button>
@@ -351,6 +164,10 @@
         // Changing Active
         $('.nav-pills .nav-link.active').removeClass('active');
         $('a[href="' + location.pathname + '"]').closest('.nav-pills .nav-link').addClass('active');
+
+        // Changing Active for Navbar
+        $('.navbar-nav .nav-link.active').removeClass('active');
+        $('a[href="' + location.pathname + '"]').closest('.navbar-nav .nav-link').addClass('active');
     </script>
 
 </body>
