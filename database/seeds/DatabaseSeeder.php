@@ -472,6 +472,8 @@ class DatabaseSeeder extends Seeder
         Location::create([ 'name' => 'Arusha','country_id' => 3]);
         Location::create([ 'name' => 'Dodoma','country_id' => 3]);
 
+        Location::create([ 'name' => 'Kigali','country_id' => 4]);
+
         Permission::create([ 'role' => 'super-admin','home' => '/desk' ]);
         Permission::create([ 'role' => 'admin','home' => '/admin/panel' ]);
         Permission::create([ 'role' => 'employer', 'home' => '/dashboard'  ]);
