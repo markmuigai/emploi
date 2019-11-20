@@ -29,7 +29,7 @@
                     <a class="nav-link" href="/blog">Career Center</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/companies">See Who's Hiring</a>
+                    <a class="nav-link" href="/companies?hiring=true">See Who's Hiring</a>
                 </li>
                 <div class="d-md-flex">
                     @if(isset(Auth::user()->id))
@@ -61,10 +61,17 @@
                 <img src="{{asset('images/avatar.png')}}" class="profile-avatar" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/profile">View Profile</a>
-                <a class="dropdown-item" href="#">Account Settings</a>
-                <a class="dropdown-item" href="#">Billings</a>
-                <a class="dropdown-item" href="/logout">Logout</a>
+                @guest
+                    <a class="dropdown-item" href="/login">Login</a>
+                    <a class="dropdown-item" href="/join">Create Profile</a>
+                    <a class="dropdown-item" href="/contact">Contact Us</a>
+                @else
+                    <a class="dropdown-item" href="/home" style="font-weight: bold">Dashboard</a>
+                    <a class="dropdown-item" href="/profile">View Profile</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+
+                @endguest
+                
             </div>
         </div>
         @endif
