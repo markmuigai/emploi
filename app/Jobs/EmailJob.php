@@ -11,6 +11,8 @@ use Illuminate\Queue\SerializesModels;
 use App\Mail\CustomEmail;
 use Mail;
 
+use App\User;
+
 class EmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -29,8 +31,12 @@ class EmailJob implements ShouldQueue
 
     public function handle()
     {
-        $handle = Mail::to($this->email)
-            ->send(new CustomEmail($this->name,$this->email,$this->subject,$this->caption,$this->contents, $this->template));
-        print_r($handle);
+        if(User::subscriptionStatus())
+        {
+            $handle = Mail::to($this->email)
+                ->send(new CustomEmail($this->name,$this->email,$this->subject,$this->caption,$this->contents, $this->template));
+        }
+        
+        //print_r($handle);
     }
 }
