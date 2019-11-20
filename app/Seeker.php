@@ -269,7 +269,7 @@ class Seeker extends Model
                 }
             }
 
-            if(count(json_decode($model->other_skills)) > 0)
+            if(isset($model->other_skills) && count(json_decode($model->other_skills)) > 0)
             {
                 if( !is_null($this->resume_contents) )
                 {
