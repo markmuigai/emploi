@@ -95,36 +95,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="tab-pane fade" id="shortlist" role="tabpanel" aria-labelledby="shortlist-tab">
 
                 <h5>Application Instructions</h5>
-                @if( $post->how_to_apply )
-                <div>
-                    <?php echo $post->how_to_apply; ?>
-                </div>
 
-                @else
-
-                    @if(isset(Auth::user()->id))
-
-                        @if(Auth::user()->role == 'seeker')
-                        <p>
-                            Follow the link below, submit your cover letter. Your current resume would be attached automatically. <br><br>
-                            <a href="/vacancies/{{ $post->slug }}/apply" class="btn btn-success">Submit Application</a>
-
-                        </p>
-                        @else
-                        <p>
-                            Only job seekers can apply.
-                        </p>
-                        @endif
-
-                    @else
-
+                @guest
                     <p>
                         <a href="/login" class="btn btn-link">Login</a> or <a href="/register" class="btn btn-success">create free account</a> to apply for this position.
                     </p>
+                @else
 
+                    @if(Auth::user()->role == 'seeker')
+                        @if( $post->how_to_apply )
+                        <div>
+                            <?php echo $post->how_to_apply; ?>
+                        </div>
+                        @else
+                            <p>
+                                Follow the link below, submit your cover letter. Your current resume would be attached automatically. <br><br>
+                                <a href="/vacancies/{{ $post->slug }}/apply" class="btn btn-success">Submit Application</a>
+
+                            </p>
+                        @endif
+                    @else
+                    <p>
+                        Only job seekers can apply for this position.
+                    </p>
                     @endif
 
-                @endif
+                @endguest
 
             </div>
             <!-- END OF ACTIVE JOBS -->
