@@ -162,7 +162,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p class="badge badge-secondary">{{$p->positions}} Postions</p>
                 <h5>{{ $p->title }}</h5>
                 <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
-                <p>{{ $p->location->country->currency }} {{ $p->monthly_salary }} P.M.</p>
+                <p>
+                    @if(isset(Auth::user()->id))
+                    {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
+                    @else
+                    Login to view salary
+                    @endif
+                </p>
                 @guest
                 @else
                 @endguest

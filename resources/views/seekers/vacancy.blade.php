@@ -64,7 +64,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <p>
                                     <strong>
                                         @if(isset(Auth::user()->id))
-                                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'P.M.' }}
+                                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
                                         @else
                                         Login to view salary
                                         @endif
