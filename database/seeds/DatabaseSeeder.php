@@ -458,6 +458,7 @@ class DatabaseSeeder extends Seeder
         Country::create([ 'name' => 'Kenya','code' => 'KE', 'prefix' => '254','currency' => 'KES' ]);
         Country::create([ 'name' => 'Uganda','code' => 'UG', 'prefix' => '256','currency' => 'UGX' ]);
         Country::create([ 'name' => 'Tanzania','code' => 'TZ', 'prefix' => '255','currency' => 'TSH' ]);
+        Country::create([ 'name' => 'Rwanda','code' => 'RW', 'prefix' => '250','currency' => 'RWF' ]);
 
         Location::create([ 'name' => 'Nairobi','country_id' => 1]);
         Location::create([ 'name' => 'Mombasa','country_id' => 1]);
