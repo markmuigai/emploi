@@ -14,25 +14,41 @@ class ReferralController extends Controller
 {
     public function index(Request $request)
     {
-        //
+        return redirect('/');
     }
 
     public function create()
     {
-        //
+        return redirect('/');
     }
 
     public function store(Request $request)
     {
+        
         if(!isset($request->email) || !isset($request->name))
+        {
+            return view('pages.referral')
+                    ->with('title','Referral Failed')
+                    ->with('message','You provided either an invalid e-mail or name when inviting them. Kindy try again making sure both are correct.');
             return 'invalid';
+        }
         $r = Referral::where('email',$request->email)->first();
         if(isset($r->id))
+        {
+            return view('pages.referral')
+                    ->with('title','Referral Failed')
+                    ->with('message','The e-mail you provided is linked to an already referred user. Thank you.');
             return 'referred';
+        }
         $u = User::where('email',$request->email)->first();
 
         if(isset($u->id))
+        {
+            return view('pages.referral')
+                    ->with('title','Referral Failed')
+                    ->with('message','The e-mail you provided is linked to an already registered user. Thank you.');
             return 'registered';
+        }
 
 
         if(isset(Auth::user()->id))
@@ -68,6 +84,9 @@ class ReferralController extends Controller
         Thank you for your time. Looking forward to working with you.";
         EmailJob::dispatch($request->name, $request->email, $title, $caption, $contents);
 
+        return view('pages.referral')
+                    ->with('title','Referral Success')
+                    ->with('message','An invitation to register has been sent to '.$request->name.'. Thank you for your referral.');
         return 'success';
 
     }
