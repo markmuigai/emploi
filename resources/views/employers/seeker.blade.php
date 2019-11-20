@@ -84,24 +84,29 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>Education and Qualification</h4>
-                        @forelse($user->seeker->education() as $edu)
-                        <div class="row no-gutters justify-content-between edu pb-5">
-                            <div class="circle"></div>
-                            <div class="col-lg-3 col-12 ml-3">
-                                <p>{{ $edu[0] }}</p>
+                        @if(!is_array($user->seeker->education()))
+                            <?php echo $user->seeker->education; ?>
+                        @else
+                            @forelse($user->seeker->education() as $edu)
+                            <div class="row no-gutters justify-content-between edu pb-5">
+                                <div class="circle"></div>
+                                <div class="col-lg-3 col-12 ml-3">
+                                    <p>{{ $edu[0] }}</p>
 
+                                </div>
+                                <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
+                                    <h6>{{ $edu[1] }}</h6>
+                                    <p class="orange">{{ $edu[2] }}</p>
+                                </div>
                             </div>
-                            <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                <h6>{{ $edu[1] }}</h6>
-                                <p class="orange">{{ $edu[2] }}</p>
-                            </div>
-                        </div>
-                        @empty
-                        <p>
-                            No education records highlighted.
-                        </p>
+                            @empty
+                            <p>
+                                No education records highlighted.
+                            </p>
 
-                        @endforelse
+                            @endforelse
+                        @endif
+                            
                     </div>
                 </div>
             </div>
@@ -111,24 +116,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>Experience</h4>
-                        @forelse($user->seeker->experience() as $emp)
-                        <div class="row no-gutters justify-content-between edu pb-5">
-                            <div class="circle"></div>
-                            <div class="col-lg-3 col-12 ml-3">
-                                <p>{{ $emp[0] }}</p>
+                        @if(!is_array($user->seeker->experience()))
+                            <?php echo $user->seeker->experience; ?>
+                        @else
+                            @forelse($user->seeker->experience() as $emp)
+                            <div class="row no-gutters justify-content-between edu pb-5">
+                                <div class="circle"></div>
+                                <div class="col-lg-3 col-12 ml-3">
+                                    <p>{{ $emp[0] }}</p>
 
+                                </div>
+                                <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
+                                    <h6>{{ $emp[1] }}</h6>
+                                    <p class="orange">{{ $emp[2] }} to {{ $emp[3] }}</p>
+                                    <p>{{ $emp[4] }}</p>
+                                </div>
                             </div>
-                            <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                <h6>{{ $emp[1] }}</h6>
-                                <p class="orange">{{ $emp[2] }} to {{ $emp[3] }}</p>
-                                <p>{{ $emp[4] }}</p>
-                            </div>
-                        </div>
-                        @empty
-                        <p>
-                            No experience records have been highlighted
-                        </p>
-                        @endforelse
+                            @empty
+                            <p>
+                                No experience records have been highlighted
+                            </p>
+                            @endforelse
+                        @endif
                     </div>
                 </div>
             </div>

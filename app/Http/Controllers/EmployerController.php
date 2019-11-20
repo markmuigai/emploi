@@ -50,7 +50,7 @@ class EmployerController extends Controller
 
     public function create(Request $request)
     {
-    	//return $request->all();
+    	
     	$user = User::where('email',$request->email)
     				->first();
     	if(isset($user->id))
@@ -75,11 +75,15 @@ class EmployerController extends Controller
             'password' => Hash::make($request->password),
     	]);
 
+
+
         Referral::creditFor($request->email);
 
-    	$country = Country::findOrFail($request->country);
+        //return $request->all();
 
-    	$country2 = Country::findOrFail($request->coPrefix);
+    	$country = Country::findOrFail($request->contact_prefix);
+
+    	$country2 = Country::findOrFail($request->company_prefix);
 
         //return $request->co_name;
 
@@ -94,6 +98,8 @@ class EmployerController extends Controller
     		'country_id' => $request->country,
     		'address' => $request->address
     	]);
+
+
 
         //return $emp;
 

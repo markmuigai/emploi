@@ -21,7 +21,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <a href="/vacancies/{{$post->slug}}/"><img src="{{ asset($img) }}" class="w-100" alt="" /></a>
                     </div>
                     <div class="col-8">
-                        <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}</a></h4>
+                        <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->title }}</a></h4>
                         <a href="#" class="text-success">{{ $post->company->name }}</a>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                     </div>

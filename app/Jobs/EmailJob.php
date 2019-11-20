@@ -31,7 +31,7 @@ class EmailJob implements ShouldQueue
 
     public function handle()
     {
-        if(User::subscriptionStatus())
+        if(User::subscriptionStatus($this->email))
         {
             $handle = Mail::to($this->email)
                 ->send(new CustomEmail($this->name,$this->email,$this->subject,$this->caption,$this->contents, $this->template));

@@ -104,9 +104,12 @@ class ImportData extends Command
                         if(isset($user->id))
                             continue;
 
+                        $username = explode(" ", $name);
+                        $username = strtolower(implode("",$username)).rand(300,999);
+
                         $user = User::create([
                             'name' => $name, 
-                            'username' => $email, 
+                            'username' => $username, 
                             'email' => $email, 
                             'password' => $password,
                             'email_verification' => User::generateRandomString(15),

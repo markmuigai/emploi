@@ -2,8 +2,8 @@ $().ready(function(){
     var edu = 1;
     var emp = 1;
     $('.toSection1').click(function(){
-        $('.edit-section').addClass('hidden');
-        $('#section1').removeClass('hidden');
+        $('.edit-section').addClass('d-none');
+        $('#section1').removeClass('d-none');
     });
     $('.toSection2').click(function(){
         var d = $('#date_of_birth').val();
@@ -13,14 +13,14 @@ $().ready(function(){
         var a = $('#address').val();
         if(a.length < 2)
             return alert('Invalid address provided');
-        $('.edit-section').addClass('hidden');
-        $('#section2').removeClass('hidden');
+        $('.edit-section').addClass('d-none');
+        $('#section2').removeClass('d-none');
     });
     $('.toSection3').click(function(){
         if(!checkEducation())
             return alert('Errors are present in education records');
-        $('.edit-section').addClass('hidden');
-        $('#section3').removeClass('hidden');
+        $('.edit-section').addClass('d-none');
+        $('#section3').removeClass('d-none');
     });
 
     function addEducation(){
