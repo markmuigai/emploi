@@ -118,6 +118,7 @@ class PostsController extends Controller
             'vacancy_type_id'=> $request->vacancyType,
             'how_to_apply' => $request->how_to_apply,
             'monthly_salary' => $request->monthly_salary,
+            'max_salary' => $request->max_salary,
             'image' => $image_url
         ]);
 
@@ -358,6 +359,7 @@ class PostsController extends Controller
         $post->location_id = $request->location;
         $post->deadline = $request->deadline;
         $post->monthly_salary = $request->monthly_salary;
+        $post->max_salary = $request->max_salary;
         $post->how_to_apply = $request->how_to_apply;
         $post->save();
         if($post->status == 'active')

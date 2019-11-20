@@ -63,7 +63,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                                 <p>
                                     <strong>
-                                        {{ isset(Auth::user()->id) ? ' '.$post->location->country->currency.' '.$post->monthly_salary.' p.m.' : 'Login to view salary' }}
+                                        @if(isset(Auth::user()->id))
+                                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'P.M.' }}
+                                        @else
+                                        Login to view salary
+                                        @endif
+                                        
                                     </strong>
                                 </p>
                                 <p>

@@ -32,7 +32,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-12 col-lg-4 job-actions">
                 <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
                 <p>
-                    <strong>{{ $post->monthlySalary() }} P.M.</strong>
+                    <strong>
+                        @if(isset(Auth::user()->id))
+                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'P.M.' }}
+                        @else
+                        Login to view salary
+                        @endif
+                    </strong>
                 </p>
                 @if($post->how_to_apply)
                 <p>Alternative Application</p>
@@ -70,6 +76,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <p style="text-align: center;">No Job posts found</p>
 @endforelse
 <!-- END OF ALL JOBS -->
+
+<div>
+    {{ $posts->links() }}
+</div>
 
 
 @endsection

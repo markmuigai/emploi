@@ -11,7 +11,7 @@ use App\JobApplication;
 class Post extends Model
 {
     protected $fillable = [
-        'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions'
+        'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions','max_salary'
     ];
 
     public static function active($counter = 200)
@@ -85,7 +85,16 @@ class Post extends Model
         if(!isset($this->monthly_salary) || $this->monthly_salary == 0)
             return 'not disclosed';
         else
-            return $this->location->country->currency.' '.$this->monthly_salary;
+        {
+            if(isset($this->max_salary))
+            {
+                $min = round($this->monthly_salary / 1000);
+                $max = round($this->max_salary / 1000);
+
+                return $this->location->country->currency.' '.$min.'k - '.$max.'k';
+            }
+            return $this->location->country->currency.' '.round($this->monthly_salary/1000).'k';
+        }
     }
 
     public function getImageUrlAttribute(){
