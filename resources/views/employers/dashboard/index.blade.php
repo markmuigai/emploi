@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 @section('page_title', 'Dashboard')
-<div class="card-deck">
+<div class="card-deck" style="display: none">
     <div class="card">
         <div class="card-body">
             <h1>186</h1>
