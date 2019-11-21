@@ -53,7 +53,16 @@ class Parser extends Model
     }
 
     private function read_pdf(){
-    	return Pdf::getText($this->filepath);
+        $contents = null;
+        try {
+            $contents = Pdf::getText($this->filepath);
+          $this->buildXMLHeader();
+
+        } catch (\Exception $e) {
+
+            return $contents;
+        }
+        return $contents;
     }
 
     public function convertToText() {
@@ -62,6 +71,9 @@ class Parser extends Model
         $file_ext = $file_ext[count($file_ext)-1];
 
         $this->filepath = storage_path().'/app/public/resumes/'.$this->filename;
+
+        if(!file_exists($this->filepath))
+            return null;
 
         $contents = "";
         if($file_ext == "doc" || $file_ext == "docx" || $file_ext == "pdf")
@@ -75,8 +87,11 @@ class Parser extends Model
             	$contents = $this->read_pdf();
             }
 
+            return substr($contents, 0, 50000);
+
             return $contents;
         } else {
+            return null;
             return file_get_contents($this->filename);
         }
     }

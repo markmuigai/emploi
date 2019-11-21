@@ -50,7 +50,7 @@ class EmployerController extends Controller
 
     public function create(Request $request)
     {
-    	//return $request->all();
+
     	$user = User::where('email',$request->email)
     				->first();
     	if(isset($user->id))
@@ -75,11 +75,15 @@ class EmployerController extends Controller
             'password' => Hash::make($request->password),
     	]);
 
+
+
         Referral::creditFor($request->email);
 
-    	$country = Country::findOrFail($request->country);
+        //return $request->all();
 
-    	$country2 = Country::findOrFail($request->coPrefix);
+    	$country = Country::findOrFail($request->contact_prefix);
+
+    	$country2 = Country::findOrFail($request->company_prefix);
 
         //return $request->co_name;
 
@@ -94,6 +98,8 @@ class EmployerController extends Controller
     		'country_id' => $request->country,
     		'address' => $request->address
     	]);
+
+
 
         //return $emp;
 
@@ -116,7 +122,7 @@ class EmployerController extends Controller
         ]);
 
         $caption = "Thank you for registering your profile on Emploi as an Employer";
-        $contents = "Your account has been created succesfully. Log in with username: <strong>$username</strong> <br>
+        $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
         <br>
 
         Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
@@ -544,7 +550,7 @@ class EmployerController extends Controller
 
         $caption = "Candidate Selected ".$post->title;
         $contents = "You have selected ".$c->seeker->user->name." for the position of ".$post->title." with a monthly salary of ".$post->location->country->currency.$c->monthly_salary.". <br>
-        <strong>Candidate Details</strong> <br>
+        <b>Candidate Details</b> <br>
         Name: ".$c->seeker->user->name." <br>
         Email: ".$c->seeker->user->email." <br>
         Phone: ".$c->seeker->phone_number." <br>.
@@ -558,8 +564,8 @@ class EmployerController extends Controller
         EmailJob::dispatch($post->company->user->name, $post->company->user->email, $c->seeker->public_name." for ".$post->title, $caption, $contents);
 
         $caption = "Application for the ".$post->title." position was succesfull";
-        $contents = "You have been selected for <strong>".$post->title."</strong> position at <strong>".$post->company->name."</strong>. You have been offered a <strong>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</strong>. <br>
-        <strong>Employer Details</strong> <br>
+        $contents = "You have been selected for <b>".$post->title."</b> position at <b>".$post->company->name."</b>. You have been offered a <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
+        <b>Employer Details</b> <br>
         Name: ".$post->company->user->name." <br>
         Email: ".$post->company->user->email." <br>
         <br>
@@ -571,12 +577,12 @@ class EmployerController extends Controller
         EmailJob::dispatch($c->seeker->user->name, $c->seeker->user->email, "Application for ".$post->title." Succesfull", $caption, $contents);
 
         $caption = "The position ".$post->title." has been closed, ".$c->seeker->user->name." selected";
-        $contents = $c->seeker->user->name." has been selected by <a href='".url('/companies/'.$post->company->id)."'> for the <strong>".$post->title."</strong> position, and has been offered a  <strong>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</strong>. <br>
-        <strong>Employer Details</strong> <br>
+        $contents = $c->seeker->user->name." has been selected by <a href='".url('/companies/'.$post->company->id)."'> for the <b>".$post->title."</b> position, and has been offered a  <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
+        <b>Employer Details</b> <br>
         Name: ".$post->company->user->name." <br>
         Email: ".$post->company->user->email." <br>
         <br>
-        <strong>Job Seeker Details</strong> <br>
+        <b>Job Seeker Details</b> <br>
         Name: ".$c->seeker->user->name." <br>
         Email: ".$c->seeker->user->email." <br>
         Phone: ".$c->seeker->phone_number." <br>.

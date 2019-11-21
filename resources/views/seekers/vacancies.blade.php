@@ -17,11 +17,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-12 col-lg-8">
                 <div class="row align-items-center">
                     <div class="col-4">
-                        <?php $img = $post->image == 'unknown.png' ? 'images/a1.jpg' : $post->image; if($img == '') $img = 'images/a1.jpg'; ?>
-                        <a href="/vacancies/{{$post->slug}}/"><img src="{{ asset($img) }}" class="w-100" alt="" /></a>
+                        
+                        <a href="/vacancies/{{$post->slug}}/">
+                            <img src="{{ asset($post->imageUrl) }}" class="w-100" alt="" />
+                        </a>
                     </div>
                     <div class="col-8">
-                        <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}</a></h4>
+                        <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->title }}</a></h4>
                         <a href="#" class="text-success">{{ $post->company->name }}</a>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                     </div>
@@ -30,7 +32,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-12 col-lg-4 job-actions">
                 <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
                 <p>
-                    <strong>{{ $post->monthlySalary() }} P.M.</strong>
+                    <strong>
+                        @if(isset(Auth::user()->id))
+                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
+                        @else
+                        Login to view salary
+                        @endif
+                    </strong>
                 </p>
                 @if($post->how_to_apply)
                 <p>Alternative Application</p>
@@ -68,6 +76,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <p style="text-align: center;">No Job posts found</p>
 @endforelse
 <!-- END OF ALL JOBS -->
+
+<div>
+    {{ $posts->links() }}
+</div>
 
 
 @endsection

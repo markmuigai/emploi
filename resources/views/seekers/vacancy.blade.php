@@ -63,7 +63,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                                 <p>
                                     <strong>
-                                        {{ isset(Auth::user()->id) ? ' '.$post->location->country->currency.' '.$post->monthly_salary.' p.m.' : 'Login to view salary' }}
+                                        @if(isset(Auth::user()->id))
+                                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
+                                        @else
+                                        Login to view salary
+                                        @endif
+                                        
                                     </strong>
                                 </p>
                                 <p>
@@ -88,39 +93,37 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- END OF ALL JOBS -->
             <!-- ACTIVE JOBS -->
             <div class="tab-pane fade" id="shortlist" role="tabpanel" aria-labelledby="shortlist-tab">
+                <div class="card py-2 mb-4">
+                    <div class="card-body">
+                    <h5>Application Instructions</h5>
 
-                <h5>Application Instructions</h5>
-                @if( $post->how_to_apply )
-                <div>
-                    <?php echo $post->how_to_apply; ?>
-                </div>
-
-                @else
-
-                    @if(isset(Auth::user()->id))
+                    @guest
+                        <p>
+                            <a href="/login" class="btn btn-link">Login</a> or <a href="/register" class="btn btn-success">create free account</a> to apply for this position.
+                        </p>
+                    @else
 
                         @if(Auth::user()->role == 'seeker')
-                        <p>
-                            Follow the link below, submit your cover letter. Your current resume would be attached automatically. <br><br>
-                            <a href="/vacancies/{{ $post->slug }}/apply" class="btn btn-success">Submit Application</a>
+                            @if( $post->how_to_apply )
+                            <div>
+                                <?php echo $post->how_to_apply; ?>
+                            </div>
+                            @else
+                                <p>
+                                    Follow the link below, submit your cover letter. Your current resume would be attached automatically. <br><br>
+                                    <a href="/vacancies/{{ $post->slug }}/apply" class="btn btn-success">Submit Application</a>
 
-                        </p>
+                                </p>
+                            @endif
                         @else
                         <p>
-                            Only job seekers can apply.
+                            Only job seekers can apply for this position.
                         </p>
                         @endif
 
-                    @else
-
-                    <p>
-                        <a href="/login" class="btn btn-link">Login</a> or <a href="/register" class="btn btn-success">create free account</a> to apply for this position.
-                    </p>
-
-                    @endif
-
-                @endif
-
+                    @endguest
+                    </div>
+                </div>
             </div>
             <!-- END OF ACTIVE JOBS -->
 

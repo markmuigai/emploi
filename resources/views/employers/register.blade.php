@@ -24,7 +24,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="form-group">
             <label class="control-lable" for="phone_number">Your Phone Number</label>
             <div class="row pl-3">
-                <select class="custom-select col-3" name="prefix">
+                <select class="custom-select col-3" name="contact_prefix">
                     @foreach($countries as $c)
                     <option value="{{ $c->id }}" @if( old('prefix') && old('prefix')==$c->id)
                         selected="selected"
@@ -87,7 +87,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="form-group">
             <label class="control-lable" for="co_phone_number">Company Phone Number</label>
             <div class="row pl-3">
-                <select class="custom-select col-3" name="prefix">
+                <select class="custom-select col-3" name="company_prefix">
                     @foreach($countries as $c)
                     <option value="{{ $c->id }}" @if( old('prefix') && old('prefix')==$c->id)
                         selected="selected"

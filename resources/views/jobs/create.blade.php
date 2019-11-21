@@ -9,7 +9,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Add A Job')
 
-<form method="post" action="/vacancies" enctype="multipart/form-data">
+<form method="post" action="/vacancies" enctype="multipart/form-data" id="create-post-form">
     @csrf
 
     <div id="section1" class="section-view ">
@@ -84,8 +84,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <option value="12">1 year Experience</option>
                         <option value="24">2 years Experience</option>
                         <option value="36">3 years Experience</option>
+                        <option value="48">4 years Experience</option>
                         <option value="60">5 years Experience</option>
+                        <option value="72">6 years Experience</option>
+                        <option value="84">7 years Experience</option>
+                        <option value="96">8 years Experience</option>
+                        <option value="108">9 years Experience</option>
                         <option value="120">10 years Experience</option>
+                        <option value="180">15 years Experience</option>
+                        <option value="240">20 years Experience</option>
                     </select>
                 </p>
                 <br>
@@ -124,12 +131,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <p>
                     <label>Monthly Salary *</label>
-                    <input type="number" name="monthly_salary" class="form-control" required="" placeholder="enter 0 for non-disclosure">
+                    <input type="number" name="monthly_salary" class="form-control" required="" placeholder="enter 0 for non-disclosure or minimum salary" id="monthly_salary" min="0">
                 </p>
                 <br>
 
                 <p>
-                    <label>How to apply:</label>
+                    <label>Maximum Salary Limit</label>
+                    <input type="number" name="max_salary" class="form-control" required="" placeholder="only fill if salary has a range" id="max_salary" min="1">
+                </p>
+                <br>
+
+                <p>
+                    <label>How to apply: <i>Optional if you want to direct applications elsewhere</i></label>
                     <textarea class="form-control" name="how_to_apply" rows="5" placeholder="Optionally, you can specify additional description to applicants"></textarea>
                 </p>
                 <br>
@@ -141,7 +154,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
 
                 <a href="#" class="btn btn-sm btn-danger toSection2">
-                    < Previous Page</a> <input type="submit" value="Save" class="btn btn-sm btn-primary pull-right">
+                    < Previous Page</a> 
+                    <a class="btn btn-sm btn-primary pull-right" id="save-job-post" href="#">Save Job Post</a>
             </div>
         </div>
     </div>
@@ -162,7 +176,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             $('#section2').removeClass('d-none');
         });
         $('.toSection3').click(function() {
-
+            var desc = CKEDITOR.instances['responsibilities'].getData().replace(/<[^>]*>/gi, '').length;
+            if(desc < 10)
+                return alert('Invalid Job Description provided');
             $('.section-view').addClass('d-none');
             $('#section3').removeClass('d-none');
         });
@@ -174,8 +190,33 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     setTimeout(function() {
 
         CKEDITOR.replace('responsibilities');
+        CKEDITOR.replace('how_to_apply');
 
     }, 3000);
+</script>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('#save-job-post').click(function(){
+            var salary = $('#monthly_salary').val();
+            var max_salary = $('#max_salary').val();
+            if(!salary)
+                return alert('Invalid Monthly Salary');
+
+            if(salary != 0)
+            {
+                //alert('Defining salary');
+                if($('#max_salary').val())
+                {
+                    if(max_salary <= salary)
+                        return alert('Maximum salary must be greater than minimum salary');
+                }
+                    
+            }
+            //return alert(salary + ' ' + max_salary);
+            $('#create-post-form').submit();
+        });
+    });
 </script>
 
 @endsection

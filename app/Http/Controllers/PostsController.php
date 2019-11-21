@@ -118,6 +118,7 @@ class PostsController extends Controller
             'vacancy_type_id'=> $request->vacancyType,
             'how_to_apply' => $request->how_to_apply,
             'monthly_salary' => $request->monthly_salary,
+            'max_salary' => $request->max_salary,
             'image' => $image_url
         ]);
 
@@ -125,8 +126,8 @@ class PostsController extends Controller
         {
             $caption = $p->title." Job Post Request Placed";
             $contents = "
-            The job post <strong>".$p->title."</strong> has been created succesfully on Emploi.
-            <br> Here is your tracking code: <strong>".$p->slug."</strong>. <br><br>
+            The job post <b>".$p->title."</b> has been created succesfully on Emploi.
+            <br> Here is your tracking code: <b>".$p->slug."</b>. <br><br>
             The listing will be made available after verification by our administrators.
             <br>
             <a class='btn btn-sm btn-primary' href='".url('/vacancies/create')."'>Create Advert</a>.
@@ -135,7 +136,7 @@ class PostsController extends Controller
 
             $caption = $p->title." Job Post Request Placed";
             $contents = "
-            The job post <strong>".$p->title."</strong> has been created on Emploi and approval is required.
+            The job post <b>".$p->title."</b> has been created on Emploi and approval is required.
             <br><br>
             Click <a href='".url('/admin/posts')."'>here </a> to review job post.
             ";
@@ -143,7 +144,7 @@ class PostsController extends Controller
 
             return view('jobs.saved')
                 ->with('title','Job Advert Created Succesfully')
-                ->with('message','The Job Advertisement has been created succesfully. <br> Here is your tracking code: <strong>'.$p->slug.'</strong>. <br><br>
+                ->with('message','The Job Advertisement has been created succesfully. <br> Here is your tracking code: <b>'.$p->slug.'</b>. <br><br>
                     The listing will be made available after verification by our administrators.
 
                     <br>
@@ -358,6 +359,7 @@ class PostsController extends Controller
         $post->location_id = $request->location;
         $post->deadline = $request->deadline;
         $post->monthly_salary = $request->monthly_salary;
+        $post->max_salary = $request->max_salary;
         $post->how_to_apply = $request->how_to_apply;
         $post->save();
         if($post->status == 'active')

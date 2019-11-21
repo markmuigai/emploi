@@ -91,9 +91,12 @@ class ImportData extends Command
                         $industry = abs($data[14]) == 0 ? 1 : abs($data[14]);
                         $password = $data[15];
                         
+                        // dd($resume_url);
+                        
+                        //$resume_url = 
 
-                        $resume_url = explode(" ", $resume_url);
-                        $resume_url = implode("%20", $resume_url);
+                        // $resume_url = explode(" ", $resume_url);
+                        // $resume_url = implode("%20", $resume_url);
 
                         if(!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/@.+\./', $email))
                             continue;
@@ -101,9 +104,12 @@ class ImportData extends Command
                         if(isset($user->id))
                             continue;
 
+                        $username = explode(" ", $name);
+                        $username = strtolower(implode("",$username)).rand(300,999);
+
                         $user = User::create([
                             'name' => $name, 
-                            'username' => $email, 
+                            'username' => $username, 
                             'email' => $email, 
                             'password' => $password,
                             'email_verification' => User::generateRandomString(15),
@@ -147,15 +153,26 @@ class ImportData extends Command
 
                         UserPermission::create([ 'user_id' => $user->id, 'permission_id' => 4 ]);
 
-                        $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.$resume_url;
+                        
+                        $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.str_replace(' ', '%20', $resume_url);
+                        //$resume = urlencode($resume);
                         $to_path = storage_path().'/app/public/resumes/'.$resume_url;
-                        copy($resume, $to_path );
+                        
                         $this->info(' '.$count_seekers.' '.$name.' Imported');
+                        //$count_seekers++;
+                        // if(!file_exists($resume))
+                        // {
+                        //     $this->info(' '.$name.' resume is invalid');
+                        //     continue;
+                        // }
+                        copy($resume, $to_path );
 
                         $parser = new Parser($resume_url);
                         $seeker->resume_contents = $parser->convertToText();
+                        $seeker->save();
                         
                         $count_seekers++;
+                        sleep(rand(5,19));
                         // if($count_seekers>1 && config('env') != 'production')
                         //     break;
                     }
