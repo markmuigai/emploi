@@ -299,6 +299,7 @@ class PostsController extends Controller
                     ->with('locations',$locations)
                     ->with('vacancyTypes',$vacancyTypes)
                     ->with('title',$title)
+                    ->with('search',true)
                     ->with('posts',$posts)
                     ->with('noLinks',true);
         }
