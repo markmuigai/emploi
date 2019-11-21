@@ -31656,9 +31656,9 @@ return jQuery;
      * // => 'hello fred!'
      *
      * // Use the HTML "escape" delimiter to escape data property values.
-     * var compiled = _.template('<b><%- value %></b>');
+     * var compiled = _.template('</strong><%- value %></strong>');
      * compiled({ 'value': '<script>' });
-     * // => '<b>&lt;script&gt;</b>'
+     * // => '</strong>&lt;script&gt;</strong>'
      *
      * // Use the "evaluate" delimiter to execute JavaScript and generate HTML.
      * var compiled = _.template('<% _.forEach(users, function(user) { %><li><%- user %></li><% }); %>');

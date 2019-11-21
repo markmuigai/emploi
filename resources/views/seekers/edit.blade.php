@@ -154,7 +154,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @forelse($user->seeker->skills as $s)
                             <div class="col-md-6 user-skill" skill_id="{{ $s->skill->id }}">
 
-                                <b>{{ $s->skill->name }}</b>
+                                <strong>{{ $s->skill->name }}</strong>
                                 <input type="d-none" name="skills[]" value="{{ $s->skill->id }}">
                                 <span class="btn btn-sm btn-danger pull-right remove-skill" skill_id="{{ $s->skill->id }}">x</span>
                             </div>

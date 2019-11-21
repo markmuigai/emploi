@@ -7,7 +7,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('components.search-form')
 <div class="contact">
 	<div class="container">
 		<div class="row align-items-center">
@@ -48,4 +47,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 </div>
 
+@include('components.search-form')
 @endsection

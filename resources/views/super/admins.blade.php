@@ -9,16 +9,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
 	 <div class="col-md-8 single_right">
 	    <h3>
 	    	Emploi Administrators
 	    	<a href="/desk/create-admin" class="btn btn-sm btn-success pull-right">create</a>
-	   	</h3>	
+	   	</h3>
 
 	   	<h4>Active Administrators</h4>
 
@@ -26,8 +26,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 	    <div class="" style="padding: 1em 5% 0 5%">
 	    	<hr>
-	    	
-	    	<b>{{ $admin->name }}</b> {{ '@'.$admin->username }} 
+
+	    	<strong>{{ $admin->name }}</strong> {{ '@'.$admin->username }}
 	    	<small class="pull-right">
 	    	@foreach($admin->jurisdictions as $j)
 	    		{{ $j->country->name }} |
@@ -36,8 +36,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	    	<br>
 	    	<a href="/desk/disable-admin?id={{ $admin->id }}" class="btn btn-sm btn-danger"> disable</a>
 
-	    	
-	    	
+
+
 	    </div>
 
 	    @empty
@@ -56,8 +56,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 	    <div class="" style="padding: 1em 5% 0 5%">
 	    	<hr>
-	    	
-	    	<b>{{ $admin->name }}</b> {{ '@'.$admin->username }} 
+
+	    	<strong>{{ $admin->name }}</strong> {{ '@'.$admin->username }} 
 	    	<small class="pull-right">
 	    	@foreach($admin->jurisdictions as $j)
 	    		{{ $j->country->name }} |
@@ -75,7 +75,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	    </p>
 
 	    @endforelse
-	    
+
      </div>
      <div class="clearfix"> </div>
  </div>

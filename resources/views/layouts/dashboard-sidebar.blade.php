@@ -60,7 +60,7 @@
                     <li><a href="/blog">Career Centre</a></li>
                     @endif
                     <li class="dropdown" style="display: none">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>
                         <ul class="dropdown-menu multi-column columns-3">
                             <div class="row">
                                 <div class="col-sm-4">
@@ -91,7 +91,7 @@
                     @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                     @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employers<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employers<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
                             @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                             <li><a href="/employers/dashboard">Dashboard</a></li>
@@ -111,7 +111,7 @@
                     @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                     @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seekers<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seekers<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
                             <li><a href="/job-seekers/services">All Services</a></li>
                             <li><a href="/register" style="font-weight: bold;">Upload CV</a></li>
@@ -132,7 +132,7 @@
                     @endif
                     @if(isset(Auth::user()->id))
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold"><img src="{{asset('images/avatar.png')}}" alt="">My Account<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold"><img src="{{asset('images/avatar.png')}}" alt="">My Account<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
                             <li><a href="/home">Dashboard</a></li>
                             <li><a href="/profile">Profile</a></li>

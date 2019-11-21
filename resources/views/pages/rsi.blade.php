@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Emploi :: Role Suitability Index')
 
@@ -7,35 +7,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">  
-	   
-	 <div class="col-md-8 single_right row">
-	 	<h3>Role Suitability Index (RSI)</h3>
-
-	 	<p>
-	 		The RSI is an important <b>tool for employers to evaluate a candidate's abilities</b> by measuring the candidates strengths and weaknesses. It encompases Education Background, Employment Background, Interviews, Background Checks, IQ Tests, Psychometric Tests, Skills check amongst others.
-	 	</p>
-
-	 	<img src="/images/rsi.png" class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
-
-
-	 	<p style="width: 100%; clear: both">
-	 		To use the RSI, <a href="/employers/register">create an employer profile</a> or <a href="/employers/dashboard">open the dashboard</a>. Create a job advertisement and model your ideal job seeker and rank applicants using the RSI Tool.
-	 	</p>
-		
-		<p>
-			<b><i class="fa fa-info"></i> NOTE</b> Your job post has to be approved for you to receive applications.
-		</p>
-		
-
-     </div>
-     <div class="col-md-4">
-	   	  
-	   	  @include('left-bar')
-	 </div>
-     <div class="clearfix"> </div>
- </div>
-</div>
-@endsection
+<div class="container py-4">
+    <h3 class="orange text-center">Role Suitability Index (RSI)</h3>
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <img src="/images/rsi.png" class="w-100">
+        </div>
+        <div class="col-md-8">
+            <p>
+                The RSI is an important <strong>tool for employers to evaluate a candidate's abilities</strong> by measuring the candidates strengths and weaknesses. It encompases Education Background, Employment Background, Interviews, Background
+                Checks, IQ
+                Tests, Psychometric Tests, Skills check amongst others.
+            </p>
+            <p>
+                To use the RSI, <a href="/employers/register" class="orange">create an employer profile</a> or <a href="/employers/dashboard" class="orange">open the dashboard</a>. Create a job advertisement and model your ideal job seeker and rank
+                applicants using the RSI Tool.
+            </p>
+            <p>
+                <strong><i class="fa fa-info"></i> NOTE</strong> Your job post has to be approved for you to receive applications.
+            </p>
+        </div>
+    </div>
+    @endsection

@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
                             <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">
-                                <b>RSI {{ $a->user->seeker->getRsi($post) }}% </b>
+                                <strong>RSI {{ $a->user->seeker->getRsi($post) }}% </strong>
                             </a>
                          @else
 

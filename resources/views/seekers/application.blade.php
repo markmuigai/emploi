@@ -9,8 +9,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @include('seekers.search-input')
 <div class="container">
-    <div class="single">  
-	   
+    <div class="single">
+
 	 <div class="col-md-8 single_right">
 	      <h3>
 	      	<i class="fa fa-arrow-left" title="View Applications" onclick="window.location='/profile/applications'"></i>
@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      	<a href="/profile/applications" class="btn btn-sm btn-primary pull-right"><i class="fa fa-user"></i> profile</a>
 	      	<a href="/vacancies" class="pull-right btn btn-sm btn-success"><i class="fa fa-briefcase"></i> Vacancies</a>
 	      	<br><br>
-	      	<small><b>{{ $app->created_at }}</b></small>
+	      	<small><strong>{{ $app->created_at }}</strong></small>
 
 	      	<small class="pull-right">
 				@if($app->post->isShortlisted($user->seeker))
@@ -30,20 +30,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</small>
 	      </h3>
 	      <div class="row_1">
-	      	
+
 	      	<div class="clearfix"> </div>
 	      </div>
 
 	      <div style="border-bottom: 0.1em solid gray">
 	      	<h4 style="font-weight: bold">Company</h4>
-	      	<a href="/companies/{{ $app->post->company->id }}">{{ $app->post->company->name }}</a> 
+	      	<a href="/companies/{{ $app->post->company->id }}">{{ $app->post->company->name }}</a>
 	      	<a href="{{$app->post->company->website}}" class="pull-right">{{$app->post->company->website}}</a>
 	      	<br>
-	      	{{ $app->post->company->tagline }} 
+	      	{{ $app->post->company->tagline }}
 	      </div>
 
 	      <br>
-	      
+
 	      <div style="border-bottom: 0.1em solid gray">
 	      	<h4 style="font-weight: bold">Cover Letter</h4>
 	      	<?php echo $app->cover; ?>
@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	   </div>
 	   <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
 	   <div class="clearfix"> </div>
 	 </div>

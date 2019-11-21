@@ -42,7 +42,7 @@ class PostsController extends Controller
         return 'application';
     }
 
-    
+
 
     public function index(Request $request)
     {
@@ -100,16 +100,16 @@ class PostsController extends Controller
             $slug= $slug.'-'.strtolower(User::generateRandomString(4));
         }
 
-        
+
 
         $p = Post::create([
-            'slug' =>$slug, 
-            'company_id' => $request->company, 
-            'title' => $request->title, 
+            'slug' =>$slug,
+            'company_id' => $request->company,
+            'title' => $request->title,
             'industry_id' => $request->industry,
-            'education_requirements' => $request->education, 
+            'education_requirements' => $request->education,
             'experience_requirements' => $request->experience,
-            'responsibilities' => $request->responsibilities, 
+            'responsibilities' => $request->responsibilities,
             'benefits' => $request->benefits,
             'deadline' => Carbon::now()->add(3,'weeks'),
             'status' => 'inactive',
@@ -126,7 +126,7 @@ class PostsController extends Controller
         {
             $caption = $p->title." Job Post Request Placed";
             $contents = "
-            The job post <b>".$p->title."</b> has been created succesfully on Emploi. 
+            The job post <b>".$p->title."</b> has been created succesfully on Emploi.
             <br> Here is your tracking code: <b>".$p->slug."</b>. <br><br>
             The listing will be made available after verification by our administrators.
             <br>
@@ -136,12 +136,12 @@ class PostsController extends Controller
 
             $caption = $p->title." Job Post Request Placed";
             $contents = "
-            The job post <b>".$p->title."</b> has been created on Emploi and approval is required. 
+            The job post <b>".$p->title."</b> has been created on Emploi and approval is required.
             <br><br>
             Click <a href='".url('/admin/posts')."'>here </a> to review job post.
             ";
             EmailJob::dispatch('Emploi Admin', 'info@emploi.co', $p->title.' on Emploi', $caption, $contents);
-            
+
             return view('jobs.saved')
                 ->with('title','Job Advert Created Succesfully')
                 ->with('message','The Job Advertisement has been created succesfully. <br> Here is your tracking code: <b>'.$p->slug.'</b>. <br><br>
@@ -161,10 +161,10 @@ class PostsController extends Controller
                     <a class="btn btn-sm btn-primary" href="/vacancies/create">Create Advert</a> <a href="/contact" class="btn btn-sm btn-success">Contact Us</a>');
         }
 
-        
+
 
         //dd($p);
-        //        
+        //
     }
 
     public function show($param, Request $request)
@@ -209,7 +209,7 @@ class PostsController extends Controller
                         ->whereIn('location_id', $l)
                         ->paginate(10)
                         ->onEachSide(3);
-                
+
                 $title =  'Jobs in '.$c->name;
                 $match = true;
                 break;
@@ -251,33 +251,33 @@ class PostsController extends Controller
                 if(isset($location->id))
                 {
                     $params .= "AND location_id = ".$location->id;
-                }                    
+                }
             }
             if(isset($request->vacancyType))
             {
                 $vt = VacancyType::find($request->vacancyType);
                 if(isset($vt->id))
                 {
-                    
+
                     $params .= "AND vacancy_type_id = ".$vt->id;
-                }                    
+                }
             }
-            
+
             if(isset($request->industry))
             {
                 $ind = Industry::find($request->industry);
                 if(isset($ind->id))
                 {
                     $params .= " AND industry_id = ".$ind->id;
-                }                    
+                }
             }
-            
+
             if(isset($request->q))
             {
                 //$str = $params == "" ? "WHERE title like \"%".$request->q."%\"" : ", title like \"%".$request->q."%\"";
-                //$params .= $str;     
-                //  
-                $params .= " AND title like \"%".$request->q."%\"";       
+                //$params .= $str;
+                //
+                $params .= " AND title like \"%".$request->q."%\"";
             }
             $params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
@@ -311,7 +311,7 @@ class PostsController extends Controller
         }
 
 
-        
+
         $post = Post::where('slug',$param)->where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->firstOrFail();
         return view('seekers.vacancy')
                 ->with('post',$post);
@@ -341,7 +341,7 @@ class PostsController extends Controller
             abort(403);
         if(isset($request->image))
         {
-            
+
             $storage_path = '/public/images/logos';
             $post->image = basename(Storage::put($storage_path, $request->image));
         }

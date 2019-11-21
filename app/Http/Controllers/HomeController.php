@@ -42,13 +42,13 @@ class HomeController extends Controller
             case 'super-admin':
                 return redirect('/desk/admins');
                 break;
-            
+
             default:
                 return redirect('/job-seekers/dashboard');
                 return view('home');
                 break;
         }
-        
+
     }
 
     public function getCourse($id)
@@ -133,7 +133,7 @@ class HomeController extends Controller
                 }
                 $seeker->experience  = json_encode($experience);
 
-                
+
 
                 if(isset($request->resume))
                 {
@@ -144,7 +144,7 @@ class HomeController extends Controller
                     $seeker->resume_contents = $parser->convertToText();
                 }
 
-               
+
                 if(count($seeker->skills) > 0)
                 {
                     foreach ($seeker->skills as $k)
@@ -171,7 +171,7 @@ class HomeController extends Controller
                             ->with('title','Profile Updated')
                             ->with('message','Your profile has been updated succesfully');
                 }
-                
+
             }
             return view('pages.profile-updated')
                             ->with('title','Profile Update Failed')
@@ -197,7 +197,7 @@ class HomeController extends Controller
                         ->with('message','An Error occurred while updating your profile. Please try again later or contact us for assistance.');
         }
         return 'user role not allowed';
-        
+
     }
 
     public function addReferee(){
@@ -225,8 +225,8 @@ class HomeController extends Controller
         //return $request->all();
         $r = Referee::create([
             'seeker_id' => $user->seeker->id,
-            'name' => $request->name, 
-            'email'  => $request->email, 
+            'name' => $request->name,
+            'email'  => $request->email,
             'phone_number'  => $request->phone_number,
             'organization'  => $request->organization,
             'position_held'  => $request->position_held,
@@ -237,17 +237,17 @@ class HomeController extends Controller
         for($i=0; $i<count($request->job_title); $i++)
         {
             SeekerJob::create([
-                'seeker_id' => $user->seeker->id, 
-                'referee_id' => $r->id, 
-                'job_title' => $request->job_title[$i], 
+                'seeker_id' => $user->seeker->id,
+                'referee_id' => $r->id,
+                'job_title' => $request->job_title[$i],
                 'start_date' => $request->start_date[$i],
                 'end_date' => $request->end_date[$i]
             ]);
         }
 
         $caption = $user->name." has listed you as a referee. Provide your assessment.";
-        $contents = "Emploi is a sourcing platform linking employers and job seekers. <b>".$user->name."</b> has included you as one of their professional referee. <br>
-        As such, your assessment on their professional skills and abilities will be higly valued. 
+        $contents = "Emploi is a sourcing platform linking employers and job seekers. <strong>".$user->name."</strong> has included you as one of their professional referee. <br>
+        As such, your assessment on their professional skills and abilities will be higly valued.
         <br>
 
         Provide assessment of ".$user->seeker->public_name." by following the link below <br>

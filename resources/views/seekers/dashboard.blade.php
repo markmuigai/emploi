@@ -9,14 +9,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <div class="container">
-    <div class="single">  
-	   
+    <div class="single">
+
 	 <div class="col-md-8 single_right">
 	      <h3>
 	      	Dashboard
 	      	<a href="/profile" class="pull-right" style="text-decoration: none;">
 	      		<i class="fa fa-user "></i>  <span class="no-mobile">Profile</span>
-	      	</a>   	
+	      	</a>
 	      </h3>
 
 	      <div class="row" id="feeds">
@@ -31,17 +31,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     				<br class="no-mobile">
     				<h4 style="font-weight: bold">{{ $p->title }}</h4>
     				<p>
-    					<b>
+    					<strong>
     						<a href="/companies/{{ $p->company->name }}">
     							{{ $p->company->name }}
     						</a>
-    					</b>
+    					</strong>
     					<br>
-    					{{ $p->vacancyType->name }} 
-    					in {{ $p->location->name }}, 
+    					{{ $p->vacancyType->name }}
+    					in {{ $p->location->name }},
     					{{ $p->location->country->code }}
     					<br><br>
-    					
+
     					<a href="/vacancies/{{ $p->slug }}" class="btn btn-sm btn-primary">view listing</a>
     				</p>
     			</div>
@@ -51,21 +51,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 	      	@forelse($blogs as $b)
 	      	<div class="col-md-8 col-md-offset-2 row hover-bottom" style="margin-bottom: 0.5em">
-	      		
+
     			<div class="col-md-7 col-xs-7" style="text-align: center">
     				<br class="no-mobile">
     				<br class="no-mobile">
     				<h4 style="font-weight: bold">{{ $b->title }}</h4>
     				<p>
-    					<b>
+    					<strong>
     						<a href="/blog/{{ $b->category->slug }}">
     							{{ $b->category->name }}
     						</a>
-    					</b>
+    					</strong>
     					<br>
-    					
+
     					<br><br>
-    					
+
     					<a href="/blog/{{ $b->slug }}" class="btn btn-sm btn-primary">read blog</a>
     				</p>
     			</div>
@@ -73,24 +73,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     				<a href="/blog/{{ $b->slug }}" class="">
     					<img src="{{ asset($b->imageUrl) }}" style="width: 100%">
     				</a>
-    				
+
     			</div>
 	      	</div>
 	      	@empty
 	      	@endforelse
 	      </div>
-	      
-
-	      
-
-	      
 
 
-	      
+
+
+
+
+
+
 	   </div>
 	   <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
 	   <div class="clearfix"> </div>
 	 </div>

@@ -19,30 +19,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </p>
            </div>
         </div>
-   </div> 
-</div> 
+   </div>
+</div>
 <div class="container">
-    <div class="single">  
+    <div class="single">
        <div class="form-container">
         <h2>Account Created</h2>
-        
+
         <div style="text-align: center;">
         	<p>
 	        	Your account as a job seeker has been created succesfully.
 	        	<br>
-	        	Check your  <b>e-mail inbox</b> for your password and log in.
+	        	Check your  <strong>e-mail inbox</strong> for your password and log in.
 	        </p>
 
-	        <br>	
+	        <br>
 
 	        <p>
 	        	<a href="/profile/edit" class="btn btn-sm btn-success">Update Profile</a>
             <a href="/vacancies" class="btn btn-sm btn-primary">Vacancies</a>
 	        </p>
         </div>
-        
-    
-                
+
+
+
     </div>
  </div>
 </div>

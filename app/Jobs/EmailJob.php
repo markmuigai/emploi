@@ -36,7 +36,7 @@ class EmailJob implements ShouldQueue
             $handle = Mail::to($this->email)
                 ->send(new CustomEmail($this->name,$this->email,$this->subject,$this->caption,$this->contents, $this->template));
         }
-        
+
         //print_r($handle);
     }
 }

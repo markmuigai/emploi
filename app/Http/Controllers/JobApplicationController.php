@@ -33,7 +33,7 @@ class JobApplicationController extends Controller
 
                 $caption = "You have applied for ".$post->title;
                 $contents = "Your application for the ".$post->title." has been submitted succesfully. Your Job Application Id is ".$j->id.". <br>
-                The application has been sent to <b>".$post->company->name."</b> for consideration.<br><br>
+                The application has been sent to <strong>".$post->company->name."</strong> for consideration.<br><br>
                 In the meantime, update your profile with your updated CV to rank better against other applicants.
                 <br>
                 All the best.
@@ -44,7 +44,7 @@ class JobApplicationController extends Controller
                 EmailJob::dispatch($user->name, $user->email, 'Applied for '.$post->title, $caption, $contents);
 
                 $caption = "Application Received for ".$post->title;
-                $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position. 
+                $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position.
                 <a href='".url('/home')."'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
                 <br>
                 Thank you for choosing Emploi
@@ -57,8 +57,8 @@ class JobApplicationController extends Controller
 	    				->with('post',$post);
 	    	}
     	}
-    	
-    	
+
+
     	return view('seekers.apply-failed')
     			->with('post',$post);
     }

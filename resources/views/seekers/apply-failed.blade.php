@@ -9,35 +9,35 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @include('seekers.search-input')
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
 	 <div class="col-md-8 single_right">
 	      <h3>
 	      	<a href="/vacancies/{{ $post->slug }}" style="text-decoration: none;">
-	      		{{ $post->title }} 
+	      		{{ $post->title }}
 	      	</a>
-	      	
+
 
 	      	<a href="#share-links" class="btn btn-sm btn-primary pull-right">share</a>
 	      	<br>
-	      	<small><b>{{ $post->since }}</b></small>
+	      	<small><strong>{{ $post->since }}</strong></small>
 	      </h3>
 	      <div class="row_1">
-	      	
+
 	      	<div class="clearfix"> </div>
 	      </div>
-	      
+
 	      <div>
 	      	Application for {{ $post->title }} failed. Please try again in a few moments. <br>If the issue persists, please <a href="/contact">contact us</a> for assistance.
 
 	      </div>
 
-	      	
-			
-	      
+
+
+
 	      <div class="comments" style="display: none;">
 	      	<h6>Comments</h6>
 			<div class="media media_1">

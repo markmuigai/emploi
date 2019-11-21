@@ -13,8 +13,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	}
 </style>
 <div class="container" id="rsi-container">
-    <div class="single">  
-	   
+    <div class="single">
+
 	 <div class="col-md-8 single_right">
 	    <h3>
 	    	@if(!$post->hasModelSeeker())
@@ -23,12 +23,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	    	<i class="fa fa-check" title=""></i>
 	    	@endif
 	    	RSI Model for {{ $post->title }}
-	    	
-	    	<small><a href="/employers/applications/{{ $post->slug }}" class="btn btn-sm btn-danger pull-right">back</a></small>
-	    	
-	    </h3>	
 
-	    
+	    	<small><a href="/employers/applications/{{ $post->slug }}" class="btn btn-sm btn-danger pull-right">back</a></small>
+
+	    </h3>
+
+
 		<form method="post">
 			@if(!$post->hasModelSeeker())
 		    <i>
@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    				>{{ $w->name }}</option>
 		    			@endforeach
 		    		</select>
-		    		
+
 		    	</div>
 		    	<div class="col-md-4 col-xs-6">
 		    		<br>
@@ -198,10 +198,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<div>
 				<h6 style="text-align: center;">Accepted Courses</h6>
 				<div class=" accepted-courses">
-					
+
 					@forelse($post->modelSeeker->modelSeekerCourses as $course)
 					<div class="col-md-4 col-xs-6 hover-bottom">
-						{{ $course->course->title }} 
+						{{ $course->course->title }}
 						<input type="hidden" name="modelSeekerCourses[]" class="listed-course" value="{{ $course->course->id }}">
 						<span class="pull-right btn btn-sm btn-danger remove-course">x</span>
 					</div>
@@ -299,7 +299,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 			<p style="text-align: center; display: none;">
 				<label>IQ Test Required</label>
-				<input type="checkbox" name="iq_test" 
+				<input type="checkbox" name="iq_test"
 				@if($post->hasModelSeeker())
 					@if($post->modelSeeker->iq_test)
 						checked=""
@@ -315,11 +315,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<input type="number" name="iq_score" class="form-control" value="{{ isset($post->modelSeeker->id) ? $post->modelSeeker->iq_score : 50 }}" step="0" min="0" max="100" required="required">
 			</p>
 
-			
+
 
 			<p style="text-align: center;">
 				<label>Interview Required</label>
-				<input type="checkbox" name="interview" 
+				<input type="checkbox" name="interview"
 				@if($post->hasModelSeeker())
 					@if($post->modelSeeker->interview)
 						checked=""
@@ -339,7 +339,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 			<p style="text-align: center;">
 				<label>Psychometric Test Required</label>
-				<input type="checkbox" name="psychometric" 
+				<input type="checkbox" name="psychometric"
 				@if($post->hasModelSeeker())
 					@if($post->modelSeeker->psychometric)
 						checked=""
@@ -366,7 +366,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<input type="hidden" name="skill_id[]" value="{{ $mskill->industrySkill->id }}">
 						<input type="hidden" class="skill-weight" name="skill_weight[]" value="{{ $mskill->weight }}">
 						<p>
-							<b>{{ $mskill->industrySkill->name }}</b> || <i>{{ $mskill->weightName }}</i>
+							<strong>{{ $mskill->industrySkill->name }}</strong> || <i>{{ $mskill->weightName }}</i>
 							<span class="pull-right btn btn-sm btn-danger remove-skill" skill_id="{{ $mskill->industrySkill->id }}">x</span>
 						</p>
 					</div>
@@ -389,7 +389,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						</select>
 						<span class="btn btn-success btn-sm" id="add-skill">Add</span>
 					</p>
-					
+
 				</div>
 			</div>
 
@@ -402,7 +402,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<h4 style="text-align: center;">Other Skills</h4>
 
 				<div class="row other-skills-pool" style="text-align: center;">
-					
+
 				</div>
 				<br>
 				<div class="row">
@@ -416,7 +416,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 							<option value="1">Bonus</option>
 						</select>
 					</div>
-					
+
 					<span id="add-other-skill" class="btn btn-success btn-sm">Add</span>
 				</div>
 
@@ -434,20 +434,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<input type="hidden" name="trait_id[]" value="{{ $trait->personalityTrait->id }}">
 						<input type="hidden" class="trait-weight" name="personal_trait_weight[]" value="{{ $trait->weight }}">
 						<p>
-							<b>{{ $trait->personalityTrait->name }}</b> || <i>{{ $trait->weightName }}</i>
+							<strong>{{ $trait->personalityTrait->name }}</strong> || <i>{{ $trait->weightName }}</i>
 							<span class="pull-right btn btn-sm btn-danger remove-trait" trait_id="">x</span>
 						</p>
 					</div>
 					@empty
 					@endforelse
-					
+
 				</div>
 				<div class="col-md-8 col-md-offset-2">
 					<p>
 						Add new Personal trait <br>
 						<select class="form-control" id="select-trait">
 							<option value="-1">Select</option>
-							@forelse($personalityTraits as $trait)							
+							@forelse($personalityTraits as $trait)
 							<option value="{{ $trait->id }}">{{ $trait->name }}</option>
 							@empty
 							@endforelse
@@ -467,13 +467,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<input type="submit"  class="btn btn-primary pull-right" value="Save RSI Model" name="">
 
 			<br><br>
-	    
+
 	    </form>
-	    
+
      </div>
      <div class="col-md-4">
 	   	  @include('left-bar')
-	   	  
+
 	 </div>
      <div class="clearfix"> </div>
  </div>
@@ -485,7 +485,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		$sk = '';
 		foreach($industrySkills as $s)
 		{
-			$sk .= "[".$s->id.", '".$s->name."'],"; 
+			$sk .= "[".$s->id.", '".$s->name."'],";
 		}
 		$sk = '['.$sk.']';
 		echo 'var skills='.$sk.';';
@@ -493,7 +493,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		$allTraits = '';
 		foreach($personalityTraits as $t)
 		{
-			$allTraits .= "[".$t->id.", '".$t->name."'],"; 
+			$allTraits .= "[".$t->id.", '".$t->name."'],";
 		}
 		$allTraits = '['.$allTraits.']';
 		echo 'var allTraits='.$allTraits.';';
@@ -510,8 +510,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			echo 'var other_skills_weight=false;';
 		}
 	?>
-	
-	
+
+
 </script>
 <script type="text/javascript" src="/js/rsi.js"></script>
 

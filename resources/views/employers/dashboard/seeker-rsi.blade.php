@@ -8,22 +8,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="contact_top">
 	   	 <h2>{{ $application->user->name }}</h2>
 	   	 <p style="text-align: center;">
-	   	 	RSI - 
+	   	 	RSI -
 	   	 	<a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a>
 	   	 	 | {{ $application->user->seeker->getRsi($application->post) }}%
-	   	 	 
+
 	   	 	</p>
-	     
+
           <div class="row" style="">
 	   	   <div class="addr">
-                
-                
+
+
 	   	   		<hr>
-				
+
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3" style="text-align: center;">
 						<div class="row">
@@ -72,15 +72,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 							</div>
 							<br style="clear: both;">
 							<p>
-								{{ $application->user->seeker->years_experience }}yr{{ $application->user->seeker->years_experience > 1 ? 's' : '' }} experience in <b>{{ $application->user->seeker->industry->name }}</b> <br>
+								{{ $application->user->seeker->years_experience }}yr{{ $application->user->seeker->years_experience > 1 ? 's' : '' }} experience in <strong>{{ $application->user->seeker->industry->name }}</strong> <br>
 								{{ $application->user->seeker->sex }} <br>
 								{{ $application->user->seeker->location->name }}, {{ $application->user->seeker->location->country->code }}
 							</p>
 						</div>
-						
-						
 
-						
+
+
+
 
 						<a class="btn btn-sm btn-success" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/cover"><i class="fa fa-file-o"></i> Cover Letter</a>
 						<a href="/employers/browse/{{ $application->user->username }}" class="btn btn-sm btn-primary" style=""><i class="fa fa-user"></i> Profile</a>
@@ -88,17 +88,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					</div>
 				</div>
 				<p>
-					
+
 				</p>
-				
-				
-				
-                
+
+
+
+
            </div>
           </div>
           <div class="clearfix"> </div>
 	   </div>
-	   
+
     </div>
 </div>
 
