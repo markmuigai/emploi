@@ -57,9 +57,7 @@
                         <a class="dropdown-item" href="/job-seekers/cv-editing">CV Editing</a>
                         <a class="dropdown-item" href="/job-seekers/cv-templates">CV Templates</a>
                         <a class="dropdown-item" href="/job-seekers/premium-placement">Premium Placement</a>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Action</a>
+                        <!-- <a class="dropdown-item" href="#">Action</a> -->
                     </div>
                 </li>
                 <div class="d-md-flex">

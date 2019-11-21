@@ -155,8 +155,7 @@
     <!-- END OF INVITE FRIEND MODAL -->
     <!-- END OF INVITE FRIENDS -->
     <!-- END OF MODALS -->
-    @include('cookieConsent::index')
-
+{{--@include('cookieConsent::index')--}}
     <!-- INLINE SCRIPTS -->
     <script type="text/javascript">
         // Add New Email

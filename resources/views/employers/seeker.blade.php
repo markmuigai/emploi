@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <h4>About {{ $user->name }}</h4>
                         <div class="row mb-2 text-center about-icons">
                             <div class="col-md-4 col-6 my-3">
-                                <i class="orange fas fa-map-marker"></i>
+                                <i class="orange fas fa-map-marker-alt"></i>
                                 <p>Location</p>
                                 <p><strong>{{ $user->seeker->location_id ? $user->seeker->location->name.', '.$user->seeker->location->country->code : 'Not set' }}</strong></p>
                             </div>
@@ -106,7 +106,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                             @endforelse
                         @endif
-                            
+
                     </div>
                 </div>
             </div>

@@ -75,7 +75,7 @@
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main>
         <!-- SIDEBAR -->
-        <div class="container">
+        <div class="container pb-4">
             <div class="row pt-4">
                 <div class="col-md-3 d-md-block d-none">
                     <div class="sidebar">
@@ -94,9 +94,10 @@
                         <!-- JOB SEEKER SIDEBAR -->
                         @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="v-pills-home-tab" href="/seeker/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
+                            <!-- <a class="nav-link active" id="v-pills-home-tab" href="/seeker/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a> -->
+                            <a class="nav-link" id="v-pills-messages-tab" href="/profile" role="tab" aria-controls="v-pills-messages" aria-selected="false">Profile <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/jobs" role="tab" aria-controls="v-pills-messages" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false">Applications <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/profile/applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Applications <i class="fas fa-chevron-right"></i></a>
                         </div>
                         <!-- END OF JOB SEEKER SIDEBAR -->
 
@@ -126,6 +127,13 @@
                         </div>
                         <!-- END OF ADD JOB AS AN EMPLOYER -->
 
+                        @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+
+                        <!-- APPLY FOR A JOB AS A SEEKER -->
+                        <div class="mt-3">
+                            <a href="/vacancies" class="btn btn-orange" id="postAlt"><i class="fas fa-plus"></i> Apply For A Job</a>
+                        </div>
+                        <!-- END OF APPLY FOR A JOB AS A SEEKER -->
                         @endif
 
                     </div>
@@ -137,6 +145,10 @@
                         <h2>@yield('page_title')</h2>
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                         <a href="/vacancies/create" class="btn btn-orange"><i class="fas fa-plus"></i> Post A Job</a>
+
+                        @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+                        <a href="/vacancies" class="btn btn-orange"><i class="fas fa-plus"></i> Apply For A Job</a>
+
                         @endif
                     </div>
                     <!-- END OF ADD JOB AS AN EMPLOYER -->
@@ -152,6 +164,7 @@
         @guest
         @include('components.search-form')
         @endguest
+        @include('components.top-search')
     </main>
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
 

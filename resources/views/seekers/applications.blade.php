@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: My Applications')
 
@@ -7,60 +7,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">
+@section('page_title', 'My Applications')
 
-	 <div class="col-md-8 single_right">
-	      <h3>
-	      	My Applications
-
-	      	<a href="/profile" class="btn btn-sm btn-primary pull-right"><i class="fa fa-user"></i> My Profile</a>
-	      	<a href="/vacancies" class="pull-right btn btn-sm btn-success"><i class="fa fa-briefcase"></i> Vacancies</a>
-	      	<br>
-	      	<small><strong>{{ count($user->applications) }} applications</strong></small>
-	      </h3>
-	      <div class="row_1">
-
-	      	<div class="clearfix"> </div>
-	      </div>
-
-	      <div>
-	      	@if(count($user->applications) > 0)
-	      		Here are your past job applications.
-	      	@else
-	      		You have not made any job application
-	      	@endif
-
-
-	      	<div class="row" style="margin: 1em 0">
-	      		@forelse($user->applications as $app)
-	      		<div class="col-md-6 hover-bottom" style="padding: 0.5em">
-	      			<strong>{{ $app->post->title }}</strong>
-	      			<small class="pull-right">[ {{ $app->post->status }} ]</small>
-	      			<br>
-	      			{{ $app->created_at }} <br>
-	      			<a href="/profile/applications/{{ $app->id }}" class="btn btn-sm btn-success">view</a>
-	      			<small class="pull-right">
-	      				@if($app->post->isShortlisted($user->seeker))
-	      				<span style="color: green">SHORTLISTED</span>
-	      				@else
-	      				not shortlisted
-	      				@endif
-	      			</small>
-	      		</div>
-	      		@empty
-	      		@endforelse
-	      	</div>
-
-	      </div>
-	   </div>
-	   <div class="col-md-4">
-	   	  @include('left-bar')
-
-	 </div>
-	   <div class="clearfix"> </div>
-	 </div>
+@if(count($user->applications) > 0)
+<h5>{{ count($user->applications) }} applications</h5>
+<div class="row">
+    @forelse($user->applications as $app)
+    <div class="col-lg-6">
+        <div class="card my-3">
+            <div class="card-body">
+                <h4>{{ $app->post->title }}</h4>
+                <p><strong>Applied on: </strong>{{ $app->created_at }}</p>
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        @if($app->post->isShortlisted($user->seeker))
+                        <p class="text-success">Shortlisted</p>
+                        @else
+                        <p class="text-primary">Pending</p>
+                        @endif
+                    </div>
+                    <div class="col-6">
+                        <a href="/profile/applications/{{ $app->id }}" class="btn btn-orange pull-right">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @empty
+    @endforelse
 </div>
-
+@else
+<p class="text-center">
+    You have not made any job application
+</p>
+@endif
 @endsection
