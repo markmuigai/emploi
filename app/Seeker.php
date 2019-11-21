@@ -27,6 +27,13 @@ class Seeker extends Model
     	return $this->belongsTo(Industry::class,'industry_id');
     }
 
+    public function getResumeUrlAttribute(){
+        if(isset($this->resume))
+            return url('/storage/resumes/'.$this->resume);
+        return '#';
+        
+    }
+
     public function educationLevel(){
         return $this->belongsTo(EducationLevel::class,'education_level_id');
     }

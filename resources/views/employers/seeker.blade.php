@@ -174,7 +174,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <p style="color: green; font-weight: bold;"><i class='fa fa-star'></i> Featured</p>
                     @endif
                     <p>{{ $user->seeker->date_of_birth ? $user->seeker->age.' years old' : '' }}</p>
-                    <p><a href="/storage/resumes/{{ $user->seeker->resume }}" class="btn btn-orange"><i class="fas fa-download"></i> Download CV</a></p>
+                    <p><a href="{{ $user->seeker->resumeUrl }}" class="btn btn-orange"><i class="fas fa-download"></i> Download CV</a></p>
                     <p></p>
                     <p></p>
                 </div>

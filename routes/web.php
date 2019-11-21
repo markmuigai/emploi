@@ -116,6 +116,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('posts', 'AdminController@posts');
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
     Route::get('blog','AdminController@blog');
+    Route::get('seekers/{username?}','AdminController@seekers');
     //Route::resource('posts', 'PostsController');
 });
 
