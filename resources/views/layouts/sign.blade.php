@@ -67,10 +67,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mr-0">
                         <li class="nav-item">
+                            <a class="nav-link" href="/vacancies">Vacancies</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/blog">Career Center</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">See Who's Hiring</a>
+                            <a class="nav-link" href="/companies?hiring=true">See Who's Hiring</a>
                         </li>
                         <div class="d-md-flex">
                             <!-- <li class="nav-item search-form hide">
