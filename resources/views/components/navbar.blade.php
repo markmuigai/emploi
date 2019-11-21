@@ -84,7 +84,7 @@
                         </form>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
+                        <a class="nav-link" id="search-prompt" href="/vacancies"><i class="fas fa-search"></i></a>
                     </li>
                 </div>
             </ul>

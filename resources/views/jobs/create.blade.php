@@ -189,7 +189,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script>
     setTimeout(function() {
         CKEDITOR.replace('responsibilities');
-        CKEDITOR.replace('how_to_apply',config);
+        CKEDITOR.replace('how_to_apply');
 
     }, 3000);
 </script>
