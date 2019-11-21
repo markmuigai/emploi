@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 use App\JobApplication;
+use App\User;
 
 class Post extends Model
 {
@@ -105,6 +106,10 @@ class Post extends Model
 
     public function company(){
     	return $this->belongsTo(Company::class);
+    }
+
+    public function getUserAttribute(){
+        return $this->company->user;
     }
 
     public function candidates(){

@@ -372,4 +372,42 @@ class PostsController extends Controller
     {
         //
     }
+
+    public function activate(Request $request, $slug)
+    {
+        $post = Post::where('slug',$slug)
+                ->firstOrFail();
+        $access = false;
+        if(Auth::user()->role == 'admin')
+            $access = true;
+        if(Auth::user()->id == $post->user->id)
+            $access = true;
+        if(!$access)
+            abort(403);
+        if($post->status == 'closed')
+        {
+            $post->status = 'active';
+            $post->save();
+        }
+        return redirect()->back();
+    }
+
+    public function deactivate(Request $request, $slug)
+    {
+        $post = Post::where('slug',$slug)
+                ->firstOrFail();
+        $access = false;
+        if(Auth::user()->role == 'admin')
+            $access = true;
+        if(Auth::user()->id == $post->user->id)
+            $access = true;
+        if(!$access)
+            abort(403);
+        if($post->status == 'active')
+        {
+            $post->status = 'closed';
+            $post->save();
+        }
+        return redirect()->back();
+    }
 }
