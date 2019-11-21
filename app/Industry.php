@@ -11,7 +11,7 @@ class Industry extends Model
     ];
 
     public static function active(){
-    	return Industry::where('status','active')->get();
+    	return Industry::where('status','active')->orderBy('name')->get();
     }
 
     public function seekers(){

@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <a class="nav-link" id="active-jobs-tab" data-toggle="tab" href="#active-jobs" role="tab" aria-controls="active-jobs" aria-selected="false">Active Jobs</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="closed-jobs-tab" data-toggle="tab" href="#closed-jobs" role="tab" aria-controls="closed-jobs" aria-selected="false">Closed Jobs</a>
+        <a class="nav-link" id="closed-jobs-tab" data-toggle="tab" href="#closed-jobs" role="tab" aria-controls="closed-jobs" aria-selected="false">Other Jobs</a>
     </li>
 </ul>
 
@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
                         <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
                         <p>
-                            <strong>{{ $post->monthlySalary() }} P.M.</strong>
+                            <strong>{{ $post->monthlySalary() }} p.m.</strong>
                         </p>
                         @if($post->how_to_apply)
                         <p>Alternative Application</p>
@@ -69,11 +69,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
-                        @if($post->status != 'active')
-                        <a href="#"><i class="far fa-eye"></i> Publish</a>
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> 
+                        @if($post->status == 'active')
+                        | <a href="/vacancies/laravel-developer/deactivate"><i class="fas fa-trash-alt"></i> Deactivate</a>
+                        
+                        @elseif($post->status == 'closed')
+                        | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
                         @else
-                        <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                        | <i style="color: red">not verified</i>
                         @endif
                     </div>
                 </div>
@@ -102,7 +105,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
                         <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
                         <p>
-                            <strong>{{ $post->monthlySalary() }} P.M.</strong>
+                            <strong>{{ $post->monthlySalary() }} p.m.</strong>
                         </p>
                         @if($post->how_to_apply)
                         <p>Alternative Application</p>
@@ -129,11 +132,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
-                        @if($post->status != 'active')
-                        <a href="#"><i class="far fa-eye"></i> Publish</a>
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> 
+                        @if($post->status == 'active')
+                        | <a href="/vacancies/laravel-developer/deactivate"><i class="fas fa-trash-alt"></i> Deactivate</a>
+                        
+                        @elseif($post->status == 'closed')
+                        | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
                         @else
-                        <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                        | <i style="color: red">not verified</i>
                         @endif
                     </div>
                 </div>
@@ -164,7 +170,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
                         <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
                         <p>
-                            <strong>{{ $post->monthlySalary() }} P.M.</strong>
+                            <strong>{{ $post->monthlySalary() }} p.m.</strong>
                         </p>
                         @if($post->how_to_apply)
                         <p>Alternative Application</p>
@@ -191,11 +197,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> |
-                        @if($post->status != 'active')
-                        <a href="#"><i class="far fa-eye"></i> Publish</a>
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> 
+                        @if($post->status == 'active')
+                        | <a href="/vacancies/laravel-developer/deactivate"><i class="fas fa-trash-alt"></i> Deactivate</a>
+                        
+                        @elseif($post->status == 'closed')
+                        | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
                         @else
-                        <a href="#"><i class="fas fa-trash-alt"></i> Delete</a>
+                        | <i style="color: red">not verified</i>
                         @endif
                     </div>
                 </div>
