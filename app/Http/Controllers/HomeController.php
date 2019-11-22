@@ -28,7 +28,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         switch (Auth::user()->role) {
             case 'employer':
@@ -44,8 +44,13 @@ class HomeController extends Controller
                 break;
 
             default:
+                if ($request->session()->has('redirectToPost')) {
+                    $post_slug = session('redirectToPost');
+                    $request->session()->forget('redirectToPost');
+                    return redirect('/vacancies/'.$post_slug);
+                    
+                }
                 return redirect('/job-seekers/dashboard');
-                return view('home');
                 break;
         }
 

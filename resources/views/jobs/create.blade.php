@@ -142,7 +142,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
 
                 <p>
-                    <label>How to apply: <i>Optional if you want to direct applications elsewhere</i></label>
+                    <label>How to apply: <i>Optional if you want to direct applications elsewhere.</i></label>
                     <textarea class="form-control" name="how_to_apply" rows="5" placeholder="Optionally, you can specify additional description to applicants"></textarea>
                 </p>
                 <br>
@@ -188,7 +188,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
     setTimeout(function() {
-
         CKEDITOR.replace('responsibilities');
         CKEDITOR.replace('how_to_apply');
 

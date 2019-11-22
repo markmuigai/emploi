@@ -48,7 +48,11 @@ class PostsController extends Controller
     {
         $title = 'Latest Vacancies';
         $query = isset($request->q) ? $request->q : "";
-        $posts = Post::where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->paginate(10)->onEachSide(3);
+        $posts = Post::where('status','active')
+            ->where('deadline','>',Carbon::now()->format('Y-m-d'))
+            ->orderBy('featured','DESC')
+            ->orderBy('created_at','DESC')
+            ->paginate(10)->onEachSide(3);
         return view('seekers.vacancies')
                 ->with('industries',Industry::active())
                 ->with('locations',Location::active())
@@ -295,6 +299,7 @@ class PostsController extends Controller
                     ->with('locations',$locations)
                     ->with('vacancyTypes',$vacancyTypes)
                     ->with('title',$title)
+                    ->with('search',true)
                     ->with('posts',$posts)
                     ->with('noLinks',true);
         }

@@ -26,11 +26,13 @@
                     <a class="nav-link" href="/vacancies">Vacancies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/companies">See Who's Hiring</a>
+                    <a class="nav-link" href="/companies?hiring=true">See Who's Hiring</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/blog">Career Center</a>
                 </li>
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
+                @else
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Employers
@@ -47,6 +49,9 @@
                         <a class="dropdown-item" href="/employers/role-suitability-index">Role Suitability Index</a>
                     </div>
                 </li>
+                @endif
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+                @else
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Job Seekers
@@ -57,12 +62,12 @@
                         <a class="dropdown-item" href="/job-seekers/cv-editing">CV Editing</a>
                         <a class="dropdown-item" href="/job-seekers/cv-templates">CV Templates</a>
                         <a class="dropdown-item" href="/job-seekers/premium-placement">Premium Placement</a>
-                        <!-- <a class="dropdown-item" href="#">Action</a> -->
                     </div>
                 </li>
+                @endif
                 <div class="d-md-flex">
                     @if(isset(Auth::user()->id))
-                    <li class="nav-item">
+                    <li class="nav-item" style="display: none">
                         <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
                     </li>
                     @else
@@ -79,7 +84,7 @@
                         </form>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
+                        <a class="nav-link" id="search-prompt" href="/vacancies"><i class="fas fa-search"></i></a>
                     </li>
                 </div>
             </ul>

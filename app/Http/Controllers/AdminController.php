@@ -30,7 +30,7 @@ class AdminController extends Controller
     	$query = isset($request->q) ? $request->q : "";
     	//dd($request->q);
     	$posts = Post::where('title','like',"%".$query."%")
-    				->orderBy('created_at')
+    				->orderBy('created_at','DESC')
     				->paginate(5);
     	return view('admins.posts.index')
     			->with('posts',$posts)
