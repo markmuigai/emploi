@@ -154,9 +154,9 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                        <button class="btn btn-orange pull-right">Invite</button>
-                    </form>
+                            <button class="btn btn-orange pull-right">Invite</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
     <!-- END OF INVITE FRIEND MODAL -->
     <!-- END OF INVITE FRIENDS -->
     <!-- END OF MODALS -->
-    @include('cookieConsent::index')
+    {{--@include('cookieConsent::index')--}}
 
     <!-- INLINE SCRIPTS -->
     <script type="text/javascript">

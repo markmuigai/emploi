@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: All Referees')
 
@@ -7,67 +7,58 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
 
 <div class="container">
-    <div class="single">
 
-	 <div class="col-md-8 single_right">
-	      <h3>
-	      	My Referees
-	      	<a href="/profile" class="btn btn-sm btn-success pull-right">My Profile</a>
-	      	<a href="/profile/add-referee" class="btn btn-sm btn-primary pull-right">Add</a>
-	      </h3>
-	      <div class="row_1">
-	      		<?php $i=1; ?>
-	      		@forelse($referees as $ref)
+	<div class="row">
+		<div class="col-9">
+			<h3>My Referees</h3>
+		</div>
+		<div class="col-3 text-right">
+			<a href="/profile/add-referee" class="btn btn-sm btn-orange"><i class="fas fa-plus"></i> Add</a>
+		</div>
+	</div>
 
-	      		<div style="border-bottom: 0.1em solid #e88725" class="col-md-8 col-md-offset-2">
-	      			<h5>
-	      				{{ $i.'. '.$ref->name }}
-	      				<small class="pull-right">
-	      					{{ $ref->status }}
-	      				</small>
-	      			</h5>
-	      			<p>
-	      				{{ $ref->position_held }} <i> at </i>
-	      				<strong>
-	      					{{ $ref->organization }}
-	      				</strong>
-	      				<small class="pull-right">
-	      					[ {{ $ref->relationship }} ]
-	      				</small>
-
-	      			</p>
-	      			<hr>
-	      			<p>
-	      				{{ $ref->responsibilities }}
-	      			</p>
-	      		</div>
-	      		<?php $i++; ?>
-	      		@empty
-
-	      		<p style="text-align: center;">
-	      			<br>
-	      			You have not indicated any of your professional referees <br><br>
-	      			<a href="/profile/add-referee" class="btn btn-sm btn-primary">Add Referee</a>
-
-	      		</p>
-
-	      		@endforelse
-
-	      	<div class="clearfix"> </div>
-	      </div>
-
-
-
-	   </div>
-	   <div class="col-md-4">
-	   	  @include('left-bar')
-
-	 </div>
-	   <div class="clearfix"> </div>
-	 </div>
+	<?php $i=1; ?>
+	@forelse($referees as $ref)
+	<div class="card my-3">
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-8">
+					<h4>
+						{{ $i.'. '.$ref->name }}
+					</h4>
+					<p>
+						{{ $ref->position_held }} <i> at </i>
+						<strong>
+							{{ $ref->organization }}
+						</strong>
+					</p>
+					<p>
+						[ {{ $ref->relationship }} ]
+					</p>
+					<!-- <hr> -->
+					<p>
+						{{ $ref->responsibilities }}
+					</p>
+				</div>
+				<div class="col-md-4">
+					<p class="pull-right">
+						{{ $ref->status }}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php $i++; ?>
+	@empty
+	<p style="text-align: center;">
+		<br>
+		You have not indicated any of your professional referees <br><br>
+		<a href="/profile/add-referee" class="btn btn-sm btn-orange"><i class="fas fa-plus"></i> Add Referee</a>
+	</p>
+	@endforelse
 </div>
+
 
 @endsection

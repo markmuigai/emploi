@@ -37,6 +37,20 @@ ul.alpha {
     list-style: lower-alpha;
 }
 
+ul.numeric {
+    list-style: decimal;
+}
+
+.form-row {
+    /* border: 2px solid var(--primary); */
+}
+
+.badge-secondary {
+    background: #ebebeb;
+    color: grey;
+    font-weight: 400;
+}
+
 .btn {
     border-radius: 20px;
     border: 2px solid;
@@ -48,6 +62,15 @@ ul.alpha {
 
 .orange {
     color: var(--secondary) !important;
+}
+
+/* .purple {
+    color: var(--primary) !important;
+} */
+.coloured-card .card {
+    padding: 2rem 0.5rem;
+    background: var(--primary);
+    color: white;
 }
 
 .prompts {

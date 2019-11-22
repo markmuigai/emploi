@@ -48,7 +48,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 
     <h3 class="orange text-center">Premium Services</h3>
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="card my-2">
                 <div class="card-body">
