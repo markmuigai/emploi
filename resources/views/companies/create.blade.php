@@ -16,26 +16,41 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         	<small><a href="/employers/publish" class="btn btn-sm btn-link pull-right">cancel</a></small>
         </h2>
         <div class="search_form1 " style="text-align: center;">
-		    <form method="post" action="/companies">
+		    <form method="post" action="/companies" id="companyForm">
 		    	@csrf
 
+		    	<p style="text-align: center;">
+			    	<label>Logo: *</label>
+			    	<input type="file" name="logo" placeholder="" required="required" accept=".png,.jpg,.jpeg" style="width: 100%">
+			    </p>
+
 		    	<p>
-			    	<label>Name:</label>
+			    	<label>Name: *</label>
 			    	<input type="text" name="name" placeholder="" required="required" class="form-control" style="width: 100%">
 			    </p>
 
 			    <p>
-			    	<label>Description:</label>
-			    	<textarea class="form-control" name="about" rows="4"></textarea>
+			    	<label>Description: *</label>
+			    	<textarea class="form-control" id="about" name="about" rows="4"></textarea>
 			    </p>
 
 			    <p>
-			    	<label>Website:</label>
+			    	<label>Website: *</label>
 			    	<input type="url" name="website" placeholder="" class="form-control">
 			    </p>
 
 			    <p>
-			    	<label>Industry:</label>
+			    	<label>Contact Phone Number: <i>optional</i></label>
+			    	<input type="text" name="phone_number" placeholder="2547xxxxxxxx" class="form-control"  style="width: 100%">
+			    </p>
+
+			    <p>
+			    	<label>Contact E-mail Address: <i>optional</i></label>
+			    	<input type="email" name="email" placeholder="someone@yourcompany.com" class="form-control">
+			    </p>
+
+			    <p>
+			    	<label>Industry: *</label>
 			    	<select name="industry" class="form-control">
 			    		@foreach($industries as $i)
 			    		<option value="{{ $i->id }}">{{ $i->name }}</option>
@@ -44,7 +59,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			    </p>
 
 			    <p>
-			    	<label>Company Size:</label>
+			    	<label>Company Size: *</label>
 			    	<select name="company_size" class="form-control">
 			    		@foreach($sizes as $i)
 			    		<option value="{{ $i->id }}">{{ $i->title }}</option>
@@ -53,7 +68,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			    </p>
 
 			    <p>
-			    	<label>Location:</label>
+			    	<label>Location: *</label>
 			    	<select name="location" class="form-control">
 			    		@foreach($locations as $i)
 			    		<option value="{{ $i->id }}">
@@ -64,12 +79,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			    	</select>
 			    </p>
 
-			    <input type="submit" value="Create Company" class="btn btn-sm btn-primary">
+			    <p style="text-align: center;">
+			    	<label>Cover Image: </label>
+			    	<input type="file" name="cover" placeholder="" required="required" accept=".png,.jpg,.jpeg" style="width: 100%">
+			    </p>
+
+			    <input type="submit" id="submit_btn" value="Create Company" class="btn btn-sm btn-primary">
 
 		    </form>
 	    </div>
     	</div>
  	</div>
 </div>
+
+<script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    setTimeout(function() {
+        CKEDITOR.replace('about');
+        // $('#submit_btn').click(function(e){
+        // 	e.preventDefault();
+        // 	var desc = CKEDITOR.instances['about'].getData().replace(/<[^>]*>/gi, '').length;
+        //     if(desc < 10)
+        //         return alert('Invalid company about');
+        //     $('#companyForm').submit();
+        // });
+        
+    }, 3000);
+</script>
 
 @endsection
