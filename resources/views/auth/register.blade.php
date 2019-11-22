@@ -59,7 +59,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">
+            Email
+            @error('email')
+                <strong class="pull-right" style="color: red"> * Email already registered *</strong>
+            @enderror
+        </label>
         <input type="email" required="" value="{{ old('email') }}" name="email" path="email" id="email" class="form-control" maxlength="50" />
         @error('email')
         <span class="invalid-feedback" role="alert">
