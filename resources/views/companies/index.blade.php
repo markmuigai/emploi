@@ -26,10 +26,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     @empty
-    <p>
+    <p style="text-align: center;">
         No companies have been found. Check back later.
     </p>
     @endforelse
+
+    
+</div>
+
+<div style="text-align: center; clear: both;">
+    @if(isset($hiring))
+    <a href="/companies" class="btn btn-success">View All Companies</a> <br><br>
+    @else
+    {{ $companies->links() }}
+    @endif
 </div>
 {{--@include('left-bar')--}}
 

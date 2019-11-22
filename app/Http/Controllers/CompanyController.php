@@ -19,8 +19,14 @@ class CompanyController extends Controller
         ]]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        if(isset($request->hiring))
+        {
+            return view('companies.index')
+                ->with('hiring',true)
+                ->with('companies',Company::getHiringCompanies(100));
+        }
         return view('companies.index')
                 ->with('companies',Company::where('status','active')->paginate(10));
     }

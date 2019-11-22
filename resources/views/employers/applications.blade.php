@@ -271,8 +271,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @if($post->status == 'active')
                     <a href="/employers/applications/{{ $post->slug }}/invite" class="btn btn-success btn-sm"><i class="fa fa-share"></i> Invite</a>
                     <br>
-                    <a href="/employers/applications/{{ $post->slug }}/close" class="btn btn-info btn-sm"> <i class="fa fa-users"></i> Select</a>
                     @endif
+                    
+                    <a href="/employers/applications/{{ $post->slug }}/close" class="btn btn-info btn-sm"> <i class="fa fa-users"></i> Select</a>
                 </p>
                 @if(count($post->shortlisted) > 0)
                 <br><br>
