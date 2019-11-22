@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <form method="post" action="{{ route('login') }}">
     @csrf
     <div class="form-group">
-        <label for="">Email Address or Username</label>
+        <label for="">Username</label>
         <input type="text" name="username" required="required" class="form-control" placeholder="Username">
     </div>
     <div class="form-group">
