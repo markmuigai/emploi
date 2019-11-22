@@ -22,6 +22,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function showLoginForm(Request $request)
+    {
+        if(isset($request->redirectToPost))
+            $request->session()->put('redirectToPost', $request->redirectToPost);
+        return view('auth.login');
+    }
+
     public function username()
     {
         return 'username';

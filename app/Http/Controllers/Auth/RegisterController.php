@@ -33,8 +33,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function showRegistrationForm()
+    public function showRegistrationForm(Request $request)
     {
+        if(isset($request->redirectToPost))
+            $request->session()->put('redirectToPost', $request->redirectToPost);
         return view('auth.register')
                 ->with('countries',Country::active())
                 ->with('industries',Industry::active());
