@@ -72,15 +72,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">See Who's Hiring</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/employers/register" class="btn btn-orange"> Employer Registration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
+                        </li>
                         <div class="d-md-flex">
                             <!-- <li class="nav-item search-form hide">
                                 <form action="" class="form-inline mt-2">
                                     <input type="text" name="search" placeholder="Search" class="form-control" id="search">
                                 </form>
                             </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
-                            </li>
                         </div>
                     </ul>
                 </div>
@@ -89,34 +92,28 @@
         <!-- END OF NAVBAR -->
     </header>
     <!-- MAIN CONTENT FOR EMPLOYER -->
-
-    <main class="sign-page">
-        <div class="row">
-            <div class="col-lg-6 col-md-12 pr-4">
-                <div class="container">
-                    <div class="sign-left">
-                        <h1>@yield('user_title')</h1>
-                        <p>Emploi is an online placement platform that advertises job seekers to employers.</p>
-                        @yield('register')
-                        <h5 class="mt-4">Don't have an account?
-                            <a href="/join" class="btn btn-orange px-5">Sign Up</a></h5>
-                        <div class="pt-4">
-                            <h5>- Continue With -</h5>
-                            <a href="/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
-                            <a href="/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <main class="sign-page pb-5">
+        <div class="row justify-content-center">
             <div class="col-lg-6 col-md-12">
-                <div class="container pl-lg-5 pl-auto">
+                <div class="sign-left text-center">
+                    <h1 class="orange">@yield('user_title')</h1>
+                    <h5>- Continue With -</h5>
+                    <a href="/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
+                    <a href="/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="container pt-3">
                     @yield('content')
                 </div>
             </div>
         </div>
     </main>
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
+    <!-- FOOTER -->
+    <div class="sign-copy">
+        <p>Copyright &copy; {{ date('Y') }} Emploi . All Rights Reserved </p>
+    </div>
+    <!-- END OF FOOTER -->
 
     <!-- INVITE FRIENDS -->
     <div class="prompts">
@@ -155,7 +152,7 @@
     <!-- END OF INVITE FRIEND MODAL -->
     <!-- END OF INVITE FRIENDS -->
     <!-- END OF MODALS -->
-{{--@include('cookieConsent::index')--}}
+    {{--@include('cookieConsent::index')--}}
     <!-- INLINE SCRIPTS -->
     <script type="text/javascript">
         // Add New Email

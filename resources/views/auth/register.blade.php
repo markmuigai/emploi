@@ -111,27 +111,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <button type="submit" name="button" class="btn btn-orange-alt">Register</button>
     </div>
 </form>
-<div class="login-bottom">
-    <p style="display: none;">With your social media account</p>
-    <div class="social-icons">
-        <div class="button" style="display: none;">
-            <a class="tw" href="#"> <i class="fa fa-linkedin tw2"> </i><span>Linkedin</span>
-                <div class="clearfix"> </div>
-            </a>
-            <a class="fa" href="#"> <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
-                <div class="clearfix"> </div>
-            </a>
-            <a class="go" href="#"><i class="fa fa-google tw2"> </i><span>Google</span>
-                <div class="clearfix"> </div>
-            </a>
-            <div class="clearfix"> </div>
-        </div>
-        <h4>
-            Already have an account? <a href="{{ route('login') }}"> Login Here</a>
+<h5 class="mt-4">Have an account?
+    <a href="/login" class="btn btn-orange px-5">Login</a>
+</h5>
 
-            <a href="/employers/register" class="pull-right btn btn-sm btn-primary"> Employer Registration</a>
-        </h4>
-    </div>
-</div>
 
 @endsection
