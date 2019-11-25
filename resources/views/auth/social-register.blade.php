@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('user_title','Register')
+@section('user_title','Register as Job Seeker')
 
 {{--@include('seekers.search-input')--}}
 
@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     @csrf
     <div class="form-group">
         <label for="fullName">Full Name</label>
-        <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control" maxlength="50" value="{{ old('name') }}" />
+        <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control" maxlength="50" value="{{ $name }}" />
         @error('name')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" required="" value="{{ old('email') }}" name="email" path="email" id="email" class="form-control" maxlength="50" />
+        <input type="email" required="" value="{{ $email }}" disabled="" name="email" path="email" id="email" class="form-control" maxlength="50" />
         @error('email')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -134,8 +134,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
-<?php 
-print_r($user);
-?>
 
 @endsection
