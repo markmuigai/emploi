@@ -153,24 +153,25 @@ class ImportData extends Command
 
                         UserPermission::create([ 'user_id' => $user->id, 'permission_id' => 4 ]);
 
+                        if($resume_url != '')
+                        {
+                            $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.str_replace(' ', '%20', $resume_url);
+                            //$resume = urlencode($resume);
+                            $to_path = storage_path().'/app/public/resumes/'.$resume_url;                            
+                            
+                            if(file_exists($resume))
+                            {
+                                copy($resume, $to_path );
+                                $parser = new Parser($resume_url);
+                                $seeker->resume_contents = $parser->convertToText();
+                                $seeker->save();
+                            }
+                            
+                        }
+
                         
-                        $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.str_replace(' ', '%20', $resume_url);
-                        //$resume = urlencode($resume);
-                        $to_path = storage_path().'/app/public/resumes/'.$resume_url;
                         
                         $this->info(' '.$count_seekers.' '.$name.' Imported');
-                        //$count_seekers++;
-                        // if(!file_exists($resume))
-                        // {
-                        //     $this->info(' '.$name.' resume is invalid');
-                        //     continue;
-                        // }
-                        copy($resume, $to_path );
-
-                        $parser = new Parser($resume_url);
-                        $seeker->resume_contents = $parser->convertToText();
-                        $seeker->save();
-                        
                         $count_seekers++;
                         sleep(rand(1,6));
                         // if($count_seekers>1 && config('env') != 'production')
