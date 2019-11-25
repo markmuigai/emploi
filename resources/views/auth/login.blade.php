@@ -40,4 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <button type="submit" name="button" class="btn btn-orange-alt px-5">Log In</button>
     </div>
 </form>
+<h5 class="mt-4">Don't have an account?
+    <a href="/join" class="btn btn-orange px-5">Sign Up</a>
+</h5>
 @endsection

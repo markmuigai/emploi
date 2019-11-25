@@ -9,12 +9,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <div class="container">
-    <h2>{{ $blog->title }}</h2>
-
-    <div class="card my-2">
+    <div class="card my-5">
         <div class="card-body px-5">
             <div class="latest-blog-image" style="background-image: url('{{ asset($blog->imageUrl) }}')"></div>
-            <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
+            <h2 class="pt-4">{{ $blog->title }}</h2>
             <div class="d-flex">
                 <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
             </div>

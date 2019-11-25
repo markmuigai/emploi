@@ -237,7 +237,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
         <h3 style="float: none; text-align: right; color: #500095; font-weight: bold;">
             <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
-            
+
         </h3>
         <div class="row mt-4">
             <div class="col-md-6">
@@ -256,16 +256,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Headquarters: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Tagline: </strong>{{ $company->tagline }}</p>
+                <p class="text-capitalize"><strong>Tagline: </strong>{{ $company->tagline }}</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Status: </strong>{{ $company->status }}</p>
+                <p class="text-capitalize"><strong>Status: </strong>{{ $company->status }}</p>
             </div>
             <div class="col-md-6">
                 <p><strong>Jobs Posted: </strong>{{ count($company->posts) }}</p>
             </div>
         </div>
-        
+
         <h5>About</h5>
         <p><?php echo $company->about ?></p>
         @empty
@@ -276,14 +276,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         @endforelse
 
-        
-        <hr style="display: none">
-        <h5 class="mt-4" style="display: none">Office Location</h5>
-        <p style="display: none">Repen Complex, Syokimau Junction</p>
-        <iframe style="display: none"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6634497341915!2d36.92601481464639!3d-1.378599798994531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0ce7aa2120e1%3A0x2905bde1b42e68a!2sREPEN%20Complex!5e0!3m2!1sen!2ske!4v1573633191589!5m2!1sen!2ske"
-          frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        
+        <div class="d-none">
+            <hr>
+            <h5 class="mt-4">Office Location</h5>
+            <p>Repen Complex, Syokimau Junction</p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6634497341915!2d36.92601481464639!3d-1.378599798994531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0ce7aa2120e1%3A0x2905bde1b42e68a!2sREPEN%20Complex!5e0!3m2!1sen!2ske!4v1573633191589!5m2!1sen!2ske"
+              frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </div>
     </div>
 </div>
 @else

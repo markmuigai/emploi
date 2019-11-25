@@ -6,6 +6,7 @@
 body {
     overflow-x: hidden;
     position: relative;
+    min-height: 93vh;
 }
 
 * {
@@ -146,7 +147,7 @@ ul.numeric {
     color: white;
 }
 
-.form-control, .custom-select {
+.form-control, .custom-select, .custom-file-label::after, .custom-file-label {
     border-radius: 20px;
 }
 
@@ -326,6 +327,15 @@ footer i {
     text-align: center;
 }
 
+/* FOOTER */
+.sign-copy {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+/* END OF FOOTER */
 /* MODAL */
 button.close {
     position: absolute;
@@ -350,7 +360,7 @@ button.close {
 
 main {
     padding: 4.7rem 0 0;
-    min-height: 64vh;
+    min-height: 40.5vh;
     /* background: #F9F9F9; */
 }
 
@@ -358,6 +368,7 @@ main {
     position: fixed;
     width: 17%;
     height: 100%;
+    z-index: 0;
 }
 
 #postAlt {
@@ -394,6 +405,26 @@ main {
 }
 
 /* END OF HOMEPAGE */
+/* LANDING ALTERNATIVE */
+.landing-alt {
+    background-color: rgba(80, 0, 149, 0.7);
+    color: white;
+}
+
+.landing-alt .row {
+    height: 90vh;
+}
+
+.landing-img img {
+    width: 100%;
+    box-shadow:
+        0 0 0 10px white,
+        0 0 5px 25px var(--primary);
+    -webkit-filter: saturate(150%);
+    filter: saturate(150%);
+}
+
+/* END OF LANDING ALTERNATIVE */
 /* SEARCH BAR */
 .search-bar {
     background: rgb(235, 235, 235);
@@ -602,10 +633,8 @@ main {
 }
 
 main.sign-page {
-    background: linear-gradient(97deg, #500095 45%, #8900FF 45%, #8900FF 47%, #FFFFFF 0);
-    min-height: calc(100vh - 4.7em);
-    margin-top: 4.7em;
-    padding: 5em 10%;
+    /* background: linear-gradient(97deg, #500095 45%, #8900FF 45%, #8900FF 47%, #FFFFFF 0); */
+    min-height: 98vh;
     display: grid;
     align-items: center;
 }
@@ -614,17 +643,10 @@ main.sign-page p {
     font-size: 1.2em;
 }
 
-.sign-left {
-    width: 35%;
-    position: fixed;
-    top: 50%;
-    transform: translateY(-45%);
-    color: white;
-}
-
 .sign-left .fab {
     font-size: 1.5rem;
     padding: 0.5rem 1.5rem;
+    color: white;
 }
 
 .sign-left .fa-facebook-f {
@@ -637,6 +659,16 @@ main.sign-page p {
 
 .sign-left .fa-twitter {
     background: #1DA1F2;
+}
+
+.sign-left .fa-linkedin {
+    background: #0e76a8;
+}
+
+.accordion .card-header {
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
 }
 
 /* ABOUT US PAGE */
@@ -694,6 +726,11 @@ main.sign-page p {
     color: #656565;
 }
 
+.top-search ul {
+    padding-left: 0;
+    list-style: none;
+}
+
 /* END OF TOP SEARCH */
 /* CONTACT */
 .contact {
@@ -723,18 +760,9 @@ main.sign-page p {
     }
 
     main.sign-page {
-        background: linear-gradient(-183deg, #500095 19.5rem, #8900FF 19.5rem, #8900FF 21rem, #FFFFFF 0);
+        /* background: linear-gradient(-183deg, #500095 19.5rem, #8900FF 19.5rem, #8900FF 21rem, #FFFFFF 0); */
         min-height: auto;
         margin-top: 3em;
-        padding: 5em 10%;
-    }
-
-    .sign-left {
-        width: 100%;
-        position: relative;
-        top: auto;
-        transform: translateY(0%);
-        padding-bottom: 5rem;
     }
 
     .landing {
@@ -768,7 +796,7 @@ main.sign-page p {
 
 @media only screen and (max-width: 425px) {
     main.sign-page {
-        background: linear-gradient(-183deg, #500095 16.5rem, #8900FF 16.5rem, #8900FF 18rem, #FFFFFF 0);
+        /* background: linear-gradient(-183deg, #500095 16.5rem, #8900FF 16.5rem, #8900FF 18rem, #FFFFFF 0); */
         padding: 2rem 0;
         overflow-x: hidden;
     }

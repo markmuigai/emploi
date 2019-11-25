@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Companies')
 <div class="row mb-4">
     @forelse($companies as $c)
-    <div class="card">
+    <div class="card mx-3">
         <div class="card-body text-center">
             <img src="{{ asset($c->logoUrl) }}" alt="{{ $c->name }}" class="circle-img">
             <br>
@@ -30,19 +30,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         No companies have been found. Check back later.
     </p>
     @endforelse
-
-    
 </div>
 
 <div style="text-align: center; clear: both;">
     @if(isset($hiring))
-    <a href="/companies" class="btn btn-success">View All Companies</a> <br><br>
+    <a href="/companies" class="btn btn-orange">View All Companies</a> <br><br>
     @else
     {{ $companies->links() }}
     @endif
 </div>
-{{--@include('left-bar')--}}
-
-
 
 @endsection
