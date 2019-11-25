@@ -9,14 +9,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('user_title','Login')
 
+
 <form method="post" action="{{ route('login') }}">
     @csrf
     <div class="form-group">
-        <label for="">Email Address or Username</label>
-        <input type="text" name="username" required="required" class="form-control" placeholder="Username">
+        <label for="username">
+            Username
+            @error('username')
+                <strong class="pull-right" style="color: red"> * Invalid username or Password *</strong>
+            @enderror
+        </label>
+        <input type="text" name="username" required="required" value="{{ old('username') }}" class="form-control" placeholder="Username">
     </div>
     <div class="form-group">
-        <label for=""></label>
+        <label for="password">Password</label>
         <input type="password" name="password" required="required" class="form-control " placeholder="Password">
     </div>
     <div class="d-flex justify-content-between align-items-center">

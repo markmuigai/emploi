@@ -160,7 +160,7 @@
 
                         <!-- ADD JOB AS AN EMPLOYER -->
                         <div class="mt-3">
-                            <a href="/vacancies/create" class="btn btn-orange" id="postAlt"><i class="fas fa-plus"></i> Post A Job</a>
+                            <a href="/vacancies/create" class="btn btn-orange" id="postAlt" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
                         </div>
                         <!-- END OF ADD JOB AS AN EMPLOYER -->
 
@@ -181,7 +181,7 @@
                     <div id="postJob" class="mb-2">
                         <h2>@yield('page_title')</h2>
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
-                        <a href="/vacancies/create" class="btn btn-orange"><i class="fas fa-plus"></i> Post A Job</a>
+                        <a href="/vacancies/create" class="btn btn-orange" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
 
                         @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
                         <a href="/vacancies" class="btn btn-orange"><i class="fas fa-plus"></i> Apply For A Job</a>

@@ -10,7 +10,7 @@ use App\Post;
 class Company extends Model
 {
     protected $fillable = [
-        'name', 'user_id', 'logo', 'cover','tagline', 'about','website', 'industry_id','company_size_id','location_id','status'
+        'name', 'user_id', 'logo', 'cover','tagline', 'about','website', 'industry_id','company_size_id','location_id','status','phone_number','email'
     ];
 
     public function user(){
@@ -67,6 +67,7 @@ class Company extends Model
 
     public function getActivePostsAttribute(){
         return Post::where('status','active')
+                ->where('company_id',$this->id)
                 ->where('deadline','>',Carbon::now()->format('Y-m-d'))
                 ->get();
     }

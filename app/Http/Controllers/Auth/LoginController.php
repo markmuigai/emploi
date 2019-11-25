@@ -49,7 +49,7 @@ class LoginController extends Controller
 
             $caption = "Verification code for your Emploi Account";
         $contents = "
-Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account
+        Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account
         ";
         EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 

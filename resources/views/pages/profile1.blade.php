@@ -206,7 +206,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 
 <!-- END OF JOB SEEKER PROFILE -->
-@else
+@elseif($user->role == 'employer')
 
 <div class="card">
     <div class="card-body p-4">
@@ -217,68 +217,68 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-lg-8 col-md-7 col-8">
                 <h3 class="text-uppercase">{{ $user->name }}</h3>
 
-                <!-- IF EMPLOYER -->
-                @if($user->role == 'employer')
                 <h5>Employer</h5>
-                <!-- END OF EMPLOER -->
-
-                <!-- IF ADMIN -->
-                @elseif($user->role == 'admin')
-                <h5>Administrator</h5>
-                <!-- END OF ADMIN -->
-
-                @endif
             </div>
-
-            @if(isset(Auth::user()->id))
             <div class="col-md-2 col-12">
                 <a href="/profile/edit" class="orange"><i class="fas fa-edit"></i> Edit</a>
             </div>
-            @endif
         </div>
 
-        <!-- IF EMPLOYER -->
-        @if($user->role == 'employer')
+        @forelse($user->companies as $company)
+        <hr>
+        <h3 style="float: none; text-align: right; color: #500095; font-weight: bold;">
+            <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
+            
+        </h3>
         <div class="row mt-4">
             <div class="col-md-6">
-                <p><strong>Website: </strong><a href="#">website.com</a></p>
+                <p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank">{{ $company->website }}</a></p>
             </div>
             <div class="col-md-6">
-                <p><strong>Company Size: </strong>201 - 500 People</p>
+                <p><strong>Company Size: </strong>{{ $company->companySize->title }}</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Industry: </strong>E-Commerce &amp; Internet</p>
+                <p><strong>Industry: </strong>{{ $company->industry->name }}</p>
             </div>
             <div class="col-md-6">
                 <p><strong>Type: </strong>Privately Held</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Headquarters: </strong>Nairobi, Kenya</p>
+                <p><strong>Headquarters: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Founded: </strong>30 January 2001</p>
+                <p><strong>Tagline: </strong>{{ $company->tagline }}</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Speciality: </strong>Wordpres</p>
+                <p><strong>Status: </strong>{{ $company->status }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Jobs Posted: </strong>{{ count($company->posts) }}</p>
             </div>
         </div>
-        <!-- END OF EMPLOYER -->
-        @endif
+        
         <h5>About</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quae, vero aliquam harum sapiente officiis aliquid quod nobis pariatur voluptatum suscipit illum in necessitatibus animi quis excepturi, dolor dolorum magnam qui quibusdam
-            laborum incidunt. Hic soluta sunt odio dicta itaque enim facere repudiandae, architecto aperiam magni aspernatur delectus, amet culpa.</p>
+        <p><?php echo $company->about ?></p>
+        @empty
 
+        <p style="text-align: center;">
+            No companies found. <a href="/companies/create">Create a company</a>
+        </p>
 
-        @if($user->role == 'employer')
-        <hr>
-        <h5 class="mt-4">Office Location</h5>
-        <p>Repen Complex, Syokimau Junction</p>
-        <iframe
+        @endforelse
+
+        
+        <hr style="display: none">
+        <h5 class="mt-4" style="display: none">Office Location</h5>
+        <p style="display: none">Repen Complex, Syokimau Junction</p>
+        <iframe style="display: none"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6634497341915!2d36.92601481464639!3d-1.378599798994531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0ce7aa2120e1%3A0x2905bde1b42e68a!2sREPEN%20Complex!5e0!3m2!1sen!2ske!4v1573633191589!5m2!1sen!2ske"
           frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        @endif
+        
     </div>
 </div>
+@else
+No actions available
 @endif
 
 @endsection

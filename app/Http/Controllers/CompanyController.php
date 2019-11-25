@@ -44,31 +44,44 @@ class CompanyController extends Controller
         //return $request->all();
         $user = Auth::user();
         $c = Company::where('name',$request->name)->first();
-        if(!isset($c->id))
-        {
-            $c = Company::create([
-                'name' => $request->name, 
-                'user_id' => $user->id,
-                'about' => $request->about,
-                'website' => $request->website, 
-                'industry_id' => $request->industry,
-                'location_id' => $request->location,
-                'company_size_id' => $request->company_size
-            ]);
 
-            if(isset($c->id))
-            {
-                $message = $c->name." has been created succesfully. <br> You can now post vacancies <a href='/vacancies/create'>here</a>";
-            }
-            else
-            {
-                $message = "Failed to create your company profile. <br> Click here <a href='/companies/create'>here</a> to retry.";
-            }
+        $co_name = $request->name;
+
+        if(isset($c->id))
+        {
+            $co_name = $request->name.rand(1,900);
+        }
+
+        $storage_path = '/public/companies';
+        // $logo = basename(Storage::put($storage_path, $request->logo));
+        $logo = null;
+        $cover = null;
+        // if(isset($request->cover))
+        //     $cover = basename(Storage::put($storage_path, $request->cover));
+
+        $c = Company::create([
+            'name' => $co_name, 
+            'user_id' => $user->id,
+            'about' => $request->about,
+            'website' => $request->website, 
+            'industry_id' => $request->industry,
+            'location_id' => $request->location,
+            'company_size_id' => $request->company_size,
+            'cover' => $cover,
+            'logo' => $logo,
+            'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
+            'email' => isset($request->email) ? $request->email : null,
+        ]);
+
+        if(isset($c->id))
+        {
+            $message = $c->name." has been created succesfully. <br> You can now post vacancies <a href='/vacancies/create'>here</a>";
         }
         else
         {
-            $message = "Failed to create your company profile, another company exists with the same name. <br> Click here <a href='/companies/create'>here</a> to retry.";
+            $message = "Failed to create your company profile. <br> Click here <a href='/companies/create'>here</a> to retry.";
         }
+        
 
         
         

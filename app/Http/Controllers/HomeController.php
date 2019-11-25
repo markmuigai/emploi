@@ -89,6 +89,7 @@ class HomeController extends Controller
             return view('employers.edit')
                     ->with('user',$user);
         }
+        return 'Edit profile not available';
     }
 
     public function saveProfile(Request $request)
