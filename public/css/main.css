@@ -425,8 +425,6 @@ main {
 }
 
 /* END OF LANDING ALTERNATIVE */
-.landing
-
 /* SEARCH BAR */
 .search-bar {
     background: rgb(235, 235, 235);
@@ -729,7 +727,8 @@ main.sign-page p {
 }
 
 .top-search ul {
-    padding-left: 1rem;
+    padding-left: 0;
+    list-style: none;
 }
 
 /* END OF TOP SEARCH */
