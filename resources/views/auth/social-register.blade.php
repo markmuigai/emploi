@@ -134,4 +134,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
+<?php 
+print_r($user);
+?>
+
 @endsection

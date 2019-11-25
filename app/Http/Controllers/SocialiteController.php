@@ -25,11 +25,8 @@ class SocialiteController extends Controller
         	Auth::loginUsingId($matchedUser->id, true);
         	return redirect('/home');
         }
-        else
-        {
-        	//new user
-        }
-        dd($user);
-        // $user->token;
+        //new user
+        return view('auth.social-register')
+            ->with('user',$user);
     }
 }
