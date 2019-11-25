@@ -53,7 +53,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <h5>
                                     Job Seeker
                                     <br>
-                                    <small>[ {{ $user->totalCredits }} credits ]</small>
+                                    <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small>
                                 </h5>
                                 @if(!$user->seeker->hasCompletedProfile())
                                 <p style="text-align: center; font-size: 90%; ">
@@ -224,7 +224,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>
                     Employer
                     <br>
-                    <small>[ {{ $user->totalCredits }} credits ]</small>
+                    <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small>
                 </h5>
                 
             </div>
