@@ -50,7 +50,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                             <div class="col-lg-8 col-md-7 col-8">
                                 <h3 class="text-uppercase">{{ $user->name }}</h3>
-                                <h5>Job Seeker</h5>
+                                <h5>
+                                    Job Seeker
+                                    <br>
+                                    <small>[ {{ $user->totalCredits }} credits ]</small>
+                                </h5>
                                 @if(!$user->seeker->hasCompletedProfile())
                                 <p style="text-align: center; font-size: 90%; ">
                                     <a href="/profile/edit" class="text-danger" style="color: red"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
@@ -217,7 +221,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-lg-8 col-md-7 col-8">
                 <h3 class="text-uppercase">{{ $user->name }}</h3>
 
-                <h5>Employer</h5>
+                <h5>
+                    Employer
+                    <br>
+                    <small>[ {{ $user->totalCredits }} credits ]</small>
+                </h5>
+                
             </div>
             <div class="col-md-2 col-12">
                 <a href="/profile/edit" class="orange"><i class="fas fa-edit"></i> Edit</a>
