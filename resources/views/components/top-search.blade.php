@@ -2,23 +2,23 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6 col-lg-3">
-                <h6>Popular Categories</h6>
+                <h5>Popular Categories</h5>
                 <ul>
-                    <li>
-                        <a href="#">Automotive</a>
-                    </li>
+                    @foreach(\App\Industry::top(10) as $f)
+                    <li><a href="/vacancies/{{ $f->slug }}">{{ $f->name }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <h6>Popular Jobs</h6>
+                <h5>Popular Jobs</h5>
                 <ul>
-                    <li>
-                        <a href="#">Frontend Developer</a>
-                    </li>
+                    @foreach(\App\Post::recent() as $f)
+                    <li><a href="/vacancies/{{ $f->slug }}">{{ $f->title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <h6>Popular Locations</h6>
+                <h5>Popular Locations</h5>
                 <ul>
                     <li>
                         <a href="#">Nairobi</a>
@@ -26,7 +26,7 @@
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <h6>Popular Companies</h6>
+                <h5>Popular Companies</h5>
                 <ul>
                     <li>
                         <a href="#">Job Sikaz</a>

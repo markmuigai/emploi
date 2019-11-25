@@ -100,10 +100,12 @@
             <div class="col-lg-6 col-md-12">
                 <div class="sign-left text-center">
                     <h1 class="orange">@yield('user_title')</h1>
+                    @if(is_null(\Route::current()->getName()))
                     <h5>- Continue With -</h5>
                     <a href="/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
                     <a href="/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
                     <a href="/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
+                    @endif
                 </div>
                 <div class="container pt-3">
                     @yield('content')

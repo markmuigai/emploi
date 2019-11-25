@@ -31,18 +31,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </p>
     @endforelse
 
-    
+
 </div>
 
 <div style="text-align: center; clear: both;">
     @if(isset($hiring))
-    <a href="/companies" class="btn btn-success">View All Companies</a> <br><br>
+    <a href="/companies" class="btn btn-orange">View All Companies</a> <br><br>
     @else
     {{ $companies->links() }}
     @endif
 </div>
-{{--@include('left-bar')--}}
-
-
 
 @endsection

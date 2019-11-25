@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Edit Employer Profile')
 
@@ -7,46 +7,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="single">  
-	   
-	 <div class="col-md-8 col-md-offset-2 single_right">
-	    <h3>
-	    	Edit Profile
-	    	<small><a href="/profile" class="btn btn-sm btn-danger pull-right">View Profile</a></small>
-	    	
-	    </h3>	
+@section('page_title', 'Edit Profile')
+<div class="card">
+	<div class="card-body p-5">
 
-	    <form method="post" action="/profile/update" enctype="multipart/form-data">
-	    	@csrf
-	    	<p>
-	    		<label>Full Name: *</label>
-	    		<input type="text" name="name" class="form-control" value="{{ $user->name }}" required="">
-	    	</p>
+		<form method="post" action="/profile/update" enctype="multipart/form-data">
+			@csrf
+			<div class="form-group">
+				<label>Full Name: *</label>
+				<input type="text" name="name" class="form-control" value="{{ $user->name }}" required="">
+			</div>
 
-	    	<p>
-	    		<label>E-mail Address: *</label>
-	    		<input type="email" disabled="" class="form-control" value="{{ $user->email }}" required="">
-	    	</p>
+			<div class="form-group">
+				<label>E-mail Address: *</label>
+				<input type="email" disabled="" class="form-control" value="{{ $user->email }}" required="">
+			</div>
 
-	    	<p>
-	    		<label>Username: *</label>
-	    		<input type="text" name="username" class="form-control" value="{{ $user->username }}" required="">
-	    	</p>
+			<div class="form-group">
+				<label>Username: *</label>
+				<input type="text" name="username" class="form-control" value="{{ $user->username }}" required="">
+			</div>
 
-	    	<p>
-	    		<label>Avatar:</label>
-	    		<input type="file" name="avatar" class="btn" value="" accept="image/png, image/jpeg">
-	    	</p>
+			<div class="form-group">
+				<div class="custom-file">
+					<input type="file" name="avatar" class="custom-file-input" value="" accept="image/png, image/jpeg" />
+					<label class="custom-file-label" for="avatar">Choose Avatar</label>
+				</div>
+			</div>
 
-	    	<p>
-	    		<input type="submit" name="" value="Update Profile" class="btn btn-success">
-	    	</p>
-	    </form>
-	    
-     </div>
-     <div class="clearfix"> </div>
- </div>
+			<button type="submit" name="button" class="btn btn-orange">Update Profile</button>
+		</form>
+
+	</div>
 </div>
 
 @endsection

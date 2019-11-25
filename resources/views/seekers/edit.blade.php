@@ -82,9 +82,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label for="post_address">Address *</label>
                     <textarea class="form-control" name="post_address" id="address" rows="2">{{ $user->seeker->post_address }}</textarea>
                 </div>
+
                 <div class="form-group">
-                    <label for="avatar">Profile Photo</label>
-                    <input type="file" name="avatar" id="" accept=".jpg, .png,.jpeg" />
+                  <div class="custom-file">
+                    <input type="file" name="avatar" class="custom-file-input" value="" accept=".jpg, .png,.jpeg" />
+                    <label class="custom-file-label" for="avatar">Profile Photo</label>
+                  </div>
                 </div>
                 <div style="text-align: center;">
                     <a href="#" class="toSection2 btn btn-success">Next > </a>

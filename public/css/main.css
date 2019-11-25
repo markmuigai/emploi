@@ -360,7 +360,7 @@ button.close {
 
 main {
     padding: 4.7rem 0 0;
-    min-height: 64vh;
+    min-height: 40.5vh;
     /* background: #F9F9F9; */
 }
 
@@ -405,6 +405,28 @@ main {
 }
 
 /* END OF HOMEPAGE */
+/* LANDING ALTERNATIVE */
+.landing-alt {
+    background-color: rgba(80, 0, 149, 0.7);
+    color: white;
+}
+
+.landing-alt .row {
+    height: 90vh;
+}
+
+.landing-img img {
+    width: 100%;
+    box-shadow:
+        0 0 0 10px white,
+        0 0 5px 25px var(--primary);
+    -webkit-filter: saturate(150%);
+    filter: saturate(150%);
+}
+
+/* END OF LANDING ALTERNATIVE */
+.landing
+
 /* SEARCH BAR */
 .search-bar {
     background: rgb(235, 235, 235);
@@ -648,6 +670,7 @@ main.sign-page p {
 .accordion .card-header {
     background: var(--primary);
     color: white;
+    cursor: pointer;
 }
 
 /* ABOUT US PAGE */
@@ -703,6 +726,10 @@ main.sign-page p {
 .top-search {
     background: #e4e4e4;
     color: #656565;
+}
+
+.top-search ul {
+    padding-left: 1rem;
 }
 
 /* END OF TOP SEARCH */
