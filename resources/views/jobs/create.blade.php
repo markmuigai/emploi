@@ -201,7 +201,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             var max_salary = $('#max_salary').val();
             if(!salary)
                 return alert('Invalid Monthly Salary');
-
+            //return alert(salary + ' ' + max_salary);
             if(salary != 0)
             {
                 //alert('Defining salary');
@@ -212,7 +212,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 }
                     
             }
-            //return alert(salary + ' ' + max_salary);
+            
             $('#create-post-form').submit();
         });
     });
