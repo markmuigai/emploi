@@ -205,7 +205,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             if(salary != 0)
             {
                 //alert('Defining salary');
-                if($('#max_salary').val())
+                if(max_salary)
                 {
                     if(max_salary <= salary)
                         return alert('Maximum salary must be greater than minimum salary');
