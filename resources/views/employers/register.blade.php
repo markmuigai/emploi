@@ -140,6 +140,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </form>
+<h5 class="mt-4">Have an account?
+    <a href="/login" class="btn btn-orange px-5">Login</a>
+</h5>
 <script type="text/javascript">
     $().ready(function() {
         var used = false;

@@ -61,7 +61,7 @@ class Employer extends Model
         $weekMap = [
             0 => 'Sun',
             1 => 'Mon',
-            2 => 'Teu',
+            2 => 'Tue',
             3 => 'Wed',
             4 => 'Thu',
             5 => 'Fri',
@@ -73,7 +73,7 @@ class Employer extends Model
             $day = Carbon::now()->subDays($i);
             $counter = count($this->getApplicationsOn($day));
 
-            
+
             array_push($stats, array($counter,$weekMap[$day->dayOfWeek]));
         }
         return $stats;
@@ -182,7 +182,7 @@ class Employer extends Model
                 array_push($applications,$application);
         }
 
-        
+
 
         //dd($applications);
 

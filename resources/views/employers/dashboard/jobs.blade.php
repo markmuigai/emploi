@@ -69,14 +69,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> 
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a>
                         @if($post->status == 'active')
-                        | <a href="/vacancies/laravel-developer/deactivate"><i class="fas fa-trash-alt"></i> Deactivate</a>
-                        
+                        | <a href="/vacancies/laravel-developer/deactivate" class="text-danger"><i class="fas fa-trash-alt"></i> Deactivate</a>
+
                         @elseif($post->status == 'closed')
-                        | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
+                        | <a href="/vacancies/laravel-developer/activate" class="text-danger"><i class="far fa-eye"></i> Activate</a>
                         @else
-                        | <i style="color: red">not verified</i>
+                        | <p  class="text-danger">Not Verified</p>
                         @endif
                     </div>
                 </div>
@@ -132,10 +132,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> 
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a>
                         @if($post->status == 'active')
                         | <a href="/vacancies/laravel-developer/deactivate"><i class="fas fa-trash-alt"></i> Deactivate</a>
-                        
+
                         @elseif($post->status == 'closed')
                         | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
                         @else
@@ -197,10 +197,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a> 
+                        <a href="/vacancies/{{ $post->slug }}/edit" class="orange"><i class="fas fa-edit orange"></i> Edit</a>
                         @if($post->status == 'active')
                         | <a href="/vacancies/laravel-developer/deactivate"><i class="fas fa-trash-alt"></i> Deactivate</a>
-                        
+
                         @elseif($post->status == 'closed')
                         | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
                         @else

@@ -29,73 +29,61 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="col-lg-9 col-12">
         <!-- NAV-TAB CONTENT -->
         <div class="tab-content pt-2" id="allCandidatesContent">
-            <!-- ALL JOBS -->
+            <!-- ALL CANDIDATES -->
             <div class="tab-pane fade show active" id="all-candidates" role="tabpanel" aria-labelledby="all-candidates-tab">
                 <?php $pool = $shortlist ? $post->shortlisted: $post->applications; $kk=0; ?>
                 @forelse($pool as $a)
                 <p class="d-none">{{ $a->user->seeker->industry->name }}
                     <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
-                        <span style="float: right; color: #500095; font-weight: bold">RSI {{ $a->user->seeker->getRsi($post) }}%</span>
+                        <span class="pull-right purple"><strong>RSI {{ $a->user->seeker->getRsi($post) }}%</strong></span>
                     </a>
                 </p>
 
                 <!-- JOB CARD -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-2 col-3">
+                        <div class="row align-items-center">
+                            <div class="col-lg-2 col-4">
                                 <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small">
                             </div>
-                            <div class="col-5 col-md-5 col-lg-6">
-                                <h4>{{ $a->user->name }}</h4>
-                                <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
-                                <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
-                                    {{ $a->user->seeker->location->country->name }}</p>
-                            </div>
-                            <div class="col-4 col-md-4 col-lg-4 text-center">
-
-                                <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-
+                            <div class="col-8 col-md-8 col-lg-10">
+                                <div class="row align-items-center">
+                                    <div class="col-12 col-md-8 col-lg-8">
+                                        <h4>{{ $a->user->name }}</h4>
+                                        <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
+                                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
+                                            {{ $a->user->seeker->location->country->name }}</p>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
+                                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <hr>
                         <div class="row justify-content-between align-items-center">
                             <div class="col-12 col-md-6 col-lg-6">
                                 @if($a->status == 'rejected')
-                                    <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" style="color: red; font-weight: bold;"> Cancel Reject</a>
+                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
                                 @else
 
-                                    @if($a->status == 'selected')
-                                        <a href="#" style="color: green; font-weight: bold;"> <i class="fa fa-check"></i> SELECTED</a>
-                                    @else
+                                @if($a->status == 'selected')
+                                <a href="#" class="text-success"> <i class="fas fa-check"></i> <strong>SELECTED</strong></a>
+                                @else
 
-                                        @if($post->isShortlisted($a->user->seeker))
-                                            <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
+                                @if($post->isShortlisted($a->user->seeker))
+                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
 
-                                        @else
-                                            <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
-                                        @endif
-
-                                        |
-
-                                        <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" style="color: red">Reject</a>
-
-                                    @endif
-
-
-
+                                @else
+                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
                                 @endif
-
-
-
-
-
-
-
-
+                                |
+                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
+                                @endif
+                                @endif
                             </div>
-                            <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-                                <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
+                            <div class="col-12 col-md-6 col-lg-5 text-md-right">
+                                <a class="orange mr-2" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
                             </div>
                         </div>
@@ -126,24 +114,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     {{ $a->user->seeker->location->country->name }}</p>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
-
                                 <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-
                             </div>
                         </div>
                         <hr>
                         <div class="row justify-content-between align-items-center">
                             <div class="col-12 col-md-6 col-lg-6">
                                 @if($post->isShortlisted($a->user->seeker))
-                                    <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
+                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
 
                                 @else
-                                    <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
+                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
                                 @endif
 
                                 |
 
-                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" style="color: red">Reject</a>
+                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
                                 <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
@@ -223,20 +209,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     {{ $a->user->seeker->location->country->name }}</p>
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
-
                                 <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-
                             </div>
                         </div>
                         <hr>
                         <div class="row justify-content-between align-items-center">
                             <div class="col-12 col-md-6 col-lg-6">
-
-
-                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" style="color: red; font-weight: bold;"> Cancel Reject</a>
+                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange pull-right">View Profile</a>
                             </div>
                         </div>
@@ -256,32 +237,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="col-lg-3 col-12">
         <div class="card mt-2">
             <div class="card-body">
-                <h4 class="m_1" style="text-align: center;">Actions</h4>
-                <p style="text-align: center;">
-
+                <h4 class="text-center">Actions</h4>
+                <p class="text-center">
                     <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger">
                         @if(!$post->hasModelSeeker())
-                        <i class="fa fa-warning" title="RSI Model Not Created"></i>
+                        <i class="fas fa-warning" title="RSI Model Not Created"></i>
                         @else
-                        <i class="fa fa-check" title=""></i>
+                        <i class="fas fa-check" title=""></i>
                         @endif
                         Configure RSI
                     </a>
                     <br>
                     @if($post->status == 'active')
-                    <a href="/employers/applications/{{ $post->slug }}/invite" class="btn btn-success btn-sm"><i class="fa fa-share"></i> Invite</a>
+                    <a href="/employers/applications/{{ $post->slug }}/invite" class="btn btn-success btn-sm"><i class="fas fa-share"></i> Invite</a>
                     <br>
                     @endif
-                    
-                    <a href="/employers/applications/{{ $post->slug }}/close" class="btn btn-info btn-sm"> <i class="fa fa-users"></i> Select</a>
+
+                    <a href="/employers/applications/{{ $post->slug }}/close" class="btn btn-info btn-sm"> <i class="fas fa-users"></i> Select</a>
                 </p>
                 @if(count($post->shortlisted) > 0)
                 <br><br>
                 <h4 class="m_1">Shortlisted Candidates</h4>
                 @forelse($post->shortlisted as $a)
-                <p style="padding: 0.5em 0">
-                    {{ $a->user->name }} | <span style="float: right;">
-                        |
+                <p class="py-1">
+                    {{ $a->user->name }} | <span class="pull-right">
                         <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">
                             {{ $a->user->seeker->getRsi($post) }}%
                         </a>

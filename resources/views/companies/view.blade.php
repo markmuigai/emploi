@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Company Details' )
 
 <div class="row">
-	<div class="col-md-9">
+	<div class="col-md-12 col-lg-9">
 		<div class="card">
 			<div class="card-body">
 				<div class="row align-items-center">
@@ -63,7 +63,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</div>
 		</div>
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-12 col-lg-3 mt-2">
 		<div class="card">
 			<div class="card-body text-center px-0">
 				<h5 class="orange">Contact Details</h5>
@@ -96,7 +96,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @if(count($company->activePosts) > 0)
 <div class="featured-carousel">
 	@foreach($company->activePosts as $post)
-	<div class="card my-4 mr-5">
+	<div class="card my-4 mx-lg-0 mr-lg-5 mr-md-2 mx-4">
 		<div class="card-body text-center">
 			<a href="/vacancies/{{ $post->slug }}">
 				<div class="d-flex justify-content-center mb-3">
@@ -126,18 +126,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.featured-carousel').slick({
-			infinite: true,
-			slidesToShow: 3,
-			slidesToScroll: 2,
-			arrows: true,
-			prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-			nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+				infinite: true,
+				slidesToShow: 3,
+				slidesToScroll: 2,
+				arrows: true,
+				prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+				nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+				responsive: [
+						{
+								breakpoint: 425,
+								settings: {
+										slidesToShow: 1,
+										slidesToScroll: 1,
+								}
+						},
+				]
 		});
 	});
 </script>
-
-
-
-
-
 @endsection

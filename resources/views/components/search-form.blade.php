@@ -16,7 +16,7 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <button class="btn btn-orange px-5" type="submit">Search</button>
+                    <button class="btn btn-orange px-5 mt-2 mt-md-0" type="submit">Search</button>
                 </div>
             </div>
         </form>

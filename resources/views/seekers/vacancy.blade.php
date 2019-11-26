@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </li>
 </ul>
 <div class="row">
-    <div class="col-lg-9 col-md-8 col-12">
+    <div class="col-lg-9 col-md-12">
         <!-- NAV-TAB CONTENT -->
         <div class="tab-content pt-2" id="jobDetailsContent">
             <!-- ALL JOBS -->
@@ -57,18 +57,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <p>
                                     <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
                                 </p>
-
                             </div>
-                            <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-right">
-
+                            <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-sm-left text-md-right">
                                 <p>
                                     <strong>
                                         @if(isset(Auth::user()->id))
                                         {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
                                         @else
-                                        Login to view salary
+                                        <a href="/login" class="orange">Login </a>
+                                        to view salary
                                         @endif
-
                                     </strong>
                                 </p>
                                 <p>
@@ -95,39 +93,51 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="tab-pane fade" id="apply" role="tabpanel" aria-labelledby="apply-tab">
                 <div class="card py-2 mb-4">
                     <div class="card-body">
-                    <h5>Application Instructions</h5>
+                        <h5>Application Instructions</h5>
 
-                    @guest
+                        @guest
                         <p>
-                            <a href="/login?redirectToPost={{ $post->slug }}" class="btn btn-link">Login</a> or <a href="/register?redirectToPost={{ $post->slug }}" class="btn btn-success">create free account</a> to apply for this position.
+                            <a href="/login?redirectToPost={{ $post->slug }}" class="btn btn-link">Login</a> or <a href="/register?redirectToPost={{ $post->slug }}" class="btn btn-orange">Create Free Account</a> to apply for this position.
                         </p>
-                    @else
+                        @else
 
                         @if(Auth::user()->role == 'seeker')
-                            @if( $post->how_to_apply )
-                            <div>
-                                <?php echo $post->how_to_apply; ?>
-                            </div>
-                            @else
-                                <p>
-                                    Follow the link below, submit your cover letter. Your current resume would be attached automatically. <br><br>
-                                    <a href="/vacancies/{{ $post->slug }}/apply" class="btn btn-success">Submit Application</a>
+                        @if( $post->how_to_apply )
+                        <div>
+                            <?php echo $post->how_to_apply; ?>
+                        </div>
+                        @else
+                        <p>
+                            Follow the link below, submit your cover letter. Your current resume would be attached automatically. <br><br>
+                            <a href="/vacancies/{{ $post->slug }}/apply" class="btn btn-orange">Submit Application</a>
 
-                                </p>
-                            @endif
+                        </p>
+                        @endif
                         @else
                         <p>
                             Only job seekers can apply for this position.
                         </p>
                         @endif
 
-                    @endguest
+                        @endguest
                     </div>
                 </div>
             </div>
             <!-- END OF ACTIVE JOBS -->
-
-
+        </div>
+    </div>
+    <div class="col-lg-3 col-8 pt-2">
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="{{ asset($post->company->logoUrl) }}" alt="{{ $post->company->name  }}" class="circle-img">
+                <h5>
+                    <a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
+                </h5>
+                <p><i class="fas fa-map-marker-alt orange"></i>
+                    {{ $post->company->location->name.', '.$post->company->location->country->name }}
+                </p>
+                <p>{{ $post->company->staff }}</p>
+            </div>
         </div>
     </div>
 </div>

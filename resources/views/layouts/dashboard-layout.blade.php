@@ -117,7 +117,7 @@
     <main>
         <!-- SIDEBAR -->
         <div class="container pb-4">
-            <div class="row pt-4">
+            <div class="row pt-5">
                 <div class="col-md-3 d-md-block d-none">
                     <div class="sidebar">
                         <!-- EMPLOYER SIDEBAR -->
@@ -152,9 +152,9 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5>Sign Up To Apply</h5>
-                                <a href="" class="btn btn-orange">Register</a>
+                                <a href="/join" class="btn btn-orange">Register</a>
                                 <h6 class="mt-3">- Have An Account -</h6>
-                                <a href="" class="btn btn-orange-alt">Login</a>
+                                <a href="/login" class="btn btn-orange-alt">Login</a>
                             </div>
                         </div>
                         <!-- END OF GUEST SIDEBAR -->
