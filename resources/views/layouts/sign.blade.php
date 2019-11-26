@@ -75,9 +75,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/companies?hiring=true">See Who's Hiring</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/employers/register" class="btn btn-orange"> Employer Registration</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
                         </li>

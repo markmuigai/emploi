@@ -45,25 +45,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="statistics">
     <div class="container">
         <div class="card mx-5">
-            <div class="card-body text-center py-4">
+            <div class="card-body text-center py-3 py-lg-4">
                 <div class="row">
                     <div class="col-md-4">
                         <i class="fas fa-briefcase"></i>
                         <h5>Total Jobs</h5>
                         <h1 class="counter">14515</h1>
                         <p>Find your next job effortlessly.</p>
+                        <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4">
                         <i class="fas fa-clipboard-check"></i>
                         <h5>Total Candidates</h5>
                         <h1 class="counter">2451</h1>
                         <p>Get hired will minimal effort.</p>
+                        <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4">
                         <i class="fas fa-building"></i>
                         <h5>Total Companies</h5>
                         <h1 class="counter">451</h1>
                         <p>Get discovered by top comapanies.</p>
+                        <hr class="d-block d-md-none">
                     </div>
                 </div>
             </div>
@@ -77,67 +80,73 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card">
             <div class="card-body text-center">
                 <h2 class="orange">Our Services</h2>
-                <p>We provide you with seamless job placement though superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards. </p>
-                <div class="service-carousel m-3 py-1">
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Browse Talent Database</p>
-                        </div>
+                <p>We provide you with seamless job placement though superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
+                <div class="row pt-2 service-cards">
+                    <div class="col-md-6">
+                        <h5>Employer Services</h5>
+                        <a href="/employers/browse" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Browse Talent Database</p>
+                            </div>
+                        </a>
+                        <a href="/employers/services" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Recruitment Process Outsourcing</p>
+                            </div>
+                        </a>
+                        <a href="/employers/services" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Assess Candidate</p>
+                            </div>
+                        </a>
+                        <a href="/employers/publish" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Advertise Jobs</p>
+                            </div>
+                        </a>
+                        <a href="/employers/services" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Background Checks</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Recruitment Process Outsourcing</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Assess Candidate</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Advertise Jobs</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Background Checks</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Premium Placement</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Professional Coaching</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Job Vacancies</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Professional CV Editing</p>
-                        </div>
-                    </div>
-                    <div class="card mx-3 py-2 px-1">
-                        <div class="card-body">
-                            <i class="fas fa-user"></i>
-                            <p>Career Centre</p>
-                        </div>
+                    <div class="col-md-6">
+                        <h5>Job Seeker Services</h5>
+                        <a href="/job-seekers/premium-placement" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Premium Placement</p>
+                            </div>
+                        </a>
+                        <a href="/job-seekers/services" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Professional Coaching</p>
+                            </div>
+                        </a>
+                        <a href="/vacancies" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Job Vacancies</p>
+                            </div>
+                        </a>
+                        <a href="/job-seekers/cv-editing" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Professional CV Editing</p>
+                            </div>
+                        </a>
+                        <a href="/blog" class="card m-2 py-2">
+                            <div class="card-body">
+                                <i class="fas fa-user"></i>
+                                <p>Career Centre</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -148,13 +157,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <!-- FEATURED JOBS -->
 <div class="container mt-5 text-center">
-    <h2>Featured Jobs</h2>
+    <h2 class="orange">Featured Jobs</h2>
     @if(is_null($posts))
     <h4 class="text-center">No Jobs Available Yet.</h4>
     @else
     <div class="featured-carousel">
         @foreach($posts as $p)
-        <a class="card m-4" href="/vacancies/{{ $p->slug }}">
+        <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
                     <img src="images/a1.jpg" alt="" />
@@ -181,14 +190,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- TESTIMONALS -->
 <div class="container">
     <div class="testimonials">
-        <div class="card mx-2 my-3">
+        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
-                <div class="row align-items-center">
-                    <div class="col-2">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
-                    <div class="col-10">
+                    <div class="col-12 col-md-10">
                         <p>Emploi is the most efficient digital sourcing platform. They are fast and are good at what they do.</p>
                         <hr class="short">
                         <h5>Anthony Ochieng</h5>
@@ -197,14 +206,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
-        <div class="card mx-2 my-3">
+        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
-                <div class="row align-items-center">
-                    <div class="col-2">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
-                    <div class="col-10">
+                    <div class="col-12 col-md-10">
                         <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
                         <hr class="short">
                         <h5>Kipkemoi Kizito</h5>
@@ -213,14 +222,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
-        <div class="card mx-2 my-3">
+        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
-                <div class="row align-items-center">
-                    <div class="col-2">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
-                    <div class="col-10">
+                    <div class="col-12 col-md-10">
                         <p>The Emploi Team create a great rapport with their candidates and are an invaluable asset to anyone looking for a job.</p>
                         <hr class="short">
                         <h5>Faith Chepkemoi</h5>
@@ -229,14 +238,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
-        <div class="card mx-2 my-3">
+        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
-                <div class="row align-items-center">
-                    <div class="col-2">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
-                    <div class="col-10">
+                    <div class="col-12 col-md-10">
                         <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.</p>
                         <hr class="short">
                         <h5>Sandra Eshitemi</h5>
@@ -272,7 +281,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="col-lg-7">
                 @foreach ($blogs->slice(1, 3) as $blog)
-                <div class="card mb-3">
+                <div class="card mb-lg-3 my-2">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-2">
@@ -372,6 +381,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             arrows: true,
             prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+            responsive: [{
+                    breakpoint: 996,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 425,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                },
+            ]
         });
         $('.testimonials').slick({
             infinite: true,
@@ -393,6 +417,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
             autoplay: true,
             speed: 500,
+            responsive: [{
+                    breakpoint: 996,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 425,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                },
+            ]
         });
 
         $(function() {

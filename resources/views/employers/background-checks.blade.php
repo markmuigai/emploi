@@ -8,7 +8,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
-<div class="container py-4">
+<div class="container pb-0 pb-lg-4 pt-4">
     <div class="row align-items-center pb-4">
         <div class="col-4">
             <img src="/images/background-check.png" class="w-100">

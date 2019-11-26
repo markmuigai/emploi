@@ -8,7 +8,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
-<div class="container py-4">
+<div class="container pb-0 pb-lg-4 pt-4">
     <h2 class="orange text-center">Premium Recruitment</h2>
     <p>
         So you have an urgent vacancy. The longer it stays open the more your business loses. The best thing would be for you to advertise that. You will receive applications and fill it within no time right? But that’s not what

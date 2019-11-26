@@ -103,7 +103,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>
                                 No education records highlighted.
                             </p>
-
                             @endforelse
                         @endif
 
@@ -160,18 +159,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="col-lg-4 col-12 pt-2 text-center">
-
         <div class="card">
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-5">
-                        <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="avatar-small" alt="{{ $user->public_name }}" style="border-radius: 50%;" />
+                        <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="avatar-small" alt="{{ $user->public_name }}"  />
                     </div>
                 </div>
                 <div class="text-center">
                     <p>{{ $user->name }}</p>
                     @if( $user->seeker->featured != 0 )
-                    <p style="color: green; font-weight: bold;"><i class='fa fa-star'></i> Featured</p>
+                    <p class="text-success"><strong><i class='fa fa-star'></i> Featured</strong></p>
                     @endif
                     <p>{{ $user->seeker->date_of_birth ? $user->seeker->age.' years old' : '' }}</p>
                     <p><a href="{{ $user->seeker->resumeUrl }}" class="btn btn-orange"><i class="fas fa-download"></i> Download CV</a></p>
@@ -182,18 +180,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- INVITE FOR AN INTERVIEW -->

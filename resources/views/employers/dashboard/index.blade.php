@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 <div class="card mt-4">
     <div class="card-body">
-        <canvas id="myChart" width="400" height="150"></canvas>
+        <canvas id="myChart"></canvas>
     </div>
 </div>
 <div class="row my-4 recents">
@@ -107,7 +107,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 display: true,
                 text: "Total Applications over the Past Week"
             }
-        }
+        },
+        maintainAspectRatio: false,
     });
 </script>
 

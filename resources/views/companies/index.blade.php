@@ -10,29 +10,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Companies')
 <div class="row mb-4">
     @forelse($companies as $c)
-    <div class="card mx-3">
-        <div class="card-body text-center">
-            <img src="{{ asset($c->logoUrl) }}" alt="{{ $c->name }}" class="circle-img">
-            <br>
-            <p class="badge badge-secondary">{{ count($c->activePosts) }} Vacancies</p>
-            <h5>
-                <a href="/companies/{{ $c->name }}" style="font-weight: bold">
-                    {{ $c->name }}
-                </a>
-            </h5>
-            <p>{{ $c->industry->name }}</p>
-            <p><i class="fas fa-map-marker-alt"></i> {{ $c->location->name.', '.$c->location->country->name }}</p>
-            <p>{{ $c->staff }}</p>
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="card mx-3">
+            <div class="card-body text-center">
+                <img src="{{ asset($c->logoUrl) }}" alt="{{ $c->name }}" class="circle-img">
+                <br>
+                <p class="badge badge-secondary">{{ count($c->activePosts) }} Vacancies</p>
+                <h5>
+                    <a href="/companies/{{ $c->name }}" style="font-weight: bold">
+                        {{ $c->name }}
+                    </a>
+                </h5>
+                <p>{{ $c->industry->name }}</p>
+                <p><i class="fas fa-map-marker-alt"></i> {{ $c->location->name.', '.$c->location->country->name }}</p>
+                <p>{{ $c->staff }}</p>
+            </div>
         </div>
     </div>
     @empty
-    <p style="text-align: center;">
+    <p class="text-center">
         No companies have been found. Check back later.
     </p>
     @endforelse
 </div>
 
-<div style="text-align: center; clear: both;">
+<div class="text-center">
     @if(isset($hiring))
     <a href="/companies" class="btn btn-orange">View All Companies</a> <br><br>
     @else

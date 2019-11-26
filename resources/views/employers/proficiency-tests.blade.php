@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-<div class="container py-4">
+<div class="container pb-0 pb-lg-4 pt-4">
 	<h3 class="orange text-center">Proficiency Tests</h3>
 	<div class="row pb-3 align-items-center">
 		<div class="col-md-4">

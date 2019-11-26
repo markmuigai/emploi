@@ -1,6 +1,6 @@
 :root {
     --primary: #500095;
-    --secondary: #E88725;
+    --secondary: #E15419;
 }
 
 body {
@@ -36,10 +36,12 @@ iframe {
 
 ul.alpha {
     list-style: lower-alpha;
+    padding-left: 1rem;
 }
 
 ul.numeric {
     list-style: decimal;
+    padding-left: 1rem;
 }
 
 .form-row {
@@ -107,14 +109,14 @@ ul.numeric {
 }
 
 .btn-orange:hover, .btn-orange-alt:hover {
-    border-color: #EDAD36;
-    background: #EDAD36;
+    border-color: #b84514;
+    background: #b84514;
     color: white;
 }
 
 .btn-orange:focus, .btn-orange-alt:focus {
-    background: #b96613;
-    border-color: #b96613;
+    border-color: #ed895e;
+    background: #ed895e;
 }
 
 .btn-purple {
@@ -152,6 +154,7 @@ ul.numeric {
 }
 
 .slick-prev .fas, .slick-next .fas {
+    background: white;
     color: var(--primary);
     font-size: 1rem;
     padding: 0.5rem;
@@ -204,6 +207,7 @@ ul.numeric {
 img.avatar-small {
     /* height: 90px; */
     width: 100%;
+    border-radius: 50%;
 }
 
 .navbar {
@@ -366,7 +370,7 @@ main {
 
 .sidebar {
     position: fixed;
-    width: 17%;
+    width: 19%;
     height: 100%;
     z-index: 0;
 }
@@ -469,9 +473,15 @@ main {
 
 /* END OF STATISTICS */
 /* SERVICES */
-.service-carousel .card:nth-child(odd) {
+.service-cards .card:nth-child(odd) {
     background: var(--primary);
     color: white;
+}
+
+.service-cards .card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    color: var(--secondary);
 }
 
 /* END OF SERVICES */
@@ -643,6 +653,11 @@ main.sign-page p {
     font-size: 1.2em;
 }
 
+.acc-links a:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
 .sign-left .fab {
     font-size: 1.5rem;
     padding: 0.5rem 1.5rem;
@@ -663,6 +678,11 @@ main.sign-page p {
 
 .sign-left .fa-linkedin {
     background: #0e76a8;
+}
+
+a .fab:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 .accordion .card-header {
@@ -741,7 +761,6 @@ main.sign-page p {
     color: white;
 }
 
-/* END OF CONTACT */
 @media only screen and (max-width: 996px) {
     .nav-item {
         padding: 0;
@@ -752,7 +771,7 @@ main.sign-page p {
     }
 
     main {
-        padding: 3.8rem 0 2rem;
+        padding: 2.5rem 0 0;
     }
 
     .job-actions {
@@ -776,13 +795,14 @@ main.sign-page p {
 
     .statistics .card {
         position: absolute;
-        top: -180px;
+        top: -130px;
         z-index: 100;
-        width: 80%;
+        width: 85%;
         left: 50%;
         transform: translateX(-58%);
     }
 
+    /* END OF STATISTICS */
     .slick-prev .fas {
         left: 20px;
     }
@@ -791,10 +811,20 @@ main.sign-page p {
         right: 20px;
     }
 
-    /* END OF STATISTICS */
+    .featured-carousel .card-body {
+        padding: 1rem;
+    }
+
+    .about .card-body, .services>.container>.card>.card-body {
+        padding: 3rem 10%;
+    }
 }
 
 @media only screen and (max-width: 425px) {
+    p, li {
+        font-size: 0.8rem;
+    }
+
     main.sign-page {
         /* background: linear-gradient(-183deg, #500095 16.5rem, #8900FF 16.5rem, #8900FF 18rem, #FFFFFF 0); */
         padding: 2rem 0;
@@ -805,6 +835,35 @@ main.sign-page p {
         font-size: 1em;
     }
 
+    /* LANDING */
+    .landing {
+        height: 70vh;
+    }
+
+    .landing .container .content {
+        width: 100%;
+    }
+
+    /* END OF LANDING */
+    /* STATISTICS */
+    .statistics {
+        height: 500px;
+    }
+
+    .statistics .card {
+        position: absolute;
+        top: -130px;
+        z-index: 100;
+        width: 80%;
+        left: 50%;
+        transform: translateX(-69%);
+    }
+
+    /* END OF STATISTICS */
+    /* TESTIMONALS */
+    .testimonials img {}
+
+    /* END OF TESTIMONALS */
     /* CONTACT */
     .contact {
         background: linear-gradient(#500095 30%, #8900FF 30%, #8900FF 32%, #FFFFFF 0);
