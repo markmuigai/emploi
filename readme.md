@@ -180,6 +180,9 @@ php artisan command:ImportData
 
 >> press ctrl+b then d to exit. This will keep the process running when terminal is closed
 
+>> open another tmux and run
+php artisan command:ImportPosts
+
 g) Setup supervisor to manage queues
 
 All Done
