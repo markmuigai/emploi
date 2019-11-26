@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Socialite;
 use Auth;
 
+use App\Country;
+use App\Industry;
 use App\User;
 
 class SocialiteController extends Controller
@@ -25,11 +27,11 @@ class SocialiteController extends Controller
         	Auth::loginUsingId($matchedUser->id, true);
         	return redirect('/home');
         }
-        else
-        {
-        	//new user
-        }
-        dd($user);
-        // $user->token;
+        //new user
+        return view('auth.social-register')
+            ->with('industries',Industry::active())
+            ->with('countries',Country::active())
+            ->with('name',$user->getName())
+            ->with('email',$user->getEmail());
     }
 }
