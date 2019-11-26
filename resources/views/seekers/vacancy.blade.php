@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <a class="nav-link active" id="job-description-tab" data-toggle="tab" href="#job-description" role="tab" aria-controls="job-description" aria-selected="true">Job Description</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="shortlist-tab" data-toggle="tab" href="#shortlist" role="tab" aria-controls="shortlist" aria-selected="false">How to Apply</a>
+        <a class="nav-link" id="apply-tab" data-toggle="tab" href="#apply" role="tab" aria-controls="apply" aria-selected="false">How to Apply</a>
     </li>
 </ul>
 <div class="row">
@@ -48,7 +48,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <hr>
                         <div class="row pb-3">
                             <div class="col-12 col-md-6 col-lg-7">
-                                <h5>{{ $post->title }} <span class="badge badge-light">{{ $post->positions }} Positions</span></h5>
+                                <h5>{{ $post->title }} <span class="badge badge-secondary">{{ $post->positions }} Positions</span></h5>
                                 <a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
                                 <p>
                                     <i class="fas fa-map-marker-alt orange"></i>
@@ -68,7 +68,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         @else
                                         Login to view salary
                                         @endif
-                                        
+
                                     </strong>
                                 </p>
                                 <p>
@@ -92,7 +92,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <!-- END OF ALL JOBS -->
             <!-- ACTIVE JOBS -->
-            <div class="tab-pane fade" id="shortlist" role="tabpanel" aria-labelledby="shortlist-tab">
+            <div class="tab-pane fade" id="apply" role="tabpanel" aria-labelledby="apply-tab">
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                     <h5>Application Instructions</h5>

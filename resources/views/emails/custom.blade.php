@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +69,7 @@
         .ExternalClass div {
             line-height: 100%;
         }
+
         /* Rounded corners for advanced mail clients only */
 
         @media all and (min-width: 560px) {
@@ -81,15 +80,17 @@
                 -khtml-border-radius: 8px;
             }
         }
+
         /* Set color for auto links (addresses, dates, etc.) */
         .tr {
-        	margin-bottom: 0.5em;
+            margin-bottom: 0.5em;
         }
 
 
         a,
         a:hover {
-            color:  #500095;;
+            color: #500095;
+            ;
         }
 
         .footer a,
@@ -134,7 +135,8 @@
                             </div>
 
 
-                            <a target="_blank" style="text-decoration: none;" href="https://github.com/konsav/email-templates/"><img border="0" vspace="0" hspace="0" src="{{ asset('images/logo.png') }}" width="100" height="30" alt="Logo" title="Logo" style="
+                            <a target="_blank" style="text-decoration: none;" href="https://github.com/konsav/email-templates/"><img border="0" vspace="0" hspace="0" src="{{ asset('images/logo.png') }}" width="100" height="30" alt="Logo" title="Logo"
+                                  style="
 				color: #000000;
 				font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
 
@@ -173,7 +175,9 @@
 
 
                     <tr>
-                        <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;			padding-top: 20px;" class="hero">                  <a target="_blank" style="text-decoration: none;" href="{{ url('/') }}"><img border="0" vspace="0" hspace="0" src="{{ asset('images/email-banner.jpg') }}" alt="Empire state bridge" title="Emploi" width="560" style="	width: 100%;			max-width: 560px;			color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
+                        <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;			padding-top: 20px;" class="hero"> <a target="_blank" style="text-decoration: none;" href="{{ url('/') }}"><img
+                                  border="0" vspace="0" hspace="0" src="{{ asset('images/email-banner.jpg') }}" alt="Empire state bridge" title="Emploi" width="560"
+                                  style="	width: 100%;			max-width: 560px;			color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
                         </td>
                     </tr>
 
@@ -186,9 +190,9 @@
                             font-family: sans-serif;" class="paragraph">
                             Hello<strong>{{ ' '.$name }}</strong>,
                             <br>
-                    <?php echo $contents; ?>
+                            <?php echo $contents; ?>
 
-                    <!-- End of WRAPPER -->
+                            <!-- End of WRAPPER -->
                 </table>
 
                 <!-- WRAPPER -->
@@ -207,15 +211,17 @@
                                     <!-- ICON 1 -->
                                     <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 10px; padding-right: 10px; border-collapse: collapse; border-spacing: 0;">
                                         <a target="_blank" href="https://facebook.com/jobsikaz" style="text-decoration: none;">
-                                        	<img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;					color: #000000;" alt="F" title="Facebook" width="44" height="44" src="{{ asset('images/facebook.png') }}">
-										</a>
+                                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;					color: #000000;" alt="F"
+                                              title="Facebook" width="44" height="44" src="{{ asset('images/facebook.png') }}">
+                                        </a>
                                     </td>
 
                                     <!-- ICON 2 -->
                                     <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 10px; padding-right: 10px; border-collapse: collapse; border-spacing: 0;">
                                         <a target="_blank" href="https://www.linkedin.com/company/jobsikaz-com?trk=biz-companies-cym" style="text-decoration: none;">
-                                        	<img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;					color: #000000;" alt="F" title="LinkedIn" width="44" height="44" src="{{ asset('images/linkedin1.png') }}">
-										</a>
+                                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;					color: #000000;" alt="F"
+                                              title="LinkedIn" width="44" height="44" src="{{ asset('images/linkedin1.png') }}">
+                                        </a>
                                     </td>
 
                                 </tr>
@@ -231,7 +237,7 @@
 							padding-bottom: 20px;
 							color: #999999;
 							font-family: sans-serif;" class="footer">
-							We've introduced dignity into the job search industry by converting jobseekers from being part of an unrecognized pool, to being clients who are treated with dignity and are able to stand out for employers to recognize.
+                            We've introduced dignity into the job search industry by converting jobseekers from being part of an unrecognized pool, to being clients who are treated with dignity and are able to stand out for employers to recognize.
 
 
                             <br>

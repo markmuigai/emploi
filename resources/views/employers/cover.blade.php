@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi')
 
@@ -7,34 +7,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'Cover Letter')
 
-<div class="container">
-    <div class="single">
-	   <div class="form-container row">
-        <h2 class="col-md-8 col-md-offset-2" >
-        	Cover Letter <br>
-
+<div class="card">
+    <div class="card-body">
+        <h2>
+            <a href="/employers/browse/{{ $application->user->username }}" class="orange">
+                {{ $application->user->name }}
+            </a>
         </h2>
-
-        <div class="col-md-8 col-md-offset-2">
-        	<p style="text-align: center;">
-        		<a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a>
-        		<br>
-        		<i><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($application->created_at))->diffForHumans() ?></i><br>
-        		<a href="/employers/browse/{{ $application->user->username }}">
-        			@if($application->post->isShortlisted($application->user->seeker))
-        				<i class="fa fa-check"></i>
-        			@endif
-        			<strong>{{ $application->user->name }}</strong>
-        		</a>
-
-        	</p>
-        	<hr>
-        	<?php echo $application->cover ?>
-        </div>
-
+        <p class="orange">
+            <a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a>
+        </p>
+        <p>
+            <?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($application->created_at))->diffForHumans() ?>
+        </p>
+        <hr>
+        <p>
+            <?php echo $application->cover ?>
+        </p>
     </div>
- </div>
 </div>
 
 @endsection

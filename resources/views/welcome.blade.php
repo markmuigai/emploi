@@ -169,9 +169,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     Login to view salary
                     @endif
                 </p>
-                @guest
-                @else
-                @endguest
             </div>
         </a>
         @endforeach
