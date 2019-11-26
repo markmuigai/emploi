@@ -76,6 +76,9 @@
 	<link href="{{ asset('css/custom.css') }}" rel='stylesheet' type='text/css' />
 
 	<!--font-Awesome-->
+	<!-- Notify JS Notifications -->
+    <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
 </head>
 
 <body style="font-family: Calibri">

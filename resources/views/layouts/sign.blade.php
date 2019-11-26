@@ -50,6 +50,9 @@
             window.scrollTo(0, 1);
         }
     </script>
+    <!-- Notify JS Notifications -->
+    <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}"></script>
 </head>
