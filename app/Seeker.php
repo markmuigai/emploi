@@ -391,15 +391,81 @@ class Seeker extends Model
             $performance = array_sum($performance ) / count($performance);
             $workQuality = array_sum($workQuality ) / count($workQuality);
             $targets = array_sum($targets ) / count($targets);
-            // dd($discplinary);
-            // $discplinary_multiplier = 1;
-            // for($i=0; $i<count($discplinary); $i++)
-            // {
-            //     if($discplinary[$i] == 'many')
-            //         $discplinary_multiplier = 
 
-            // }
             $perc += $ref;
+
+            //would you rehire
+            $hire = false;
+            $nohire = false;
+            for($i=0; $i<count($rehire);$i++)
+            {
+                if($discplinary[$i] == 'no')
+                    $hire = true;
+                if($discplinary[$i] == 'maybe')
+                    $nohire = true;
+            }
+            if($hire)
+                $perc = $perc * 0.7;
+            elseif($nohire)
+                $perc = $perc * 0.85;
+
+            //performance
+            if($performance<10)
+                $perc = $perc * 0.25;
+            elseif($performance<25)
+                $perc = $perc * 0.5;
+            elseif($performance<50)
+                $perc = $perc * 0.75;
+            elseif($performance<75)
+                $perc = $perc * 1.0;
+            else
+                $perc = $perc * 1.25;
+
+            //work quality
+            if($workQuality<10)
+                $perc = $perc * 0.25;
+            elseif($workQuality<25)
+                $perc = $perc * 0.5;
+            elseif($workQuality<50)
+                $perc = $perc * 0.75;
+            elseif($workQuality<75)
+                $perc = $perc * 1.0;
+            else
+                $perc = $perc * 1.25;
+
+            //ability to meet targets
+            if($targets<10)
+                $perc = $perc * 0.25;
+            elseif($targets<25)
+                $perc = $perc * 0.5;
+            elseif($targets<50)
+                $perc = $perc * 0.75;
+            elseif($targets<75)
+                $perc = $perc * 1.0;
+            else
+                $perc = $perc * 1.25;
+
+            //discplinary cases
+            $gross = false;
+            $mod = false;
+            $minor = false;
+            for($i=0; $i<count($discplinary);$i++)
+            {
+                if($discplinary[$i] == 'some')
+                    $mod = true;
+                if($discplinary[$i] == 'many')
+                    $gross = true;
+                if($discplinary[$i] == 'minor')
+                    $minor = true;
+            }
+            if($gross)
+                $perc = $perc * 0.5;
+            elseif($mod)
+                $perc = $perc * 0.85;
+            elseif($minor)
+                $perc = $perc * 0.95;
+
+            
         }
 
         
