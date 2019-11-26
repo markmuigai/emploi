@@ -9,14 +9,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', $post->title )
 <!-- NAV-TABS -->
-<ul class="nav nav-tabs" id="jobDetails" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="job-description-tab" data-toggle="tab" href="#job-description" role="tab" aria-controls="job-description" aria-selected="true">Job Description</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="apply-tab" data-toggle="tab" href="#apply" role="tab" aria-controls="apply" aria-selected="false">How to Apply</a>
-    </li>
-</ul>
+<style type="text/css">
+    strong {
+        display: block;
+    }
+</style>
 <div class="row">
     <div class="col-lg-9 col-md-8 col-12">
         <!-- NAV-TAB CONTENT -->
@@ -48,43 +45,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <hr>
                         <div class="row pb-3">
                             <div class="col-12 col-md-6 col-lg-7">
-                                <h5>{{ $post->title }} <span class="badge badge-secondary">{{ $post->positions }} Positions</span></h5>
-                                <a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
+                                <h5>{{ $post->title }}</h5>
                                 <p>
                                     <i class="fas fa-map-marker-alt orange"></i>
-                                    {{ $post->location->name }}, {{ $post->location->country->name }}
-                                </p>
-                                <p>
-                                    <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                                     {{ $post->country->name }}
                                 </p>
 
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-right">
 
+                                
                                 <p>
-                                    <strong>
-                                        @if(isset(Auth::user()->id))
-                                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
-                                        @else
-                                        Login to view salary
-                                        @endif
-
-                                    </strong>
-                                </p>
-                                <p>
-                                    <i class="orange far fa-calendar-check"></i> {{ $post->deadline }}
-                                    <br>
-                                    Apply within <?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->deadline))->diffForHumans() ?>
+                                    <i class="orange far fa-calendar-check"></i> Posted <?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() ?>
                                 </p>
                             </div>
                         </div>
-                        <!-- ABOUT THE COMPANY -->
-                        <h5 class="pt-3 pb-2">About {{ isset(Auth::user()->id) ? $post->company->name : ' the Company' }}</h5>
-                        <p><?php echo $post->company->about; ?></p>
                         <!-- JOB DESCRIPTION -->
                         <h5 class="pt-3 pb-2">Job Description</h5>
                         <div>
-                            <?php echo $post->responsibilities; ?>
+                            <?php echo $post->contents; ?>
                         </div>
                     </div>
                 </div>
@@ -104,17 +83,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @else
 
                         @if(Auth::user()->role == 'seeker')
-                            @if( $post->how_to_apply )
-                            <div>
-                                <?php echo $post->how_to_apply; ?>
-                            </div>
-                            @else
-                                <p>
-                                    Follow the link below, submit your cover letter. Your current resume would be attached automatically. <br><br>
-                                    <a href="/vacancies/{{ $post->slug }}/apply" class="btn btn-success">Submit Application</a>
+                            <p>
+                                Application instructions have been included in the job description.
 
-                                </p>
-                            @endif
+                            </p>
                         @else
                         <p>
                             Only job seekers can apply for this position.

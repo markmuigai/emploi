@@ -30,6 +30,10 @@ class Industry extends Model
         return $this->hasMany(Post::class);
     }
 
+    public function oldPostIndustries(){
+        return $this->hasMany(OldPostIndustry::class);
+    }
+
     public static function top($counter = 10){
         return Industry::where('status','active')->limit($counter)->get();
     }

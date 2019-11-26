@@ -454,7 +454,22 @@ class DatabaseSeeder extends Seeder
             IndustrySkill::create([ 'name' => 'Valve installation', 'industry_id' => 31 ]);
             IndustrySkill::create([ 'name' => 'Building plan reveiew', 'industry_id' => 31 ]);
 
-        Industry::create([ 'name' => 'Uncategorized', 'slug' => 'uncategorized' ]);
+        Industry::create([ 'name' => 'Uncategorized', 'slug' => 'uncategorized' ]);//32
+
+        Industry::create([ 'name' => 'Internships', 'slug' => 'internships' ]);//33
+
+        Industry::create([ 'name' => 'Drivers', 'slug' => 'drivers' ]);//34
+
+        Industry::create([ 'name' => 'Translation and Transcription', 'slug' => 'translation-and-transcription' ]);//35
+
+        Industry::create([ 'name' => 'Nursing', 'slug' => 'nursing' ]);//36
+
+        Industry::create([ 'name' => 'Store keeper', 'slug' => 'store-keeper' ]);//37
+
+        Industry::create([ 'name' => 'Auditing', 'slug' => 'auditing' ]);//38
+
+        Industry::create([ 'name' => 'Graduate Jobs', 'slug' => 'graduate-jobs' ]);//39
+
 
         Country::create([ 'name' => 'Kenya','code' => 'KE', 'prefix' => '254','currency' => 'KES' ]);
         Country::create([ 'name' => 'Uganda','code' => 'UG', 'prefix' => '256','currency' => 'UGX' ]);
