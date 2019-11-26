@@ -19,7 +19,7 @@ class ImportData extends Command
 
     protected $signature = 'command:ImportData';
 
-    protected $description = 'imports data from storage\app\employers.csv and seekers.csv';
+    protected $description = 'imports data from cv-portal';
 
     public function __construct()
     {

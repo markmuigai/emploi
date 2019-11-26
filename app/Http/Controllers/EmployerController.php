@@ -307,6 +307,9 @@ class EmployerController extends Controller
 
     public function rsi(Request $request, $slug){
         $post = Post::where('slug',$slug)->firstOrFail();
+        $saved = false;
+        if(isset($request->saved))
+            $saved = true;
         return view('employers.dashboard.rsi')
                     ->with('educationLevels',EducationLevel::all())
                     ->with('companySizes',CompanySize::all())
@@ -316,7 +319,8 @@ class EmployerController extends Controller
                     ->with('personalityTraits',PersonalityTrait::orderBy('name')->get())
                     ->with('industrySkills',IndustrySkill::where('industry_id',$post->industry_id)->orderBy('name')->get())
                     ->with('weights',RsiWeight::all())
-                    ->with('post',$post);
+                    ->with('post',$post)
+                    ->with('saved',$saved);
         //return $request->all();
     }
 
@@ -450,7 +454,7 @@ class EmployerController extends Controller
         }
 
 
-        return redirect('/employers/applications/'.$post->slug.'/rsi');
+        return redirect('/employers/applications/'.$post->slug.'/rsi?saved=true');
     }
 
     public function toggleShortlist(Request $request, $slug, $username){

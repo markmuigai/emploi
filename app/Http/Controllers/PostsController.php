@@ -12,6 +12,7 @@ use App\Country;
 use App\EducationLevel;
 use App\Industry;
 use App\Location;
+use App\OldPost;
 use App\Post;
 use App\User;
 use App\VacancyType;
@@ -317,9 +318,19 @@ class PostsController extends Controller
 
 
 
-        $post = Post::where('slug',$param)->where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->firstOrFail();
-        return view('seekers.vacancy')
+        $post = Post::where('slug',$param)->where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->first();
+
+        if(isset($post->id))
+        {
+            return view('seekers.vacancy')
                 ->with('post',$post);
+        }
+
+        $post = OldPost::where('slug',$param)->where('category','vacancies')->firstOrFail();
+        return view('seekers.vacancy-old')
+                ->with('post',$post);
+
+        
     }
 
     public function edit($slug)

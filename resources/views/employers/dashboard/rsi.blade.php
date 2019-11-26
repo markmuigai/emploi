@@ -15,6 +15,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container" id="rsi-container">
     <div class="single">
 
+    	@if($saved)
+    	<script type="text/javascript">
+    		$().ready(function(){
+    			notify('RSI Model Saved','success');
+    		});
+    	</script>
+    	@endif
+
 	 <div class="col-md-8 single_right">
 	    <h3>
 	    	@if(!$post->hasModelSeeker())

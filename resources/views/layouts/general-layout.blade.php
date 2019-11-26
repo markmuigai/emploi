@@ -94,6 +94,9 @@
             window.scrollTo(0, 1);
         }
     </script> -->
+    <!-- Notify JS Notifications -->
+    <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
     <!-- Slick JS -->
     <script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->

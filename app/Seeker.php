@@ -399,9 +399,10 @@ class Seeker extends Model
             //         $discplinary_multiplier = 
 
             // }
+            $perc += $ref;
         }
 
-        //$perc += $ref;
+        
 
         
 

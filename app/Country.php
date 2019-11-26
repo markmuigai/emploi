@@ -28,6 +28,10 @@ class Country extends Model
     	return $this->hasMany(Seeker::class);
     }
 
+    public function oldPosts(){
+        return $this->hasMany(OldPost::class);
+    }
+
     public function locations(){
         return $this->hasMany(Location::class);
     }

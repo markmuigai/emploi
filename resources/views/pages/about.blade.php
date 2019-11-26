@@ -112,8 +112,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 
-    <h3 class="mt-5 orange text-center">Our Team</h3>
-    <div class="card-group">
+    <h3 class="mt-5 orange text-center" style="display: none">Our Team</h3>
+    <div class="card-group" style="display: none">
         <div class="card">
             <div class="card-body team-member text-center">
                 <img src="images/team/sophy.png" alt="" />
@@ -153,7 +153,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    <div class="card-group">
+    <div class="card-group" style="display: none">
         <div class="card">
             <div class="card-body team-member text-center">
                 <img src="images/avatar.png" alt="" />

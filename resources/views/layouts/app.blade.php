@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Notify JS Notifications -->
+    <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

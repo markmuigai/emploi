@@ -313,39 +313,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container py-5 text-center">
     <h2>Featured Employers</h2>
     <div class="employers-carousel py-4">
+        <?php 
+        $featuredEmployers = ['abcl','apa','bingwa','biolight','bridgecap','brilliant','crystal','ecopharm','ess','esto-africa','global-internet','jambo_logistics','knbs','kpl','limelight','mboga','neema','novacent','papaya','pelings','pergamon','platinum_credit','rvibs','saif','sanlam','sirmit','texas','timecon','uniliver','wilco','zydii'];
+        ?>
+
+        @forelse($featuredEmployers as $f)
         <div class="d-flex justify-content-center my-2">
-            <img src="images/Africote.png" alt="">
+            <img src="images/logos/{{ $f }}.png" alt="">
         </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="images/Batiment-group-limited.png" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="images/Cartridge-mania.png" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="images/Jubilee-insurance.png" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="images/Kendirita-tours-and-travel.png" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="images/Sprout-ke.png" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="{{asset('images/avatar.png')}}" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="{{asset('images/avatar.png')}}" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="{{asset('images/avatar.png')}}" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="{{asset('images/avatar.png')}}" alt="">
-        </div>
-        <div class="d-flex justify-content-center my-2">
-            <img src="{{asset('images/avatar.png')}}" alt="">
-        </div>
+        @empty
+        @endforelse
     </div>
     <a href="/companies" class="btn btn-orange">See Who Is Hiring</a>
 </div>
