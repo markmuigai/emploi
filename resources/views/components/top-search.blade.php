@@ -1,7 +1,7 @@
 <div class="top-search py-4">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>Popular Categories</h5>
                 <ul>
                     @foreach(\App\Industry::top(10) as $f)
@@ -9,7 +9,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>Popular Jobs</h5>
                 <ul>
                     @foreach(\App\Post::recent() as $f)
@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>Popular Locations</h5>
                 <ul>
                     <li>
@@ -25,7 +25,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>Popular Companies</h5>
                 <ul>
                     <li>

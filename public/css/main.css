@@ -44,6 +44,20 @@ ul.numeric {
     padding-left: 1rem;
 }
 
+ul.tick {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+ul.tick li {
+    padding: 0.5rem 0;
+}
+
+ul.tick li:before {
+    content: '✓';
+}
+
 .form-row {
     /* border: 2px solid var(--primary); */
 }
@@ -67,9 +81,10 @@ ul.numeric {
     color: var(--secondary) !important;
 }
 
-/* .purple {
+.purple {
     color: var(--primary) !important;
-} */
+}
+
 .coloured-card .card {
     padding: 2rem 0.5rem;
     background: var(--primary);
@@ -293,6 +308,11 @@ img.profile-avatar {
     height: auto;
 } */
 /* FOOTER */
+.top-search, .search-bar, footer {
+    position: relative;
+    z-index: 100;
+}
+
 footer {
     background-color: #F2F2F2;
     color: #737373;
@@ -364,7 +384,7 @@ button.close {
 
 main {
     padding: 4.7rem 0 0;
-    min-height: 40.5vh;
+    min-height: 50.5vh;
     /* background: #F9F9F9; */
 }
 
@@ -755,10 +775,19 @@ a .fab:hover {
 /* CONTACT */
 .contact {
     background: linear-gradient(to right, #500095 48%, #8900FF 48%, #8900FF 50%, #FFFFFF 0);
+    height: 88vh;
 }
 
 .contact .address {
     color: white;
+}
+
+.contact .container, .contact .row {
+    height: 100%;
+}
+
+.contact .address i {
+    font-size: 2rem;
 }
 
 @media only screen and (max-width: 996px) {
@@ -767,7 +796,7 @@ a .fab:hover {
     }
 
     .navbar-brand img {
-        height: 35px;
+        height: 30px;
     }
 
     main {
@@ -799,7 +828,7 @@ a .fab:hover {
         z-index: 100;
         width: 85%;
         left: 50%;
-        transform: translateX(-58%);
+        transform: translateX(-57.5%);
     }
 
     /* END OF STATISTICS */
@@ -818,25 +847,38 @@ a .fab:hover {
     .about .card-body, .services>.container>.card>.card-body {
         padding: 3rem 10%;
     }
+
+    .contact {
+        height: 70vh;
+    }
 }
 
 @media only screen and (max-width: 425px) {
     p, li {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    main {
+        overflow-x: hidden;
     }
 
     main.sign-page {
         /* background: linear-gradient(-183deg, #500095 16.5rem, #8900FF 16.5rem, #8900FF 18rem, #FFFFFF 0); */
         padding: 2rem 0;
-        overflow-x: hidden;
     }
 
     main.sign-page p {
         font-size: 1em;
     }
 
+    /* NAVBAR */
+    .nav-link {
+        padding: 0rem 1rem;
+    }
+
     /* LANDING */
     .landing {
+        background-position: right;
         height: 70vh;
     }
 
@@ -856,7 +898,7 @@ a .fab:hover {
         z-index: 100;
         width: 80%;
         left: 50%;
-        transform: translateX(-69%);
+        transform: translateX(-65%);
     }
 
     /* END OF STATISTICS */
@@ -866,8 +908,19 @@ a .fab:hover {
     /* END OF TESTIMONALS */
     /* CONTACT */
     .contact {
-        background: linear-gradient(#500095 30%, #8900FF 30%, #8900FF 32%, #FFFFFF 0);
+        background: linear-gradient(#500095 46%, #8900FF 46%, #8900FF 48%, #FFFFFF 0);
+        height: auto;
     }
 
     /* END OF CONTACT */
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    .landing {
+        height: 100vh;
+    }
+
+    .landing .container .content {
+        width: 80%;
+    }
 }

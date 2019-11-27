@@ -59,6 +59,9 @@ Route::post('/employers/register', 'EmployerController@create');
 
 //Route::get('/employers/publish', function () {			    	return view('employers.publish');		});
 
+Route::get('/employers/rate-card', function () {    	return view('employers.rate-card');	});
+
+
 // *************************
 Route::get('/test', function () {    	return view('new-design.test');	});
 Route::get('/social', function () {    	return view('new-design.test-login');	});

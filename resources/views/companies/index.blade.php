@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
                 <p class="badge badge-secondary">{{ count($c->activePosts) }} Vacancies</p>
                 <h5>
-                    <a href="/companies/{{ $c->name }}" style="font-weight: bold">
+                    <a href="/companies/{{ $c->name }}">
                         {{ $c->name }}
                     </a>
                 </h5>

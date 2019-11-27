@@ -15,8 +15,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h4 class="text-uppercase">Get Your Job Done</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that advertises job seekers to employers</p>
+            @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
+            <a href="/vacancies/create" class="btn btn-orange px-4">Post A Job</a>
+            @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+            <a href="/vacancies" class="btn btn-orange px-4">Apply For A Job</a>
+            @else
             <a href="/join" class="btn btn-orange px-4">Join Now</a>
             <a href="/login" class="btn btn-white px-4">Login</a>
+            @endif
         </div>
     </div>
 </div>
@@ -47,21 +53,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card mx-5">
             <div class="card-body text-center py-3 py-lg-4">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-briefcase"></i>
                         <h5>Total Jobs</h5>
                         <h1 class="counter">14515</h1>
                         <p>Find your next job effortlessly.</p>
                         <hr class="d-block d-md-none">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-clipboard-check"></i>
                         <h5>Total Candidates</h5>
                         <h1 class="counter">2451</h1>
                         <p>Get hired will minimal effort.</p>
                         <hr class="d-block d-md-none">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-building"></i>
                         <h5>Total Companies</h5>
                         <h1 class="counter">451</h1>
@@ -82,7 +88,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="orange">Our Services</h2>
                 <p>We provide you with seamless job placement though superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
                 <div class="row pt-2 service-cards">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6">
                         <h5>Employer Services</h5>
                         <a href="/employers/browse" class="card m-2 py-2">
                             <div class="card-body">
@@ -115,7 +121,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6">
                         <h5>Job Seeker Services</h5>
                         <a href="/job-seekers/premium-placement" class="card m-2 py-2">
                             <div class="card-body">
@@ -162,7 +168,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <h4 class="text-center">No Jobs Available Yet.</h4>
     @else
     <div class="featured-carousel">
-        @foreach($posts as $p)
+        @forelse($posts as $p)
         <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
@@ -180,7 +186,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </p>
             </div>
         </a>
-        @endforeach
+        @empty
+        @endforelse
     </div>
     <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
     @endif
@@ -194,7 +201,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-md-2">
+                    <div class="col-7 col-sm-5 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
@@ -210,7 +217,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-md-2">
+                    <div class="col-7 col-sm-5 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
@@ -226,7 +233,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-md-2">
+                    <div class="col-7 col-sm-5 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
@@ -242,7 +249,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-md-2">
+                    <div class="col-7 col-sm-5 col-md-2">
                         <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
@@ -264,7 +271,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <h2 class="text-center">Blogs And News</h2>
         <div class="row">
             <div class="col-lg-5">
-                @foreach($blogs->slice(0,1) as $blog)
+                @forelse($blogs->slice(0,1) as $blog)
                 <div class="card">
                     <div class="card-body">
                         <div class="latest-blog-image" style="background-image: url('{{ asset($blog->imageUrl) }}')"></div>
@@ -277,17 +284,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                @endforelse
             </div>
             <div class="col-lg-7">
-                @foreach ($blogs->slice(1, 3) as $blog)
+                @forelse ($blogs->slice(1, 3) as $blog)
                 <div class="card mb-lg-3 my-2">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-3 col-md-2">
                                 <img src="{{ asset($blog->imageUrl) }}" alt="" class="w-100">
                             </div>
-                            <div class="col-10">
+                            <div class="col-9 col-md-10">
                                 <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                                 <div class="d-flex">
                                     <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
@@ -299,7 +307,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                @endforelse
             </div>
         </div>
         <div class="text-center">
@@ -313,7 +322,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container py-5 text-center">
     <h2>Featured Employers</h2>
     <div class="employers-carousel py-4">
-        <?php 
+        <?php
         $featuredEmployers = ['abcl','apa','bingwa','biolight','bridgecap','brilliant','crystal','ecopharm','ess','esto-africa','global-internet','jambo_logistics','knbs','kpl','limelight','mboga','neema','novacent','papaya','pelings','pergamon','platinum_credit','rvibs','saif','sanlam','sirmit','texas','timecon','uniliver','wilco','zydii'];
         ?>
 
@@ -366,7 +375,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     }
                 },
                 {
-                    breakpoint: 425,
+                    breakpoint: 737,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint:500,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
@@ -387,7 +403,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         $('.employers-carousel').slick({
             infinite: true,
             rows: 2,
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 2,
             arrows: true,
             prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
@@ -396,6 +412,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             speed: 500,
             responsive: [{
                     breakpoint: 996,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 736,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1,
