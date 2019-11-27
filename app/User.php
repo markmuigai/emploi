@@ -166,6 +166,14 @@ class User extends Authenticatable
             $contents = "
 
             Welcome to Emploi. We've streamlined the recruitment process and introduced the Role Suitability Index which ranks applicants. <br>
+            Use our Talent database and powerful Search-Sort-Assess-Score engine to cut down your recruitment workload by Up to 70% and your costs By Up to 65%. Get End-to-End powerful Recruitment tools; Process Quality Checks; 90 Day candidate Guarantee.
+            <br>
+            If you require assistance, kindly don't hesitate to contact Margaret. <br>
+            <b>Margaret Ongachi</b>
+            Email: <a href='mailto:margaret@emploi.co'>margaret@emploi.co</a>
+            Phone: +254 702 068 282 <br><br>
+            Glad to have you on board
+            <b></b>
             ";
             EmailJob::dispatch($this->name, $this->email, 'Warm Welcome to Emploi', $caption, $contents);
         }
