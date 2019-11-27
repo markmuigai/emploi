@@ -12,11 +12,42 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="landing">
     <div class="container">
         <div class="content">
+            @guest
             <h4 class="text-uppercase">Get Your Job Done</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that advertises job seekers to employers</p>
             <a href="/join" class="btn btn-orange px-4">Join Now</a>
             <a href="/login" class="btn btn-white px-4">Login</a>
+            @else
+            @if(Auth::user()->role == 'seeker')
+            <h4 class="text-uppercase">Get Your Job Done</h4>
+            <h1>Blast Off Your Career</h1>
+            <p>Welcome to Emploi, an online placement platform that'll get you a job</p>
+            <a href="/vacancies" class="btn btn-orange px-4">Vacancies</a>
+            <a href="/job-seekers/services" class="btn btn-white px-4">Services</a>
+            @endif
+            @if(Auth::user()->role == 'employer')
+            <h4 class="text-uppercase">Hire with ease</h4>
+            <h1>Premium Recruitment</h1>
+            <p>Welcome to Emploi, an online placement platform. Hire with our <a href="/employers/role-suitability-index">Role Suitability Index</a> to rank applications</p>
+            <a href="/employers/publish" class="btn btn-orange px-4">Advertise</a>
+            <a href="/employers/services" class="btn btn-white px-4">Services</a>
+            @endif
+            @if(Auth::user()->role == 'admin')
+            <h4 class="text-uppercase">Hello {{ Auth::user()->name }}</h4>
+            <h1>Admin Logged in</h1>
+            <p>Manage activities happening on Emploi from the administrator's dashboard for y</p>
+            <a href="/home" class="btn btn-orange px-4">Admin Dashboard</a>
+            <a href="/logout" class="btn btn-white px-4">Logout</a>
+            @endif
+            @if(Auth::user()->role == 'super-admin')
+            <h4 class="text-uppercase">Hello {{ Auth::user()->name }}</h4>
+            <h1>Super-Admin Logged in</h1>
+            <p>Manage administrators on Emploi, you are in control.</p>
+            <a href="/home" class="btn btn-orange px-4">Super-Admin Dashboard</a>
+            <a href="/logout" class="btn btn-white px-4">Logout</a>
+            @endif
+            @endguest
         </div>
     </div>
 </div>
@@ -332,10 +363,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="get-started">
     <div class="container">
         <div class="content">
+            @guest
             <h1>Find the Right Job for you.</h1>
             <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
             <h4>More than <span>2165</span> professional got their path to success.</h4>
             <a href="/register" class="btn btn-orange">Get Started</a>
+            <a href="/contact" class="btn btn-white px-4">Contact Us</a>
+            @else
+            @if(Auth::user()->role == 'seeker')
+            <h1>Find the Right Job for you.</h1>
+            <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
+            <h4>More than <span>2165</span> professional got their path to success.</h4>
+            <a href="/register" class="btn btn-orange">Get Started</a>
+            <a href="/contact" class="btn btn-white px-4">Contact Us</a>
+            @endif
+            @if(Auth::user()->role == 'employer')
+            <h1>Let us recruit for you</h1>
+            <p>Looking to hire? We offer premium recruitment solutions that'll make sure you have the right candindate</p>
+            <h4>We conduct pre-assessment, background checks, proficiency tests, have a <span>ready pool of more than 20,000 job seekers</span> to start from.</h4>
+            <a href="/employers/publish" class="btn btn-orange">Advertise</a>
+            <a href="/contact" class="btn btn-white px-4">Contact Us</a>
+            @endif
+            @if(Auth::user()->role == 'admin')
+            <h1>Admin Logged In</h1>
+            <a href="/home" class="btn btn-orange">Dashboard</a>
+            <a href="/logout" class="btn btn-white px-4">Logout</a>
+            @endif
+            @if(Auth::user()->role == 'super-admin')
+            <h1>Super Admin Logged in</h1>
+            <a href="/home" class="btn btn-orange">Dashboard</a>
+            <a href="/logout" class="btn btn-white px-4">Logout</a>
+            @endif
+            @endguest
         </div>
     </div>
 </div>
