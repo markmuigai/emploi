@@ -32,9 +32,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 	   		<br><br>
 
-	   		<a href="/admin/employers" class="btn btn-sm btn-success">Manage Employers</a>	   		
+	   		<a href="/admin/employers" class="btn btn-sm btn-success">Employers</a>	   		
 	   		<a href="/admin/candidate-vetting" class="btn btn-sm btn-danger">Candidate Vetting</a>
-	   		<a href="/admin/cv-access"  class="btn btn-sm btn-info">CV Access Requests</a>
+	   		<a href="/admin/cv-requests"  class="btn btn-sm btn-info">CV  Requests</a>
 	   		<a href="/admin/premium-recruitment"  class="btn btn-sm btn-success">Premium Recruitment</a>
 
 	   		<br><br>

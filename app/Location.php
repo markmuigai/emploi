@@ -37,8 +37,8 @@ class Location extends Model
     	
     }
 
-    public static function top(){
-        return Location::where('status','active')->limit(10)->get();
+    public static function top($counter = 10){
+        return Location::where('status','active')->limit($counter)->get();
     }
 
     public function getSlugAttribute(){

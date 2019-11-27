@@ -196,11 +196,35 @@ class Post extends Model
     }
 
     public static function featured($counter = 10){
-        return Post::where('status','active')
+        $posts = Post::where('status','active')
                     ->where('featured','true')
                     ->where('deadline','>',Carbon::now()->format('Y-m-d'))
                     ->limit($counter)
                     ->get();
+        // if(count($posts) < $counter)
+        // {
+        //     $toAdd = count($posts) - $counter;
+        //     $recentPosts = Post::recent(30);
+        //     for($i=0; $i<$toAdd; $i++)
+        //     {
+        //         $post = $recentPosts[$i];
+        //         $added = false;
+        //         for($k=0; $k<count($posts);$k++)
+        //         {
+        //             if($post->id == $posts[$i]->id)
+        //             {
+        //                 $added = true;
+        //                 break;
+        //             }
+        //         }
+        //         if(!$added)
+        //         {
+        //             array_push($posts, $post);
+        //         }
+        //     }
+        // }
+
+        return $posts;
     }
 
     public static function recent($counter = 10){

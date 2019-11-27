@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 
+use App\CvRequest;
 use App\JobApplication;
 use App\Post;
 
@@ -27,6 +28,26 @@ class JobApplicationController extends Controller
 	    		'post_id' => $post->id,
 	    		'cover' => $request->cover
 	    	]);
+
+            $r = CvRequest::where('employer',$post->company->user->employer->id)
+                    ->where('seeker_id',$user->seeker->id)
+                    ->first();
+
+            if(isset($r->id))
+            {
+                $r->status = 'accepted';
+                $r->save();
+            }
+            else
+            {
+                CvRequest::create([
+                    'employer_id' => $post->company->user->employer->id, 
+                    'seeker_id' => $user->seeker->id, 
+                    'status' => 'accepted'
+                ]);
+            }
+
+            
 
 	    	if(isset($j->id))
 	    	{

@@ -167,14 +167,51 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
                 <div class="text-center">
-                    <p>{{ $user->name }}</p>
+                    <p style="font-weight: bold">{{ $user->name }}</p>
                     @if( $user->seeker->featured != 0 )
                     <p class="text-success"><strong><i class='fa fa-star'></i> Featured</strong></p>
                     @endif
-                    <p>{{ $user->seeker->date_of_birth ? $user->seeker->age.' years old' : '' }}</p>
-                    <p><a href="{{ $user->seeker->resumeUrl }}" class="btn btn-orange"><i class="fas fa-download"></i> Download CV</a></p>
-                    <p></p>
-                    <p></p>
+                    @if(isset($user->seeker->date_of_birth) && $user->seeker->age > 15)
+                    <p>{{  $user->seeker->age.' years old' }}</p>
+                    @endif
+
+                    @if(Auth::user()->employer->canViewSeeker($user->seeker))
+
+                        <p>
+                            Mail: <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+                        </p>
+                        @if(isset($user->seeker->phone_number))
+                        <p>Phone: <a href="tel:{{ $user->seeker->phone_number }}">{{ $user->seeker->phone_number }}</a></p>
+                        @endif
+                        
+                        <p>
+                            <a href="{{ $user->seeker->resumeUrl }}" class="btn btn-orange">
+                                <i class="fas fa-download"></i> Download CV
+                            </a>
+                        </p>
+
+                    @else
+                        <br>
+                        @if(Auth::user()->employer->canRequestSeeker($user->seeker))
+                            <p>
+                                <a href="/employers/request-cv/{{ $user->username }}" class="btn btn-orange">
+                                     Request Profile & CV
+                                </a>
+                            </p>
+                        @else
+
+                            <p>
+                                <a href="#" class="btn btn-link">
+                                     CV Already Requested
+                                </a>
+                            </p>
+
+                        @endif
+
+                    
+
+                    @endif
+
                 </div>
             </div>
         </div>

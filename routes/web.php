@@ -109,6 +109,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/company-sizes', 'EmployerController@cosizes');
     Route::post('/employers/applications/{slug}/{applicationId}/rsi/company-sizes', 'EmployerController@saveCosizes');
+
+    Route::get('/employers/browse/{username}/request-cv', 'EmployerController@cvRequest');
 });
 
 
@@ -123,6 +125,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
     Route::get('blog','AdminController@blog');
     Route::get('seekers/{username?}','AdminController@seekers');
+    Route::get('cv-requests/{id?}','AdminController@cvRequests');
     //Route::resource('posts', 'PostsController');
 });
 
