@@ -40,6 +40,30 @@ class Employer extends Model
         return false;
     }
 
+    public function canViewSeeker($seeker)
+    {
+        $r = CvRequest::where('employer_id',$this->id)->where('seeker_id',$seeker->id)->where('status','accepted')->first();
+
+        if(isset($r->id))
+            return true;
+        return false;
+    }
+
+    public function canRequestSeeker($seeker)
+    {
+        $r = CvRequest::where('employer_id',$this->id)
+                ->where('seeker_id',$seeker->id)
+                ->where('status','pending')
+                ->orWhere('status','denied')
+                ->first();
+
+        if(isset($r->id))
+            return false;
+        return true;
+    }
+
+
+
     public function savedProfiles(){
         return $this->hasMany(SavedProfile::class);
     }

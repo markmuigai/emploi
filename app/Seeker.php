@@ -46,6 +46,10 @@ class Seeker extends Model
     	return $this->belongsTo(Location::class,'location_id');
     }
 
+    public function cvrequests(){
+        return $this->hasMany(CvRequest::class);
+    }
+
     public function getSexAttribute(){
         if($this->gender == 'M')
             return 'Male';

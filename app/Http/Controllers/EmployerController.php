@@ -12,6 +12,7 @@ use App\Company;
 use App\CompanySize;
 use App\Country;
 use App\Course;
+use App\CvRequest;
 use App\EducationLevel;
 use App\Employer;
 use App\IqTest;
@@ -797,6 +798,19 @@ class EmployerController extends Controller
         return view('employers.rsi.cosizes')
                 ->with('personalities',Personality::all())
                 ->with('application',$app);
+    }
+
+    public function cvRequest(Request $request, $username){
+
+
+        $user = User::where('username',$username)->firstOrFail();
+        if($user->role != 'seeker')
+            abort(403);
+        $employer = Auth::user()->employer;
+        $r = CvRequest::requestCV($employer,$user->seeker);
+        //try accept cv
+        return redirect()->back();
+
     }
 
 }

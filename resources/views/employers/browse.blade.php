@@ -45,21 +45,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </form>
 <!-- END OF SEARCH CANDIDATES -->
 
-<!-- NAV-TABS -->
-<ul class="nav nav-tabs" id="jobDetails" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="job-description-tab" data-toggle="tab" href="#job-description" role="tab" aria-controls="job-description" aria-selected="true">All Candidates</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="shortlist-tab" data-toggle="tab" href="#shortlist" role="tab" aria-controls="shortlist" aria-selected="false">Shortlisted Candidates</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="selected-tab" data-toggle="tab" href="#selected" role="tab" aria-controls="selected" aria-selected="false">Selected Candidates</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="rejected-jobs-tab" data-toggle="tab" href="#rejected-jobs" role="tab" aria-controls="rejected-jobs" aria-selected="false">Rejected Candidates</a>
-    </li>
-</ul>
 
 <!-- NAV-TAB CONTENT -->
 <div class="tab-content pt-2" id="jobDetailsContent">

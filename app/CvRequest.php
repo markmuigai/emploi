@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CvRequest extends Model
 {
     protected $fillable = [
-        'employer_id', 'seeker_id', 'status'
+        'employer_id', 'seeker_id', 'status','created_at'
     ];
 
     public function acceptRequest(){
@@ -34,11 +34,15 @@ class CvRequest extends Model
     	return $this->belongsTo(Employer::class);
     }
 
+    public function seeker(){
+        return $this->belongsTo(Seeker::class);
+    }
+
     public static function requestCV($employer, $seeker){
-    	if($employer->hasRequestedCV($seeker))
+    	if($employer->canViewSeeker($seeker))
     		return false;
     	$r = CvRequest::create([
-			'employer_id' => $this->id, 
+			'employer_id' => $employer->id, 
 			'seeker_id' => $seeker->id
 		]);
 		if(isset($r->id))

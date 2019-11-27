@@ -8,6 +8,7 @@ use Auth;
 
 use App\Blog;
 use App\Company;
+use App\CvRequest;
 use App\Industry;
 use App\Location;
 use App\Post;
@@ -183,6 +184,25 @@ class AdminController extends Controller
                     ->with('locations',Location::orderBy('name')->get())
                     ->with('seekers',Seeker::paginate(10));
         //show all seekers
+    }
+
+    public function cvRequests(Request $request, $id=false){
+        if($id == false)
+        {
+            return view('admins.employers.cvrequests')
+                ->with('cvRequests',CvRequest::orderBy('id','DESC')->paginate(30));
+        }
+        else
+        {
+            $r = CvRequest::findOrFail($id);
+            if(!isset($request->status))
+                return redirect('/admin/cv-requests');
+            $r->status = $request->status;
+            $r->updated_at = now();
+            $r->save();
+            return redirect()->back();
+        }
+        
     }
 
 }
