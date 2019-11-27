@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <select class="form-control"  name="category">
                         @foreach($categories as $c)
                         <option value="{{ $c->id }}">
-                            {{ $c->code }} {{ $c->prefix }}
+                            {{ $c->name }}
                         </option>
                         @endforeach
                     </select>
