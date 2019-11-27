@@ -26,7 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         				{{ $blog->user->name }} || {{ $blog->category->name }}
         			</p>
         			<br><br>
-        			<a href="#" class="btn btn-sm btn-info">Edit</a>
+        			<a href="{{ url('/blog/'.$blog->slug.'/edit') }}" class="btn btn-sm btn-info">Edit</a>
                     <a href="{{ url('/blog/'.$blog->slug) }}" class="btn btn-sm btn-success" target="_blank">View</a>
         		</div>
         	</div>

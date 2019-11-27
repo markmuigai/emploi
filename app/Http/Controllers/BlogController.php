@@ -77,12 +77,31 @@ class BlogController extends Controller
 
     public function edit($id)
     {
-        //
+        $blog = Blog::where('slug',$id)->firstOrFail();
+        return view('admins.blog.edit')
+                ->with('categories', BlogCategory::where('status','active')->get())
+                ->with('blog',$blog);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $blog = Blog::where('slug',$id)->firstOrFail();
+        $blog->title = $request->title;
+        $blog->blog_category_id = $request->category;
+        $blog->contents = $request->contents;
+
+        $storage_path = '/public/blogs/';
+        if(isset($request->featured_image))
+        {
+            $blog->image1 = basename(Storage::put($storage_path, $request->featured_image));
+        }
+        if(isset($request->other_image))
+        {
+            $blog->image2 = basename(Storage::put($storage_path, $request->other_image));
+        }
+
+        $blog->save();
+        return redirect()->back();
     }
 
     public function destroy($id)
