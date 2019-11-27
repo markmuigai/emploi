@@ -18,6 +18,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
             <p><?php echo $blog->contents; ?></p>
+            @if($blog->image2)
+            <br>
+            <div class="latest-blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
+            @endif
             <hr>
             <p>
                 <i class="fas fa-share-alt"></i>
