@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Emploi :: Our Blog')
+@section('title','Emploi :: Career Centre')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
@@ -17,10 +17,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="latest-blog-image" style="background-image: url('{{ asset($blog->imageUrl) }}')"></div>
                     <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                     <div class="d-flex">
-                        <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
+                        <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
                     </div>
                     <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
-                    <p class="truncate"><?php echo $blog->contents; ?></p>
+                    <p class="truncate"><?php echo $blog->preview; ?></p>
                     <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                     <hr>
                     <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal"><i class="fas fa-share-alt"></i> Share</button>

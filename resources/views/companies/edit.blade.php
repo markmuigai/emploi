@@ -13,10 +13,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
         <h2>
             {{ $company->name }}
+            <small class="pull-right">
+                <a href="/profile" class="btn btn-sm btn-orange">My Profile</a>
+            </small>
         </h2>
-        <p>
-            <a href="/profile" class="btn btn-sm btn-danger">Back</a>
-        </p>
         <br><br>
         <form method="post" action="/companies/{{ $company->id }}" enctype="multipart/form-data">
             @csrf
@@ -28,17 +28,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
 
             <div class="form-group">
-                <label>Logo:</label>
-                <input type="file" name="logo" placeholder="" class="form-control">
+                <label>{{ $company->logo == null ? 'Upload Logo: *' : 'Update Logo:' }}</label>
+                <input type="file" name="logo" placeholder="" class="form-control" {{ $company->logo == null ? 'required=""' : '' }}>
             </div>
 
             <div class="form-group">
-                <label>Tagline:</label>
+                <label>{{ $company->cover == null ? 'Upload Cover: *' : 'Update Cover:' }}</label>
+                <input type="file" name="cover" placeholder="" class="form-control" {{ $company->cover == null ? 'required=""' : '' }}>
+            </div>
+
+            <div class="form-group">
+                <label>Tagline: *</label>
                 <input type="text" name="tagline" placeholder="" value="{{ $company->tagline }}" required="required" class="form-control">
             </div>
 
             <div class="form-group">
-                <label>Description:</label>
+                <label>Description: *</label>
                 <textarea class="form-control" name="about" rows="4">{{ $company->about }} </textarea>
             </div>
 

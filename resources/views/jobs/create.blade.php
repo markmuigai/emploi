@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body p-5">
                 <h3>Step 1 of 3</h3>
                 <p>
-                    <label>Company *</label>
+                    <label>Company *</label> <a href="/companies/create" class="btn btn-sm btn-link pull-right">create new</a>
                     <select name="company" class="form-control">
                         @foreach($companies as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
