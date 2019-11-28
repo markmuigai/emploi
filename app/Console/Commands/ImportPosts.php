@@ -126,31 +126,31 @@ class ImportPosts extends Command
                                 $contents = str_replace("1.$i","<p>",$contents);
                             }
 
-                            $instances = substr_count($contents,'src="http');
-                            for($i=0; $i<$instances; $i++)
-                            {
-                                $firstmatch = strpos($contents,'src="http');
-                                if($firstmatch == FALSE)
-                                    break;
-                                $endtag = strpos($contents," ",$firstmatch+5);
-                                $length = $endtag - $firstmatch;
-                                $src = substr($contents,$firstmatch+5,strlen($contents));
-                                $src = explode(" ", $src);
-                                $src = substr($src[0], 0,strlen($src[0])-1);
-                                $src = str_replace('http:', 'https:', $src);
-                                $handle = fopen($src, 'r');
-                                if(!$handle){
-                                    $contents = str_replace($src, '#', $contents);
-                                }
-                                else
-                                {
-                                    $type = pathinfo($src, PATHINFO_EXTENSION);
-                                    $data = file_get_contents($src);
-                                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                                    //dd($base64);
-                                    $contents = str_replace($src, $base64, $contents);
-                                }
-                            }
+                            // $instances = substr_count($contents,'src="http');
+                            // for($i=0; $i<$instances; $i++)
+                            // {
+                            //     $firstmatch = strpos($contents,'src="http');
+                            //     if($firstmatch == FALSE)
+                            //         break;
+                            //     $endtag = strpos($contents," ",$firstmatch+5);
+                            //     $length = $endtag - $firstmatch;
+                            //     $src = substr($contents,$firstmatch+5,strlen($contents));
+                            //     $src = explode(" ", $src);
+                            //     $src = substr($src[0], 0,strlen($src[0])-1);
+                            //     $src = str_replace('http:', 'https:', $src);
+                            //     $handle = fopen($src, 'r');
+                            //     if(!$handle){
+                            //         $contents = str_replace($src, '#', $contents);
+                            //     }
+                            //     else
+                            //     {
+                            //         $type = pathinfo($src, PATHINFO_EXTENSION);
+                            //         $data = file_get_contents($src);
+                            //         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+                            //         //dd($base64);
+                            //         $contents = str_replace($src, $base64, $contents);
+                            //     }
+                            // }
 
                             if (!preg_match('!!u', $contents) || !preg_match('!!u', $title) )
                             {

@@ -1,4 +1,4 @@
-#EMPLOI
+# EMPLOI
 
 ## About Emploi
 
@@ -171,6 +171,10 @@ SELECT users.email as employer_email, job_seekers.email as seeker_email, resume_
 LEFT JOIN users ON resume_requests.user_id = users.id
 LEFT JOIN job_seekers ON resume_requests.resume_id = job_seekers.id
 
+[iv] Export Wordpress posts from Career Centre database and save as posts.csv
+
+SELECT wp_posts.post_date, wp_posts.post_content, wp_posts.post_title, wp_posts.post_excerpt, wp_posts.post_status, wp_posts.post_modified, wp_posts.guid, wp_posts.post_mime_type, wp_term_relationships.term_taxonomy_id, wp_term_taxonomy.taxonomy FROM wp_posts LEFT JOIN wp_term_relationships ON wp_term_relationships.object_id = wp_posts.id RIGHT JOIN wp_term_taxonomy ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id WHERE wp_term_taxonomy.taxonomy != 'nav_menu' AND wp_term_taxonomy.taxonomy != 'amp_template'
+
 >>copy .csv files to /var/www/emploi.co/storage/app directory using scp
 
 >>open tmux as below and start import
@@ -180,7 +184,6 @@ php artisan command:ImportData
 
 >> press ctrl+b then d to exit. This will keep the process running when terminal is closed
 
->> open another tmux and run
 php artisan command:ImportPosts
 
 g) Setup supervisor to manage queues
