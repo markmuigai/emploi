@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Vacancies')
+@section('title','Emploi :: '.$title)
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
@@ -10,6 +10,41 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Job Vacancies')
 
 <!-- JOB CARD -->
+<form method="get" class="row" action="{{ url('/vacancies/search') }}">
+    <input type="text" name="q" class="btn col-md-3" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}">
+    <select class="btn col-md-3" name="location">
+        <option value="">All Locations</option>
+        @forelse($locations as $l)
+        <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
+            {{ $l->name.', '.$l->country->code }}
+        </option>
+        @empty
+        @endforelse
+    </select>
+    
+    <select class="btn col-md-3" name="industry">
+        <option value="">All Industries</option>
+        @forelse($industries as $ind)
+        <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
+            {{ $ind->name }}
+        </option>
+        @empty
+        @endforelse
+    </select>
+    <select class="btn col-md-3" name="vacancyType">
+        <option value="">All Vacancy Types</option>
+        @forelse($vacancyTypes as $l)
+        <option value="{{ $l->id }}" {{ isset($search_vtype) && $search_vtype == $l->id ? 'selected=""' : '' }}>
+            {{ $l->name }}
+        </option>
+        @empty
+        @endforelse
+    </select>
+    <input type="submit" value="Search" class="btn btn-success pull-right">
+    @if(isset($search_vtype) || isset($search_ind) || isset($search_location) || isset($search_query))
+    <a href="/vacancies" class="btn btn-danger">Reset</a>
+    @endif
+</form>
 @forelse($posts as $post)
 <div class="card py-2 mb-4">
     <div class="card-body">

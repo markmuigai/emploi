@@ -249,13 +249,21 @@ class PostsController extends Controller
 
         if($param == 'search')
         {
+            $title = 'Search Vacancies';
             $params = "";
+
+            $search_location = false;
+            $search_vtype = false;
+            $search_ind = false;
+            $search_query = false;
+
             if(isset($request->location))
             {
                 $location = Location::find($request->location);
                 if(isset($location->id))
                 {
-                    $params .= "AND location_id = ".$location->id;
+                    $search_location = $location->id;
+                    $params .= "AND location_id = ".$location->id." ";
                 }
             }
             if(isset($request->vacancyType))
@@ -263,8 +271,8 @@ class PostsController extends Controller
                 $vt = VacancyType::find($request->vacancyType);
                 if(isset($vt->id))
                 {
-
-                    $params .= "AND vacancy_type_id = ".$vt->id;
+                    $search_vtype = $vt->id;
+                    $params .= "AND vacancy_type_id = ".$vt->id." ";
                 }
             }
 
@@ -273,7 +281,8 @@ class PostsController extends Controller
                 $ind = Industry::find($request->industry);
                 if(isset($ind->id))
                 {
-                    $params .= " AND industry_id = ".$ind->id;
+                    $search_ind = $ind->id;
+                    $params .= " AND industry_id = ".$ind->id." ";
                 }
             }
 
@@ -282,6 +291,7 @@ class PostsController extends Controller
                 //$str = $params == "" ? "WHERE title like \"%".$request->q."%\"" : ", title like \"%".$request->q."%\"";
                 //$params .= $str;
                 //
+                $search_query = $request->q;
                 $params .= " AND title like \"%".$request->q."%\"";
             }
             $params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
@@ -302,7 +312,11 @@ class PostsController extends Controller
                     ->with('title',$title)
                     ->with('search',true)
                     ->with('posts',$posts)
-                    ->with('noLinks',true);
+                    ->with('noLinks',true)
+                    ->with('search_location',$search_location)
+                    ->with('search_vtype',$search_vtype)
+                    ->with('search_ind',$search_ind)
+                    ->with('search_query',$search_query);
         }
 
         if($match)
