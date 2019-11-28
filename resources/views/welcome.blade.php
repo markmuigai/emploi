@@ -8,6 +8,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
+<style>
+    main {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .navbar {
+        background: transparent;
+        transition: background 0.5s;
+    }
+
+    .scrolled {
+        transition: background 1s;
+        background: var(--primary);
+    }
+
+    .scrolled .navbar-brand img {
+        height: 50px;
+
+    }
+</style>
+
 <!-- LANDING PAGE -->
 <div class="landing">
     <div class="container">
@@ -493,6 +515,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             $('.counter').countUp();
         });
 
+
+
+        $(function() {
+            $(window).scroll(function() {
+                var $nav = $(".navbar");
+                $nav.toggleClass('scrolled', $(this).scrollTop() > 70);
+            })
+        })
     });
 </script>
 

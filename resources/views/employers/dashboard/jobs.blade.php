@@ -76,14 +76,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @elseif($post->status == 'closed')
                         | <a href="/vacancies/laravel-developer/activate" class="text-danger"><i class="far fa-eye"></i> Activate</a>
                         @else
-                        | <p  class="text-danger">Not Verified</p>
+                        | <p class="text-danger">Not Verified</p>
                         @endif
                     </div>
                 </div>
             </div>
         </div>
         @empty
-        <p style="text-align: center;">No Job posts found</p>
+        <div class="card">
+            <div class="card-body text-center">
+                <p>No Job posts found</p>
+            </div>
+        </div>
         @endforelse
     </div>
     <!-- END OF ALL JOBS -->
@@ -146,7 +150,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         @empty
-        <p style="text-align: center;">No Active Job posts found</p>
+        <div class="card">
+            <div class="card-body text-center">
+                <p>No Active Job posts found</p>
+            </div>
+        </div>
         @endforelse
 
     </div>
@@ -211,7 +219,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         @empty
-        <p style="text-align: center;">No Job posts found</p>
+        <div class="card">
+            <div class="card-body text-center">
+                <p>No Job posts found</p>
+            </div>
+        </div>
         @endforelse
 
     </div>

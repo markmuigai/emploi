@@ -23,18 +23,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <p class="truncate"><?php echo $blog->contents; ?></p>
                     <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                     <hr>
-                    <p>
-                        <i class="fas fa-share-alt"></i>
-                        Share:
-                        <a href="{{ $blog->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{ $blog->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="{{ $blog->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </p>
+                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal"><i class="fas fa-share-alt"></i> Share</button>
                 </div>
             </div>
         </div>
+        <!-- SHARE MODAL -->
+        @include('components.share-modal')
+        <!-- END OF SHARE MODAL -->
         @empty
-        <p style="text-align: center;">No blogs found</p>
+        <div class="card">
+            <div class="card-body text-center">
+                <p>No blogs found</p>
+            </div>
+        </div>
         @endforelse
     </div>
     @if(isset($links))

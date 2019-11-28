@@ -10,6 +10,7 @@ body {
 }
 
 * {
+    scroll-behavior: smooth;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
 }
@@ -229,10 +230,12 @@ img.avatar-small {
     background: var(--primary);
     color: white;
     font-size: 1rem;
+    padding: 0;
 }
 
 .navbar-brand img {
-    height: 50px;
+    height: 70px;
+    transition: height 0.5s
 }
 
 .nav-item {
@@ -361,6 +364,10 @@ footer i {
 
 /* END OF FOOTER */
 /* MODAL */
+#socialModal .fab {
+    font-size: 2rem;
+}
+
 button.close {
     position: absolute;
     right: -1.9rem;
@@ -407,9 +414,10 @@ main {
 
 /* HOMEPAGE */
 .landing {
-    height: calc(100vh - 5rem);
+    height: calc(100vh);
     background: var(--primary);
-    background: linear-gradient(to right, rgba(80, 0, 149, 1), rgba(80, 0, 149, 0.3)), url("../images/bg1.jpg");
+    /* background: linear-gradient(to right, rgba(80, 0, 149, 1), rgba(80, 0, 149, 0.3)), url("../images/bg1.jpg"); */
+    background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -458,7 +466,7 @@ main {
 /* END OF SEARCH BAR */
 /* ABOUT */
 .about {
-    margin: 3rem 0;
+    margin: 3rem 0 0;
 }
 
 .about .card-body, .services>.container>.card>.card-body {
@@ -469,12 +477,12 @@ main {
 /* STATISTICS */
 .statistics {
     position: relative;
-    height: 140px;
+    height: 190px;
 }
 
 .statistics .card {
     position: absolute;
-    top: -110px;
+    top: -80px;
     z-index: 100;
     width: 70%;
     left: 50%;
@@ -563,6 +571,10 @@ main {
 }
 
 /* END OF GET STARTED */
+#premium-services, #database-search, #advertising, #premium-search {
+    padding-top: 4rem;
+}
+
 .card {
     box-shadow: 0 0 5px 0px rgba(200, 200, 200, 0.5);
 }

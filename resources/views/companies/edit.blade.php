@@ -7,11 +7,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'Edit Company Details')
 
 <div class="card">
     <div class="card-body">
         <h2>
-            Edit {{ $company->name }}
+            {{ $company->name }}
         </h2>
         <p>
             <a href="/profile" class="btn btn-sm btn-danger">Back</a>
