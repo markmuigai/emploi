@@ -105,7 +105,7 @@ class ImportData extends Command
                             continue;
 
                         $username = explode(" ", $name);
-                        $username = strtolower(implode("",$username)).rand(300,999);
+                        $username = strtolower(implode("",$username)).rand(1,9999);
 
                         $user = User::create([
                             'name' => $name, 
@@ -140,7 +140,7 @@ class ImportData extends Command
                             'phone_number' => $phone,
                             'current_position' => $position,
                             'post_address' => $address,
-                            'years_experience' => $years_experience,
+                            'years_experience' => $years_experience > 50 ? 50 : $years_experience,
                             'industry_id' => $industry,
                             'objective' => $objective,
                             'country_id' => 1,
@@ -173,7 +173,7 @@ class ImportData extends Command
                         
                         $this->info(' '.$count_seekers.' '.$name.' Imported');
                         $count_seekers++;
-                        sleep(rand(1,3));
+                        //sleep(rand(1,3));
                         // if($count_seekers>1 && config('env') != 'production')
                         //     break;
                     }

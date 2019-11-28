@@ -14,6 +14,13 @@ class Blog extends Model
     	return $this->belongsTo(BlogCategory::class,'blog_category_id');
     }
 
+    public function getPreviewAttribute(){
+        $max_length = strlen($this->contents);
+        if($max_length > 250)
+            return substr($this->contents, 0,250).'...';
+        return $this->contents;
+    } 
+
     public function user(){
     	return $this->belongsTo(User::class);
     }

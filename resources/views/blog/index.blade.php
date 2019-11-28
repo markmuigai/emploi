@@ -20,7 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
                     </div>
                     <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
-                    <p class="truncate"><?php echo $blog->contents; ?></p>
+                    <p class="truncate"><?php echo $blog->preview; ?></p>
                     <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                     <hr>
                     <p>
