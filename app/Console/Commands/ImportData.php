@@ -173,7 +173,7 @@ class ImportData extends Command
                         
                         $this->info(' '.$count_seekers.' '.$name.' Imported');
                         $count_seekers++;
-                        sleep(rand(1,6));
+                        sleep(rand(1,3));
                         // if($count_seekers>1 && config('env') != 'production')
                         //     break;
                     }
