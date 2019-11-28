@@ -14,12 +14,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="row">
     @forelse($user->applications as $app)
     <div class="col-lg-6">
-        <div class="card my-3">
+        <div class="card my-2">
             <div class="card-body">
                 <h4>{{ $app->post->title }}</h4>
+                <h6 class="orange">
+                  <a href="/companies/{{ $app->post->company->name }}">
+                    {{ $app->post->company->name }}
+                  </a>
+                </h6>
                 <p><strong>Applied on: </strong>{{ $app->created_at }}</p>
                 <div class="row align-items-center">
                     <div class="col-6">
+                        <p>{{ $app->post->monthlySalary() }}</p>
                         @if($app->post->isShortlisted($user->seeker))
                         <p class="text-success">Shortlisted</p>
                         @else

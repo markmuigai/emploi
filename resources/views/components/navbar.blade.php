@@ -39,10 +39,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/employers/dashboard">Dashboard</a>
+                        <a class="dropdown-item" href="/companies/create">Add A Company</a>
                         <a class="dropdown-item" href="/employers/services">All Services</a>
                         <a class="dropdown-item" href="/employers/browse">Browse CVs</a>
                         <a class="dropdown-item" href="/employers/publish">Advertise Jobs</a>
                         <a class="dropdown-item" href="/employers/premium-recruitment">Premium Recruitment</a>
+                        <a class="dropdown-item" href="/employers/rate-card">Rate Card</a>
                         <!-- <a class="dropdown-item" href="#">Candidate Vetting</a> -->
                         <!-- <a class="dropdown-item" href="#">HR Services</a> -->
                         <a class="dropdown-item" href="/mass-recruitment">Mass Recruitment</a>

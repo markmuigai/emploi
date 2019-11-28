@@ -10,19 +10,40 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="contact">
 	<div class="container">
 		<div class="row align-items-center">
-			<div class="col-md-6 col-12 py-3 text-center address">
-				<h2>Our Address</h2>
-				<p>Syokimau Junction along, Mombasa road</p>
-				<p>Repen Complex. 4th Floor Room 414B</p>
-				<p>
-					<strong>Tel:</strong> +254 702 068 282
-				</p>
-				<p>
-					<strong>E-mail:</strong> <a href="malito:info@emploi.co">info@emploi.co</a>
-				</p>
+			<div class="col-md-6 col-12 pt-5 pt-md-0 address">
+				<h2 class="text-center">Find Us</h2>
+				<div class="row">
+						<div class="col-1">
+								<i class="fas fa-map-marker-alt"></i>
+						</div>
+						<div class="col-10">
+							<h5>Address</h5>
+								<p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
+						</div>
+				</div>
+				<br>
+				<div class="row">
+						<div class="col-1">
+								<i class="fas fa-envelope"></i>
+						</div>
+						<div class="col-10">
+							<h5>General Support</h5>
+								<a href="mailto:info@emploi.co">info@emploi.co</a>
+						</div>
+				</div>
+				<br>
+				<div class="row">
+						<div class="col-1">
+								<i class="fas fa-phone"></i>
+						</div>
+						<div class="col-10">
+							<h5>Let's Talk</h5>
+								<a href="tel:+254702068282">+254 702 068 282</a>
+						</div>
+				</div>
 			</div>
 			<div class="col-md-6 col-12 py-5 pl-md-5">
-				<h2 class="text-center orange">Contact Us</h2>
+				<h2 class="text-center orange">Send Us A Message</h2>
 				<form method="post" action="/contact">
 					@csrf
 					<div class="form-group">

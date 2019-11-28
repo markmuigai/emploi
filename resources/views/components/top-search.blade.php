@@ -11,8 +11,8 @@
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
-                <?php 
-                    $featured = \App\Post::featured(10); 
+                <?php
+                    $featured = \App\Post::featured(10);
                     $missing = 10 - count($featured);
                 ?>
                 <h5>Featured Jobs</h5>
@@ -45,7 +45,7 @@
                     <li>
                         <a href="/vacancies">All Jobs</a>
                     </li>
-                    
+
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">

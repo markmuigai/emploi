@@ -17,14 +17,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-12 col-lg-8">
                 <div class="row align-items-center">
                     <div class="col-4">
-                        
                         <a href="/vacancies/{{$post->slug}}/">
                             <img src="{{ asset($post->imageUrl) }}" class="w-100" alt="" />
                         </a>
                     </div>
                     <div class="col-8">
                         <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->title }}</a></h4>
-                        <a href="#" class="text-success">{{ $post->company->name }}</a>
+                        <a href="/vacancies/{{$post->slug}}/" class="text-success">{{ $post->company->name }}</a>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                     </div>
                 </div>
@@ -36,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @if(isset(Auth::user()->id))
                         {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
                         @else
-                        Login to view salary
+                        <a href="/login" class="orange">Login</a> to view salary
                         @endif
                     </strong>
                 </p>
@@ -73,13 +72,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 @empty
-<p style="text-align: center;">No Job posts found</p>
+<div class="card">
+    <div class="card-body text-center">
+        <p>No job posts found</p>
+    </div>
+</div>
 @endforelse
 <!-- END OF ALL JOBS -->
 
 <div>
     @if(isset($search))
-    
     @else
     {{ $posts->links() }}
     @endif

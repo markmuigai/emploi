@@ -226,7 +226,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <br>
                     <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small>
                 </h5>
-                
+
             </div>
             <div class="col-md-2 col-12">
                 <a href="/profile/edit" class="orange"><i class="fas fa-edit"></i> Edit</a>
@@ -235,12 +235,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         @forelse($user->companies as $company)
         <hr>
-        <h3 style="float: none; color: #500095; font-weight: bold;">
+        <h3  class="orange">
             <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
             <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-link">edit company</a>
-
         </h3>
-        <div class="row mt-4">
+        <div class="row">
             <div class="col-md-6">
                 <p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank">{{ $company->website }}</a></p>
             </div>

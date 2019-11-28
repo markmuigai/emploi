@@ -68,9 +68,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
             <div class="pt-4">
-                <a class="btn btn-purple" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/cover"><i class="fas fa-file-o"></i> Cover Letter</a>
+                <a class="btn btn-purple" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/cover"><i class="far fa-file"></i> Cover Letter</a>
                 <a href="/employers/browse/{{ $application->user->username }}" class="btn btn-orange"><i class="fas fa-user"></i> Profile</a>
-                <a class="btn btn-purple" href="{{ asset('/storage/resumes/'.$application->user->seeker->resume) }}"><i class="fas fa-file-o"></i> Resume</a>
+                <a class="btn btn-purple" href="{{ asset('/storage/resumes/'.$application->user->seeker->resume) }}"><i class="far fa-file"></i> Resume</a>
             </div>
         </div>
     </div>

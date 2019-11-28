@@ -98,7 +98,7 @@
     <!-- Notify JS Notifications -->
     <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
-    
+
     <!-- Slick JS -->
     <script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->
@@ -124,6 +124,7 @@
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/profile" role="tab" aria-controls="v-pills-messages" aria-selected="false">Profile <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/employers/browse" role="tab" aria-controls="v-pills-messages" aria-selected="false">Browse Candidates <i class="fas fa-chevron-right"></i></a>
 
@@ -135,9 +136,9 @@
                         <!-- JOB SEEKER SIDEBAR -->
                         @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <!-- <a class="nav-link active" id="v-pills-home-tab" href="/seeker/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a> -->
+                            <a class="nav-link active" id="v-pills-home-tab" href="/job-seekers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile" role="tab" aria-controls="v-pills-messages" aria-selected="false">Profile <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="/jobs" role="tab" aria-controls="v-pills-messages" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/vacancies" role="tab" aria-controls="v-pills-messages" aria-selected="false">Vacancies <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile/applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Applications <i class="fas fa-chevron-right"></i></a>
                         </div>
                         <!-- END OF JOB SEEKER SIDEBAR -->
