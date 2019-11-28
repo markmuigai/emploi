@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-
+@section('page_title', 'Edit Profile')
 
 <form method="POST" action="{{ url('profile/update') }}" enctype="multipart/form-data" id="update-form">
     @csrf
@@ -99,88 +99,84 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="edit-section d-none" id="section2">
         <div class="card">
             <div class="card-body p-5">
-                <h3>Step 2 of 3 : Education and Skills</h3>
-                <div class="form-group">
-                    <label for="education_level_id">Highest Education *</label>
-                    <select id="education_level_id" name="education_level_id" class="form-control input-sm">
-                        @foreach($educationLevels as $e)
-                        <option value="{{ $e->id }}" @if($e->id == $user->seeker->education_level_id)
-                            selected="selected"
-                            @endif
-                            >{{ $e->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="education_records">Education Records *</label>
-                    <div class="col-md-9 row" id="education_records">
-                        <?php $edu_counter = 100; ?>
-                        @forelse($user->seeker->education() as $edu)
-                        <div class="col-md-6 education_field" style="margin-bottom: 1em" education_id="{{ $edu_counter }}">
-                            <input type="text" class="form-control edu_field" value="{{ $edu[0] }}" placeholder="Institution name" name="institution_name[]">
-                            <input type="text" class="form-control edu_field" value="{{ $edu[1] }}" placeholder="Course Pursued" name="course_name[]">
-                            <select class="form-control edu_field" name="course_duration[]">
-                                @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
-                                <option value="{{ $d }}" @if($edu[2]==$d) selected="" @endif>{{ $d }}</option>
-                                @endforeach
-                            </select>
+              <h3>Step 2 of 3 : Education and Skills</h3>
+              <div class="form-group">
+                  <label for="education_level_id">Highest Education *</label>
+                  <select id="education_level_id" name="education_level_id" class="form-control input-sm">
+                      @foreach($educationLevels as $e)
+                      <option value="{{ $e->id }}" @if($e->id == $user->seeker->education_level_id)
+                          selected="selected"
+                          @endif
+                          >{{ $e->name }}</option>
+                      @endforeach
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="education_records">Education Records *</label>
+                  <div class="col-md-9 row" id="education_records">
+                      <?php $edu_counter = 100; ?>
+                      @forelse($user->seeker->education() as $edu)
+                      <div class="col-md-6 education_field" style="margin-bottom: 1em" education_id="{{ $edu_counter }}">
+                          <input type="text" class="form-control edu_field" value="{{ $edu[0] }}" placeholder="Institution name" name="institution_name[]">
+                          <input type="text" class="form-control edu_field" value="{{ $edu[1] }}" placeholder="Course Pursued" name="course_name[]">
+                          <select class="form-control edu_field" name="course_duration[]">
+                              @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
+                              <option value="{{ $d }}" @if($edu[2]==$d) selected="" @endif>{{ $d }}</option>
+                              @endforeach
+                          </select>
 
-                        </div>
-                        <?php $edu_counter++; ?>
-                        @empty
-                        <div class="col-md-6 education_field" style="margin-bottom: 1em" education_id="{{ $edu_counter }}">
-                            <input type="text" class="form-control edu_field" value="" placeholder="Institution name" name="institution_name[]">
-                            <input type="text" class="form-control edu_field" value="" placeholder="Course Pursued" name="course_name[]">
-                            <select class="form-control edu_field" name="course_duration[]">
-                                @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
-                                <option value="{{ $d }}">{{ $d }}</option>
-                                @endforeach
-                            </select>
-                            <span class="btn btn-sm btn-danger removeEducation">X</span>
-                        </div>
-                        @endforelse
-                        <div class="col-md-6">
-                            <span id="add_education" class="btn btn-sm btn-primary">Add Education Records</span>
-                        </div>
+                      </div>
+                      <?php $edu_counter++; ?>
+                      @empty
+                      <div class="col-md-6 education_field" style="margin-bottom: 1em" education_id="{{ $edu_counter }}">
+                          <input type="text" class="form-control edu_field" value="" placeholder="Institution name" name="institution_name[]">
+                          <input type="text" class="form-control edu_field" value="" placeholder="Course Pursued" name="course_name[]">
+                          <select class="form-control edu_field" name="course_duration[]">
+                              @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
+                              <option value="{{ $d }}">{{ $d }}</option>
+                              @endforeach
+                          </select>
+                          <span class="btn btn-sm btn-danger removeEducation">X</span>
+                      </div>
+                      @endforelse
+                      <div class="col-md-6">
+                          <span id="add_education" class="btn btn-sm btn-primary">Add Education Records</span>
+                      </div>
 
 
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <hr>
-            <div class="row">
+                  </div>
+              </div>
+
+                <hr>
+
                 <div class="form-group">
                     <label for="education_level_id">My Skills *</label>
-                    <div class="col-md-9 row">
-                        <div id="skills-pool">
-                            @forelse($user->seeker->skills as $s)
-                            <div class="col-md-6 user-skill" skill_id="{{ $s->skill->id }}">
+                      <div id="skills-pool" class="row mb-3">
+                          @forelse($user->seeker->skills as $s)
+                          <div class="col-lg-4 col-md-6 user-skill" skill_id="{{ $s->skill->id }}">
+                              <strong>{{ $s->skill->name }}</strong>
+                              <input type="hidden" name="skills[]" value="{{ $s->skill->id }}">
+                              <span class="text-danger pull-right remove-skill" skill_id="{{ $s->skill->id }}"><strong>X</strong></span>
+                          </div>
+                          @empty
+                          @endforelse
+                      </div>
 
-                                <strong>{{ $s->skill->name }}</strong>
-                                <input type="d-none" name="skills[]" value="{{ $s->skill->id }}">
-                                <span class="btn btn-sm btn-danger pull-right remove-skill" skill_id="{{ $s->skill->id }}">x</span>
-                            </div>
-                            @empty
-                            @endforelse
+                      <div class="form-row">
+                        <div class="col-11">
+                          <select class="form-control" id="skill-select">
+                              <option value="-1">Select a Skill</option>
+                              @foreach($skills as $s)
+                              <option value="{{ $s->id }}">{{ $s->name }}</option>
+                              @endforeach
+                          </select>  </div>
+                        <div class="col-1 text-center">
+                          <span class="btn btn-sm btn-success" id="add-new-skill">Add</span>
                         </div>
-
-
-                        <div class="col-md-8 col-md-offset-2">
-                            <select class="form-control" id="skill-select">
-                                <option value="-1">Select a Skill</option>
-                                @foreach($skills as $s)
-                                <option value="{{ $s->id }}">{{ $s->name }}</option>
-                                @endforeach
-                            </select>
-                            <span class="btn btn-sm btn-success" id="add-new-skill">Add</span>
-                        </div>
-
-                    </div>
+                      </div>
                 </div>
-            </div>
             <div style="">
-                <br><br><br>
+
                 <a href="#" class="toSection1 btn btn-primary">
                     < Previous </a> <a href="#" class="toSection3 pull-right btn btn-success">Next >
                 </a>

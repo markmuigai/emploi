@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container text-center py-4">
     <h2 class="orange">Rate Card</h2>
     <p>Always know what you'll pay.</p>
-    <h2>Advertising</h2>
+    <h2 id="advertising">Advertising</h2>
     <div class="card-group">
         <div class="card m-3">
             <div class="card-body">
@@ -52,7 +52,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    <h2>Database Search</h2>
+    <h2 id="database-search">Database Search</h2>
     <div class="card-group">
         <div class="card m-3">
             <div class="card-body">
@@ -97,7 +97,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    <h2>Premium Search</h2>
+    <h2 id="premium-search">Premium Search</h2>
     <div class="row justify-content-center">
         <div class="col-12 col-md-4">
             <div class="card">

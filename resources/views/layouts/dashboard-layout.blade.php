@@ -140,6 +140,7 @@
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile" role="tab" aria-controls="v-pills-messages" aria-selected="false">Profile <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/vacancies" role="tab" aria-controls="v-pills-messages" aria-selected="false">Vacancies <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile/applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Applications <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/profile/referees" role="tab" aria-controls="v-pills-messages" aria-selected="false">Referees <i class="fas fa-chevron-right"></i></a>
                         </div>
                         <!-- END OF JOB SEEKER SIDEBAR -->
 

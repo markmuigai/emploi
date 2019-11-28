@@ -17,28 +17,41 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </p>
             <div class="row pt-5">
                 <div class="col-md-6">
-                    <h4 class="">
-                        Job Advertisement
+                    <h4>
+                        <a class="orange" href="/employers/publish">
+                            Job Advertisement
+                        </a>
                     </h4>
                     <p>
                         Get your advertisement viewed by tens of thousands through our Facebook, Website and LinkedIn
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="">Database Search</h4>
-
+                    <h4>
+                        <a class="orange" href="/employers/rate-card#database-search">
+                            Database Search
+                        </a>
+                    </h4>
                     <p>
                         Employers on our platform can search tens of thousands of qulaified CVs for quick shortlisting
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="">Premium Services</h4>
+                    <h4>
+                        <a class="orange" href="#premium-services">
+                            Premium Services
+                        </a>
+                    </h4>
                     <p>
                         We assist employers in recruiting the best candidates to fill vacancies through our assited recruitment
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="">Mass Recruitment</h4>
+                    <h4>
+                        <a class="orange" href="/mass-recruitment">
+                            Mass Recruitment
+                        </a>
+                    </h4>
                     <p>
                         Our team is highly optimized to process mass recruitment requests with a turn-around-time of less than 1 week.
                     </p>
@@ -47,7 +60,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 
-    <h3 class="orange text-center">Premium Services</h3>
+    <h3 class="orange text-center" id="premium-services">Premium Services</h3>
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="card my-2">
