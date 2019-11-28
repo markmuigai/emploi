@@ -235,8 +235,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         @forelse($user->companies as $company)
         <hr>
-        <h3 style="float: none; text-align: right; color: #500095; font-weight: bold;">
+        <h3 style="float: none; color: #500095; font-weight: bold;">
             <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
+            <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-link">edit company</a>
 
         </h3>
         <div class="row mt-4">

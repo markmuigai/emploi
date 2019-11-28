@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Create Company Profile
         </h2>
         <div class="search_form1 ">
-            <form method="post" action="/companies" id="companyForm">
+            <form method="post" action="/companies" id="companyForm" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">

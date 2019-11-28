@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		We will then prepare a draft resume for your review. Quality is always most important and our process typically takes 2 – 4 business days.
 	</p>
 
-	<h3 class="orange pt-2 text-center">Our Changes</h3>
+	<h3 class="orange pt-2 text-center">Our Charges</h3>
 
 	<div class="card-deck text-center coloured-card">
 		<div class="card">

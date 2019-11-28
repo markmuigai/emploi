@@ -7,7 +7,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Companies')
+@if(isset($hiring))
+    @section('page_title', 'Hiring Companies')
+@else
+    @section('page_title', 'Companies')
+@endif
 <div class="row mb-4">
     @forelse($companies as $c)
     <div class="col-lg-4 col-md-6 col-12">

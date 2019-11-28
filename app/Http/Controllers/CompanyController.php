@@ -53,11 +53,11 @@ class CompanyController extends Controller
         }
 
         $storage_path = '/public/companies';
-        // $logo = basename(Storage::put($storage_path, $request->logo));
+        $logo = basename(Storage::put($storage_path, $request->logo));
         $logo = null;
         $cover = null;
-        // if(isset($request->cover))
-        //     $cover = basename(Storage::put($storage_path, $request->cover));
+        if(isset($request->cover))
+            $cover = basename(Storage::put($storage_path, $request->cover));
 
         $c = Company::create([
             'name' => $co_name, 
@@ -103,9 +103,9 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $c = Company::findOrFail($id);
+        $c = Company::where('name',$id)->firstOrFail();
         if($c->user_id != $user->id)
-            abort(404);
+            abort(403);
         return view('companies.edit')
                 ->with('industries',Industry::where('status','active')->get())
                 ->with('locations',Location::where('status','active')->orderBy('country_id')->orderBy('name')->get())
@@ -119,12 +119,19 @@ class CompanyController extends Controller
         $c = Company::findOrFail($id);
         if($c->user_id != $user->id)
             abort(404);
-        $logo = null;
+        $logo = $c->logo;
         if(isset($request->logo))
         {
             $storage_path = '/public/companies';
             $logo = basename(Storage::put($storage_path, $request->logo));
         }
+        $cover = $c->cover;
+        if(isset($request->cover))
+        {
+            $storage_path = '/public/companies';
+            $cover = basename(Storage::put($storage_path, $request->cover));
+        }
+
         $c->name = $request->name;
         $c->logo = $logo;
         $c->tagline = $request->tagline;
