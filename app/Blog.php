@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Blog extends Model
 {
@@ -48,5 +49,29 @@ class Blog extends Model
                     ->limit($counter)
                     ->orderBy('id','desc')
                     ->get();
+    }
+
+    public function getPostedOnAttribute(){
+        $date = Carbon::parse($this->created_at);
+        $now = Carbon::now();
+        return $date->format('jS F Y');
+        return $date->diffInDays($now);
+    }
+
+    public function getShareTextAttribute(){
+        $tit = explode(" ", $this->title);
+        return implode("+", $tit).' on '.$this->category->title.'\'s Career Centre';
+    }
+
+    public function getShareFacebookLinkAttribute(){
+        return 'https://www.facebook.com/sharer.php?u='.url('/blog/'.$this->slug);
+    }
+
+    public function getShareTwitterLinkAttribute(){
+        return 'https://twitter.com/share?url='.url('/blog/'.$this->slug).'&text='.$this->shareText.'&hashtags=EmploiCareerCentre';
+    }
+
+    public function getShareLinkedinLinkAttribute(){
+        return 'http://www.linkedin.com/shareArticle?mini=true&url='.url('/blog/'.$this->slug);
     }
 }

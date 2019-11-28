@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Emploi :: Our Blog')
+@section('title','Emploi :: Career Centre')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="latest-blog-image" style="background-image: url('{{ asset($blog->imageUrl) }}')"></div>
                     <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                     <div class="d-flex">
-                        <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> 12 Aug 2019</p>
+                        <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
                     </div>
                     <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
                     <p class="truncate"><?php echo $blog->preview; ?></p>
@@ -26,9 +26,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <p>
                         <i class="fas fa-share-alt"></i>
                         Share:
-                        <a href="{{ $blog->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{ $blog->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="{{ $blog->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ $blog->shareFacebookLink }}" target="_blank" style="margin-left: 1em"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{ $blog->shareTwitterLink }}" target="_blank" style="margin-left: 1em"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ $blog->shareLinkedinLink }}" target="_blank" style="margin-left: 1em"><i class="fab fa-linkedin"></i></a>
                     </p>
                 </div>
             </div>
