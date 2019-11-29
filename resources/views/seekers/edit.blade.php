@@ -9,15 +9,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Edit Profile')
 
-<script type="text/javascript">
-  $().ready(function(){
-    setTimeout(function(){
-      $('.toSection3').trigger('click');
-    },1000);
-    
-  });
-</script>
-
 <form method="POST" action="{{ url('profile/update') }}" enctype="multipart/form-data" id="update-form">
     @csrf
 
