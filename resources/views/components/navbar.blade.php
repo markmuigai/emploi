@@ -1,13 +1,13 @@
-<!-- NAVBAR -->
 <nav class="navbar fixed-top navbar-expand-lg">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fas fa-bars"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="{{ asset('images/logo-alt.png') }}" alt="Emploi Logo" /></a>
+        <div class="d-flex justify-content-start">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="{{ asset('images/logo-alt.png') }}" alt="Emploi Logo" /></a>
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             <ul class="navbar-nav ml-auto mr-0">
                 <li class="nav-item d-md-none d-block">
                     <a class="nav-link" href="/employers/dashboard">Dashboard</a>
@@ -69,16 +69,16 @@
                 @endif
                 <div class="d-md-flex">
                     @if(isset(Auth::user()->id))
-                    <li class="nav-item" style="display: none">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-                    </li>
+                    </li> -->
                     @else
-                    <LI class="nav-item">
+                    <li class="nav-item">
                         <a href="/login" class="btn btn-white px-3">Login</a>
-                    </LI>
-                    <LI class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a href="/join" class="btn btn-orange px-3">Register</a>
-                    </LI>
+                    </li>
                     @endif
                     <!-- <li class="nav-item search-form hide">
                         <form action="" class="form-inline mt-2">
@@ -92,19 +92,19 @@
             </ul>
         </div>
         @if(isset(Auth::user()->id))
-        <div class="nav-item dropdown">
+        <div class="nav-item dropdown text-right">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="{{asset('images/avatar.png')}}" class="profile-avatar" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 @guest
-                    <a class="dropdown-item" href="/login">Login</a>
-                    <a class="dropdown-item" href="/join">Create Profile</a>
-                    <a class="dropdown-item" href="/contact">Contact Us</a>
+                <a class="dropdown-item" href="/login">Login</a>
+                <a class="dropdown-item" href="/join">Create Profile</a>
+                <a class="dropdown-item" href="/contact">Contact Us</a>
                 @else
-                    <a class="dropdown-item" href="/home" style="font-weight: bold">Dashboard</a>
-                    <a class="dropdown-item" href="/profile">View Profile</a>
-                    <a class="dropdown-item" href="/logout">Logout</a>
+                <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
+                <a class="dropdown-item" href="/profile">View Profile</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
 
                 @endguest
 
@@ -113,4 +113,3 @@
         @endif
     </div>
 </nav>
-<!-- END OF NAVBAR -->

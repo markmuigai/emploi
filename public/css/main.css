@@ -811,6 +811,20 @@ a .fab:hover {
         height: 30px;
     }
 
+    .navbar {
+        background: transparent;
+    }
+
+    .navbar:focus-within {
+        background: var(--primary);
+    }
+
+    .collapse.navbar-collapse .navbar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+
     main {
         padding: 2.5rem 0 0;
     }
@@ -831,12 +845,12 @@ a .fab:hover {
 
     /* STATISTICS */
     .statistics {
-        height: 100px;
+        height: 150px;
     }
 
     .statistics .card {
         position: absolute;
-        top: -130px;
+        top: -80px;
         z-index: 100;
         width: 85%;
         left: 50%;
@@ -906,11 +920,15 @@ a .fab:hover {
 
     .statistics .card {
         position: absolute;
-        top: -130px;
+        top: -75px;
         z-index: 100;
         width: 80%;
         left: 50%;
         transform: translateX(-65%);
+    }
+
+    .statistics i {
+        font-size: 2rem;
     }
 
     /* END OF STATISTICS */
