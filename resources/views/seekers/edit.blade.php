@@ -15,7 +15,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="edit-section" id="section1">
         <div class="card">
             <div class="card-body p-5">
-                <h3 class="text-center">Step 1 of 3 : Personal Details</h3>
+                @error('resume')
+                    <p class="text-danger">Resume errors were detected</p>
+                @enderror
+                @error('resume')
+                    <p class="text-danger">Avatar errors were detected</p>
+                @enderror
+                <h3 style="text-align: center;">Step 1 of 3 : Personal Details</h3>
                 <div class="form-group">
                     <label for="fullName">Full Name *</label>
                     <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control input-sm" maxlength="50" value="{{ $user->name }}" />
@@ -84,9 +90,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
                 <div class="form-group">
+                  <label>
+                        Update Profile Photo
+                        @error('avatar')
+                            <strong class="pull-right text-danger"> * Uploaded avatar was invalid *</strong>
+                        @enderror
+                    </label>
                   <div class="custom-file">
-                    <label class="" for="avatar">Profile Photo</label>
-                    <input type="file" name="avatar" class="" value="" accept=".jpg, .png,.jpeg" />
+                    <input type="file" name="avatar" class="custom-file-input" value="" accept=".jpg, .png,.jpeg" />
+                    <label class="custom-file-label" for="avatar">(png, jpg and jpeg Max 5MB)</label>
                   </div>
                 </div>
                 <div class="text-center">

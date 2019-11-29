@@ -15,6 +15,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div id="section1" class="section-view ">
         <div class="card">
             <div class="card-body p-5">
+                @error('image')
+                    <script type="text/javascript">
+                        $().ready(function(){
+                            setTimeout(function(){
+                                $('.toSection3').trigger('click');
+                            },2000);
+                        });
+                    </script>
+                    <p style="color: red">Errors were detected</p>
+                @enderror
                 <h3>Step 1 of 3</h3>
                 <p>
                     <label>Company *</label> <a href="/companies/create" class="btn btn-sm btn-link pull-right">create new</a>
@@ -28,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <p>
                     <label>Job Title *</label>
-                    <input type="text" name="title" id="job-title" class="form-control" style="width: 100%; color: black">
+                    <input type="text" name="title" id="job-title" class="form-control" value="{{ old('title') }}" style="width: 100%; color: black">
                 </p>
                 <br>
 
@@ -62,7 +72,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h3>Step 2 of 3</h3>
                 <p>
                     <label>Job Description *</label>
-                    <textarea class="form-control" id="responsibilities" name="responsibilities" rows="5"></textarea>
+                    <textarea class="form-control" id="responsibilities" name="responsibilities" rows="5">{{ old('responsibilities') }}</textarea>
                 </p>
                 <br>
 
@@ -131,24 +141,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <p>
                     <label>Monthly Salary *</label>
-                    <input type="number" name="monthly_salary" class="form-control" required="" placeholder="enter 0 for non-disclosure or minimum salary" id="monthly_salary" min="0">
+                    <input type="number" name="monthly_salary" class="form-control" required="" placeholder="enter 0 for non-disclosure or minimum salary" id="monthly_salary" min="0" value="{{ old('monthly_salary') }}">
                 </p>
                 <br>
 
                 <p>
                     <label>Maximum Salary Limit</label>
-                    <input type="number" name="max_salary" class="form-control" required="" placeholder="only fill if salary has a range" id="max_salary" min="1">
+                    <input type="number" name="max_salary" class="form-control" required="" placeholder="only fill if salary has a range" id="max_salary" min="1" value="{{ old('max_salary') }}">
                 </p>
                 <br>
 
                 <p>
                     <label>How to apply: <i>Optional if you want to direct applications elsewhere.</i></label>
-                    <textarea class="form-control" name="how_to_apply" rows="5" placeholder="Optionally, you can specify additional description to applicants"></textarea>
+                    <textarea class="form-control" name="how_to_apply" rows="5" placeholder="Optionally, you can specify additional description to applicants">{{ old('how_to_apply') }}</textarea>
                 </p>
                 <br>
 
                 <p>
-                    <label>Optional Photo</label>
+                    <label>
+                        Optional Photo
+                        (png, jpg and jpeg Max 5MB)
+                        @error('image')
+                            <strong class="pull-right" style="color: red"> * Uploaded image was invalid *</strong>
+                        @enderror
+                    </label>
                     <input type="file" name="image" placeholder="" accept=".jpg, .png,.jpeg">
                 </p>
                 <br>

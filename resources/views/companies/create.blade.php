@@ -19,33 +19,63 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @csrf
 
                 <div class="form-group">
-                    <label>Logo: *</label>
+                    <label>
+                        Logo: * (png, jpg and jpeg Max 5MB)
+                        @error('logo')
+                            <strong class="pull-right" style="color: red"> * Uploaded logo was invalid *</strong>
+                        @enderror
+                    </label>
                     <input type="file" name="logo" placeholder="" required="required" accept=".png,.jpg,.jpeg" class="">
                 </div>
 
                 <div class="form-group">
-                    <label>Name: *</label>
-                    <input type="text" name="name" placeholder="" required="required" class="form-control" class="form-control">
+                    <label>
+                        Name: *
+                        @error('name')
+                            <strong class="pull-right" style="color: red"> * A company with this name has been registered *</strong>
+                        @enderror
+                    </label>
+                    <input type="text" name="name" placeholder="" value="{{ old('name') }}" required="required" class="form-control" class="form-control" maxlength="50">
                 </div>
 
                 <div class="form-group">
-                    <label>Description: *</label>
-                    <textarea class="form-control" id="about" name="about" rows="4"></textarea>
+                    <label>
+                        Description: *
+                        @error('about')
+                            <strong class="pull-right" style="color: red"> * Invalid company description *</strong>
+                        @enderror
+                    </label>
+                    <textarea class="form-control" id="about" name="about" rows="4" maxlength="255" required="">{{ old('about') }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label>Website: *</label>
-                    <input type="url" name="website" placeholder="" class="form-control">
+                    <label>
+                        Website url:
+                        @error('website')
+                            <strong class="pull-right" style="color: red"> * Invalid Website Url *</strong>
+                        @enderror
+                    </label>
+                    <input type="url" name="website" placeholder="" class="form-control" maxlength="255" value="{{ old('website') }}">
                 </div>
 
                 <div class="form-group">
-                    <label>Contact Phone Number: <i>optional</i></label>
-                    <input type="text" name="phone_number" placeholder="2547xxxxxxxx" class="form-control" class="form-control">
+                    <label>
+                        Contact Phone Number: 
+                        @error('phone_number')
+                            <strong class="pull-right" style="color: red"> * Invalid Phone Number *</strong>
+                        @enderror
+                    </label>
+                    <input type="text" name="phone_number" placeholder="2547xxxxxxxx" class="form-control" class="form-control" maxlength="20" value="{{ old('phone_number') }}">
                 </div>
 
                 <div class="form-group">
-                    <label>Contact E-mail Address: <i>optional</i></label>
-                    <input type="email" name="email" placeholder="someone@yourcompany.com" class="form-control">
+                    <label>
+                        Contact E-mail Address: 
+                        @error('email')
+                            <strong class="pull-right" style="color: red"> * Invalid E-mail address *</strong>
+                        @enderror
+                    </label>
+                    <input type="email" name="email" placeholder="someone@yourcompany.com" class="form-control" maxlength="50" value="{{ old('email') }}">
                 </div>
 
                 <div class="form-group">
@@ -78,8 +108,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Cover Image: </label>
-                    <input type="file" name="cover" placeholder="" required="required" accept=".png,.jpg,.jpeg">
+                    <label>
+                        Cover Image: (png, jpg and jpeg)
+                        @error('cover')
+                            <strong class="pull-right" style="color: red"> * Uploaded cover image was invalid *</strong>
+                        @enderror
+                    </label>
+                    <input type="file" name="cover" placeholder="" accept=".png,.jpg,.jpeg">
                 </div>
                 <button type="submit" name="button" class="btn btn-orange">Create Company</button>
             </form>
@@ -91,14 +126,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script>
     setTimeout(function() {
         CKEDITOR.replace('about');
-        // $('#submit_btn').click(function(e){
-        // 	e.preventDefault();
-        // 	var desc = CKEDITOR.instances['about'].getData().replace(/<[^>]*>/gi, '').length;
-        //     if(desc < 10)
-        //         return alert('Invalid company about');
-        //     $('#companyForm').submit();
-        // });
-
     }, 3000);
 </script>
 

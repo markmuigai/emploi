@@ -27,7 +27,7 @@
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="col-10">
-                        <p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
+                        <p>Even Business Park, Airport North Rd, Nairobi </p>
                     </div>
                 </div>
                 <br>
@@ -45,7 +45,8 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <div class="col-10">
-                        <a href="tel:+254702068282">+254 702 068 282</a>
+                        <a href="tel:+254702068282">0702 068 282</a> <br> 
+                        <a href="tel:+254774569001">0774 569 001</a> || <a href="tel:+254772795017">077 2795 017</a>
                     </div>
                 </div>
             </div>

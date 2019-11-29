@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card about">
         <div class="card-body text-center">
             <h2 class="orange">About Us</h2>
-            <h5>Emploi's philosophy is to create a single sourcing point for players, with enough tools to help the find each other.</h5>
+            <h5>Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.</h5>
             <p>At the core of our systems is a vacancy – job seeker matching engine powered by algorithms for job seeker assessment and ranking together with advanced recruitment process management tools.</p>
             <p>
                 One of the most interesting puzzles about the East African job market is the time it takes for an employer to fill a position, given the high unemployment rates in the region. In a mission to understand the puzzle and go beyond

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Auth;
 use Storage;
 
@@ -94,10 +95,16 @@ class HomeController extends Controller
 
     public function saveProfile(Request $request)
     {
-        //return $request->skills[1];
+        //return $request->all();
         $user = Auth::user();
+
         if($user->role == 'seeker')
         {
+            $request->validate([
+                'resume'  =>  ['mimes:doc,pdf,docx','max:51200'],
+                'avatar'    =>  ['mimes:png,jpg,jpeg','max:51200']
+            ]);
+
             $user->name = $request->name;
             $user->username = $request->username;
 
@@ -183,12 +190,22 @@ class HomeController extends Controller
                             ->with('title','Profile Update Failed')
                             ->with('message','Profile update failed. Please try again later.');
         }
+
         if($user->role == 'employer')
         {
+
+            $request->validate([
+                'name'      =>  ['required', 'max:50', 'string'],
+                'username'  =>  ['required', 'max:20' ,'string'],
+                'avatar'    =>  ['mimes:png,jpg,jpeg','max:51200']
+            ]);
+
             $user->name = $request->name;
             $user->username = $request->username;
+
             if(isset($request->avatar))
             {
+                
                 $storage_path = '/public/avatars';
                 $user->avatar = basename(Storage::put($storage_path, $request->avatar));
             }

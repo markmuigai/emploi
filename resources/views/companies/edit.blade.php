@@ -23,33 +23,63 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             {{ method_field('PUT') }}
 
             <div class="form-group">
-                <label>Name:</label>
-                <input type="text" name="name" placeholder="" value="{{ $company->name }}" required="required" class="form-control">
+                <label>
+                    Name:
+                    @error('name')
+                        <strong class="pull-right" style="color: red"> * Invalid Company Name *</strong>
+                    @enderror
+                </label>
+                <input type="text" name="name" placeholder="" value="{{ $company->name }}" required="required" class="form-control" maxlength="50">
             </div>
 
             <div class="form-group">
-                <label>{{ $company->logo == null ? 'Upload Logo: *' : 'Update Logo:' }}</label>
+                <label>
+                    {{ $company->logo == null ? 'Upload Logo: *' : 'Update Logo:' }} (png, jpg, jpeg Max 5MB)
+                    @error('logo')
+                        <strong class="pull-right" style="color: red"> * Uploaded logo was invalid *</strong>
+                    @enderror
+                </label>
                 <input type="file" name="logo" placeholder="" class="form-control" {{ $company->logo == null ? 'required=""' : '' }}>
             </div>
 
             <div class="form-group">
-                <label>{{ $company->cover == null ? 'Upload Cover: *' : 'Update Cover:' }}</label>
-                <input type="file" name="cover" placeholder="" class="form-control" {{ $company->cover == null ? 'required=""' : '' }}>
+                <label>
+                    {{ $company->cover == null ? 'Upload Cover: ' : 'Update Cover:' }} (png, jpg, jpeg Max 5MB)
+                    @error('cover')
+                        <strong class="pull-right" style="color: red"> * Uploaded cover was invalid *</strong>
+                    @enderror
+                </label>
+                <input type="file" name="cover" placeholder="" class="form-control">
             </div>
 
             <div class="form-group">
-                <label>Tagline: *</label>
-                <input type="text" name="tagline" placeholder="" value="{{ $company->tagline }}" required="required" class="form-control">
+                <label>
+                    Tagline: *
+                    @error('tagline')
+                        <strong class="pull-right" style="color: red"> * Invalid company Tagline *</strong>
+                    @enderror
+                </label>
+                <input type="text" name="tagline" placeholder="" value="{{ $company->tagline }}" required="required" class="form-control" maxlength="255">
             </div>
 
             <div class="form-group">
-                <label>Description: *</label>
-                <textarea class="form-control" name="about" rows="4">{{ $company->about }} </textarea>
+                <label>
+                    Description: *
+                    @error('about')
+                        <strong class="pull-right" style="color: red"> * Invalid company description *</strong>
+                    @enderror
+                </label>
+                <textarea class="form-control" name="about" id="about" rows="4" maxlength="255">{{ $company->about }} </textarea>
             </div>
 
             <div class="form-group">
-                <label>Website:</label>
-                <input type="url" name="website" placeholder="" value="{{ $company->website }}" class="form-control">
+                <label>
+                    Website Url:
+                    @error('website')
+                        <strong class="pull-right" style="color: red"> * Invalid Website Url *</strong>
+                    @enderror
+                </label>
+                <input type="url" name="website" placeholder="" value="{{ $company->website }}"  maxlength="255" class="form-control">
             </div>
 
             <div class="form-group">
@@ -71,7 +101,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <option value="{{ $i->id }}" @if($company->company_size_id == $i->id)
                         selected=""
                         @endif
-                        >{{ $i->lower_limit.' - '.$i->upper_limit }}</option>
+                        >{{ $i->title }}</option>
                     @endforeach
                 </select>
             </div>
@@ -94,5 +124,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </form>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    setTimeout(function() {
+        CKEDITOR.replace('about');
+    }, 3000);
+</script>
 
 @endsection
