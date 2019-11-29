@@ -9,7 +9,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 <div class="container text-center py-4">
     <h2 class="orange">Rate Card</h2>
-    <p>Always know what you'll pay.</p>
     <h2 id="advertising">Advertising</h2>
     <div class="card-group">
         <div class="card m-3">
@@ -33,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <ul class="tick">
                     <li>2-4 jobs posted for 30 days</li>
                     <li>Advertised on our website &amp; social media pages</li>
-                    <li>Job AD sent out to entire database</li>
+                    <li>Job AD sent out to our entire database</li>
                 </ul>
             </div>
 
@@ -75,9 +74,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <ul class="tick">
                     <li>Unlimited searches in 1 job category</li>
                     <li>Getup to 50 CVs per category</li>
-                    <li>2-4 jobs posted for 30 days</li>
+                    <li>1 job posted for 30 days</li>
                     <li>Advertised on our website &amp; social media pages</li>
-                    <li>Job AD sent out to entire database</li>
+                    <li>Job AD sent out to our entire database</li>
                 </ul>
             </div>
         </div>
@@ -90,9 +89,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <ul class="tick">
                     <li>Unlimited searches in 2 job category</li>
                     <li>Getup to 50 CVs per category</li>
-                    <li>2-4 jobs posted for 30 days</li>
+                    <li>2 jobs posted for 30 days</li>
                     <li>Advertised on our website &amp; social media pages</li>
-                    <li>Job AD sent out to entire database</li>
+                    <li>Job AD sent out to our entire database</li>
                 </ul>
             </div>
         </div>
