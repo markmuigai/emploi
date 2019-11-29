@@ -29,9 +29,22 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    // protected function validateLogin(Request $request)
+    // {
+    //     $request->validate([
+    //         'identity' => 'required|string',
+    //         'password' => 'required|string',
+    //     ]);
+    // }
+
     public function username()
     {
-        return 'username';
+         $login = request()->input('identity');
+
+         $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+         request()->merge([$field => $login]);
+
+         return $field;
     }
 
     protected function authenticated(Request $request, $user)
