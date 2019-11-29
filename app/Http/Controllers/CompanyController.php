@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Auth;
 use Storage;
 
@@ -42,6 +43,17 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         //return $request->all();
+
+        $request->validate([
+            'name'          =>  ['required','max:50', 'unique:companies','string'],
+            'about'         =>  ['required','max:2000' ,'string'],
+            'website'       =>  ['max:255' ,'string'],
+            'phone_number'  =>  ['max:20' ,'string'],
+            'email'         =>  ['max:20' ,'email'],
+            'logo'          => ['required','mimes:png,jpg,jpeg','max:51200'],
+            'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
+        ]);
+
         $user = Auth::user();
         $c = Company::where('name',$request->name)->first();
 
@@ -54,7 +66,7 @@ class CompanyController extends Controller
 
         $storage_path = '/public/companies';
         $logo = basename(Storage::put($storage_path, $request->logo));
-        $logo = null;
+        //$logo = null;
         $cover = null;
         if(isset($request->cover))
             $cover = basename(Storage::put($storage_path, $request->cover));
@@ -63,7 +75,7 @@ class CompanyController extends Controller
             'name' => $co_name, 
             'user_id' => $user->id,
             'about' => $request->about,
-            'website' => $request->website, 
+            'website' => $request->website ? $request->website : null, 
             'industry_id' => $request->industry,
             'location_id' => $request->location,
             'company_size_id' => $request->company_size,
@@ -115,10 +127,21 @@ class CompanyController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name'          =>  ['required','max:50','string'],
+            'about'         =>  ['required','max:255' ,'string'],
+            'website'       =>  ['max:255' ,'string'],
+            'phone_number'  =>  ['max:20' ,'string'],
+            'tagline'       =>  ['required' ,'max:2000' ,'string'],
+            'email'         =>  ['max:20' ,'email'],
+            'logo'          => ['mimes:png,jpg,jpeg','max:51200'],
+            'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
+        ]);
+
         $user = Auth::user();
         $c = Company::findOrFail($id);
         if($c->user_id != $user->id)
-            abort(404);
+            abort(403);
         $logo = $c->logo;
         if(isset($request->logo))
         {

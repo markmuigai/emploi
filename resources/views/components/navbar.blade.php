@@ -94,7 +94,7 @@
         @if(isset(Auth::user()->id))
         <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{asset('images/avatar.png')}}" class="profile-avatar" alt="">
+                <img src="{{ Auth::user()->getPublicAvatarUrl() }}" style="border-radius: 50%" class="profile-avatar" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 @guest

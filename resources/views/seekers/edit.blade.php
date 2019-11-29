@@ -9,12 +9,27 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Edit Profile')
 
+<script type="text/javascript">
+  $().ready(function(){
+    setTimeout(function(){
+      $('.toSection3').trigger('click');
+    },1000);
+    
+  });
+</script>
+
 <form method="POST" action="{{ url('profile/update') }}" enctype="multipart/form-data" id="update-form">
     @csrf
 
     <div class="edit-section" id="section1">
         <div class="card">
             <div class="card-body p-5">
+                @error('resume')
+                    <p style="color: red">Resume errors were detected</p>
+                @enderror
+                @error('resume')
+                    <p style="color: red">Avatar errors were detected</p>
+                @enderror
                 <h3 style="text-align: center;">Step 1 of 3 : Personal Details</h3>
                 <div class="form-group">
                     <label for="fullName">Full Name *</label>
@@ -84,9 +99,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
                 <div class="form-group">
+                  <label>
+                        Update Profile Photo
+                        @error('avatar')
+                            <strong class="pull-right" style="color: red"> * Uploaded avatar was invalid *</strong>
+                        @enderror
+                    </label>
                   <div class="custom-file">
                     <input type="file" name="avatar" class="custom-file-input" value="" accept=".jpg, .png,.jpeg" />
-                    <label class="custom-file-label" for="avatar">Profile Photo</label>
+                    <label class="custom-file-label" for="avatar">(png, jpg and jpeg Max 5MB)</label>
                   </div>
                 </div>
                 <div style="text-align: center;">
@@ -189,7 +210,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body p-5">
                 <h3 style="text-align: center;">Step 3 of 3 : Employment</h3>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100%">
                         <label for="industry">Industry *</label>
                         <div class="col-md-9">
                             <select path="industry" id="industry" name="industry" class="form-control input-sm">
@@ -206,7 +227,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100%">
                         <label for="resume">Industry Experience (in years) *</label>
                         <div class="col-md-9">
                             <input type="number" name="years_experience" value="{{ $user->seeker->years_experience }}" required="" class="form-control" />
@@ -214,7 +235,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100%">
                         <label for="resume">{{ isset($user->seeker->resume) ? 'Update Resume' : 'Attach Resume *'  }}</label>
                         <div class="col-md-9">
                             <input type="file" path="resume" name="resume" {{ isset($user->seeker->resume) ? '' : 'required=""'  }} id="resume" class="btn btn-sm" accept=".doc, .docx,.pdf" />
@@ -223,7 +244,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100%">
                         <label for="objective">Career Objective</label>
                         <div class="col-md-9">
                             <textarea rows="2" class="form-control" name="objective" placeholder="Briefly introduce yourself to employers, highlighting your strengths and skills">{{ $user->seeker->objective }}</textarea>
@@ -233,7 +254,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100%">
                         <label for="current_position">Current Position</label>
                         <div class="col-md-9">
                             <input type="text" name="current_position" class="form-control" placeholder="e.g. Primary Teacher or N/A" value="{{ $user->seeker->current_position }}">
@@ -247,7 +268,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <hr>
                 <hr>
                 <div class="row">
-                    <div class="form-group">
+                    <div class="form-group" style="width: 100%">
                         <label for="">Work Experience *</label>
                         <div class="col-md-9 row" id="employment_records">
                             <?php $exp=100;?>

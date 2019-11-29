@@ -84,6 +84,9 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         //return $request->all();
+        $request->validate([
+            'image'    =>  ['mimes:png,jpg,jpeg','max:51200']
+        ]);
         if(isset($request->image))
         {
             $storage_path = '/public/images/logos';
@@ -365,6 +368,9 @@ class PostsController extends Controller
 
     public function update(Request $request, $slug)
     {
+        $request->validate([
+            'image'    =>  ['mimes:png,jpg,jpeg','max:51200']
+        ]);
         $user = Auth::user();
         $post = Post::where('slug',$slug)->firstOrFail();
         if($post->company->user->id != $user->id)

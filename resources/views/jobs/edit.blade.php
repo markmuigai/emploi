@@ -16,6 +16,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div id="section1" class="section-view ">
         <div class="card">
             <div class="card-body p-5">
+                @error('image')
+                    <script type="text/javascript">
+                        $().ready(function(){
+                            setTimeout(function(){
+                                $('.toSection3').trigger('click');
+                            },2000);
+                        });
+                    </script>
+                    <p style="color: red">Errors were detected</p>
+                @enderror
                 <h3>Step 1 of 3</h3>
                 <p>
                     <label>Company *</label>
@@ -162,7 +172,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
 
                 <p>
-                    <label>Optional Photo</label>
+                    <label>
+                        Optional Photo
+                        (png, jpg and jpeg Max 5MB)
+                        @error('image')
+                            <strong class="pull-right" style="color: red"> * Uploaded image was invalid *</strong>
+                        @enderror
+                    </label>
                     <input type="file" name="image" placeholder="" accept=".jpg, .png,.jpeg">
                 </p>
                 <br>

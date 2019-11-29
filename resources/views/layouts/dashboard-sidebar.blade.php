@@ -172,7 +172,11 @@
                     @endif
                     @if(isset(Auth::user()->id))
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold"><img src="{{asset('images/avatar.png')}}" alt="">My Account<strong class="caret"></strong></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold">
+                            <img src="{{ Auth::user()->getPublicAvatarUrl() }}" alt="">
+                                My Account
+                                <strong class="caret"></strong>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a href="/home">Dashboard</a></li>
                             <li><a href="/profile">Profile</a></li>
