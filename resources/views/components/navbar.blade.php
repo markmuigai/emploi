@@ -113,3 +113,14 @@
         @endif
     </div>
 </nav>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(function() {
+            $(window).scroll(function() {
+                var $nav = $(".navbar");
+                $nav.toggleClass('scrolled', $(this).scrollTop() > 70);
+            })
+        });
+    });
+</script>

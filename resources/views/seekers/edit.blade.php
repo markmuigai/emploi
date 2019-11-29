@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="edit-section" id="section1">
         <div class="card">
             <div class="card-body p-5">
-                <h3 style="text-align: center;">Step 1 of 3 : Personal Details</h3>
+                <h3 class="text-center">Step 1 of 3 : Personal Details</h3>
                 <div class="form-group">
                     <label for="fullName">Full Name *</label>
                     <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control input-sm" maxlength="50" value="{{ $user->name }}" />
@@ -85,11 +85,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                   <div class="custom-file">
-                    <input type="file" name="avatar" class="custom-file-input" value="" accept=".jpg, .png,.jpeg" />
-                    <label class="custom-file-label" for="avatar">Profile Photo</label>
+                    <label class="" for="avatar">Profile Photo</label>
+                    <input type="file" name="avatar" class="" value="" accept=".jpg, .png,.jpeg" />
                   </div>
                 </div>
-                <div style="text-align: center;">
+                <div class="text-center">
                     <a href="#" class="toSection2 btn btn-success">Next > </a>
                 </div>
             </div>
@@ -113,38 +113,47 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
               </div>
               <div class="form-group">
                   <label for="education_records">Education Records *</label>
-                  <div class="col-md-9 row" id="education_records">
+                  <div id="education_records">
                       <?php $edu_counter = 100; ?>
                       @forelse($user->seeker->education() as $edu)
-                      <div class="col-md-6 education_field" style="margin-bottom: 1em" education_id="{{ $edu_counter }}">
+                      <div class="form-row mb-3 align-items-center education_field" education_id="{{ $edu_counter }}">
+                        <div class="col-md-4">
                           <input type="text" class="form-control edu_field" value="{{ $edu[0] }}" placeholder="Institution name" name="institution_name[]">
+                        </div>
+                        <div class="col-md-4">
                           <input type="text" class="form-control edu_field" value="{{ $edu[1] }}" placeholder="Course Pursued" name="course_name[]">
+                        </div>
+                        <div class="col-md-3">
                           <select class="form-control edu_field" name="course_duration[]">
-                              @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
-                              <option value="{{ $d }}" @if($edu[2]==$d) selected="" @endif>{{ $d }}</option>
-                              @endforeach
+                            @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
+                            <option value="{{ $d }}" @if($edu[2]==$d) selected="" @endif>{{ $d }}</option>
+                            @endforeach
                           </select>
-
+                        </div>
                       </div>
                       <?php $edu_counter++; ?>
                       @empty
-                      <div class="col-md-6 education_field" style="margin-bottom: 1em" education_id="{{ $edu_counter }}">
-                          <input type="text" class="form-control edu_field" value="" placeholder="Institution name" name="institution_name[]">
-                          <input type="text" class="form-control edu_field" value="" placeholder="Course Pursued" name="course_name[]">
-                          <select class="form-control edu_field" name="course_duration[]">
-                              @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
-                              <option value="{{ $d }}">{{ $d }}</option>
-                              @endforeach
-                          </select>
-                          <span class="btn btn-sm btn-danger removeEducation">X</span>
+                      <div class="form-row mb-3 align-items-center education_field" education_id="{{ $edu_counter }}">
+                          <div class="col-md-4">
+                            <input type="text" class="form-control edu_field" value="" placeholder="Institution name" name="institution_name[]">
+                          </div>
+                          <div class="col-md-4">
+                            <input type="text" class="form-control edu_field" value="" placeholder="Course Pursued" name="course_name[]">
+                          </div>
+                          <div class="col-md-3">
+                            <select class="form-control edu_field" name="course_duration[]">
+                                @foreach(['1 month or less','3 months','6 months','1 year','2 years','3 years','4 years', '5 years', '6 years'] as $d)
+                                <option value="{{ $d }}">{{ $d }}</option>
+                                @endforeach
+                            </select>
+                          </div>
+                          <span class="text-danger removeEducation pull-right">Remove</span>
                       </div>
                       @endforelse
-                      <div class="col-md-6">
-                          <span id="add_education" class="btn btn-sm btn-primary">Add Education Records</span>
-                      </div>
-
-
-                  </div>
+                    </div>
+                    <div class="text-right">
+                        <span id="add_education" class="btn btn-orange-alt">Add Education Records</span>
+                    </div>
               </div>
 
                 <hr>
@@ -156,7 +165,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <div class="col-lg-4 col-md-6 user-skill" skill_id="{{ $s->skill->id }}">
                               <strong>{{ $s->skill->name }}</strong>
                               <input type="hidden" name="skills[]" value="{{ $s->skill->id }}">
-                              <span class="text-danger pull-right remove-skill" skill_id="{{ $s->skill->id }}"><strong>X</strong></span>
+                              <span class="text-danger pull-right remove-skill" skill_id="{{ $s->skill->id }}"><i class="fas fa-times"></i></span>
                           </div>
                           @empty
                           @endforelse
@@ -175,132 +184,109 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                       </div>
                 </div>
-            <div style="">
-
-                <a href="#" class="toSection1 btn btn-primary">
-                    < Previous </a> <a href="#" class="toSection3 pull-right btn btn-success">Next >
-                </a>
-            </div>
+                <hr>
+                <a href="#" class="toSection1 btn btn-primary">< Previous </a>
+                <a href="#" class="toSection3 pull-right btn btn-success">Next ></a>
         </div>
     </div>
     </div>
     <div class="edit-section d-none" id="section3">
         <div class="card">
             <div class="card-body p-5">
-                <h3 style="text-align: center;">Step 3 of 3 : Employment</h3>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="industry">Industry *</label>
-                        <div class="col-md-9">
-                            <select path="industry" id="industry" name="industry" class="form-control input-sm">
-                                @foreach($industries as $c)
-                                <option value="{{ $c->id }}" @if($c->id == $user->seeker->industry_id)
-                                    selected=""
-                                    @endif
-                                    >{{ $c->name }}</option>
-                                @endforeach
+                <h3 class="text-center">Step 3 of 3 : Employment</h3>
+                <div class="form-group">
+                    <label for="industry">Industry *</label>
+                    <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                        @foreach($industries as $c)
+                        <option value="{{ $c->id }}" @if($c->id == $user->seeker->industry_id)
+                            selected=""
+                            @endif
+                            >{{ $c->name }}</option>
+                        @endforeach
 
-                            </select>
-
-                        </div>
-                    </div>
+                    </select>
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="resume">Industry Experience (in years) *</label>
-                        <div class="col-md-9">
-                            <input type="number" name="years_experience" value="{{ $user->seeker->years_experience }}" required="" class="form-control" />
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="resume">Industry Experience (in years) *</label>
+                    <input type="number" name="years_experience" value="{{ $user->seeker->years_experience }}" required="" class="form-control" />
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="resume">{{ isset($user->seeker->resume) ? 'Update Resume' : 'Attach Resume *'  }}</label>
-                        <div class="col-md-9">
-                            <input type="file" path="resume" name="resume" {{ isset($user->seeker->resume) ? '' : 'required=""'  }} id="resume" class="btn btn-sm" accept=".doc, .docx,.pdf" />
-                        </div>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <label for="resume">{{ isset($user->seeker->resume) ? 'Update Resume' : 'Attach Resume *'  }}</label>
+                      <input type="file" path="resume" name="resume" {{ isset($user->seeker->resume) ? '' : 'required=""'  }} id="resume" class="" accept=".doc, .docx,.pdf" />
+                  </div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="objective">Career Objective</label>
-                        <div class="col-md-9">
-                            <textarea rows="2" class="form-control" name="objective" placeholder="Briefly introduce yourself to employers, highlighting your strengths and skills">{{ $user->seeker->objective }}</textarea>
+                  <div class="form-group">
+                      <label for="objective">Career Objective</label>
+                      <textarea rows="2" class="form-control" name="objective" placeholder="Briefly introduce yourself to employers, highlighting your strengths and skills">{{ $user->seeker->objective }}</textarea>
+                  </div>
 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
                     <div class="form-group">
                         <label for="current_position">Current Position</label>
-                        <div class="col-md-9">
-                            <input type="text" name="current_position" class="form-control" placeholder="e.g. Primary Teacher or N/A" value="{{ $user->seeker->current_position }}">
-
-                        </div>
+                        <input type="text" name="current_position" class="form-control" placeholder="e.g. Primary Teacher or N/A" value="{{ $user->seeker->current_position }}">
                     </div>
-                </div>
-
-
-
                 <hr>
-                <hr>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="">Work Experience *</label>
-                        <div class="col-md-9 row" id="employment_records">
-                            <?php $exp=100;?>
-                            @forelse($user->seeker->experience() as $emp)
-                            <div class="row experience_field" style="margin-bottom: 1em" experience_id="{{ $exp }}">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control emp_field" value="{{ $emp[0] }}" placeholder="Organization name" name="organization_name[]">
-                                    <input type="text" class="form-control emp_field" value="{{ $emp[1] }}" placeholder="Job Title" name="job_title[]">
-                                    <input type="date" class="form-control emp_field" value="{{ $emp[2] }}" name="job_start[]" placeholder="e.g January 2018">
-                                    <input type="date" class="form-control emp_field" value="{{ $emp[3] }}" name="job_end[]" placeholder="e.g April 2018 or current">
-                                    <span class="btn btn-sm btn-danger removeExperience">X</span>
-                                </div>
-                                <div class="col-md-6">
-                                    <textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities">{{ $emp[4] }}</textarea>
-                                </div>
-                            </div>
-                            <?php $exp++;?>
-                            @empty
-                            <div class="row experience_field" style="margin-bottom: 1em" experience_id="{{ $exp }}">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control emp_field" value="" placeholder="Organization name" name="organization_name[]">
-                                    <input type="text" class="form-control emp_field" value="" placeholder="Job Title" name="job_title[]">
-                                    <input type="date" class="form-control emp_field" value="" name="job_start[]" placeholder="e.g January 2018">
-                                    <input type="date" class="form-control emp_field" value="" name="job_end[]" placeholder="e.g April 2018 or current">
-                                    <span class="btn btn-sm btn-danger removeExperience">X</span>
-                                </div>
-                                <div class="col-md-6">
-                                    <textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities"></textarea>
-                                </div>
-                            </div>
-                            @endforelse
-
-                            <div class="col-md-6">
-                                <span id="add_employment" class="btn btn-sm btn-primary">Add Employment Records</span>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div style="">
-                        <a href="#" class="toSection2 btn btn-primary">
-                            < Previous </a> </div> <div class="form-actions floatRight">
-                                <span class="btn btn-success pull-right updateProfile">Update</span>
-                                <input style="display: none" type="submit" value="Update" class="btn btn-primary btn-sm">
-                    </div>
+                  <div class="form-group">
+                      <label for="">Work Experience *</label>
+                      <div id="employment_records">
+                          <?php $exp=100;?>
+                          @forelse($user->seeker->experience() as $emp)
+                          <div class="experience_field">
+                              <div class="row" experience_id="{{ $exp }}">
+                                  <div class="col-md-6">
+                                      <input type="text" class="form-control emp_field" value="{{ $emp[0] }}" placeholder="Organization name" name="organization_name[]">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="text" class="form-control emp_field" value="{{ $emp[1] }}" placeholder="Job Title" name="job_title[]">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="date" class="form-control emp_field" value="{{ $emp[2] }}" name="job_start[]" placeholder="e.g January 2018">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="date" class="form-control emp_field" value="{{ $emp[3] }}" name="job_end[]" placeholder="e.g April 2018 or current">
+                                  </div>
+                                  <div class="col-md-12">
+                                      <textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities">{{ $emp[4] }}</textarea>
+                                  </div>
+                              </div>
+                              <span class="text-danger removeExperience">Remove</span>
+                          </div>
+                          <?php $exp++;?>
+                          @empty
+                          <div class="experience_field"  experience_id="{{ $exp }}">
+                              <div class="row">
+                                  <div class="col-md-6 form-group">
+                                      <input type="text" class="form-control emp_field" value="" placeholder="Organization name" name="organization_name[]">
+                                  </div>
+                                  <div class="col-md-6 form-group">
+                                      <input type="text" class="form-control emp_field" value="" placeholder="Job Title" name="job_title[]">
+                                  </div>
+                                  <div class="col-md-6 form-group">
+                                      <input type="date" class="form-control emp_field" value="" name="job_start[]" placeholder="e.g January 2018">
+                                  </div>
+                                  <div class="col-md-6 form-group">
+                                      <input type="date" class="form-control emp_field" value="" name="job_end[]" placeholder="e.g April 2018 or current">
+                                  </div>
+                                  <div class="col-md-12 form-group">
+                                      <textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities"></textarea>
+                                  </div>
+                              </div>
+                                <span class="btn btn-sm btn-danger removeExperience pull right">Remove</span>
+                          </div>
+                          @endforelse
+                      </div>
+                      <div class="text-right">
+                          <span id="add_employment" class="btn btn-orange-alt">Add Employment Records</span>
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="d-flex justify-content-between">
+                      <a href="#" class="toSection2 btn btn-primary">< Previous </a>
+                      <span class="btn btn-orange pull-right updateProfile">Update</span>
+                      <input style="display: none" type="submit" value="Update" class="btn btn-primary btn-sm">
                 </div>
             </div>
         </div>
     </div>
-
 </form>
 <div class="login-bottom">
     <p style="display: none;">With your social media account</p>

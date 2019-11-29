@@ -205,7 +205,7 @@ $().ready(function(){
 					<div class="col-12 col-md-6 hover-bottom py-2">
 							{{ $course->course->title }}
 						<input type="hidden" name="modelSeekerCourses[]" class="listed-course" value="{{ $course->course->id }}">
-						<span class="text-danger pull-right remove-course"><strong>x</strong></span>
+						<span class="text-danger pull-right remove-course"><i class="fas fa-times"></i></span>
 					</div>
 					@empty
 					@endforelse
@@ -366,7 +366,7 @@ $().ready(function(){
 						<input type="hidden" class="skill-weight" name="skill_weight[]" value="{{ $mskill->weight }}">
 						<p>
 							<strong>{{ $mskill->industrySkill->name }}</strong> || <i>{{ $mskill->weightName }}</i>
-							<span class="pull-right text-danger remove-skill" skill_id="{{ $mskill->industrySkill->id }}"><strong>x</strong></span>
+							<span class="pull-right text-danger remove-skill" skill_id="{{ $mskill->industrySkill->id }}"><i class="fas fa-times"></i></span>
 						</p>
 					</div>
 					@empty

@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi')
 
@@ -7,30 +7,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
 
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
+<div class="card">
+    <div class="card-body text-center">
         <h2>{{ $title }}</h2>
-        
-        <div style="text-align: center;">
-        	<p>
-	        	{{ $message }}
-	        </p>
-
-	        <br>	
-
-	        <p>
-	        	<a href="/profile" class="btn btn-sm btn-success">View Profile</a>
-	        	<a href="/profile/edit" class="btn btn-sm btn-primary">Edit Profile</a>
-	        </p>
-        </div>
-        
-    
-                
+      	<p>
+        	{{ $message }}
+        </p>
+      	<a href="/profile" class="btn btn-purple">View Profile</a>
+      	<a href="/profile/edit" class="btn btn-orange">Edit Profile</a>
     </div>
- </div>
 </div>
 
 @endsection

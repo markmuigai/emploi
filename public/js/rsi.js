@@ -89,7 +89,7 @@ $().ready(function() {
                 t + '</strong> || <em>' + wn + '</em>' +
                 '<input type="hidden" name="trait_id[]" value="' + s + '">' +
                 '<input type="hidden"  class="trait-weight" name="trait_weight[]" value="' + w + '">' +
-                '<span class="pull-right text-danger remove-new-trait" trait_id="' + s + '"><strong>x</strong></span>' +
+                '<span class="pull-right text-danger remove-new-trait" trait_id="' + s + '"><i class="fas fa-times"></i></span>' +
                 '</p>' +
                 '</div>';
             $('.selected-traits').append($trait);
@@ -146,7 +146,7 @@ $().ready(function() {
                     '<div class="col-12 col-md-6 py-2">' +
                     name +
                     '<input type="hidden" name="modelSeekerCourses[]" class="listed-course" value="' + response.id + '">' +
-                    '<span class="text-danger pull-right remove-course"><strong>x</strong></span>' +
+                    '<span class="text-danger pull-right remove-course"><i class="fas fa-times"></i></span>' +
                     '</div>';
 
                 $('.accepted-courses').append($c);

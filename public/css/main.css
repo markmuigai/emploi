@@ -59,8 +59,8 @@ ul.tick li:before {
     content: '✓';
 }
 
-.form-row {
-    /* border: 2px solid var(--primary); */
+.fa-times:hover {
+    cursor: pointer;
 }
 
 .badge-secondary {
@@ -220,6 +220,11 @@ ul.tick li:before {
     box-shadow: 0 0 10px 2px rgba(80, 0, 149, 0.3);
 }
 
+span[class*="remove"]:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 img.avatar-small {
     /* height: 90px; */
     width: 100%;
@@ -236,6 +241,10 @@ img.avatar-small {
 .navbar-brand img {
     height: 70px;
     transition: height 0.5s
+}
+
+.scrolled .navbar-brand img {
+    height: 50px;
 }
 
 .nav-item {
@@ -807,12 +816,8 @@ a .fab:hover {
         padding: 0;
     }
 
-    .navbar-brand img {
+    .scrolled .navbar-brand img {
         height: 30px;
-    }
-
-    .navbar {
-        background: transparent;
     }
 
     .navbar:focus-within {

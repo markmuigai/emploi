@@ -25,18 +25,24 @@ $().ready(function() {
 
     function addEducation() {
         var $edu = '' +
-            '<div class="col-md-6 education_field" style="margin-bottom: 1em" education_id="' + edu + '">' +
+            '<div class="form-row mb-3 align-items-center education_field" education_id="' + edu + '">' +
+            '<div class="col-md-4">' +
             '<input type="text" class="form-control edu_field" placeholder="Institution name" name="institution_name[]">' +
+            '</div>' +
+            '<div class="col-md-4">' +
             '<input type="text" class="form-control edu_field" placeholder="Course Pursued" name="course_name[]">' +
+            '</div>' +
+            '<div class="col-md-3">' +
             '<select class="form-control edu_field" name="course_duration[]">';
         var lv = ['1 month or less', '3 months', '6 months', '1 year', '2 years', '3 years', '4 years', '5 years', '6 years'];
         for (var i = 0; i < lv.length; i++) {
             $edu += '<option value="' + lv[i] + '">' + lv[i] + '</option>';
         }
         $edu += '</select>' +
-            '<span class="btn btn-sm btn-danger removeEducation">X</span>' +
+            '</div>' +
+            '<span class="text-danger removeEducation">Remove</span>' +
             '</div>';
-        $('#education_records').prepend($edu);
+        $('#education_records').append($edu);
         edu++;
         $('.removeEducation').click(function() {
             var id = $(this).parent().attr('education_id');
@@ -46,20 +52,9 @@ $().ready(function() {
 
     function addEmployment() {
         var $emp = '' +
-            '<div class="row experience_field" style="margin-bottom: 1em" experience_id="' + emp + '">' +
-            '<div class="col-md-6">' +
-            '<input type="text" class="form-control emp_field" placeholder="Organization name" name="organization_name[]">' +
-            '<input type="text" class="form-control emp_field" placeholder="Job Title" name="job_title[]">' +
-            '<input type="date" class="form-control emp_field" name="job_start[]" placeholder="e.g January 2018">' +
-            '<input type="date" class="form-control emp_field" name="job_end[]" placeholder="e.g April 2018 or current">' +
-            '<span class="btn btn-sm btn-danger removeExperience">X</span>' +
-            '</div>' +
-            '<div class="col-md-6">' +
-            '<textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities"></textarea>' +
-            '</div>' +
-            '</div>';
+            '<div class="experience_field" experience_id="' + emp + '">' + '<div class="row">' + '<div class="col-md-6 form-group">' + '<input type="text" class="form-control emp_field" value="" placeholder="Organization name" name="organization_name[]">' + '</div>' + '<div class="col-md-6 form-group">' + '<input type="text" class="form-control emp_field" value="" placeholder="Job Title" name="job_title[]">' + '</div>' + '<div class="col-md-6 form-group">' + '<input type="date" class="form-control emp_field" value="" name="job_start[]" placeholder="e.g January 2018">' + '</div>' + '<div class="col-md-6 form-group">' + '<input type="date" class="form-control emp_field" value="" name="job_end[]" placeholder="e.g April 2018 or current">' + '</div>' + '<div class="col-md-12 form-group">' + '<textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities"></textarea>' + '</div>' + '</div>' + '<span class="btn btn-sm btn-danger removeExperience pull right">Remove</span>' + '</div>';
 
-        $('#employment_records').prepend($emp);
+        $('#employment_records').append($emp);
         emp++;
         $('.removeEmployment').click(function() {
             var id = $(this).parent().attr('experience_id');
@@ -87,7 +82,7 @@ $().ready(function() {
     });
 
     $('.removeExperience').click(function() {
-        var id = $(this).parent().parent().attr('experience_id');
+        var id = $(this).parent().attr('experience_id');
         removeEmployment(id);
     });
 
@@ -151,10 +146,10 @@ $().ready(function() {
                 }
             }
             var $skill = '' +
-                '<div class="col-md-6 user-skill" skill_id="' + skill_id + '">' +
-                '</strong>' + name + '</strong>' +
+                '<div class="col-lg-4 col-md-6 user-skill" skill_id="' + skill_id + '">' +
+                '<strong>' + name + '</strong>' +
                 '<input type="hidden" name="skills[]" value="' + skill_id + '">' +
-                '<span class="btn btn-sm btn-danger pull-right remove-new-skill" skill_id="' + skill_id + '">x</span>' +
+                '<span class="text-danger pull-right remove-new-skill" skill_id="' + skill_id + '"><i class="fas fa-times"></i></span>' +
                 '</div>';
             $('#skills-pool').append($skill);
             $('.remove-new-skill').click(function() {

@@ -22,6 +22,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <li>1 Job posted for 30 days</li>
                     <li>Advertised on our website &amp; social media pages</li>
                 </ul>
+                <hr>
+                <div class="text-center">
+                    <a href="#get-package" class="btn btn-orange-alt">Get Package</a>
+                </div>
             </div>
         </div>
         <div class="card m-3">
@@ -35,6 +39,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <li>Advertised on our website &amp; social media pages</li>
                     <li>Job AD sent out to entire database</li>
                 </ul>
+                <hr>
+                <div class="text-center">
+                    <a href="#get-package" class="btn btn-orange-alt">Get Package</a>
+                </div>
             </div>
 
         </div>
@@ -49,6 +57,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <li>Advertised on our website &amp; social media pages</li>
                     <li>Job AD sent out to entire database</li>
                 </ul>
+                <hr>
+                <div class="text-center">
+                    <a href="#get-package" class="btn btn-orange-alt">Get Package</a>
+                </div>
             </div>
         </div>
     </div>
@@ -64,6 +76,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <li>Unlimited searches in 1 job category</li>
                     <li>Get up to 20 CVs per category.</li>
                 </ul>
+                <hr>
+                <div class="text-center">
+                    <a href="#get-package" class="btn btn-orange-alt">Get Package</a>
+                </div>
             </div>
         </div>
         <div class="card m-3">
@@ -79,6 +95,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <li>Advertised on our website &amp; social media pages</li>
                     <li>Job AD sent out to entire database</li>
                 </ul>
+                <hr>
+                <div class="text-center">
+                    <a href="#get-package" class="btn btn-orange-alt">Get Package</a>
+                </div>
             </div>
         </div>
         <div class="card m-3">
@@ -94,6 +114,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <li>Advertised on our website &amp; social media pages</li>
                     <li>Job AD sent out to entire database</li>
                 </ul>
+                <hr>
+                <div class="text-center">
+                    <a href="#get-package" class="btn btn-orange-alt">Get Package</a>
+                </div>
             </div>
         </div>
     </div>
@@ -114,9 +138,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <li>Reference Checks</li>
                         <li>90 Day guarantee</li>
                     </ul>
+                    <hr>
+                    <div class="text-center">
+                        <a href="#get-package" class="btn btn-orange-alt">Get Package</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <div id="get-package" class="text-center mt-5">
+        <div class="card py-5">
+            <div class="card-body">
+                <h3 class="orange">Reach out to us today</h3>
+                <h6 class="mt-3">Call Us</h6>
+                <p>+254 702 068 282 || +254 774 569 001</p>
+                <h6 class="mt-3">Find Us</h6>
+                <p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
+                <h6 class="mt-3">Send Us An Email</h6>
+                <p><a href="mailto:info@emploi.co">info@emploi.co</a> || <a href="mailto:sales@emploi.co">sales@emploi.co</a></p>
+            </div>
+        </div>
+    </div>
     @endsection
