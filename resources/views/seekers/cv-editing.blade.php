@@ -46,31 +46,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	<div class="card-deck text-center coloured-card">
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1 class="purple">Kshs 2,000</h1>
+				<h1>Kshs 2,000</h1>
 				<p>Entry Level</p>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1 class="purple">Kshs 4,000</h1>
+				<h1>Kshs 4,000</h1>
 				<p>Mid Level</p>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1 class="purple">Kshs 6,000</h1>
+				<h1>Kshs 6,000</h1>
 				<p>Career Change / Promotion Seeking CV</p>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1 class="purple">Kshs 6,000</h1>
+				<h1>Kshs 6,000</h1>
 				<p>Management Level</p>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1 class="purple">Kshs 10,000</h1>
+				<h1>Kshs 10,000</h1>
 				<p>Senior Management Level</p>
 			</div>
 		</div>

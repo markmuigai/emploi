@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						</div>
 						<div class="col-10">
 							<h5>Address</h5>
-								<p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
+								<p>Even Business Park, Airport North Rd, Nairobi</p>
 						</div>
 				</div>
 				<br>
