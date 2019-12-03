@@ -129,7 +129,7 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name'          =>  ['required','max:50','string'],
-            'about'         =>  ['required','max:255' ,'string'],
+            'about'         =>  ['required' ,'string'],
             'website'       =>  ['max:255' ,'string'],
             'phone_number'  =>  ['max:20' ,'string'],
             'tagline'       =>  ['required' ,'max:2000' ,'string'],

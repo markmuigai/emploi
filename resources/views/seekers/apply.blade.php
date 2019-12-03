@@ -58,10 +58,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      	</p>
 
 	      	<p>
-	      		<input type="checkbox" checked="" name="follow"> Follow {{ $post->company->name }}
-	      	</p>
-
-	      	<p>
 	      		<input type="submit" name="" value="Submit Application" class="btn btn-danger">
 	      	</p>
 
