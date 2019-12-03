@@ -137,7 +137,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card">
             <div class="card-body text-center">
                 <h2 class="orange">Our Services</h2>
-                <p>We provide you with seamless job placement though superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
+                <p>We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
                 <div class="row pt-2 service-cards">
                     <div class="col-md-6 col-sm-6">
                         <h5>Employer Services</h5>

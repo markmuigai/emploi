@@ -75,18 +75,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @endif
                         </p>
                     </div>
-                    <div class="col-4 col-md-4 col-lg-4 text-center">
-                        <p><i class="far fa-star"></i></p>
-                        <h5>88%</h5>
-                        <p> <i class="far fa-eye"></i> 234 Views</p>
-                    </div>
                 </div>
                 <hr>
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-6 col-lg-6">
-                        <span class="badge badge-secondary">CSS</span>
-                        <span class="badge badge-secondary">HTML</span>
-                        <span class="badge badge-secondary">Photoshop</span>
+                        @forelse($s->skills as $k)
+                        <span class="badge badge-secondary">{{ $k->skill->name }}</span>
+                        @empty
+                        <p>No skills highlighted</p>
+                        @endforelse
                     </div>
                     <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-end align-items-center">
                         <p class="orange mr-3">Experience: {{ $s->years_experience ? $s->years_experience.' years' : 'N/A' }}</p>
