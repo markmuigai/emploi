@@ -14,6 +14,7 @@ use App\Location;
 use App\Post;
 use App\Seeker;
 use App\User;
+use App\Jobs\VacancyEmail;
 
 class AdminController extends Controller
 {
@@ -203,6 +204,230 @@ class AdminController extends Controller
             return redirect()->back();
         }
         
+    }
+
+    public function emails(){
+        return view('admins.emails.compose')
+                ->with('industries',Industry::orderBy('name')->get());
+    }
+
+    public function sendEmails(Request $request){
+        $contents=$request->contents;
+        $subject=$request->subject;
+        $industry = $request->category;
+        $caption = $request->caption;
+
+        $banner = '/images/email-banner.jpg';
+
+        $template = $request->template;
+        $template = 'custom';
+
+        if ($request->hasFile('featured_image')) {
+            $image = $request->file('featured_image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/e-mail');
+            $image->move($destinationPath, $name);
+            //$this->save();
+            $banner = "/images/e-mail/".$name;
+        }
+
+        $attachment1 = false;
+        $attachment2 = false;
+        $attachment3 = false;
+
+        if ($request->hasFile('attachment1')) {
+            $file = $request->file('attachment1');
+            $pre_name = explode(" ",$file->getClientOriginalName());
+            $pre_name = implode("-", $pre_name );
+            $name = $pre_name.time().'.'.$file->getClientOriginalExtension();
+            $destinationPath = public_path('/attachments');
+            $file->move($destinationPath, $name);
+            //$this->save();
+            $attachment1 = public_path() . "/attachments/".$name;
+        }
+
+        if ($request->hasFile('attachment2')) {
+            $file = $request->file('attachment2');
+            $pre_name = explode(" ",$file->getClientOriginalName());
+            $pre_name = implode("-", $pre_name );
+            $name = $pre_name.time().'.'.$file->getClientOriginalExtension();
+            $destinationPath = public_path('/attachments');
+            $file->move($destinationPath, $name);
+            //$this->save();
+            $attachment2 = public_path() . "/attachments/".$name;
+        }
+
+        if ($request->hasFile('attachment3')) {
+            $file = $request->file('attachment3');
+            $pre_name = explode(" ",$file->getClientOriginalName());
+            $pre_name = implode("-", $pre_name );
+            $name = $pre_name.time().'.'.$file->getClientOriginalExtension();
+            $destinationPath = public_path('/attachments');
+            $file->move($destinationPath, $name);
+            //$this->save();
+            $attachment3 = public_path() . "/attachments/".$name;
+        }
+
+        switch($request->target){
+            
+            case 'jobseekers':
+                $filter = '';
+                if($industry == 'all')
+                {
+                    $filter = "";
+                }
+                elseif($industry == 'incomplete')
+                {
+                    $filter = " WHERE LENGTH(education) < 10 OR LENGTH(experience) < 10";
+                }
+                elseif($industry == 'incomplete-edu')
+                {
+                    $filter = " WHERE LENGTH(education) < 10";
+                }
+                elseif($industry == 'incomplete-exp')
+                {
+                    $filter = " WHERE LENGTH(experience) < 10";
+                }
+                elseif($industry == 'corrupt')
+                {
+                    $filter = " WHERE resume not like \"%.%\"";
+                }
+                elseif($industry == 'test-users')
+                {
+                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
+                }
+                else
+                {
+                    $filter = " WHERE industry = $industry";
+                }
+                $sql = "SELECT user_id FROM seekers $filter";
+
+                //die($sql);
+                
+                $result = DB::select($sql);
+                
+                foreach($result as $seeker)
+                {
+                    $user = User::find($seeker->user_id);
+                    if(!isset($user->id))
+                        continue;
+                    if(User::subscriptionStatus($user->email))
+                    {
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                    }
+                }
+                break;
+                
+            case 'employers':
+                $filter = '';
+                if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
+                {
+                    $filter = " WHERE industry = $industry";
+                }
+                elseif ($industry == 'test-users') {
+                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
+                }
+                $sql = "SELECT * FROM employers $filter";
+
+                $result = DB::select($sql);
+                foreach($result as $employer)
+                {
+                    $user = User::find($employer->user_id);
+                    if(!isset($user->id))
+                        continue;
+                    if(User::subscriptionStatus($user->email))
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                }
+                
+                
+                break;
+                
+            case 'unregistered':
+                $storage_path = storage_path();
+                $file = $storage_path.'/app/unique-emails.csv';
+                //$file = $storage_path.'/app/emails.csv';
+                if(file_exists($file)){
+                    
+                    $handle = fopen($file, "r");
+                    for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+
+                        $email = User::cleanEmail($row[0]);
+                        
+                        if(User::subscriptionStatus($email))
+                        {
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                            //print "<br> ".$row[0];
+                        }
+                        
+                    }
+                    fclose($handle);
+                    
+                }
+                else
+                {
+                    die("File $file not found");
+                }
+                break;
+                
+            case 'test-users':
+                $sql = "SELECT name, email FROM users WHERE email = 'brian@emploi.co' OR email = 'sophy@emploi.co' ";
+                //die($sql);
+                $result = DB::select($sql);
+                foreach($result as $user)
+                {
+                    if(User::subscriptionStatus($user->email))
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                }
+                
+                break;
+
+            case 'team':
+                $sql = "SELECT name, email FROM users WHERE email like \"%@emploi.co\"";
+                $result = DB::select($sql);
+                foreach($result as $user)
+                {
+                    if(User::subscriptionStatus($user->email))
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                }
+                
+                break;
+
+            case 'employers-list':
+                $storage_path = storage_path();
+                $file = $storage_path.'/app/employers-list.csv';
+                //$file = $storage_path.'/app/emails.csv';
+                if(file_exists($file)){
+                    
+                    $handle = fopen($file, "r");
+                    for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+
+                        $email = User::cleanEmail($row[0]);
+                        
+                        if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
+                        {
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                            //print "<br> ".$row[0];
+                        }
+                        
+                    }
+                    fclose($handle);
+                    
+                }
+                else
+                {
+                    die("File $file not found");
+                }
+                break;
+                
+            default:
+                die("No category has been selected. Invalid Parameters");
+                
+                          
+        }
+
+        return view('admins.emails.queued');
+
+        return $request->all();
     }
 
 }

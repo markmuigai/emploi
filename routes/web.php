@@ -127,6 +127,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('seekers/{username?}','AdminController@seekers');
     Route::get('cv-requests/{id?}','AdminController@cvRequests');
     //Route::resource('posts', 'PostsController');
+    Route::get('emails', 'AdminController@emails');
+    Route::post('emails/send', 'AdminController@sendEmails');
 });
 
 

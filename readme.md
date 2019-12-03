@@ -190,6 +190,11 @@ g) Setup supervisor to manage queues
 
 All Done
 
+h) Setup E-mailer /admin/emails
+Import files below into /storage/app directory using scp
+unique-emails.csv
+employers-list.csv
+
 
 ## Security Vulnerabilities
 
