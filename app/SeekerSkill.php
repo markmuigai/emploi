@@ -11,7 +11,7 @@ class SeekerSkill extends Model
     ];
 
     public function skill(){
-    	return $this->belongsTo(Skill::class,'skill_id');
+    	return $this->belongsTo(IndustrySkill::class,'skill_id');
     }
 
     public function seeker(){

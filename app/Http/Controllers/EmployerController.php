@@ -219,6 +219,8 @@ class EmployerController extends Controller
             $q = $request->q;
 
             $seekers = Seeker::where('experience','like',"%$q%")
+                    ->orWhere('education','like',"%$q%")
+                    ->orWhere('resume_contents','like',"%$q%")
                     ->orderBy('featured')->paginate(10);
 
             $title = 'Search results';

@@ -11,6 +11,7 @@ use App\Country;
 use App\Course;
 use App\EducationLevel;
 use App\Industry;
+use App\IndustrySkill;
 use App\Location;
 use App\Parser;
 use App\Referee;
@@ -80,7 +81,7 @@ class HomeController extends Controller
             return view('seekers.edit')
                     ->with('educationLevels',EducationLevel::all())
                     ->with('user',Auth::user())
-                    ->with('skills',Skill::all())
+                    ->with('skills',IndustrySkill::all())
                     ->with('locations',Location::active())
                     ->with('industries',Industry::active())
                     ->with('countries',Country::active());

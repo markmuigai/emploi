@@ -58,6 +58,11 @@ class Seeker extends Model
         return 'Other';
     }
 
+    public static function isJson($string){
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
+
 
     public function experience(){
         return $this->experience == null ? [] : json_decode($this->experience);

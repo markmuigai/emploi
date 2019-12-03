@@ -194,7 +194,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <br>
                         @if(Auth::user()->employer->canRequestSeeker($user->seeker))
                             <p>
-                                <a href="/employers/request-cv/{{ $user->username }}" class="btn btn-orange">
+                                <a href="/employers/browse/{{ $user->username }}/request-cv" class="btn btn-orange">
                                      Request Profile & CV
                                 </a>
                             </p>

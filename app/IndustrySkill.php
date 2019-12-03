@@ -18,6 +18,10 @@ class IndustrySkill extends Model
         return $this->hasMany(SeekerIndustrySkill::class);
     }
 
+    public function seekerSkills(){
+        return $this->hasMany(SeekerSkill::class);
+    }
+
     public function modelSeekerIndustrySkills(){
         return $this->hasMany(ModelSeekerSkill::class);
     }
