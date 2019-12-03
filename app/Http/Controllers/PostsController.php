@@ -182,11 +182,12 @@ class PostsController extends Controller
         $locations = Location::active();
         $vacancyTypes = VacancyType::all();
         $title = 'Featured Jobs';
-        $posts = Post::where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->limit(25)->paginate(10);
+        //$posts = Post::where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->limit(25)->paginate(10);
+        $posts = Post::limit(25)->paginate(10);
         $match = false;
 
         if($param == 'featured'){ //featured jobs
-            $posts = Post::where('featured','true')->where('status','active')->paginate(10)->onEachSide(3);
+            $posts = Post::where('featured','true')->paginate(10)->onEachSide(3);
             $title = 'Featured Jobs';
             $match = true;
         }
@@ -194,8 +195,8 @@ class PostsController extends Controller
             if($v->slug == $param)
             {
                 $posts = Post::where('vacancy_type_id',$v->id)
-                        ->where('status','active')
-                        ->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                        //->where('status','active')
+                        //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                         ->paginate(10)
                         ->onEachSide(3);
                 $title = $v->name.' Jobs';
@@ -212,9 +213,8 @@ class PostsController extends Controller
                 {
                     $l[count($l)] = $j->id;
                 }
-                $posts = Post::where('status','active')
-                        ->where('deadline','>',Carbon::now()->format('Y-m-d'))
-                        ->whereIn('location_id', $l)
+                $posts = Post::whereIn('location_id',$l)
+                        //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                         ->paginate(10)
                         ->onEachSide(3);
 
@@ -226,9 +226,9 @@ class PostsController extends Controller
         foreach(Location::active() as $c){ //location jobs
             if(strtolower($c->name) == strtolower($param))
             {
-                $posts = Post::where('status','active')
-                        ->where('deadline','>',Carbon::now()->format('Y-m-d'))
-                        ->where('location_id', $c->id)
+                $posts = Post::where('location_id',$c->id)
+                        //->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                        //->where('location_id', $c->id)
                         ->paginate(10)
                         ->onEachSide(3);
                 $title = 'Jobs near '.$c->name.' ['.$c->country->code.']';
@@ -239,9 +239,9 @@ class PostsController extends Controller
         foreach(Industry::active() as $c){ //industry jobs
             if(strtolower($c->slug) == strtolower($param))
             {
-                $posts = Post::where('status','active')
-                        ->where('deadline','>',Carbon::now()->format('Y-m-d'))
-                        ->where('industry_id', $c->id)
+                $posts = Post::where('industry_id',$c->id)
+                        //->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                        //->where('industry_id', $c->id)
                         ->paginate(10)
                         ->onEachSide(3);
                 $title = $c->name.' Jobs';
@@ -297,9 +297,9 @@ class PostsController extends Controller
                 $search_query = $request->q;
                 $params .= " AND title like \"%".$request->q."%\"";
             }
-            $params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
+            //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
-            $sql = "SELECT id FROM posts WHERE status = 'active' $params ORDER BY featured, deadline DESC Limit 20";
+            $sql = "SELECT id FROM posts WHERE id > 0 $params ORDER BY featured, deadline DESC Limit 20";
             //dd($sql);
             $result = DB::select($sql);
             $posts = [];
@@ -335,7 +335,10 @@ class PostsController extends Controller
 
 
 
-        $post = Post::where('slug',$param)->where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))->first();
+        $post = Post::where('slug',$param)
+                    //->where('status','active')
+                    //->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                    ->first();
 
         if(isset($post->id))
         {

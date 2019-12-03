@@ -196,9 +196,9 @@ class Post extends Model
     }
 
     public static function featured($counter = 10){
-        $posts = Post::where('status','active')
-                    ->where('featured','true')
-                    ->where('deadline','>',Carbon::now()->format('Y-m-d'))
+        $posts = Post::where('featured','true')
+                    //->where('status','active')
+                    //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                     ->limit($counter)
                     ->get();
         // if(count($posts) < $counter)
@@ -228,9 +228,9 @@ class Post extends Model
     }
 
     public static function recent($counter = 10){
-        return Post::where('status','active')
-                    ->where('deadline','>',Carbon::now()->format('Y-m-d'))
-                    ->limit($counter)
+        return Post:://where('status','active')
+                    //->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                    limit($counter)
                     ->get();
     }
     
