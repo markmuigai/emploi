@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Add Referee')
 
@@ -7,147 +7,95 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'Add Referee')
 
-<div class="container">
-    <div class="single">  
-       <div class="form-container col-md-8">
-        <h3>Add Referee
-            <a href="/profile/referees" class="btn btn-success btn-sm pull-right">My Referees</a>
-        </h3>
-        <hr>
-        
+<div class="card">
+    <div class="card-body">
         <form method="POST" action="/profile/add-referee">
             @csrf
-            
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="fullName">Name</label>
-                    <div class="col-md-9">
-                        <input type="text" required="" name="name" class="form-control input-sm" maxlength="50" value="" />
-                    </div>
-                </div>
+            <div class="form-group">
+                <label class="control-label" for="fullName">Name</label>
+                <input type="text" required="" name="name" class="form-control input-sm" maxlength="50" value="" />
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="phone_number">Phone Number</label>
-                    <div class="col-md-9">
-                        <input type="number" required="" placeholder="e.g. 2547XXXXXXXX" name="phone_number" class="form-control input-sm" maxlength="50" value="" />
-                    </div>
-                </div>
+
+            <div class="form-group">
+                <label class="control-label" for="phone_number">Phone Number</label>
+                <input type="number" required="" placeholder="e.g. 2547XXXXXXXX" name="phone_number" class="form-control input-sm" maxlength="50" value="" />
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="email">Email</label>
-                    <div class="col-md-9">
-                        <input type="email" required="" value="" name="email" path="email" id="email" class="form-control input-sm" maxlength="50" />
-                    </div>
-                </div>
+
+
+            <div class="form-group">
+                <label class="control-label" for="email">Email</label>
+                <input type="email" required="" value="" name="email" path="email" id="email" class="form-control input-sm" maxlength="50" />
+
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" >Organization</label>
-                    <div class="col-md-9">
-                        <input type="text" required="" name="organization" class="form-control input-sm" maxlength="50" value="" />
-                    </div>
-                </div>
+
+            <div class="form-group">
+                <label class="control-label">Organization</label>
+                <input type="text" required="" name="organization" class="form-control input-sm" maxlength="50" value="" />
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" >Referee's Position</label>
-                    <div class="col-md-9">
-                        <input type="text" required="" name="position_held" class="form-control input-sm" maxlength="50" value="" />
-                    </div>
-                </div>
+
+            <div class="form-group">
+                <label class="control-label">Referee's Position</label>
+                <input type="text" required="" name="position_held" class="form-control input-sm" maxlength="50" value="" />
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" >Relationship with Referee</label>
-                    <div class="col-md-9">
-                        <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="relationship" class="form-control input-sm" maxlength="50" value="" />
-                    </div>
-                </div>
+
+            <div class="form-group">
+                <label class="control-label">Relationship with Referee</label>
+                <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="relationship" class="form-control input-sm" maxlength="50" value="" />
             </div>
+
             <hr>
+
+            <div class="pull-right">
+                <button type="button" name="button" class="btn btn-purple" id="add-position">Add Position</button>
+            </div>
             <h4>Positions at Organization</h4>
-            <div id="positions-at-org">
-
-                
-                
-                
+            <div id="positions-at-org"></div>
+            <hr>
+            <div class="text-right">
+                <button type="submit" name="button" class="btn btn-orange">Save Referee</button>
             </div>
-            <p style="text-align: center;">
-                <br>
-                <span class="btn btn-primary btn-sm" id="add-position">Add Position</span>
-                <br>
-                <hr>
-            </p>
-
-            <div style="text-align: center;">
-                <br>
-                <input type="submit" name="" class="btn-orange" value="Save Referee">
-                
+            <div class="text-center mt-3">
+                <p>
+                    <em>
+                        An one-time e-mail would be sent to your referee for verification.
+                    </em>
+                </p>
             </div>
-
-            <p style="text-align: center;">
-                <br><br>
-                <i>
-                    An one-time e-mail would be sent to your referee for verification.
-                </i>
-            </p>
-
-            
-            
-            
-        
-        
-        
-    </form>
-    
-                
+        </form>
     </div>
-    <div class="col-md-4">
-          @include('left-bar')
-          
-     </div>
- </div>
 </div>
 <script type="text/javascript">
-    $().ready(function(){
+    $(document).ready(function() {
         addPosition();
-        function addPosition(){
-            $pos = ''+
-            '<div class="position-at-org">'+
-                '<div class="row">'+
-                    '<div class="form-group col-md-12">'+
-                        '<label class="col-md-3 control-lable" >Job Title </label>'+
-                        '<div class="col-md-9">'+
-                            '<input type="text" required="" placeholder="" name="job_title[]" class="form-control input-sm" maxlength="50" value="" />'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '<div class="row">'+
-                    '<div class="form-group col-md-6 col-xs-6">'+
-                        '<label class="col-md-3 control-lable" >Start Date </label>'+
-                        '<div class="col-md-9">'+
-                            '<input type="date" required="" placeholder="" name="start_date[]" class="form-control input-sm" maxlength="50" value="" />'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="form-group col-md-6 col-xs-6">'+
-                        '<label class="col-md-3 control-lable" >End Date </label>'+
-                        '<div class="col-md-9">'+
-                            '<input type="date" required="" placeholder="" name="end_date[]" class="form-control input-sm" maxlength="50" value="" />'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '<br><span class="btn btn-sm btn-danger pull-right remove-position">remove this position</span><br> <hr>'+
-            '</div>';
+
+        function addPosition() {
+            $pos = '' +
+                '<div class="position-at-org">' +
+                '<div class="form-group">' +
+                '<label class="control-label" >Job Title </label>' +
+                '<input type="text" required="" placeholder="" name="job_title[]" class="form-control input-sm" maxlength="50" value="" />' +
+                '</div>' +
+                '<div class="form-row">' +
+                '<div class="form-group col-md-6">' +
+                '<label class="control-label" >Start Date </label>' +
+                '<input type="date" required="" placeholder="" name="start_date[]" class="form-control input-sm" maxlength="50" value="" />' +
+                '</div>' +
+                '<div class="form-group col-md-6">' +
+                '<label class="control-label" >End Date </label>' +
+                '<input type="date" required="" placeholder="" name="end_date[]" class="form-control input-sm" maxlength="50" value="" />' +
+                '</div>' +
+                '</div>' +
+                '<button type="button" class="btn btn-sm btn-danger remove-position">Remove</button>' +
+                '</div>';
             $('#positions-at-org').append($pos);
-            $('.remove-position').click(function(){
-                if($('.position-at-org').length > 1)
+            $('.remove-position').click(function() {
+                if ($('.position-at-org').length > 1)
                     $(this).parent().remove();
             });
         }
-        $('#add-position').click(function(){
+        $('#add-position').click(function() {
             addPosition();
         });
     });

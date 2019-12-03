@@ -7,7 +7,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('components.search-form')
 
 <div class="container pb-4">
     <div class="card about">
@@ -195,4 +194,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+@include('components.search-form')
 @endsection

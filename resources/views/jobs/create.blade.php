@@ -23,46 +23,45 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             },2000);
                         });
                     </script>
-                    <p style="color: red">Errors were detected</p>
+                    <p style="color: red">Errors were detected</div>
                 @enderror
                 <h3>Step 1 of 3</h3>
-                <p>
-                    <label>Company *</label> <a href="/companies/create" class="btn btn-sm btn-link pull-right">create new</a>
+                <div class="form-group">
+                  <div class="d-flex justify-content-between align-items-center pb-2">
+                    <label>Company *</label>
+                    <a href="/companies/create" class="btn btn-sm btn-orange-alt">create new</a>
+                  </div>
                     <select name="company" class="form-control">
                         @foreach($companies as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
                     </select>
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Job Title *</label>
-                    <input type="text" name="title" id="job-title" class="form-control" value="{{ old('title') }}" style="width: 100%; color: black">
-                </p>
-                <br>
+                    <input type="text" name="title" id="job-title" class="form-control" value="{{ old('title') }}">
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Job Industry *</label>
                     <select name="industry" class="form-control">
                         @foreach($industries as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
                     </select>
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Vacancy Type *</label>
                     <select name="vacancyType" class="form-control">
                         @foreach($vacancyTypes as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
                     </select>
-                </p>
-                <br>
+                </div>
 
-                <a href="#" class="btn btn-sm btn-primary pull-right toSection2">Next ></a>
+                <a href="#" class="btn btn-sm btn-orange pull-right toSection2">Next ></a>
             </div>
         </div>
     </div>
@@ -70,23 +69,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card">
             <div class="card-body p-5">
                 <h3>Step 2 of 3</h3>
-                <p>
+                <div class="form-group">
                     <label>Job Description *</label>
                     <textarea class="form-control" id="responsibilities" name="responsibilities" rows="5">{{ old('responsibilities') }}</textarea>
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Education *</label>
                     <select name="education" class="form-control">
                         @foreach($educationLevels as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
                     </select>
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Experience *</label>
                     <select name="experience" class="form-control">
                         <option value="0">No Experience Required</option>
@@ -104,20 +101,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <option value="180">15 years Experience</option>
                         <option value="240">20 years Experience</option>
                     </select>
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Number of Positions Available*</label>
                     <select name="positions" class="form-control">
                         @for($i=1; $i<20;$i++ ) <option value="{{ $i }}">{{ $i }}</option>
                             @endfor
                     </select>
-                </p>
-                <br>
+                </div>
 
-                <a href="#" class="btn btn-sm btn-danger toSection1">
-                    < Previous</a> <a href="#" class="btn btn-sm btn-primary pull-right toSection3">Next >
+                <a href="#" class="btn btn-sm btn-purple toSection1">
+                    < Previous</a> <a href="#" class="btn btn-sm btn-orange pull-right toSection3">Next >
                 </a>
             </div>
         </div>
@@ -129,49 +124,44 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h3>Step 3 of 3</h3>
 
 
-                <p>
+                <div class="form-group">
                     <label>Job Location:</label>
                     <select name="location" class="form-control">
                         @foreach($locations as $i)
                         <option value="{{ $i->id }}">[{{ $i->country->name }}] {{ $i->name }}</option>
                         @endforeach
                     </select>
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Monthly Salary *</label>
                     <input type="number" name="monthly_salary" class="form-control" required="" placeholder="enter 0 for non-disclosure or minimum salary" id="monthly_salary" min="0" value="{{ old('monthly_salary') }}">
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>Maximum Salary Limit</label>
                     <input type="number" name="max_salary" class="form-control" required="" placeholder="only fill if salary has a range" id="max_salary" min="1" value="{{ old('max_salary') }}">
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>How to apply: <i>Optional if you want to direct applications elsewhere.</i></label>
                     <textarea class="form-control" name="how_to_apply" rows="5" placeholder="Optionally, you can specify additional description to applicants">{{ old('how_to_apply') }}</textarea>
-                </p>
-                <br>
+                </div>
 
-                <p>
+                <div class="form-group">
                     <label>
                         Optional Photo
                         (png, jpg and jpeg Max 5MB)
                         @error('image')
-                            <strong class="pull-right" style="color: red"> * Uploaded image was invalid *</strong>
+                            <strong class="text-danger"> * Uploaded image was invalid *</strong>
                         @enderror
                     </label>
                     <input type="file" name="image" placeholder="" accept=".jpg, .png,.jpeg">
-                </p>
-                <br>
+                </div>
 
                 <a href="#" class="btn btn-sm btn-danger toSection2">
-                    < Previous Page</a> 
-                    <a class="btn btn-sm btn-primary pull-right" id="save-job-post" href="#">Save Job Post</a>
+                    < Previous Page</a>
+                    <a class="btn btn-orange pull-right" id="save-job-post" href="#">Save Job Post</a>
             </div>
         </div>
     </div>
@@ -226,9 +216,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     if(max_salary <= salary)
                         return alert('Maximum salary must be greater than minimum salary');
                 }
-                    
+
             }
-            
+
             $('#create-post-form').submit();
         });
     });

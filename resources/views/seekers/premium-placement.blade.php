@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container py-5">
     <h2 class="orange text-center">Premium Placement</h2>
-    <ul class="numeric">
+    <ol>
         <li>
             <h5 class="pt-2">Top of the list search</h5>
             <p>Top of the search list-Allows your Profile to come up top of of the search list for employers to spot you faster.
@@ -47,7 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h5 class="pt-2">Interview coaching</h5>
             <p>Interview coaching can increase your chances of getting a job for many reasons. Coaching gives you experience answering many different interview questions and pretending to interact with potential employers.</p>
         </li>
-    </ul>
+    </ol>
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3" style="text-align: center;">
