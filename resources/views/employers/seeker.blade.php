@@ -127,8 +127,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 </div>
                                 <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
                                     <h6>{{ $emp[1] }}</h6>
-                                    <p class="orange">{{ $emp[2] }} to {{ $emp[3] }}</p>
-                                    <p>{{ $emp[4] }}</p>
+                                    <p class="orange">{{ $emp[2] }}</p>
+                                    <p></p>
                                 </div>
                             </div>
                             @empty
