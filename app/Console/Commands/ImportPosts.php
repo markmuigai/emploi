@@ -7,8 +7,7 @@ use Carbon\Carbon;
 
 use Storage;
 
-use App\OldPost;
-use App\OldPostIndustry;
+use App\Post;
 
 class ImportPosts extends Command
 {
@@ -83,120 +82,153 @@ class ImportPosts extends Command
                             continue;
                         }
 
-                        $old_post_id = explode("=", $data[6]);
-                        $old_post_id = (int) $old_post_id[count($old_post_id)-1];
+                        $category = 'vacancies';
+                        if($data[8] == 3 || $data[8] == "3")
+                            $category = 'blog';
 
-                        $oldPost = OldPost::where('imported_from_post_id',$old_post_id)->first();
-                        if(isset($oldPost->id))
+                        $title = preg_replace("/[^a-zA-Z ]/", "", $data[2]);
+
+                        $contents = $data[1];
+                        //T.2
+                        for($i=0; $i<20; $i++)
                         {
-                            //add old post industry
-                            $count_posts++;
-                        }
-                        else
-                        {
-                            //create old post
-                            $title = preg_replace("/[^a-zA-Z ]/", "", $data[2]);
-                            $op = OldPost::where('title',$data[2])
-                                    ->first();
-                            $add = rand(200,50000);
-                            if(isset($op->id))
-                                $title .= '-'.$add;
-                            //dd($title);
-                            $slug = strtolower($title);
-                            $slug = explode(" ", $slug);
-                            $slug = implode("-", $slug);
-
-                            //check if an old posts exists with same slug
-                            //check if post exists with slug
-
-                            $op = OldPost::where('slug',$slug)
-                                    ->first();
-                            if(isset($op))
-                                $slug .= '-'.$add;
-
-                            $contents = $data[1];
-                            //T.2
-                            for($i=0; $i<20; $i++)
-                            {
-                                $contents = str_replace("T.$i","<p>",$contents);
-                            }
-
-                            for($i=0; $i<20; $i++)
-                            {
-                                $contents = str_replace("1.$i","<p>",$contents);
-                            }
-
-                            $instances = substr_count($contents,'src="http');
-                            for($i=0; $i<$instances; $i++)
-                            {
-                                $firstmatch = strpos($contents,'src="http');
-                                if($firstmatch == FALSE)
-                                    break;
-                                $endtag = strpos($contents," ",$firstmatch+5);
-                                $length = $endtag - $firstmatch;
-                                $src = substr($contents,$firstmatch+5,strlen($contents));
-                                $src = explode(" ", $src);
-                                $src = substr($src[0], 0,strlen($src[0])-1);
-                                $src = str_replace('http:', 'https:', $src);
-                                $handle = fopen($src, 'r');
-                                if(!$handle){
-                                    $contents = str_replace($src, '#', $contents);
-                                }
-                                else
-                                {
-                                    $type = pathinfo($src, PATHINFO_EXTENSION);
-                                    $data = file_get_contents($src);
-                                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                                    //dd($base64);
-                                    $contents = str_replace($src, $base64, $contents);
-                                }
-                            }
-
-                            if (!preg_match('!!u', $contents) || !preg_match('!!u', $title) )
-                            {
-                               $count_posts++;
-                               continue;
-                            }
-
-                            $category = 'vacancies';
-                            if($data[8] == 3 || $data[8] == "3")
-                                $category = 'blog';
-                            
-
-                            $success = false;
-                            try {
-                                OldPost::create([
-                                    'title' => $title, 
-                                    'slug' => $slug,
-                                    'country_id' => 1,
-                                    'contents' => $contents,
-                                    'imported_from_post_id' => $old_post_id,
-                                    'category' => $category,
-                                    'status' => 'published'
-                                ]);
-                                $success = true;
-                            } catch (Exception $e) {
-                                $count_posts++;
-                            }
-
-                            if($success)
-                                $this->info("updated contents base64");
-                            else
-                                $this->info("failed to save old post");
-
-                            
+                            $contents = str_replace("T.$i","<p>",$contents);
                         }
 
-                        // if($row > 200)
-                        //     break;
+                        for($i=0; $i<20; $i++)
+                        {
+                            $contents = str_replace("1.$i","<p>",$contents);
+                        }
+
+                        $contents = $data[1];
+                        //T.2
+                        for($i=0; $i<20; $i++)
+                        {
+                            $contents = str_replace("T.$i","<p>",$contents);
+                        }
+
+                        for($i=0; $i<20; $i++)
+                        {
+                            $contents = str_replace("1.$i","<p>",$contents);
+                        }
+
+                        $slug = strtolower($title);
+                        $slug = explode(" ", $slug);
+                        $slug = implode("-", $slug);
+
+                        $p = Post::where('slug',$slug)->first();
+                        if(isset($p->id))
+                            $slug = $slug.rand(200,4000);
+
+                        $p = Post::where('slug',$slug)->first();
+                        if(isset($p->id))
+                            $slug = $slug.rand(200,4000);
+
+
+                        $industryId = 1;
+                        if($data[8] == 1 || $data[8] == "1")
+                            $industryId = 32;
+                        if($data[8] == 3 || $data[8] == "3")
+                            $industryId = 32;
+                        if($data[8] == 7 || $data[8] == "7")
+                            $industryId = 3;
+                        if($data[8] == 8 || $data[8] == "8")
+                            $industryId = 4;
+                        if($data[8] == 9 || $data[8] == "9")
+                            $industryId = 5;
+                        if($data[8] == 10 || $data[8] == "10")
+                            $industryId = 8;
+                        if($data[8] == 11 || $data[8] == "11")
+                            $industryId = 9;
+                        if($data[8] == 12 || $data[8] == "12")
+                            $industryId = 34;
+                        if($data[8] == 13 || $data[8] == "13")
+                            $industryId = 10;
+                        if($data[8] == 14 || $data[8] == "14")
+                            $industryId = 27;
+                        if($data[8] == 15 || $data[8] == "15")
+                            $industryId = 6;
+                        if($data[8] == 16 || $data[8] == "16")
+                            $industryId = 2;
+                        if($data[8] == 17 || $data[8] == "17")
+                            $industryId = 11;
+                        if($data[8] == 18 || $data[8] == "18")
+                            $industryId = 19;
+                        if($data[8] == 20 || $data[8] == "20")
+                            $industryId = 12;
+                        if($data[8] == 21 || $data[8] == "21")
+                            $industryId = 25;
+                        if($data[8] == 22 || $data[8] == "22")
+                            $industryId = 33;
+                        if($data[8] == 23 || $data[8] == "23")
+                            $industryId = 13;
+                        if($data[8] == 24 || $data[8] == "24")
+                            $industryId = 14;
+                        if($data[8] == 25 || $data[8] == "25")
+                            $industryId = 16;
+                        if($data[8] == 26 || $data[8] == "26")
+                            $industryId = 17;
+                        if($data[8] == 27 || $data[8] == "27")
+                            $industryId = 21;
+                        if($data[8] == 28 || $data[8] == "28")
+                            $industryId = 1;
+                        if($data[8] == 29 || $data[8] == "29")
+                            $industryId = 30;
+                        if($data[8] == 30 || $data[8] == "30")
+                            $industryId = 7;
+                        if($data[8] == 31 || $data[8] == "31")
+                            $industryId = 25;
+                        if($data[8] == 32 || $data[8] == "32")
+                            $industryId = 22;
+                        if($data[8] == 33 || $data[8] == "33")
+                            $industryId = 29;
+                        if($data[8] == 34 || $data[8] == "34")
+                            $industryId = 18;
+                        if($data[8] == 35 || $data[8] == "35")
+                            $industryId = 20;
+                        if($data[8] == 36 || $data[8] == "36")
+                            $industryId = 15;
+                        if($data[8] == 37 || $data[8] == "37")
+                            $industryId = 32;
+                        if($data[8] == 38 || $data[8] == "38")
+                            $industryId = 32;
+                        if($data[8] == 39 || $data[8] == "39")
+                            $industryId = 32;
+                        if($data[8] == 40 || $data[8] == "40")
+                            $industryId = 39;
+                        if($data[8] == 41 || $data[8] == "41")
+                            $industryId = 35;
+                        if($data[8] == 42 || $data[8] == "42")
+                            $industryId = 36;
+                        if($data[8] == 43 || $data[8] == "43")
+                            $industryId = 38;
+                        if($data[8] == 44 || $data[8] == "44")
+                            $industryId = 37;
+                        if($data[8] == 45 || $data[8] == "45")
+                            $industryId = 32;
+                        if($data[8] == 46 || $data[8] == "46")
+                            $industryId = 26;
+
                         
-                        // 0 is created ts, 
-                        // 1 is contents
-                        // data2 should be title
-                        // data 3 is blank
-                        // data 4 is publish, 5 is updated ts, 6 is link not NULL, 7 is blank, 8 is int not null, 9 is category ignore
-                        //$this->info('['.$data[8].'] ['.$data[6].']');
-                        //die($data[6]);
+
+
+                        Post::create([
+                            'slug' => $slug, 
+                            'company_id' => 1, 
+                            'title' => $title, 
+                            'industry_id' => $industryId,
+                            'education_requirements' => 2, 
+                            'experience_requirements' => 4,
+                            'responsibilities' => $contents, 
+                            'status' => 'active',
+                            'positions' => rand(1,3),
+                            'location_id' => 1,
+                            'vacancy_type_id'=> 1,
+                            'how_to_apply' => 'To apply for this position, send your updated C.V. to jobs@emploi.co quoting <b>'.$title.'</b> as the subject.'
+                        ]);
+
+                        $this->info(" Imported " . $slug);
+
                         
                     }
                 }

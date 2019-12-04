@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class OldPostsContentsToLongText extends Migration
+class UpdatedTablePostsResponsibilitiesToLongText extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +13,8 @@ class OldPostsContentsToLongText extends Migration
      */
     public function up()
     {
-        Schema::table('old_posts', function (Blueprint $table) {
-            DB::statement('ALTER TABLE old_posts MODIFY contents LONGTEXT;');
+        Schema::table('posts', function (Blueprint $table) {
+            DB::statement('ALTER TABLE posts MODIFY responsibilities LONGTEXT;');
         });
     }
 
@@ -26,8 +25,8 @@ class OldPostsContentsToLongText extends Migration
      */
     public function down()
     {
-        Schema::table('old_posts', function (Blueprint $table) {
-            DB::statement('ALTER TABLE old_posts MODIFY contents TEXT;');
+        Schema::table('posts', function (Blueprint $table) {
+            DB::statement('ALTER TABLE posts MODIFY responsibilities TEXT;');
         });
     }
 }
