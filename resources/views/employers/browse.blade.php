@@ -98,6 +98,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         @endforelse
         <!-- END OF JOB CARD -->
+        <div>
+            {{ $seekers->links() }}
+        </div>
     </div>
     <!-- END OF ALL JOBS -->
     <!-- ACTIVE JOBS -->
@@ -119,56 +122,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     </div>
     <!-- END OF CLOSED JOBS -->
-</div>
-
-
-
-
-
-<div class="container">
-    <div class="single">
-        <div class="form-container row">
-            <div class="search_form1 row d-none">
-
-                @forelse($seekers as $s)
-
-                <div class="col-md-6 col-xs-6 row hover-bottom" style="margin-bottom: 0.5em">
-                    <a style="font-weight: bold" href="/employers/browse/{{ $s->user->username }}">
-                        <img src="{{ asset($s->user->getPublicAvatarUrl()) }}" style="border-radius: 50%" class="col-md-4 col-xs-4">
-                    </a>
-                    <div class="col-md-4 col-xs-4" style="padding: 1em; text-align: center;">
-                        <p>
-                            <a style="font-weight: bold; font-size: 110%" href="/employers/browse/{{ $s->user->username }}">
-                                {{ $s->public_name }}
-                            </a>
-                            <br>
-
-                        </p>
-                        @if(count($s->matchSeeker(Auth::user())) > 0)
-                        <p>
-                            <form method="post" action="/employers/shortlist">
-                                @csrf
-                                <input type="hidden" name="seeker_id" value="{{ $s->id }}">
-                                <select class="btn " name="post_id" required="required">
-                                    <option>Shortlist for:</option>
-                                    @forelse($s->matchSeeker(Auth::user()) as $post)
-                                    @if(!$s->hasApplied($post))
-                                    <option value="{{ $post->id }}">{{ $post->title }}</option>
-                                    @endif
-                                    @empty
-                                    @endforelse
-                                </select>
-                                <button class="btn btn-sm btn-success">Go</button>
-                            </form>
-                        </p>
-                        @endif
-                    </div>
-                </div>
-                @empty
-                @endforelse
-            </div>
-        </div>
-    </div>
 </div>
 
 @endsection

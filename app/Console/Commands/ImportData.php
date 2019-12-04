@@ -59,8 +59,8 @@ class ImportData extends Command
                     while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
                         $row++;
                         
-                        // if($row<19517)
-                        //     continue;
+                        if($row>517)
+                            continue;
                         //print_r($data);
                         if(count($data) == 1)
                         {
@@ -156,16 +156,21 @@ class ImportData extends Command
                         if($resume_url != '')
                         {
                             $resume = 'https://cv-portal.jobsikaz.com/assets/resumes/'.str_replace(' ', '%20', $resume_url);
+
                             //$resume = urlencode($resume);
-                            $to_path = storage_path().'/app/public/resumes/'.$resume_url;                            
+                            $to_path = storage_path().'/app/public/resumes/'.$resume_url;   
+
                             
-                            if(file_exists($resume))
+                            
+                            $copyResult = copy($resume, $to_path );
+                            if($copyResult)
                             {
-                                copy($resume, $to_path );
                                 $parser = new Parser($resume_url);
                                 $seeker->resume_contents = $parser->convertToText();
                                 $seeker->save();
                             }
+                            
+                            
                             
                         }
 

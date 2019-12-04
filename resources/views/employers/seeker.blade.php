@@ -84,27 +84,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>Education and Qualification</h4>
-                        @if(!is_array($user->seeker->education()))
-                            <?php echo $user->seeker->education; ?>
-                        @else
-                            @forelse($user->seeker->education() as $edu)
-                            <div class="row no-gutters justify-content-between edu pb-5">
-                                <div class="circle"></div>
-                                <div class="col-lg-3 col-12 ml-3">
-                                    <p>{{ $edu[0] }}</p>
-
-                                </div>
-                                <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                    <h6>{{ $edu[1] }}</h6>
-                                    <p class="orange">{{ $edu[2] }}</p>
-                                </div>
-                            </div>
-                            @empty
-                            <p>
-                                No education records highlighted.
-                            </p>
-                            @endforelse
-                        @endif
+                        <div id="education_records">
+                            
+                        </div>
 
                     </div>
                 </div>
@@ -115,28 +97,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h4>Experience</h4>
-                        @if(!is_array($user->seeker->experience()))
-                            <?php echo $user->seeker->experience; ?>
-                        @else
-                            @forelse($user->seeker->experience() as $emp)
-                            <div class="row no-gutters justify-content-between edu pb-5">
-                                <div class="circle"></div>
-                                <div class="col-lg-3 col-12 ml-3">
-                                    <p>{{ $emp[0] }}</p>
-
-                                </div>
-                                <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                    <h6>{{ $emp[1] }}</h6>
-                                    <p class="orange">{{ $emp[2] }}</p>
-                                    <p></p>
-                                </div>
-                            </div>
-                            @empty
-                            <p>
-                                No experience records have been highlighted
-                            </p>
-                            @endforelse
-                        @endif
+                        <div id="experience_records">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -217,6 +180,104 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var education_obj = false;
+    var experience_obj = false;
+    <?php
+
+    if(\App\Seeker::isJson(htmlspecialchars_decode($user->seeker->education)))
+    {
+        print "var education=".htmlspecialchars_decode($user->seeker->education).';';
+        print 'education_obj = true;';
+    }
+    else
+    {
+        $education = str_replace(array("\n", "\r"), '', $user->seeker->education);
+        //$education = str_replace(array("'", " "), '', $education);
+        print 'var education="'.$education.'";';
+    }
+
+    if(\App\Seeker::isJson(htmlspecialchars_decode($user->seeker->experience)))
+    {
+        print "var experience=".htmlspecialchars_decode($user->seeker->experience).';';
+        print 'experience_obj = true;';
+    }
+    else
+    {
+        $experience = str_replace(array("\n", "\r"), '', $user->seeker->experience);
+        //$experience = str_replace(array("'", " "), '', $experience);
+        echo 'var experience="';
+        echo $experience;
+        echo '";';
+    }
+     ?>
+     $().ready(function(){
+        var $p;
+        if(education_obj)
+        {
+            for(var g=0; g<education.length; g++)
+            {
+                var cedu = education[g];
+                $p += ''+
+                '<div class="row no-gutters justify-content-between edu pb-5">'+
+                    '<div class="circle"></div>'+
+                    '<div class="col-lg-3 col-12 ml-3">'+
+                        '<p>'+cedu[0]+'</p>'+
+
+                    '</div>'+
+                    '<div class="col-lg-8 col-12 ml-lg-0 ml-md-3">'+
+                        '<h6>'+cedu[1]+'</h6>'+
+                        '<p class="orange">'+cedu[2]+'</p>'+
+                    '</div>'+
+                '</div>';
+            }
+        }
+        else
+        {
+            $p = ''+
+            '<p>'+education
+            '</p>';
+            
+        }
+
+        $('#education_records').append($p);
+        $p = '';
+
+        if(experience_obj)
+        {
+            for(var g=0; g<experience.length; g++)
+            {
+                cexp = experience[g];
+                $p += ''+
+                '<div class="row no-gutters justify-content-between edu pb-5">'+
+                    '<div class="circle"></div>'+
+                    '<div class="col-lg-3 col-12 ml-3">'+
+                        '<p>'+cexp[0]+'</p>'+
+
+                    '</div>'+
+                    '<div class="col-lg-8 col-12 ml-lg-0 ml-md-3">'+
+                        '<h6>'+cexp[1]+'</h6>'+
+                        '<p class="orange">'+cexp[2]+'</p>'+
+                        '<p></p>'+
+                    '</div>'+
+                '</div>';
+            }
+
+            
+        }
+        else
+        {
+            $p = ''+
+            '<p>'+experience
+            '</p>';
+            
+        }
+
+        $('#experience_records').append($p);
+     });
+     
+</script>
 
 
 <!-- INVITE FOR AN INTERVIEW -->

@@ -1236,9 +1236,9 @@ class DatabaseSeeder extends Seeder
         //DUMMY DATA - CLEAR BEFORE SEEDING PRODUCTION
 
             $employer = User::create([
-                'name' => 'Millicent Kevore',
-                'email' => 'millicent@emploi.co',
-                'username' => 'millicent',
+                'name' => 'Emploi Recruitment',
+                'email' => 'jobs@emploi.co',
+                'username' => 'jobs',
                 'email_verified_at' => now(),
                 'email_verification' => 'ashHSsJhsd',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
@@ -1248,80 +1248,80 @@ class DatabaseSeeder extends Seeder
 
             $emp = Employer::create([
                 'user_id' => $employer->id, 
-                'name' => 'Millicent Kevore', 
-                'industry_id' => 1, 
-                'company_name' => 'Millicent Softwares',
-                'contact_phone' => '2547218281034',
-                'company_phone' => '2547212937464',
-                'company_email' => 'info@emploi.co',
+                'name' => 'Emploi Recruitment', 
+                'industry_id' => 12, 
+                'company_name' => 'Emploi Recruitment',
+                'contact_phone' => '2547702068282',
+                'company_phone' => '254774569001',
+                'company_email' => 'jobs@emploi.co',
                 'country_id' => 1,
-                'address' => 'P.O. Box 383-00100 Nairobi'
+                'address' => 'Even Business Park, Airport North Rd, Nairobi'
             ]);
 
             $c = Company::create([
-                'name' => 'Millicent Softwares', 
+                'name' => 'Emploi Recruitment', 
                 'user_id' => $employer->id,
-                'about' => "Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet Loremp ipsum dolor sit amet ",
-                'tagline' => 'we are you',
-                'website' => "http://emploi.co", 
-                'industry_id' => 1,
+                'about' => "Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.",
+                'tagline' => 'Hire and be hired easily, anywhere',
+                'website' => "https://emploi.co", 
+                'industry_id' => 12,
                 'location_id' => 1,
                 'company_size_id' => 1
             ]);
 
-            $p1 = Post::create([
-                'slug' =>'laravel-developer', 
-                'company_id' => $c->id, 
-                'title' => 'Laravel Developer', 
-                'industry_id' => 1,
-                'education_requirements' => 1, 
-                'experience_requirements' => 3,
-                'responsibilities' => 'We require a capable man to handle code', 
-                'benefits' => 'no benefits',
-                'deadline' => now()->addDays(rand(3,10)),
-                'status' => 'active',
-                'positions' => 2,
-                'location_id' => 1,
-                'vacancy_type_id'=> 1,
-                'how_to_apply' => '',
-                'monthly_salary' => 40000,
-            ]);
+            // $p1 = Post::create([
+            //     'slug' =>'laravel-developer', 
+            //     'company_id' => $c->id, 
+            //     'title' => 'Laravel Developer', 
+            //     'industry_id' => 1,
+            //     'education_requirements' => 1, 
+            //     'experience_requirements' => 3,
+            //     'responsibilities' => 'We require a capable man to handle code', 
+            //     'benefits' => 'no benefits',
+            //     'deadline' => now()->addDays(rand(3,10)),
+            //     'status' => 'active',
+            //     'positions' => 2,
+            //     'location_id' => 1,
+            //     'vacancy_type_id'=> 1,
+            //     'how_to_apply' => '',
+            //     'monthly_salary' => 40000,
+            // ]);
 
-            $p2 = Post::create([
-                'slug' =>'web-developer', 
-                'company_id' => $c->id, 
-                'title' => 'Web Developer', 
-                'industry_id' => 1,
-                'education_requirements' => 2, 
-                'experience_requirements' => 4,
-                'responsibilities' => 'We require a capable man to handle code', 
-                'benefits' => 'no benefits',
-                'deadline' => now()->addDays(rand(3,10)),
-                'status' => 'active',
-                'positions' => 1,
-                'location_id' => 1,
-                'vacancy_type_id'=> 1,
-                'how_to_apply' => '',
-                'monthly_salary' => 40000,
-            ]);
+            // $p2 = Post::create([
+            //     'slug' =>'web-developer', 
+            //     'company_id' => $c->id, 
+            //     'title' => 'Web Developer', 
+            //     'industry_id' => 1,
+            //     'education_requirements' => 2, 
+            //     'experience_requirements' => 4,
+            //     'responsibilities' => 'We require a capable man to handle code', 
+            //     'benefits' => 'no benefits',
+            //     'deadline' => now()->addDays(rand(3,10)),
+            //     'status' => 'active',
+            //     'positions' => 1,
+            //     'location_id' => 1,
+            //     'vacancy_type_id'=> 1,
+            //     'how_to_apply' => '',
+            //     'monthly_salary' => 40000,
+            // ]);
 
-            $p3 = Post::create([
-                'slug' =>'angular-developer', 
-                'company_id' => $c->id, 
-                'title' => 'Angular Developer', 
-                'industry_id' => 1,
-                'education_requirements' => 2, 
-                'experience_requirements' => 4,
-                'responsibilities' => 'We require a capable man to handle code', 
-                'benefits' => 'no benefits',
-                'deadline' => now()->addDays(rand(3,10)),
-                'status' => 'active',
-                'positions' => 1,
-                'location_id' => 1,
-                'vacancy_type_id'=> 1,
-                'how_to_apply' => '',
-                'monthly_salary' => 40000,
-            ]);
+            // $p3 = Post::create([
+            //     'slug' =>'angular-developer', 
+            //     'company_id' => $c->id, 
+            //     'title' => 'Angular Developer', 
+            //     'industry_id' => 1,
+            //     'education_requirements' => 2, 
+            //     'experience_requirements' => 4,
+            //     'responsibilities' => 'We require a capable man to handle code', 
+            //     'benefits' => 'no benefits',
+            //     'deadline' => now()->addDays(rand(3,10)),
+            //     'status' => 'active',
+            //     'positions' => 1,
+            //     'location_id' => 1,
+            //     'vacancy_type_id'=> 1,
+            //     'how_to_apply' => '',
+            //     'monthly_salary' => 40000,
+            // ]);
 
             BlogCategory::create([
                 'name' => 'Productivity', 
