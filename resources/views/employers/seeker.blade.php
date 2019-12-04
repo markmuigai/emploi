@@ -213,7 +213,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     }
      ?>
      $().ready(function(){
-        var $p;
+        var $p = '';
         if(education_obj)
         {
             for(var g=0; g<education.length; g++)
