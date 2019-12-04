@@ -3,6 +3,7 @@
 /*
 /subscribe
 */
+Route::get('/custom', function () {                return view('emails.custom-alt');           });
 Route::get('/join', function () {                return view('pages.join');           });
 Route::get('/careers', function () {    			return view('pages.careers');			});
 Route::get('/contact', function () {    			return view('pages.contact');			});

@@ -253,7 +253,7 @@ Author URL: http://w3layouts.com
                                         <table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="300">
                                             <tr>
                                                 <td style="color: #FFFFFF;">
-                                                    <a href="/"><img src="images/logo.png" width="300"></a>
+                                                    <a href="/"><img src="/images/logo.png" width="300"></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -279,7 +279,7 @@ Author URL: http://w3layouts.com
                             </table>
                             <table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale-300" width="282">
                                 <tr>
-                                    <td class="w3l-scale-right" valign="bottom" style="padding-top: 6.5rem;"><a href="/"><img src="images/landing.jpg" style="display: block" class="w3l-scale-inline img-responsive"></a></td>
+                                    <td class="w3l-scale-right" valign="bottom" style="padding-top: 6.5rem;"><a href="/"><img src="/images/landing.jpg" style="display: block" class="w3l-scale-inline img-responsive"></a></td>
                                 </tr>
                             </table>
                         </td>
@@ -356,7 +356,7 @@ Author URL: http://w3layouts.com
                                                 <td class="w3l-scale-center-both">
                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="40">
                                                         <tr>
-                                                            <td><img src="images/myicon1.png" class="img-icon"></td>
+                                                            <td><img src="/images/myicon1.png" class="img-icon"></td>
                                                         </tr>
                                                         <tr>
                                                             <td height="0">&nbsp;</td>
@@ -385,7 +385,7 @@ Author URL: http://w3layouts.com
                                                 <td class="w3l-scale-center-both">
                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="40">
                                                         <tr>
-                                                            <td><img src="images/myicon2.png" class="img-icon"></td>
+                                                            <td><img src="/images/myicon2.png" class="img-icon"></td>
                                                         </tr>
                                                         <tr>
                                                             <td height="0">&nbsp;</td>
@@ -414,7 +414,7 @@ Author URL: http://w3layouts.com
                                                 <td class="w3l-scale-center-both">
                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="40">
                                                         <tr>
-                                                            <td><img src="images/myicon3.png" class="img-icon"></td>
+                                                            <td><img src="/images/myicon3.png" class="img-icon"></td>
                                                         </tr>
                                                         <tr>
                                                             <td height="0">&nbsp;</td>
@@ -442,7 +442,7 @@ Author URL: http://w3layouts.com
                                         </table>
                                         <table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style="font-size: 14px; color: #9b9b9b;" width="265">
                                             <tr>
-                                                <td align="right" class="w3l-scale-center-both"><a href="#url"><img src="images/mobile.jpg" class="img-responsive"></a></td>
+                                                <td align="right" class="w3l-scale-center-both"><a href="#url"><img src="/images/mobile.jpg" class="img-responsive"></a></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -468,7 +468,7 @@ Author URL: http://w3layouts.com
                             <!-- Image -->
                             <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style="background-color: #fff" width="310">
                                 <tr>
-                                    <td align="center" class="w3l-scale-center-both"><a href="#url"><img src="images/premium.jpg" class="img-responsive" style="display: block"></a>
+                                    <td align="center" class="w3l-scale-center-both"><a href="#url"><img src="/images/premium.jpg" class="img-responsive" style="display: block"></a>
                                     </td>
                                 </tr>
                             </table>
@@ -531,7 +531,7 @@ Author URL: http://w3layouts.com
                             <!-- Image -->
                             <table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style="background-color: #fff" width="310">
                                 <tr>
-                                    <td align="center" class="w3l-scale-center-both"><a href="#url"><img src="images/premium-recruit.png" class="img-responsive" style="display: block"></a>
+                                    <td align="center" class="w3l-scale-center-both"><a href="#url"><img src="/images/premium-recruit.png" class="img-responsive" style="display: block"></a>
                                     </td>
                                 </tr>
                             </table>
@@ -594,7 +594,7 @@ Author URL: http://w3layouts.com
                             <!-- Image -->
                             <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style="background-color: #fff" width="310">
                                 <tr>
-                                    <td align="center" class="w3l-scale-center-both"><a href="#url"><img src="images/premium.png" class="img-responsive" style="display: block"></a>
+                                    <td align="center" class="w3l-scale-center-both"><a href="#url"><img src="/images/premium.png" class="img-responsive" style="display: block"></a>
                                     </td>
                                 </tr>
                             </table>
@@ -679,7 +679,7 @@ Author URL: http://w3layouts.com
                                                 <td height="40">&nbsp;</td>
                                             </tr>
                                             <tr>
-                                                <td class="w3l-scale-center"><a href="#url"><img src="images/templates.jpg" class="img-responsive"></a>
+                                                <td class="w3l-scale-center"><a href="#url"><img src="/images/templates.jpg" class="img-responsive"></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -712,7 +712,7 @@ Author URL: http://w3layouts.com
                                     <td>
                                         <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style="font-size: 14px; color: #9b9b9b;" width="255">
                                             <tr>
-                                                <td align="left" class="w3l-scale-center-both"><a href="#url"><img src="images/employer-join.png" class="img-responsive"></a></td>
+                                                <td align="left" class="w3l-scale-center-both"><a href="#url"><img src="/images/employer-join.png" class="img-responsive"></a></td>
                                             </tr>
                                         </table>
                                         <table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style=" font-size: 14px; color: #9b9b9b;" width="245">
@@ -723,7 +723,7 @@ Author URL: http://w3layouts.com
                                                 <td class="w3l-scale-center-both">
                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="40">
                                                         <tr>
-                                                            <td><img src="images/myicon4.png" class="img-icon"></td>
+                                                            <td><img src="/images/myicon4.png" class="img-icon"></td>
                                                         </tr>
                                                         <tr>
                                                             <td height="0">&nbsp;</td>
@@ -752,7 +752,7 @@ Author URL: http://w3layouts.com
                                                 <td class="w3l-scale-center-both">
                                                     <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" width="40">
                                                         <tr>
-                                                            <td><img src="images/myicon5.png" class="img-icon"></td>
+                                                            <td><img src="/images/myicon5.png" class="img-icon"></td>
                                                         </tr>
                                                         <tr>
                                                             <td height="0">&nbsp;</td>
@@ -874,7 +874,7 @@ Author URL: http://w3layouts.com
                                             </tr>
 
                                             <tr>
-                                                <td align="center" class="w3l-scale-center-both" height="50"><img src="images/c1.png" class="img-responsive"></td>
+                                                <td align="center" class="w3l-scale-center-both" height="50"><img src="/images/c1.png" class="img-responsive"></td>
                                             </tr>
                                             <tr>
                                                 <td height="10" style="font-size: 1px;">&nbsp;
@@ -904,7 +904,7 @@ Author URL: http://w3layouts.com
                                                         </tr>
                                                         <tr>
                                                             <td align="center" class="w3l-scale-center-both" height="50">
-                                                                <img src="images/c2.png"></td>
+                                                                <img src="/images/c2.png"></td>
                                                         </tr>
                                                         <tr>
                                                             <td height="10" style="font-size: 1px;">&nbsp;
@@ -930,7 +930,7 @@ Author URL: http://w3layouts.com
                                                         </tr>
                                                         <tr>
                                                             <td align="center" class="w3l-scale-center-both" height="50">
-                                                                <img src="images/c3.png"></td>
+                                                                <img src="/images/c3.png"></td>
                                                         </tr>
                                                         <tr>
                                                         <tr>
@@ -994,13 +994,13 @@ Author URL: http://w3layouts.com
                                         <table align="left" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style="font-size: 14px; color: #9b9b9b;" width="265">
                                             <tr>
                                                 <td align="right" class="w3l-scale-center-both" height="70">
-                                                    <a href="#facebook" class="facebook"><img src="images/fb.png" class="img-responsive">Like us on Facebook</a></td>
+                                                    <a href="#facebook" class="facebook"><img src="/images/fb.png" class="img-responsive">Like us on Facebook</a></td>
                                             </tr>
                                         </table>
                                         <table align="right" border="0" cellpadding="0" cellspacing="0" class="w3l-scale" style=" font-size: 14px; color: #9b9b9b;" width="265">
                                             <tr>
                                                 <td align="left" class="w3l-scale-center-both" height="70">
-                                                    <a href="#twitter" class="twitter"><img src="images/tw.png" class="img-responsive">Follow us on Twitter</a></td>
+                                                    <a href="#twitter" class="twitter"><img src="/images/tw.png" class="img-responsive">Follow us on Twitter</a></td>
                                             </tr>
                                         </table>
                                     </td>
