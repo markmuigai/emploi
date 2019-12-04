@@ -9,7 +9,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('user_title','Login')
 
-
+<div class="sign-left text-center">
+    <h5>- Continue With -</h5>
+    <a href="/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
+    <a href="/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
+    <a href="/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
+</div>
 <form method="post" action="{{ route('login') }}">
     @csrf
     <div class="form-group">

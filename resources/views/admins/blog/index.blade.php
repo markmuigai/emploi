@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Admin Blog')
 
@@ -7,42 +7,35 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'All Blogs')
 
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>All Blogs</h2>
-        <p  style="text-align: center;"><a href="/blog/create" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> New</a></p>
-        <br>
-        <div class="row">
 
-        	@forelse($blogs as $blog)
-        	<div class="row" style="padding: 0.5em; border-bottom: 0.1em solid black">
-        		<img src="{{ $blog->imageUrl }} " class="col-md-3 col-md-offset-2">
-        		<div class="col-md-7" style="text-align: center; ">
-        			<br><br>
-        			<h4>{{ $blog->title }}</h4>
-        			<p>
-        				{{ $blog->user->name }} || {{ $blog->category->name }}
-        			</p>
-        			<br><br>
-        			<a href="{{ url('/blog/'.$blog->slug.'/edit') }}" class="btn btn-sm btn-info">Edit</a>
-                    <a href="{{ url('/blog/'.$blog->slug) }}" class="btn btn-sm btn-success" target="_blank">View</a>
-        		</div>
-        	</div>
-        	@empty
-        	<p style="text-align: center;">
-        		No blogs have been created
-        	</p>
-        	@endforelse
-        	
+<div class="card">
+    <div class="card-body">
+        @forelse($blogs as $blog)
+        <div class="row align-items-center">
+            <div class="col-lg-2 col-md-3">
+                <img src="{{ $blog->imageUrl }} " class="w-100">
+            </div>
+            <div class=" col-lg-7 col-md-6">
+                <h4>{{ $blog->title }}</h4>
+                <p>
+                    {{ $blog->user->name }} || {{ $blog->category->name }}
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <a href="{{ url('/blog/'.$blog->slug.'/edit') }}" class="btn btn-sm btn-info">Edit</a>
+                <a href="{{ url('/blog/'.$blog->slug) }}" class="btn btn-sm btn-success" target="_blank">View</a>
+            </div>
         </div>
-        
-        {{ $blogs->links() }}
-    
-                
+        <hr>
+        @empty
+        <p class="text-center">No blogs have been created</p>
+        @endforelse
     </div>
- </div>
 </div>
+
+{{ $blogs->links() }}
+
 
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Super Admin')
 
@@ -7,78 +7,68 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'Emploi Administrators')
+<div class="card">
+    <div class="card-body">
+        <div class="text-right">
+            <a href="/desk/create-admin" class="btn btn-sm btn-orange pull-right">Create</a>
+        </div>
+        <h4>Active Administrators</h4>
 
-<div class="container">
-    <div class="single">
-	   <div class="col-md-4">
-	   	  @include('left-bar')
+        @forelse($admins as $admin)
 
-	 </div>
-	 <div class="col-md-8 single_right">
-	    <h3>
-	    	Emploi Administrators
-	    	<a href="/desk/create-admin" class="btn btn-sm btn-success pull-right">create</a>
-	   	</h3>
+        <div class="row mt-4">
+            <div class="col-8">
+                <p><strong>{{ $admin->name }}</strong> {{ '@'.$admin->username }}</p>
+                <a href="/desk/disable-admin?id={{ $admin->id }}" class="btn btn-sm btn-danger"> Disable</a>
+            </div>
+            <div class="col-4 text-right">
+                <p>
+                    <span class="badge badge-secondary"> @foreach($admin->jurisdictions as $j)
+                        {{ $j->country->name }}
+                        @endforeach
+                    </span>
+                </p>
+            </div>
+        </div>
 
-	   	<h4>Active Administrators</h4>
+        @empty
 
-	    @forelse($admins as $admin)
+        <p class="text-center">
+            No administrators found in the database
+        </p>
 
-	    <div class="" style="padding: 1em 5% 0 5%">
-	    	<hr>
+        @endforelse
 
-	    	<strong>{{ $admin->name }}</strong> {{ '@'.$admin->username }}
-	    	<small class="pull-right">
-	    	@foreach($admin->jurisdictions as $j)
-	    		{{ $j->country->name }} |
-	    	@endforeach
-	    	</small>
-	    	<br>
-	    	<a href="/desk/disable-admin?id={{ $admin->id }}" class="btn btn-sm btn-danger"> disable</a>
+        <hr>
 
+        <h4>Inactive Administrators</h4>
 
+        @forelse($oadmins as $admin)
+        <div class="row mt-4">
+            <div class="col-8">
+                <p><strong>{{ $admin->name }}</strong> {{ '@'.$admin->username }}</p>
+                <a href="/desk/enable-admin?id={{ $admin->id }}" class="btn btn-sm btn-success">Enable</a>
+            </div>
+            <div class="col-4 text-right">
+                <p>
+                    <span class="badge badge-secondary"> @foreach($admin->jurisdictions as $j)
+                        {{ $j->country->name }}
+                        @endforeach
+                    </span>
+                </p>
+            </div>
+        </div>
 
-	    </div>
+        @empty
 
-	    @empty
+        <p class="text-center">
+            No Inactive administrators found in the database
+        </p>
 
-	    <p>
-	    	No administrators found in the database
-	    </p>
+        @endforelse
 
-	    @endforelse
-
-	    <hr>
-
-	    <h4>Inactive Administrators</h4>
-
-	    @forelse($oadmins as $admin)
-
-	    <div class="" style="padding: 1em 5% 0 5%">
-	    	<hr>
-
-	    	<strong>{{ $admin->name }}</strong> {{ '@'.$admin->username }} 
-	    	<small class="pull-right">
-	    	@foreach($admin->jurisdictions as $j)
-	    		{{ $j->country->name }} |
-	    	@endforeach
-	    	</small>
-	    	<br>
-	    	<a href="/desk/edit-admin?id={{ $admin->id }}" class="btn btn-sm btn-primary" style="display: none;"> <i class="fa fa-info"></i> edit</a>
-	    	<a href="/desk/enable-admin?id={{ $admin->id }}" class="btn btn-sm btn-success"> enable</a>
-	    </div>
-
-	    @empty
-
-	    <p>
-	    	No Inactive administrators found in the database
-	    </p>
-
-	    @endforelse
-
-     </div>
-     <div class="clearfix"> </div>
- </div>
+    </div>
 </div>
 
 @endsection
