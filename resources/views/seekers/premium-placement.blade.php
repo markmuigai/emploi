@@ -49,13 +49,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </li>
     </ol>
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3" style="text-align: center;">
-            <h5 class="pt-2">Get in touch with us and for Premium Placement</h5>
-            Phone: +254 702 068 282
-            E-mail: <a href="mailto:info@emploi.co">info@emploi.co</a>
-            <a href="/contact" class="btn btn-success">Contact Us</a>
-        </div>
+    <div class="text-center">
+        <a href="/contact" class="btn btn-success">Contact Us</a>
     </div>
 </div>
 

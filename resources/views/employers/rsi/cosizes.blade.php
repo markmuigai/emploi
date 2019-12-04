@@ -78,7 +78,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $().ready(function() {
         $('#add-company').click(function() {
             var $i = '' +
-                '<p style="margin-bottom: 0.5em; border-bottom:0.1em solid black; padding: 1em">' +
+                '<div class="form-group">' +
                 '<label>Company Name</label>' +
                 '<span class="pull-right rm-interview-score"><i class="fas fa-times text-danger"></i></span>' +
                 '<input type="text" name="company_name[]" required="" class="form-control">' +
@@ -91,7 +91,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             }
             $i += '' +
                 '</select>' +
-                '</p>';
+                '</div>';
             $('#company-sizes-pool').append($i);
 
             $('.rm-company-size').click(function() {

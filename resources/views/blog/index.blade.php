@@ -31,13 +31,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @include('components.share-modal')
         <!-- END OF SHARE MODAL -->
         @empty
+      </div>
         <div class="card">
             <div class="card-body text-center">
                 <p>No blogs found</p>
             </div>
         </div>
         @endforelse
-    </div>
     @if(isset($links))
     {{ $blogs->links() }}
     @endif

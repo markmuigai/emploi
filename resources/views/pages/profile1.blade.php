@@ -56,7 +56,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small>
                                 </h5>
                                 @if(!$user->seeker->hasCompletedProfile())
-                                <p style="text-align: center; font-size: 90%; ">
+                                <p class="text-center">
                                     <a href="/profile/edit" class="text-danger"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
                                 </p>
                                 @endif

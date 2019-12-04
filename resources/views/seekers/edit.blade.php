@@ -21,7 +21,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @error('resume')
                     <p class="text-danger">Avatar errors were detected</p>
                 @enderror
-                <h3 style="text-align: center;">Step 1 of 3 : Personal Details</h3>
+                <h3 class="text-center">Step 1 of 3 : Personal Details</h3>
                 <div class="form-group">
                     <label for="fullName">Full Name *</label>
                     <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control input-sm" maxlength="50" value="{{ $user->name }}" />
@@ -111,7 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="edit-section d-none" id="section2">
         <div class="card">
             <div class="card-body p-5">
-              <h3>Step 2 of 3 : Education and Skills</h3>
+              <h3 class="text-center">Step 2 of 3 : Education and Skills</h3>
               <div class="form-group">
                   <label for="education_level_id">Highest Education *</label>
                   <select id="education_level_id" name="education_level_id" class="form-control input-sm">

@@ -74,7 +74,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>
                                 Performing background checks on applicants and employees is an effective way to discover potential issues that could affect your business. Protect your organization with our comprehensive employment background checks
                             </p>
-                            <a href="/employers/background-checks" style="color: #e88725">Learn More</a>
+                            <a href="/employers/background-checks" class="orange">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 Our premium recruitment services facilitate the recruitment of the best person available through our headhunting abilities. For instance, managerial jobs require matching candidates to be approached and informed of the
                                 available job.
                             </p>
-                            <a href="/employers/premium-recruitment" style="color: #e88725">Learn More</a>
+                            <a href="/employers/premium-recruitment" class="orange">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>
                                 Psychometric tests help to identify a candidate’s skills, knowledge and personality. Measure a number of attributes including intelligence, critical reasoning, motivation and personality profile.
                             </p>
-                            <a href="/employers/psychometric-tests" style="color: #e88725">Learn More</a>
+                            <a href="/employers/psychometric-tests" class="orange">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -129,8 +129,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>
                                 We determine the suitability and skill set for particular candidates and the job requirements. Receive the test score for a candidate on the aptitude, proficiency and IQ tests.
                             </p>
-                            <a href="/employers/iq-tests" style="color: #e88725">IQ Tests</a> |
-                            <a href="/employers/proficiency-tests" style="color: #e88725">Proficiency</a>
+                            <a href="/employers/iq-tests" class="orange">IQ Tests</a> |
+                            <a href="/employers/proficiency-tests" class="orange">Proficiency</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>
                                 We have set up to support you in identifying the best provider of training solutions as per your needs. Ask for our solutions to constantly improve your team for higher returns
                             </p>
-                            <a href="/employers/train-employees" style="color: #e88725">Learn More</a>
+                            <a href="/employers/train-employees" class="orange">Learn More</a>
                         </div>
                     </div>
                 </div>

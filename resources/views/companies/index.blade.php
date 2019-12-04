@@ -32,11 +32,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     @empty
-    <p class="text-center">
-        No companies have been found. Check back later.
-    </p>
+  </div>
+    <div class="card">
+        <div class="card-body text-center">
+            <p>
+                No companies have been found. Check back later.
+            </p>
+        </div>
+    </div>
     @endforelse
-</div>
 
 <div class="text-center">
     @if(isset($hiring))

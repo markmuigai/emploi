@@ -9,18 +9,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <div class="container">
-    <div class="single">  
+    <div class="single">
        <div class="form-container">
         <h2>{{ $title }}</h2>
-        
+
         <div style="text-align: center;">
-        	<?php 
+        	<?php
         	echo $message;
         	?>
         </div>
-        
-    
-                
+
+
+
     </div>
  </div>
 </div>

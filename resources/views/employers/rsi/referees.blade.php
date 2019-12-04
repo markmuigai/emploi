@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <h4>All Referees</h4>
         <div class="row">
             @forelse($app->user->seeker->referees as $ref)
-            <div style="text-align: left;" class="col-md-6 col-xs-6 hover-bottom">
+            <div class="col-md-6 col-xs-6 text-left">
                 {{ $ref->relationship.' at '.$ref->organization }}
                 <strong>{{ $ref->name }}</strong>
                 @if($ref->ready)

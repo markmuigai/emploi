@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>
         To access these features, register as an employer and streamline your recruitment or advertise a job.
     </p>
-    <div class="row mt-4">
+    <div class="row mt-4 mb-2">
         <div class="col-md-6">
             <h5>Advertising Features</h5>
             <ul class="feature_list">
@@ -44,11 +44,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </ul>
         </div>
     </div>
-    <p style="text-align: center;">
-        <br>
+    <div class="text-center">
         <a href="/vacancies/create" class="btn btn-orange">Publish Job Post</a>
         <a href="/contact" class="btn btn-purple">Contact Us</a>
-    </p>
+    </div>
 </div>
 
 @endsection
