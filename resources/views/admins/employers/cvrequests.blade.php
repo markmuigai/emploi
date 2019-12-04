@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Admin CV Requests')
 
@@ -7,64 +7,45 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'CV Requests')
 
-<div class="container">
-    <div class="single">  
-	   
-	 <div class="row">
-	    <h3 style="text-align: center;">
-	    	<a href="/admin/panel"><i class="fa fa-arrow-left"></i></a>
-	    	CV Requests
-	    	
-	    	
-	   	</h3>	
+<div class="card">
+    <div class="card-body">
 
+        @forelse($cvRequests as $r)
+        <p>
+            <strong>{{ $r->employer->name }}</strong> requested for <strong> <a href="/admin/seekers/{{ $r->seeker->user->username }}" class="orange">{{ $r->seeker->user->name }}</a></strong>'s CV <br>
+            on {{ $r->created_at }}.
+        </p>
 
-	   	@forelse($cvRequests as $r)
+        @if($r->status == 'pending')
+        <form method="get" action="/admin/cv-requests/{{$r->id}}" class="form-row align-items-center">
+            <div class="col-lg-3 col-7">
+                <select class="custom-select" name="status">
+                    <option value="accepted">Mark as Accepted</option>
+                    <option value="denied">Mark Denied</option>
+                </select>
+            </div>
 
-	   	<div style="text-align: center;" class="hover-bottom col-md-6">
+            <div class="col-lg-3 col-4">
+                <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Save</button>
+            </div>
+        </form>
+        @else
+        <p>
+            <em>{{ $r->status }} on {{ $r->updated_at }}</em>
+        </p>
+        @endif
 
-	   		<p>
-	   			<b>{{ $r->employer->name }}</b> requested for <b> <a href="/admin/seekers/{{ $r->seeker->user->username }}">{{ $r->seeker->user->name }}</a></b>'s CV <br>
-	   			on {{ $r->created_at }}
-	   		</p>
+        <hr>
+        @empty
+        <p class="text-center">No CV Requests have been found</p>
+        @endforelse
 
-	   		<br>
-	   		
-
-	   		@if($r->status == 'pending')
-	   		<form method="get" action="/admin/cv-requests/{{$r->id}}">
-	   			<select class="btn btn-sm" name="status">
-	   				<option value="accepted">Mark as Accepted</option>
-	   				<option value="denied">Mark Denied</option>
-	   			</select>
-	   			<input type="submit" value="Save" class="btn btn-sm btn-warning">
-	   		</form>
-	   		@else
-	   		<i>{{ $r->status }} on {{ $r->updated_at }}</i>
-	   		@endif
-	   		
-	   	</div>
-
-	   	@empty
-
-	   	<p style="text-align: center;">
-
-	   		No CV Requests have been found
-	   		
-	   	</p>
-
-	   	@endforelse
-
-	   	<p style="text-align: center;">
-	   		{{ $cvRequests->links() }}
-	   	</p>
-
-	   	
-	    
-     </div>
-     <div class="clearfix"> </div>
- </div>
+        <p class="text-center">
+            {{ $cvRequests->links() }}
+        </p>
+    </div>
 </div>
 
 @endsection

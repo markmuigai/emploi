@@ -254,6 +254,7 @@ img.avatar-small {
 
 img.profile-avatar {
     height: 30px;
+    width: 30px;
 }
 
 .navbar-toggler {
@@ -939,6 +940,10 @@ a .fab:hover {
     /* NAVBAR */
     .nav-link {
         padding: 0rem 1rem;
+    }
+
+    .navbar-brand img {
+        height: 50px;
     }
 
     /* LANDING */

@@ -67,6 +67,22 @@
                     </div>
                 </li>
                 @endif
+
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/admin/posts">Job Posts</a>
+                        <a class="dropdown-item" href="/admin/cv-requests">CV Requests</a>
+                        <a class="dropdown-item" href="/admin/seekers">Job Seekers</a>
+                        <a class="dropdown-item" href="/admin/blog">Blogs</a>
+                        <a class="dropdown-item" href="/admin/emails">Send Emails</a>
+                    </div>
+                </li>
+                @else
+                @endif
                 <div class="d-md-flex">
                     @if(isset(Auth::user()->id))
                     <!-- <li class="nav-item">

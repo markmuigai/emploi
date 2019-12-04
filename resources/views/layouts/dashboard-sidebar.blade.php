@@ -138,15 +138,31 @@
                             @endif
                             <li><a href="/employers/services">All Services</a></li>
                             <li><a href="/employers/browse">Browse CVs</a></li>
-                            <li><a href="/employers/publish" style="font-weight: bold;">Advertise Jobs</a></li>
+                            <li><a href="/employers/publish"><strong>Advertise Jobs</strong></a></li>
                             <li><a href="/employers/premium-recruitment">Premium Recruitment</a></li>
                             <li><a href="/employers/candidate-vetting" style="display: none">Candidate Vetting</a></li>
                             <li><a href="/employers/hr-services" style="display: none">HR Services</a></li>
                             <li><a href="/employers/register">Create Profile</a></li>
                             <li><a href="/mass-recruitment">Mass Recruitment</a></li>
-                            <li><a href="/employers/role-suitability-index" style="font-weight: bold;">Role Suitability Index</a></li>
+                            <li><a href="/employers/role-suitability-index"><strong>Role Suitability Index</strong></a></li>
                         </ul>
                     </li>
+                    @endif
+                    @if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/job-seekers/services">Job Posts</a></li>
+                            <li><a href="/register">CV Requests</a></li>
+
+                            <li><a href="/job-seekers/cv-editing">Job Seekers</a></li>
+                            <li><a href="/job-seekers/cv-templates">CV Templates</a></li>
+
+                            <li><a href="/job-seekers/premium-placement">Blogs</a></li>
+                            <li><a href="/vacancies">Compose Emails</a></li>
+                        </ul>
+                    </li>
+                    @else
                     @endif
                     @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                     @else
@@ -181,8 +197,9 @@
                             <li><a href="/home">Dashboard</a></li>
                             <li><a href="/profile">Profile</a></li>
                             @if(Auth::user()->role == 'seeker')
-                            <li><a href="/profile/edit" @if(!Auth::user()->seeker->hasCompletedProfile())
-                                    style="color: red; font-weight: bold"
+                            <li><a href="/profile/edit"
+                              @if(!Auth::user()->seeker->hasCompletedProfile())
+                                    class="text-danger"
                                     @endif
                                     >Edit Profile</a></li>
                             <li><a href="/profile/applications">My Applications ({{ count(Auth::user()->applications) }})</a></li>
@@ -193,11 +210,10 @@
                     </li>
                     @else
                     <li><a href="/login">Login</a></li>
-                    <li><a href="/join" style="color: #e88725; font-weight: bold">Register</a></li>
+                    <li><a href="/join" class="orange">Register</a></li>
                     @endif
                 </ul>
             </div>
-            <div class="clearfix"> </div>
         </div>
         <!--/.navbar-collapse-->
     </nav>
