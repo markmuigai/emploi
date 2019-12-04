@@ -154,6 +154,8 @@ class EmployerController extends Controller
             $seekers = Seeker::where('industry_id',$i->id)
                     ->where('location_id',$location->id)
                     ->where('experience','like',"%$q%")
+                    ->orWhere('education','like',"%$q%")
+                    ->orWhere('resume_contents','like',"%$q%")
                     ->orderBy('featured')->paginate(10);
 
 
@@ -169,6 +171,8 @@ class EmployerController extends Controller
 
             $seekers = Seeker::where('industry_id',$i->id)
                     ->where('experience','like',"%$q%")
+                    ->orWhere('education','like',"%$q%")
+                    ->orWhere('resume_contents','like',"%$q%")
                     ->orderBy('featured')->paginate(10);
 
             $title = 'Search results';
@@ -181,6 +185,8 @@ class EmployerController extends Controller
 
             $seekers = Seeker::where('location_id',$location->id)
                     ->where('experience','like',"%$q%")
+                    ->orWhere('education','like',"%$q%")
+                    ->orWhere('resume_contents','like',"%$q%")
                     ->orderBy('featured')->paginate(10);
 
             $title = 'Search results';
