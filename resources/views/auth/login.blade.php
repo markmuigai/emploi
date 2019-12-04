@@ -21,10 +21,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <label for="identity">
             Username or E-mail
             @error('email')
-                <strong class="pull-right" style="color: red"> * Invalid Email Address or Password*</strong>
+                <strong class="pull-right text-danger"> * Invalid Email Address or Password*</strong>
             @enderror
             @error('username')
-                <strong class="pull-right" style="color: red"> * Invalid Username or Password *</strong>
+                <strong class="pull-right text-danger"> * Invalid Username or Password *</strong>
             @enderror
         </label>
         <input type="text" name="identity" required="required" value="{{ old('identity') }}" class="form-control" placeholder="">

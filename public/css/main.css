@@ -255,6 +255,7 @@ img.avatar-small {
 img.profile-avatar {
     height: 30px;
     width: 30px;
+    border-radius: 50%
 }
 
 .navbar-toggler {
@@ -282,45 +283,10 @@ img.profile-avatar {
     font-size: 1rem;
 }
 
-/* .search-form.hide input {
-    width: 0;
-    animation: hideSearch 1s;
+.nav-link:hover .fa-search {
+    color: var(--secondary);
 }
 
-.search-form.show input {
-    width: 100%;
-    animation: showSearch 1s;
-}
-
-@keyframes hideSearch {
-    0% {
-        padding: 0.2rem 0.5rem;
-        width: 100%
-    }
-
-    100% {
-        padding: 0;
-        width: 0%;
-    }
-}
-
-@keyframes showSearch {
-    0% {
-        padding: 0;
-        width: 0%
-    }
-
-    100% {
-        padding: 0.2rem 0.5rem;
-        width: 100%;
-    }
-}
-
-#search.form-control {
-    font-size: 0.8rem;
-    padding: 0.2rem 0.5rem;
-    height: auto;
-} */
 /* FOOTER */
 .top-search, .search-bar, footer {
     position: relative;

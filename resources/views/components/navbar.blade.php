@@ -96,13 +96,8 @@
                         <a href="/join" class="btn btn-orange px-3">Register</a>
                     </li>
                     @endif
-                    <!-- <li class="nav-item search-form hide">
-                        <form action="" class="form-inline mt-2">
-                            <input type="text" name="search" placeholder="Search" class="form-control" id="search">
-                        </form>
-                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" id="search-prompt" href="/vacancies"><i class="fas fa-search"></i></a>
+                        <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
                     </li>
                 </div>
             </ul>
@@ -110,7 +105,7 @@
         @if(isset(Auth::user()->id))
         <div class="nav-item dropdown text-right">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ Auth::user()->getPublicAvatarUrl() }}" style="border-radius: 50%" class="profile-avatar" alt="">
+                <img src="{{ Auth::user()->getPublicAvatarUrl() }}" class="profile-avatar" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 @guest
@@ -121,9 +116,7 @@
                 <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
                 <a class="dropdown-item" href="/profile">View Profile</a>
                 <a class="dropdown-item" href="/logout">Logout</a>
-
                 @endguest
-
             </div>
         </div>
         @endif
@@ -140,3 +133,5 @@
         });
     });
 </script>
+
+@include('components.search-modal')

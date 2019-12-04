@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label>
                         Logo: * (png, jpg and jpeg Max 5MB)
                         @error('logo')
-                            <strong class="pull-right" style="color: red"> * Uploaded logo was invalid *</strong>
+                            <strong class="pull-right text-danger"> * Uploaded logo was invalid *</strong>
                         @enderror
                     </label>
                     <input type="file" name="logo" placeholder="" required="required" accept=".png,.jpg,.jpeg" class="">
@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label>
                         Name: *
                         @error('name')
-                            <strong class="pull-right" style="color: red"> * A company with this name has been registered *</strong>
+                            <strong class="pull-right text-danger"> * A company with this name has been registered *</strong>
                         @enderror
                     </label>
                     <input type="text" name="name" placeholder="" value="{{ old('name') }}" required="required" class="form-control" class="form-control" maxlength="50">
@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label>
                         Description: *
                         @error('about')
-                            <strong class="pull-right" style="color: red"> * Invalid company description *</strong>
+                            <strong class="pull-right text-danger"> * Invalid company description *</strong>
                         @enderror
                     </label>
                     <textarea class="form-control" id="about" name="about" rows="4" maxlength="255" required="">{{ old('about') }}</textarea>
@@ -52,7 +52,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label>
                         Website url:
                         @error('website')
-                            <strong class="pull-right" style="color: red"> * Invalid Website Url *</strong>
+                            <strong class="pull-right text-danger"> * Invalid Website Url *</strong>
                         @enderror
                     </label>
                     <input type="url" name="website" placeholder="" class="form-control" maxlength="255" value="{{ old('website') }}">
@@ -60,9 +60,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>
-                        Contact Phone Number: 
+                        Contact Phone Number:
                         @error('phone_number')
-                            <strong class="pull-right" style="color: red"> * Invalid Phone Number *</strong>
+                            <strong class="pull-right text-danger"> * Invalid Phone Number *</strong>
                         @enderror
                     </label>
                     <input type="text" name="phone_number" placeholder="2547xxxxxxxx" class="form-control" class="form-control" maxlength="20" value="{{ old('phone_number') }}">
@@ -70,9 +70,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>
-                        Contact E-mail Address: 
+                        Contact E-mail Address:
                         @error('email')
-                            <strong class="pull-right" style="color: red"> * Invalid E-mail address *</strong>
+                            <strong class="pull-right text-danger"> * Invalid E-mail address *</strong>
                         @enderror
                     </label>
                     <input type="email" name="email" placeholder="someone@yourcompany.com" class="form-control" maxlength="50" value="{{ old('email') }}">
@@ -111,7 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label>
                         Cover Image: (png, jpg and jpeg)
                         @error('cover')
-                            <strong class="pull-right" style="color: red"> * Uploaded cover image was invalid *</strong>
+                            <strong class="pull-right text-danger"> * Uploaded cover image was invalid *</strong>
                         @enderror
                     </label>
                     <input type="file" name="cover" placeholder="" accept=".png,.jpg,.jpeg">

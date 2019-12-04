@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<label>
 					Full Name: *
 					@error('name')
-                        <strong class="pull-right" style="color: red"> * Invalid Name *</strong>
+                        <strong class="pull-right text-danger"> * Invalid Name *</strong>
                     @enderror
 				</label>
 				<input type="text" name="name" class="form-control" value="{{ $user->name }}" required="" maxlength="50">
@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<label>
 					Username: *
 					@error('username')
-                        <strong class="pull-right" style="color: red"> * Username was invalid *</strong>
+                        <strong class="pull-right text-danger"> * Username was invalid *</strong>
                     @enderror
 				</label>
 				<input type="text" name="username" class="form-control" value="{{ $user->username }}" required="" maxlength="20">
@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<label>
 					Change Avatar: (png, jpg and jpeg Max 5MB)
 					@error('avatar')
-                        <strong class="pull-right" style="color: red"> * Uploaded avatar was invalid *</strong>
+                        <strong class="pull-right text-danger"> * Uploaded avatar was invalid *</strong>
                     @enderror
 				</label>
 				<br>

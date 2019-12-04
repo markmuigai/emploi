@@ -138,7 +138,7 @@
             <div class="modal-content p-3">
                 <div class="modal-body">
                     <h5 class="modal-title" id="inviteFriendsLabel">Invite Friends to Use Emploi</h5>
-                    <button type="button" class="close" style="background-color: red" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close text-danger"  data-dismiss="modal" aria-label="Close">
                         <i class="fas fa-times" aria-hidden="true"></i>
                     </button>
                     <div action="">

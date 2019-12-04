@@ -60,11 +60,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <img src="{{ asset($s->user->getPublicAvatarUrl()) }}" class="avatar-small">
                     </div>
                     <div class="col-5 col-md-5 col-lg-6">
-                        <h4>
-                            <a style="font-weight: bold; font-size: 110%" href="/employers/browse/{{ $s->user->username }}">
-                                {{ $s->public_name }}
+                        <h3>
+                            <a href="/employers/browse/{{ $s->user->username }}">
+                                <strong>{{ $s->public_name }}</strong>
                             </a>
-                        </h4>
+                        </h3>
                         <p class="text-success">{{ $s->current_position ? $s->current_position : 'N/A' }}</p>
                         <p>{{ $s->industry->name }}</p>
                         <p><i class="fas fa-map-marker-alt orange"></i>

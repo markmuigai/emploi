@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             },2000);
                         });
                     </script>
-                    <p style="color: red">Errors were detected</div>
+                    <p class="text-danger">Errors were detected</div>
                 @enderror
                 <h3>Step 1 of 3</h3>
                 <div class="form-group">

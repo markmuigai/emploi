@@ -143,7 +143,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @elseif($post->status == 'closed')
                         | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
                         @else
-                        | <i style="color: red">not verified</i>
+                        <em class="text-danger">Not Verified</em>
                         @endif
                     </div>
                 </div>
@@ -212,7 +212,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @elseif($post->status == 'closed')
                         | <a href="/vacancies/laravel-developer/activate"><i class="far fa-eye"></i> Activate</a>
                         @else
-                        | <i style="color: red">not verified</i>
+                        <em class="text-danger">Not Verified</em>
                         @endif
                     </div>
                 </div>
