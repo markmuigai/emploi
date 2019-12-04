@@ -235,9 +235,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         }
         else
         {
-            $p = ''+
-            '<p>'+education
+            if(education == '' || education == null || education == '[]' )
+            {
+                $p = ''+
+            '<p>No education records highlighted'
             '</p>';
+            }
+            else
+            {
+                $p = ''+
+                '<p>'+education
+                '</p>';
+            }
             
         }
 
@@ -268,9 +277,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         }
         else
         {
-            $p = ''+
-            '<p>'+experience
+            if(experience == '' || experience == null || experience == '[]' )
+            {
+                $p = ''+
+            '<p>No experience records highlighted'
             '</p>';
+            }
+            else
+            {
+                $p = ''+
+                '<p>'+experience
+                '</p>';
+            }
+            
             
         }
 
