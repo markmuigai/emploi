@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: IQ Score')
 
@@ -7,80 +7,69 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="single">  
-	   <div class="form-container row">
-        <h2 class="col-md-8 col-md-offset-2" >
-        	 {{ $application->user->name }} <br>
-        	
+@section('page_title', 'IQ Score')
+
+<div class="card">
+    <div class="card-body">
+        <h2>
+            {{ $application->user->name }}
         </h2>
-        <p class="col-md-8 col-md-offset-2" style="text-align: center;">
-        	<a href="/employers/applications/{{ $application->post->slug }}/">
-        	{{ $application->post->title }}
-        	</a>
-        	||
-        	<a href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi">
-        		RSI {{ $application->user->seeker->getRsi($application->post) }}%
-        	</a>
+        <p>
+            <a href="/employers/applications/{{ $application->post->slug }}/">
+                {{ $application->post->title }}
+            </a>
+            ||
+            <a href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi">
+                RSI {{ $application->user->seeker->getRsi($application->post) }}%
+            </a>
         </p>
-        <div class="search_form1 row">
 
-        	<br>
-		    
-		    <form method="POST" class="col-md-8 col-md-offset-2" action="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/iq">
-		    	@csrf
-		    	<div id="interview-pool">
-		    		@forelse($application->iqTests as $i)
-			    	<p>
-						<label>Edit IQ Score (0-100) </label><span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>
-						<input type="number" name="score[]" class="form-control" value="{{ $i->score }}" step="0" min="0" max="100" required="required">
-					</p>
-					@empty
-					<p>
-						<label>IQ Score (0-100) </label>
-						<span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>
-						<input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">
-					</p>
-					@endforelse
-					<br>
-		    	</div>
-		    	
-				<span id="add-interview" class="btn btn-success btn-sm pull-right">Add IQ Score</span>
+        <form method="POST" action="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/iq">
+            @csrf
+            <div id="interview-pool">
+                @forelse($application->iqTests as $i)
+                <div class="form-group">
+                    <label>Edit IQ Score (0-100) </label><span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>
+                    <input type="number" name="score[]" class="form-control" value="{{ $i->score }}" step="0" min="0" max="100" required="required">
+                </div>
+                @empty
+                <div class="form-group">
+                    <label>IQ Score (0-100) </label>
+                    <span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>
+                    <input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">
+                </div>
+                @endforelse
+            </div>
 
-				<br>
-				<hr>
-				<p>
-					<input type="submit" name="" >
-				</p>
-		    </form>
-        	
-	    	
-		    
-	    </div>
+            <button type="submit" name="button" class="btn btn-orange pull-right">Submit</button>
+            <button id="add-interview" class="btn btn-orange-alt mr-2 pull-right">Add IQ Score</button>
+        </form>
+
+
+
     </div>
- </div>
 </div>
 
 <script type="text/javascript">
-	$().ready(function(){
-		$('#add-interview').click(function(){
-			var $i = ''+
-			'<p>'+
-				'<label>IQ Score (0-100)</label>'+
-				'<span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>'+
-				'<input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">'+
-			'</p>';
-			$('#interview-pool').append($i);
+    $().ready(function() {
+        $('#add-interview').click(function() {
+            var $i = '' +
+                '<p>' +
+                '<label>IQ Score (0-100)</label>' +
+                '<span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>' +
+                '<input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">' +
+                '</p>';
+            $('#interview-pool').append($i);
 
-			$('.rm-interview-score').click(function(){
-				$(this).parent().remove();
-			});
-		});
+            $('.rm-interview-score').click(function() {
+                $(this).parent().remove();
+            });
+        });
 
-		$('.rm-interview-score').click(function(){
-			$(this).parent().remove();
-		});
-	});
+        $('.rm-interview-score').click(function() {
+            $(this).parent().remove();
+        });
+    });
 </script>
 
 @endsection

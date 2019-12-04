@@ -1,5 +1,4 @@
 @extends('layouts.dashboard-layout')
-{{--@extends('layouts.seek')--}}
 
 @section('title','Emploi :: Dashboard')
 

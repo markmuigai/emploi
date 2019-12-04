@@ -84,10 +84,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         data: {
             labels: graph_labels,
             datasets: [{
-                label: '# of Applications',
+                label: 'Number of Applications',
                 data: graph_data,
                 borderColor: 'rgb(232, 135, 37)',
-                backgroundColor: 'rgba(253, 242, 232, 0.5)',
+                // backgroundColor: 'rgba(253, 242, 232, 0.5)',
+                backgroundColor: 'rgba(0,0,0,0)',
             }]
         },
         options: {
@@ -101,7 +102,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             title: {
                 display: true,
                 text: "Total Applications over the Past Week"
-            }
+            },
+            legend: {
+              boxWidth: 20,
+            },
         },
         maintainAspectRatio: false,
     });

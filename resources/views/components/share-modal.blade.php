@@ -7,7 +7,7 @@
                 </button>
                 <h4 class="orange">Share on Social Platforms</h4>
 
-                <input type="text" class="form-control" name="" readonly value="A Link of Some sort">
+                <input type="text" class="form-control" name="" readonly value="{{ url('blog/'.$blog->slug) }}">
 
                 <div class="d-flex justify-content-around mt-3 sign-left">
                     <a href="{{ $blog->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>

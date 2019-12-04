@@ -70,6 +70,7 @@ ul.tick li:before {
 }
 
 .btn {
+    padding: 0.3rem 1rem;
     border-radius: 20px;
     border: 2px solid;
 }
@@ -586,6 +587,18 @@ main {
 
 .card {
     box-shadow: 0 0 5px 0px rgba(200, 200, 200, 0.5);
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.card-header.cover {
+    height: 170px;
+    background-size: cover;
+}
+
+.card-header.cover+.card-body {
+    position: relative;
+    top: -100px;
 }
 
 .nav-pills {
@@ -766,12 +779,21 @@ a .fab:hover {
 /* 404 */
 .error-page {
     background: var(--primary);
-    background: linear-gradient(to right, rgba(80, 0, 149, 0.5), rgba(80, 0, 149, 0.5)), url("../images/door.png");
+    background: linear-gradient(to right, rgba(80, 0, 149, 0.3), rgba(80, 0, 149, 0.3)), url("../images/error.jpg");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    min-height: 89vh;
-    color: white;
+    height: 88vh;
+    color: black;
     font-size:
+}
+
+.error-page .content {
+    width: 60%;
+}
+
+.error-page h1 {
+    font-size: 10rem;
 }
 
 /* END OF 404 */
@@ -882,6 +904,18 @@ a .fab:hover {
     .contact {
         height: 70vh;
     }
+
+    .error-page {
+        background: linear-gradient(to right, rgba(80, 0, 149, 0.3), rgba(80, 0, 149, 0.3)), url("../images/error.jpg");
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 50vh;
+    }
+
+    .error-page .content {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -910,7 +944,7 @@ a .fab:hover {
     /* LANDING */
     .landing {
         background-position: right;
-        height: 70vh;
+        height: 80vh;
     }
 
     .landing .container .content {
@@ -948,6 +982,18 @@ a .fab:hover {
     }
 
     /* END OF CONTACT */
+    /* ERROR PAGE */
+    .error-page {
+        background: linear-gradient(to right, rgba(80, 0, 149, 0.7), rgba(80, 0, 149, 0.7)), url("../images/error2.jpg");
+        background-position: left;
+        background-size: contain;
+        color: white;
+        height: 90vh;
+    }
+
+    .error-page .content {
+        width: 90%;
+    }
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {

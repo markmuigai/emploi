@@ -7,8 +7,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-<div class="error-page d-flex flex-column justify-content-center align-items-center">
-    <div class="container">
+<div class="error-page d-flex flex-column justify-content-center align-items-md-end align-items-center">
+    <div class="content mr-md-5 mr-0">
         <div class="text-center">
             <h1>404</h1>
             <h2>Sorry</h2>

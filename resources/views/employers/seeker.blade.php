@@ -130,7 +130,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
                 <div class="text-center">
-                    <p style="font-weight: bold">{{ $user->name }}</p>
+                    <p><strong>{{ $user->name }}</strong></p>
                     @if( $user->seeker->featured != 0 )
                     <p class="text-success"><strong><i class='fa fa-star'></i> Featured</strong></p>
                     @endif
@@ -140,21 +140,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                     @if(Auth::user()->employer->canViewSeeker($user->seeker))
 
-                        <p>
-                            Mail: <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+                        <p>Mail:
+                            <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                         </p>
                         @if(isset($user->seeker->phone_number))
-                        <p>Phone: <a href="tel:{{ $user->seeker->phone_number }}">{{ $user->seeker->phone_number }}</a></p>
+                        <p>Phone:
+                            <a href="tel:{{ $user->seeker->phone_number }}">{{ $user->seeker->phone_number }}</a>
+                        </p>
                         @endif
-                        
                         <p>
                             <a href="{{ $user->seeker->resumeUrl }}" class="btn btn-orange">
                                 <i class="fas fa-download"></i> Download CV
                             </a>
                         </p>
-
                     @else
-                        <br>
                         @if(Auth::user()->employer->canRequestSeeker($user->seeker))
                             <p>
                                 <a href="/employers/browse/{{ $user->username }}/request-cv" class="btn btn-orange">
@@ -162,19 +161,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 </a>
                             </p>
                         @else
-
-                            <p>
-                                <a href="#" class="btn btn-link">
-                                     CV Already Requested
-                                </a>
-                            </p>
-
+                            <p>CV Already Requested</p>
                         @endif
-
-                    
-
                     @endif
-
                 </div>
             </div>
         </div>

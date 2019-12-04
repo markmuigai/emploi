@@ -8,43 +8,54 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 @section('page_title', 'Job Vacancies')
-
-<!-- JOB CARD -->
-<form method="get" class="row" action="{{ url('/vacancies/search') }}">
-    <input type="text" name="q" class="btn col-md-3" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}">
-    <select class="btn col-md-3" name="location">
-        <option value="">All Locations</option>
-        @forelse($locations as $l)
-        <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
-            {{ $l->name.', '.$l->country->code }}
-        </option>
-        @empty
-        @endforelse
-    </select>
-    
-    <select class="btn col-md-3" name="industry">
-        <option value="">All Industries</option>
-        @forelse($industries as $ind)
-        <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
-            {{ $ind->name }}
-        </option>
-        @empty
-        @endforelse
-    </select>
-    <select class="btn col-md-3" name="vacancyType">
-        <option value="">All Vacancy Types</option>
-        @forelse($vacancyTypes as $l)
-        <option value="{{ $l->id }}" {{ isset($search_vtype) && $search_vtype == $l->id ? 'selected=""' : '' }}>
-            {{ $l->name }}
-        </option>
-        @empty
-        @endforelse
-    </select>
-    <input type="submit" value="Search" class="btn btn-success pull-right">
-    @if(isset($search_vtype) || isset($search_ind) || isset($search_location) || isset($search_query))
-    <a href="/vacancies" class="btn btn-danger">Reset</a>
-    @endif
+<hr>
+<h4>Search</h4>
+<form method="get" class="form-row" action="{{ url('/vacancies/search') }}">
+    <div class="col-lg-3 col-md-6 py-2">
+        <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}">
+    </div>
+    <div class="col-lg-3 col-md-6 py-2">
+        <select class="custom-select" name="location">
+            <option value="">All Locations</option>
+            @forelse($locations as $l)
+            <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
+                {{ $l->name.', '.$l->country->code }}
+            </option>
+            @empty
+            @endforelse
+        </select>
+    </div>
+    <div class="col-lg-3 col-md-6 py-2">
+        <select class="custom-select" name="industry">
+            <option value="">All Industries</option>
+            @forelse($industries as $ind)
+            <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
+                {{ $ind->name }}
+            </option>
+            @empty
+            @endforelse
+        </select>
+    </div>
+    <div class="col-lg-3 col-md-6 py-2">
+        <select class="custom-select" name="vacancyType">
+            <option value="">All Vacancy Types</option>
+            @forelse($vacancyTypes as $l)
+            <option value="{{ $l->id }}" {{ isset($search_vtype) && $search_vtype == $l->id ? 'selected=""' : '' }}>
+                {{ $l->name }}
+            </option>
+            @empty
+            @endforelse
+        </select>
+    </div>
+    <div class="col-12 my-2 text-center">
+        <button type="submit" name="button" class="btn btn-sm btn-orange">Search</button>
+        @if(isset($search_vtype) || isset($search_ind) || isset($search_location) || isset($search_query))
+        <button type="reset" name="button" class="btn btn-sm btn-orange-alt ml-3"><a href="/vacancies">Reset</a></button>
+        @endif
+        <hr>
+    </div>
 </form>
+<!-- JOB CARD -->
 @forelse($posts as $post)
 <div class="card py-2 mb-4">
     <div class="card-body">

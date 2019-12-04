@@ -12,21 +12,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="row">
 	<div class="col-md-12 col-lg-9">
 		<div class="card">
-			<div class="card-body">
-				<div class="row align-items-center">
-					<div class="col-md-9">
-						<div class="row align-items-center">
-							<div class="col-3">
-								<img src="{{ asset($company->logoUrl) }}" alt="" class="circle-img w-100 h-100">
-							</div>
-							<div class="col-9">
-								<h4>{{ $company->name }} <span class="badge badge-secondary">{{ count($company->activePosts) }} vacancies</span></h4>
-								<h6 class="text-capitalize">{{ $company->tagline }}</h6>
-								<p><i class="fas fa-map-marker-alt orange"></i> {{ $company->location->name.', '.$company->location->country->name }}</p>
-							</div>
-						</div>
+			<div class="card-header cover" class="background-image:{{ asset($company->coverUrl) }};"></div>
+			<div class="card-body pb-0">
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<img src="{{ asset($company->logoUrl) }}" alt="" class="circle-img w-100 h-100">
 					</div>
-					<div class="col-md-3">
+				</div>
+				<div class="row align-items-center">
+					<div class="col-lg-9 col-md-8">
+						<h4>{{ $company->name }} <span class="badge badge-secondary">{{ count($company->activePosts) }} vacancies</span></h4>
+						<h6 class="text-capitalize">{{ $company->tagline }}</h6>
+						<p><i class="fas fa-map-marker-alt orange"></i> {{ $company->location->name.', '.$company->location->country->name }}</p>
+					</div>
+					<div class="col-lg-3 col-md-4">
 						<p>
 							<i class="fas fa-share-alt"></i>
 							Share:
@@ -36,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						</p>
 					</div>
 				</div>
-				<h5>About</h5>
+				<h5 class="pt-3">About</h5>
 				<p>
 					<?php echo $company->about; ?>
 				</p>
@@ -54,7 +53,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<p><strong>Type: </strong>Privately Held</p>
 					</div>
 					<div class="col-md-6">
-						<p><strong>Headquarters: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
+						<p><strong>Loacation: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
 					</div>
 					<div class="col-md-6">
 						<p class="text-capitalize"><strong>Status: </strong>{{ $company->status }}</p>
@@ -68,12 +67,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<div class="card-body text-center px-0">
 				<h5 class="orange">Contact Details</h5>
 				@if(isset(Auth::user()->id))
+				<h6>Address</h6>
 				<p>
 					{{ $company->user->employer->address  }}
 				</p>
+				<h6>Phone Number</h6>
 				<p>
 					{{ $company->user->employer->company_phone }}
 				</p>
+				<h6>Email</h6>
 				<p class="orange">
 					<a href="mailto:{{ $company->user->employer->company_email }}">
 						{{ $company->user->employer->company_email }}
@@ -83,9 +85,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				</p>
 				@else
 				<p>
-					Login to view contact details. <br>
-					<a href="/login" class="orange">Login</a>
+					Login to view contact details.
 				</p>
+				<a href="/login" class="orange">Login</a>
 				@endif
 			</div>
 		</div>
@@ -96,7 +98,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @if(count($company->activePosts) > 0)
 <div class="featured-carousel">
 	@foreach($company->activePosts as $post)
-	<div class="card my-4 mx-lg-0 mr-lg-5 mr-md-2 mx-4">
+	<div class="card my-4 mx-md-0 mr-md-5 mr-md-2 mx-4">
 		<div class="card-body text-center">
 			<a href="/vacancies/{{ $post->slug }}">
 				<div class="d-flex justify-content-center mb-3">
@@ -118,29 +120,35 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	@endforeach
 </div>
 @else
-<div>
-	<p>No vacancies available</p>
+<div class="card my-4">
+	<div class="card-body text-center">
+		<p>No vacancies available</p>
+	</div>
 </div>
 @endif
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.featured-carousel').slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll: 2,
-				arrows: true,
-				prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-				nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-				responsive: [
-						{
-								breakpoint: 425,
-								settings: {
-										slidesToShow: 1,
-										slidesToScroll: 1,
-								}
-						},
-				]
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 2,
+			arrows: true,
+			prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+			nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+			responsive: [{
+				breakpoint: 769,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+				}
+			}, {
+				breakpoint: 425,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				}
+			}, ]
 		});
 	});
 </script>

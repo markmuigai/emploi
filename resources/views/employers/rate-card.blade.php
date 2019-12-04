@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-group">
         <div class="card m-3">
             <div class="card-body">
-                <h5 class="purple">SOLO 1</h5>
+                <h5 class="purple">SOLO</h5>
                 <h1 class="orange">Kshs. 700</h1>
                 <hr>
                 <p>Package Includes:</p>
@@ -133,7 +133,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <li>Sourcing</li>
                         <li>Screening</li>
                         <li>Interview</li>
-                        <li>RCI Tool Application*</li>
+                        <li>RSI Tool Application*</li>
                         <li>Reference Checks</li>
                         <li>90 Day guarantee</li>
                     </ul>

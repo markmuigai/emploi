@@ -45,10 +45,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <div class="row align-items-center">
-                            <div class="col-lg-2 col-md-3 col-4">
+                            <div class="col-md-3 col-4">
                                 <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive w-100" alt="My Avatar" />
                             </div>
-                            <div class="col-lg-8 col-md-7 col-8">
+                            <div class="col-md-7 col-8">
                                 <h3 class="text-uppercase">{{ $user->name }}</h3>
                                 <h5>
                                     Job Seeker
@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 </h5>
                                 @if(!$user->seeker->hasCompletedProfile())
                                 <p style="text-align: center; font-size: 90%; ">
-                                    <a href="/profile/edit" class="text-danger" style="color: red"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
+                                    <a href="/profile/edit" class="text-danger"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
                                 </p>
                                 @endif
                             </div>
@@ -213,12 +213,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @elseif($user->role == 'employer')
 
 <div class="card">
-    <div class="card-body p-4">
+  <div class="card-header cover" class="background-image:{{ asset($user->coverUrl) }};"></div>
+    <div class="card-body px-4 pt-4 pb-0">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-6">
+          <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" alt="" class="circle-img w-100 h-100">
+        </div>
+      </div>
         <div class="row align-items-center">
-            <div class="col-lg-2 col-md-3 col-4">
-                <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive w-100" alt="My Avatar" />
-            </div>
-            <div class="col-lg-8 col-md-7 col-8">
+            <div class="col-lg-8 col-md-10 col-12">
                 <h3 class="text-uppercase">{{ $user->name }}</h3>
 
                 <h5>
@@ -237,7 +240,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
         <h3  class="orange">
             <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
-            <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-link">edit company</a>
+            <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-orange-alt">Edit Company Details</a>
         </h3>
         <div class="row">
             <div class="col-md-6">
@@ -250,7 +253,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Industry: </strong>{{ $company->industry->name }}</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Headquarters: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
+                <p><strong>Location: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
             </div>
             <div class="col-md-6">
                 <p class="text-capitalize"><strong>Tagline: </strong>{{ $company->tagline }}</p>
@@ -263,11 +266,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
 
-        <h5>About</h5>
+        <h5 class="pt-3">About</h5>
         <p><?php echo $company->about ?></p>
         @empty
 
-        <p style="text-align: center;">
+        <p class="text-center">
             No companies found. <a href="/companies/create">Create a company</a>
         </p>
 
