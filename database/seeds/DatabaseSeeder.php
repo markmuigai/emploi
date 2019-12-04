@@ -1338,295 +1338,295 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'interviews'
             ]);
 
-            Blog::create([
-                'user_id' => $admin->id, 
-                'blog_category_id' => 1, 
-                'title' => 'How automation can boost your productivity',
-                'slug' => 'automation-and-productivity',
-                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
-            ]);
+            // Blog::create([
+            //     'user_id' => $admin->id, 
+            //     'blog_category_id' => 1, 
+            //     'title' => 'How automation can boost your productivity',
+            //     'slug' => 'automation-and-productivity',
+            //     'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
+            // ]);
 
-            Blog::create([
-                'user_id' => $admin->id, 
-                'blog_category_id' => 1, 
-                'title' => 'Benefits of a must do list',
-                'slug' => 'must-do-list',
-                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
-            ]);
+            // Blog::create([
+            //     'user_id' => $admin->id, 
+            //     'blog_category_id' => 1, 
+            //     'title' => 'Benefits of a must do list',
+            //     'slug' => 'must-do-list',
+            //     'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
+            // ]);
 
-            Blog::create([
-                'user_id' => $admin->id, 
-                'blog_category_id' => 2, 
-                'title' => 'Recruiters never read CVs',
-                'slug' => 'recruit-no-cv',
-                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
-            ]);
+            // Blog::create([
+            //     'user_id' => $admin->id, 
+            //     'blog_category_id' => 2, 
+            //     'title' => 'Recruiters never read CVs',
+            //     'slug' => 'recruit-no-cv',
+            //     'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet '
+            // ]);
 
-            Blog::create([
-                'user_id' => $admin->id, 
-                'blog_category_id' => 1, 
-                'title' => 'Inactive Blog Post',
-                'slug' => 'inactive-blog-post',
-                'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet ',
-                'status' => 'inactive'
-            ]);
+            // Blog::create([
+            //     'user_id' => $admin->id, 
+            //     'blog_category_id' => 1, 
+            //     'title' => 'Inactive Blog Post',
+            //     'slug' => 'inactive-blog-post',
+            //     'contents' => 'Sample contents. Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet  Loremp ipsum dolor sit amet ',
+            //     'status' => 'inactive'
+            // ]);
 
-            $se1 = ModelSeeker::create([
-                'post_id' => $p1->id,
-                'education_level_id' => $dip->id,
-                'education_level_importance' => 50,
-                'personality_test_id' => $vision->id,
-                'experience_duration' => 3,
-                'experience_level_importance' => 50,
-                'iq_score' => 70,
-                'interview_result_score' => 70,
-                'psychometric_test_score' => 80,
-                'company_size_id' => 3
-            ]);
+            // $se1 = ModelSeeker::create([
+            //     'post_id' => $p1->id,
+            //     'education_level_id' => $dip->id,
+            //     'education_level_importance' => 50,
+            //     'personality_test_id' => $vision->id,
+            //     'experience_duration' => 3,
+            //     'experience_level_importance' => 50,
+            //     'iq_score' => 70,
+            //     'interview_result_score' => 70,
+            //     'psychometric_test_score' => 80,
+            //     'company_size_id' => 3
+            // ]);
 
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 1,
-                'industrySkill_id' => 1,
-                'weight' => 1
-            ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 1,
+            //     'industrySkill_id' => 1,
+            //     'weight' => 1
+            // ]);
 
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 1,
-                'industrySkill_id' => 2
-            ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 1,
+            //     'industrySkill_id' => 2
+            // ]);
 
-            $se2 = ModelSeeker::create([
-                'post_id' => $p2->id,
-                'education_level_id' => $deg->id,
-                'education_level_importance' => 70,
-                'personality_test_id' => $master->id,
-                'experience_duration' => 4,
-                'experience_level_importance' => 70,
-                'iq_score' => 70,
-                'interview_result_score' => 70,
-                'psychometric_test_score' => 80,
-                'company_size_id' => 4
-            ]);
+            // $se2 = ModelSeeker::create([
+            //     'post_id' => $p2->id,
+            //     'education_level_id' => $deg->id,
+            //     'education_level_importance' => 70,
+            //     'personality_test_id' => $master->id,
+            //     'experience_duration' => 4,
+            //     'experience_level_importance' => 70,
+            //     'iq_score' => 70,
+            //     'interview_result_score' => 70,
+            //     'psychometric_test_score' => 80,
+            //     'company_size_id' => 4
+            // ]);
 
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 2,
-                'industrySkill_id' => 1
-            ]);
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 2,
-                'industrySkill_id' => 3,
-                'weight' => 2
-            ]);
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 2,
-                'industrySkill_id' => 4,
-                'weight' => 3
-            ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 2,
+            //     'industrySkill_id' => 1
+            // ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 2,
+            //     'industrySkill_id' => 3,
+            //     'weight' => 2
+            // ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 2,
+            //     'industrySkill_id' => 4,
+            //     'weight' => 3
+            // ]);
 
-            $se3 = ModelSeeker::create([
-                'post_id' => $p3->id,
-                'education_level_id' => $seco->id,
-                'education_level_importance' => 30,
-                'personality_test_id' => $idealist->id,
-                'experience_duration' => 1,
-                'experience_level_importance' => 90,
-                'iq_score' => 30,
-                'interview_result_score' => 90,
-                'psychometric_test_score' => 80,
-                'company_size_id' => 5
-            ]);
+            // $se3 = ModelSeeker::create([
+            //     'post_id' => $p3->id,
+            //     'education_level_id' => $seco->id,
+            //     'education_level_importance' => 30,
+            //     'personality_test_id' => $idealist->id,
+            //     'experience_duration' => 1,
+            //     'experience_level_importance' => 90,
+            //     'iq_score' => 30,
+            //     'interview_result_score' => 90,
+            //     'psychometric_test_score' => 80,
+            //     'company_size_id' => 5
+            // ]);
 
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 3,
-                'industrySkill_id' => 2
-            ]);
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 3,
-                'industrySkill_id' => 5,
-                'weight' => 3
-            ]);
-            ModelSeekerSkill::create([
-                'model_seeker_id' => 3,
-                'industrySkill_id' => 6,
-                'weight' => 3
-            ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 3,
+            //     'industrySkill_id' => 2
+            // ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 3,
+            //     'industrySkill_id' => 5,
+            //     'weight' => 3
+            // ]);
+            // ModelSeekerSkill::create([
+            //     'model_seeker_id' => 3,
+            //     'industrySkill_id' => 6,
+            //     'weight' => 3
+            // ]);
 
-            $ernest = User::create([
-                'name' => 'Ernest Wanyonyi',
-                'email' => 'ernest@emploi.co',
-                'username' => 'ernest',
-                'email_verified_at' => now(),
-                'email_verification' => 'ashHSJhsawsd',
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-                'remember_token' => Str::random(10),
-            ]);
-            UserPermission::create([ 'user_id' => $ernest->id, 'permission_id' => 4 ]);
-            Seeker::create([
-                'user_id' => $ernest->id,
-                'public_name' => 'Ernest W',
-                'gender' => 'M',
-                'phone_number' => '254723193712',
-                'country_id' => 1,
-                'industry_id' => 1,
-                'resume' => 'sample-resume.pdf',
-                'date_of_birth' => now(),
-                'years_experience' => 5,
-                'location_id' => 1,
-                'education_level_id' => $dip->id,
-                'education' => '[]',
-                'experience' => '[]'
-            ]);
+            // $ernest = User::create([
+            //     'name' => 'Ernest Wanyonyi',
+            //     'email' => 'ernest@emploi.co',
+            //     'username' => 'ernest',
+            //     'email_verified_at' => now(),
+            //     'email_verification' => 'ashHSJhsawsd',
+            //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            //     'remember_token' => Str::random(10),
+            // ]);
+            // UserPermission::create([ 'user_id' => $ernest->id, 'permission_id' => 4 ]);
+            // Seeker::create([
+            //     'user_id' => $ernest->id,
+            //     'public_name' => 'Ernest W',
+            //     'gender' => 'M',
+            //     'phone_number' => '254723193712',
+            //     'country_id' => 1,
+            //     'industry_id' => 1,
+            //     'resume' => 'sample-resume.pdf',
+            //     'date_of_birth' => now(),
+            //     'years_experience' => 5,
+            //     'location_id' => 1,
+            //     'education_level_id' => $dip->id,
+            //     'education' => '[]',
+            //     'experience' => '[]'
+            // ]);
 
-            $sally = User::create([
-                'name' => 'Sally Muya',
-                'email' => 'sally@emploi.co',
-                'username' => 'sally',
-                'email_verified_at' => now(),
-                'email_verification' => 'ashs3HSJhsd',
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-                'remember_token' => Str::random(10),
-            ]);
-            UserPermission::create([ 'user_id' => $sally->id, 'permission_id' => 4 ]);
-            Seeker::create([
-                'user_id' => $sally->id,
-                'public_name' => 'Sally M',
-                'gender' => 'F',
-                'phone_number' => '254728217712',
-                'country_id' => 1,
-                'industry_id' => 2,
-                'resume' => 'sample-resume.pdf',
-                'date_of_birth' => now(),
-                'years_experience' => 2,
-                'location_id' => 2,
-                'education_level_id' => $deg->id,
-                'education' => '[]',
-                'experience' => '[]'
-            ]);
+            // $sally = User::create([
+            //     'name' => 'Sally Muya',
+            //     'email' => 'sally@emploi.co',
+            //     'username' => 'sally',
+            //     'email_verified_at' => now(),
+            //     'email_verification' => 'ashs3HSJhsd',
+            //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            //     'remember_token' => Str::random(10),
+            // ]);
+            // UserPermission::create([ 'user_id' => $sally->id, 'permission_id' => 4 ]);
+            // Seeker::create([
+            //     'user_id' => $sally->id,
+            //     'public_name' => 'Sally M',
+            //     'gender' => 'F',
+            //     'phone_number' => '254728217712',
+            //     'country_id' => 1,
+            //     'industry_id' => 2,
+            //     'resume' => 'sample-resume.pdf',
+            //     'date_of_birth' => now(),
+            //     'years_experience' => 2,
+            //     'location_id' => 2,
+            //     'education_level_id' => $deg->id,
+            //     'education' => '[]',
+            //     'experience' => '[]'
+            // ]);
 
-            $liza = User::create([
-                'name' => 'Liza Adhiambo',
-                'email' => 'liza@emploi.co',
-                'username' => 'liza',
-                'email_verified_at' => now(),
-                'email_verification' => 'ashHSJa2hsd',
-                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-                'remember_token' => Str::random(10),
-            ]);
-            UserPermission::create([ 'user_id' => $liza->id, 'permission_id' => 4 ]);
-            Seeker::create([
-                'user_id' => $liza->id,
-                'public_name' => 'Liza L',
-                'gender' => 'F',
-                'phone_number' => '2541022992381',
-                'country_id' => 1,
-                'industry_id' => 2,
-                'resume' => 'sample-resume.pdf',
-                'date_of_birth' => now(),
-                'years_experience' => 2,
-                'location_id' => 1,
-                'education_level_id' => $mast->id,
-                'education' => '[]',
-                'experience' => '[]'
-            ]);
+            // $liza = User::create([
+            //     'name' => 'Liza Adhiambo',
+            //     'email' => 'liza@emploi.co',
+            //     'username' => 'liza',
+            //     'email_verified_at' => now(),
+            //     'email_verification' => 'ashHSJa2hsd',
+            //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            //     'remember_token' => Str::random(10),
+            // ]);
+            // UserPermission::create([ 'user_id' => $liza->id, 'permission_id' => 4 ]);
+            // Seeker::create([
+            //     'user_id' => $liza->id,
+            //     'public_name' => 'Liza L',
+            //     'gender' => 'F',
+            //     'phone_number' => '2541022992381',
+            //     'country_id' => 1,
+            //     'industry_id' => 2,
+            //     'resume' => 'sample-resume.pdf',
+            //     'date_of_birth' => now(),
+            //     'years_experience' => 2,
+            //     'location_id' => 1,
+            //     'education_level_id' => $mast->id,
+            //     'education' => '[]',
+            //     'experience' => '[]'
+            // ]);
 
-            JobApplication::create([
-                'user_id' => $ernest->id,
-                'post_id' => $p1->id,
-                'cover' => 'Sample cover letter for the position. <br>Please hire me!'
-            ]);
-            JobApplication::create([
-                'user_id' => $ernest->id,
-                'post_id' => $p2->id,
-                'cover' => 'Sample cover letter for the position. <br>Please hire me!'
-            ]);
-            JobApplication::create([
-                'user_id' => $ernest->id,
-                'post_id' => $p3->id,
-                'cover' => 'Sample cover letter for the position. <br>Please hire me!'
-            ]);
+            // JobApplication::create([
+            //     'user_id' => $ernest->id,
+            //     'post_id' => $p1->id,
+            //     'cover' => 'Sample cover letter for the position. <br>Please hire me!'
+            // ]);
+            // JobApplication::create([
+            //     'user_id' => $ernest->id,
+            //     'post_id' => $p2->id,
+            //     'cover' => 'Sample cover letter for the position. <br>Please hire me!'
+            // ]);
+            // JobApplication::create([
+            //     'user_id' => $ernest->id,
+            //     'post_id' => $p3->id,
+            //     'cover' => 'Sample cover letter for the position. <br>Please hire me!'
+            // ]);
 
-            JobApplication::create([
-                'user_id' => $sally->id,
-                'post_id' => $p1->id,
-                'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
-            ]);
-            JobApplication::create([
-                'user_id' => $sally->id,
-                'post_id' => $p2->id,
-                'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
-            ]);
-            JobApplication::create([
-                'user_id' => $sally->id,
-                'post_id' => $p3->id,
-                'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
-            ]);
+            // JobApplication::create([
+            //     'user_id' => $sally->id,
+            //     'post_id' => $p1->id,
+            //     'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
+            // ]);
+            // JobApplication::create([
+            //     'user_id' => $sally->id,
+            //     'post_id' => $p2->id,
+            //     'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
+            // ]);
+            // JobApplication::create([
+            //     'user_id' => $sally->id,
+            //     'post_id' => $p3->id,
+            //     'cover' => 'I have sent a Sample cover letter for the position. <br>Please hire me!'
+            // ]);
 
-            JobApplication::create([
-                'user_id' => $liza->id,
-                'post_id' => $p1->id,
-                'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
-            ]);
-            JobApplication::create([
-                'user_id' => $liza->id,
-                'post_id' => $p2->id,
-                'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
-            ]);
-            JobApplication::create([
-                'user_id' => $liza->id,
-                'post_id' => $p3->id,
-                'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
-            ]);
+            // JobApplication::create([
+            //     'user_id' => $liza->id,
+            //     'post_id' => $p1->id,
+            //     'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
+            // ]);
+            // JobApplication::create([
+            //     'user_id' => $liza->id,
+            //     'post_id' => $p2->id,
+            //     'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
+            // ]);
+            // JobApplication::create([
+            //     'user_id' => $liza->id,
+            //     'post_id' => $p3->id,
+            //     'cover' => 'Trying to send a Sample cover letter for the position. <br>Please hire me!'
+            // ]);
 
-            SeekerSkill::create([
-                'seeker_id' => 1,
-                'skill_id' => 1
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 1,
-                'skill_id' => 2
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 1,
-                'skill_id' => 3
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 1,
-                'skill_id' => 4
-            ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 1,
+            //     'skill_id' => 1
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 1,
+            //     'skill_id' => 2
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 1,
+            //     'skill_id' => 3
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 1,
+            //     'skill_id' => 4
+            // ]);
 
-            SeekerSkill::create([
-                'seeker_id' => 2,
-                'skill_id' => 1
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 2,
-                'skill_id' => 3
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 2,
-                'skill_id' => 5
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 2,
-                'skill_id' => 7
-            ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 2,
+            //     'skill_id' => 1
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 2,
+            //     'skill_id' => 3
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 2,
+            //     'skill_id' => 5
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 2,
+            //     'skill_id' => 7
+            // ]);
 
-            SeekerSkill::create([
-                'seeker_id' => 3,
-                'skill_id' => 3
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 3,
-                'skill_id' => 4
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 3,
-                'skill_id' => 5
-            ]);
-            SeekerSkill::create([
-                'seeker_id' => 3,
-                'skill_id' => 2
-            ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 3,
+            //     'skill_id' => 3
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 3,
+            //     'skill_id' => 4
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 3,
+            //     'skill_id' => 5
+            // ]);
+            // SeekerSkill::create([
+            //     'seeker_id' => 3,
+            //     'skill_id' => 2
+            // ]);
 
         
 
