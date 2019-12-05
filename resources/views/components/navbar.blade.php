@@ -83,23 +83,21 @@
                 </li>
                 @else
                 @endif
-                <div class="d-md-flex">
-                    @if(isset(Auth::user()->id))
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-                    </li> -->
-                    @else
-                    <li class="nav-item">
-                        <a href="/login" class="btn btn-white px-3">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/join" class="btn btn-orange px-3">Register</a>
-                    </li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
-                    </li>
-                </div>
+                @if(isset(Auth::user()->id))
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                </li> -->
+                @else
+                <li class="nav-item">
+                    <a href="/login" class="btn btn-white px-3">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/join" class="btn btn-orange px-3">Register</a>
+                </li>
+                @endif
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
+                </li>
             </ul>
         </div>
         @if(isset(Auth::user()->id))

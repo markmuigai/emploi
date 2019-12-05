@@ -1,7 +1,7 @@
 <div class="top-search py-4">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <h5>Top Industries</h5>
                 <ul>
                     @forelse(\App\Industry::top(10) as $f)
@@ -10,7 +10,7 @@
                     @endforelse
                 </ul>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <?php
                     $featured = \App\Post::featured(10);
                     $missing = 10 - count($featured);
@@ -30,7 +30,7 @@
                     @endif
                 </ul>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <h5>Jobs by Category</h5>
                 <ul>
                     <li>
@@ -60,7 +60,7 @@
 
                 </ul>
             </div>
-            <div class="col-12 col-md-6 col-lg-3" style="display: none">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3" style="display: none">
                 <h5>Hiring Companies</h5>
                 <ul>
                     {{-- @forelse(\App\Company::getHiringCompanies() as $v)

@@ -27,7 +27,6 @@ a:hover {
 
 p {
     margin: .2rem 0;
-    /* font-size: 0.9rem; */
 }
 
 iframe {
@@ -227,7 +226,6 @@ span[class*="remove"]:hover {
 }
 
 img.avatar-small {
-    /* height: 90px; */
     width: 100%;
     border-radius: 50%;
 }
@@ -299,9 +297,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* footer a:hover {
-    color: black;
-} */
 footer ul.footer-menu {
     list-style: none;
     padding-left: 0;
@@ -369,7 +364,6 @@ button.close {
 main {
     padding: 4.7rem 0 0;
     min-height: 50.5vh;
-    /* background: #F9F9F9; */
 }
 
 .sidebar {
@@ -393,7 +387,6 @@ main {
 .landing {
     height: calc(100vh);
     background: var(--primary);
-    /* background: linear-gradient(to right, rgba(80, 0, 149, 1), rgba(80, 0, 149, 0.3)), url("../images/bg1.jpg"); */
     background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -664,7 +657,6 @@ main {
 }
 
 main.sign-page {
-    /* background: linear-gradient(97deg, #500095 45%, #8900FF 45%, #8900FF 47%, #FFFFFF 0); */
     min-height: 98vh;
     display: grid;
     align-items: center;
@@ -728,10 +720,6 @@ a .fab:hover {
     padding: 2rem;
     border-radius: 50%;
     border: 3px solid #595959;
-    /* box-shadow:
-        0 0 0 4px #595959,
-        0 0 0 7px #808080,
-        0 0 0 10px #a6a6a6; */
 }
 
 .icon-service .icon .fas {
@@ -815,7 +803,7 @@ a .fab:hover {
 
     .collapse.navbar-collapse .navbar-nav {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         padding: 1rem;
     }
 
@@ -828,7 +816,6 @@ a .fab:hover {
     }
 
     main.sign-page {
-        /* background: linear-gradient(-183deg, #500095 19.5rem, #8900FF 19.5rem, #8900FF 21rem, #FFFFFF 0); */
         min-height: auto;
         margin-top: 3em;
     }
@@ -895,7 +882,6 @@ a .fab:hover {
     }
 
     main.sign-page {
-        /* background: linear-gradient(-183deg, #500095 16.5rem, #8900FF 16.5rem, #8900FF 18rem, #FFFFFF 0); */
         padding: 2rem 0;
     }
 
@@ -904,6 +890,10 @@ a .fab:hover {
     }
 
     /* NAVBAR */
+    .collapse.navbar-collapse .navbar-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .nav-link {
         padding: 0rem 1rem;
     }
@@ -967,9 +957,9 @@ a .fab:hover {
     }
 }
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
     .landing {
-        height: 100vh;
+        height: 100vh !important;
     }
 
     .landing .container .content {
