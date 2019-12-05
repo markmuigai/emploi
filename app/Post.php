@@ -187,7 +187,8 @@ class Post extends Model
     public function getBriefAttribute(){
         $peo = $this->positions == 1 ? 'person' : 'people';
         //$exp = /24;
-        return 'This position requires '.$this->positions." $peo with ".$this->experience_requirements." years experience. Ideal candidate should be located in ".$this->location->name." with a ".$this->education_requirements." qualification in ".$this->industry->name.". Applications to be submitted on or  before ".$this->deadline;
+        $exp = $this->experience_requirements > 12 ? round($this->experience_requirements/12).' years' : $this->experience_requirements.' months';
+        return 'This position requires '.$this->positions." $peo with $exp experience. Ideal candidate should be located in ".$this->location->name." with a ".$this->education_requirements." qualification in ".$this->industry->name.". Applications to be submitted on or  before ".$this->deadline;
     }
 
     public function getReadableDeadlineAttribute(){

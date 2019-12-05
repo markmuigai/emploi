@@ -12,26 +12,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card-deck">
     <div class="card">
         <div class="card-body text-center">
-            <h1 class="orange">350</h1>
+            <h1 class="orange">{{ count(\App\Company::all()) }}</h1>
             <p>Companies</p>
         </div>
     </div>
     <div class="card">
         <div class="card-body text-center">
-            <h1 class="orange">5000</h1>
+            <h1 class="orange">{{ count(\App\Seeker::all()) }}</h1>
             <p>Job Seekers</p>
         </div>
     </div>
     <div class="card">
         <div class="card-body text-center">
-            <h1 class="orange">520</h1>
+            <h1 class="orange">{{ count(\App\JobApplication::all()) }}</h1>
             <p>Applications</p>
         </div>
     </div>
     <div class="card">
         <div class="card-body text-center">
-            <h1 class="orange">300</h1>
-            <p>Job Posts</p>
+            <h1 class="orange">{{ count(\App\Employer::all()) }}</h1>
+            <p>Employers</p>
         </div>
     </div>
 </div>

@@ -49,9 +49,7 @@ class PostsController extends Controller
     {
         $title = 'Latest Vacancies';
         $query = isset($request->q) ? $request->q : "";
-        $posts = Post::where('status','active')
-            ->where('deadline','>',Carbon::now()->format('Y-m-d'))
-            ->orderBy('featured','DESC')
+        $posts = Post::orderBy('featured','DESC')
             ->orderBy('created_at','DESC')
             ->paginate(10)->onEachSide(3);
         return view('seekers.vacancies')
@@ -177,7 +175,6 @@ class PostsController extends Controller
 
     public function show($param, Request $request)
     {
-
         $industries = Industry::active();
         $locations = Location::active();
         $vacancyTypes = VacancyType::all();
@@ -338,17 +335,20 @@ class PostsController extends Controller
         $post = Post::where('slug',$param)
                     //->where('status','active')
                     //->where('deadline','>',Carbon::now()->format('Y-m-d'))
-                    ->first();
+                    ->firstOrFail();
 
-        if(isset($post->id))
-        {
-            return view('seekers.vacancy')
+        return view('seekers.vacancy')
                 ->with('post',$post);
-        }
 
-        $post = OldPost::where('slug',$param)->where('category','vacancies')->firstOrFail();
-        return view('seekers.vacancy-old')
-                ->with('post',$post);
+        // if(isset($post->id))
+        // {
+        //     return view('seekers.vacancy')
+        //         ->with('post',$post);
+        // }
+
+        // $post = OldPost::where('slug',$param)->where('category','vacancies')->firstOrFail();
+        // return view('seekers.vacancy-old')
+        //         ->with('post',$post);
 
         
     }
