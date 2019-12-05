@@ -9,8 +9,12 @@ use Carbon\Carbon;
 use App\JobApplication;
 use App\User;
 
+use Watson\Rememberable\Rememberable;
+
 class Post extends Model
 {
+    use Rememberable;
+    public $rememberFor = 10;
     protected $fillable = [
         'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions','max_salary'
     ];

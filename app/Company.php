@@ -7,8 +7,12 @@ use Carbon\Carbon;
 
 use App\Post;
 
+use Watson\Rememberable\Rememberable;
+
 class Company extends Model
 {
+    use Rememberable;
+    public $rememberFor = 120;
     protected $fillable = [
         'name', 'user_id', 'logo', 'cover','tagline', 'about','website', 'industry_id','company_size_id','location_id','status','phone_number','email'
     ];

@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Location;
 
+use Watson\Rememberable\Rememberable;
+
 class Country extends Model
 {
+    use Rememberable;
+    public $rememberFor = 180;
     protected $fillable = [
         'name', 'code', 'prefix','status','currency'
     ];
