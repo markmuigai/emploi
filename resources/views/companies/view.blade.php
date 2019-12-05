@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="row">
 	<div class="col-md-12 col-lg-9">
 		<div class="card">
-			<div class="card-header cover" class="background-image:{{ asset($company->coverUrl) }};"></div>
+			<div class="card-header cover" style="background-image: url('{{ $company->coverUrl }}');"></div>
 			<div class="card-body pb-0">
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
