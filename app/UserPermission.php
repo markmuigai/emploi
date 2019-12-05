@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Rememberable\Rememberable;
 
 class UserPermission extends Model
 {
+	use Rememberable;
+    public $rememberFor = 300;
+
     protected $fillable = [
         'user_id', 'permission_id','status'
     ];

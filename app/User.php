@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Watson\Rememberable\Rememberable;
 
 use App\Jurisdiction;
 use App\Seeker;
@@ -15,7 +16,8 @@ use App\Jobs\EmailJob;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Rememberable;
+    public $rememberFor = 30;
 
     protected $fillable = [
         'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password'
