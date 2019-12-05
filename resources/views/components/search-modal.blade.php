@@ -6,9 +6,9 @@
                     <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
                 <h4 class="orange">Search</h4>
-                <form class="form-row" action="" method="post">
+                <form class="form-row" action="/vacancies/search" method="get">
                     <div class="col-9">
-                        <input type="text" class="form-control" name="" placeholder="Search">
+                        <input type="text" class="form-control" name="q" placeholder="Search" required="">
                     </div>
                     <div class="col-3">
                         <button type="submit" name="button" class="btn btn-orange">Search</button>
