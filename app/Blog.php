@@ -5,8 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+use Watson\Rememberable\Rememberable;
+
 class Blog extends Model
 {
+    use Rememberable;
+    public $rememberFor = 30;
+
     protected $fillable = [
         'user_id', 'blog_category_id', 'title','slug','contents', 'image1','image2','status'
     ];
