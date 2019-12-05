@@ -62,16 +62,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <?php
     $counter = '[';
     $labels = '[';
-    for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
-    {
-        $counter .= Auth::user()->employer->weekApplicationsCounter[$i][0];
-        $labels .= '"'.Auth::user()->employer->weekApplicationsCounter[$i][1].'"';
-        if(count(Auth::user()->employer->weekApplicationsCounter) != $i-1)
-        {
-            $counter.=',';
-            $labels.=',';
-        }
-    }
+    // for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
+    // {
+    //     $counter .= Auth::user()->employer->weekApplicationsCounter[$i][0];
+    //     $labels .= '"'.Auth::user()->employer->weekApplicationsCounter[$i][1].'"';
+    //     if(count(Auth::user()->employer->weekApplicationsCounter) != $i-1)
+    //     {
+    //         $counter.=',';
+    //         $labels.=',';
+    //     }
+    // }
     $counter .= ']';
     $labels .= ']';
     echo "var graph_data = $counter;";

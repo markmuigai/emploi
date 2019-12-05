@@ -10,6 +10,7 @@ use App\Blog;
 use App\Company;
 use App\Contact;
 use App\CvRequest;
+use App\Employer;
 use App\Industry;
 use App\Location;
 use App\Post;
@@ -24,6 +25,14 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('admin');
+    }
+
+    public function loginas(Request $request){
+        $user = User::findOrFail($request->user_id);
+        if($user->role == 'admin' || $user->role == 'super-admin')
+            abort(403);
+        Auth::loginUsingId($request->user_id, true);
+        return redirect('/home');
     }
 
     public function panel(Request $request){
@@ -207,6 +216,11 @@ class AdminController extends Controller
             return redirect()->back();
         }
         
+    }
+
+    public function employers(){
+        return view('admins.employers.index')
+                ->with('employers',Employer::orderBy('name')->paginate(20));
     }
 
     public function emails(){

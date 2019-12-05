@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <h4>Recent Applications</h4>
 <div class="row">
-	@forelse ($posts->slice(0, 4) as $p)
+	@forelse($posts as $p)
 	<div class="col-lg-6">
 		<div class="card my-3">
 			<div class="card-body">
