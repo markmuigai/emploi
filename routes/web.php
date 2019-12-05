@@ -129,6 +129,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     //Route::resource('posts', 'PostsController');
     Route::get('emails', 'AdminController@emails');
     Route::post('emails/send', 'AdminController@sendEmails');
+    Route::get('contacts', 'AdminController@contacts');
+    Route::post('saveResolution', 'AdminController@saveResolution');
 });
 
 

@@ -85,12 +85,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @endif
                     </strong>
                 </p>
-                @if($post->how_to_apply)
-                <p>Alternative Application</p>
-                @else
                 <p>Current Openings: <strong>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</strong></p>
-                @endif
-                <p>Deadline: <strong><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->deadline))->diffForHumans() ?></strong></p>
             </div>
 
         </div>
@@ -98,15 +93,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row justify-content-between align-items-center">
             <div class="col-12 col-md-6 col-lg-4">
                 <p>
-                    @if($post->isActive)
+                    {{-- @if($post->isActive) --}}
                     <i class="fas fa-share-alt"></i>
                     Share:
-                    <a href="{{ $post->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ $post->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ $post->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    @else
+                    <a href="{{ $post->shareFacebookLink }}" target="_blank" style="margin-left: 0.5em"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ $post->shareTwitterLink }}" target="_blank" style="margin-left: 0.5em"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ $post->shareLinkedinLink }}" target="_blank" style="margin-left: 0.5em"><i class="fab fa-linkedin"></i></a>
+                    {{-- @else
                     <span>Sharing Disabled</span>
-                    @endif
+                    @endif --}}
                 </p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 job-actions">

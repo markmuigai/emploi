@@ -8,6 +8,7 @@ use Auth;
 
 use App\Blog;
 use App\Company;
+use App\Contact;
 use App\CvRequest;
 use App\Industry;
 use App\Location;
@@ -15,6 +16,8 @@ use App\Post;
 use App\Seeker;
 use App\User;
 use App\Jobs\VacancyEmail;
+
+use App\Jobs\EmailJob;
 
 class AdminController extends Controller
 {
@@ -209,6 +212,29 @@ class AdminController extends Controller
     public function emails(){
         return view('admins.emails.compose')
                 ->with('industries',Industry::orderBy('name')->get());
+    }
+
+    public function contacts(){
+        return view('admins.contacts.index')
+                ->with('contacts',Contact::orderBy('resolved_on','DESC')->orderBy('id','DESC')->paginate(20));
+    }
+
+    public function saveResolution(Request $request){
+        $c = Contact::findOrFail($request->contact_id);
+        $c->resolved_by = Auth::user()->id;
+        $c->resolved_on = now();
+        $c->resolve_notes = $request->resolve_notes;
+        $c->save();
+        
+        $caption = "Contact Resolved";
+        $contents = "The message you sent to Emploi Team via the website has been received and processed by ".$c->resolver->name.". Your Tracking code is <strong>".$c->code."</strong><br><br>
+        Resolution Message: <br>
+        <i>".$c->resolve_notes."</i> <br>
+        Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br>
+        Thank you for choosing Emploi.";
+        EmailJob::dispatch($c->name, $c->email, 'Contact Resolved', $caption, $contents);
+
+        return redirect()->back();
     }
 
     public function sendEmails(Request $request){

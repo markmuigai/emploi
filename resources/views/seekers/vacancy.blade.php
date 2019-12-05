@@ -69,11 +69,6 @@
                                         @endif
                                     </strong>
                                 </p>
-                                <p>
-                                    <i class="orange far fa-calendar-check"></i> {{ $post->deadline }}
-                                    <br>
-                                    Apply within <?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($post->deadline))->diffForHumans() ?>
-                                </p>
                             </div>
                         </div>
                         <!-- ABOUT THE COMPANY -->

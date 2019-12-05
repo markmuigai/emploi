@@ -55,20 +55,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br><br>
 
                 <a href="/admin/employers" class="btn btn-sm btn-success">Employers</a>
-                <a href="/admin/candidate-vetting" class="btn btn-sm btn-danger">Candidate Vetting</a>
-                <a href="/admin/cv-requests" class="btn btn-sm btn-info">CV Requests</a>
-                <a href="/admin/premium-recruitment" class="btn btn-sm btn-success">Premium Recruitment</a>
-
-                <br><br>
-
-                <a href="/admin/cv-editing" class="btn btn-sm btn-success">CV Editing Requests</a>
-                <a href="/admin/premium-placement" class="btn btn-sm btn-danger">Premium Placement Requests</a>
                 <a href="/admin/seekers" class="btn btn-sm btn-primary">Job Seekers</a>
+                <a href="/admin/countries" class="btn btn-sm btn-success">Countries</a>
+                <a href="/admin/industries" class="btn btn-sm btn-danger">Industries</a>
+                <a href="/admin/companies" class="btn btn-sm btn-primary">Companies</a>
+                <a href="/admin/candidate-vetting" class="btn btn-sm btn-danger" style="display: none">Candidate Vetting</a>
+                <a href="/admin/cv-requests" class="btn btn-sm btn-info" style="display: none">CV Requests</a>
+                <a href="/admin/premium-recruitment" class="btn btn-sm btn-success" style="display: none">Premium Recruitment</a>
 
                 <br><br>
-                <a href="/admin/posts" class="btn btn-sm btn-success">Countries</a>
-                <a href="/admin/emails" class="btn btn-sm btn-danger">Industries</a>
-                <a href="/admin/companies" class="btn btn-sm btn-primary">Companies</a>
+
+                <a href="/admin/cv-editing" class="btn btn-sm btn-success" style="display: none">CV Editing Requests</a>
+                <a href="/admin/premium-placement" class="btn btn-sm btn-danger" style="display: none">Premium Placement Requests</a>
+                
+
+                <br><br>
+                
 
 
             </p>

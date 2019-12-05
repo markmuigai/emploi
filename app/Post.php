@@ -84,7 +84,7 @@ class Post extends Model
 
     public function monthlySalary(){
         if(!isset($this->monthly_salary) || $this->monthly_salary == 0)
-            return 'not disclosed';
+            return 'salary not disclosed';
         else
         {
             if(isset($this->max_salary))

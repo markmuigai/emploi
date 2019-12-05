@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					</div>
 					<div class="form-group">
 
-						<input type="text" class="form-control" name="email" placeholder="E-mail address" onfocus="" onblur="" required="required">
+						<input type="email" class="form-control" name="email" placeholder="E-mail address" onfocus="" onblur="" required="required">
 					</div>
 					<div class="form-group">
 
