@@ -18,10 +18,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p>
             Check your <strong>e-mail inbox</strong> for your password and log in.
         </p>
-        <p>
+        <div class="mt-4">
             <a href="/profile/edit" class="btn btn-orange">Update Profile</a>
             <a href="/vacancies" class="btn btn-orange-alt">Vacancies</a>
-        </p>
+        </div>
     </div>
 </div>
 @endsection

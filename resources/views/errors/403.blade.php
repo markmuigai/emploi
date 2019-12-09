@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Emploi :: 403 - Forbidden')
 
@@ -7,23 +7,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>403 - Forbidden</h2>
-        
-        <div style="text-align: center;">
-        	<p>
-        		The page you requested for cannot be displayed as you are forbidden from accessing it.
-	        	<br>
-	        	If this is a mistake, please don't hesitate to <a href="/contact">contact us</a> <br>
-	        </p>
-	        <br>	
-	        <p>
-	        	<a href="/" class="btn btn-sm btn-success">Home</a>
-	        </p>
+<div class="error-page d-flex flex-column justify-content-center align-items-md-end align-items-center">
+    <div class="content mr-md-5 mr-0">
+        <div class="text-center">
+            <h1>403 - Forbidden</h1>
+            <p>
+                The page you requested for cannot be displayed as you are forbidden from accessing it.
+            </p>
+            <p>
+                If this is a mistake, please don't hesitate to <a href="/contact" class="orange">contact us</a </p> <p>
+            </p>
+            <a href="/" class="btn btn-orange">Home</a>
         </div>
     </div>
- </div>
 </div>
+@endsection

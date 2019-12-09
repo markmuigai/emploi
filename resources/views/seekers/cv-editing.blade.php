@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 	<div class="row py-4">
 		<div class="col-md-6">
-
+			<img src="{{asset('images/cv2.jpg')}}" alt="" class="w-100">
 		</div>
 		<div class="col-md-6">
 			<h5 class="pt-2">What does that mean?</h5>
@@ -40,6 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</p>
 		</div>
 		<div class="col-md-6">
+			<img src="{{asset('images/cv.png')}}" alt="" class="w-100">
 		</div>
 		<div class="col-md-8 py-3">
 			<p>

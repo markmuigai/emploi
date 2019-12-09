@@ -15,8 +15,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h3>Page not Found</h3>
             <p>
                 The page you requested for was not found on Emploi, or may have moved location.
-                <br>
-                Kindly check the link entered. If this is a mistake, please don't hesitate to <a href="/contact">contact us</a> <br>
+            </p>
+            <p>
+                Kindly check the link entered. If this is a mistake, please don't hesitate to <a href="/contact" class="orange">contact us</a>
             </p>
             <a href="/" class="btn btn-orange">Home</a>
         </div>

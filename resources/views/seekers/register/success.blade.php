@@ -13,10 +13,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>Your account as a job seeker has been created succesfully.</p>
     <p><em>Check your e-mail inbox for your username and password to log in.</em></p>
 
-    <p class="mt-4">
+    <div class="mt-4">
         <a href="/login" class="btn btn-orange">Log in</a>
         <a href="/vacancies" class="btn btn-orange-alt">Vacancies</a>
-    </p>
+    </div>
 </div>
 
 @endsection

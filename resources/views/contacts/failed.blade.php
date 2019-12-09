@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Contact Failed')
 
@@ -7,32 +7,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
+@section('page_title', 'Contact Failed')
 
-<div class="container">
-    <div class="single">  
-	   <div class="contact_top">
-	   	 <h2>Contact Failed</h2>
-	     
-          <div class="row" style="">
-	   	   <div class="addr" style="text-align: center;">
-                <p class="secondary3">
-                    An error occured that resulted in failure while submitting your message.
-                    <br>
-                    Please try again later or contact us through other chanels. 
-               	</p>
+<div class="card">
+    <div class="card-body text-center">
+        <p>
+            An error occured that resulted in failure while submitting your message.
+        </p>
+        <p><em>
+                Please try again later or contact us through other chanels.
+            </em></p>
 
-               	<p>
-               		<a href="/contact" class="btn btn-sm btn-primary">Contact Us</a>
-               		<a href="mailto:info@emploi.co" class="btn btn-sm btn-success">Email us</a>
-               	</p>
-                
-           </div>
-          </div>
-          <div class="clearfix"> </div>
-	   </div>
-	   
+        <a href="/contact" class="btn btn-sm btn-orange">Contact Us</a>
+        <a href="mailto:info@emploi.co" class="btn btn-sm btn-orange-alt">Email us</a>
     </div>
 </div>
+
 
 @endsection

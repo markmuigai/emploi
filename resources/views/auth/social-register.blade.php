@@ -9,8 +9,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('user_title','Register as Job Seeker')
 
-{{--@include('seekers.search-input')--}}
-
 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">

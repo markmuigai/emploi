@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Companies')
 
@@ -7,22 +7,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-
-<div class="container">
-    <div class="single">  
-	   <div class="form-container">
-        <h2>Create Company</h2>
-        <div class="search_form1 " style="text-align: center;">
-		    
-		    <p>
-		    	<?php echo $message; ?>
-		    </p>
-        	
-	    	
-		    
-	    </div>
+@section('page_title', 'Create Company')
+<div class="card">
+    <div class="card-body text-center">
+        <p>
+            <?php echo $message; ?>
+        </p>
     </div>
- </div>
 </div>
+
 
 @endsection

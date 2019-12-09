@@ -13,11 +13,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>An error occured while creating your account. Please try again later</p>
     <p><em>If this issue persists, kindly let us know by <a href="/contact" class="orange">contacting us</a>.</em></p>
 
-    <p class="mt-4">
+    <div class="mt-4">
         <a href="#" class="btn btn-purple" onclick="window.history.back()">Back</a>
         <a href="/login" class="btn btn-orange">Log in</a>
         <a href="/join" class="btn btn-orange-alt">Register</a>
-    </p>
+    </div>
 </div>
 
 @endsection
