@@ -38,8 +38,8 @@ class RegisterController extends Controller
         if(isset($request->redirectToPost))
             $request->session()->put('redirectToPost', $request->redirectToPost);
         return view('auth.register')
-                ->with('countries',Country::active())
-                ->with('industries',Industry::active());
+                ->with('countries',Country::all())
+                ->with('industries',Industry::all());
     }
 
     public function register(Request $request)
