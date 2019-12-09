@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<h2 class="orange text-center">Does your CV stand out?</h2>
 		<p>The job market has become very competitive, and a single vacancy today may attract hundreds of applications.</p>
 	</div>
-	<div class="row py-4">
+	<div class="row align-items-center justify-content-center py-4">
 		<div class="col-md-6">
 			<img src="{{asset('images/cv2.jpg')}}" alt="" class="w-100">
 		</div>
@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 
 	<h5 class="pt-2">PROCESS</h5>
-	<div class="row align-items-center justify-content-center">
+	<div class="row align-items-center justify-content-center py-4">
 		<div class="col-md-6">
 			<p>
 				We first go through your CV to understand your professional journey and angle then send you a questionnaire which will ask you questions about your career goals and experiences. However, a personal consultation will be
