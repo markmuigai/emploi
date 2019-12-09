@@ -95,11 +95,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                         </div>
 
-                        <h4>About Me</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium tenetur tempore officiis magnam animi dolor, ex soluta repellat pariatur saepe quia, quas ipsa quod, ullam illum laborum ad modi sed fuga, molestiae.
-                            Eaque
-                            consectetur debitis quam, adipisci magni, quibusdam aperiam!</p>
-
                         <h4>Career Objective</h4>
                         <p>
                             {{ $user->seeker->objective ? $user->seeker->objective : 'Career Objective not included' }}
