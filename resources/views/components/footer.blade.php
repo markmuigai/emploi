@@ -57,7 +57,7 @@
                 <h4>SOCIAL</h4>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/jobsikaz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/jobsikaz?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://twitter.com/emploike?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
                     <a href="https://ke.linkedin.com/company/jobsikaz-com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
