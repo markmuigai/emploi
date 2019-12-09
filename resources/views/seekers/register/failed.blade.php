@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.sign')
 
 @section('title','Emploi :: Registration Failed')
 
@@ -7,36 +7,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
+@section('user_title', 'Registration Failed')
 
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>Registration Failed</h2>
-        
-        <div style="text-align: center;">
-        	<p>
-                An error occured while creating your account. Please try again later
-	        	<br>
-	        	If this issue persists, kindly let us know by <a href="/contact">contacting us</a>.
-	        </p>
+<div class="d-flex flex-column justify-content-center align-center">
+    <p>An error occured while creating your account. Please try again later</p>
+    <p><em>If this issue persists, kindly let us know by <a href="/contact" class="orange">contacting us</a>.</em></p>
 
-            <p>
-                Apologies for the inconviniences caused.
-            </p>
-
-	        <br>	
-
-	        <p>
-	        	<a href="/login" class="btn btn-sm btn-success">Log in</a>
-            <a href="/join" class="btn btn-sm btn-primary">Register</a>
-	        </p>
-        </div>
-        
-    
-                
-    </div>
- </div>
+    <p class="mt-4">
+        <a href="#" class="btn btn-purple" onclick="window.history.back()">Back</a>
+        <a href="/login" class="btn btn-orange">Log in</a>
+        <a href="/join" class="btn btn-orange-alt">Register</a>
+    </p>
 </div>
 
 @endsection

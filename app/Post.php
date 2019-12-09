@@ -52,7 +52,7 @@ class Post extends Model
         return false;
     }
 
-    
+
 
     public function modelSeeker(){
         return $this->hasOne(ModelSeeker::class);
@@ -88,7 +88,7 @@ class Post extends Model
 
     public function monthlySalary(){
         if(!isset($this->monthly_salary) || $this->monthly_salary == 0)
-            return 'salary not disclosed';
+            return 'Salary is not disclosed';
         else
         {
             if(isset($this->max_salary))
@@ -238,7 +238,7 @@ class Post extends Model
                     limit($counter)
                     ->get();
     }
-    
 
-    
+
+
 }

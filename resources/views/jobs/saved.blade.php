@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Create Advert')
 
@@ -7,22 +7,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', $title)
 
-<div class="container">
-    <div class="single">
-       <div class="form-container">
-        <h2>{{ $title }}</h2>
-
-        <div style="text-align: center;">
-        	<?php
+<div class="card">
+    <div class="card-body text-center">
+        <?php
         	echo $message;
         	?>
-        </div>
-
-
-
     </div>
- </div>
 </div>
 
 @endsection
