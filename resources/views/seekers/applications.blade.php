@@ -43,8 +43,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     @endforelse
 </div>
 @else
-<p class="text-center">
-    You have not made any job application
-</p>
+<div class="card">
+  <div class="card-body text-center">
+    <p>
+      You have not made any job application.
+    </p>
+  </div>
+</div>
 @endif
 @endsection

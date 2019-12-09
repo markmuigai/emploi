@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.sign')
 
 @section('title','Emploi :: E-mail Exists')
 
@@ -7,32 +7,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
+@section('user_title', 'E-mail Account Exists')
 
-<div class="container">
-    <div class="single">
-       <div class="form-container">
-        <h2>E-mail Account Exists</h2>
+<div class="d-flex flex-column justify-content-center align-center">
+    <p>An account with the e-mail address <strong><em>{{ $email }}</em></strong> already exists in our database.</p>
+    <p><em>Please use a different e-mail address or log in to your account</em></p>
 
-        <div style="text-align: center;">
-        	<p>
-        		An account with the e-mail address<strong> {{ $email }} already exists</strong> in our database. 
-	        	<br>
-	        	Please use a different e-mail address or log in to your account.
-	        </p>
-
-	        <br>
-
-	        <p>
-	        	<a href="/login" class="btn btn-sm btn-success">Log in</a>
-            <a href="/join" class="btn btn-sm btn-primary">Register</a>
-	        </p>
-        </div>
-
-
-
-    </div>
- </div>
+    <p class="mt-4">
+        <a href="/login" class="btn btn-orange">Log in</a>
+        <a href="/join" class="btn btn-orange-alt">Register</a>
+    </p>
 </div>
 
 @endsection

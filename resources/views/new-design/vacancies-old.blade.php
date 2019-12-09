@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                         @if(isset(Auth::user()->id))
                                                         {{ $post->location->country->currency }} {{ $post->monthly_salary }}
                                                         @else
-                                                        login to view salary
+                                                        Login to view salary
                                                         @endif
                                                     </small>
                                                 </big>

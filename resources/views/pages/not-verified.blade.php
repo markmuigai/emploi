@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Emploi')
 
@@ -7,30 +7,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>Account Not Verified</h2>
-        
-        <div style="text-align: center;">
-        	<p>
-        		We value our users which is why we require all accounts to be verified.
-	        	<br>
-	        	A confirmation e-mail has been re-sent to your e-mail address. <br>
-	        </p>
 
-	        <br>	
-
-	        <p>
-	        	<a href="/login" class="btn btn-sm btn-success">Login</a>
-	        </p>
-        </div>
-        
-    
-                
+<div class="card">
+    <div class="card-body text-center">
+      <h2>Account Not Verified</h2>
+        <p>
+            We value our users which is why we require all accounts to be verified.
+        </p>
+        <p><em>
+                A confirmation e-mail has been re-sent to your e-mail address.
+            </em></p>
+        <a href="/login" class="btn btn-orange">Login</a>
     </div>
- </div>
 </div>
+
 
 @endsection

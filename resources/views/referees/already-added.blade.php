@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Referee Exists')
 
@@ -7,40 +7,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
+@section('page_title', 'Error: Referee Exists')
 
-<div class="container">
-    <div class="single">
-
-	 <div class="col-md-8 single_right">
-	      <h3>
-	      	Error: Referee Exists
-
-
-	      	<a href="/profile/referees" class="pull-right btn btn-sm btn-success"> My Referees</a>
-	      	<a href="/profile" class="pull-right btn btn-sm btn-primary"><i class="fa fa-user"> </i> My Profile</a>
-
-	      </h3>
-	      <div class="row_1">
-
-	      	<p style="text-align: center;">
-	      		{{ $name }} has <strong> already been added </strong>as one of your referees with the e-mail address {{ $email }}. Kindly add another referee to prevent duplication.
-
-	      		<br>
-	      		Thank you for your co-operation in the recruitment process.
-	      		<br><br>
-	      		<a href="/profile/add-referee" class="btn btn-sm btn-danger">Add Referee</a>
-	      	</p>
-
-
-	      </div>
-	   </div>
-	   <div class="col-md-4">
-	   	  @include('left-bar')
-
-	 </div>
-	   <div class="clearfix"> </div>
-	 </div>
+<div class="card">
+    <div class="card-body text-center">
+        <p>
+            <strong>{{ $name }}</strong> has already been added as one of your referees with the e-mail address <em>{{ $email }}</em>. Kindly add another referee to prevent duplication.
+        </p>
+        <p><em>
+                Thank you for your co-operation in the recruitment process.
+            </em></p>
+        <a href="/profile/add-referee" class="btn btn-orange mt-4">Add Referee</a>
+    </div>
 </div>
 
 @endsection
