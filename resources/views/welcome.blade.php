@@ -269,7 +269,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/testimonials/kizito.jpg')}}" alt="" class="w-100">
+                        <img src="{{asset('images/testimonials/kizito.png')}}" alt="" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
@@ -513,9 +513,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             ]
         });
 
-        $(function() {
-            $('.counter').countUp();
-        });
+        // $(function() {
+        //     $('.counter').countUp();
+        // });
     });
 </script>
 

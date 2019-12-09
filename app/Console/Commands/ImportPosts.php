@@ -136,7 +136,7 @@ class ImportPosts extends Command
                         // if(isset($p->id))
                         //     $slug = $slug.rand(200,4000);
 
-                        $slug = $slug.rand(10,99999);
+                        $slug = $slug.'-'.rand(10,99999);
 
 
                         $industryId = 1;
