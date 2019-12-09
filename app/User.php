@@ -164,20 +164,23 @@ class User extends Authenticatable
 
         if($this->role == 'employer')
         {
-            $caption = "Glad to have you on board";
+            $caption = "Welcome to Emploi";
             $contents = "
 
-            Welcome to Emploi. We've streamlined the recruitment process and introduced the Role Suitability Index which ranks applicants. <br>
-            Use our Talent database and powerful Search-Sort-Assess-Score engine to cut down your recruitment workload by Up to 70% and your costs By Up to 65%. Get End-to-End powerful Recruitment tools; Process Quality Checks; 90 Day candidate Guarantee.
+            First of let me introduce myself – My name is Margaret Ongachi, I will be your main point of contact moving forward.
             <br>
-            If you require assistance, kindly don't hesitate to contact Margaret. <br>
+            I see you have started the registration process on our website as an employer. Here at Emploi, we make your recruitment journey Fast and Efficient.  
+
+            <br>
+            If you have any questions or would like some help then please feel free to reach me via email or phone as highlighted below.
+            <br><br>
             <b>Margaret Ongachi</b>
             Email: <a href='mailto:margaret@emploi.co'>margaret@emploi.co</a>
             Phone: +254 702 068 282 <br><br>
             Glad to have you on board
             <b></b>
             ";
-            EmailJob::dispatch($this->name, $this->email, 'Warm Welcome to Emploi', $caption, $contents);
+            EmailJob::dispatch($this->name, $this->email, 'Welcome to Emploi', $caption, $contents);
         }
         return true;
     }
