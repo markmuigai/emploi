@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<div class="col-md-6">
 			<img src="{{asset('images/cv.jpg')}}" alt="" class="w-100">
 		</div>
-		<div class="col-md-8 py-3">
+		<div class="col-md-8 py-3 text-center">
 			<p>
 				We shall also be requesting for information we consider important that is missing from your CV. We will guide you in providing us with a career objective statement that is in line with your career goals but also with what
 				most
