@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.sign')
 
 @section('title','Account Created')
 
@@ -7,30 +7,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">
-       <div class="form-container">
-        <h2>Account Created</h2>
+@section('user_title', 'Account Created')
 
-        <div style="text-align: center;">
-        	<p>
-	        	Your account as an employer has been created succesfully.
-	        	<br>
-	        	A confirmation e-mail has been sent. <br>
-	        	To log in, your username is <strong>{{ $username }}</strong>
-	        </p>
+<div class="d-flex flex-column justify-content-center align-center">
+    <p>
+        Your account as an employer has been created succesfully.
+    </p>
+    <p>
+        A confirmation e-mail has been sent.
+    </p>
+    <p>
+        To log in, your username is <strong>{{ $username }}</strong>
+    </p>
 
-	        <br>
-
-	        <p>
-	        	<a href="/login" class="btn btn-sm btn-success">Login</a>
-	        </p>
-        </div>
-
-
-
-    </div>
- </div>
+    <div class="mt-4">
+        <a href="/login" class="btn btn-sm btn-orange">Login</a>
+  </div>
 </div>
+
 @endsection

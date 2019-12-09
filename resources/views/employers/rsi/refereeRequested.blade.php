@@ -13,9 +13,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body text-center">
         <h2>{{ $app->user->name }}'s Referee Requested</h2>
         <p>
-            Success. {{ $app->user->name }} has been informed to provide details on their referees. You will be notified once updated. <br><br>
-            <a class="btn btn-danger" href="/employers/applications/{{ $app->post->slug }}/{{ $app->id }}/rsi/referees">View Referees</a>
-        </p>
+            Success. {{ $app->user->name }} has been informed to provide details on their referees. You will be notified once updated.
+          </p>
+            <a class="btn btn-orange" href="/employers/applications/{{ $app->post->slug }}/{{ $app->id }}/rsi/referees">View Referees</a>
     </div>
 </div>
 

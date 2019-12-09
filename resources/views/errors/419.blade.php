@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Emploi :: 419 - Page Expired')
 
@@ -7,25 +7,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>419 - Page Expired</h2>
-        
-        <div style="text-align: center;">
-        	<p>
-        		The request cannot be completed as the page has expired. <br>
-        		This may have been caused by taking too long to complete a form.
-	        	<br>
-	        	If this is a mistake, please don't hesitate to <a href="/contact">contact us</a> <br>
-	        </p>
-	        <br>	
-	        <p>
-	        	<a href="/" class="btn btn-sm btn-success">Home</a>
-	        </p>
+
+<div class="error-page d-flex flex-column justify-content-center align-items-md-end align-items-center">
+    <div class="content mr-md-5 mr-0">
+        <div class="text-center">
+            <h1>419</h1>
+            <h2>Page Expired</h2>
+            <p>
+                The request cannot be completed as the page has expired. <br>
+                This may have been caused by taking too long to complete a form.
+            </p>
+            <p>
+                If this is a mistake, please don't hesitate to <a href="/contact" class="orange">contact us</a> <br>
+            </p>
+            <a href="/" class="btn btn-orange">Home</a>
         </div>
     </div>
- </div>
 </div>
-

@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Create Blog')
 
@@ -7,86 +7,66 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'Create Blog')
 
-<div class="container">
-    <div class="single">
-       <div class="form-container">
-        <h2>New Blog</h2>
-        <form method="POST" action="/blog" class="row" id="new-blog-form" enctype="multipart/form-data">
+<div class="card">
+    <div class="card-body">
+        <h4>New Blog</h4>
+        <form method="POST" action="/blog" id="new-blog-form" enctype="multipart/form-data">
             @csrf
-          <div class="row col-md-6">
-            <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="title">Title *</label>
-                <div class="col-md-9">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="col-md-3 control-lable" for="title">Title *</label>
                     <input type="text" required="" path="" name="title" id="title" class="form-control input-sm" maxlength="50" value="" />
                 </div>
-            </div>
-         </div>
-         <div class="row col-md-6">
-            <div class="form-group col-md-12">
-                <label class="col-md-3 control-lable" for="category">Category *</label>
-                <div class="col-md-9 row">
-                    <select class="form-control"  name="category">
+                <div class="form-group col-md-6">
+                    <label class="col-md-3 control-lable" for="category">Category *</label>
+                    <select class="form-control" name="category">
                         @foreach($categories as $c)
                         <option value="{{ $c->id }}">
                             {{ $c->name }}
                         </option>
                         @endforeach
                     </select>
-
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-12">
-                <div class="col-md-10 row col-md-offset-1">
-                    <textarea class="form-control" name="contents" required="" id="contents" rows="10"></textarea>
+            <div class="form-group">
+                <textarea class="form-control" name="contents" required="" id="contents" rows="10"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group" title="Featured Image (500x300p)">
+                        <label class="col-md-3 control-lable" for="title">Image *</label>
+                        <input type="file" accept=".png, .jpg, .jpeg" name="featured_image" required="">
+                    </div>
+                </div>
 
+                <div class="col-md-6">
+                    <div class="form-group" title="Other Image (500x300p)">
+                        <label class="col-md-3 control-lable" for="title">Other Image</label>
+                        <input type="file" accept=".png, .jpg, .jpeg" name="other_image">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row col-md-6">
-            <div class="form-group col-md-12" title="Featured Image (500x300p)">
-                <label class="col-md-3 control-lable" for="title">Image *</label>
-                <div class="col-md-9">
-                    <input type="file" accept=".png, .jpg, .jpeg" name="featured_image" required="" >
-                </div>
+            <div class="form-actions text-right">
+                <input type="submit" class="btn btn-primary btn-sm" name="" value="Save Blog">
             </div>
-         </div>
-
-         <div class="row col-md-6">
-            <div class="form-group col-md-12" title="Other Image (500x300p)">
-                <label class="col-md-3 control-lable" for="title">Other Image</label>
-                <div class="col-md-9">
-                    <input type="file" accept=".png, .jpg, .jpeg" name="other_image">
-                </div>
-            </div>
-         </div>
-
-        <div class="row">
-            <div class="form-actions floatRight">
-            	<input type="submit" class="btn btn-primary btn-sm" name="" value="Save Blog">
-            </div>
-        </div>
-    </form>
-
+        </form>
     </div>
- </div>
 </div>
 <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
-    setTimeout(function(){
+    setTimeout(function() {
 
         CKEDITOR.replace('contents');
 
-    },3000);
+    }, 3000);
 
-    $().ready(function(){
-    	$('#save-blog').click(function(){
+    $().ready(function() {
+        $('#save-blog').click(function() {
 
-    	});
+        });
     });
-
 </script>
 
 @endsection

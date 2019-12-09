@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Emploi :: 500 - Internal Server Error')
 
@@ -7,23 +7,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>500 - Internal Server Error</h2>
-        
-        <div style="text-align: center;">
-        	<p>
-        		The request cannot be completed. An error occurred on our end.
-	        	<br>
-	        	Please try again or <a href="/contact">contact us</a> and report this error for assistance  <br>
-	        </p>
-	        <br>	
-	        <p>
-	        	<a href="/" class="btn btn-sm btn-success">Home</a>
-	        </p>
+<div class="error-page d-flex flex-column justify-content-center align-items-md-end align-items-center">
+    <div class="content mr-md-5 mr-0">
+        <div class="text-center">
+            <h1>500</h1>
+            <h2>Internal Server Error</h2>
+            <p>
+                The request cannot be completed. An error occurred on our end.
+            </p>
+            <p>
+                Please try again or <a href="/contact" class="orange">contact us</a> and report this error for assistance.
+            </p>
+            <a href="/" class="btn btn-orange">Home</a>
         </div>
     </div>
- </div>
 </div>

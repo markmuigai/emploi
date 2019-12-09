@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.general-layout')
 
 @section('title','Emploi :: 401 - Unauthorized')
 
@@ -7,23 +7,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('seekers.search-input')
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>401 - Unauthorized access</h2>
-        
-        <div style="text-align: center;">
-        	<p>
-        		The page you requested for cannot be displayed as you are not authorized to access it.
-	        	<br>
-	        	If this is a mistake, please don't hesitate to <a href="/contact">contact us</a> <br>
-	        </p>
-	        <br>	
-	        <p>
-	        	<a href="/" class="btn btn-sm btn-success">Home</a>
-	        </p>
+
+<div class="error-page d-flex flex-column justify-content-center align-items-md-end align-items-center">
+    <div class="content mr-md-5 mr-0">
+        <div class="text-center">
+            <h1>401</h1>
+            <h2>Unauthorized access</h2>
+            <p>
+                The page you requested for cannot be displayed as you are not authorized to access it.
+            </p>
+            <p>
+                If this is a mistake, please don't hesitate to <a href="/contact" class="orange">contact us</a>
+            </p>
+            <a href="/" class="btn btn-orange">Home</a>
         </div>
     </div>
- </div>
 </div>
