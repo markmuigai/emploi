@@ -119,6 +119,7 @@ class HomeController extends Controller
             {
                 $seeker = $user->seeker;
                 $seeker->public_name = $request->public_name;
+                
                 $seeker->gender = $request->gender;
                 $seeker->date_of_birth = $request->date_of_birth;
                 $seeker->phone_number = $request->phone_number;
