@@ -137,6 +137,7 @@ ul.tick li:before {
 
 .btn-purple {
     background: var(--primary);
+    border-right: var(--primary);
     color: white;
 }
 
