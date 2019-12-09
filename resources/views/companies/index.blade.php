@@ -8,9 +8,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 @if(isset($hiring))
-    @section('page_title', 'Hiring Companies')
+@section('page_title', 'Hiring Companies')
 @else
-    @section('page_title', 'Companies')
+@section('page_title', 'Companies')
 @endif
 <div class="row mb-4">
     @forelse($companies as $c)
@@ -32,19 +32,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     @empty
-  </div>
-    <div class="card">
-        <div class="card-body text-center">
-            <p>
-                No companies have been found. Check back later.
-            </p>
-        </div>
+</div>
+<div class="card">
+    <div class="card-body text-center">
+        <p>
+            No companies have been found. Check back later.
+        </p>
     </div>
-    @endforelse
+</div>
+@endforelse
 
 <div class="text-center">
     @if(isset($hiring))
-    <a href="/companies" class="btn btn-orange">View All Companies</a> <br><br>
+    <a href="/companies" class="btn btn-orange">View All Companies</a>
     @else
     {{ $companies->links() }}
     @endif
