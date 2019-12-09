@@ -40,7 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</p>
 		</div>
 		<div class="col-md-6">
-			<img src="{{asset('images/cv.png')}}" alt="" class="w-100">
+			<img src="{{asset('images/cv.jpg')}}" alt="" class="w-100">
 		</div>
 		<div class="col-md-8 py-3">
 			<p>
