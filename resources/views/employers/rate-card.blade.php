@@ -150,9 +150,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <h3 class="orange">Reach out to us today</h3>
                 <h6 class="mt-3">Call Us</h6>
-                <p>+254 702 068 282 || +254 774 569 001</p>
+                <p><a href="tel:+254702068282">+254 702 068 282</a> | <a href="tel:+254774569001">0774 569 001</a> | <a href="tel:+254772795017">0772 795 017</a></p>
                 <h6 class="mt-3">Find Us</h6>
-                <p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
+                <p>Even Business Park, Airport North Rd, Nairobi</p>
                 <h6 class="mt-3">Send Us An Email</h6>
                 <p><a href="mailto:info@emploi.co">info@emploi.co</a> || <a href="mailto:sales@emploi.co">sales@emploi.co</a></p>
             </div>

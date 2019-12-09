@@ -16,9 +16,11 @@
         "laravel/tinker": "^1.0",
         "silviolleite/laravelpwa": "^1.0",
         "spatie/laravel-cookie-consent": "^2.10",
-        "spatie/pdf-to-text": "^1.2"
+        "spatie/pdf-to-text": "^1.2",
+        "watson/rememberable": "^3.2"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "laravel/dusk": "^5.6",

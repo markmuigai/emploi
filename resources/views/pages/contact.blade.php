@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 								<i class="fas fa-envelope"></i>
 						</div>
 						<div class="col-10">
-							<h5>General Support</h5>
+							<h5>E-mail Support</h5>
 								<a href="mailto:info@emploi.co">info@emploi.co</a>
 						</div>
 				</div>
@@ -38,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						</div>
 						<div class="col-10">
 							<h5>Let's Talk</h5>
-								<a href="tel:+254702068282">+254 702 068 282</a>
+								<a href="tel:+254702068282">+254 702 068 282</a> | <a href="tel:+254774569001">0774 569 001</a> | <a href="tel:+254772795017">0772 795 017</a>
 						</div>
 				</div>
 			</div>

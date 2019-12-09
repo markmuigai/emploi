@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('industry_id');
             $table->integer('education_requirements');
             $table->integer('experience_requirements');
-            $table->text('responsibilities')->nullable();
+            $table->longtext('responsibilities')->nullable();
             $table->text('how_to_apply')->nullable();
             $table->text('benefits')->nullable();
             $table->decimal('monthly_salary',10,2)->default(0);

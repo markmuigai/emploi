@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+// use App\Country;
+// use App\Industry;
+// use App\Location;
+// use App\VacancyType;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +28,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*', function ($view) {
+
+            // $view->with('all_countries', Country::active());
+            // $view->with('all_locations', Location::active());
+            // $view->with('all_industries', Industry::active());
+            // $view->with('all_vacancy_types', VacancyType::all());
+
+        });
     }
 }

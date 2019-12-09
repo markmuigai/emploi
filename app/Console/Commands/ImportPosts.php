@@ -112,17 +112,31 @@ class ImportPosts extends Command
                             $contents = str_replace("1.$i","<p>",$contents);
                         }
 
+                        $contents = explode("<strong>", $contents);
+                        $contents = implode("<br><strong>", $contents);
+
+                        $contents = explode("</strong>", $contents);
+                        $contents = implode("</strong><br>", $contents);
+
                         $slug = strtolower($title);
                         $slug = explode(" ", $slug);
                         $slug = implode("-", $slug);
 
-                        $p = Post::where('slug',$slug)->first();
-                        if(isset($p->id))
-                            $slug = $slug.rand(200,4000);
+                        if(strpos($slug, 'how-to-apply'))
+                        {
+                            $count_posts++;
+                            continue;
+                        }
 
-                        $p = Post::where('slug',$slug)->first();
-                        if(isset($p->id))
-                            $slug = $slug.rand(200,4000);
+                        // $p = Post::where('slug',$slug)->first();
+                        // if(isset($p->id))
+                        //     $slug = $slug.rand(200,4000);
+
+                        // $p = Post::where('slug',$slug)->first();
+                        // if(isset($p->id))
+                        //     $slug = $slug.rand(200,4000);
+
+                        $slug = $slug.'-'.rand(10,99999);
 
 
                         $industryId = 1;
@@ -209,6 +223,18 @@ class ImportPosts extends Command
                         if($data[8] == 46 || $data[8] == "46")
                             $industryId = 26;
 
+                        $newContents = explode("How to apply", $contents);
+                        $application = 'To apply for this position, send your updated C.V. to jobs@emploi.co quoting <b>'.$title.'</b> as the subject.';
+                        if(count($newContents) == 2)
+                        {
+                            $application = "<br><strong>How to Apply</strong><br>".$newContents[1];
+                            $contents = $newContents[0];
+                        }
+
+
+
+
+
                         
 
 
@@ -224,7 +250,7 @@ class ImportPosts extends Command
                             'positions' => rand(1,3),
                             'location_id' => 1,
                             'vacancy_type_id'=> 1,
-                            'how_to_apply' => 'To apply for this position, send your updated C.V. to jobs@emploi.co quoting <b>'.$title.'</b> as the subject.'
+                            'how_to_apply' => $application
                         ]);
 
                         $this->info(" Imported " . $slug);

@@ -4,11 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Watson\Rememberable\Rememberable;
 
 use App\Post;
 
 class Company extends Model
 {
+    use Rememberable;
+    public $rememberFor = 30;
     protected $fillable = [
         'name', 'user_id', 'logo', 'cover','tagline', 'about','website', 'industry_id','company_size_id','location_id','status','phone_number','email'
     ];

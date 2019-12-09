@@ -4,8 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Watson\Rememberable\Rememberable;
+
 class VacancyType extends Model
 {
+    use Rememberable;
+    public $rememberFor = 180;
     protected $fillable = [
         'slug','name', 'description'
     ];

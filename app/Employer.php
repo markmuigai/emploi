@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Watson\Rememberable\Rememberable;
 
 use App\CvRequest;
 use App\JobApplication;
@@ -12,6 +13,9 @@ use Carbon\Carbon;
 
 class Employer extends Model
 {
+    use Rememberable;
+    public $rememberFor = 30;
+
     protected $fillable = [
         'user_id', 'name', 'industry_id','company_name', 'contact_phone','company_phone','company_email','country_id','address','credits'
     ];

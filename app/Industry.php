@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Rememberable\Rememberable;
 
 class Industry extends Model
 {
+    use Rememberable;
+    public $rememberFor = 300;
+
     protected $fillable = [
         'name','slug', 'status','keywords'
     ];
