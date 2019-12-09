@@ -3,16 +3,18 @@
 /*
 /subscribe
 */
-Route::get('/join', function () {                return view('pages.join');           });
-Route::get('/careers', function () {    			return view('pages.careers');			});
-Route::get('/contact', function () {    			return view('pages.contact');			});
-Route::get('/about', function () {	    			return view('pages.about');				});
-Route::get('/our-team', function () {   			return view('pages.team');				});
-Route::get('/our-clients', function () {			return view('pages.clients');			});
-Route::get('/terms-and-conditions', function () {   return view('pages.terms');				});
-Route::get('/privacy-policy', function () {		    return view('pages.privacy-policy');	});
-Route::get('/mass-recruitment', function () {       return view('pages.mass-recruitment');    });
-Route::get('/employers/role-suitability-index', function () {       return view('pages.rsi');    });
+Route::get('/join', 'ContactController@join');
+
+Route::get('/careers', 'ContactController@careers');
+Route::get('/contact', 'ContactController@contact');
+Route::get('/about', 'ContactController@about');
+Route::get('/our-team', 'ContactController@team');
+Route::get('/our-clients', 'ContactController@clients');
+Route::get('/terms-and-conditions', 'ContactController@terms');
+Route::get('/privacy-policy', 'ContactController@policy');
+Route::get('/mass-recruitment', 'ContactController@mass_recruitment');
+Route::get('/employers/role-suitability-index', 'ContactController@rsi');
+
 
 Route::post('/contact', 'ContactController@save');
 
@@ -25,7 +27,7 @@ Route::get('/courses/{id}', 'HomeController@getCourse');
 Auth::routes();
 Route::get('/', 'ContactController@index');
 //Route::get('/', function () {   /*dd(\Auth::user()->role );*/ return view('welcome'); 	});
-Route::get('/registered', function () {    return view('seekers.registered');	});
+Route::get('/registered', 'ContactController@registered');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -48,7 +50,8 @@ Route::group([ 'middleware' => 'auth'], function(){
 });
 
 Route::post('create-account', 'RegisterSimpleController@create');
-Route::get('/create-account', function () {       return redirect('/join');    });
+Route::get('/create-account', 'ContactController@createAcc');
+//Route::get('/create-account', function () {       return redirect('/join');    });
 
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
@@ -59,24 +62,28 @@ Route::post('/employers/register', 'EmployerController@create');
 
 //Route::get('/employers/publish', function () {			    	return view('employers.publish');		});
 
-Route::get('/employers/rate-card', function () {    	return view('employers.rate-card');	});
+Route::get('/employers/rate-card', 'ContactController@rateCard');
+//Route::get('/employers/rate-card', function () {    	return view('employers.rate-card');	});
 
 
 // *************************
-Route::get('/test', function () {    	return view('new-design.test');	});
-Route::get('/social', function () {    	return view('new-design.test-login');	});
-Route::get('/test-email', function () {    	return view('emails.custom-alt');	});
-Route::get('/email1', function () {    	return view('emails.custom');	});
+// Route::get('/test', function () {    	return view('new-design.test');	});
+// Route::get('/social', function () {    	return view('new-design.test-login');	});
+// Route::get('/test-email', function () {    	return view('emails.custom-alt');	});
+// Route::get('/email1', function () {    	return view('emails.custom');	});
 
 Route::get('/employers/jobs', 'EmployerController@jobs');
-Route::get('/employers/reviews', function () {    	return view('employers.dashboard.reviews');	});
-Route::get('/employers/applicants', function () {    	return view('employers.dashboard.applicants');	});
+//Route::get('/employers/reviews', 'ContactController@reviews');
+//Route::get('/employers/applicants', 'ContactController@applicants');
+
+//Route::get('/employers/reviews', function () {    	return view('employers.dashboard.reviews');	});
+//Route::get('/employers/applicants', function () {    	return view('employers.dashboard.applicants');	});
 // *************************
 
-Route::get('/employers/premium-recruitment', function () {    	return view('employers.p-recruitment');	});
-Route::get('/employers/candidate-vetting', function () {	    return view('employers.c-vetting');		});
-Route::get('/employers/hr-services', function () {		    	return view('employers.hr-services');	});
-Route::get('/employers', function () {                return redirect('/employers/publish');           });
+Route::get('/employers/premium-recruitment', 'ContactController@precruit');
+Route::get('/employers/candidate-vetting', 'ContactController@cvetting');
+Route::get('/employers/hr-services', 'ContactController@hrservices');
+Route::get('/employers', 'ContactController@employersIndex');
 
 Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/browse', 'EmployerController@browse');
@@ -119,7 +126,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
-	Route::get('/', function () {   return redirect('/admin/panel');});
+	//Route::get('/', function () {   return redirect('/admin/panel');});
+    Route::get('/', 'AdminController@panel');
     Route::get('panel', 'AdminController@panel');
     Route::get('posts', 'AdminController@posts');
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
@@ -139,25 +147,28 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
 
 Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
-    Route::get('/', function () {      return redirect('/profile'); });
+    //Route::get('/', function () {      return redirect('/profile'); });
+    Route::get('/', 'SeekerController@toProfile');
     Route::get('dashboard', 'SeekerController@dashboard');
     Route::get('feed', 'SeekerController@feed');
 });
-Route::get('/job-seekers/cv-editing', function () {			    return view('seekers.cv-editing');		});
-Route::get('/job-seekers/cv-templates', function () {		    return view('seekers.cv-templates');	})->middleware('auth');
-Route::get('/job-seekers/premium-placement', function () {	    return view('seekers.premium-placement');});
-Route::get('/job-seekers/services', function () {      return view('seekers.services');});
-Route::get('/employers/services', function () {      return view('employers.services');});
 
-Route::get('/employers/background-checks', function () {      return view('employers.background-checks');});
-Route::get('/employers/iq-tests', function () {      return view('employers.iq-tests');});
-Route::get('/employers/proficiency-tests', function () {      return view('employers.proficiency-tests');});
-Route::get('/employers/psychometric-tests', function () {      return view('employers.psychometric-tests');});
-Route::get('/employers/train-employees', function () {      return view('employers.train-employees');});
+Route::get('/job-seekers/cv-editing', 'ContactController@cvediting');
+Route::get('/job-seekers/cv-templates', 'ContactController@cvtemplates')->middleware('auth');
+Route::get('/job-seekers/premium-placement', 'ContactController@pplacement');
+Route::get('/job-seekers/services', 'ContactController@jservices');
+
+//Route::get('/employers/services', function () {      return view('employers.services');});
+Route::get('/employers/services', 'ContactController@eservices');
+Route::get('/employers/background-checks', 'ContactController@bkgtests');
+Route::get('/employers/iq-tests', 'ContactController@iqtests');
+Route::get('/employers/proficiency-tests', 'ContactController@proficiency');
+Route::get('/employers/psychometric-tests', 'ContactController@psychometric');
+Route::get('/employers/train-employees', 'ContactController@retrain');
 
 
 Route::resource('/vacancies', 'PostsController');
-Route::get('/employers/publish', function () {                return view('employers.publish');           });
+Route::get('/employers/publish', 'ContactController@epublish');
 Route::get('/vacancies/{slug}/apply','PostsController@apply')->middleware('seeker');
 Route::post('/vacancies/{slug}/apply','JobApplicationController@accept')->middleware('seeker');
 Route::get('/profile/applications/{id?}','SeekerController@applications')->middleware('seeker');

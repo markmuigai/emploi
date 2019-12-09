@@ -24,6 +24,10 @@ class SeekerController extends Controller
             ->with('blogs',Blog::recent(20));
     }
 
+    public function toProfile(){
+        return redirect('/profile');
+    }
+
     public function applications(Request $request, $id = null)
     {
     	$user = Auth::user();
