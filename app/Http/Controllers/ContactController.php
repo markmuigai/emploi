@@ -65,4 +65,98 @@ class ContactController extends Controller
                 ->with('blogs',Blog::recent(5))
                 ->with('locations',Location::top());
     }
+
+    public function join(){
+         return view('pages.join');
+    }
+
+    public function careers(){
+         return view('pages.careers');
+    }
+    public function contact(){
+         return view('pages.contact');
+    }
+    public function about(){
+         return view('pages.about');
+    }
+    public function team(){
+         return view('pages.team');
+    }
+    public function clients(){
+         return view('pages.clients');
+    }
+    public function terms(){
+         return view('pages.terms');
+    }
+    public function policy(){
+         return view('pages.privacy-policy');
+    }
+    public function mass_recruitment(){
+         return view('pages.mass-recruitment');
+    }
+    public function rsi(){
+         return view('pages.rsi');
+    }
+    public function registered(){
+         return view('seekers.registered');
+    }
+    public function createAcc(){
+        return redirect('/join');
+    }
+    public function rateCard(){
+        return view('employers.rate-card');
+    }
+    public function applicants(){
+        return view('employers.rate-card');
+    }
+
+    public function precruit(){
+        return view('employers.p-recruitment');
+    }
+    public function cvetting(){
+        return view('employers.c-vetting');
+    }
+    public function hrservices(){
+        return view('employers.hr-services');
+    }
+    public function employersIndex(){
+        return redirect('/employers/publish');
+    }
+    
+    public function bkgtests(){
+        return view('employers.background-checks');
+    }
+    public function iqtests(){
+        return view('employers.iq-tests');
+    }
+    public function proficiency(){
+        return view('employers.proficiency-tests');
+    }
+    public function psychometric(){
+        return view('employers.psychometric-tests');
+    }
+    public function retrain(){
+        return view('employers.train-employees');
+    }
+    public function eservices(){
+        return view('employers.services');
+    }
+
+    public function cvediting(){
+        return view('seekers.cv-editing');
+    }
+    public function cvtemplates(){
+        return view('seekers.cv-templates'); 
+    }
+    public function pplacement(){
+        return view('seekers.premium-placement');
+    }
+    public function jservices(){
+        return view('seekers.services');
+    }
+    public function epublish(){
+        return view('employers.publish'); 
+    }
+
+
 }
