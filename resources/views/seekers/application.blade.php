@@ -15,8 +15,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <i class="fa fa-arrow-left" title="View Applications" onclick="window.location='/profile/applications'"></i>
             {{ $app->post->title }} Application
 
-            <a href="/profile/applications" class="btn btn-sm btn-primary pull-right"><i class="fas fa-user"></i> Profile</a>
-            <a href="/vacancies" class="pull-right btn btn-sm btn-success"><i class="fas fa-briefcase"></i> Vacancies</a>
+            <a href="/profile/applications" class="btn btn-sm btn-orange pull-right"><i class="fas fa-user"></i> Profile</a>
+            <a href="/vacancies" class="pull-right btn btn-sm btn-purple"><i class="fas fa-briefcase"></i> Vacancies</a>
             <p><strong>{{ $app->created_at }}</strong></p>
 
             <div class="pull-right">

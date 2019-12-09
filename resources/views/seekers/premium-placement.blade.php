@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </ol>
 
     <div class="text-center">
-        <a href="/contact" class="btn btn-success">Contact Us</a>
+        <a href="/contact" class="btn btn-orange">Contact Us</a>
     </div>
 </div>
 

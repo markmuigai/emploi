@@ -102,7 +102,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                   </div>
                 </div>
                 <div class="text-center">
-                    <a href="#" class="toSection2 btn btn-success">Next > </a>
+                    <a href="#" class="toSection2 btn btn-orange">Next > </a>
                 </div>
             </div>
         </div>
@@ -192,13 +192,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                               @endforeach
                           </select>  </div>
                         <div class="col-1 text-center">
-                          <span class="btn btn-sm btn-success" id="add-new-skill">Add</span>
+                          <span class="btn btn-sm btn-purple" id="add-new-skill">Add</span>
                         </div>
                       </div>
                 </div>
                 <hr>
-                <a href="#" class="toSection1 btn btn-primary">< Previous </a>
-                <a href="#" class="toSection3 pull-right btn btn-success">Next ></a>
+                <a href="#" class="toSection1 btn btn-purple">< Previous </a>
+                <a href="#" class="toSection3 pull-right btn btn-orange">Next ></a>
         </div>
     </div>
     </div>
@@ -292,9 +292,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                   </div>
                   <hr>
                   <div class="d-flex justify-content-between">
-                      <a href="#" class="toSection2 btn btn-primary">< Previous </a>
+                      <a href="#" class="toSection2 btn btn-purple">< Previous </a>
                       <span class="btn btn-orange pull-right updateProfile">Update</span>
-                      <input style="display: none" type="submit" value="Update" class="btn btn-primary btn-sm">
+                      <input style="display: none" type="submit" value="Update" class="btn btn-purple btn-sm">
                 </div>
             </div>
         </div>

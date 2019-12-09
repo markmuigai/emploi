@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="row mb-4">
     @forelse($companies as $c)
     <div class="col-lg-4 col-md-6 col-12">
-        <div class="card mx-3">
+        <div class="card">
             <div class="card-body text-center">
                 <img src="{{ asset($c->logoUrl) }}" alt="{{ $c->name }}" class="circle-img">
                 <br>
@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         {{ $c->name }}
                     </a>
                 </h5>
-                <p>{{ $c->industry->name }}</p>
+                <p class="truncate-short">{{ $c->industry->name }}</p>
                 <p><i class="fas fa-map-marker-alt"></i> {{ $c->location->name.', '.$c->location->country->name }}</p>
                 <p>{{ $c->staff }}</p>
             </div>

@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <p>
                 If this is a mistake, please don't hesitate to <a href="/contact">contact us</a>
             </p>
-            <a href="/" class="btn btn-sm btn-success">Home</a>
+            <a href="/" class="btn btn-sm btn-orange">Home</a>
         </div>
     </div>
 </div>
