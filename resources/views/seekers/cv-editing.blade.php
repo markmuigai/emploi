@@ -27,9 +27,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 
-	<h5 class="pt-2">PROCESS</h5>
 	<div class="row align-items-center justify-content-center py-4">
 		<div class="col-md-6">
+			<h5 class="pt-2">PROCESS</h5>
 			<p>
 				We first go through your CV to understand your professional journey and angle then send you a questionnaire which will ask you questions about your career goals and experiences. However, a personal consultation will be
 				necessary for
