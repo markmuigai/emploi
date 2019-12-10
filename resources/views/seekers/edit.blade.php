@@ -127,6 +127,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                   <label for="education_records">Education Records *</label>
                   <div id="education_records">
                       <?php $edu_counter = 100; ?>
+                      @if($user->seeker->education() != null)
                       @forelse($user->seeker->education() as $edu)
                       <div class="form-row mb-3 align-items-center education_field" education_id="{{ $edu_counter }}">
                         <div class="col-md-4">
@@ -162,6 +163,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <span class="text-danger removeEducation pull-right">Remove</span>
                       </div>
                       @endforelse
+                      @endif
                     </div>
                     <div class="text-right">
                         <span id="add_education" class="btn btn-orange-alt">Add Education Records</span>
@@ -241,6 +243,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                       <label for="">Work Experience *</label>
                       <div id="employment_records">
                           <?php $exp=100;?>
+                          @if($user->seeker->experience() != null)
                           @forelse($user->seeker->experience() as $emp)
                           <div class="experience_field">
                               <div class="row" experience_id="{{ $exp }}">
@@ -285,6 +288,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <span class="btn btn-sm btn-danger removeExperience pull right">Remove</span>
                           </div>
                           @endforelse
+                          @endif
                       </div>
                       <div class="text-right">
                           <span id="add_employment" class="btn btn-orange-alt">Add Employment Records</span>

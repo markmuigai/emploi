@@ -38,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="content">
 
             @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-            <h4 class="text-uppercase">Get Your Job Done</h4>
+            <h4 class="text-uppercase">Step into your Future</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that'll get you a job</p>
             <a href="/vacancies" class="btn btn-orange px-4">Vacancies</a>
