@@ -77,7 +77,7 @@ class Employer extends Model
         $posts = array();
         for($i=0; $i<count($companies); $i++)
         {
-            for($k=0; $k<count($companies[$i]->posts); $k++)
+            for($k=count($companies[$i]->posts)-1; $k>0; $k--)
             {
                 array_push($posts, $companies[$i]->posts[$k]);
             }
@@ -112,7 +112,7 @@ class Employer extends Model
         $posts = array();
         for($i=0; $i<count($companies); $i++)
         {
-            for($k=0; $k<count($companies[$i]->posts); $k++)
+            for($k=count($companies[$i]->posts)-1; $k>0; $k--)
             {
                 if($companies[$i]->posts[$k]->status == 'active')
                     array_push($posts, $companies[$i]->posts[$k]);
@@ -126,7 +126,7 @@ class Employer extends Model
         $posts = array();
         for($i=0; $i<count($companies); $i++)
         {
-            for($k=0; $k<count($companies[$i]->posts); $k++)
+            for($k=count($companies[$i]->posts)-1; $k>0; $k--)
             {
                 if($companies[$i]->posts[$k]->status != 'active')
                     array_push($posts, $companies[$i]->posts[$k]);
