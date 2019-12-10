@@ -12,6 +12,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
+        @if(count($blogs > 0))
+        <p><a href="/blog/create" class="btn btn-success">Create Blog</a></p>
+        @endif
         @forelse($blogs as $blog)
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-3">
@@ -31,6 +34,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
         @empty
         <p class="text-center">No blogs have been created</p>
+        <p><a href="/blog/create" class="btn btn-success">Create Blog</a></p>
         @endforelse
     </div>
 </div>
