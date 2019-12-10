@@ -137,6 +137,7 @@ ul.tick li:before {
 
 .btn-purple {
     background: var(--primary);
+    border-right: var(--primary);
     color: white;
 }
 
@@ -790,7 +791,11 @@ a .fab:hover {
 
 @media only screen and (max-width: 996px) {
     .nav-item {
-        padding: 0;
+        margin-top: 0;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.3rem 1rem;
     }
 
     .scrolled .navbar-brand img {

@@ -208,7 +208,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @elseif($user->role == 'employer')
 
 <div class="card">
-  <div class="card-header cover" class="background-image:{{ asset($user->coverUrl) }};"></div>
     <div class="card-body px-4 pt-4 pb-0">
       <div class="row">
         <div class="col-lg-3 col-md-4 col-6">

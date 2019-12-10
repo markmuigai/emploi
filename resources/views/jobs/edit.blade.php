@@ -72,7 +72,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
 
-                <a href="#" class="btn btn-sm btn-primary pull-right toSection2">Next ></a>
+                <a href="#" class="btn btn-sm btn-purple pull-right toSection2">Next ></a>
             </div>
         </div>
     </div>
@@ -123,7 +123,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
                 <a href="#" class="btn btn-sm btn-danger toSection1">
-                    < Previous</a> <a href="#" class="btn btn-sm btn-primary pull-right toSection3">Next >
+                    < Previous</a> <a href="#" class="btn btn-sm btn-purple pull-right toSection3">Next >
                 </a>
             </div>
         </div>
@@ -185,7 +185,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <a href="#" class="btn btn-sm btn-danger toSection2">
                     < Previous Page</a>
-                    <a class="btn btn-sm btn-primary pull-right" id="save-job-post" href="#">Save Job Post</a>
+                    <a class="btn btn-sm btn-purple pull-right" id="save-job-post" href="#">Save Job Post</a>
 
             </div>
         </div>
