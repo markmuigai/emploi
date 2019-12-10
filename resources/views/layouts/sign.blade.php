@@ -76,7 +76,7 @@
                             <a class="nav-link" href="/blog">Career Center</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/companies?hiring=true">See Who's Hiring</a>
+                            <a class="nav-link" href="/companies">See Who's Hiring</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a href="/employers/register" class="btn btn-orange"> Employer Registration</a>
