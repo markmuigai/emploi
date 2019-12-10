@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        @if(count($blogs > 0))
+        @if(count($blogs) > 0)
         <p><a href="/blog/create" class="btn btn-success">Create Blog</a></p>
         @endif
         @forelse($blogs as $blog)
