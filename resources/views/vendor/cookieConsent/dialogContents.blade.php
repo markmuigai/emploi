@@ -1,4 +1,4 @@
-<div class="js-cookie-consent cookie-consent" style="position: fixed; bottom: 0; z-index: 300; width: 100%; text-align: center; background-color: #500095; color: white" padding="0.5em 0">
+<div class="js-cookie-consent cookie-consent" style="position: fixed; bottom: 0; z-index: 300; width: 100%; text-align: center; background-color: rgba(80, 0, 149, 0.5); color: white" padding="0.5em 0">
 
     <span class="cookie-consent__message">
         {!! trans('cookieConsent::texts.message') !!}
