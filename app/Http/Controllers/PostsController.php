@@ -49,7 +49,9 @@ class PostsController extends Controller
     {
         $title = 'Latest Vacancies';
         $query = isset($request->q) ? $request->q : "";
-        $posts = Post::orderBy('featured','DESC')
+        $column = 'title';
+        $posts = Post::whereRaw("UPPER('.$column.') LIKE '%'". strtoupper($value)."'%'")
+            ->orderBy('featured','DESC')
             ->orderBy('created_at','DESC')
             ->paginate(10)->onEachSide(3);
         return view('seekers.vacancies')
