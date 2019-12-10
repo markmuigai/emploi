@@ -306,6 +306,7 @@
         $('.navbar-nav .nav-link.active').removeClass('active');
         $('a[href="' + location.pathname + '"]').closest('.navbar-nav .nav-link').addClass('active');
     </script>
+    @include('components.tawk')
 </body>
 
 </html>

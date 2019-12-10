@@ -231,6 +231,7 @@
     <!-- <div class="copy">
         <p>Copyright © {{ date('Y') }} Emploi . All Rights Reserved </p>
     </div> -->
+    @include('components.tawk')
 </body>
 
 </html>

@@ -196,6 +196,7 @@
         $('.nav-pills .nav-link.active').removeClass('active');
         $('a[href="' + location.pathname + '"]').closest('.nav-pills .nav-link').addClass('active');
     </script>
+    @include('components.tawk')
 </body>
 
 </html>
