@@ -23,14 +23,16 @@ class Blog extends Model
     public function getPreviewAttribute(){
         $max_length = strlen($this->contents);
         if($max_length > 250)
-            return substr($this->contents, 0,160).'...';
+            return strip_tags(substr($this->contents, 0,160).'...');
+        return strip_tags($this->contents);
         return $this->contents;
     } 
 
     public function longPreview($max = 160){
         $max_length = strlen($this->contents);
         if($max_length > 250)
-            return substr($this->contents, 0,$max).'...';
+            return strip_tags(substr($this->contents, 0,$max).'...') ;
+        return strip_tags($this->contents);
         return $this->contents;
     }
 
