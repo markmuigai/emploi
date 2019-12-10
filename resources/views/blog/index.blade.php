@@ -24,12 +24,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                     <hr>
                     <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal"><i class="fas fa-share-alt"></i> Share</button>
+                    <!-- SHARE MODAL -->
+                    @include('components.share-modal')
+                    <!-- END OF SHARE MODAL -->
                 </div>
             </div>
         </div>
-        <!-- SHARE MODAL -->
-        @include('components.share-modal')
-        <!-- END OF SHARE MODAL -->
         @empty
         <div class="card">
             <div class="card-body text-center">
@@ -37,10 +37,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         @endforelse
-        @if(isset($links))
-        {{ $blogs->links() }}
-        @endif
     </div>
+    @if(isset($links))
+    {{ $blogs->links() }}
+    @endif
 </div>
 
 <!-- SEARCH BAR -->
