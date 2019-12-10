@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <input name="_method" type="hidden" value="PUT">
             <div class="form-group">
                 <label for="title">Title *</label>
-                <input type="text" required="" path="" name="title" id="title" class="form-control" maxlength="50" value="{{ $blog->title }}" />
+                <input type="text" required="" path="" name="title" id="title" class="form-control" maxlength="100" value="{{ $blog->title }}" />
             </div>
             <div class="form-group">
                 <label for="category">Category *</label>

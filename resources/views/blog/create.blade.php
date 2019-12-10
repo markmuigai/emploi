@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label class="col-md-3 control-lable" for="title">Title *</label>
-                    <input type="text" required="" path="" name="title" id="title" class="form-control input-sm" maxlength="50" value="" />
+                    <input type="text" required="" path="" name="title" id="title" class="form-control input-sm" maxlength="100" value="" />
                 </div>
                 <div class="form-group col-md-6">
                     <label class="col-md-3 control-lable" for="category">Category *</label>
