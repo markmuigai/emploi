@@ -324,6 +324,7 @@
 			</div>
 		</div>
 	</div>
+	@include('components.tawk')
 </body>
 
 </html>

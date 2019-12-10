@@ -26,10 +26,10 @@ class CompanyController extends Controller
         {
             return view('companies.index')
                 ->with('hiring',true)
-                ->with('companies',Company::getHiringCompanies(100));
+                ->with('companies',Company::getHiringCompanies(27));
         }
         return view('companies.index')
-                ->with('companies',Company::where('status','active')->paginate(10));
+                ->with('companies',Company::where('status','active')->paginate(9));
     }
 
     public function create()

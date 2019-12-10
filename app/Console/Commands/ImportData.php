@@ -59,8 +59,8 @@ class ImportData extends Command
                     while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
                         $row++;
                         
-                        if($row>517)
-                            continue;
+                        // if($row>517)
+                        //     continue;
                         //print_r($data);
                         if(count($data) == 1)
                         {
@@ -99,22 +99,35 @@ class ImportData extends Command
                         // $resume_url = implode("%20", $resume_url);
 
                         if(!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/@.+\./', $email))
+                        {
+                            $count_seekers_skipped++;
                             continue;
+                        }
                         $user = User::where('email',$email)->first();
                         if(isset($user->id))
+                        {
+                            $count_seekers_skipped++;
                             continue;
+                        }
 
                         $username = explode(" ", $name);
                         $username = strtolower(implode("",$username)).rand(1,9999);
 
-                        $user = User::create([
-                            'name' => $name, 
-                            'username' => $username, 
-                            'email' => $email, 
-                            'password' => $password,
-                            'email_verification' => User::generateRandomString(15),
-                            'email_verified_at' => now()
-                        ]);
+                        try {
+                            $user = User::create([
+                                'name' => $name, 
+                                'username' => $username, 
+                                'email' => $email, 
+                                'password' => $password,
+                                'email_verification' => User::generateRandomString(15),
+                                'email_verified_at' => now()
+                            ]);
+                        } catch (\Illuminate\Database\QueryException $exception) {
+                            $count_seekers_skipped++;
+                            continue;
+                        }
+
+                        
 
                         if(!isset($user->id))
                             continue;
@@ -132,24 +145,32 @@ class ImportData extends Command
                         else
                             $dob = implode("-", $dob);
 
-                        $seeker = Seeker::create([
-                            'user_id' => $user->id,
-                            'public_name' => $public_name, 
-                            'gender' => $gender == 'NULL' ? 'M' : $gender, 
-                            'date_of_birth' => $dob, 
-                            'phone_number' => $phone,
-                            'current_position' => $position,
-                            'post_address' => $address,
-                            'years_experience' => $years_experience > 50 ? 50 : $years_experience,
-                            'industry_id' => $industry,
-                            'objective' => $objective,
-                            'country_id' => 1,
-                            'location_id' => 1,
-                            'resume' => $resume_url,
-                            'featured' => $featured,
-                            'education' => $education,
-                            'experience' => $experience
-                        ]);
+                        try {
+                            $seeker = Seeker::create([
+                                'user_id' => $user->id,
+                                'public_name' => $public_name, 
+                                'gender' => $gender == 'NULL' ? 'M' : $gender, 
+                                'date_of_birth' => $dob, 
+                                'phone_number' => $phone,
+                                'current_position' => $position,
+                                'post_address' => $address,
+                                'years_experience' => $years_experience > 50 ? 50 : $years_experience,
+                                'industry_id' => $industry,
+                                'objective' => $objective,
+                                'country_id' => 1,
+                                'location_id' => 1,
+                                'resume' => $resume_url,
+                                'featured' => $featured,
+                                'education' => $education,
+                                'experience' => $experience
+                            ]);
+                        } catch (\Illuminate\Database\QueryException $exception) {
+                            $user->delete();
+                            $count_seekers_skipped++;
+                            continue;
+                        }
+
+                        
 
                         UserPermission::create([ 'user_id' => $user->id, 'permission_id' => 4 ]);
 
@@ -191,6 +212,7 @@ class ImportData extends Command
                 
                 $file = $storage_path.'/app/employers.csv';
                 $count_employers = 0;
+                $count_failed_employers = 0;
                 $row = 1;
                 if (($handle = fopen($file, "r")) !== FALSE) {
                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -208,48 +230,78 @@ class ImportData extends Command
                         $name = $data[8];
 
                         if(!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/@.+\./', $email))
+                        {
+                            $count_failed_employers++;
                             continue;
+                        }
                         $user = User::where('email',$email)->first();
                         if(isset($user->id))
+                        {
+                            $count_failed_employers++;
                             continue;
+                        }
 
-                        $user = User::create([
-                            'name' => $name, 
-                            'username' => $email, 
-                            'email' => $email, 
-                            'password' => $password,
-                            'email_verification' => User::generateRandomString(15),
-                            'email_verified_at' => now()
-                        ]);
+                        try {
+                            $user = User::create([
+                                'name' => $name, 
+                                'username' => $email, 
+                                'email' => $email, 
+                                'password' => $password,
+                                'email_verification' => User::generateRandomString(15),
+                                'email_verified_at' => now()
+                            ]);
+                        } catch (\Illuminate\Database\QueryException $exception) {
+                            $count_failed_employers++;
+                            continue;
+                        }
+
+                        
 
                         if(!isset($user->id))
+                        {
+                            $count_failed_employers++;
                             continue;
+                        }
 
                         $c = Company::where('name',$company)->first();
                         if(isset($c->id))
                             $company = $company.User::generateRandomString(2);
 
-                        $employer = Employer::create([
-                            'user_id' => $user->id, 
-                            'name' => $name, 
-                            'industry_id' => $industry == '' ? 1 : $industry,
-                            'company_name' => $company, 
-                            'contact_phone' => $mobile,
-                            'company_phone' => $phone,
-                            'company_email' => $email,
-                            'country_id' => 1,
-                            'address' => $address
-                        ]);
+                        try {
+                             $employer = Employer::create([
+                                'user_id' => $user->id, 
+                                'name' => $name, 
+                                'industry_id' => $industry == '' ? 1 : $industry,
+                                'company_name' => $company, 
+                                'contact_phone' => $mobile,
+                                'company_phone' => $phone,
+                                'company_email' => $email,
+                                'country_id' => 1,
+                                'address' => $address
+                            ]);
+                        } catch (\Illuminate\Database\QueryException $exception) {
+                            $count_failed_employers++;
+                            continue;
+                        }
+
+                       
 
                         UserPermission::create([ 'user_id' => $user->id, 'permission_id' => 3 ]);
 
-                        $company = Company::create([
-                            'name' => $company, 
-                            'user_id' => $user->id, 
-                            'industry_id' => $industry == '' ? 1 : $industry,
-                            'company_size_id' => 3,
-                            'location_id' => 1
-                        ]);
+                        try {
+                             $company = Company::create([
+                                'name' => $company, 
+                                'user_id' => $user->id, 
+                                'industry_id' => $industry == '' ? 1 : $industry,
+                                'company_size_id' => 3,
+                                'location_id' => 1
+                            ]);
+                        } catch (\Illuminate\Database\QueryException $exception) {
+                            $count_failed_employers++;
+                            continue;
+                        }
+
+                        
 
                         $this->info(' '.$count_employers.' '.$company->name.' Imported');
                         $count_employers++;
@@ -257,6 +309,8 @@ class ImportData extends Command
                         //     break;
                     }
                 }
+
+                $this->info("Importing Employers completed.  $count_employers success, $count_failed_employers failed");
 
                 $this->info('4/7 Importing Employers Saved Profiles ');
 

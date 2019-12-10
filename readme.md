@@ -91,7 +91,7 @@ exit;
 b) Continue installation
 
 cd /var/www/emploi.co
-composer install
+composer install --no-dev
 chown -R :www-data /var/www/emploi.co
 chmod -R 777 /var/www/emploi.co
 composer dump-autoload
