@@ -343,7 +343,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card mb-lg-3 my-2">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-3 col-md-2">
+                            <div class="col-3">
                                 <img src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100">
                             </div>
                             <div class="col-9 col-md-10">
