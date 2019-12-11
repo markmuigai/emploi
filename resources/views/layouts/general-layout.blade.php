@@ -31,8 +31,6 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
 
-    <!-- CountUp JS -->
-    <script src="{{asset('js/jquery.countup.js')}}"></script>
     <!-- Succinct JS -->
     <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
     <!-- <script type="application/x-javascript">

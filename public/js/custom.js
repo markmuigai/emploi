@@ -1,4 +1,4 @@
-$('.counter').countUp();
+//$('.counter').countUp();
 // Truncating Text
 $(function() {
     $(".truncate-short").succinct({
