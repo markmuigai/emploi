@@ -3,7 +3,15 @@
 
 <head>
     <title>@yield('title')</title>
-    @include('components.meta')    
+    @include('components.meta')
+
+    <!-- Load Screen Scripts -->
+    <script type="text/javascript">
+        window.addEventListener("load", function() {
+            var load_screen = document.getElementById("load_screen");
+            document.body.removeChild(load_screen);
+        });
+    </script>
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
@@ -23,18 +31,18 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
+    <script async="async" src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
     <!-- Popper -->
-    <script src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
+    <script async="async" src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
     <!-- Bootstrap -->
-    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
+    <script async="async" src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
-
+    <!-- <script async="async" src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script> -->
+    <script async="async" src="{{asset('js/jquery.fontawesome.js')}}"></script>
     <!-- CountUp JS -->
-    <script src="{{asset('js/jquery.countup.js')}}"></script>
+    <script async="async" src="{{asset('js/jquery.countup.js')}}"></script>
     <!-- Succinct JS -->
-    <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
+    <script async="async" src="{{asset('js/jQuery.succinct.min.js')}}"></script>
     <!-- <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -45,15 +53,23 @@
         }
     </script> -->
     <!-- Notify JS Notifications -->
-    <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
+    <script async="async" src="{{asset('js/notify.min.js')}}"></script>
+    <script async="async" src="{{asset('js/emploi-notify.js')}}"></script>
     <!-- Slick JS -->
-    <script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
+    <script async="async" src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->
-    <script src="{{asset('js/custom.js')}}"></script>
+    <script async="async" src="{{asset('js/custom.js')}}"></script>
 </head>
 
 <body>
+    <!-- LOAD SCREEN -->
+    <div id="load_screen">
+        <div id="loading">
+            <h1>Loading...</h1>
+        </div>
+    </div>
+    <!-- END OF LOAD SCREEN -->
+
     <header>
         <!-- NAVBAR -->
         @include('components.navbar')
@@ -67,13 +83,13 @@
     </main>
     {{--@endif--}}
     <!-- END OF MAIN CONTENT -->
-    
+
     <!-- TOP SEARCHES -->
     @if(Request::is('/'))
     @else
     @include('components.top-search')
     @endif
-    
+
     <!-- END OF TOP SEARCHES -->
 
     <!-- FOOTER -->
@@ -92,7 +108,7 @@
             <div class="modal-content p-3">
                 <div class="modal-body">
                     <h5 class="modal-title" id="inviteFriendsLabel">Invite Friends to Use Emploi</h5>
-                    <button type="button" class="close text-danger"  data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
                         <i class="fas fa-times" aria-hidden="true"></i>
                     </button>
                     <div action="">

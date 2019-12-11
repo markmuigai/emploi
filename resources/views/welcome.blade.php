@@ -431,15 +431,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- END OF GET STARTED -->
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.service-carousel').slick({
-            infinite: true,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            arrows: false,
-            dots: true,
-            autoplay: true,
-            speed: 1000,
-        });
         $('.featured-carousel').slick({
             infinite: true,
             slidesToShow: 4,
