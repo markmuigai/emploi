@@ -26,9 +26,6 @@ $().ready(function(){
 	    	@else
 	    	<i class="fa fa-check" title=""></i>
 	    	@endif
-
-	    	<!-- <small><a href="/employers/applications/{{ $post->slug }}" class="btn btn-sm btn-danger pull-right">back</a></small> -->
-
 	    </h3>
 
 

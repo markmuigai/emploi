@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	<h3 class="orange text-center">Psychometric Tests</h3>
 	<div class="row align-items-center">
 		<div class="col-md-4">
-			<img src="/images/templates.jpg" class="w-100">
+			<img src="/images/templates.jpg" class="w-100" alt="Psychometric Tests">
 		</div>
 		<div class="col-md-8">
 			<p>

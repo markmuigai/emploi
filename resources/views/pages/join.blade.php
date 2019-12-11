@@ -15,12 +15,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </p>
     <div class="row acc-links">
         <a href="/employers/register" class="col-md-6 col-12">
-            <img src="/images/employer-join.png" class="w-100 py-3">
+            <img src="/images/employer-join.png" class="w-100 py-3" alt="Employer Registration">
             <h4>Employer Registration</h4>
         </a>
         <a href="/register" class="col-md-6 col-12">
-            <img src="/images/seeker-join.png" class="w-100 py-3">
-            <h4>Register as Job Seeker</h4>
+            <img src="/images/seeker-join.png" class="w-100 py-3" alt="Job Seeker Registration">
+            <h4>Job Seeker Registration</h4>
         </a>
     </div>
     <div class="text-center">

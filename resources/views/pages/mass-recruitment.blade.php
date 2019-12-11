@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	<h2 class="orange text-center">Mass Recruitment</h2>
 	<div class="row pb-3 align-items-center">
 		<div class="col-md-4">
-			<img src="/images/mass-recruitment.jpg" style="width: 100%">
+			<img src="/images/mass-recruitment.jpg"class="w-100" alt="Mass Recruitment">
 		</div>
 		<div class="col-md-8">
 			<p>

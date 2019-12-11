@@ -173,12 +173,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @forelse($user->companies as $c)
                 <div>
                     <strong>Company Details</strong>
-                    <a href="{{ url('/companies/'.$c->id.'/edit') }}" class="pull-right">edit company</a>
+                    <a href="{{ url('/companies/'.$c->id.'/edit') }}" class="pull-right">Edit Company</a>
                     <br><br>
                 </div>
                 @if($c->logo)
                 <div class="col-md-2 col-md-offset-5">
-                    <img src="/storage/companies/{{ $c->logo }}" style="width: 100%">
+                    <img src="/storage/companies/{{ $c->logo }}" class="w-100" alt="{{ $c->name }}">
                 </div>
 
                 <div class="clearfix"></div>

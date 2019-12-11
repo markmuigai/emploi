@@ -9,19 +9,60 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mr-0">
+                <!-- EMPLOYER SIDEBAR -->
+                @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                 <li class="nav-item d-md-none d-block">
                     <a class="nav-link" href="/employers/dashboard">Dashboard</a>
                 </li>
-                <li class="nav-item d-md-none d-block"><a class="nav-link" href="/employers/jobs">Jobs</a></li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/employers/jobs">Jobs</a>
+                </li>
                 <li class=" nav-item d-md-none d-block">
-                    <a class="nav-link" href="#v-pills-messages">Candidates</a>
+                    <a class="nav-link" href="/employers/browse">Browse Candidates</a>
+                </li>
+                <!-- EMPLOYER SIDEBAR -->
+
+                <!-- JOB SEEKER SIDEBAR -->
+                @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/job-seekers/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item d-md-none d-block">
-                    <a class="nav-link" href="#v-pills-settings">Test Center</a>
+                    <a class="nav-link" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item d-md-none d-block">
-                    <a class="nav-link" href="#v-pills-reviews">Reviews</a>
+                    <a class="nav-link" href="/profile/applications">Applications</a>
                 </li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/profile/referees">Referees</a>
+                </li>
+                <!-- END OF JOB SEEKER SIDEBAR -->
+
+                <!-- ADMIN SIDEBAR -->
+                @elseif( isset(Auth::user()->id) && Auth::user()->role == 'admin' )
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/admin/panel">Dashboard</a>
+                </li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/admin/posts">Job Posts</a>
+                </li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/admin/cv-requests">CV Requests</a>
+                </li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/admin/blog">All Blogs</a>
+                </li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/admin/emails">Profile</a>
+                </li>
+                <li class="nav-item d-md-none d-block">
+                    <a class="nav-link" href="/profile">Send Emails</a>
+                </li>
+                @else
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="/vacancies">Vacancies</a>
                 </li>
@@ -31,6 +72,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/blog">Career Center</a>
                 </li>
+                <!-- END OF ADMIN SIDEBAR -->
+
                 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                 @else
                 <li class="nav-item dropdown">
@@ -103,7 +146,7 @@
         @if(isset(Auth::user()->id))
         <div class="nav-item dropdown text-right">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ Auth::user()->getPublicAvatarUrl() }}" class="profile-avatar" alt="">
+                <img src="{{ Auth::user()->getPublicAvatarUrl() }}" class="profile-avatar" alt="Profile">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 @guest

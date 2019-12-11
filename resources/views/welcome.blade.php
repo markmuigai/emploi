@@ -6,7 +6,7 @@
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('content') 
+@section('content')
 
 <style>
     main {
@@ -223,7 +223,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
-                    <img src="images/a1.jpg" alt="" />
+                    <img src="images/a1.jpg" alt="Company Logo" />
                 </div>
                 <p class="badge badge-secondary">{{$p->positions}} Postions</p>
                 <h5>{{ $p->title }}</h5>
@@ -253,7 +253,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/avatar.png')}}" alt="" class="w-100">
+                        <img src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Emploi is the most efficient digital sourcing platform. They are fast and are good at what they do.</p>
@@ -269,7 +269,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/testimonials/kizito.png')}}" alt="" class="w-100">
+                        <img src="{{asset('images/testimonials/kizito.png')}}" alt="Kipkemoi Kizito" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
@@ -285,7 +285,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/testimonials/fay.jpg')}}" alt="" class="w-100">
+                        <img src="{{asset('images/testimonials/fay.jpg')}}" alt="Faith Chepkemoi" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>The Emploi Team create a great rapport with their candidates and are an invaluable asset to anyone looking for a job.</p>
@@ -301,7 +301,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/testimonials/sandra.jpg')}}" alt="" class="w-100">
+                        <img src="{{asset('images/testimonials/sandra.jpg')}}" alt="Sandra Eshitemi" class="w-100">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.</p>
@@ -344,7 +344,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3 col-md-2">
-                                <img src="{{ asset($blog->imageUrl) }}" alt="" class="w-100">
+                                <img src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100">
                             </div>
                             <div class="col-9 col-md-10">
                                 <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>

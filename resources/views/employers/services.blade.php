@@ -67,7 +67,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/background-check.png" class="w-100">
+                            <img src="/images/background-check.png" class="w-100" alt="Background Checks">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Background Checks</h5>
@@ -85,7 +85,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/premium-recruit.png" class="w-100">
+                            <img src="/images/premium-recruit.png" class="w-100" alt="Premium Recruitment">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Premium Recruitment</h5>
@@ -104,7 +104,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/templates.jpg" class="w-100">
+                            <img src="/images/templates.jpg" class="w-100" alt="Psychometric Tests">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Psychometric Tests</h5>
@@ -122,7 +122,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/proficiency-test.png" class="w-100">
+                            <img src="/images/proficiency-test.png" class="w-100" alt="Proficiency &amp; IQ Test">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Proficiency & IQ Test</h5>
@@ -141,7 +141,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/linkage.png" class="w-100">
+                            <img src="/images/linkage.png" class="w-100" alt="Linkage with Training Firms">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Linkage with Training Firms</h5>

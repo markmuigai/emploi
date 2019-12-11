@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-2 col-3">
-                        <img src="{{ asset($s->user->getPublicAvatarUrl()) }}" class="avatar-small">
+                        <img src="{{ asset($s->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $s->user->username }}">
                     </div>
                     <div class="col-5 col-md-5 col-lg-6">
                         <h3>

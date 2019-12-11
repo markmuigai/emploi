@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 do.
             </p>
             <div class="text-center py-3">
-                <img src="/images/placement.jpg" class="w-50">
+                <img src="/images/placement.jpg" class="w-50" alt="Premium Placement">
             </div>
             <p>In order to achieve this, our consultants begin by conducting in-person interviews (where possible) with each new candidate. Here we seek to uncover your personal and
                 professional motivations, because both must be attended to

@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </ul>
         </div>
         <div class="col-md-3 col-lg-3">
-            <img src="/images/premium.png" style="width: 80%">
+            <img src="/images/premium.png" style="width: 80%" alt="Premium Recruitment">
         </div>
         <div class="col-md-5 col-lg-6">
             <h6>Our Recruitment Quality Assurance steps include:</h6>

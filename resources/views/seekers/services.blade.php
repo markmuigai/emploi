@@ -53,7 +53,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/templates.jpg" class="w-100">
+                            <img src="/images/templates.jpg" class="w-100" alt="Resume Templates">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Resume Templates</h5>
@@ -71,7 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/cv-editing.jpg" class="w-100">
+                            <img src="/images/cv-editing.jpg" class="w-100" alt="Professional CV Editing">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Professional CV Editing</h5>
@@ -89,7 +89,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/premium.jpg" class="w-100">
+                            <img src="/images/premium.jpg" class="w-100" alt="Premium Placement">
                         </div>
                         <div class="col-md-8 col-12">
                             <h5>Premium Placement</h5>

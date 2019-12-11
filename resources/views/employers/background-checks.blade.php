@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container pb-0 pb-lg-4 pt-4">
     <div class="row align-items-center pb-4">
         <div class="col-4">
-            <img src="/images/background-check.png" class="w-100">
+            <img src="/images/background-check.png" class="w-100" alt="Background Checks">
         </div>
         <div class="col-8">
             <h3 class="orange mb-4">Background Checks</h3>
