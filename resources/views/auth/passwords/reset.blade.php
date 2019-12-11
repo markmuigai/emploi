@@ -6,8 +6,10 @@
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('content')
 @section('user_title','Reset Password')
+
+@section('content')
+
 
 <form method="POST" action="{{ route('password.update') }}">
     @csrf
@@ -21,6 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
+        @enderror
     </div>
 
     <div class="form-group">
