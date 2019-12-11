@@ -159,7 +159,7 @@ $().ready(function() {
             },
             error: function(e) {
 
-                alert('Failed to add course');
+                notify('Failed to add course', 'error');
             },
         });
 

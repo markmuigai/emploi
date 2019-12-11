@@ -115,7 +115,7 @@
                         @else
                         <div class="card">
                             <div class="card-body text-center">
-                                <h5>Sign Up To Apply</h5>
+                                <h5>Sign Up Today</h5>
                                 <a href="/join" class="btn btn-orange">Register</a>
                                 <h6 class="mt-3">- Have An Account -</h6>
                                 <a href="/login" class="btn btn-orange-alt">Login</a>

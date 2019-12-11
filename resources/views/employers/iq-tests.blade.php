@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	<h3 class="orange text-center">Intellectual Quotent (IQ) Tests</h3>
 	<div class="row pb-3 align-items-center">
 		<div class="col-md-4">
-			<img src="/images/premium-recruit.png" class="w-100">
+			<img src="/images/premium-recruit.png" class="w-100" alt="IQ Test">
 		</div>
 		<div class="col-md-8">
 			<p>

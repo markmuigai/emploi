@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-md-6">
                 <div class="row align-items-center">
                     <div class="col-2">
-                        <img src="{{ asset($c->seeker->user->getPublicAvatarUrl()) }}" class="circle-img">
+                        <img src="{{ asset($c->seeker->user->getPublicAvatarUrl()) }}" class="circle-img" alt="{{ $c->seeker->user->name }}">
                     </div>
                     <div class="col-10">
                         <a href="/employers/browse/{{ $c->seeker->user->username }}" class="orange">{{ $c->seeker->user->name }}</a>

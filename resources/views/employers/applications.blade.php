@@ -43,7 +43,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-lg-2 col-4">
-                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small">
+                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
                             </div>
                             <div class="col-8 col-md-8 col-lg-10">
                                 <div class="row align-items-center">
@@ -104,7 +104,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-2 col-3">
-                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small">
+                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
                             </div>
                             <div class="col-5 col-md-5 col-lg-6">
                                 <h4>{{ $a->user->name }}</h4>
@@ -154,7 +154,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-2 col-3">
-                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small">
+                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
                             </div>
                             <div class="col-5 col-md-5 col-lg-6">
                                 <h4>{{ $a->user->name }}</h4>
@@ -199,7 +199,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-2 col-3">
-                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small">
+                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
                             </div>
                             <div class="col-5 col-md-5 col-lg-6">
                                 <h4>{{ $a->user->name }}</h4>

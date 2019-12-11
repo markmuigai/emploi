@@ -8,17 +8,17 @@ $().ready(function() {
     $('.toSection2').click(function() {
         var d = $('#date_of_birth').val();
         if (!d)
-            return alert('Invalid date of Birth');
-        //return alert(d);
+            return notify('Invalid date of Birth', 'error');
+        //return notify(d);
         var a = $('#address').val();
         if (a.length < 2)
-            return alert('Invalid address provided');
+            return notify('Invalid address provided', 'error');
         $('.edit-section').addClass('d-none');
         $('#section2').removeClass('d-none');
     });
     $('.toSection3').click(function() {
         if (!checkEducation())
-            return alert('Errors are present in education records');
+            return notify('Errors are present in education records', 'error');
         $('.edit-section').addClass('d-none');
         $('#section3').removeClass('d-none');
     });
@@ -71,7 +71,7 @@ $().ready(function() {
 
     $('.updateProfile').click(function() {
         if (!checkEmployment())
-            return alert('Errors are present in employment records');
+            return notify('Errors are present in employment records', 'error');
         $('#update-form').submit();
     });
 
@@ -118,13 +118,13 @@ $().ready(function() {
 
     $('#add_education').click(function() {
         if (!checkEducation())
-            return alert('Errors are present in education records');
+            return notify('Errors are present in education records', 'error');
         addEducation();
     });
 
     $('#add_employment').click(function() {
         if (!checkEmployment())
-            return alert('Errors are present in employment records');
+            return notify('Errors are present in employment records', 'error');
         addEmployment();
     });
 

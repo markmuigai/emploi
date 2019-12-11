@@ -211,7 +211,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body px-4 pt-4 pb-0">
       <div class="row">
         <div class="col-lg-3 col-md-4 col-6">
-          <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" alt="" class="circle-img w-100 h-100">
+          <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" alt="" class="circle-img w-100 h-100" alt="{{ $c->name }}">
         </div>
       </div>
         <div class="row align-items-center">

@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <h3 class="orange text-center">Role Suitability Index (RSI)</h3>
     <div class="row align-items-center">
         <div class="col-md-4">
-            <img src="/images/rsi.png" class="w-100">
+            <img src="/images/rsi.png" class="w-100" alt="Role Suitability Index (RSI)">
         </div>
         <div class="col-md-8">
             <p>
