@@ -41,9 +41,6 @@
     <script async="async" src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
     <!-- Font Awesome -->
     <script async="async" src="{{asset('js/jquery.fontawesome.js')}}"></script>
-
-    <!-- CountUp JS -->
-    <script async="async" src="{{asset('js/jquery.countup.js')}}"></script>
     <!-- Succinct JS -->
     <script async="async" src="{{asset('js/jQuery.succinct.min.js')}}"></script>
     <!-- <script type="application/x-javascript">

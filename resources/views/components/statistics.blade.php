@@ -63,8 +63,8 @@
 
 <!-- stats -->
   <script src="/js/jquery.waypoints.min.js"></script>
-  <script src="/js/jquery.countup.js"></script>
-  <script>
+  <!-- <script src="/js/jquery.countup.js"></script> -->
+<!--   <script>
     $('.counter').countUp();
-  </script>
+  </script> -->
   <!-- //stats -->
