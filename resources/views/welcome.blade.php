@@ -346,7 +346,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="col-3">
                                 <img src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100">
                             </div>
-                            <div class="col-9 col-md-10">
+                            <div class="col-9">
                                 <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                                 <div class="d-flex">
                                     <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
