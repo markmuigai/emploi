@@ -113,13 +113,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p style="display: none;">With your social media account</p>
     <div class="social-icons">
         <div class="button" style="display: none;">
-            <a class="tw" href="#"> <i class="fa fa-linkedin tw2"> </i><span>Linkedin</span>
+            <a class="tw" href="#"> <i class="fab fa-linkedin"> </i><span>Linkedin</span>
                 <div class="clearfix"> </div>
             </a>
-            <a class="fa" href="#"> <i class="fa fa-facebook tw2"> </i><span>Facebook</span>
+            <a class="fa" href="#"> <i class="fab fa-facebook"> </i><span>Facebook</span>
                 <div class="clearfix"> </div>
             </a>
-            <a class="go" href="#"><i class="fa fa-google tw2"> </i><span>Google</span>
+            <a class="go" href="#"><i class="fab fa-google"> </i><span>Google</span>
                 <div class="clearfix"> </div>
             </a>
             <div class="clearfix"> </div>

@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 applicants using the RSI Tool.
             </p>
             <p>
-                <strong><i class="fa fa-info"></i> NOTE</strong> Your job post has to be approved for you to receive applications.
+                <strong><i class="fas fa-info"></i> NOTE</strong> Your job post has to be approved for you to receive applications.
             </p>
         </div>
     </div>

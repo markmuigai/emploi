@@ -19,12 +19,9 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap" rel="stylesheet">
     <!--Font Awesome-->
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
-    <!-- ChartJS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+    <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-
 
     <!-- SCRIPTS -->
     <!-- JQuery -->

@@ -22,9 +22,9 @@ $().ready(function(){
 
 	    <h3>
 	    	@if(!$post->hasModelSeeker())
-	    	<i class="fa fa-warning" title="RSI Model Not Created"></i>
+	    	<i class="fas fa-warning" title="RSI Model Not Created"></i>
 	    	@else
-	    	<i class="fa fa-check" title=""></i>
+	    	<i class="fas fa-check" title=""></i>
 	    	@endif
 	    </h3>
 
