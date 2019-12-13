@@ -5,13 +5,16 @@
     <title>@yield('title')</title>
     @include('components.meta')
 
+    <!-- LOAD SCREEN -->
+    <!-- <link rel="stylesheet" href="{{asset('css/load-screen.css')}}"> -->
+
     <!-- Load Screen Scripts -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         window.addEventListener("load", function() {
             var load_screen = document.getElementById("load_screen");
             document.body.removeChild(load_screen);
         });
-    </script>
+    </script> -->
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
@@ -63,11 +66,13 @@
 
 <body>
     <!-- LOAD SCREEN -->
-    <div id="load_screen">
-        <div id="loading">
-            <h1>Loading...</h1>
-        </div>
-    </div>
+    <!-- <div id="load_screen">
+      <div id="loading">
+        <div class="dot"></div>
+        <h1>Loading</h1>
+      </div>
+    </div> -->
+
     <!-- END OF LOAD SCREEN -->
 
     <header>
