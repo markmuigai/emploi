@@ -150,23 +150,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         function showCompany() {
             var name = $('#fullName').val();
             if (name.length < 2)
-                return alert('Invalid name');
+                return notify('Invalid name', 'error');
 
             var phone_number = $('#phone_number').val();
             if (phone_number.length < 8)
-                return alert('Invalid phone number');
+                return notify('Invalid phone number', 'error');
 
             var email = $('#email').val();
             if (email.length < 8)
-                return alert('Invalid e-mail address');
+                return notify('Invalid e-mail address', 'error');
 
             var password = $('#password').val();
             if (password.length < 8)
-                return alert('Password too short');
+                return notify('Password too short', 'error');
 
             var password_confirmation = $('#password_confirmation').val();
             if (password_confirmation.length < 8 || password != password_confirmation)
-                return alert('Passwords do not match');
+                return notify('Passwords do not match', 'error');
 
             $.ajax({
                 type: 'GET',
@@ -177,7 +177,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 success: function(response) {
                     console.log(response);
                     if (response == 'true') {
-                        alert('E-mail address has been registered');
+                        notify('E-mail address has been registered', 'error');
 
                     } else {
                         $('#details').addClass('d-none');
@@ -185,7 +185,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     }
                 },
                 error: function(e) {
-                    alert('An error occurred while checking e-mail');
+                    notify('An error occurred while checking e-mail', 'error');
                 },
             });
         }

@@ -19,7 +19,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap" rel="stylesheet">
     <!--Font Awesome-->
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- ChartJS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
     <!-- Slick JS -->
@@ -43,7 +43,7 @@
     <script async="async" src="{{asset('js/jquery.countup.js')}}"></script>
     <!-- Succinct JS -->
     <script async="async" src="{{asset('js/jQuery.succinct.min.js')}}"></script>
-    <!-- <script type="application/x-javascript">
+    <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -51,7 +51,7 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-    </script> -->
+    </script>
     <!-- Notify JS Notifications -->
     <script async="async" src="{{asset('js/notify.min.js')}}"></script>
     <script async="async" src="{{asset('js/emploi-notify.js')}}"></script>

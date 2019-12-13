@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         <h3>
-            <i class="fa fa-arrow-left" title="View Applications" onclick="window.location='/profile/applications'"></i>
+            <i class="fas fa-arrow-left" title="View Applications" onclick="window.location='/profile/applications'"></i>
             {{ $app->post->title }} Application
 
             <a href="/profile/applications" class="btn btn-sm btn-orange pull-right"><i class="fas fa-user"></i> Profile</a>
