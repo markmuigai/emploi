@@ -22,7 +22,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap" rel="stylesheet">
     <!--Font Awesome-->
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- ChartJS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
     <!-- Slick JS -->
@@ -40,6 +40,7 @@
     <!-- Bootstrap -->
     <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
     <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
     <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
     <!-- Succinct JS -->
     <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
