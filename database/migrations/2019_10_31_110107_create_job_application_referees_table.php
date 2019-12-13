@@ -17,7 +17,7 @@ class CreateJobApplicationRefereesTable extends Migration
             $table->text('weaknesses')->nullable();
             $table->text('discplinary_cases');
             $table->integer('professionalism'); //0-100
-            $table->string('would_you_rehire'); //0-100
+            $table->string('would_you_rehire',500); //0-100
             $table->text('comments')->nullable();
             $table->string('status',50)->default('active');
             $table->timestamps();

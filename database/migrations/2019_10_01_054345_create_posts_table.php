@@ -25,9 +25,9 @@ class CreatePostsTable extends Migration
             $table->text('benefits')->nullable();
             $table->decimal('monthly_salary',10,2)->default(0);
             $table->timestamp('deadline')->nullable();
-            $table->string('cover_required')->default('true');
-            $table->string('portfolio_required')->default('true');
-            $table->string('featured')->default('false');
+            $table->string('cover_required',100)->default('true');
+            $table->string('portfolio_required',100)->default('true');
+            $table->string('featured',50)->default('false');
             $table->string('status',50)->default('pending');
             $table->integer('verified_by')->nullable();
             $table->timestamps();
