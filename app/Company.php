@@ -81,7 +81,7 @@ class Company extends Model
 
     public function getLogoUrlAttribute(){
         if($this->logo == null)
-            return '/images/500g.png';
+            return '/images/company-logo.png';
         return '/storage/companies/'.$this->logo;
     }
 
