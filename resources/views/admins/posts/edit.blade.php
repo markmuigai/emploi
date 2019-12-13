@@ -9,14 +9,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="form-container row">
         <h2 class="col-md-8 col-md-offset-2">
         	New Job Post
         	<small class="pull-right"><a href="/contact" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-phone"></i></a></small>
         </h2>
         <div class="search_form1 row" style="text-align: center;">
-		    
+
         	<form method="post" action="/vacancies" class="col-md-8 col-md-offset-2" enctype="multipart/form-data">
 		    	@csrf
 
@@ -132,8 +132,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		    	</div>
 
 		    </form>
-	    	
-		    
+
+
 	    </div>
     </div>
  </div>
@@ -148,14 +148,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		$('.toSection2').click(function(){
 			var title = $('#job-title').val();
 			if(title.length < 5)
-				return alert('job title too short');
+				return notify('Job Title too short', 'error');
 			$('.section-view').addClass('hidden');
 			$('#section2').removeClass('hidden');
 		});
 		$('.toSection3').click(function(){
 			var responsibilities = $('#responsibilities').val();
 			if(responsibilities.length < 10)
-				return alert('Responsibilities is too short');
+				return notify('Responsibilities is too short', 'error');
 			$('.section-view').addClass('hidden');
 			$('#section3').removeClass('hidden');
 		});

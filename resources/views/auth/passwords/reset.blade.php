@@ -1,4 +1,4 @@
-@extends('layouts.sign-layout')
+@extends('layouts.sign')
 
 @section('title','Emploi :: Reset Password')
 
@@ -6,10 +6,8 @@
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('user_title','Reset Password')
-
 @section('content')
-
+@section('user_title','Reset Password')
 
 <form method="POST" action="{{ route('password.update') }}">
     @csrf

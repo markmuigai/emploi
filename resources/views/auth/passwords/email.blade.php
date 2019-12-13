@@ -1,4 +1,4 @@
-@extends('layouts.sign-layout')
+@extends('layouts.sign')
 
 @section('title','Emploi :: Reset Password')
 

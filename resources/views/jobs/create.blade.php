@@ -177,14 +177,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         $('.toSection2').click(function() {
             var title = $('#job-title').val();
             if (title.length < 5)
-                return alert('job title too short');
+                return notify('Job Title too short', 'error');
             $('.section-view').addClass('d-none');
             $('#section2').removeClass('d-none');
         });
         $('.toSection3').click(function() {
             var desc = CKEDITOR.instances['responsibilities'].getData().replace(/<[^>]*>/gi, '').length;
             if(desc < 10)
-                return alert('Invalid Job Description provided');
+                return notify('Invalid Job Description provided', 'error');
             $('.section-view').addClass('d-none');
             $('#section3').removeClass('d-none');
         });
@@ -206,15 +206,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             var salary = $('#monthly_salary').val();
             var max_salary = $('#max_salary').val();
             if(!salary)
-                return alert('Invalid Monthly Salary');
-            //return alert(salary + ' ' + max_salary);
+                return notify('Invalid Monthly Salary', 'error');
+            //return notify(salary + ' ' + max_salary);
             if(salary != 0)
             {
-                //alert('Defining salary');
+                //notify('Defining salary');
                 if(max_salary)
                 {
                     if(max_salary <= salary)
-                        return alert('Maximum salary must be greater than minimum salary');
+                        return notify('Maximum salary must be greater than minimum salary', 'error');
                 }
 
             }
