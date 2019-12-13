@@ -353,7 +353,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
                                 </div>
                                 <p class="badge badge-secondary">{{ $blog->category->name }}</p>
-                                <p class="truncate">{{ $blog->preview }}</p>
+                                <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
                                 <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                             </div>
                         </div>
