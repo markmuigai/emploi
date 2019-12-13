@@ -19,7 +19,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap" rel="stylesheet">
     <!--Font Awesome-->
-    <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
@@ -31,7 +31,7 @@
     <!-- Bootstrap -->
     <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
     <!-- Font Awesome -->
-    <script src="{{asset('js/jquery.fontawesome.js')}}"></script>
+    <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
     <!-- Vue JS -->
     @if (config('app.env') === 'production')
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
