@@ -50,6 +50,7 @@ class PostsController extends Controller
         $title = 'Latest Vacancies';
         $query = isset($request->q) ? $request->q : "";
         $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
+            ->where('status','!=','inactive')
             ->orderBy('featured','DESC')
             ->orderBy('created_at','DESC')
             ->paginate(10)->onEachSide(3);
@@ -187,7 +188,7 @@ class PostsController extends Controller
         $match = false;
 
         if($param == 'featured'){ //featured jobs
-            $posts = Post::where('featured','true')->paginate(10)->onEachSide(3);
+            $posts = Post::where('featured','true')->where('status','!=','inactive')->paginate(10)->onEachSide(3);
             $title = 'Featured Jobs';
             $match = true;
         }
@@ -196,6 +197,7 @@ class PostsController extends Controller
             {
                 $posts = Post::where('vacancy_type_id',$v->id)
                         //->where('status','active')
+                        ->where('status','!=','inactive')
                         //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->paginate(10)
@@ -216,6 +218,7 @@ class PostsController extends Controller
                 }
                 $posts = Post::whereIn('location_id',$l)
                         //->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                        ->where('status','!=','inactive')
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->paginate(10)
                         ->onEachSide(3);
@@ -231,6 +234,7 @@ class PostsController extends Controller
                 $posts = Post::where('location_id',$c->id)
                         //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                         //->where('location_id', $c->id)
+                        ->where('status','!=','inactive')
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->paginate(10)
                         ->onEachSide(3);
@@ -245,6 +249,7 @@ class PostsController extends Controller
                 $posts = Post::where('industry_id',$c->id)
                         //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                         //->where('industry_id', $c->id)
+                        ->where('status','!=','inactive')
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->paginate(10)
                         ->onEachSide(3);
@@ -303,7 +308,7 @@ class PostsController extends Controller
             }
             //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
-            $sql = "SELECT id FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' ORDER BY featured, deadline DESC Limit 20";
+            $sql = "SELECT id FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured, deadline DESC Limit 20";
             //dd($sql);
             $result = DB::select($sql);
             $posts = [];
@@ -341,6 +346,7 @@ class PostsController extends Controller
 
         $post = Post::where('slug',$param)
                     //->where('status','active')
+                    ->where('status','!=','inactive')
                     //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                     ->firstOrFail();
 

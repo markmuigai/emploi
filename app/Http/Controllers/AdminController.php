@@ -62,6 +62,7 @@ class AdminController extends Controller
     	if(!isset($post->id))
     		abort(404);
     	$post->status = $request->status;
+        $post->featured = $request->featured;
     	$post->save();
     	return redirect()->back(); ;
     	return $request->all();
