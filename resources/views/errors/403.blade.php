@@ -10,7 +10,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="error-page d-flex flex-column justify-content-center align-items-md-end align-items-center">
     <div class="content mr-md-5 mr-0">
         <div class="text-center">
-            <h1>403 - Forbidden</h1>
+            <h1>403</h1>
+            <h2>Forbidden</h2>
             <p>
                 The page you requested for cannot be displayed as you are forbidden from accessing it.
             </p>

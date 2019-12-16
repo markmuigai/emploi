@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi')
 

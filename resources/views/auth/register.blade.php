@@ -19,15 +19,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     @csrf
     <div class="form-group">
         <label for="fullName">Full Name</label>
-        <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control" maxlength="50" value="{{ old('name') }}" />
         @error('name')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
+        <p class="text-danger">
+          {{ $message }}
+        </p>
         @enderror
+        <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control" maxlength="50" value="{{ old('name') }}" />
     </div>
     <div class="form-group">
         <label for="phone_number">Phone Number</label>
+        @error('phone_number')
+        <p class="text-danger">
+          <strong>{{ $message }}</strong>
+        </p>
+        @enderror
         <div class="row pl-3">
             <select class="custom-select col-3" name="prefix">
                 @foreach($countries as $c)
@@ -41,11 +46,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </select>
             <input type="number" required="" path="phone_number" value="{{ old('phone_number') }}" name="phone_number" id="phone_number" class="form-control col-8 ml-3" placeholder="7123123123"
               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" />
-            @error('phone_number')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
         </div>
     </div>
     <div class="form-group">
@@ -65,10 +65,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="form-group">
         <label for="email">
             Email
-            @error('email')
-                <strong class="text-danger"> * Email already registered *</strong>
-            @enderror
         </label>
+        @error('email')
+        <p class="text-danger"> * Email already registered *</p>
+        @enderror
         <input type="email" required="" value="{{ old('email') }}" name="email" path="email" id="email" class="form-control" maxlength="50" />
         @error('email')
         <span class="invalid-feedback" role="alert">
@@ -101,14 +101,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         </select>
     </div>
-    <label for="">
-        Attach Your Resume  (Max 5MB)
-        @error('resume')
-            <strong class="text-danger"> * File uploaded is more than 5MB *</strong>
-        @enderror
-    </label>
+    @error('resume')
+        <p class="text-danger"> * File uploaded is more than 5MB *</p>
+    @enderror
     <div class="form-group mb-3">
-        <label for="resume">doc, docx and pdf</label>
+        <label for="resume">Attach Your Resume (.doc, .docx or .pdf) <small>(Max 5MB)</small></label>
         <input type="file" required="" path="resume" name="resume" id="resume" accept=".doc, .docx,.pdf" />
     </div>
     <div class="form-group">

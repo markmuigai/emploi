@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi Admin :: '.$seeker->user->name)
 
@@ -7,129 +7,107 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', $seeker->user->name)
 
-<div class="container">
-    <div class="single">  
-	   <div class="form-container row">
-        <h2 class="col-md-8 col-md-offset-2">
-        	<small>
-        		<a href="#" onclick="window.history.back()" class="btn btn-sm btn-success">
-        			<i class="fa fa-arrow-left"></i>
-        		</a>
-        	</small>
-        	{{ $seeker->user->name }}
-        	
-        </h2>
-        
-        <div class=" row" style="text-align: center; ">
-
-            <div class="col-md-3 " style="">
-                <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" style="width: 100%">
-
-                <br>
-                {{ '@'.$seeker->user->username }} <a href="{{ $seeker->resumeUrl }}" class="btn btn-sm btn-danger">View Resume</a>
+<div class="card">
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="col-lg-2 col-3">
+                <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" class="avatar-small">
+            </div>
+            <div class="col-lg-10 col-9">
+                <p>
+                    {{ '@'.$seeker->user->username }}
+                </p>
+                <a href="{{ $seeker->resumeUrl }}" class="btn btn-sm btn-orange">View Resume</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Industry:</strong> {{ $seeker->industry->name }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Public Name:</strong> {{ $seeker->public_name }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Current Position:</strong> {{ $seeker->current_position ?  $seeker->current_position : 'N/A' }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Years Experience:</strong> {{ $seeker->years_experience }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Highest Education Level:</strong> {{ $seeker->education_level_id ? $seeker->educationLevel->name : 'Not Stated' }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Age:</strong> {{ $seeker->date_of_birth ? $seeker->age.' years' : 'Not Stated' }}</p>
             </div>
 
-            <div class="col-md-9 row" style=" text-align: left;">
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Industry:</b> {{ $seeker->industry->name }}
-                </div>
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Public Name:</b> {{ $seeker->public_name }}
-                </div>
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Current Position:</b> {{ $seeker->current_position ?  $seeker->current_position : 'N/A' }}
-                </div>
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Years Experience:</b> {{ $seeker->years_experience }}
-                </div>
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Highest Education Level:</b> {{ $seeker->education_level_id ? $seeker->educationLevel->name : 'Not Stated' }}
-                </div>
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Age:</b> {{ $seeker->date_of_birth ? $seeker->age.' years' : 'Not Stated' }}
-                </div>
-
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Gender:</b> {{ $seeker->sex }}
-                </div>
-                <div class="col-md-6 hover-bottom" style="margin-bottom: 0.5em">
-                    <b>Location:</b> {{ $seeker->location_id ? $seeker->location->name.', '.$seeker->location->country->name : 'Not Stated' }}
-                </div>
-                <br>
-                <hr>
-                <div class="hover-bottom" style="margin-bottom: 1em">
-                    <b>Career Objective</b> <br>
-                    <?php echo $seeker->objective ? $seeker->objective : 'Objective not stated'; ?>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-6 hover-bottom">
-                        <b>Education Background</b> <br>
-                        @if(!is_array($seeker->education()))
-                            <?php echo $seeker->education; ?>
-                        @else
-                            @forelse($seeker->education() as $edu)
-                            <div class="row no-gutters justify-content-between edu pb-5">
-                                <div class="circle"></div>
-                                <div class="col-lg-3 col-12 ml-3">
-                                    <p>{{ $edu[0] }}</p>
-
-                                </div>
-                                <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                    <h6>{{ $edu[1] }}</h6>
-                                    <p class="orange">{{ $edu[2] }}</p>
-                                </div>
-                            </div>
-                            @empty
-                            <p>
-                                No education records highlighted.
-                            </p>
-
-                            @endforelse
-                        @endif
-                        
-                    </div>
-
-                    <div class="col-md-6 hover-bottom">
-                        <b>Work Experience</b> <br>
-                        @if(!is_array($seeker->experience()))
-                            <?php echo $seeker->experience; ?>
-                        @else
-                            @forelse($seeker->experience() as $emp)
-                            <div class="row no-gutters justify-content-between edu pb-5">
-                                <div class="circle"></div>
-                                <div class="col-lg-3 col-12 ml-3">
-                                    <p>{{ $emp[0] }}</p>
-
-                                </div>
-                                <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
-                                    <h6>{{ $emp[1] }}</h6>
-                                    <p class="orange">{{ $emp[2] }} to {{ $emp[3] }}</p>
-                                    <p>{{ $emp[4] }}</p>
-                                </div>
-                            </div>
-                            @empty
-                            <p>
-                                No experience records have been highlighted
-                            </p>
-                            @endforelse
-                        @endif
-                    </div>
-                    
-                </div>
-
-                
-                
+            <div class="col-md-6">
+                <p><strong>Gender:</strong> {{ $seeker->sex }}</p>
             </div>
-		    
-        	
-		    
-	    </div>
+            <div class="col-md-6">
+                <p><strong>Location:</strong> {{ $seeker->location_id ? $seeker->location->name.', '.$seeker->location->country->name : 'Not Stated' }}</p>
+            </div>
+        </div>
+        <hr>
+        <h4>Career Objective</h4>
+        <p>
+            <?php echo $seeker->objective ? $seeker->objective : 'Objective not stated'; ?>
+        </p>
+
+        <hr>
+        <h4>Education Background</h4>
+        @if(!is_array($seeker->education()))
+        <p>
+            <?php echo $seeker->education; ?>
+        </p>
+        @else
+        @forelse($seeker->education() as $edu)
+        <div class="row no-gutters justify-content-between edu pb-5">
+            <div class="circle"></div>
+            <div class="col-lg-3 col-12 ml-3">
+                <p>{{ $edu[0] }}</p>
+
+            </div>
+            <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
+                <h6>{{ $edu[1] }}</h6>
+                <p class="orange">{{ $edu[2] }}</p>
+            </div>
+        </div>
+        @empty
+        <p class="text-center">
+            No education records highlighted.
+        </p>
+
+        @endforelse
+        @endif
+        <hr>
+        <h4>Work Experience</h4>
+        @if(!is_array($seeker->experience()))
+        <p>
+            <?php echo $seeker->experience; ?>
+        </p>
+        @else
+        @forelse($seeker->experience() as $emp)
+        <div class="row no-gutters justify-content-between edu pb-5">
+            <div class="circle"></div>
+            <div class="col-lg-3 col-12 ml-3">
+                <p>{{ $emp[0] }}</p>
+
+            </div>
+            <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
+                <h6>{{ $emp[1] }}</h6>
+                <p class="orange">{{ $emp[2] }} to {{ $emp[3] }}</p>
+                <p>{{ $emp[4] }}</p>
+            </div>
+        </div>
+        @empty
+        <p class="text-center">
+            No experience records have been highlighted
+        </p>
+        @endforelse
+        @endif
     </div>
- </div>
 </div>
-
 
 @endsection

@@ -159,8 +159,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <input type="file" name="image" placeholder="" accept=".jpg, .png,.jpeg">
                 </div>
 
-                <a href="#" class="btn btn-sm btn-danger toSection2">
-                    < Previous Page</a>
+                <a href="#" class="btn btn-sm btn-purple toSection2">Previous</a>
                     <a class="btn btn-orange pull-right" id="save-job-post" href="#">Save Job Post</a>
             </div>
         </div>
@@ -216,9 +215,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     if(max_salary <= salary)
                         return notify('Maximum salary must be greater than minimum salary', 'error');
                 }
-
             }
-
             $('#create-post-form').submit();
         });
     });

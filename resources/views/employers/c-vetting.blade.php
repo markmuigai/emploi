@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Candidate Vetting')
 
@@ -7,51 +7,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'Candidate Vetting')
 
-<div class="container">
-    <div class="single">
-	   <div class="contact_top">
-	   	 <h2>Candidate Vetting</h2>
-
-          <div class="row" style="">
-	   	   <div class="addr">
-
-
-
-				<div class="row">
-					<div class="col-md-3">
-
-					</div>
-					<div class="col-md-3">
-
-					</div>
-					<div class="col-md-6">
-
-					</div>
-				</div>
-
-				<br><br><br>
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<strong>Get in touch with us and hire the best</strong> <br>
-						Phone: +254 702 068 282 <br>
-						E-mail: <a href="mailto:info@emploi.co">info@emploi.co</a> <br>
-						<a href="/contact" class="btn btn-success">Contact Us</a>
-					</div>
-				</div>
-				<p>
-
-				</p>
-
-
-
-
-           </div>
-          </div>
-          <div class="clearfix"> </div>
-	   </div>
-
+<div class="card">
+    <div class="card-body">
+        <div class="text-center">
+            <h6>Get in touch with us and hire the best</h6>
+            <p>
+                Phone: +254 702 068 282
+            </p>
+            <p>
+                E-mail: <a href="mailto:info@emploi.co">info@emploi.co</a>
+            </p>
+            <p>
+                <a href="/contact" class="btn btn-orange">Contact Us</a>
+            </p>
+        </div>
     </div>
 </div>
+
 
 @endsection

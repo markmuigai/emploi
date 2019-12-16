@@ -92,17 +92,6 @@ ul.tick li:before {
     color: white;
 }
 
-.prompts {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 1001;
-}
-
-.send-message {
-    background: var(--secondary);
-}
-
 .purple-bg {
     background: var(--primary);
     color: white;
@@ -170,6 +159,10 @@ ul.tick li:before {
     border-radius: 20px;
 }
 
+input[type="file"] {
+    width: 100%;
+}
+
 .slick-prev .fas, .slick-next .fas {
     background: white;
     color: var(--primary);
@@ -205,6 +198,13 @@ ul.tick li:before {
 
 .slick-dots li.slick-active button {
     background: var(--primary);
+}
+
+.prompts {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1001;
 }
 
 .invite {
@@ -323,10 +323,6 @@ footer i {
     justify-content: space-between;
 }
 
-.copy {
-    text-align: center;
-}
-
 /* FOOTER */
 .sign-copy {
     position: absolute;
@@ -408,26 +404,6 @@ main {
 }
 
 /* END OF HOMEPAGE */
-/* LANDING ALTERNATIVE */
-.landing-alt {
-    background-color: rgba(80, 0, 149, 0.7);
-    color: white;
-}
-
-.landing-alt .row {
-    height: 90vh;
-}
-
-.landing-img img {
-    width: 100%;
-    box-shadow:
-        0 0 0 10px white,
-        0 0 5px 25px var(--primary);
-    -webkit-filter: saturate(150%);
-    filter: saturate(150%);
-}
-
-/* END OF LANDING ALTERNATIVE */
 /* SEARCH BAR */
 .search-bar {
     background: rgb(235, 235, 235);
@@ -657,6 +633,26 @@ main {
     height: 10px;
 }
 
+.top-bg {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/bg2.webp");
+    /* background: url("../images/bg2.webp"); */
+    filter: grayscale(1);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 38vh;
+    width: 100%;
+}
+
+.advert-details {
+    color: white;
+    font-size: 1.1rem;
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 main.sign-page {
     min-height: 98vh;
     display: grid;
@@ -789,6 +785,16 @@ a .fab:hover {
     font-size: 2rem;
 }
 
+@media only screen and (max-width: 1024px) {
+    .top-bg {
+        height: 30vh;
+    }
+
+    .advert-details {
+        height: 28vh;
+    }
+}
+
 @media only screen and (max-width: 996px) {
     .nav-item {
         margin-top: 0;
@@ -863,6 +869,14 @@ a .fab:hover {
 
     .contact {
         height: 70vh;
+    }
+
+    .top-bg {
+        height: 30vh;
+    }
+
+    .advert-details {
+        height: 28vh;
     }
 
     .error-page {
@@ -951,6 +965,15 @@ a .fab:hover {
     }
 
     /* END OF CONTACT */
+    .top-bg {
+        height: 50vh;
+    }
+
+    .advert-details {
+        font-size: 1rem;
+        height: 45vh;
+    }
+
     /* ERROR PAGE */
     .error-page {
         background: linear-gradient(to right, rgba(80, 0, 149, 0.7), rgba(80, 0, 149, 0.7)), url("../images/error2.jpg");
