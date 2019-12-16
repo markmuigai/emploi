@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body text-center">
-        <h2>{{ $title }}</h2>
+        <h2>Job Seeker Profile Incomplete</h2>
         <p>
             Hi {{ Auth::user()->name }},<br><br>
             Your profile has not been updated. Please edit your profile and include experience and education background first before applying for jobs or adding referees.
