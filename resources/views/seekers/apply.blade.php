@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row align-items-center">
             <div class="col-md-6">
                 <?php $img = $post->image == 'unknown.png' ? 'images/a1.jpg' : $post->image ?>
-                <img src="{{ asset($post->imageUrl) }}" class="img-responsive" alt="{{ $post->title }}" style="width: 100%" />
+                <img src="{{ asset($post->imageUrl) }}" class="img-responsive w-100" alt="{{ $post->title }}" />
             </div>
             <div class="col-md-6">
                 <p><strong>Posted: </strong>{{ $post->since }}</p>
@@ -85,7 +85,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <form style="display: none;">
             <div class="to">
                 <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-                <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:3%">
+                <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
             </div>
             <div class="text">
                 <textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>

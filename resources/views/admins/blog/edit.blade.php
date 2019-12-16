@@ -40,7 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group" title="Featured Image (500x300p)">
-                        <label class="control-lable" for="title">Update Image </label>
+                        <label for="title">Update Image </label>
                         <input type="file" accept=".png, .jpg, .jpeg" name="featured_image">
                     </div>
                     <img src="/storage/blogs/{{ $blog->image1 }}" class="w-100">
@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @if($blog->image2)
                         <img src="/storage/blogs/{{ $blog->image2 }}" class="w-100">
                         @endif
-                        <label class="control-lable" for="title">Other Image</label>
+                        <label for="title">Other Image</label>
                         <input type="file" accept=".png, .jpg, .jpeg" name="other_image">
                     </div>
                 </div>

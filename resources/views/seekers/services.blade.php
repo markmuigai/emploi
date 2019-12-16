@@ -11,13 +11,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card about">
         <div class="card-body text-center">
             <h1 class="orange">Job Seeker Services</h1>
-            <p style="text-align: center">
+            <p class="text-center">
                 We provide you with seamless job placement through superior candidate selection tools that allow employers to hire very fast, Aggregated market vacancies through our Jobs board, Free and downloadable resume templates, Curated
                 expert career advice, Professional coaching and CV services.
             </p>
             <div class="row pt-5">
                 <div class="col-md-6">
-                    <h4 class="">
+                    <h4>
                         Job Vacancies
                     </h4>
                     <p>
@@ -25,20 +25,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="">Upload CV</h4>
+                    <h4>Upload CV</h4>
 
                     <p>
                         Employers on our platform browse for CVs and this is a golden opportunity for you to be seen and shortlisted
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="">Professional CV Editing</h4>
+                    <h4>Professional CV Editing</h4>
                     <p>
                         Our experts re-write your CV making sure it stands out in applications to improve your shortlisting and employment chances.
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="">Career Coaching</h4>
+                    <h4>Career Coaching</h4>
                     <p>
                         Our experts will assess your profile and provide reliable guidance on how to advance your career.
                     </p>
