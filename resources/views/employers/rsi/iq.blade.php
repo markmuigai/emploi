@@ -44,9 +44,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <button type="submit" name="button" class="btn btn-orange pull-right">Submit</button>
             <button id="add-interview" class="btn btn-orange-alt mr-2 pull-right">Add IQ Score</button>
         </form>
-
-
-
     </div>
 </div>
 

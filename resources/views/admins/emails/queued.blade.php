@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Emails Queued')
 
@@ -7,24 +7,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@section('page_title', 'Emails Queued')
 
-<div class="container">
-    <div class="single">  
-       <div class="form-container">
-        <h2>
-            <i class="fa fa-arrow-left" onclick="window.location = '/admin/panel'"></i>
-            E-mails Queued
-        </h2>
-
+<div class="card">
+    <div class="card-body">
+        <p <i class="fa fa-arrow-left" onclick="window.location = '/admin/panel'"></i>
+        </p>
         <hr>
-
-        <p>
+        <p class="text-center">
             E-mails have been queued.
         </p>
-        
-                
     </div>
- </div>
 </div>
 
 @endsection

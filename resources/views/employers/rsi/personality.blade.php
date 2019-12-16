@@ -1,4 +1,4 @@
-@extends('layouts.seek')
+@extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: Candidate Personality')
 
@@ -7,55 +7,40 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="single">
-	   <div class="form-container row">
-        <h2 class="col-md-8 col-md-offset-2" >
-        	 {{ $application->user->name }} <br>
+@section('page_title', 'Candidate Personality')
 
+<div class="card">
+    <div class="card-body">
+        <h2>
+            {{ $application->user->name }}
         </h2>
-        <p class="col-md-8 col-md-offset-2 text-center">
-        	<a href="/employers/applications/{{ $application->post->slug }}/">
-        	{{ $application->post->title }}
-        	</a>
-        	||
-        	<a href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi">
-        		RSI {{ $application->user->seeker->getRsi($application->post) }}%
-        	</a>
+        <p>
+            <a href="/employers/applications/{{ $application->post->slug }}/">
+                {{ $application->post->title }}
+            </a>
+            ||
+            <a href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi">
+                RSI {{ $application->user->seeker->getRsi($application->post) }}%
+            </a>
         </p>
-        <div class="search_form1 row">
-
-        	<br>
-
-		    <form method="POST" class="col-md-8 col-md-offset-2" action="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/personality">
-		    	@csrf
-		    	<p>
-						<label>Select Personality Traits</label>
-						<select required="" name="personality" class="form-control">
-							<option value="">Select</option>
-							@foreach($personalities as $p)
-							<option value="{{ $p->id }}"
-								@if(isset($application->seekerPersonality->id) && $application->seekerPersonality->personality_id == $p->id)
-								selected=""
-								@endif
-								>{{ $p->name }}</option>
-							@endforeach
-						</select>
-
-					</p>
-				<br>
-				<hr>
-				<p>
-					<input type="submit" name="" >
-				</p>
-		    </form>
-
-
-
-	    </div>
+        <form method="POST" action="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/personality">
+            @csrf
+            <div class="form-group">
+                <label>Select Personality Traits</label>
+                <select required="" name="personality" class="custom-select">
+                    <option value="">Select</option>
+                    @foreach($personalities as $p)
+                    <option value="{{ $p->id }}" @if(isset($application->seekerPersonality->id) && $application->seekerPersonality->personality_id == $p->id)
+                        selected=""
+                        @endif
+                        >{{ $p->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <hr>
+            <button type="submit" name="button" class="btn btn-orange">Submit</button>
+        </form>
     </div>
- </div>
 </div>
-
 
 @endsection

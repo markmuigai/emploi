@@ -72,7 +72,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
 
-                <a href="#" class="btn btn-sm btn-purple pull-right toSection2">Next ></a>
+                <a href="#" class="btn btn-sm btn-orange-alt pull-right toSection2">Next ></a>
             </div>
         </div>
     </div>
@@ -85,7 +85,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <textarea class="form-control" id="responsibilities" name="responsibilities" rows="5">{{ $post->responsibilities }}</textarea>
                 </div>
 
-
                 <div class="form-group">
                     <label>Education *</label>
                     <select name="education" class="form-control">
@@ -97,7 +96,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @endforeach
                     </select>
                 </div>
-
 
                 <div class="form-group">
                     <label>Experience *</label>
@@ -112,7 +110,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                 </div>
 
-
                 <div class="form-group">
                     <label>Number of Positions Available*</label>
                     <select name="positions" class="form-control">
@@ -121,9 +118,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                 </div>
 
-
-                <a href="#" class="btn btn-sm btn-danger toSection1">
-                    < Previous</a> <a href="#" class="btn btn-sm btn-purple pull-right toSection3">Next >
+                <a href="#" class="btn btn-sm btn-orange-alt toSection1">
+                    < Previous</a> <a href="#" class="btn btn-sm btn-orange pull-right toSection3">Next >
                 </a>
             </div>
         </div>
@@ -132,7 +128,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card">
             <div class="card-body p-5">
                 <h3>Step 3 of 3</h3>
-
 
                 <div class="form-group">
                     <label>Job Location:</label>
@@ -146,30 +141,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                 </div>
 
-
                 <div class="form-group">
                     <label>Monthly Salary *</label>
                     <input type="number" name="monthly_salary" class="form-control" required="" placeholder="enter 0 for non-disclosure" value="{{ $post->monthly_salary }}" id="monthly_salary" min="0">
                 </div>
-
 
                 <div class="form-group">
                     <label>Maximum Salary Limit</label>
                     <input type="number" name="max_salary" class="form-control" value="{{ $post->max_salary }}" required="" placeholder="only fill if salary has a range"  id="max_salary" min="1">
                 </div>
 
-
                 <div class="form-group">
                     <label>Application Deadline *</label>
                     <input type="datetime-local" name="deadline" class="form-control" required="" value="{{ \Carbon\Carbon::parse($post->deadline)->format('Y-m-d\TH:i') }}" required="">
                 </div>
 
-
                 <div class="form-group">
                     <label>How to apply:</label>
                     <textarea class="form-control" name="how_to_apply" rows="5" placeholder="Optionally, you can specify additional description to applicants">{{ $post->how_to_apply ? $post->how_to_apply : '' }}</textarea>
                 </div>
-
 
                 <div class="form-group">
                     <label>
@@ -182,11 +172,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <input type="file" name="image" placeholder="" accept=".jpg, .png,.jpeg">
                 </div>
 
-
-                <a href="#" class="btn btn-sm btn-danger toSection2">
-                    < Previous Page</a>
-                    <a class="btn btn-sm btn-purple pull-right" id="save-job-post" href="#">Save Job Post</a>
-
+                <a href="#" class="btn btn-sm btn-orange-alt toSection2">Previous Page</a>
+                <a class="btn btn-sm btn-orange pull-right" id="save-job-post" href="#">Save Job Post</a>
             </div>
         </div>
     </div>
