@@ -26,7 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     Name:
                     @error('name')
-                        <strong class="pull-right" style="color: red"> * Invalid Company Name *</strong>
+                        <strong class="text-danger"> * Invalid Company Name *</strong>
                     @enderror
                 </label>
                 <input type="text" name="name" placeholder="" value="{{ $company->name }}" required="required" class="form-control" maxlength="50">
@@ -36,27 +36,27 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     {{ $company->logo == null ? 'Upload Logo: *' : 'Update Logo:' }} (png, jpg, jpeg Max 5MB)
                     @error('logo')
-                        <strong class="pull-right" style="color: red"> * Uploaded logo was invalid *</strong>
+                        <strong class="text-danger"> * Uploaded logo was invalid *</strong>
                     @enderror
                 </label>
-                <input type="file" name="logo" placeholder="" class="form-control" {{ $company->logo == null ? 'required=""' : '' }}>
+                <input type="file" name="logo" placeholder="" {{ $company->logo == null ? 'required=""' : '' }}>
             </div>
 
             <div class="form-group">
                 <label>
                     {{ $company->cover == null ? 'Upload Cover: ' : 'Update Cover:' }} (png, jpg, jpeg Max 5MB)
                     @error('cover')
-                        <strong class="pull-right" style="color: red"> * Uploaded cover was invalid *</strong>
+                        <strong class="text-danger"> * Uploaded cover was invalid *</strong>
                     @enderror
                 </label>
-                <input type="file" name="cover" placeholder="" class="form-control">
+                <input type="file" name="cover" placeholder="">
             </div>
 
             <div class="form-group">
                 <label>
                     Tagline: *
                     @error('tagline')
-                        <strong class="pull-right" style="color: red"> * Invalid company Tagline *</strong>
+                        <strong class="text-danger"> * Invalid company Tagline *</strong>
                     @enderror
                 </label>
                 <input type="text" name="tagline" placeholder="" value="{{ $company->tagline }}" required="required" class="form-control" maxlength="255">
@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     Description: *
                     @error('about')
-                        <strong class="pull-right" style="color: red"> * Invalid company description *</strong>
+                        <strong class="text-danger"> * Invalid company description *</strong>
                     @enderror
                 </label>
                 <textarea class="form-control" name="about" id="about" rows="4" maxlength="255">{{ $company->about }} </textarea>
@@ -76,7 +76,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     Website Url:
                     @error('website')
-                        <strong class="pull-right" style="color: red"> * Invalid Website Url *</strong>
+                        <strong class="text-danger"> * Invalid Website Url *</strong>
                     @enderror
                 </label>
                 <input type="url" name="website" placeholder="" value="{{ $company->website }}"  maxlength="255" class="form-control">

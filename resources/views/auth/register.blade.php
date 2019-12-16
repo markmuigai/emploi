@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <label for="email">
             Email
             @error('email')
-                <strong class="pull-right" style="color: red"> * Email already registered *</strong>
+                <strong class="text-danger"> * Email already registered *</strong>
             @enderror
         </label>
         <input type="email" required="" value="{{ old('email') }}" name="email" path="email" id="email" class="form-control" maxlength="50" />
@@ -104,17 +104,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <label for="">
         Attach Your Resume  (Max 5MB)
         @error('resume')
-            <strong class="pull-right" style="color: red"> * File uploaded is more than 5MB *</strong>
+            <strong class="text-danger"> * File uploaded is more than 5MB *</strong>
         @enderror
     </label>
-    <div class="input-group mb-3">
-        <input type="file" required="" path="resume" class="custom-file-input" name="resume" id="resume" accept=".doc, .docx,.pdf" />
-        <label for="resume" class="custom-file-label">doc, docx and pdf</label>
-        
+    <div class="form-group mb-3">
+        <label for="resume">doc, docx and pdf</label>
+        <input type="file" required="" path="resume" name="resume" id="resume" accept=".doc, .docx,.pdf" />
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-
         <input type="password" required="" value="" name="password" id="password" class="form-control" maxlength="50" />
 
     </div>

@@ -36,7 +36,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="form-group">
                     <label for="phone_number">Phone Number *</label>
-                    <input type="number" required="" path="phone_number" value="{{ $user->seeker->phone_number }}" name="phone_number" id="phone_number" class="form-control input-sm" style="" placeholder="254712312313"
+                    <input type="number" required="" path="phone_number" value="{{ $user->seeker->phone_number }}" name="phone_number" id="phone_number" class="form-control input-sm" placeholder="254712312313"
                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" />
                 </div>
                 <div class="form-group">
@@ -96,9 +96,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <strong class="pull-right text-danger"> * Uploaded avatar was invalid *</strong>
                         @enderror
                     </label>
-                  <div class="custom-file">
-                    <input type="file" name="avatar" class="custom-file-input" value="" accept=".jpg, .png,.jpeg" />
-                    <label class="custom-file-label" for="avatar">(png, jpg and jpeg Max 5MB)</label>
+                  <div class="form-group">
+                    <label for="avatar">(png, jpg and jpeg Max 5MB)</label>
+                    <input type="file" name="avatar" value="" accept=".jpg, .png,.jpeg" />
                   </div>
                 </div>
                 <div class="text-center">

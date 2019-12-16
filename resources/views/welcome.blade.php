@@ -380,7 +380,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         @forelse($featuredEmployers as $f)
         <div class="d-flex justify-content-center my-2">
-            <img src="images/logos/{{ $f }}.png" alt="">
+            <img src="images/logos/{{ $f }}.webp" alt="">
         </div>
         @empty
         @endforelse

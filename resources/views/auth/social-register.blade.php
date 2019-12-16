@@ -91,9 +91,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </select>
     </div>
     <label for="">Attach Your Resume</label>
-    <div class="input-group mb-3">
-        <input type="file" required="" path="resume" class="custom-file-input" name="resume" id="resume" accept=".doc, .docx,.pdf" />
-        <label for="resume" class="custom-file-label">Attach Resume</label>
+    <div class="form-group mb-3">
+      <label for="resume">Attach Resume</label>
+        <input type="file" required="" path="resume" name="resume" id="resume" accept=".doc, .docx,.pdf" />
     </div>
     <div class="form-group">
         <label for="password">Password</label>

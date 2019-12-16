@@ -8,13 +8,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 <div class="container">
-    <div class="single">  
+    <div class="single">
 	   <div class="form-container row">
         <h2 class="col-md-8 col-md-offset-2" >
         	 {{ $application->user->name }} <br>
-        	
+
         </h2>
-        <p class="col-md-8 col-md-offset-2" style="text-align: center;">
+        <p class="col-md-8 col-md-offset-2 text-center">
         	<a href="/employers/applications/{{ $application->post->slug }}/">
         	{{ $application->post->title }}
         	</a>
@@ -26,7 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="search_form1 row">
 
         	<br>
-		    
+
 		    <form method="POST" class="col-md-8 col-md-offset-2" action="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/personality">
 		    	@csrf
 		    	<p>
@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 								>{{ $p->name }}</option>
 							@endforeach
 						</select>
-						
+
 					</p>
 				<br>
 				<hr>
@@ -49,9 +49,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					<input type="submit" name="" >
 				</p>
 		    </form>
-        	
-	    	
-		    
+
+
+
 	    </div>
     </div>
  </div>
