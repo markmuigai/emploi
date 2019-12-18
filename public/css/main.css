@@ -92,17 +92,6 @@ ul.tick li:before {
     color: white;
 }
 
-.prompts {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 1001;
-}
-
-.send-message {
-    background: var(--secondary);
-}
-
 .purple-bg {
     background: var(--primary);
     color: white;
@@ -170,6 +159,10 @@ ul.tick li:before {
     border-radius: 20px;
 }
 
+input[type="file"] {
+    width: 100%;
+}
+
 .slick-prev .fas, .slick-next .fas {
     background: white;
     color: var(--primary);
@@ -205,6 +198,13 @@ ul.tick li:before {
 
 .slick-dots li.slick-active button {
     background: var(--primary);
+}
+
+.prompts {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1001;
 }
 
 .invite {
@@ -321,10 +321,6 @@ footer i {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.copy {
-    text-align: center;
 }
 
 /* FOOTER */

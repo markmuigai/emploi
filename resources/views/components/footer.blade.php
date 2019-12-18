@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="copy pt-3">
+        <div class="text-center pt-3">
             <p>Copyright &copy; {{ date('Y') }} Emploi . All Rights Reserved </p>
         </div>
     </div>

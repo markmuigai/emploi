@@ -103,7 +103,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/job-seekers/services">All Services</a>
-                        <a class="dropdown-item" href="/job-seekers/register">Upload CV</a>
+                        <a class="dropdown-item" href="/register">Upload CV</a>
                         <a class="dropdown-item" href="/job-seekers/cv-editing">CV Editing</a>
                         <a class="dropdown-item" href="/job-seekers/cv-templates">CV Templates</a>
                         <a class="dropdown-item" href="/job-seekers/premium-placement">Premium Placement</a>

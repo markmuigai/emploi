@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Emploi')
+@section('title','Emploi :: About Us')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
@@ -31,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5>Advertise Jobs</h5>
+                        <h5><a href="/employers/publish">Advertise Jobs</a></h5>
                         <p>Reach an audience of over 100,000 people through our network</p>
                     </div>
                 </div>
@@ -40,16 +40,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <i class="fas fa-book"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5>Browse CVs</h5>
+                        <h5><a href="employers/browse">Browse CVs</a></h5>
                         <p>View profiles of candidates and shortlist quicker.</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2 icon-service d-flex">
                     <div class="icon">
-                        <i class="fas fa-flash"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5>Premium Recruitment</h5>
+                        <h5><a href="employers/premium-recruitment">Premium Recruitment</a></h5>
                         <p>Let us handle your recruitment process and save time, money</p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="col-md-4 my-2 icon-service d-flex">
                     <div class="icon">
-                        <i class="fas fa-bar-chart-o"></i>
+                        <i class="fas fa-chart-bar"></i>
                     </div>
                     <div class="icon-box-body">
                         <h5>Candidate Vetting</h5>
@@ -76,7 +76,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <i class="fas fa-file"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5>Upload CV</h5>
+                        <h5><a href="/register">Upload CV</a></h5>
                         <p>Job Seekers upload CVs for quick job placements</p>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <i class="fas fa-pencil-alt"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5>CV Editing</h5>
+                        <h5><a href="/job-seekers/cv-editing">CV Editing</a></h5>
                         <p>We edit job seekers CVs while taking into consideration the industry</p>
                     </div>
                 </div>
@@ -94,16 +94,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <i class="fas fa-check"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5>CV Templates</h5>
+                        <h5><a href="/job-seekers/cv-templates">CV Templates</a></h5>
                         <p>We provide free templates and suggestions for updating your CVs</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2 icon-service d-flex">
                     <div class="icon">
-                        <i class="fas fa-flash"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5>Premium Placement</h5>
+                        <h5><a href="/job-seekers/premium-placement">Premium Placement</a></h5>
                         <p>Includes CV editing, interview coaching, and boost in search results as well as recommendation to employers</p>
                     </div>
                 </div>

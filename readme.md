@@ -11,7 +11,7 @@ Emploi is an end-to-end recruitment platform with the following features:
 
 ## Installing Emploi
 
-Ideal installation is on an Ubuntu 18.04 VPS. 
+Ideal installation is on an Ubuntu 18.04 VPS.
 
 ###Requirements
 - Ubuntu 18.04

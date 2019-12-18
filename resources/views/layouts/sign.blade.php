@@ -97,7 +97,7 @@
         <!-- END OF NAVBAR -->
     </header>
     <!-- MAIN CONTENT FOR EMPLOYER -->
-    <main class="sign-page pb-5">
+    <main class="sign-page mt-3 pb-5">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-12">
                 <div class="sign-left text-center">

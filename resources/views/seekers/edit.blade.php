@@ -88,18 +88,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label for="post_address">Address *</label>
                     <textarea class="form-control" name="post_address" id="address" rows="2">{{ $user->seeker->post_address }}</textarea>
                 </div>
-
                 <div class="form-group">
-                  <label>
-                        Update Profile Photo
-                        @error('avatar')
-                            <strong class="pull-right text-danger"> * Uploaded avatar was invalid *</strong>
-                        @enderror
-                    </label>
-                  <div class="form-group">
-                    <label for="avatar">(png, jpg and jpeg Max 5MB)</label>
+                    <label for="avatar">Update Profile Photo(.png, .jpg or .jpeg) <small>(Max 5MB)</small></label>
+                    @error('avatar')
+                        <p class="text-danger"> * Uploaded avatar was invalid *</p>
+                    @enderror
                     <input type="file" name="avatar" value="" accept=".jpg, .png,.jpeg" />
-                  </div>
                 </div>
                 <div class="text-center">
                     <a href="#" class="toSection2 btn btn-orange">Next > </a>
@@ -217,7 +211,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @endif
                             >{{ $c->name }}</option>
                         @endforeach
-
                     </select>
                 </div>
                 <div class="form-group">

@@ -17,15 +17,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 <form method="post" action="{{ route('login') }}">
     @csrf
+    @error('email')
+    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+        Invalid Email Address or Password
+    </div>
+    @enderror
+    @error('username')
+    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+        Invalid Username or Password
+    </div>
+    @enderror
     <div class="form-group">
         <label for="identity">
             Username or E-mail
-            @error('email')
-                <strong class="pull-right text-danger"> * Invalid Email Address or Password*</strong>
-            @enderror
-            @error('username')
-                <strong class="pull-right text-danger"> * Invalid Username or Password *</strong>
-            @enderror
         </label>
         <input type="text" name="identity" required="required" value="{{ old('identity') }}" class="form-control" placeholder="">
     </div>
