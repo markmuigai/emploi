@@ -203,6 +203,7 @@ class Post extends Model
     public static function featured($counter = 10){
         $posts = Post::where('featured','true')
                     //->where('status','active')
+                    ->where('status','!=','inactive')
                     //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                     ->limit($counter)
                     ->get();
@@ -235,6 +236,7 @@ class Post extends Model
     public static function recent($counter = 10){
         return Post:://where('status','active')
                     //->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                    ->where('status','!=','inactive')
                     limit($counter)
                     ->get();
     }
