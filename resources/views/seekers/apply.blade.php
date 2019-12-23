@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
         <div class="text-right">
             <a href="/vacancies/{{ $post->slug }}" class="btn btn-sm btn-purple">View Job</a>
-            <a href="#share-links" class="btn btn-sm btn-orange-alt">Share</a>
+            <a href="#share-links" class="btn btn-sm btn-orange-alt" style="display: none">Share</a>
         </div>
         <div class="row align-items-center">
             <div class="col-md-6">
