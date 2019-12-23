@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', .$app->post->title.' Application')
+@section('page_title', $app->post->title.' Application')
 
 <div class="card">
     <div class="card-body">

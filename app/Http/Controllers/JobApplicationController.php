@@ -29,7 +29,7 @@ class JobApplicationController extends Controller
 	    		'cover' => $request->cover
 	    	]);
 
-            $r = CvRequest::where('employer',$post->company->user->employer->id)
+            $r = CvRequest::where('employer_id',$post->company->user->employer->id)
                     ->where('seeker_id',$user->seeker->id)
                     ->first();
 
