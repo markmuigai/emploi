@@ -22,7 +22,7 @@ class SitemapController extends Controller
 
 	public function posts()
 	{
-	    $posts = Post::orderBy('featured')->orderBy('created_at', 'desc')->where('status', '!=', 'inactive')->get();
+	    $posts = Post::orderBy('featured')->orderBy('created_at', 'desc')->where('status', '!=', 'inactive')->limit(20)->get();
 	    return response()->view('sitemap.posts', [
 	        'posts' => $posts,
 	    ])->header('Content-Type', 'text/xml');
@@ -30,7 +30,7 @@ class SitemapController extends Controller
 
 	public function blogs()
 	{
-	    $blogs = Blog::orderBy('created_at', 'desc')->get();
+	    $blogs = Blog::orderBy('created_at', 'desc')->limit(20)->get();
 	    return response()->view('sitemap.blogs', [
 	        'blogs' => $blogs,
 	    ])->header('Content-Type', 'text/xml');
