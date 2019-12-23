@@ -62,3 +62,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 @endif
 <!-- END Vue JS -->
+
+
+<script data-ad-client="ca-pub-1190977631366836" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
