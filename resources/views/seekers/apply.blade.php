@@ -37,6 +37,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="text-center pt-3">
             <h3 class="orange">Application for {{ $post->title }}</h3>
         </div>
+        @if(!Auth::user()->seeker->hasApplied($post))
         <form method="post" action="/vacancies/{{ $post->slug }}/apply">
             @csrf
             <div class="form-group">
@@ -44,7 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <textarea class="form-control" name="cover" rows="5" id="cover" placeholder="Compose cover letter" required="required"></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="display: none">
                 <input type="checkbox" checked="" name="follow"> Follow {{ $post->company->name }}
             </div>
 
@@ -54,57 +55,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <em>Your profile and resume will be made available to {{ $post->company->name }}. <a href="/profile/edit" class="orange">Edit my profile</a></em>
             </p>
         </form>
+        <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script>
+            setTimeout(function() {
+
+                CKEDITOR.replace('cover');
+
+            }, 3000);
+        </script>
+        @else
+
+        <p style="text-align: center;">
+            <br>
+            Your application for this position has already been submitted. <br>
+            <a href="/profile/applications/">Click here</a> to view your applications.
+        </p>
+
+        @endif
 
 
 
 
-        <div class="comments" style="display: none;">
-            <h6>Comments</h6>
-            <div class="media media_1">
-                <div class="media-left"><a href="#"> </a></div>
-                <div class="media-body">
-                    <h4 class="media-heading"><a class="author" href="#">Sollicitudin</a><a class="reply" href="#">Reply</a>
-                        <div class="clearfix"> </div>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-                    lacinia congue felis in faucibus.
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="media">
-                <div class="media-left"><a href="#"> </a></div>
-                <div class="media-body">
-                    <h4 class="media-heading"><a class="author" href="#">Sollicitudin</a><a class="reply" href="#">Reply</a>
-                        <div class="clearfix"> </div>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-                    lacinia congue felis in faucibus.
-                </div>
-            </div>
-        </div>
-        <form style="display: none;">
-            <div class="to">
-                <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-                <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-            </div>
-            <div class="text">
-                <textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-            </div>
-            <div class="form-submit1">
-                <input name="submit" type="submit" id="submit" value="Submit"><br>
-            </div>
-            <div class="clearfix"></div>
-        </form>
+        
     </div>
 </div>
 </div>
-<script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-<script>
-    setTimeout(function() {
 
-        CKEDITOR.replace('cover');
-
-    }, 3000);
-</script>
 
 @endsection
