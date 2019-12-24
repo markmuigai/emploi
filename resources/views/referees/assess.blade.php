@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', .$referee->seeker->user->name.' Assessment')
+@section('page_title', $referee->seeker->user->name.' Assessment')
 
 <form method="POST" action="/referees/{{ $referee->slug }}/save">
     @csrf
