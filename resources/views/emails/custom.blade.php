@@ -243,7 +243,6 @@
                             <br>
 
                             <a href="{{ url('/') }}" style="text-align: center;">Emploi</a>
-                            <a href="{{ url('/emails/unsubscribe/'.$email) }}" style="text-align: center;">Unsubscribe</a>
 
                         </td>
                     </tr>
