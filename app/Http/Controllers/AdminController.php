@@ -411,7 +411,7 @@ class AdminController extends Controller
                 break;
                 
             case 'test-users':
-                $sql = "SELECT name, email FROM users WHERE email = 'brian@emploi.co' OR email = 'sophy@emploi.co' ";
+                $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
                 //die($sql);
                 $result = DB::select($sql);
                 foreach($result as $user)
