@@ -62,7 +62,7 @@ class RefereeController extends Controller
     	if($r->ready)
     	{
     		$j = $r->jobApplicationReferee;
-    		$j->start_date = $request->start_date;
+    		//$j->start_date = $request->start_date;
     		$j->relationship = $request->relationship;
     		$j->reason_for_leaving = $request->reason_for_leaving;
     		$j->performance = $request->performance;
