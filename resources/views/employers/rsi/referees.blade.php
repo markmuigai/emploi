@@ -20,12 +20,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row">
             @forelse($app->seekerApplications as $b)
             <div class="col-md-4 col-6">
-                <?php
-                    $ref = false;
-                    $r2 = \App\JobApplicationReferee::find($b->job_application_referee_id);
-                    dd($r2);
-                 ?>
-                {{ dd($b) }}
                 {{ $b->jobApplicationReferee->referee->relationship }} at {{ $b->jobApplicationReferee->referee->organization }}
                 <strong>{{ $b->jobApplicationReferee->referee->name }}</strong>
             </div>
