@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Your Position at {{ $referee->organization }}</label <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="position" class="form-control input-sm" maxlength="50"
+                            <label>Your Position at {{ $referee->organization }}</label> <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="position" class="form-control input-sm" maxlength="50"
                               value="{{ $referee->position_held }}" />
                         </div>
                     </div>
