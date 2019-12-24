@@ -226,7 +226,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="d-flex justify-content-between">
                     <span id="page1" class="btn btn-purple">Go to Previous page</span>
 
-                    <button type="submit" name="button" class="btn btn-orange">Save Assessment</button>
+                    <input type="submit" class="btn btn-orange" value="Save Assessment">
+
                 </div>
             </div>
         </div>
