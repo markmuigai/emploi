@@ -20,7 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row">
             @forelse($app->seekerApplications as $b)
             <div class="col-md-4 col-6">
-                {{ dd($b->jobApplicationReferee) }}
+                {{ dd($b) }}
                 {{ $b->jobApplicationReferee->referee->relationship }} at {{ $b->jobApplicationReferee->referee->organization }}
                 <strong>{{ $b->jobApplicationReferee->referee->name }}</strong>
             </div>
