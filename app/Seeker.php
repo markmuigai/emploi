@@ -397,9 +397,9 @@ class Seeker extends Model
                 array_push($workQuality, $sj->work_quality);
                 array_push($targets, $sj->meeting_targets);
             }
-            $performance = array_sum($performance ) / count($performance);
-            $workQuality = array_sum($workQuality ) / count($workQuality);
-            $targets = array_sum($targets ) / count($targets);
+            $performance = count($performance) > 0 ? array_sum($performance ) / count($performance) : 0;
+            $workQuality = count($workQuality) > 0 ? array_sum($workQuality ) / count($workQuality) : 0;
+            $targets = count($targets) > 0 ? array_sum($targets ) / count($targets) : 0;
 
             $perc += $ref;
 
