@@ -237,7 +237,7 @@
 							padding-bottom: 20px;
 							color: #999999;
 							font-family: sans-serif;" class="footer">
-                            We've introduced dignity into the job search industry by converting jobseekers from being part of an unrecognized pool, to being clients who are treated with dignity and are able to stand out for employers to recognize.
+                            Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.
 
 
                             <br>
