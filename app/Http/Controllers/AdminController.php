@@ -423,13 +423,28 @@ class AdminController extends Controller
                 break;
 
             case 'team':
-                $sql = "SELECT name, email FROM users WHERE email like \"%@emploi.co\"";
-                $result = DB::select($sql);
-                foreach($result as $user)
+
+                $team = [
+                    ['brian@emploi.co','Obare C. Brian'],
+                    ['sophy@emploi.co','Sophy Mwale'],
+                    ['liza@emploi.co','Liza Adhiambo'],
+                    ['sally@emploi.co','Sally Muya'],
+                    ['adam@emploi.co','Adam'],
+                    ['margaret@emploi.co','Margaret Ongachi']
+                ];
+
+                for($i=0; $i<count($team); $i++)
                 {
-                    if(User::subscriptionStatus($user->email))
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                    VacancyEmail::dispatch($team[$i][0],$team[$i][1], $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
                 }
+
+                // $sql = "SELECT name, email FROM users WHERE email like \"%@emploi.co\"";
+                // $result = DB::select($sql);
+                // foreach($result as $user)
+                // {
+                //     if(User::subscriptionStatus($user->email))
+                //         VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                // }
                 
                 break;
 
