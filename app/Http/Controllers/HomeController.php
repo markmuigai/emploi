@@ -115,6 +115,8 @@ class HomeController extends Controller
                 $user->avatar = basename(Storage::put($storage_path, $request->avatar));
             }
 
+            $user->updated_at = now();
+
             if($user->save())
             {
                 $seeker = $user->seeker;
@@ -157,6 +159,7 @@ class HomeController extends Controller
                     $seeker->resume = $resume_url;
                     $parser = new Parser($resume_url);
                     $seeker->resume_contents = $parser->convertToText();
+                    $seeker->updated_at = now();
                 }
 
 
