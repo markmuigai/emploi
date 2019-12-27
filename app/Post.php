@@ -208,28 +208,7 @@ class Post extends Model
                     ->orderBy('id','DESC')
                     ->limit($counter)
                     ->get();
-        // if(count($posts) < $counter)
-        // {
-        //     $toAdd = count($posts) - $counter;
-        //     $recentPosts = Post::recent(30);
-        //     for($i=0; $i<$toAdd; $i++)
-        //     {
-        //         $post = $recentPosts[$i];
-        //         $added = false;
-        //         for($k=0; $k<count($posts);$k++)
-        //         {
-        //             if($post->id == $posts[$i]->id)
-        //             {
-        //                 $added = true;
-        //                 break;
-        //             }
-        //         }
-        //         if(!$added)
-        //         {
-        //             array_push($posts, $post);
-        //         }
-        //     }
-        // }
+                    
 
         return $posts;
     }
