@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endif
 
 
+
 @section('page_title', $user->name)
 <!-- NAV-TABS -->
 <ul class="nav nav-tabs" id="jobDetails" role="tablist">
@@ -131,6 +132,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="text-center">
                     <p><strong>{{ $user->name }}</strong></p>
+                    @if($user->seeker->searching)
+                    <b style="color: green; font-size: 80%">SEARCHING</b> 
+                    @endif
+                    <br>
                     @if( $user->seeker->featured != 0 )
                     <p class="text-success"><strong><i class='fa fa-star'></i> Featured</strong></p>
                     @endif

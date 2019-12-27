@@ -203,6 +203,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body p-5">
                 <h3 class="text-center">Step 3 of 3 : Employment</h3>
                 <div class="form-group">
+                    <label for="searching">Actively Searching *</label>
+                    <select path="searching" id="searching" name="searching" class="form-control input-sm">
+                        <option value="true" {{ $user->seeker->searching ? 'selected=""' : '' }}>I'm actively Looking for a job</option>
+                        <option value="false" {{ $user->seeker->searching ?  '' : 'selected=""' }}>NOT Looking for a job</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="industry">Industry *</label>
                     <select path="industry" id="industry" name="industry" class="form-control input-sm">
                         @foreach($industries as $c)

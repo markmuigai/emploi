@@ -16,7 +16,7 @@ use App\SeekerSkill;
 class Seeker extends Model
 {
     protected $fillable = [
-        'user_id','public_name', 'gender', 'date_of_birth', 'phone_number','current_position','post_address','years_experience','industry_id','country_id','location_id','education_level_id','objective','resume','featured','education','experience','resume_contents'
+        'user_id','public_name', 'gender', 'date_of_birth', 'phone_number','current_position','post_address','years_experience','industry_id','country_id','location_id','education_level_id','objective','resume','featured','education','experience','resume_contents','searching'
     ];
 
     public function user(){
