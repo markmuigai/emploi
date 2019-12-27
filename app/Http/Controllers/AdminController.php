@@ -115,7 +115,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $gender = "OR gender=".$request->gender;
+                    $gender = "OR gender='".$request->gender."'";
                 }
                 
             }
@@ -154,7 +154,7 @@ class AdminController extends Controller
                 $where = " WHERE ";
             else
                 $where = "";
-            $sql = "SELECT id FROM seekers $where $location $industry $gender $phone_number $keywords";
+            $sql = "SELECT id FROM seekers $where $location $industry $gender $phone_number $keywords ORDER BY id DESC";
             $results = DB::select($sql);
             $seekers = [];
             for($i=0; $i<count($results); $i++)
@@ -196,7 +196,7 @@ class AdminController extends Controller
         return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
                     ->with('locations',Location::orderBy('name')->get())
-                    ->with('seekers',Seeker::paginate(10));
+                    ->with('seekers',Seeker::orderBy('id','DESC')->paginate(10));
         //show all seekers
     }
 
