@@ -63,11 +63,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     $counter = '[';
     $labels = '[';
-    for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
+    $weekelyCount = Auth::user()->employer->weekApplicationsCounter;
+    for($i=0; $i<count($weekelyCount); $i++)
     {
-        $counter .= Auth::user()->employer->weekApplicationsCounter[$i][0];
-        $labels .= '"'.Auth::user()->employer->weekApplicationsCounter[$i][1].'"';
-        if(count(Auth::user()->employer->weekApplicationsCounter) != $i-1)
+        $counter .= $weekelyCount[$i][0];
+        $labels .= '"'.$weekelyCount[$i][1].'"';
+        if(count($weekelyCount) != $i-1)
         {
             $counter.=',';
             $labels.=',';
