@@ -2,16 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
     <meta name="description" content="@yield('description')" />
-    <meta name="csrf-token" content="{{ csrf_token() }}" id="csrf_token">
     <!-- Page Title -->
     <title>@yield('title')</title>
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/favicon.png') }}">
+    @include('components.meta')
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
@@ -33,12 +27,6 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
     <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
-    <!-- Vue JS -->
-    @if (config('app.env') === 'production')
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    @else
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    @endif
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
