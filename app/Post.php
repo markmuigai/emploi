@@ -205,6 +205,7 @@ class Post extends Model
                     //->where('status','active')
                     ->where('status','!=','inactive')
                     //->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                    ->orderBy('id','DESC')
                     ->limit($counter)
                     ->get();
         // if(count($posts) < $counter)
