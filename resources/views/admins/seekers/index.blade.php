@@ -74,6 +74,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><a href="mailto:{{ $seeker->user->email }}" class="orange">{{ $seeker->user->email }}</a></p>
                 <p>{{ $seeker->phone_number }}</p>
                 <p>{{ $seeker->sex }}</p>
+                <p>Registered: {{ $seeker->created_at }}</p>
             </div>
         </div>
         <hr>

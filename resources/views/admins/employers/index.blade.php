@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row align-items-center">
             <div class=" col-lg-7 col-md-6">
                 <h4>{{ $e->name }} <small>[{{ $e->industry->name }}]</small></h4>
-                <b>{{ $e->country->name }}</b> || 
+                <b>{{ $e->country->name }}</b> || Registered: {{ $e->created_at }}
                 <form action="/admin/log-in-as" method="POST">
                 	@csrf
                 	<input type="hidden" name="user_id" value="{{ $e->user->id }}">
