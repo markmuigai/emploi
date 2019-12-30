@@ -69,7 +69,7 @@ ul.tick li:before {
 }
 
 .btn {
-    padding: 0.3rem 1rem;
+    padding: 0.25rem 1rem;
     border-radius: 20px;
     border: 2px solid;
 }
@@ -244,6 +244,7 @@ img.avatar-small {
     color: white;
     font-size: 1rem;
     padding: 0;
+    align-items: center;
 }
 
 .navbar-brand img {
@@ -269,18 +270,23 @@ img.profile-avatar {
     color: white;
 }
 
-.navbar-nav .nav-link {
-    border-bottom: 1px solid transparent;
-    transition: background 0.5s, border 0s;
+.navbar-nav {
+    align-items: center;
 }
 
-.navbar-nav .nav-link:hover {
-    background: white;
+.navbar-nav .nav-link {
+    border-bottom: 1px solid transparent;
     border-radius: 20px;
-    transition-delay: border 0.5s;
+    /* transition: background 0.5s, border 0s; */
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active:hover {
+    border-radius: 20px;
+    background: white;
 }
 
 .navbar-nav .nav-link.active {
+    border-radius: 0;
     border-bottom-color: white;
 }
 
@@ -809,6 +815,10 @@ a .fab:hover {
 }
 
 @media only screen and (max-width: 1024px) {
+    .landing {
+        background-position: right;
+    }
+
     .top-bg {
         height: 28vh;
     }
@@ -857,6 +867,9 @@ a .fab:hover {
     .landing {
         background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
         height: 50vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
     }
 
     /* STATISTICS */
@@ -949,8 +962,9 @@ a .fab:hover {
     /* LANDING */
     .landing {
         background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
-        background-position: right;
+        background-repeat: no-repeat;
         background-size: cover;
+        background-position: right;
         height: 80vh;
     }
 
