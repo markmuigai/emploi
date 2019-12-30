@@ -657,14 +657,14 @@ main {
     background-position: center;
     background-size: cover;
     position: absolute;
-    height: 53vh;
+    height: 55vh;
     width: 100%;
 }
 
 .advert-details {
     color: white;
     font-size: 1.1rem;
-    height: 53vh;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -808,11 +808,11 @@ a .fab:hover {
 
 @media only screen and (max-width: 1024px) {
     .top-bg {
-        height: 25vh;
+        height: 28vh;
     }
 
     .advert-details {
-        height: 25vh;
+        height: 28vh;
     }
 }
 
@@ -893,11 +893,12 @@ a .fab:hover {
     }
 
     .top-bg {
-        height: 30vh;
+        height: 32vh;
     }
 
     .advert-details {
-        height: 30vh;
+        height: 32vh;
+        padding-top: 2rem;
     }
 
     .error-page {

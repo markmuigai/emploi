@@ -155,7 +155,7 @@ class ContactController extends Controller
         return view('seekers.services');
     }
     public function epublish(){
-        return view('employers.publish'); 
+        return view('employers.publish1'); 
     }
 
 

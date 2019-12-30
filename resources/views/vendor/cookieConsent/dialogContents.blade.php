@@ -7,7 +7,7 @@
         text-align: center;
         background-color: rgba(80, 0, 149, 0.6);
         color: white;
-        padding: 0.5rem 4rem;
+        padding: 0.5rem 3.8rem;
         font-size: 0.9rem;
     }
 
