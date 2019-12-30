@@ -87,6 +87,7 @@ Route::get('/employers/hr-services', 'ContactController@hrservices');
 Route::get('/employers', 'ContactController@employersIndex');
 
 Route::group([ 'middleware' => 'shortlist'], function(){
+    Route::resource('/employers/saved', 'SavedProfileController');
     Route::get('/employers/browse', 'EmployerController@browse');
     Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');
     Route::post('/employers/shortlist', 'EmployerController@applyForUser');

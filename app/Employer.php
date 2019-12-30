@@ -8,6 +8,7 @@ use Watson\Rememberable\Rememberable;
 
 use App\CvRequest;
 use App\JobApplication;
+use App\SavedProfile;
 
 use Carbon\Carbon;
 
@@ -70,6 +71,39 @@ class Employer extends Model
 
     public function savedProfiles(){
         return $this->hasMany(SavedProfile::class);
+    }
+
+    public function hasSavedProfile($seeker){
+        $s = SavedProfile::where('employer_id',$this->id)
+                ->where('seeker_id',$seeker->id)
+                ->first();
+        if(isset($s->id))
+            return true;
+        return false;
+    }
+
+    public function getSavedProfile($seeker){
+        $sp = SavedProfile::where('employer_id',$this->id)->where('seeker_id',$seeker->id)->first();
+        if(isset($sp->id))
+            return $sp;
+        return false;
+    }
+
+    public function saveProfile($seeker){
+        SavedProfile::create([
+            'employer_id' => $this->id,
+            'seeker_id' => $seeker->id
+        ]);
+        return true;
+    }
+
+    public function removeSavedProfile($seeker){
+        $sp = SavedProfile::where('employer_id',$this->id)
+                ->where('seeker_id',$seeker->id)
+                ->first();
+        if(isset($sp->id))
+            return $sp->delete();
+        return true;
     }
 
     public function getPostsAttribute(){
