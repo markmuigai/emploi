@@ -126,17 +126,19 @@ ul.tick li:before {
 
 .btn-purple {
     background: var(--primary);
-    border-right: var(--primary);
+    border-color: var(--primary);
     color: white;
 }
 
 .btn-purple:hover {
-    background: #7a05e2;
+    background: #2c0152;
+    border-color: #2c0152;
     color: white;
 }
 
 .btn-purple:focus {
-    background: #2c0152;
+    background: #7a05e2;
+    border-color: #7a05e2;
 }
 
 .btn-white {
@@ -155,8 +157,14 @@ ul.tick li:before {
     color: white;
 }
 
-.form-control, .custom-select, .custom-file-label::after, .custom-file-label {
+.form-control, .custom-select {
     border-radius: 20px;
+}
+
+.form-control:focus, .custom-select:focus {
+    border-color: #8c8c8c;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(140, 140, 140, .25);
 }
 
 input[type="file"] {
@@ -649,17 +657,21 @@ main {
     background-position: center;
     background-size: cover;
     position: absolute;
-    height: 38vh;
+    height: 53vh;
     width: 100%;
 }
 
 .advert-details {
     color: white;
     font-size: 1.1rem;
-    height: 33vh;
+    height: 53vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+ul.feature_list {
+    padding-left: 1rem;
 }
 
 main.sign-page {
@@ -796,11 +808,11 @@ a .fab:hover {
 
 @media only screen and (max-width: 1024px) {
     .top-bg {
-        height: 30vh;
+        height: 25vh;
     }
 
     .advert-details {
-        height: 28vh;
+        height: 25vh;
     }
 }
 
@@ -885,7 +897,7 @@ a .fab:hover {
     }
 
     .advert-details {
-        height: 28vh;
+        height: 30vh;
     }
 
     .error-page {
@@ -975,7 +987,7 @@ a .fab:hover {
 
     /* END OF CONTACT */
     .top-bg {
-        height: 50vh;
+        height: 45vh;
     }
 
     .advert-details {
