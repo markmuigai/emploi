@@ -62,6 +62,7 @@ class AdminController extends Controller
     	if(!isset($post->id))
     		abort(404);
     	$post->status = $request->status;
+        $post->featured = $request->featured;
     	$post->save();
     	return redirect()->back(); ;
     	return $request->all();
@@ -114,7 +115,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $gender = "OR gender=".$request->gender;
+                    $gender = "OR gender='".$request->gender."'";
                 }
                 
             }
@@ -153,7 +154,7 @@ class AdminController extends Controller
                 $where = " WHERE ";
             else
                 $where = "";
-            $sql = "SELECT id FROM seekers $where $location $industry $gender $phone_number $keywords";
+            $sql = "SELECT id FROM seekers $where $location $industry $gender $phone_number $keywords ORDER BY id DESC";
             $results = DB::select($sql);
             $seekers = [];
             for($i=0; $i<count($results); $i++)
@@ -195,7 +196,7 @@ class AdminController extends Controller
         return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
                     ->with('locations',Location::orderBy('name')->get())
-                    ->with('seekers',Seeker::paginate(10));
+                    ->with('seekers',Seeker::orderBy('id','DESC')->paginate(10));
         //show all seekers
     }
 
@@ -410,7 +411,7 @@ class AdminController extends Controller
                 break;
                 
             case 'test-users':
-                $sql = "SELECT name, email FROM users WHERE email = 'brian@emploi.co' OR email = 'sophy@emploi.co' ";
+                $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
                 //die($sql);
                 $result = DB::select($sql);
                 foreach($result as $user)
@@ -422,13 +423,28 @@ class AdminController extends Controller
                 break;
 
             case 'team':
-                $sql = "SELECT name, email FROM users WHERE email like \"%@emploi.co\"";
-                $result = DB::select($sql);
-                foreach($result as $user)
+
+                $team = [
+                    ['brian@emploi.co','Obare C. Brian'],
+                    ['sophy@emploi.co','Sophy Mwale'],
+                    ['liza@emploi.co','Liza Adhiambo'],
+                    ['sally@emploi.co','Sally Muya'],
+                    ['adam@emploi.co','Adam'],
+                    ['margaret@emploi.co','Margaret Ongachi']
+                ];
+
+                for($i=0; $i<count($team); $i++)
                 {
-                    if(User::subscriptionStatus($user->email))
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                    VacancyEmail::dispatch($team[$i][0],$team[$i][1], $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
                 }
+
+                // $sql = "SELECT name, email FROM users WHERE email like \"%@emploi.co\"";
+                // $result = DB::select($sql);
+                // foreach($result as $user)
+                // {
+                //     if(User::subscriptionStatus($user->email))
+                //         VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                // }
                 
                 break;
 

@@ -11,7 +11,6 @@
 <meta name="theme-color" content="#500095">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="application-name" content="Emploi">
-<link rel="icon" sizes="512x512" href="/images/favicon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Emploi">
@@ -62,3 +61,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 @endif
 <!-- END Vue JS -->
+
+
+<script data-ad-client="ca-pub-1190977631366836" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

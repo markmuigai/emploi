@@ -63,7 +63,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <h3>
                             <a href="/employers/browse/{{ $s->user->username }}">
                                 <strong>{{ $s->public_name }}</strong>
+                                
                             </a>
+                            @if($s->searching)
+                            <b style="color: green; float: right; font-size: 80%">SEARCHING</b> 
+                            @endif
                         </h3>
                         <p class="text-success">{{ $s->current_position ? $s->current_position : 'N/A' }}</p>
                         <p>{{ $s->industry->name }}</p>

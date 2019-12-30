@@ -55,6 +55,7 @@ Route::get('/create-account', 'ContactController@createAcc');
 
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
+    Route::get('dashboard-data', 'EmployerController@dashboardData');
 
 });
 Route::get('/employers/register', 'EmployerController@register');
@@ -191,3 +192,8 @@ Route::get('auth-with/{provider}/callback', 'SocialiteController@handleProviderC
 
 Route::get('/unsubscribe/{email}', 'EmailController@unsubscribe')->name('unsubscribe');
 Route::get('/subscribe/{email}', 'EmailController@subscribe')->name('subscribe');
+
+
+Route::get('/sitemap.xml', 'SitemapController@index');
+Route::get('/sitemap/posts.xml', 'SitemapController@posts');
+Route::get('/sitemap/blogs.xml', 'SitemapController@blogs');

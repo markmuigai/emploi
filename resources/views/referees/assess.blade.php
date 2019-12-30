@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', .$referee->seeker->user->name.' Assessment')
+@section('page_title', $referee->seeker->user->name.' Assessment')
 
 <form method="POST" action="/referees/{{ $referee->slug }}/save">
     @csrf
@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Your Position at {{ $referee->organization }}</label <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="position" class="form-control input-sm" maxlength="50"
+                            <label>Your Position at {{ $referee->organization }}</label> <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="position" class="form-control input-sm" maxlength="50"
                               value="{{ $referee->position_held }}" />
                         </div>
                     </div>
@@ -226,7 +226,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="d-flex justify-content-between">
                     <span id="page1" class="btn btn-purple">Go to Previous page</span>
 
-                    <button type="submit" name="button" class="btn btn-orange">Save Assessment</button>
+                    <input type="submit" class="btn btn-orange" value="Save Assessment">
+
                 </div>
             </div>
         </div>

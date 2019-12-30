@@ -61,7 +61,9 @@ class User extends Authenticatable
     }
 
     public function getRoleAttribute(){
+        //dd($this->userPermission->permission->role);
         $perm = $this->userPermission;
+        return $perm->permission->role;
         if($perm->status == 'active')
             return $perm->permission->role;
         return 'guest';

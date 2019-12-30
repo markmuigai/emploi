@@ -49,6 +49,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @endforeach
                         </select>
                     </div>
+                    <div class="col-lg-3 col-7">
+                        <select name="featured" class="custom-select" onchange="">
+                            <option value="true" {{ $p->featured == 'true' ? 'selected="" ': "" }}>
+                                Featured
+                            </option>
+                            <option value="false" {{ $p->featured == 'false' ? 'selected="" ': "" }}>
+                                Not Featured
+                            </option>
+                        </select>
+                    </div>
                     <div class="col-lg-3 col-4">
                         <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
                     </div>

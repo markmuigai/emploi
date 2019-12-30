@@ -60,24 +60,29 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script>
     <?php
+
     $counter = '[';
     $labels = '[';
-    // for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
-    // {
-    //     $counter .= Auth::user()->employer->weekApplicationsCounter[$i][0];
-    //     $labels .= '"'.Auth::user()->employer->weekApplicationsCounter[$i][1].'"';
-    //     if(count(Auth::user()->employer->weekApplicationsCounter) != $i-1)
-    //     {
-    //         $counter.=',';
-    //         $labels.=',';
-    //     }
-    // }
+    $weekelyCount = Auth::user()->employer->weekApplicationsCounter;
+    for($i=0; $i<count($weekelyCount); $i++)
+    {
+        $counter .= $weekelyCount[$i][0];
+        $labels .= '"'.$weekelyCount[$i][1].'"';
+        if(count($weekelyCount) != $i-1)
+        {
+            $counter.=',';
+            $labels.=',';
+        }
+    }
     $counter .= ']';
     $labels .= ']';
+    
     echo "var graph_data = $counter;";
     echo "var graph_labels = $labels;";
 
+
     ?>
+
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -109,6 +114,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         },
         maintainAspectRatio: false,
     });
+    
 </script>
 
 @endsection

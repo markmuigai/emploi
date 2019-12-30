@@ -16,7 +16,7 @@ use App\SeekerSkill;
 class Seeker extends Model
 {
     protected $fillable = [
-        'user_id','public_name', 'gender', 'date_of_birth', 'phone_number','current_position','post_address','years_experience','industry_id','country_id','location_id','education_level_id','objective','resume','featured','education','experience','resume_contents'
+        'user_id','public_name', 'gender', 'date_of_birth', 'phone_number','current_position','post_address','years_experience','industry_id','country_id','location_id','education_level_id','objective','resume','featured','education','experience','resume_contents','searching'
     ];
 
     public function user(){
@@ -397,9 +397,9 @@ class Seeker extends Model
                 array_push($workQuality, $sj->work_quality);
                 array_push($targets, $sj->meeting_targets);
             }
-            $performance = array_sum($performance ) / count($performance);
-            $workQuality = array_sum($workQuality ) / count($workQuality);
-            $targets = array_sum($targets ) / count($targets);
+            $performance = count($performance) > 0 ? array_sum($performance ) / count($performance) : 0;
+            $workQuality = count($workQuality) > 0 ? array_sum($workQuality ) / count($workQuality) : 0;
+            $targets = count($targets) > 0 ? array_sum($targets ) / count($targets) : 0;
 
             $perc += $ref;
 
@@ -520,10 +520,10 @@ class Seeker extends Model
             return false;
         if( is_null($this->education_level_id) )
             return false;
-        if( is_null($this->education) )
-            return false;
-        if( is_null($this->experience) )
-            return false;
+        // if( is_null($this->education) )
+        //     return false;
+        // if( is_null($this->experience) )
+        //     return false;
         return true;
     }
 

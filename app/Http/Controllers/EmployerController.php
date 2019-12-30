@@ -300,6 +300,25 @@ class EmployerController extends Controller
                 ->with('industries',Industry::active());
     }
 
+    public function dashboardData(){
+        $counter = '[';
+        $labels = '[';
+        for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
+        {
+            $counter .= Auth::user()->employer->weekApplicationsCounter[$i][0];
+            $labels .= '"'.Auth::user()->employer->weekApplicationsCounter[$i][1].'"';
+            if(count(Auth::user()->employer->weekApplicationsCounter) != $i-1)
+            {
+                $counter.=',';
+                $labels.=',';
+            }
+        }
+        $counter .= ']';
+        $labels .= ']';
+
+        return array($counter,$labels);
+    }
+
     public function applications(Request $request, $slug){
         $post = Post::where('slug',$slug)->firstOrFail();
         $shortlist = isset($request->shortlist) ? true : false;

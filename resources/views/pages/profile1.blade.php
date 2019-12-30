@@ -51,9 +51,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="col-md-7 col-8">
                                 <h3 class="text-uppercase">{{ $user->name }}</h3>
                                 <h5>
+                                    @if($user->seeker->searching)
+                                    <b style="color: green">SEARCHING</b> 
+                                    @endif
                                     Job Seeker
                                     <br>
-                                    <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small>
+                                    <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small> 
                                 </h5>
                                 @if(!$user->seeker->hasCompletedProfile())
                                 <p class="text-center">
@@ -211,7 +214,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body px-4 pt-4 pb-0">
       <div class="row">
         <div class="col-lg-3 col-md-4 col-6">
-          <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" alt="" class="circle-img w-100 h-100" alt="{{ $c->name }}">
+          <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="circle-img w-100 h-100" alt="{{ $user->name }}">
         </div>
       </div>
         <div class="row align-items-center">
