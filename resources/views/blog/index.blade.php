@@ -31,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         @empty
-        <div class="card">
+        <div class="col-12 card">
             <div class="card-body text-center">
                 <p>No blogs found</p>
             </div>
@@ -44,6 +44,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 
 <!-- SEARCH BAR -->
-@include('components.search-form')
+<div class="position-relative ">
+
+  @include('components.search-form')
+</div>
 <!-- END OF SEARCH BAR -->
 @endsection
