@@ -37,6 +37,10 @@ class Employer extends Model
         return $this->user->companies;
     }
 
+    public function cvRequests(){
+        return $this->hasMany(CvRequest::class);
+    }
+
     public function hasRequestedCV($seeker)
     {
         $r = CvRequest::where('employer_id',$this->id)->where('seeker_id',$seeker->id)->first();
