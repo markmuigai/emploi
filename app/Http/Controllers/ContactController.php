@@ -49,7 +49,7 @@ class ContactController extends Controller
 
             <a href='".url('/admin/contacts/'.$c->id)."'>Click here</a> to respond to ".$c->name;
 
-            EmailJob::dispatch('Emploi Admin', 'brian@jobsikaz.com', 'New Contact Received', $caption, $contents);
+            EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'New Contact Received', $caption, $contents);
 
     		return view('contacts.success')
     				->with('code',$code);

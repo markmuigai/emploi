@@ -130,6 +130,11 @@ class EmployerController extends Controller
                 ";
         EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
+        $caption = "A new employer has registered on Emploi";
+        $contents = $c->user->name." has created a company on Emploi using the name <b>".$c->name."<b>.<br>
+        Log in to <a href='/admin/panel'>Admin panel</a> to manage companies.";
+        EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Company '.$c->name.' Created', $caption, $contents);
+
         //send welcome email to company
         //send credentials to employer
         return view('employers.registered')
@@ -625,7 +630,7 @@ class EmployerController extends Controller
         Phone: ".$c->seeker->phone_number." <br>.
         <br>
         ";
-        EmailJob::dispatch('Emploi Admin', 'info@emploi.co', "Candidate Selected for ".$post->title." Succesfull", $caption, $contents);
+        EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', "Candidate Selected for ".$post->title." Succesfull", $caption, $contents);
         if($post->positions == count($post->candidates))
         {
             $post->status = 'closed';
