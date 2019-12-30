@@ -73,7 +73,11 @@ class JobApplicationController extends Controller
 
                 <a href='".url('/home')."'>My Account</a>
                 ";
-                EmailJob::dispatch($post->company->user->name, $post->company->user->email, 'Application for '.$post->title." Received", $caption, $contents);
+                $email = $post->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
+
+                $email = $email = null ? $post->company->user->email : $email;
+
+                EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
 	    		return view('seekers.applied')
 	    				->with('post',$post);
 	    	}

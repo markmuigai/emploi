@@ -140,7 +140,12 @@ class PostsController extends Controller
             <br>
             <a class='btn btn-sm btn-primary' href='".url('/vacancies/create')."'>Create Advert</a>.
             ";
-            EmailJob::dispatch($p->company->user->name, $p->company->user->email, $p->title.' Post on Emploi', $caption, $contents);
+
+            $email = $p->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
+
+            $email = $email = null ? $p->company->user->email : $email;
+
+            EmailJob::dispatch($p->company->user->name, $email, $p->title.' Post on Emploi', $caption, $contents);
 
             $caption = $p->title." Job Post Request Placed";
             $contents = "
@@ -148,7 +153,7 @@ class PostsController extends Controller
             <br><br>
             Click <a href='".url('/admin/posts')."'>here </a> to review job post.
             ";
-            EmailJob::dispatch('Emploi Admin', 'info@emploi.co', $p->title.' on Emploi', $caption, $contents);
+            EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', $p->title.' on Emploi', $caption, $contents);
 
             return view('jobs.saved')
                 ->with('title','Job Advert Created Succesfully')

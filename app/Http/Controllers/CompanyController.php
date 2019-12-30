@@ -12,6 +12,8 @@ use App\CompanySize;
 use App\Industry;
 use App\Location;
 
+use App\Jobs\EmailJob;
+
 class CompanyController extends Controller
 {
     public function __construct() {
@@ -88,6 +90,11 @@ class CompanyController extends Controller
         if(isset($c->id))
         {
             $message = $c->name." has been created succesfully. <br> You can now post vacancies <a href='/vacancies/create'>here</a>";
+
+            $caption = "A new company has been created on Emploi";
+            $contents = $c->user->name." has created a company on Emploi using the name <b>".$c->name."<b>.<br>
+            Log in to <a href='/admin/panel'>Admin panel</a> to manage companies.";
+            EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Company '.$c->name.' Created', $caption, $contents);
         }
         else
         {
