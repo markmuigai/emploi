@@ -271,11 +271,13 @@ img.profile-avatar {
 
 .navbar-nav .nav-link {
     border-bottom: 1px solid transparent;
+    transition: background 0.5s, border 0s;
 }
 
 .navbar-nav .nav-link:hover {
     background: white;
     border-radius: 20px;
+    transition-delay: border 0.5s;
 }
 
 .navbar-nav .nav-link.active {
