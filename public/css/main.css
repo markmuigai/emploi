@@ -815,6 +815,10 @@ a .fab:hover {
 }
 
 @media only screen and (max-width: 1024px) {
+    .landing {
+        background-position: right;
+    }
+
     .top-bg {
         height: 28vh;
     }
@@ -863,6 +867,9 @@ a .fab:hover {
     .landing {
         background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
         height: 50vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
     }
 
     /* STATISTICS */
@@ -955,8 +962,9 @@ a .fab:hover {
     /* LANDING */
     .landing {
         background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
-        background-position: right;
+        background-repeat: no-repeat;
         background-size: cover;
+        background-position: right;
         height: 80vh;
     }
 
