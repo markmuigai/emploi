@@ -32,13 +32,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     @empty
-    <div class="card">
+    <div class="col-12">
+      <div class="card">
         <div class="card-body text-center">
             <p>
                 No companies have been found. Check back later.
             </p>
         </div>
     </div>
+  </div>
     @endforelse
 </div>
 

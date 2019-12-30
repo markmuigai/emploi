@@ -202,8 +202,8 @@ input[type="file"] {
 
 .prompts {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1rem;
+    right: 1rem;
     z-index: 1001;
 }
 
@@ -284,6 +284,15 @@ img.profile-avatar {
 
 .nav-link:hover .fa-search {
     color: var(--secondary);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.page-link {
+    color: var(--primary);
 }
 
 /* FOOTER */

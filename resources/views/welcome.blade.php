@@ -15,21 +15,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     }
 
     @media only screen and (min-width: 997px) {
-      .navbar {
-          background: transparent;
-          transition: background 0.5s;
-      }
+        .navbar {
+            background: transparent;
+            transition: background 0.5s;
+        }
 
-      .scrolled {
-          transition: background 1s;
-          background: var(--primary);
-      }
+        .scrolled {
+            transition: background 1s;
+            background: var(--primary);
+        }
     }
 
     @media only screen and (max-width: 996px) {
-      .navbar-brand img {
-          height: 40px;
-      }
+        .navbar-brand img {
+            height: 40px;
+        }
     }
 </style>
 
@@ -217,7 +217,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container mt-5 text-center">
     <h2 class="orange">Featured Jobs</h2>
     @if(is_null($posts))
-    <h4 class="text-center">No Jobs Available Yet.</h4>
+    <div class="text-center">
+        <p>No jobs posted yet. Please check back later.</p>
+    </div>
     @else
     <div class="featured-carousel">
         @forelse($posts as $p)
