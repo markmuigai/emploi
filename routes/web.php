@@ -143,6 +143,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::get('employers', 'AdminController@employers');
     Route::post('log-in-as', 'AdminController@loginas');
+
+    Route::get('received-requests/{id?}', 'AdvertController@index');
+    Route::post('received-requests/{id}', 'AdvertController@saveNotes');
 });
 
 
@@ -170,6 +173,7 @@ Route::get('/employers/train-employees', 'ContactController@retrain');
 
 Route::resource('/vacancies', 'PostsController');
 Route::get('/employers/publish', 'ContactController@epublish');
+Route::post('/employers/publish', 'AdvertController@store');
 Route::get('/vacancies/{slug}/apply','PostsController@apply')->middleware('seeker');
 Route::post('/vacancies/{slug}/apply','JobApplicationController@accept')->middleware('seeker');
 Route::get('/profile/applications/{id?}','SeekerController@applications')->middleware('seeker');

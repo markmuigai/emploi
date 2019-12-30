@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../public/css/main.css">
-</head>
+@extends('layouts.general-layout')
 
-<body>
+@section('title','Advertise on Emploi')
+
+@section('description')
+Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+@endsection
+
+@section('content')
+
     <main>
         <div class="top-bg"></div>
         <div class="container pb-0 pb-lg-4 pt-4">
@@ -31,7 +26,7 @@
                             Our services include <strong>Premium Recruitment</strong> - where we source and vet candidates on your behalf, <strong>Job Advertising and Shortlisting</strong>, and <strong>Database Search.</strong>
                         </p>
                         <p>
-                            To access these features, register as an employer and streamline your recruitment or advertise a job.
+                            To access these features, register as an employer and streamline your recruitment, advertise a job and browse candidates.
                         </p>
                     </div>
 
@@ -66,30 +61,32 @@
                     <div class="card mt-lg-0 mt-5">
                         <div class="card-body">
                             <h4 class="text-center">Create An Advert</h4>
-                            <form action="">
+                            <form action="/employers/publish" method="POST">
+                            	@csrf
                                 <div class="form-group">
                                     <label for="">Your Name</label>
-                                    <input type="text" name="" class="form-control" placeholder="">
+                                    <input type="text" name="name" value="" required="" class="form-control" placeholder="" maxlength="50">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone Number</label>
-                                    <input type="text" name="" class="form-control" placeholder="">
+                                    <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email Address</label>
-                                    <input type="text" name="" class="form-control" placeholder="">
+                                    <input type="email" name="email" value="" required="" class="form-control" placeholder="" maxlength="50">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Job Title</label>
-                                    <input type="text" name="" class="form-control" placeholder="">
+                                    <input type="text" name="title" maxlength="100" class="form-control" placeholder="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Job Description</label>
-                                    <textarea name="name" rows="3" class="form-control"></textarea>
+                                    <label for="description">Job Description</label>
+                                    <textarea name="description" id="description" rows="5" class="form-control"></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" name="button" class="btn btn-orange">Submit</button>
-                                    <p><em>If you already have an account, <a href="#" class="orange">Login</a></em></p>
+                                    <input type="submit" class="btn btn-orange" value="Submit">
+                                    <p><em>Create an Employer profile and shortlist with our Role Suitability Index. <br>
+                                    	<a href="/employers/register" class="orange">Employer Registration</a></em></p>
                                 </div>
                             </form>
                         </div>
@@ -98,6 +95,6 @@
             </div>
         </div>
     </main>
-</body>
 
-</html>
+
+@endsection
