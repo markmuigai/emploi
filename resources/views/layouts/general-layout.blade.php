@@ -62,6 +62,7 @@
     <script src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{asset('js/share.js')}}"></script>
 </head>
 
 <body>

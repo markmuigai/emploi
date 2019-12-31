@@ -22,6 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{asset('js/share.js')}}"></script>
 </head>
 <body>
     <div id="app">

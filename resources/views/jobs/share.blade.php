@@ -28,7 +28,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <option>Facebook</option>
                     <option>LinkedIn</option>
                     <option>Twitter</option>
-                    <option>Instagram</option>
                 </select>
             </div>
             <p>

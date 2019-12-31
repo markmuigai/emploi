@@ -49,6 +49,32 @@ class EmployerController extends Controller
     			->with('countries',Country::active());
     }
 
+    public function shareJob(Request $request, $slug){
+        $user = Auth::user();
+
+        if($user->email == 'jobs@emploi.co' || $user->email == 'info@emploi.co')
+        {
+            $post = Post::where('slug',$slug)->firstOrFail();
+            return view('jobs.share')
+                    ->with('post',$post);
+            dd($post);
+        }
+        abort(403);       
+
+    }
+
+    public function shareJobNow(Request $request, $slug){
+        $user = Auth::user();
+
+        if($user->email == 'jobs@emploi.co' || $user->email == 'info@emploi.co')
+        {
+            $post = Post::where('slug',$slug)->firstOrFail();
+            return $request->all();
+        }
+        abort(403);       
+
+    }
+
     public function create(Request $request)
     {
 

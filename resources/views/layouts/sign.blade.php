@@ -41,6 +41,7 @@
     <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{asset('js/share.js')}}"></script>
 </head>
 
 <body>
