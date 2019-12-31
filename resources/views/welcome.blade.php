@@ -430,6 +430,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+@include('components.top-search')
 <!-- END OF GET STARTED -->
 <script type="text/javascript">
     $(document).ready(function() {
