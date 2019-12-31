@@ -90,6 +90,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         @endforelse
     </div>
+
+    <div>
+        {{ $posts->links() }}
+    </div>
     <!-- END OF ALL JOBS -->
     <!-- ACTIVE JOBS -->
     <div class="tab-pane fade" id="active-jobs" role="tabpanel" aria-labelledby="active-jobs-tab">

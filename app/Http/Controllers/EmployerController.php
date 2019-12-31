@@ -253,14 +253,17 @@ class EmployerController extends Controller
 
     public function jobs(Request $request)
     {
-        if(isset(Auth::user()->id))
+        $employer = Auth::user()->employer;
+        //return $employer->posts;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
         {
-            $employer = Auth::user()->employer;
-            //return $employer->posts;
-            return view('employers.dashboard.jobs')
-                    ->with('posts',$employer->posts);
+            array_push($company_ids, $companies[$i]->id);
         }
-        abort(403);
+        $posts = Post::whereIn('company_id',$company_ids)->orderBy('id','DESC')->paginate(20);
+        return view('employers.dashboard.jobs')
+                ->with('posts',$posts);
         
     }
 
@@ -268,8 +271,15 @@ class EmployerController extends Controller
     {
         
         $employer = Auth::user()->employer;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->orderBy('id','DESC')->paginate(20);
         return view('employers.dashboard.jobs-active')
-                ->with('activePosts',$employer->activePosts);
+                ->with('activePosts',$posts);
         
         
     }
@@ -278,8 +288,15 @@ class EmployerController extends Controller
     {
         
         $employer = Auth::user()->employer;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','!=','active')->orderBy('id','DESC')->paginate(20);
         return view('employers.dashboard.jobs-other')
-                ->with('closedPosts',$employer->closedPosts);
+                ->with('closedPosts',$posts);
         
         
     }

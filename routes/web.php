@@ -56,6 +56,9 @@ Route::get('/create-account', 'ContactController@createAcc');
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
     Route::get('dashboard-data', 'EmployerController@dashboardData');
+    Route::get('jobs', 'EmployerController@jobs');
+    Route::get('jobs/active', 'EmployerController@activeJobs');
+    Route::get('jobs/other', 'EmployerController@otherJobs');
 
 });
 Route::get('/employers/register', 'EmployerController@register');
@@ -73,9 +76,7 @@ Route::get('/employers/rate-card', 'ContactController@rateCard');
 // Route::get('/test-email', function () {    	return view('emails.custom-alt');	});
 // Route::get('/email1', function () {    	return view('emails.custom');	});
 
-Route::get('/employers/jobs', 'EmployerController@jobs');
-Route::get('/employers/jobs/active', 'EmployerController@activeJobs');
-Route::get('/employers/jobs/other', 'EmployerController@otherJobs');
+
 //Route::get('/employers/reviews', 'ContactController@reviews');
 //Route::get('/employers/applicants', 'ContactController@applicants');
 

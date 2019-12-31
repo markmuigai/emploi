@@ -24,12 +24,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- NAV-TAB CONTENT -->
 <div class="tab-content pt-2" id="jobsContent">
     <!-- ALL JOBS -->
-    <div class="tab-pane fade show active" id="all-jobs" role="tabpanel" aria-labelledby="all-jobs-tab">
+    <div class="tab-pane fade  " id="all-jobs" role="tabpanel" aria-labelledby="all-jobs-tab">
         
     </div>
     <!-- END OF ALL JOBS -->
     <!-- ACTIVE JOBS -->
-    <div class="tab-pane fade" id="active-jobs" role="tabpanel" aria-labelledby="active-jobs-tab">
+    <div class="tab-pane show fade active" id="active-jobs" role="tabpanel" aria-labelledby="active-jobs-tab">
         @forelse($activePosts as $post)
         <div class="card py-2 mb-4">
             <div class="card-body">
@@ -94,6 +94,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         @endforelse
 
+    </div>
+    <div>
+        {{ $activePosts->links() }}
     </div>
     <!-- END OF ACTIVE JOBS -->
 
