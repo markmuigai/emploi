@@ -12,7 +12,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <?php
-                    $posts = \App\Post::where('status','active')->orderBy('featured','DESC')->orderBy('id','DESC')->limit(10);
+                    $posts = \App\Post::where('status','active')->orderBy('featured','DESC')->orderBy('id','DESC')->limit(10)->get();
                     // $featured = \App\Post::featured(10);
                     // $missing = 10 - count($featured);
                 ?>
