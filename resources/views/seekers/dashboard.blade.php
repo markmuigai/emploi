@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <h4>Recent Blogs</h4>
 <div class="row">
-	@forelse ($blogs->slice(0, 3) as $b)
+	@forelse ($blogs->slice(0, 4) as $b)
 	<div class="col-lg-6">
 		<div class="card my-2">
 			<div class="card-body">
