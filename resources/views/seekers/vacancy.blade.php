@@ -12,6 +12,8 @@
 <meta property="og:title"         content="{{ $post->title }}" />
 <meta property="og:description"   content="{{ $post->brief }}" />
 <meta property="og:image"         content="{{ asset($post->imageUrl) }}" />
+<meta property="og:image:width"   content="906" />
+<meta property="og:image:height"  content="518" />
 @endsection
 
 @section('content')
