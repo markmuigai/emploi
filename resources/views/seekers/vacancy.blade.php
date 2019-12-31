@@ -14,6 +14,7 @@
 <meta property="og:image"         content="{{ asset($post->imageUrl) }}" />
 <meta property="og:image:width"   content="906" />
 <meta property="og:image:height"  content="518" />
+<meta property="fb:app_id"  content="449830008990681" />
 @endsection
 
 @section('content')
