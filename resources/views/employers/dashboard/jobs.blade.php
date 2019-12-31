@@ -70,13 +70,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <span>Sharing Disabled</span>
                             @endif
 
-                            @guest
-                            @else
-                                @if(Auth::user()->email == 'jobs@emploi.co')
-                                <a href="/employers/applications/{{ $post->slug }}/share" target="_blank">[ ADMIN SHARE ]</a>
-                                @endif
-
-                            @endguest
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">

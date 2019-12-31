@@ -53,13 +53,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-7 col-md-12 text-right">
-                                @guest
-                                @else
-                                    @if(Auth::user()->email == 'jobs@emploi.co')
-                                    <a href="/employers/applications/{{ $post->slug }}/share" target="_blank">[ ADMIN SHARE ]</a>
-                                    @endif
-
-                                @endguest
+                                
                             </div>
                         </div>
                         <hr>

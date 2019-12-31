@@ -104,8 +104,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/applications/{slug}/close', 'EmployerController@closeJob');
     Route::post('/employers/applications/{slug}/close', 'EmployerController@saveCandidate');
     Route::get('/employers/applications/{slug}/invite', 'EmployerController@invite');
-    Route::get('/employers/applications/{slug}/share', 'EmployerController@shareJob');
-    Route::post('/employers/applications/{slug}/share', 'EmployerController@shareJobNow');
+    // Route::get('/employers/applications/{slug}/share', 'EmployerController@shareJob');
+    // Route::post('/employers/applications/{slug}/share', 'EmployerController@shareJobNow');
 
     Route::get('/employers/applications/{slug}/{applicationId}/cover', 'EmployerController@viewCover');
     Route::get('/employers/applications/{slug}/{applicationId}/rsi', 'EmployerController@candidateRsi');
