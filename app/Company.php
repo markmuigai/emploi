@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Watson\Rememberable\Rememberable;
+use DB;
 
 use App\Post;
 
@@ -62,6 +63,17 @@ class Company extends Model
             
         }
         return $companies;
+    }
+
+    public static function getHiringCompanies2($counter = 10){
+        $companies = [];
+        $sql = "SELECT DISTINCT company_id, featured, id FROM posts ORDER BY id DESC, featured DESC  LIMIT $counter";
+        $results = DB::select($sql);
+        for($i=0; $i<count($results);$i++)
+        {
+            array_push($companies, $results[$i]->company_id);
+        }
+        return Company::whereIn('id',$companies)->get();
     }
 
     public function posts(){

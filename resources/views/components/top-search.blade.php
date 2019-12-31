@@ -57,9 +57,9 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>Hiring Companies</h5>
                 <ul>
-                    @forelse(\App\Company::getHiringCompanies() as $v)
+                    @forelse(\App\Company::getHiringCompanies2() as $v)
                     <li>
-                        <a href="/companies/{{ $v->name }}">{{ $v->name }}</a>
+                        <a href="/companies/{{ $v->name }}">{{ $v->name.$v->id }}</a>
                     </li>
                     @empty
                     @endforelse
