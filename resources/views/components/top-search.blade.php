@@ -57,7 +57,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5> <a href="/blog">Blogs</a></h5>
                 <ul>
-                    @forelse(\App\Blog::recent(10) as $v)
+                    @forelse(\App\Blog::recent(5) as $v)
                     <li>
                         <a href="/blog/{{ $v->slug }}">{{ $v->title }}</a>
                     </li>
