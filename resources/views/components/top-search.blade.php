@@ -58,7 +58,7 @@
                 <h5> <a href="/blog">Blogs</a></h5>
                 <ul>
                     @forelse(\App\Blog::recent(5) as $v)
-                    <li>
+                    <li class="mb-1">
                         <a href="/blog/{{ $v->slug }}">{{ $v->title }}</a>
                     </li>
                     @empty
