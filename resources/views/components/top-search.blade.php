@@ -55,11 +55,11 @@
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                <h5> <a href="/companies?hiring=true">Hiring Companies</a></h5>
+                <h5> <a href="/blog">Latest Blogs</a></h5>
                 <ul>
-                    @forelse(\App\Company::getHiringCompanies2() as $v)
+                    @forelse(\App\Blog::recent(10) as $v)
                     <li>
-                        <a href="/companies/{{ $v->name }}">{{ $v->name }}</a>
+                        <a href="/blog/{{ $v->slug }}">{{ $v->title }}</a>
                     </li>
                     @empty
                     @endforelse
