@@ -78,10 +78,11 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user->role == 'seeker')
         {
+            $skills = isset($user->seeker->industry_id) ? IndustrySkill::where('industry_id',$user->seeker->industry_id)->get() : IndustrySkill::all();
             return view('seekers.edit')
                     ->with('educationLevels',EducationLevel::all())
-                    ->with('user',Auth::user())
-                    ->with('skills',IndustrySkill::all())
+                    ->with('user',$user)
+                    ->with('skills',$skills)
                     ->with('locations',Location::active())
                     ->with('industries',Industry::active())
                     ->with('countries',Country::active());
