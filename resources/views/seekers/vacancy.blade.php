@@ -54,9 +54,6 @@
                                     <i class="fas fa-map-marker-alt orange"></i>
                                     {{ $post->location->name }}, {{ $post->location->country->name }}
                                 </p>
-                                <p>
-                                    <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
-                                </p>
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-sm-left text-md-right">
                                 <p>
@@ -68,7 +65,18 @@
                                         to view salary
                                         @endif
                                     </strong>
+                                    <br>
+                                    
+                                    <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
+                                        <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                                    </a>
+                                    <br>
+                                    <a href="/vacancies/{{ $post->industry->slug }}" title="View {{ $post->industry->name }} jobs">
+                                        <i class="fa fa-briefcase"></i> {{ $post->industry->name }}
+                                    </a>
+                                    <br>
                                 </p>
+                                
                             </div>
                         </div>
                         <!-- JOB DESCRIPTION -->
