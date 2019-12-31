@@ -7,14 +7,15 @@
 @endsection
 
 @section('meta-include')
-<meta property="og:url"           content="{{ url('/vacancies/'.$post->slug) }}" />
+<meta property="og:url"           content="{{ url('/vacancies/'.$post->slug) }}/" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{ $post->title }}" />
 <meta property="og:description"   content="{{ $post->brief }}" />
 <meta property="og:image"         content="{{ asset($post->imageUrl) }}" />
-<meta property="og:image:width"   content="906" />
-<meta property="og:image:height"  content="518" />
+<meta property="og:image:width"   content="{{ $post->image == null ? 500 : 906  }}" />
+<meta property="og:image:height"  content="{{ $post->image == null ? 500 : 518  }}" />
 <meta property="fb:app_id"  content="449830008990681" />
+<meta property="og:site_name" content="Emploi Recruitment" />
 @endsection
 
 @section('content')
