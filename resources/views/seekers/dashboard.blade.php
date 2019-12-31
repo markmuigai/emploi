@@ -52,7 +52,7 @@ $user = Auth::user();
 <hr>
 <h4>{{ $user->seeker->industry->name }} Jobs</h4>
 <?php
-$posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('status','active')->orderBy('id','DESC')->orderBy('featured','DESC')->paginate(2);
+$posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('status','active')->orderBy('id','DESC')->orderBy('featured','DESC')->paginate(8);
 ?>
 <div class="row">
 	
