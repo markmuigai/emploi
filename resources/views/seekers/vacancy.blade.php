@@ -6,6 +6,14 @@
 {{ $post->brief }}
 @endsection
 
+@section('meta-include')
+<meta property="og:url"           content="{{ url('/vacancies/'.$post->slug) }}" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{ $post->title }}" />
+<meta property="og:description"   content="{{ $post->brief }}" />
+<meta property="og:image"         content="{{ asset($post->imageUrl) }}" />
+@endsection
+
 @section('content')
 @section('page_title', $post->title )
 <!-- NAV-TABS -->

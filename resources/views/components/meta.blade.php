@@ -27,6 +27,7 @@
 <link href="/images/icons/splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 <meta name="msapplication-TileColor" content="#e88725">
 <meta name="msapplication-TileImage" content="/images/icons/icon-512x512.png">
+@yield('meta-include')
 <script type="text/javascript">
     // Initialize the service worker
     if ('serviceWorker' in navigator) {
