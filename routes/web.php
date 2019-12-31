@@ -74,6 +74,8 @@ Route::get('/employers/rate-card', 'ContactController@rateCard');
 // Route::get('/email1', function () {    	return view('emails.custom');	});
 
 Route::get('/employers/jobs', 'EmployerController@jobs');
+Route::get('/employers/jobs/active', 'EmployerController@activeJobs');
+Route::get('/employers/jobs/other', 'EmployerController@otherJobs');
 //Route::get('/employers/reviews', 'ContactController@reviews');
 //Route::get('/employers/applicants', 'ContactController@applicants');
 

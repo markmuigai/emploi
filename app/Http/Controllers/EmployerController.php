@@ -258,11 +258,29 @@ class EmployerController extends Controller
             $employer = Auth::user()->employer;
             //return $employer->posts;
             return view('employers.dashboard.jobs')
-                    ->with('activePosts',$employer->activePosts)
-                    ->with('closedPosts',$employer->closedPosts)
                     ->with('posts',$employer->posts);
         }
         abort(403);
+        
+    }
+
+    public function activeJobs(Request $request)
+    {
+        
+        $employer = Auth::user()->employer;
+        return view('employers.dashboard.jobs-active')
+                ->with('activePosts',$employer->activePosts);
+        
+        
+    }
+
+    public function otherJobs(Request $request)
+    {
+        
+        $employer = Auth::user()->employer;
+        return view('employers.dashboard.jobs-other')
+                ->with('closedPosts',$employer->closedPosts);
+        
         
     }
 
