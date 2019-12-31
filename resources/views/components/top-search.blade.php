@@ -55,7 +55,7 @@
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                <h5>Hiring Companies <a href="/companies?hiring=true">View All</a></h5>
+                <h5> <a href="/companies?hiring=true">Hiring Companies</a></h5>
                 <ul>
                     @forelse(\App\Company::getHiringCompanies2() as $v)
                     <li>
