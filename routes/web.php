@@ -59,6 +59,7 @@ Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('jobs', 'EmployerController@jobs');
     Route::get('jobs/active', 'EmployerController@activeJobs');
     Route::get('jobs/other', 'EmployerController@otherJobs');
+    Route::get('jobs/shortlisting', 'EmployerController@shortlistingJobs');
 
 });
 Route::get('/employers/register', 'EmployerController@register');

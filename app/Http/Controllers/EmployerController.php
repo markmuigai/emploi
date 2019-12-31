@@ -301,6 +301,23 @@ class EmployerController extends Controller
         
     }
 
+    public function shortlistingJobs(Request $request)
+    {
+        
+        $employer = Auth::user()->employer;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('how_to_apply',null)->orderBy('id','DESC')->paginate(20);
+        return view('employers.dashboard.jobs-shortlisting')
+                ->with('posts',$posts);
+        
+        
+    }
+
     public function applyForUser(Request $request){
         $seeker = Seeker::findOrFail($request->seeker_id);
         $post = Post::findOrFail($request->post_id);

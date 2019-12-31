@@ -14,6 +14,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <a class="nav-link active" href="#all-jobs">All Jobs</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="/employers/jobs/shortlisting">Shortlisting</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="/employers/jobs/active">Active Jobs</a>
     </li>
     <li class="nav-item">
