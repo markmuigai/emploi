@@ -71,9 +71,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- ABOUT THE COMPANY -->
-                        <h5 class="pt-3 pb-2">About {{ isset(Auth::user()->id) ? $post->company->name : ' the Company' }}</h5>
-                        <p><?php echo $post->company->about; ?></p>
                         <!-- JOB DESCRIPTION -->
                         <h5 class="pt-3 pb-2">Job Description</h5>
                         <div>
