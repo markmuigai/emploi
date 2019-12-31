@@ -66,12 +66,12 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 					</div>
 					<div class="col-8">
 						<h5>{{ $b->title }}</h5>
-						<span class="badge badge-orange">
+						<span class="badge badge-dark">
 							<a href="/vacancies/{{ $b->slug }}">
 								{{ $b->monthlySalary() }}
 							</a>
 						</span>
-						<a href="/vacancies/{{ $b->slug }}" class="btn btn-sm btn-orange-alt pull-right">View and Apply</a>
+						<a href="/vacancies/{{ $b->slug }}" class="btn btn-sm btn-orange-alt pull-right">View</a>
 					</div>
 				</div>
 			</div>
