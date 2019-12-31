@@ -75,6 +75,8 @@
                                         <i class="fa fa-briefcase"></i> {{ $post->industry->name }}
                                     </a>
                                     <br>
+
+                                    <span>Posted <span style="text-decoration: underline;">{{ $post->since }}</span></span>
                                 </p>
                                 
                             </div>
