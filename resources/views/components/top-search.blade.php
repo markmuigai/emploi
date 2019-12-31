@@ -12,22 +12,16 @@
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <?php
-                    $featured = \App\Post::featured(10);
-                    $missing = 10 - count($featured);
+                    $posts = \App\Post::where('status','active')->orderBy('featured')->orderBy('id','DESC')->limit(10);
+                    // $featured = \App\Post::featured(10);
+                    // $missing = 10 - count($featured);
                 ?>
                 <h5>Featured Jobs</h5>
                 <ul>
-                    @forelse($featured as $f)
+                    @forelse($posts as $f)
                     <li><a href="/vacancies/{{ $f->slug }}">{{ $f->title }}</a></li>
                     @empty
                     @endforelse
-                    @if($missing > 0)
-                        @forelse(\App\Post::recent($missing) as $f)
-                        <li><a href="/vacancies/{{ $f->slug }}">{{ $f->title }}</a></li>
-                        @empty
-                        @endforelse
-
-                    @endif
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
