@@ -59,7 +59,7 @@
                 <ul>
                     @forelse(\App\Company::getHiringCompanies2() as $v)
                     <li>
-                        <a href="/companies/{{ $v->name }}">{{ $v->name.$v->id }}</a>
+                        <a href="/companies/{{ $v->name }}">{{ $v->name }}</a>
                     </li>
                     @empty
                     @endforelse
