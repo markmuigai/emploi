@@ -341,7 +341,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @empty
                 @endforelse
 
-                @forelse ($blogs->slice(3, 4) as $blog)
+                @forelse ($blogs->slice(4, 4) as $blog)
                 <div class="card mb-lg-3 my-2">
                     <div class="card-body">
                         <div class="row">
