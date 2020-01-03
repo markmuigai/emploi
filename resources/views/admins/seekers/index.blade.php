@@ -87,11 +87,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @endforelse
         <hr>
         <div class="text-center">
-            @if(isset($search))
-            <p><em>End of search results</em></p>
-            @else
             {{ $seekers->links() }}
-            @endif
         </div>
     </div>
 </div>

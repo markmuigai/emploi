@@ -157,10 +157,24 @@ class AdminController extends Controller
             $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $keywords ORDER BY id DESC";
             $results = DB::select($sql);
             $seekers = [];
+
+
+
+            $newseekers = [];
             for($i=0; $i<count($results); $i++)
             {
-                array_push($seekers, Seeker::find($results[$i]->id));
+                $s = Seeker::find($results[$i]->id);
+                array_push($newseekers, $s->user_id);
             }
+
+            $seekers = Seeker::whereIn('user_id',$newseekers)
+                    ->paginate(20);
+
+
+            // for($i=0; $i<count($results); $i++)
+            // {
+            //     array_push($seekers, Seeker::find($results[$i]->id));
+            // }
 
             if(isset($request->email))
             {
