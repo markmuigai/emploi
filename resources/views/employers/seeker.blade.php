@@ -169,6 +169,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>CV Already Requested</p>
                         @endif
                     @endif
+
+                    <div>
+                        <?php $sp=Auth::user()->employer->getSavedProfile($user->seeker); ?>
+                        @if(!$sp)
+                        <form method="POST" action="/employers/saved">
+                            @csrf
+                            <input type="hidden" name="seeker_id" value="{{ $user->seeker->id }}">
+                            <input type="submit" value="Save Profile" class="btn btn-sm btn-primary">
+                        </form>
+                        @else
+                        <form method="POST" action="/employers/saved/{{ $sp->id }}">
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <input type="hidden" name="id" value="{{ $sp->id }}">
+                            <input type="submit" value="Discard Saved Profile" class="btn btn-sm btn-danger">
+                        </form>
+
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

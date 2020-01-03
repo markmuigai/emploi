@@ -28,6 +28,10 @@ class SocialiteController extends Controller
         	return redirect('/home');
         }
         //new user
+        return view('pages.join')
+                ->with('email',$user->getEmail())
+                ->with('name',$user->getName());
+                
         return view('auth.social-register')
             ->with('industries',Industry::active())
             ->with('countries',Country::active())

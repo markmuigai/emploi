@@ -40,13 +40,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container">
     <div class="single">
+
         <div class="text-center">
-                <a href="/admin/posts" class="btn btn-sm btn-success">Job Posts</a>
+                <br>
+
+                <?php
+                $nj = \App\Post::where('status','inactive')->count();
+                $co = \App\Contact::where('resolved_on',null)->count();
+                $ar = \App\Advert::where('status','pending')->count();
+                ?>
+
+                <a href="/admin/posts" class="btn btn-sm btn-success">Job Posts {{ $nj > 0 ? '('.$nj.')' : '' }}</a>
                 <a href="/admin/emails" class="btn btn-sm btn-danger">Send Emails</a>
                 <a href="/admin/blog" class="btn btn-sm btn-primary">Blog</a>
-                <a href="/admin/contacts" class="btn btn-sm btn-success">Contacts</a>
+                <a href="/admin/contacts" class="btn btn-sm btn-success">Contacts {{ $co > 0 ? '('.$co.')' : '' }}</a>
                 <a href="/admin/industries" class="btn btn-sm btn-danger">Industries</a>
-                <a href="/admin/received-requests" class="btn btn-sm btn-primary">Advert Requests</a>
+                <a href="/admin/received-requests" class="btn btn-sm btn-primary">Advert Requests {{ $ar > 0 ? '('.$ar.')' : '' }}</a>
 
                 <br><br>
 

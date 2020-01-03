@@ -1,20 +1,20 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: All Jobs Listed')
+@section('title','Emploi :: Shortlist on Emploi')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'All Jobs')
+@section('page_title', 'Shortlist on Emploi')
 <!-- NAV-TABS -->
 <ul class="nav nav-tabs" id="jobs" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" href="#all-jobs">All Jobs</a>
+        <a class="nav-link" href="/employers/jobs">All Jobs</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/employers/jobs/shortlisting">Shortlisting</a>
+        <a class="nav-link active" href="#all-jobs">Shortlisting</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/employers/jobs/active">Active Jobs</a>
@@ -22,6 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <li class="nav-item">
         <a class="nav-link" href="/employers/jobs/other">Other Jobs</a>
     </li>
+
 </ul>
 
 <!-- NAV-TAB CONTENT -->
@@ -69,7 +70,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @else
                             <span>Sharing Disabled</span>
                             @endif
-
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">

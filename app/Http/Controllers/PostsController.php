@@ -108,8 +108,6 @@ class PostsController extends Controller
             $slug= $slug.'-'.strtolower(User::generateRandomString(4));
         }
 
-
-
         $p = Post::create([
             'slug' =>$slug,
             'company_id' => $request->company,

@@ -9,12 +9,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('user_title','Employer Registration')
 
+<div class="sign-left text-center">
+    <h5>- Continue With -</h5>
+    <a href="/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
+    <a href="/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
+    <a href="/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
+</div>
+
 <form method="POST" action="/employers/register">
     @csrf
     <div id="details">
         <div class="form-group">
-            <label for="fullName">Your Full Name</label>
-            <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control input-sm" maxlength="50" value="{{ old('name') }}" />
+            <label for="fullName">Your Full Name <b style="color: red">*</b></label>
+            <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control input-sm" maxlength="50" value="{{ $name ? $name : old('name') }}" />
             @error('name')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -22,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @enderror
         </div>
         <div class="form-group">
-            <label for="phone_number">Your Phone Number</label>
+            <label for="phone_number">Your Phone Number <b style="color: red">*</b></label>
             <div class="row pl-3">
                 <select class="custom-select col-3" name="contact_prefix">
                     @foreach($countries as $c)
@@ -44,8 +51,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" required="" value="{{ old('email') }}" name="email" path="email" id="email" class="form-control input-sm" maxlength="50" />
+            <label for="email">Your Email <b style="color: red">*</b></label>
+            <input type="email" required="" value="{{ $email ? $email : old('email') }}" name="email" path="email" id="email" class="form-control input-sm" maxlength="50" />
             @error('email')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -53,11 +60,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @enderror
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Password <b style="color: red">*</b></label>
             <input type="password" required="" value="" name="password" path="password" id="password" class="form-control input-sm" maxlength="50" />
         </div>
         <div class="form-group">
-            <label for="password_confirmation">Confirm Password</label>
+            <label for="password_confirmation">Confirm Password <b style="color: red">*</b></label>
             <input type="password" required="" value="" name="password_confirmation" path="password_confirmation" id="password_confirmation" class="form-control input-sm" maxlength="50" />
         </div>
         <div class="text-right">
@@ -67,7 +74,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div id="company" class="d-none">
         <div class="form-group">
-            <label for="co_name">Company Name</label>
+            <label for="co_name">Company Name <b style="color: red">*</b></label>
             <input type="text" required="" value="{{ old('co_name') }}" name="co_name" path="co_name" id="co_name" class="form-control input-sm" maxlength="50" />
             @error('co_name')
             <span class="invalid-feedback" role="alert">
@@ -76,7 +83,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @enderror
         </div>
         <div class="form-group">
-            <label for="co_email">Company Email</label>
+            <label for="co_email">Company Email <b style="color: red">*</b></label>
             <input type="email" required="" value="{{ old('co_email') }}" name="co_email" path="co_email" id="co_email" class="form-control input-sm" maxlength="50" />
             @error('co_email')
             <span class="invalid-feedback" role="alert">
@@ -85,7 +92,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @enderror
         </div>
         <div class="form-group">
-            <label for="co_phone_number">Company Phone Number</label>
+            <label for="co_phone_number">Company Phone Number <b style="color: red">*</b></label>
             <div class="row pl-3">
                 <select class="custom-select col-3" name="company_prefix">
                     @foreach($countries as $c)
@@ -107,7 +114,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         <div class="form-group">
-            <label for="country">Company Country</label>
+            <label for="country">Company Country <b style="color: red">*</b></label>
             <select path="country" id="country" name="country" class="form-control input-sm">
                 @foreach($countries as $c)
                 <option value="{{ $c->id }}" @if(old('country') && old('country')==$c->id)
@@ -119,7 +126,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </select>
         </div>
         <div class="form-group">
-            <label for="industry">Industry Specialization</label>
+            <label for="industry">Industry Specialization <b style="color: red">*</b></label>
             <select path="industry" id="industry" name="industry" class="form-control input-sm">
                 @foreach($industries as $c)
                 <option value="{{ $c->id }}" @if(old('industry') && old('industry')==$c->id)
@@ -131,7 +138,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </select>
         </div>
         <div class="form-group">
-            <label for="resume">Company Address</label>
+            <label for="resume">Company Address <b style="color: red">*</b></label>
             <textarea name="address" required="" class="form-control input-sm" rows="2" placeholder="e.g. P.O. Box 123 - 00100 Nairobi. KICC Floor 21 Room 232"></textarea>
         </div>
         <div class="d-flex justify-content-between">

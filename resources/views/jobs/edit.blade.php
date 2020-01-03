@@ -148,7 +148,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>Maximum Salary Limit</label>
-                    <input type="number" name="max_salary" class="form-control" value="{{ $post->max_salary }}" required="" placeholder="only fill if salary has a range"  id="max_salary" min="1">
+                    <input type="number" name="max_salary" class="form-control" value="{{ $post->max_salary }}" placeholder="only fill if salary has a range"  id="max_salary" min="1">
                 </div>
 
                 <div class="form-group">
@@ -220,16 +220,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             if(!salary)
                 return notify('Invalid Monthly Salary','error');
 
-            if(salary != 0)
-            {
-                //notify('Defining salary');
-                if($('#max_salary').val())
-                {
-                    if(max_salary <= salary)
-                        return notify('Maximum salary must be greater than minimum salary', 'error');
-                }
+            // if(salary != 0)
+            // {
+            //     //notify('Defining salary');
+            //     if($('#max_salary').val())
+            //     {
+            //         if(max_salary <= salary)
+            //             return notify('Maximum salary must be greater than minimum salary', 'error');
+            //     }
 
-            }
+            // }
             //return notify(salary + ' ' + max_salary);
             $('#edit-post-form').submit();
         });

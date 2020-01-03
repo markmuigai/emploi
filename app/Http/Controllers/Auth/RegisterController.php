@@ -37,8 +37,12 @@ class RegisterController extends Controller
     {
         if(isset($request->redirectToPost))
             $request->session()->put('redirectToPost', $request->redirectToPost);
+        $email= $request->email ? $request->email : '';
+        $name=$request->name ? $request->name : '';
         return view('auth.register')
                 ->with('countries',Country::all())
+                ->with('name',$name)
+                ->with('email',$email)
                 ->with('industries',Industry::all());
     }
 

@@ -28,7 +28,7 @@ class CompanyController extends Controller
         {
             return view('companies.index')
                 ->with('hiring',true)
-                ->with('companies',Company::getHiringCompanies(27));
+                ->with('companies',Company::getHiringCompanies2(27));
         }
         return view('companies.index')
                 ->with('companies',Company::where('status','active')->paginate(9));
@@ -49,9 +49,6 @@ class CompanyController extends Controller
         $request->validate([
             'name'          =>  ['required','max:50', 'unique:companies','string'],
             'about'         =>  ['required','max:2000' ,'string'],
-            'website'       =>  ['max:255' ,'string'],
-            'phone_number'  =>  ['max:20' ,'string'],
-            'email'         =>  ['max:20' ,'email'],
             'logo'          => ['required','mimes:png,jpg,jpeg','max:51200'],
             'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
         ]);

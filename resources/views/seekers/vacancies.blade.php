@@ -69,9 +69,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                     <div class="col-8">
                         <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->title }}</a></h4>
-                        <a href="/vacancies/{{$post->slug}}/" class="text-success">{{ $post->company->name }}</a>
+                        <a href="/companies/{{$post->company->name}}/" class="text-success">{{ $post->company->name }}</a>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
-                        <p><span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span></p>
+                        <p>
+                            
+
+                            
+
+                            <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
+                                <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                            </a>
+
+
+                            
+                        </p>
                     </div>
                 </div>
             </div>
@@ -87,6 +98,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </strong>
                 </p>
                 <p>Current Openings: <strong>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</strong></p>
+                <p>
+                    <a href="/vacancies/{{ $post->industry->slug }}" title="View {{ $post->industry->name }} jobs">
+                        <i class="fa fa-briefcase"></i> {{ $post->industry->name }}
+                    </a>
+
+                    <br>
+
+                    <span>Posted <span style="text-decoration: underline;">{{ $post->since }}</span></span>
+                </p>
             </div>
 
         </div>

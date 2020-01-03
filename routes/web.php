@@ -56,6 +56,10 @@ Route::get('/create-account', 'ContactController@createAcc');
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
     Route::get('dashboard-data', 'EmployerController@dashboardData');
+    Route::get('jobs', 'EmployerController@jobs');
+    Route::get('jobs/active', 'EmployerController@activeJobs');
+    Route::get('jobs/other', 'EmployerController@otherJobs');
+    Route::get('jobs/shortlisting', 'EmployerController@shortlistingJobs');
 
 });
 Route::get('/employers/register', 'EmployerController@register');
@@ -73,7 +77,7 @@ Route::get('/employers/rate-card', 'ContactController@rateCard');
 // Route::get('/test-email', function () {    	return view('emails.custom-alt');	});
 // Route::get('/email1', function () {    	return view('emails.custom');	});
 
-Route::get('/employers/jobs', 'EmployerController@jobs');
+
 //Route::get('/employers/reviews', 'ContactController@reviews');
 //Route::get('/employers/applicants', 'ContactController@applicants');
 
@@ -87,6 +91,8 @@ Route::get('/employers/hr-services', 'ContactController@hrservices');
 Route::get('/employers', 'ContactController@employersIndex');
 
 Route::group([ 'middleware' => 'shortlist'], function(){
+    Route::resource('/employers/cv-requests', 'CvRequestController');
+    Route::resource('/employers/saved', 'SavedProfileController');
     Route::get('/employers/browse', 'EmployerController@browse');
     Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');
     Route::post('/employers/shortlist', 'EmployerController@applyForUser');
@@ -98,6 +104,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/applications/{slug}/close', 'EmployerController@closeJob');
     Route::post('/employers/applications/{slug}/close', 'EmployerController@saveCandidate');
     Route::get('/employers/applications/{slug}/invite', 'EmployerController@invite');
+    // Route::get('/employers/applications/{slug}/share', 'EmployerController@shareJob');
+    // Route::post('/employers/applications/{slug}/share', 'EmployerController@shareJobNow');
 
     Route::get('/employers/applications/{slug}/{applicationId}/cover', 'EmployerController@viewCover');
     Route::get('/employers/applications/{slug}/{applicationId}/rsi', 'EmployerController@candidateRsi');

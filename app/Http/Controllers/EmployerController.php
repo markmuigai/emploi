@@ -43,10 +43,40 @@ use App\Jobs\EmailJob;
 
 class EmployerController extends Controller
 {
-    public function register(){
+    public function register(Request $request){
+        $email= $request->email ? $request->email : '';
+        $name=$request->name ? $request->name : '';
     	return view('employers.register')
+                ->with('name',$name)
+                ->with('email',$email)
     			->with('industries', Industry::all())
     			->with('countries',Country::active());
+    }
+
+    public function shareJob(Request $request, $slug){
+        $user = Auth::user();
+
+        if($user->email == 'jobs@emploi.co' || $user->email == 'info@emploi.co')
+        {
+            $post = Post::where('slug',$slug)->firstOrFail();
+            return view('jobs.share')
+                    ->with('post',$post);
+            dd($post);
+        }
+        abort(403);       
+
+    }
+
+    public function shareJobNow(Request $request, $slug){
+        $user = Auth::user();
+
+        if($user->email == 'jobs@emploi.co' || $user->email == 'info@emploi.co')
+        {
+            $post = Post::where('slug',$slug)->firstOrFail();
+            return $request->all();
+        }
+        abort(403);       
+
     }
 
     public function create(Request $request)
@@ -253,16 +283,68 @@ class EmployerController extends Controller
 
     public function jobs(Request $request)
     {
-        if(isset(Auth::user()->id))
+        $employer = Auth::user()->employer;
+        //return $employer->posts;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
         {
-            $employer = Auth::user()->employer;
-            //return $employer->posts;
-            return view('employers.dashboard.jobs')
-                    ->with('activePosts',$employer->activePosts)
-                    ->with('closedPosts',$employer->closedPosts)
-                    ->with('posts',$employer->posts);
+            array_push($company_ids, $companies[$i]->id);
         }
-        abort(403);
+        $posts = Post::whereIn('company_id',$company_ids)->orderBy('id','DESC')->paginate(20);
+        return view('employers.dashboard.jobs')
+                ->with('posts',$posts);
+        
+    }
+
+    public function activeJobs(Request $request)
+    {
+        
+        $employer = Auth::user()->employer;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->orderBy('id','DESC')->paginate(20);
+        return view('employers.dashboard.jobs-active')
+                ->with('activePosts',$posts);
+        
+        
+    }
+
+    public function otherJobs(Request $request)
+    {
+        
+        $employer = Auth::user()->employer;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','!=','active')->orderBy('id','DESC')->paginate(20);
+        return view('employers.dashboard.jobs-other')
+                ->with('closedPosts',$posts);
+        
+        
+    }
+
+    public function shortlistingJobs(Request $request)
+    {
+        
+        $employer = Auth::user()->employer;
+        $companies = $employer->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('how_to_apply',null)->orderBy('id','DESC')->paginate(20);
+        return view('employers.dashboard.jobs-shortlisting')
+                ->with('posts',$posts);
+        
         
     }
 

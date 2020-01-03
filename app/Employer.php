@@ -8,6 +8,7 @@ use Watson\Rememberable\Rememberable;
 
 use App\CvRequest;
 use App\JobApplication;
+use App\SavedProfile;
 
 use Carbon\Carbon;
 
@@ -34,6 +35,10 @@ class Employer extends Model
 
     public function getCompaniesAttribute(){
         return $this->user->companies;
+    }
+
+    public function cvRequests(){
+        return $this->hasMany(CvRequest::class);
     }
 
     public function hasRequestedCV($seeker)
@@ -72,17 +77,62 @@ class Employer extends Model
         return $this->hasMany(SavedProfile::class);
     }
 
+    public function hasSavedProfile($seeker){
+        $s = SavedProfile::where('employer_id',$this->id)
+                ->where('seeker_id',$seeker->id)
+                ->first();
+        if(isset($s->id))
+            return true;
+        return false;
+    }
+
+    public function getSavedProfile($seeker){
+        $sp = SavedProfile::where('employer_id',$this->id)->where('seeker_id',$seeker->id)->first();
+        if(isset($sp->id))
+            return $sp;
+        return false;
+    }
+
+    public function saveProfile($seeker){
+        SavedProfile::create([
+            'employer_id' => $this->id,
+            'seeker_id' => $seeker->id
+        ]);
+        return true;
+    }
+
+    public function removeSavedProfile($seeker){
+        $sp = SavedProfile::where('employer_id',$this->id)
+                ->where('seeker_id',$seeker->id)
+                ->first();
+        if(isset($sp->id))
+            return $sp->delete();
+        return true;
+    }
+
     public function getPostsAttribute(){
+
         $companies = $this->user->companies;
-        $posts = array();
+        $company_ids = array();
         for($i=0; $i<count($companies); $i++)
         {
-            for($k=count($companies[$i]->posts)-1; $k>0; $k--)
-            {
-                array_push($posts, $companies[$i]->posts[$k]);
-            }
+            array_push($company_ids, $companies[$i]->id);
         }
+        $posts = Post::whereIn('company_id',$company_ids)->orderBy('id','DESC')->get();
+
         return $posts;
+
+
+        // $companies = $this->user->companies;
+        // $posts = array();
+        // for($i=0; $i<count($companies); $i++)
+        // {
+        //     for($k=count($companies[$i]->posts)-1; $k>0; $k--)
+        //     {
+        //         array_push($posts, $companies[$i]->posts[$k]);
+        //     }
+        // }
+        // return $posts;
     }
 
     public function getWeekApplicationsCounterAttribute(){
@@ -108,31 +158,52 @@ class Employer extends Model
     }
 
     public function getActivePostsAttribute(){
+
         $companies = $this->user->companies;
-        $posts = array();
+        $company_ids = array();
         for($i=0; $i<count($companies); $i++)
         {
-            for($k=count($companies[$i]->posts)-1; $k>0; $k--)
-            {
-                if($companies[$i]->posts[$k]->status == 'active')
-                    array_push($posts, $companies[$i]->posts[$k]);
-            }
+            array_push($company_ids, $companies[$i]->id);
         }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->orderBy('id','DESC')->get();
+
         return $posts;
+
+        // $companies = $this->user->companies;
+        // $posts = array();
+        // for($i=0; $i<count($companies); $i++)
+        // {
+        //     for($k=count($companies[$i]->posts)-1; $k>0; $k--)
+        //     {
+        //         if($companies[$i]->posts[$k]->status == 'active')
+        //             array_push($posts, $companies[$i]->posts[$k]);
+        //     }
+        // }
+        // return $posts;
     }
 
     public function getClosedPostsAttribute(){
         $companies = $this->user->companies;
-        $posts = array();
+        $company_ids = array();
         for($i=0; $i<count($companies); $i++)
         {
-            for($k=count($companies[$i]->posts)-1; $k>0; $k--)
-            {
-                if($companies[$i]->posts[$k]->status != 'active')
-                    array_push($posts, $companies[$i]->posts[$k]);
-            }
+            array_push($company_ids, $companies[$i]->id);
         }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','!=','active')->orderBy('id','DESC')->get();
+
         return $posts;
+
+        // $companies = $this->user->companies;
+        // $posts = array();
+        // for($i=0; $i<count($companies); $i++)
+        // {
+        //     for($k=count($companies[$i]->posts)-1; $k>0; $k--)
+        //     {
+        //         if($companies[$i]->posts[$k]->status != 'active')
+        //             array_push($posts, $companies[$i]->posts[$k]);
+        //     }
+        // }
+        // return $posts;
     }
 
     public function recentApplications($counter = 5){

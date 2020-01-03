@@ -6,6 +6,17 @@
 {{ $post->brief }}
 @endsection
 
+@section('meta-include')
+<meta property="og:url"           content="{{ url('/vacancies/'.$post->slug) }}/" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{ $post->title }}" />
+<meta property="og:description"   content="{{ $post->brief }}" />
+<meta property="og:image:width"   content="500" />
+<meta property="og:image:height"  content="500" />
+<meta property="fb:app_id"  content="449830008990681" />
+<meta property="og:site_name" content="Emploi Recruitment" />
+@endsection
+
 @section('content')
 @section('page_title', $post->title )
 <!-- NAV-TABS -->
@@ -42,7 +53,7 @@
                                 </a>
                             </div>
                             <div class="col-lg-7 col-md-12 text-right">
-
+                                
                             </div>
                         </div>
                         <hr>
@@ -53,9 +64,6 @@
                                 <p>
                                     <i class="fas fa-map-marker-alt orange"></i>
                                     {{ $post->location->name }}, {{ $post->location->country->name }}
-                                </p>
-                                <p>
-                                    <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
                                 </p>
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-sm-left text-md-right">
@@ -68,12 +76,22 @@
                                         to view salary
                                         @endif
                                     </strong>
+                                    <br>
+                                    
+                                    <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
+                                        <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                                    </a>
+                                    <br>
+                                    <a href="/vacancies/{{ $post->industry->slug }}" title="View {{ $post->industry->name }} jobs">
+                                        <i class="fa fa-briefcase"></i> {{ $post->industry->name }}
+                                    </a>
+                                    <br>
+
+                                    <span>Posted <span style="text-decoration: underline;">{{ $post->since }}</span></span>
                                 </p>
+                                
                             </div>
                         </div>
-                        <!-- ABOUT THE COMPANY -->
-                        <h5 class="pt-3 pb-2">About {{ isset(Auth::user()->id) ? $post->company->name : ' the Company' }}</h5>
-                        <p><?php echo $post->company->about; ?></p>
                         <!-- JOB DESCRIPTION -->
                         <h5 class="pt-3 pb-2">Job Description</h5>
                         <div>

@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Welcome to Emploi - Recruitment firm for East Africa')
+@section('title','Welcome to Emploi - Online Placement Platform for East Africa')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
@@ -340,6 +340,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 @empty
                 @endforelse
+
+                @forelse ($blogs->slice(4, 4) as $blog)
+                <div class="card mb-lg-3 my-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100">
+                            </div>
+                            <div class="col-8">
+                                <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
+                                <div class="d-flex">
+                                    <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
+                                </div>
+                                <p class="badge badge-secondary">{{ $blog->category->name }}</p>
+                            </div>
+                        </div>
+                        <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
+                        <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                    </div>
+                </div>
+                @empty
+                @endforelse
             </div>
             <div class="col-lg-7">
                 @forelse ($blogs->slice(1, 3) as $blog)
@@ -430,6 +452,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+@include('components.top-search')
 <!-- END OF GET STARTED -->
 <script type="text/javascript">
     $(document).ready(function() {
