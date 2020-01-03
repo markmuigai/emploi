@@ -33,7 +33,6 @@
 	<!-- Notify JS Notifications -->
     <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
-    <script src="{{asset('js/share.js')}}"></script>
 </head>
 
 <body style="font-family: Calibri">
