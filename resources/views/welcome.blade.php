@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Welcome to Emploi - Recruitment firm for East Africa')
+@section('title','Welcome to Emploi - Online Placement Platform for East Africa')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
