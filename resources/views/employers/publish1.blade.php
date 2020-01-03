@@ -54,15 +54,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/contact" class="btn btn-purple">Contact Us</a>
             </div>
         </div>
+        <?php 
+        $user = isset(Auth::user()->id) ? Auth::user() : false;
+        ?>
         <div class="col-lg-5">
             <div class="card mt-5">
                 <div class="card-body">
-                    <h4 class="text-center">Create An Advert</h4>
+                    <h4 class="text-center">Let's Advertise for you</h4>
                     <form action="/employers/publish" method="POST">
                     	@csrf
                         <div class="form-group">
                             <label for="">Your Name</label>
-                            <input type="text" name="name" value="" required="" class="form-control" placeholder="" maxlength="50">
+                            <input type="text" name="name" value="{{ $user ? $user->name : '' }}" required="" class="form-control" placeholder="" maxlength="50">
                         </div>
                         <div class="form-group">
                             <label for="">Phone Number</label>
@@ -70,7 +73,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <div class="form-group">
                             <label for="">Email Address</label>
-                            <input type="email" name="email" value="" required="" class="form-control" placeholder="" maxlength="50">
+                            <input type="email" name="email" value="{{ $user ? $user->email : '' }}" required="" class="form-control" placeholder="" maxlength="50">
                         </div>
                         <div class="form-group">
                             <label for="">Job Title</label>
