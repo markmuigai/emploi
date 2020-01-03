@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Carbon\Carbon;
 
+use App\Advert;
 use App\Blog;
 use App\Company;
 use App\Contact;
 use App\CvRequest;
 use App\Employer;
 use App\Industry;
+use App\JobApplication;
 use App\Location;
+use App\ModelSeeker;
 use App\Post;
+use App\Referee;
 use App\Seeker;
 use App\User;
 use App\Jobs\VacancyEmail;
@@ -503,6 +508,87 @@ class AdminController extends Controller
         return view('admins.emails.queued');
 
         return $request->all();
+    }
+
+    public function seekerMetrics(Request $request){
+
+        
+
+        if(isset($request->month) && isset($request->year))
+        {
+            $period = Carbon::createFromFormat('Y-m', $request->year.'-'.$request->month);
+            $focus_month = $request->month;
+            $focus_year = $request->year;
+            
+        }
+        else
+        {
+            $period = now();
+            $focus_month = $period->month;
+            $focus_year = $period->year;
+        }
+
+        
+        
+        $seekers_count = 0;
+        $employers_count = 0;
+
+        $contacts_count = 0;
+        $adverts_count = 0;
+        $blogs_count = 0;
+        $companies_count = 0;
+        $cv_requests_count = 0;
+        $job_applications_count = 0;
+        $model_seekers_count = 0;
+        $posts_count = 0;
+        $referees_count = 0;
+
+        $seekers_count = Seeker::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $employers_count = Employer::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $contacts_count = Contact::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $adverts_count = Advert::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $blogs_count = Blog::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $companies_count = Company::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $cv_requests_count = CvRequest::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $job_applications_count = JobApplication::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $model_seekers_count = ModelSeeker::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $posts_count = Post::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $referees_count = Referee::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $months = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
+        ];
+
+
+        return view('admins.seekers.metrics')
+            ->with('seekers_count',$seekers_count)
+            ->with('employers_count',$employers_count)
+            ->with('contacts_count',$contacts_count)
+            ->with('adverts_count',$adverts_count)
+            ->with('blogs_count',$blogs_count)
+            ->with('companies_count',$companies_count)
+            ->with('cv_requests_count',$cv_requests_count)
+            ->with('job_applications_count',$job_applications_count)
+            ->with('model_seekers_count',$model_seekers_count)
+            ->with('posts_count',$posts_count)
+            ->with('referees_count',$referees_count)
+            ->with('months',$months)
+            ->with('focus_year',$focus_year)
+            ->with('focus_month',$focus_month)
+            ;
     }
 
 }

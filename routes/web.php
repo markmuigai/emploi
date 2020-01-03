@@ -148,6 +148,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('emails/send', 'AdminController@sendEmails');
     Route::get('contacts', 'AdminController@contacts');
     Route::post('saveResolution', 'AdminController@saveResolution');
+    Route::get('metrics', 'AdminController@seekerMetrics');
 
     Route::get('employers', 'AdminController@employers');
     Route::post('log-in-as', 'AdminController@loginas');
