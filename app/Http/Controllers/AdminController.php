@@ -89,6 +89,11 @@ class AdminController extends Controller
                     $location = " location_id=".$request->location;
                     $first = false;
                 }
+                else
+                {
+                    $location = "OR location_id=".$request->location;
+
+                }
                 
             }
             $industry ="";
