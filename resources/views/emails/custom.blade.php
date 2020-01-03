@@ -173,10 +173,19 @@
                         </td>
                     </tr>
 
+                    <?php
+                        if(!isset($banner) || $banner = '/images/email-banner.jpg')
+                        {
+                            $banner = rand(0,5);
+                            $banner = 0 ? 'email-banner.jpg' : 'email-banner-'.$banner.'.jpg';
+                            $banner = '/images/'.$banner;
+                        }
+                        
+                    ?>
 
                     <tr>
                         <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;			padding-top: 20px;" class="hero"> <a target="_blank" style="text-decoration: none;" href="{{ url('/') }}"><img
-                                  border="0" vspace="0" hspace="0" src="{{ asset('images/email-banner.jpg') }}" alt="Empire state bridge" title="Emploi" width="560"
+                                  border="0" vspace="0" hspace="0" src="{{ asset($banner) }}" alt="Empire state bridge" title="Emploi" width="560"
                                   style="	width: 100%;			max-width: 560px;			color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
                         </td>
                     </tr>

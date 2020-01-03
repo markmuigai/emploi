@@ -411,14 +411,15 @@ class AdminController extends Controller
                 break;
                 
             case 'test-users':
-                $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
-                //die($sql);
-                $result = DB::select($sql);
-                foreach($result as $user)
-                {
-                    if(User::subscriptionStatus($user->email))
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
-                }
+                VacancyEmail::dispatch('brian@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                // $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
+                // //die($sql);
+                // $result = DB::select($sql);
+                // foreach($result as $user)
+                // {
+                //     if(User::subscriptionStatus($user->email))
+                //         VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                // }
                 
                 break;
 
