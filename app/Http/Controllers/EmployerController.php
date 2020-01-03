@@ -43,8 +43,12 @@ use App\Jobs\EmailJob;
 
 class EmployerController extends Controller
 {
-    public function register(){
+    public function register(Request $request){
+        $email= $request->email ? $request->email : '';
+        $name=$request->name ? $request->name : '';
     	return view('employers.register')
+                ->with('name',$name)
+                ->with('email',$email)
     			->with('industries', Industry::all())
     			->with('countries',Country::active());
     }

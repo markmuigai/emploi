@@ -18,16 +18,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-        <label for="fullName">Full Name</label>
+        <label for="fullName">Full Name <b style="color: red">*</b></label>
         @error('name')
         <p class="text-danger">
           {{ $message }}
         </p>
         @enderror
-        <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control" maxlength="50" value="{{ old('name') }}" />
+        <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control" maxlength="50" value="{{ $name ? $name : old('name') }}" />
     </div>
     <div class="form-group">
-        <label for="phone_number">Phone Number</label>
+        <label for="phone_number">Phone Number <b style="color: red">*</b></label>
         @error('phone_number')
         <p class="text-danger">
           <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="form-group">
-        <label for="sex">Gender</label>
+        <label for="sex">Gender <b style="color: red">*</b></label>
         <div class="radios">
             <label for="radio-01" class="label_radio">
                 <input type="radio" name="gender" value="M" @if(old('gender') && old('gender')=='M' ) checked="" @endif @if(!old('gender')) checked="" @endif> Male
@@ -64,12 +64,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="form-group">
         <label for="email">
-            Email
+            Email <b style="color: red">*</b>
         </label>
         @error('email')
         <p class="text-danger"> * Email already registered *</p>
         @enderror
-        <input type="email" required="" value="{{ old('email') }}" name="email" path="email" id="email" class="form-control" maxlength="50" />
+        <input type="email" required="" value="{{ $email ? $email : old('email') }}" name="email" path="email" id="email" class="form-control" maxlength="50" />
         @error('email')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @enderror
     </div>
     <div class="form-group">
-        <label for="country">Country</label>
+        <label for="country">Country <b style="color: red">*</b></label>
         <select path="country" id="country" name="country" class="custom-select">
             @foreach($countries as $c)
             <option value="{{ $c->id }}" @if(old('country') && old('country')==$c->id)
@@ -89,7 +89,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </select>
     </div>
     <div class="form-group">
-        <label for="industry">Industry</label>
+        <label for="industry">Industry <b style="color: red">*</b></label>
 
         <select path="industry" id="industry" name="industry" class="custom-select">
             @foreach($industries as $c)
@@ -102,19 +102,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </select>
     </div>
     @error('resume')
-        <p class="text-danger"> * File uploaded is more than 5MB *</p>
+        <p class="text-danger"> <b style="color: red">*</b> File uploaded is more than 5MB <b style="color: red">*</b></p>
     @enderror
     <div class="form-group mb-3">
-        <label for="resume">Attach Your Resume (.doc, .docx or .pdf) <small>(Max 5MB)</small></label>
+        <label for="resume">Attach Your Resume (.doc, .docx or .pdf) <small>(Max 5MB)</small> <b style="color: red">*</b></label>
         <input type="file" required="" path="resume" name="resume" id="resume" accept=".doc, .docx,.pdf" />
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Password <b style="color: red">*</b></label>
         <input type="password" required="" value="" name="password" id="password" class="form-control" maxlength="50" />
 
     </div>
     <div class="form-group">
-        <label for="password_confirmation">Confirm Password</label>
+        <label for="password_confirmation">Confirm Password <b style="color: red">*</b></label>
         <input type="password" required="" value="" name="password_confirmation" id="password" class="form-control" maxlength="50" />
     </div>
     <div class="text-center">
