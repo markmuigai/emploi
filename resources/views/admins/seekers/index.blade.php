@@ -69,8 +69,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </a>
                 </h4>
                 <p>{{ $seeker->industry->name }}</p>
-                <p>Registered: {{ $seeker->created_at }}</p>
-                <p>Last CV Update: {{ $seeker->updated_at }}</p>
+                <p>Registered: {{ $seeker->user->created_at }}</p>
+                <p>Last CV Update: {{ $seeker->user->updated_at }}</p>
             </div>
             <div class="col-md-6 col-12 text-md-right text-left">
                 <p><a href="mailto:{{ $seeker->user->email }}" class="orange">{{ $seeker->user->email }}</a></p>
