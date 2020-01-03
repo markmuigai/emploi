@@ -154,7 +154,7 @@ class AdminController extends Controller
                 $where = " WHERE ";
             else
                 $where = "";
-            $sql = "SELECT id FROM seekers $where $location $industry $gender $phone_number $keywords ORDER BY id DESC";
+            $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $keywords ORDER BY id DESC";
             $results = DB::select($sql);
             $seekers = [];
             for($i=0; $i<count($results); $i++)
