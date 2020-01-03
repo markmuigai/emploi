@@ -44,6 +44,32 @@ class FixRegistrationDate extends Command
         if(Storage::disk('local')->exists('fixregdate.csv'))
         {
             $this->info('Fixing ... ');
+
+            $storage_path = storage_path();
+            $file = $storage_path.'/app/fixregdate.csv';
+            $row = 1;
+            $missing = 0;
+            $fixed = 0;
+            if (($handle = fopen($file, "r")) !== FALSE) {
+                while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+                    $row++;
+                    $email = $data[2];
+                    $creat = $data[5];
+                    $user = User::where('email',$email)->first();
+                    if(isset($user->id))
+                    {
+                        $user->created_at = $creat;
+                        $user->save();
+                        $fixed ++;
+                    }
+                    else
+                    {
+                        $missing ++;
+                    }
+                }
+            }
+
+            $this->info('Fixed '.$fixed.' Missing '.$missing);
         }
         else
         {
