@@ -85,8 +85,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <div class="text-center">
                             <input type="submit" class="btn btn-orange" value="Submit">
+                            @if(!$user || $user->role != 'employer')
                             <p><em>Create an Employer profile and shortlist with our Role Suitability Index. <br>
                             	<a href="/employers/register" class="orange">Employer Registration</a></em></p>
+                            @endif
                         </div>
                     </form>
                 </div>
