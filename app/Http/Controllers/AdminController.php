@@ -176,24 +176,24 @@ class AdminController extends Controller
             //     array_push($seekers, Seeker::find($results[$i]->id));
             // }
 
-            if(isset($request->email))
-            {
-                $user = User::where('email',$request->email)->first();
-                if(isset($user->id))
-                {
-                    $placed = false;
-                    for($i=0; $i<count($seekers);$i++)
-                    {
-                        if($seekers[$i]->id == $user->seeker->id)
-                        {
-                            $placed = true;
-                            break;
-                        }
-                    }
-                    if(!$placed && $user->role == 'seeker')
-                        array_push($seekers,$user->seeker);
-                }
-            }
+            // if(isset($request->email))
+            // {
+            //     $user = User::where('email',$request->email)->first();
+            //     if(isset($user->id))
+            //     {
+            //         $placed = false;
+            //         for($i=0; $i<count($seekers);$i++)
+            //         {
+            //             if($seekers[$i]->id == $user->seeker->id)
+            //             {
+            //                 $placed = true;
+            //                 break;
+            //             }
+            //         }
+            //         if(!$placed && $user->role == 'seeker')
+            //             array_push($seekers,$user->seeker);
+            //     }
+            // }
 
             return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
@@ -204,7 +204,6 @@ class AdminController extends Controller
                     ->with('gender',$request->gender)
                     ->with('phone_number',$request->phone_number)
                     ->with('keywords',$request->keywords)
-                    ->with('email',$request->email)
                     ->with('seekers',$seekers);
         }
         return view('admins.seekers.index')

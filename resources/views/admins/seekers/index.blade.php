@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <form>
     <input type="hidden" name="search" value="true">
     <div class="form-row">
-        <div class="form-group col-lg-3">
+        <div class="form-group col-lg-3" style="display: none">
             <input type="email" name="email" class="form-control" placeholder="Email Address" value="{{ isset($email) ? $email : '' }}">
         </div>
         <div class="form-group col-lg-3">
