@@ -226,7 +226,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
-                    <img  src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}"  alt="{{ $p->title }}" />
+                    <img  src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
                 </div>
                 <p class="badge badge-secondary">{{$p->positions}} Postions</p>
                 <h5>{{ $p->title }}</h5>
@@ -328,7 +328,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @forelse($blogs->slice(0,1) as $blog)
                 <div class="card">
                     <div class="card-body">
-                        <div class="latest-blog-image" data-bg="url({{ asset($blog->imageUrl) }})" style=""></div>
+                        <div class="latest-blog-image lazy" data-bg="url({{ asset($blog->imageUrl) }})" style=""></div>
                         <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                         <div class="d-flex">
                             <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
@@ -346,7 +346,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4">
-                                <img data-bg="url({{ asset($blog->imageUrl) }})" src="{{ asset('images/500g.png') }}" alt="{{ $blog->title }}" class="w-100">
+                                <img data-src="url({{ asset($blog->imageUrl) }})" src="{{ asset('images/500g.png') }}" alt="{{ $blog->title }}" class="w-100 lazy">
                             </div>
                             <div class="col-8">
                                 <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
