@@ -369,7 +369,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4">
-                                <img src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100">
+                                <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100 lazy">
                             </div>
                             <div class="col-8">
                                 <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
