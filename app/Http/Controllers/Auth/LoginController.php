@@ -57,8 +57,8 @@ class LoginController extends Controller
 
         if(!$user->email_verified_at)
         {
-            $user->email_verification = User::generateRandomString();
-            $user->save();
+            // $user->email_verification = User::generateRandomString();
+            // $user->save();
 
             $caption = "Verification code for your Emploi Account";
         $contents = "
