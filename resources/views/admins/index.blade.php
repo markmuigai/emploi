@@ -41,13 +41,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container">
     <div class="single">
 
-        <div class="">
-
-            <p style="text-align: center;">
-
+        <div class="text-center">
                 <br>
 
-                <?php 
+                <?php
                 $nj = \App\Post::where('status','inactive')->count();
                 $co = \App\Contact::where('resolved_on',null)->count();
                 $ar = \App\Advert::where('status','pending')->count();
@@ -65,7 +62,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/employers" class="btn btn-sm btn-success">Employers</a>
                 <a href="/admin/seekers" class="btn btn-sm btn-primary">Job Seekers</a>
                 <a href="/admin/countries" class="btn btn-sm btn-success">Countries</a>
-                
+
                 <a href="/admin/companies" class="btn btn-sm btn-primary">Companies</a>
                 <a href="/admin/candidate-vetting" class="btn btn-sm btn-danger" style="display: none">Candidate Vetting</a>
                 <a href="/admin/cv-requests" class="btn btn-sm btn-info">CV Requests</a>
@@ -75,16 +72,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <a href="/admin/cv-editing" class="btn btn-sm btn-success" style="display: none">CV Editing Requests</a>
                 <a href="/admin/premium-placement" class="btn btn-sm btn-danger" style="display: none">Premium Placement Requests</a>
-                
+
 
                 <br><br>
-                
-
-
-            </p>
-
-
-
         </div>
         <div class="clearfix"> </div>
     </div>
