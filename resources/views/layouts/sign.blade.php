@@ -135,6 +135,13 @@
         $('a[href="' + location.pathname + '"]').closest('.nav-pills .nav-link').addClass('active');
     </script>
     @include('components.tawk')
+    <script type="text/javascript">
+        var lazyLoadInstance = new LazyLoad({
+            elements_selector: ".lazy"
+            // ... more custom settings?
+        });
+        lazyLoadInstance.update();
+    </script>
 </body>
 
 </html>

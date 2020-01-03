@@ -80,5 +80,12 @@
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript">
+        var lazyLoadInstance = new LazyLoad({
+            elements_selector: ".lazy"
+            // ... more custom settings?
+        });
+        lazyLoadInstance.update();
+    </script>
 </body>
 </html>

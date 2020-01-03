@@ -66,3 +66,5 @@
 
 
 <script data-ad-client="ca-pub-9948474979900683" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>

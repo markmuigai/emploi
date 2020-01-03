@@ -256,7 +256,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100">
+                        <img src="/images/500g.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Emploi is the most efficient digital sourcing platform. They are fast and are good at what they do.</p>
@@ -272,7 +272,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/testimonials/kizito.webp')}}" alt="Kipkemoi Kizito" class="w-100">
+                        <img src="/images/500g.png" data-src="{{asset('images/testimonials/kizito.webp')}}" alt="Kipkemoi Kizito" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
@@ -288,7 +288,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/testimonials/fay.webp')}}" alt="Faith Chepkemoi" class="w-100">
+                        <img src="/images/500g.png" data-src="{{asset('images/testimonials/fay.webp')}}" alt="Faith Chepkemoi" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>The Emploi Team create a great rapport with their candidates and are an invaluable asset to anyone looking for a job.</p>
@@ -304,7 +304,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">Testimonials</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="{{asset('images/testimonials/sandra.webp')}}" alt="Sandra Eshitemi" class="w-100">
+                        <img src="/images/500g.png" data-src="{{asset('images/testimonials/sandra.webp')}}" alt="Sandra Eshitemi" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.</p>
@@ -328,7 +328,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @forelse($blogs->slice(0,1) as $blog)
                 <div class="card">
                     <div class="card-body">
-                        <div class="latest-blog-image" style="background-image: url('{{ asset($blog->imageUrl) }}')"></div>
+                        <div class="latest-blog-image" data-bg="url({{ asset($blog->imageUrl) }})" style=""></div>
                         <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                         <div class="d-flex">
                             <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
