@@ -20,7 +20,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap" rel="stylesheet">
     <!--Font Awesome-->
     <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- ChartJS -->
@@ -189,7 +189,7 @@
     @guest
     @include('components.search-form')
     @endguest
-    
+
     @include('components.top-search')
 
     <!-- FOOTER -->
