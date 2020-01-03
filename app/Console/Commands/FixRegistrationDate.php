@@ -50,6 +50,7 @@ class FixRegistrationDate extends Command
             $row = 1;
             $missing = 0;
             $fixed = 0;
+            $w = 100;
             if (($handle = fopen($file, "r")) !== FALSE) {
                 while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
                     $row++;
@@ -61,6 +62,12 @@ class FixRegistrationDate extends Command
                         $user->created_at = $creat;
                         $user->save();
                         $fixed ++;
+                        $w--;
+                        if($w <= 0)
+                        {
+                            $w = 100;
+                            $this->info(' ... ');
+                        }
                     }
                     else
                     {

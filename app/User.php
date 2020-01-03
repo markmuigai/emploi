@@ -20,7 +20,7 @@ class User extends Authenticatable
     public $rememberFor = 30;
 
     protected $fillable = [
-        'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password'
+        'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password','created_at'
     ];
 
     protected $hidden = [
