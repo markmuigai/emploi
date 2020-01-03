@@ -20,7 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>
-                        Logo: * (png, jpg and jpeg Max 5MB)
+                        Logo: <b style="color: red">*</b> (png, jpg and jpeg Max 5MB)
                         @error('logo')
                             <strong class="pull-right text-danger"> * Uploaded logo was invalid *</strong>
                         @enderror

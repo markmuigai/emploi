@@ -49,9 +49,6 @@ class CompanyController extends Controller
         $request->validate([
             'name'          =>  ['required','max:50', 'unique:companies','string'],
             'about'         =>  ['required','max:2000' ,'string'],
-            'website'       =>  ['max:255' ,'string'],
-            'phone_number'  =>  ['max:20' ,'string'],
-            'email'         =>  ['max:20' ,'email'],
             'logo'          => ['required','mimes:png,jpg,jpeg','max:51200'],
             'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
         ]);
