@@ -16,7 +16,7 @@
                     <label for="new_invitee">Enter Email address</label>
                     <div class="form-row" id="invitees">
                         <div class="col-md-6 col-12">
-                            <input type="text" name="name" class="form-control my-1" id="new_invitee" placeholder="John Doe" required="">
+                            <input type="text" name="name" class="form-control my-1" id="new_invitee_name" placeholder="John Doe" required="">
                         </div>
                         <div class="col-md-6 col-12">
                             <input type="email" name="email" class="form-control my-1" id="new_invitee" placeholder="john@example.com" required="">
