@@ -61,12 +61,32 @@ class FixRegistrationDate extends Command
                     {
                         $user->created_at = $creat;
                         $user->save();
+                        if($user->role == 'seeker')
+                        {
+                            try {
+                                $user->seeker->created_at = $creat;
+                                $user->seeker->save();
+                            } catch (Exception $e) {
+                                $this->info($user->email.' has no job seeker profile ');
+                            }
+                            
+                        }
+                        elseif($user->role == 'employer')
+                        {
+                            try {
+                                $user->employer->created_at = $creat;
+                                $user->employer->save();
+                            } catch (Exception $e) {
+                                $this->info($user->email.' has no employer profile ');
+                            }
+                            
+                        }
                         $fixed ++;
                         $w--;
                         if($w <= 0)
                         {
                             $w = 100;
-                            $this->info(' ... ');
+                            $this->info($row.' ... ');
                         }
                     }
                     else

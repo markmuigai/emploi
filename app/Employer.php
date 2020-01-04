@@ -18,7 +18,7 @@ class Employer extends Model
     public $rememberFor = 30;
 
     protected $fillable = [
-        'user_id', 'name', 'industry_id','company_name', 'contact_phone','company_phone','company_email','country_id','address','credits'
+        'user_id', 'name', 'industry_id','company_name', 'contact_phone','company_phone','company_email','country_id','address','credits','created_at'
     ];
 
     public function industry(){
