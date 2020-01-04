@@ -68,13 +68,13 @@
                 </li>
                 <li class="nav-item">
                     @guest
-                    <a class="nav-link" href="/companies">See Who's Hiring</a>
+                    <a class="nav-link" href="/companies?hiring=true">See Who's Hiring</a>
                     @else
 
                     @if(Auth::user()->role == 'employer')
                     <a class="nav-link" href="/employers/browse">Candidates</a>
                     @else
-                    <a class="nav-link" href="/companies">See Who's Hiring</a>
+                    <a class="nav-link" href="/companies?hiring=true">See Who's Hiring</a>
                     @endif
 
                     @endguest
