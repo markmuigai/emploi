@@ -11,16 +11,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container">
     <div class="card my-5">
         <div class="card-body px-5">
-            <div class="latest-blog-image" style="background-image: url('{{ asset($blog->imageUrl) }}')"></div>
-            <h2 class="pt-4">{{ $blog->title }}</h2>
-            <div class="d-flex">
-                <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
+            <div class="main-blog-image mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($blog->imageUrl) }}')">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-5 heading">
+                    <h2>{{ $blog->title }}</h2>
+                    <p>
+                        <i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}
+                    </p>
+                    <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
+                </div>
             </div>
-            <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
             <p><?php echo $blog->contents; ?></p>
             @if($blog->image2)
             <br>
-            <div class="latest-blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
+            <div class="blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
             @endif
             <hr>
             <p>

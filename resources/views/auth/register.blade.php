@@ -21,7 +21,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <label for="fullName">Full Name <b style="color: red">*</b></label>
         @error('name')
         <p class="text-danger">
-          {{ $message }}
+            {{ $message }}
         </p>
         @enderror
         <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control" maxlength="50" value="{{ $name ? $name : old('name') }}" />
@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <label for="phone_number">Phone Number <b style="color: red">*</b></label>
         @error('phone_number')
         <p class="text-danger">
-          <strong>{{ $message }}</strong>
+            <strong>{{ $message }}</strong>
         </p>
         @enderror
         <div class="row pl-3">
@@ -102,7 +102,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </select>
     </div>
     @error('resume')
-        <p class="text-danger"> <b style="color: red">*</b> File uploaded is more than 5MB <b style="color: red">*</b></p>
+    <p class="text-danger"> <b style="color: red">*</b> File uploaded is more than 5MB <b style="color: red">*</b></p>
     @enderror
     <div class="form-group mb-3">
         <label for="resume">Attach Your Resume (.doc, .docx or .pdf) <small>(Max 5MB)</small> <b style="color: red">*</b></label>
@@ -117,6 +117,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <label for="password_confirmation">Confirm Password <b style="color: red">*</b></label>
         <input type="password" required="" value="" name="password_confirmation" id="password" class="form-control" maxlength="50" />
     </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+            I agree to the <a href="/terms-and-conditions" class="orange">Terms And Conditions</a>
+        </label>
+    </div>
+
     <div class="text-center">
         <button type="submit" name="button" class="btn btn-orange-alt">Register</button>
     </div>

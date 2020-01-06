@@ -511,10 +511,25 @@ main {
 
 .latest-blog-image {
     height: 200px;
+}
+
+.main-blog-image {
+    height: 350px;
+}
+
+.blog-image {
+    height: 180px;
+}
+
+.latest-blog-image, .main-blog-image, .blog-image {
     width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.latest-blog-image .heading {
+    color: white;
 }
 
 /* END OF BLOG */
