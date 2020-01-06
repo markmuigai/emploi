@@ -24,9 +24,9 @@ class VacancyType extends Model
     	if($this->slug == 'part-time')
     		return 'badge-orange';
     	if($this->slug == 'internships')
-    		return 'badge-danger';
-    	if($this->slug == 'contract')
     		return 'badge-info';
-    	return 'badge-default';
+    	if($this->slug == 'contract')
+    		return 'badge-purple';
+    	return 'badge-purple';
     }
 }

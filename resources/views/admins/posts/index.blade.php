@@ -15,7 +15,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <form method="get" class="form-group">
             <hr>
             <label>Search Job Posts</label>
-            <input type="text" name="q" class="form-control" placeholder="Search">
+            <div class="form-row">
+                <div class="col-md-9">
+                    <input type="text" name="q" class="form-control " placeholder="Enter Job Title">
+                </div>
+                <div class="col-md-3 text-center mt-2 mt-md-0">
+                    <button type="submit" name="button" class="btn btn-orange px-5">Search</button>
+                </div>
+            </div>
             <hr>
         </form>
 
@@ -40,7 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <hr>
                 <form method="post" action="/admin/posts/{{$p->slug}}/update" id="" class="form-row align-items-center">
                     @csrf
-                    <div class="col-lg-3 col-7">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <select name="status" class="custom-select" onchange="">
                             @foreach(['inactive','active','closed'] as $s)
                             <option value="{{ $s }}" {{ $p->status == $s ? 'selected="" ': "" }}>
@@ -49,7 +56,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-lg-3 col-7">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <select name="featured" class="custom-select" onchange="">
                             <option value="true" {{ $p->featured == 'true' ? 'selected="" ': "" }}>
                                 Featured
@@ -59,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </option>
                         </select>
                     </div>
-                    <div class="col-lg-3 col-7">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <select name="notification" class="custom-select" onchange="">
                             <option value="false">
                                 Don't send Notification
@@ -69,7 +76,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </option>
                         </select>
                     </div>
-                    <div class="col-lg-3 col-4">
+                    <div class="col-lg-2 col-md-6 col-12">
                         <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
                     </div>
                 </form>

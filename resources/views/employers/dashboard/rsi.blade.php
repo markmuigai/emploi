@@ -259,8 +259,6 @@ $().ready(function(){
 			    </select>
 			</div>
 
-			<hr style="display: none;">
-
 			<div class="form-group" style="display: none;">
 				<label>Desired Experience Duration</label>
 				<select name="experience_duration" class="custom-select">
@@ -432,7 +430,7 @@ $().ready(function(){
 				@empty
 				@endforelse
 			</div>
-			<h4 class="mt-3">Add New Personality Trait</h4>
+			<h4 class="mt-3">Add Desired Personality Trait</h4>
 			<div class="form-row justify-content-center">
 				<div class="col-md-7 col-12">
 					<select class="custom-select" id="select-trait">
