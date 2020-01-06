@@ -846,6 +846,7 @@ a .fab:hover {
 @media only screen and (max-width: 996px) {
     .nav-item {
         margin-top: 0;
+        justify-self: start;
     }
 
     .navbar-nav .nav-link {

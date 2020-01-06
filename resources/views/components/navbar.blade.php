@@ -78,7 +78,7 @@
                     @endif
 
                     @endguest
-                    
+
 
                 </li>
                 <li class="nav-item">
@@ -153,26 +153,27 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
                 </li>
+
+                @if(isset(Auth::user()->id))
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="{{ Auth::user()->getPublicAvatarUrl() }}" class="profile-avatar" alt="Profile">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-left" aria-labelledby="navbarDropdown">
+                        @guest
+                        <a class="dropdown-item" href="/login">Login</a>
+                        <a class="dropdown-item" href="/join">Create Profile</a>
+                        <a class="dropdown-item" href="/contact">Contact Us</a>
+                        @else
+                        <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
+                        <a class="dropdown-item" href="/profile">View Profile</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                        @endguest
+                    </div>
+                </li>
+                @endif
             </ul>
         </div>
-        @if(isset(Auth::user()->id))
-        <div class="nav-item dropdown text-right">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ Auth::user()->getPublicAvatarUrl() }}" class="profile-avatar" alt="Profile">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                @guest
-                <a class="dropdown-item" href="/login">Login</a>
-                <a class="dropdown-item" href="/join">Create Profile</a>
-                <a class="dropdown-item" href="/contact">Contact Us</a>
-                @else
-                <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
-                <a class="dropdown-item" href="/profile">View Profile</a>
-                <a class="dropdown-item" href="/logout">Logout</a>
-                @endguest
-            </div>
-        </div>
-        @endif
     </div>
 </nav>
 
