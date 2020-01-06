@@ -1,263 +1,267 @@
 :root {
     --primary: #500095;
-    --secondary: #E15419;
+    --secondary: #E15419
 }
 
 body {
     overflow-x: hidden;
     position: relative;
-    min-height: 93vh;
+    min-height: 93vh
 }
 
 * {
     scroll-behavior: smooth;
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif
 }
 
 a {
     color: inherit;
-    transition: 0.3s;
+    transition: .3s
 }
 
 a:hover {
-    color: var(--secondary);
-    cursor: pointer;
+    color: var(--secondary)
 }
 
 p {
-    margin: .2rem 0;
+    margin: .2rem 0
 }
 
 iframe {
     width: 100%;
-    height: 200px;
+    height: 200px
 }
 
-ul.alpha {
+ul.alpha, ul.numeric {
     list-style: lower-alpha;
-    padding-left: 1rem;
+    padding-left: 1rem
 }
 
 ul.numeric {
-    list-style: decimal;
-    padding-left: 1rem;
+    list-style: decimal
 }
 
 ul.tick {
     list-style: none;
     padding-left: 0;
-    text-align: left;
+    text-align: left
 }
 
 ul.tick li {
-    padding: 0.5rem 0;
+    padding: .5rem 0
 }
 
 ul.tick li:before {
-    content: '✓';
+    content: '✓'
 }
 
-.fa-times:hover {
-    cursor: pointer;
+.fa-times:hover, a:hover {
+    cursor: pointer
 }
 
 .badge-secondary {
     background: #ebebeb;
-    color: grey;
-    font-weight: 400;
+    color: gray;
+    font-weight: 400
 }
 
 .btn {
-    padding: 0.25rem 1rem;
+    padding: .25rem 1rem;
     border-radius: 20px;
-    border: 2px solid;
+    border: 2px solid
 }
 
 .btn:focus, button:focus {
-    outline: none;
+    outline: 0
 }
 
 .orange {
-    color: var(--secondary) !important;
+    color: var(--secondary) !important
 }
 
 .purple {
-    color: var(--primary) !important;
+    color: var(--primary) !important
 }
 
 .coloured-card .card {
-    padding: 2rem 0.5rem;
-    background: var(--primary);
-    color: white;
+    padding: 2rem .5rem
 }
 
-.purple-bg {
+.coloured-card .card, .purple-bg {
     background: var(--primary);
-    color: white;
+    color: #fff
 }
 
 .navbar a:hover {
-    color: var(--secondary);
+    color: var(--secondary)
+}
+
+.btn-orange, .btn-orange-alt {
+    border-color: var(--secondary)
 }
 
 .btn-orange {
     background: var(--secondary);
-    color: white;
-    border-color: var(--secondary);
+    color: #fff
 }
 
 .btn-orange-alt {
-    background: none;
-    color: var(--secondary);
-    border-color: var(--secondary);
+    background: 0 0;
+    color: var(--secondary)
 }
 
-.btn-orange:hover, .btn-orange-alt:hover {
+.btn-orange-alt:hover, .btn-orange:hover {
     border-color: #b84514;
     background: #b84514;
-    color: white;
+    color: #fff
 }
 
-.btn-orange:focus, .btn-orange-alt:focus {
+.btn-orange-alt:focus, .btn-orange:focus {
     border-color: #ed895e;
-    background: #ed895e;
+    background: #ed895e
 }
 
 .btn-purple {
     background: var(--primary);
     border-color: var(--primary);
-    color: white;
+    color: #fff
 }
 
 .btn-purple:hover {
     background: #2c0152;
     border-color: #2c0152;
-    color: white;
+    color: #fff
 }
 
 .btn-purple:focus {
     background: #7a05e2;
-    border-color: #7a05e2;
+    border-color: #7a05e2
 }
 
 .btn-white {
-    background: none;
-    color: white;
-    border-color: white;
+    background: 0 0;
+    color: #fff;
+    border-color: #fff
 }
 
 .btn-white:hover {
-    background: white;
-    color: var(--secondary);
+    background: #fff;
+    color: var(--secondary)
 }
 
 .badge-orange {
     background: var(--secondary);
-    color: white;
+    color: #fff
 }
 
-.form-control, .custom-select {
-    border-radius: 20px;
+.badge-purple {
+    background: var(--primary);
+    color: #fff
 }
 
-.form-control:focus, .custom-select:focus {
+.custom-select, .form-control {
+    border-radius: 20px
+}
+
+.custom-select:focus, .form-control:focus {
     border-color: #8c8c8c;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(140, 140, 140, .25);
+    box-shadow: 0 0 0 .2rem rgba(140, 140, 140, .25)
 }
 
-input[type="file"] {
-    width: 100%;
+input[type=file] {
+    width: 100%
 }
 
-.slick-prev .fas, .slick-next .fas {
-    background: white;
+.slick-next .fas, .slick-prev .fas {
+    background: #fff;
     color: var(--primary);
     font-size: 1rem;
-    padding: 0.5rem;
-    box-shadow: 0 0 5px 2px rgba(193, 193, 193, 0.5);
+    padding: .5rem;
+    box-shadow: 0 0 5px 2px rgba(193, 193, 193, .5);
     border-radius: 5px;
     position: absolute;
     top: 50%;
     z-index: 1001;
-    transform: translateY(-50%);
+    transform: translateY(-50%)
 }
 
 .slick-prev .fas {
-    left: -5px;
+    left: -5px
 }
 
 .slick-next .fas {
-    right: -5px;
+    right: -5px
 }
 
 .slick-dots {
-    bottom: -35px;
+    bottom: -35px
 }
 
 .slick-dots li button {
-    background: none;
+    background: 0 0;
     border-radius: 50%;
     height: 2px;
     width: 2px;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary)
 }
 
 .slick-dots li.slick-active button {
-    background: var(--primary);
+    background: var(--primary)
 }
 
 .prompts {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    z-index: 1001;
+    z-index: 1001
+}
+
+.invite, .navbar {
+    background: var(--primary);
+    color: #fff
 }
 
 .invite {
-    background: var(--primary);
-    color: white;
     border-radius: 4rem;
-    padding: 0.7rem 0.85rem;
+    padding: .7rem .85rem;
     border: 0;
     font-size: 1.2rem;
-    transition: box-shadow 0.3s;
+    transition: box-shadow .3s
 }
 
 .invite:hover {
-    box-shadow: 0 0 10px 2px rgba(80, 0, 149, 0.3);
+    box-shadow: 0 0 10px 2px rgba(80, 0, 149, .3)
 }
 
-span[class*="remove"]:hover {
+span[class*=remove]:hover {
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: underline
 }
 
 img.avatar-small {
     width: 100%;
-    border-radius: 50%;
+    border-radius: 50%
 }
 
 .navbar {
-    background: var(--primary);
-    color: white;
     font-size: 1rem;
     padding: 0;
-    align-items: center;
+    align-items: center
 }
 
 .navbar-brand img {
     height: 70px;
-    transition: height 0.5s
+    transition: height .5s
 }
 
 .scrolled .navbar-brand img {
-    height: 50px;
+    height: 50px
 }
 
 .nav-item {
-    margin: .5rem .2rem;
+    margin: .5rem .2rem
 }
 
 img.profile-avatar {
@@ -266,66 +270,64 @@ img.profile-avatar {
     border-radius: 50%
 }
 
-.navbar-toggler {
-    color: white;
+.blogs h2, .navbar-toggler {
+    color: #fff
 }
 
 .navbar-nav {
-    align-items: center;
+    align-items: center
 }
 
 .navbar-nav .nav-link {
     border-bottom: 1px solid transparent;
-    border-radius: 20px;
-    /* transition: background 0.5s, border 0s; */
+    border-radius: 20px
 }
 
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active:hover {
+.navbar-nav .nav-link.active:hover, .navbar-nav .nav-link:hover {
     border-radius: 20px;
-    background: white;
+    background: #fff
 }
 
 .navbar-nav .nav-link.active {
     border-radius: 0;
-    border-bottom-color: white;
+    border-bottom-color: #fff
 }
 
 .dropdown-menu {
-    border-radius: 0;
+    border-radius: 0
 }
 
 .dropdown-item {
-    font-size: 1rem;
+    font-size: 1rem
 }
 
-.nav-link:hover .fa-search {
-    color: var(--secondary);
+.nav-link:hover .fa-search, .recents a:hover {
+    color: var(--secondary)
 }
 
 .page-item.active .page-link {
     background-color: var(--primary);
-    border-color: var(--primary);
+    border-color: var(--primary)
 }
 
 .page-link {
-    color: var(--primary);
+    color: var(--primary)
 }
 
-/* FOOTER */
-.top-search, .search-bar, footer {
+.search-bar, .top-search, footer {
     position: relative;
-    z-index: 100;
+    z-index: 100
 }
 
 footer {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     color: #737373;
-    font-size: 0.9rem;
+    font-size: .9rem
 }
 
 footer ul.footer-menu {
     list-style: none;
-    padding-left: 0;
+    padding-left: 0
 }
 
 footer p {
@@ -333,11 +335,11 @@ footer p {
 }
 
 footer i {
-    font-size: 1.2rem;
+    font-size: 1.2rem
 }
 
 .social a i {
-    font-size: 1.5rem;
+    font-size: 1.5rem
 }
 
 .social-icons {
@@ -345,21 +347,18 @@ footer i {
     padding-left: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
-/* FOOTER */
 .sign-copy {
     position: absolute;
     width: 100%;
     bottom: 0;
-    text-align: center;
+    text-align: center
 }
 
-/* END OF FOOTER */
-/* MODAL */
 #socialModal .fab {
-    font-size: 2rem;
+    font-size: 2rem
 }
 
 button.close {
@@ -368,88 +367,78 @@ button.close {
     top: -1.9rem;
     background-color: var(--primary);
     opacity: 1;
-    color: white;
+    color: #fff;
     border-radius: 50%;
-    padding: 0.5rem 0.7rem;
-    font-size: 1.3rem;
+    padding: .5rem .7rem;
+    font-size: 1.3rem
 }
 
 .close:not(:disabled):not(.disabled):hover {
-    opacity: .75;
     background-color: var(--primary);
     opacity: 1;
-    color: white;
+    color: #fff;
     transform: scale(1.1);
-    transition: 0.3s;
+    transition: .3s
 }
 
 main {
     padding: 4.7rem 0 0;
-    min-height: 50.5vh;
+    min-height: 50.5vh
 }
 
 .sidebar {
     position: fixed;
     width: 19%;
     height: 100%;
-    z-index: 0;
+    z-index: 0
 }
 
 #postAlt {
-    display: none;
+    display: none
 }
 
-#postJob {
+#postJob, .landing .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center
 }
 
-/* HOMEPAGE */
 .landing {
     height: calc(100vh);
     background: var(--primary);
-    background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
+    background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: white;
+    color: #fff
 }
 
 .landing .container {
-    display: flex;
     justify-content: flex-start;
-    align-items: center;
-    height: 100%;
+    height: 100%
 }
 
 .landing .container .content {
-    width: 50%;
+    width: 50%
 }
 
-/* END OF HOMEPAGE */
-/* SEARCH BAR */
 .search-bar {
-    background: rgb(235, 235, 235);
-    padding: 3rem 0;
+    background: #ebebeb;
+    padding: 3rem 0
 }
 
-/* END OF SEARCH BAR */
-/* ABOUT */
 .about {
-    margin: 3rem 0 0;
+    margin: 3rem 0 0
 }
 
 .about .card-body, .services>.container>.card>.card-body {
-    padding: 3rem 15%;
+    padding: 3rem 15%
 }
 
-/* END OF ABOUT */
-/* STATISTICS */
 .statistics {
     position: relative;
-    height: 190px;
+    height: 190px
 }
 
 .statistics .card {
@@ -459,308 +448,272 @@ main {
     width: 70%;
     left: 50%;
     transform: translateX(-55%);
-}
-
-.statistics .card {
-    background: linear-gradient(140deg, #8900FF 0, #500095 60%);
-    color: white;
+    background: linear-gradient(140deg, #8900ff 0, #500095 60%);
+    color: #fff
 }
 
 .statistics i {
     font-size: 3rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem
 }
 
-/* END OF STATISTICS */
-/* SERVICES */
 .service-cards .card:nth-child(odd) {
     background: var(--primary);
-    color: white;
+    color: #fff
 }
 
 .service-cards .card:hover {
     transform: scale(1.05);
-    transition: 0.3s;
-    color: var(--secondary);
+    transition: .3s;
+    color: var(--secondary)
 }
 
-/* END OF SERVICES */
-/* FEATURED JOBS */
 .featured-carousel a.card:hover {
     color: inherit;
     text-decoration: none;
     transform: scale(1.05);
-    transition: transform 0.3s;
+    transition: transform .3s
 }
 
 .featured-carousel img {
     height: 100px;
     width: 100px;
-    border-radius: 50%;
+    border-radius: 50%
 }
 
-/* END OF FEATURED JOBS */
-/* BLOG */
 .blogs {
-    background: linear-gradient(140deg, #8900FF 0, #500095 60%);
-}
-
-.blogs h2 {
-    color: white;
+    background: linear-gradient(140deg, #8900ff 0, #500095 60%)
 }
 
 .latest-blog-image {
-    height: 200px;
+    height: 200px
 }
 
 .main-blog-image {
-    height: 350px;
+    height: 350px
 }
 
 .blog-image {
-    height: 180px;
+    height: 180px
 }
 
-.latest-blog-image, .main-blog-image, .blog-image {
+.blog-image, .latest-blog-image, .main-blog-image {
     width: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 }
 
 .main-blog-image .heading {
-    color: white;
+    color: #fff
 }
 
-/* END OF BLOG */
-/* FEATURED EMPLOYER */
 .employers-carousel img {
     height: 80px;
-    width: auto;
+    width: auto
 }
 
-/* END OF FEATURED EMPLOYER */
-/* TESTIMONIALS */
 .testimonials .card-body {
-    padding: 3rem 5%;
+    padding: 3rem 5%
 }
 
-/* END OF TESTIMONIALS */
-/* GET STARTED */
 .get-started {
-    background: linear-gradient(#500095 60%, #F2F2F2 100%);
-    background: linear-gradient(to right, rgba(80, 0, 149, 1), rgba(80, 0, 149, 0.3)), url("../images/connect.jpg");
+    background: linear-gradient(#500095 60%, #f2f2f2 100%);
+    background: linear-gradient(to right, #500095, rgba(80, 0, 149, .3)), url(../images/connect.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center left;
-    color: white;
-    padding: 5rem 0;
+    color: #fff;
+    padding: 5rem 0
 }
 
-/* END OF GET STARTED */
-#premium-services, #database-search, #advertising, #premium-search {
-    padding-top: 4rem;
+#advertising, #database-search, #premium-search, #premium-services {
+    padding-top: 4rem
 }
 
 .card {
-    box-shadow: 0 0 5px 0px rgba(200, 200, 200, 0.5);
+    box-shadow: 0 0 5px 0 rgba(200, 200, 200, .5);
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem
 }
 
 .card-header.cover {
     height: 170px;
-    background-size: cover;
+    background-size: cover
 }
 
 .card-header.cover+.card-body {
     position: relative;
-    top: -100px;
+    top: -100px
 }
 
 .nav-pills {
-    border: 1px solid grey;
-    border-radius: 5px;
+    border: 1px solid gray;
+    border-radius: 5px
 }
 
 .nav-pills .nav-link {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid gray;
     border-radius: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center
 }
 
 .nav-pills .nav-link:last-child {
-    border-bottom: 0;
+    border-bottom: 0
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    background: var(--primary);
+    background: var(--primary)
 }
 
 .nav-pills .nav-link:hover {
-    color: white;
+    color: #fff;
     background-color: #2c0152;
-    border-color: #2c0152;
+    border-color: #2c0152
 }
 
 .recents a {
-    color: blue;
-}
-
-.recents a:hover {
-    color: var(--secondary);
+    color: #00f
 }
 
 .recents ul {
     list-style: none;
     padding-left: 0;
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
 .nav-tabs .nav-link.active {
     color: var(--secondary);
     border: 0;
-    border-bottom: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary)
 }
 
 .nav-tabs .nav-link {
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent
 }
 
 .nav-tabs .nav-link:hover {
-    border-color: transparent;
+    border-color: transparent
 }
 
 .nav-tabs .nav-link.active:hover, .nav-tabs .nav-link:hover {
     color: var(--primary);
-    border-bottom-color: var(--primary);
+    border-bottom-color: var(--primary)
 }
 
 .nav-tabs {
-    border-bottom: 0;
+    border-bottom: 0
 }
 
 .job-actions {
-    text-align: right;
+    text-align: right
 }
 
-.about-icons .fas {
-    font-size: 2rem;
+.about-icons .fas, .contact .address i {
+    font-size: 2rem
 }
 
 .edu {
-    border-left: 4px solid rgb(200, 200, 200);
-}
-
-.edu:nth-last-child() {
-    border-left: 4px solid transparent;
+    border-left: 4px solid #c8c8c8
 }
 
 .circle {
     height: 25px;
     width: 25px;
-    background-color: white;
-    border: 4px solid rgb(200, 200, 200);
+    background-color: #fff;
+    border: 4px solid #c8c8c8;
     border-radius: 50%;
     position: relative;
     left: -13px;
-    top: 0;
+    top: 0
 }
 
 .progress {
-    height: 10px;
+    height: 10px
 }
 
 .top-bg {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/bg2.webp");
-    /* background: url("../images/bg2.webp"); */
+    background: linear-gradient(to right, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../images/bg2.webp);
     filter: grayscale(1);
     background-position: center;
     background-size: cover;
     position: absolute;
     height: 55vh;
-    width: 100%;
+    width: 100%
 }
 
 .advert-details {
-    color: white;
+    color: #fff;
     font-size: 1.1rem;
     height: 55vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center
 }
 
 ul.feature_list {
-    padding-left: 1rem;
+    padding-left: 1rem
 }
 
 main.sign-page {
     min-height: 98vh;
     display: grid;
-    align-items: center;
+    align-items: center
 }
 
 main.sign-page p {
-    font-size: 1.2em;
+    font-size: 1.2em
 }
 
-.acc-links a:hover {
+.acc-links a:hover, a .fab:hover {
     transform: scale(1.1);
-    transition: 0.3s;
+    transition: .3s
 }
 
 .sign-left .fab {
     font-size: 1.5rem;
-    padding: 0.5rem 1.5rem;
-    color: white;
+    padding: .5rem 1.5rem;
+    color: #fff
 }
 
 .sign-left .fa-facebook-f {
-    background: #4267B2;
+    background: #4267b2
 }
 
 .sign-left .fa-google {
-    background: #DB4437;
+    background: #db4437
 }
 
 .sign-left .fa-twitter {
-    background: #1DA1F2;
+    background: #1da1f2
 }
 
 .sign-left .fa-linkedin {
-    background: #0e76a8;
-}
-
-a .fab:hover {
-    transform: scale(1.1);
-    transition: 0.3s;
+    background: #0e76a8
 }
 
 .accordion .card-header {
     background: var(--primary);
-    color: white;
-    cursor: pointer;
+    color: #fff;
+    cursor: pointer
 }
 
-/* ABOUT US PAGE */
 .team-member img {
     height: 150px;
     width: 150px;
-    border-radius: 50%;
+    border-radius: 50%
 }
 
 .icon-service .icon {
     width: 50px;
     height: 50px;
     position: relative;
-    margin: 10px;
-    margin-right: 15px;
+    margin: 10px 15px 10px 10px;
     padding: 2rem;
     border-radius: 50%;
-    border: 3px solid #595959;
+    border: 3px solid #595959
 }
 
 .icon-service .icon .fas {
@@ -768,129 +721,113 @@ a .fab:hover {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.8rem;
+    font-size: 1.8rem
 }
 
-/* END OF ABOUT US PAGE */
-/* 404 */
 .error-page {
     background: var(--primary);
-    background: linear-gradient(to right, rgba(80, 0, 149, 0.3), rgba(80, 0, 149, 0.3)), url("../images/error.jpg");
+    background: linear-gradient(to right, rgba(80, 0, 149, .3), rgba(80, 0, 149, .3)), url(../images/error.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 88vh;
-    color: black;
-    font-size:
+    color: #000
 }
 
 .error-page .content {
-    width: 60%;
+    width: 60%
 }
 
 .error-page h1 {
-    font-size: 10rem;
+    font-size: 10rem
 }
 
-/* END OF 404 */
 .circle-img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 50%
 }
 
-/* TOP SEARCH */
 .top-search {
     background: #e4e4e4;
-    color: #656565;
+    color: #656565
 }
 
 .top-search ul {
     padding-left: 0;
-    list-style: none;
+    list-style: none
 }
 
-/* END OF TOP SEARCH */
-/* CONTACT */
 .contact {
-    background: linear-gradient(to right, #500095 48%, #8900FF 48%, #8900FF 50%, #FFFFFF 0);
-    height: 88vh;
+    background: linear-gradient(to right, #500095 48%, #8900ff 48%, #8900ff 50%, #fff 0);
+    height: 88vh
 }
 
 .contact .address {
-    color: white;
+    color: #fff
 }
 
 .contact .container, .contact .row {
-    height: 100%;
+    height: 100%
 }
 
-.contact .address i {
-    font-size: 2rem;
-}
-
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width:1024px) {
     .landing {
-        background-position: right;
+        background-position: right
     }
 
-    .top-bg {
-        height: 28vh;
-    }
-
-    .advert-details {
-        height: 28vh;
+    .advert-details, .top-bg {
+        height: 28vh
     }
 }
 
-@media only screen and (max-width: 996px) {
+@media only screen and (max-width:996px) {
     .nav-item {
         margin-top: 0;
-        justify-self: start;
+        justify-self: start
     }
 
     .navbar-nav .nav-link {
-        padding: 0.3rem 1rem;
+        padding: .3rem 1rem
     }
 
     .scrolled .navbar-brand img {
-        height: 30px;
+        height: 30px
     }
 
     .navbar:focus-within {
-        background: var(--primary);
+        background: var(--primary)
     }
 
     .collapse.navbar-collapse .navbar-nav {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        padding: 1rem;
+        padding: 1rem
     }
 
     main {
-        padding: 2.5rem 0 0;
+        padding: 2.5rem 0 0
     }
 
     .job-actions {
-        text-align: left;
+        text-align: left
     }
 
     main.sign-page {
         min-height: auto;
-        margin-top: 3em;
+        margin-top: 3em
     }
 
     .landing {
-        background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
+        background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpg);
         height: 50vh;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: right;
+        background-position: right
     }
 
-    /* STATISTICS */
     .statistics {
-        height: 150px;
+        height: 150px
     }
 
     .statistics .card {
@@ -899,99 +836,94 @@ a .fab:hover {
         z-index: 100;
         width: 85%;
         left: 50%;
-        transform: translateX(-57.5%);
+        transform: translateX(-57.5%)
     }
 
-    /* END OF STATISTICS */
     .slick-prev .fas {
-        left: 20px;
+        left: 20px
     }
 
     .slick-next .fas {
-        right: 20px;
+        right: 20px
     }
 
     .featured-carousel .card-body {
-        padding: 1rem;
+        padding: 1rem
     }
 
     .about .card-body, .services>.container>.card>.card-body {
-        padding: 3rem 10%;
+        padding: 3rem 10%
     }
 
     .contact {
-        height: 70vh;
+        height: 70vh
     }
 
     .top-bg {
-        height: 32vh;
+        height: 32vh
     }
 
     .advert-details {
         height: 32vh;
-        padding-top: 2rem;
+        padding-top: 2rem
     }
 
     .error-page {
-        background: linear-gradient(to right, rgba(80, 0, 149, 0.3), rgba(80, 0, 149, 0.3)), url("../images/error.jpg");
+        background: linear-gradient(to right, rgba(80, 0, 149, .3), rgba(80, 0, 149, .3)), url(../images/error.jpg);
         background-position: left;
         background-repeat: no-repeat;
         background-size: contain;
-        height: 50vh;
+        height: 50vh
     }
 
     .error-page .content {
-        width: 50%;
+        width: 50%
     }
 }
 
-@media only screen and (max-width: 425px) {
-    p, li {
-        font-size: 0.9rem;
+@media only screen and (max-width:425px) {
+    li, p {
+        font-size: .9rem
     }
 
     main {
-        overflow-x: hidden;
+        overflow-x: hidden
     }
 
     main.sign-page {
-        padding: 2rem 0;
+        padding: 2rem 0
     }
 
     main.sign-page p {
-        font-size: 1em;
+        font-size: 1em
     }
 
-    /* NAVBAR */
     .collapse.navbar-collapse .navbar-nav {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
     }
 
     .nav-link {
-        padding: 0rem 1rem;
+        padding: 0 1rem
     }
 
     .navbar-brand img {
-        height: 50px;
+        height: 50px
     }
 
-    /* LANDING */
     .landing {
-        background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
+        background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: right;
-        height: 80vh;
+        height: 80vh
     }
 
     .landing .container .content {
-        width: 100%;
+        width: 100%
     }
 
-    /* END OF LANDING */
-    /* STATISTICS */
     .statistics {
-        height: 500px;
+        height: 500px
     }
 
     .statistics .card {
@@ -1000,61 +932,53 @@ a .fab:hover {
         z-index: 100;
         width: 80%;
         left: 50%;
-        transform: translateX(-65%);
+        transform: translateX(-65%)
     }
 
     .statistics i {
-        font-size: 2rem;
+        font-size: 2rem
     }
 
-    /* END OF STATISTICS */
-    /* TESTIMONALS */
-    .testimonials img {}
-
-    /* END OF TESTIMONALS */
-    /* CONTACT */
     .contact {
-        background: linear-gradient(#500095 46%, #8900FF 46%, #8900FF 48%, #FFFFFF 0);
-        height: auto;
+        background: linear-gradient(#500095 46%, #8900ff 46%, #8900ff 48%, #fff 0);
+        height: auto
     }
 
-    /* END OF CONTACT */
     .top-bg {
-        height: 45vh;
+        height: 45vh
     }
 
     .advert-details {
         font-size: 1rem;
-        height: 45vh;
+        height: 45vh
     }
 
-    /* ERROR PAGE */
     .error-page {
-        background: linear-gradient(to right, rgba(80, 0, 149, 0.7), rgba(80, 0, 149, 0.7)), url("../images/error2.jpg");
+        background: linear-gradient(to right, rgba(80, 0, 149, .7), rgba(80, 0, 149, .7)), url(../images/error2.jpg);
         background-position: left;
         background-size: contain;
-        color: white;
-        height: 90vh;
+        color: #fff;
+        height: 90vh
     }
 
     .error-page .content {
-        width: 90%;
+        width: 90%
     }
 }
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+@media only screen and (min-device-width:414px) and (max-device-width:736px) and (orientation:landscape) {
     .landing {
-        background: linear-gradient(to right, rgba(81, 81, 81, 1), rgba(81, 81, 81, 0.3)), url("../images/bg1.jpg");
-        height: 100vh !important;
+        background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpg);
+        height: 100vh !important
     }
 
     .landing .container .content {
-        width: 80%;
+        width: 80%
     }
 }
 
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width:1500px) {
     .sidebar {
-        width: 10%;
+        width: 10%
     }
 }

@@ -226,7 +226,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
-                    <img  src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
+                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
                 </div>
                 <p class="badge badge-secondary">{{$p->positions}} Postions</p>
                 <h5>{{ $p->title }}</h5>

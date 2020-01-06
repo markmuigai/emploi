@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         @if(count($blogs) > 0)
-        <p><a href="/blog/create" class="btn btn-success">Create Blog</a></p>
+        <p><a href="/blog/create" class="btn btn-orange">Create Blog</a></p>
         @endif
         @forelse($blogs as $blog)
         <div class="row align-items-center">
@@ -27,14 +27,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </p>
             </div>
             <div class="col-lg-3 col-md-3">
-                <a href="{{ url('/blog/'.$blog->slug.'/edit') }}" class="btn btn-sm btn-info">Edit</a>
-                <a href="{{ url('/blog/'.$blog->slug) }}" class="btn btn-sm btn-success" target="_blank">View</a>
+                <a href="{{ url('/blog/'.$blog->slug.'/edit') }}" class="btn btn-sm btn-orange-alt">Edit</a>
+                <a href="{{ url('/blog/'.$blog->slug) }}" class="btn btn-sm btn-purple" target="_blank">View</a>
             </div>
         </div>
         <hr>
         @empty
-        <p class="text-center">No blogs have been created</p>
-        <p><a href="/blog/create" class="btn btn-success">Create Blog</a></p>
+        <div class="text-center">
+            <p>No blogs have been created</p>
+            <p><a href="/blog/create" class="btn btn-orange">Create Blog</a></p>
+        </div>
         @endforelse
     </div>
 </div>
