@@ -59,6 +59,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </option>
                         </select>
                     </div>
+                    <div class="col-lg-3 col-7">
+                        <select name="notification" class="custom-select" onchange="">
+                            <option value="false">
+                                Don't send Notification
+                            </option>
+                            <option value="true" {{ $p->status == 'inactive' ? 'selected="" ': "" }}>
+                                Send Notification
+                            </option>
+                        </select>
+                    </div>
                     <div class="col-lg-3 col-4">
                         <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
                     </div>

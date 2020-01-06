@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Carbon\Carbon;
+use OneSignal;
 
 use App\Advert;
 use App\Blog;
@@ -69,6 +70,14 @@ class AdminController extends Controller
     	$post->status = $request->status;
         $post->featured = $request->featured;
     	$post->save();
+        if($request->notification == 'true')
+        {
+            OneSignal::sendNotificationToAll(
+                $post->title, 
+                $url = url('/vacancies/'.$post->slug)
+            );
+        }
+        
     	return redirect()->back(); ;
     	return $request->all();
     }
