@@ -600,4 +600,13 @@ class AdminController extends Controller
             ;
     }
 
+    public function toggleSeekerFeatured(Request $request){
+        $seeker = Seeker::findOrFail($request->seeker_id);
+        $seeker->featured = $seeker->featured == 1 ? 0 : 1;
+        $seeker->save();
+        //dd($seeker->id);
+        return redirect()->back();
+        //$seeker = $user->seeker;
+    }
+
 }
