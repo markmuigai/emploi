@@ -14,7 +14,7 @@ class FindMissingUsers extends Command
      *
      * @var string
      */
-    protected $signature = 'command:FixRegistrationDate';
+    protected $signature = 'command:FindMissingUsers';
 
     /**
      * The console command description.
