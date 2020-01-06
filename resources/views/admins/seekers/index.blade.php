@@ -66,6 +66,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h4>
                     <a href="/admin/seekers/{{ $seeker->user->username }}" class="orange">
                         {{ $seeker->user->name }}
+                        @if($seeker->featured == 1)
+                            <span style='color: #500095; font-weight: bold'>*FEATURED*</span>
+                        @endif
                     </a>
                 </h4>
                 <p>{{ $seeker->industry->name }}</p>
