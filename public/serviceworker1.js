@@ -1,57 +1,89 @@
-var staticCacheName = "pwa-v" + new Date().getTime();
-var filesToCache = [
-    '/css/slick.css',
-    '/css/slick-theme.css',
-    '/css/main.css',
-    '/js/jquery-3.4.1.min.js',
-    '/js/popper.min.js',
-    '/js/bootstrap4.min.js',
-    '/js/jquery.countup.js',
-    '/js/jQuery.succinct.min.js',
-    '/js/notify.min.js',
-    '/js/emploi-notify.js',
-    '/js/slick.min.js',
-    '/js/custom.js',
-    '/images/favicon.png',
-    '/images/500g.png',
-    '/images/icons/icon-512x512.png',
+/*
+ Copyright 2016 Google Inc. All Rights Reserved.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
 
+// Names of the two caches used in this version of the service worker.
+// Change to v2, etc. when you update any of the local resources, which will
+// in turn trigger the install event again.
+const PRECACHE = 'precache-v1';
+const RUNTIME = 'runtime';
+
+// A list of local resources we always want to be cached.
+const PRECACHE_URLS = [
+  '/css/slick.css',
+  '/css/slick-theme.css',
+  '/css/main.css',
+  '/js/jquery-3.4.1.min.js',
+  '/js/popper.min.js',
+  '/js/bootstrap4.min.js',
+  '/js/jquery.countup.js',
+  '/js/jQuery.succinct.min.js',
+  '/js/notify.min.js',
+  '/js/emploi-notify.js',
+  '/js/slick.min.js',
+  '/js/custom.js',
+  '/images/favicon.png',
+  '/images/500g.png',
+  '/images/icons/icon-512x512.png',
+  '/',
+  '/profile',
+  '/vacancies',
+  '/blog'
 ];
 
-// Cache on install
-self.addEventListener("install", event => {
-    this.skipWaiting();
-    event.waitUntil(
-        caches.open(staticCacheName)
-            .then(cache => {
-                return cache.addAll(filesToCache);
-            })
-    )
+// The install handler takes care of precaching the resources we always need.
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(PRECACHE)
+      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(self.skipWaiting())
+  );
 });
 
-// // Clear cache on activate
-// self.addEventListener('activate', event => {
-//     event.waitUntil(
-//         caches.keys().then(cacheNames => {
-//             return Promise.all(
-//                 cacheNames
-//                     .filter(cacheName => (cacheName.startsWith("pwa-")))
-//                     .filter(cacheName => (cacheName !== staticCacheName))
-//                     .map(cacheName => caches.delete(cacheName))
-//             );
-//         })
-//     );
-// });
+// The activate handler takes care of cleaning up old caches.
+self.addEventListener('activate', event => {
+  const currentCaches = [PRECACHE, RUNTIME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
+    }).then(cachesToDelete => {
+      return Promise.all(cachesToDelete.map(cacheToDelete => {
+        return caches.delete(cacheToDelete);
+      }));
+    }).then(() => self.clients.claim())
+  );
+});
 
-// // Serve from Cache
-// self.addEventListener("fetch", event => {
-//     event.respondWith(
-//         caches.match(event.request)
-//             .then(response => {
-//                 return response || fetch(event.request);
-//             })
-//             .catch(() => {
-//                 return caches.match('offline');
-//             })
-//     )
-// });
+// The fetch handler serves responses for same-origin resources from a cache.
+// If no response is found, it populates the runtime cache with the response
+// from the network before returning it to the page.
+self.addEventListener('fetch', event => {
+  // Skip cross-origin requests, like those for Google Analytics.
+  if (event.request.url.startsWith(self.location.origin)) {
+    event.respondWith(
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+
+        return caches.open(RUNTIME).then(cache => {
+          return fetch(event.request).then(response => {
+            // Put a copy of the response in the runtime cache.
+            return cache.put(event.request, response.clone()).then(() => {
+              return response;
+            });
+          });
+        });
+      })
+    );
+  }
+});
