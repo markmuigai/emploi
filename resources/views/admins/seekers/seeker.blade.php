@@ -17,7 +17,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="col-lg-10 col-9">
                 <p>
-                    {{ '@'.$seeker->user->username }}
+                    {{ '@'.$seeker->user->username }} 
+
+                    @if($seeker->featured == 1)
+                        <span style='color: #500095; font-weight: bold'>*FEATURED*</span>
+                    @endif
                 </p>
                 <a href="{{ $seeker->resumeUrl }}" class="btn btn-sm btn-orange">View Resume</a>
             </div>
@@ -107,6 +111,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </p>
         @endforelse
         @endif
+        <hr>
+        <h4>Featured Job Seekers</h4>
+        <form method="POST" action="/admin/toggle-seeker-featured">
+            @csrf
+            <input type="hidden" name="seeker_id" value="{{ $seeker->id }}">
+            <select class="btn">
+                <option value="1" {{ $seeker->featured == 1 ? 'selected=""' : '' }} >Featured</option>
+                <option value="0" {{ $seeker->featured == 0 ? 'selected=""' : '' }} >Not Featured</option>
+            </select>
+            <input type="submit" value="Apply" class="btn btn-sm btn-primary">
+        </form>
     </div>
 </div>
 
