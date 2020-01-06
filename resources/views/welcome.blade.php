@@ -328,7 +328,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @forelse($blogs->slice(0,1) as $blog)
                 <div class="card">
                     <div class="card-body">
-                        <div class="latest-blog-image lazy" data-bg="url({{ asset($blog->imageUrl) }})" style=""></div>
+                        <div class="latest-blog-image lazy mb-2" data-bg="url({{ asset($blog->imageUrl) }})"></div>
                         <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                         <div class="d-flex">
                             <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>

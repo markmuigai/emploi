@@ -47,7 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </label>
         </div>
         <div class="login-para">
-            <p><a href="{{ route('password.request') }}" class="orange">Password reset</a></p>
+            <p><a href="{{ route('password.request') }}" class="orange">Forgot Password?</a></p>
         </div>
     </div>
     <div class="text-center">
