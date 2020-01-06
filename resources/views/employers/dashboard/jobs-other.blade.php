@@ -40,6 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     <!-- CLOSED JOBS -->
     <div class="tab-pane fade show active" id="closed-jobs" role="tabpanel" aria-labelledby="closed-jobs-tab">
+        @include('components.employer-search')
         @forelse($closedPosts as $post)
         <div class="card py-2 mb-4">
             <div class="card-body">
