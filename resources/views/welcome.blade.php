@@ -93,7 +93,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Emploi is a job matching platform that does it right and does it fast. Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker
                     matching.
                 </p>
-                <a href="/about" class="btn btn-orange">Learn More</a>
+                <a href="/about" class="btn btn-orange">More About Us</a>
             </div>
         </div>
     </div>
