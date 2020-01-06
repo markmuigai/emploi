@@ -69,6 +69,10 @@ class AdminController extends Controller
     	$post->status = $request->status;
         $post->featured = $request->featured;
     	$post->save();
+        OneSignal::sendNotificationToAll(
+            $post->title, 
+            $url = url('/vacancies/'.$post->slug)
+        );
     	return redirect()->back(); ;
     	return $request->all();
     }
