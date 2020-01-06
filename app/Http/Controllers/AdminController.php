@@ -74,8 +74,7 @@ class AdminController extends Controller
         {
             OneSignal::sendNotificationToAll(
                 $post->title, 
-                $url = url('/vacancies/'.$post->slug),
-                $data = json_encode(array('image' => asset($post->imageUrl)))
+                $url = url('/vacancies/'.$post->slug)
             );
         }
         
