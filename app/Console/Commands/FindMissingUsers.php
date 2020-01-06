@@ -51,6 +51,7 @@ class FindMissingUsers extends Command
             $missing = 0;
             $fixed = 0;
             $w = 100;
+            $contents = '';
             if (($handle = fopen($file, "r")) !== FALSE) {
                 while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
                     $row++;
@@ -58,6 +59,7 @@ class FindMissingUsers extends Command
                     $user = User::where('email',$email)->first();
                     if(!isset($user->id))
                     {
+                        $contents .= "$email.\\n";
                         $this->info($row.' Missing '.$email.' '.$data[1]);
                         $missing++;
                     }
@@ -65,6 +67,7 @@ class FindMissingUsers extends Command
             }
 
             $this->info('Missing '.$missing);
+            Storage::disk('local')->put('missing-records.txt', $contents);
         }
         else
         {
