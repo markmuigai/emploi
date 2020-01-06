@@ -70,18 +70,14 @@
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
 
 <!-- ONESIGNAL -->
-@if(Request::server ("SERVER_NAME") == 'emploi.co' || Request::server ("SERVER_NAME") == 'beta.emploi.co')
+@if(Request::server ("SERVER_NAME") == 'emploi.co')
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
   var OneSignal = window.OneSignal || [];
   OneSignal.push(function() {
     OneSignal.init({
       appId: "926b129f-755b-4029-a039-e9ef27e36b16",
-      notifyButton: {
-        enable: true,
-      },
     });
   });
 </script>
-
 @endif
