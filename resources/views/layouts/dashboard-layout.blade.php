@@ -41,10 +41,9 @@
     <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
-    <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
     <!-- Succinct JS -->
     <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
-    <script type="application/x-javascript">
+    <!-- <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -52,7 +51,7 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-    </script>
+    </script> -->
     <!-- Notify JS Notifications -->
     <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>

@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-lg-4 col-md-6">
             <div class="card my-2">
                 <div class="card-body">
-                    <div class="blog-image lazy" data-bg="url({{ asset($blog->imageUrl) }})"></div>
+                    <div class="blog-image lazy mb-2" data-bg="url({{ asset($blog->imageUrl) }})"></div>
                     <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                     <div class="d-flex">
                         <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>

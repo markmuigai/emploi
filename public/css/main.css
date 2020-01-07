@@ -784,7 +784,15 @@ main.sign-page p {
 @media only screen and (max-width:996px) {
     .nav-item {
         margin-top: 0;
-        justify-self: start
+    }
+
+    nav.navbar {
+        height: 50px;
+        transition: height 0.2s;
+    }
+
+    nav.navbar.scrolled {
+        height: 40px;
     }
 
     .navbar-nav .nav-link {
@@ -793,6 +801,12 @@ main.sign-page p {
 
     .scrolled .navbar-brand img {
         height: 30px
+    }
+
+    nav.navbar a.navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .navbar:focus-within {

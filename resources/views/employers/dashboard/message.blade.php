@@ -8,10 +8,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
-<div class="text-center">
-	<h2 class="orange">Success!</h2>
-	<p>{{ $message }}</p>
-	<a href="#" onclick="window.history.back()" class="btn btn-danger">Back</a>
-	<a href="/employers/dashboard" class="btn btn-success">Home</a>
+<div class="card">
+	<div class="card-body text-center">
+		<h2 class="orange">Success!</h2>
+		<p>{{ $message }}</p>
+		<a href="#" onclick="window.history.back()" class="btn btn-purple">Back</a>
+		<a href="/employers/dashboard" class="btn btn-orange">Home</a>
+	</div>
 </div>
+
 @endsection

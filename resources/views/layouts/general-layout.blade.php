@@ -46,7 +46,7 @@
     <script src="{{asset('js/jquery.countup.js')}}"></script>
     <!-- Succinct JS -->
     <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
-    <script type="application/x-javascript">
+    <!-- <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -54,7 +54,7 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-    </script>
+    </script> -->
     <!-- Notify JS Notifications -->
     <script src="{{asset('js/notify.min.js')}}"></script>
     <script src="{{asset('js/emploi-notify.js')}}"></script>
