@@ -251,9 +251,16 @@ class AdminController extends Controller
         
     }
 
-    public function employers(){
+    public function employers(Request $request){
+        $employers = Employer::orderBy('name')->paginate(20);
+        if(isset($request->q))
+        {
+            $employers = Employer::where('name','like','%'.$request->q.'%')
+                    ->orderBy('name')
+                    ->paginate(20);
+        }
         return view('admins.employers.index')
-                ->with('employers',Employer::orderBy('name')->paginate(20));
+                ->with('employers',$employers);
     }
 
     public function emails(){

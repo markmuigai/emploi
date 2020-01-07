@@ -12,6 +12,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
+        <form>
+            <input type="text" placeholder="Search here" name="q" required="" class="form-control">
+        </form>
+        <br>
         @forelse($employers as $e)
         <div class="row align-items-center">
             <div class=" col-lg-7 col-md-6">
@@ -41,7 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <hr>
         @empty
-        <p class="text-center">No contacts have been received</p>
+        <p class="text-center">No employers have been found</p>
         @endforelse
     </div>
 </div>
