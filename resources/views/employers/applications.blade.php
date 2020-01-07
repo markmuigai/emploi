@@ -31,16 +31,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- ALL CANDIDATES -->
             <div class="tab-pane fade show active" id="all-candidates" role="tabpanel" aria-labelledby="all-candidates-tab">
                 <?php $pool = $shortlist ? $post->shortlisted: $post->applications; $kk=0; ?>
-                @forelse($pool as $a)
-                <p class="d-none">{{ $a->user->seeker->industry->name }}
-                    <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
-                        <span class="pull-right purple"><strong>RSI {{ $a->user->seeker->getRsi($post) }}%</strong></span>
-                    </a>
-                </p>
 
                 <!-- JOB CARD -->
                 <div class="card mb-4">
                     <div class="card-body">
+                        @forelse($pool as $a)
+                        <p class="d-none">{{ $a->user->seeker->industry->name }}
+                            <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
+                                <span class="pull-right purple"><strong>RSI {{ $a->user->seeker->getRsi($post) }}%</strong></span>
+                            </a>
+                        </p>
                         <div class="row align-items-center">
                             <div class="col-lg-2 col-4">
                                 <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
@@ -86,22 +86,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
                             </div>
                         </div>
+                        <!-- END OF JOB CARD -->
+                        <?php $kk++; ?>
+                        @empty
+                        <p class="text-center">
+                            No applications have been found
+                        </p>
+                        @endforelse
                     </div>
                 </div>
-                <!-- END OF JOB CARD -->
-                <?php $kk++; ?>
-                @empty
-                <p class="text-center">
-                    No applications have been found
-                </p>
-                @endforelse
             </div>
             <div class="tab-pane fade" id="shortlist" role="tabpanel" aria-labelledby="shortlist-tab">
-                @if(count($post->shortlisted) > 0)
-                @forelse($post->shortlisted as $a)
                 <!-- JOB CARD -->
                 <div class="card mb-4">
                     <div class="card-body">
+                        @if(count($post->shortlisted) > 0)
+                        @forelse($post->shortlisted as $a)
                         <div class="row">
                             <div class="col-lg-2 col-3">
                                 <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
@@ -135,23 +135,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
                             </div>
                         </div>
+                        @empty
+                        @endforelse
+                        @else
+                        <p class="text-center">
+                            No applicants have been shortlisted
+                        </p>
+                        @endif
                     </div>
                 </div>
                 <!-- END OF JOB CARD -->
-                @empty
-                @endforelse
-                @else
-                <p class="text-center">
-                    No applicants have been shortlisted
-                </p>
-                @endif
             </div>
             <div class="tab-pane fade" id="selected" role="tabpanel" aria-labelledby="selected-tab">
-                @if(count($post->selected) > 0)
-                @forelse($post->selected as $a)
                 <!-- JOB CARD -->
                 <div class="card mb-4">
                     <div class="card-body">
+                        @if(count($post->selected) > 0)
+                        @forelse($post->selected as $a)
                         <div class="row">
                             <div class="col-lg-2 col-3">
                                 <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
@@ -180,23 +180,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
                             </div>
                         </div>
+                        @empty
+                        @endforelse
+                        @else
+                        <p class="text-center">
+                            No applicants have been selected
+                        </p>
+                        @endif
                     </div>
                 </div>
                 <!-- END OF JOB CARD -->
-                @empty
-                @endforelse
-                @else
-                <p class="text-center">
-                    No applicants have been selected
-                </p>
-                @endif
             </div>
             <div class="tab-pane fade" id="rejected-jobs" role="tabpanel" aria-labelledby="rejected-jobs-tab">
-                @if(count($post->rejected) > 0)
-                @forelse($post->rejected as $a)
                 <!-- JOB CARD -->
                 <div class="card mb-4">
                     <div class="card-body">
+                        @if(count($post->rejected) > 0)
+                        @forelse($post->rejected as $a)
                         <div class="row">
                             <div class="col-lg-2 col-3">
                                 <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
@@ -220,40 +220,37 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange pull-right">View Profile</a>
                             </div>
                         </div>
+                        <!-- END OF JOB CARD -->
+                        @empty
+                        @endforelse
+                        @else
+                        <p class="text-center">
+                            No applicants have been rejected
+                        </p>
+                        @endif
                     </div>
                 </div>
-                <!-- END OF JOB CARD -->
-                @empty
-                @endforelse
-                @else
-                <p class="text-center">
-                    No applicants have been rejected
-                </p>
-                @endif
             </div>
         </div>
     </div>
     <div class="col-lg-3 col-12">
         <div class="card mt-2">
-            <div class="card-body">
-                <h4 class="text-center">Actions</h4>
-                <p class="text-center">
-                    <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger">
+            <div class="card-body text-center">
+                <h4>Actions</h4>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger"><i class="far fa-file-alt"></i> Shortlist</a>
+                    <p>
                         @if(!$post->hasModelSeeker())
-                        <i class="fas fa-warning" title="RSI Model Not Created"></i>
+                        <small>Create an RSI Model to shortlist candidates.</small>
                         @else
-                        <i class="fas fa-check" title=""></i>
+                        <small>Edit your RSI Model.</small>
                         @endif
-                        Configure RSI
-                    </a>
-                    <br>
+                    </p>
                     @if($post->status == 'active')
                     <a href="/employers/applications/{{ $post->slug }}/invite" class="btn btn-success btn-sm"><i class="fas fa-share"></i> Invite</a>
-                    <br>
                     @endif
-
                     <a href="/employers/applications/{{ $post->slug }}/close" class="btn btn-info btn-sm"> <i class="fas fa-users"></i> Select</a>
-                </p>
+                </div>
                 @if(count($post->shortlisted) > 0)
                 <br><br>
                 <h4 class="m_1">Shortlisted Candidates</h4>
@@ -272,13 +269,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-<div class="col-12">
-
 </div>
 
 @endsection

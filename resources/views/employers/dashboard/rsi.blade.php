@@ -79,7 +79,7 @@ $().ready(function(){
 		    	</div>
 		    	<div class="form-group col-md-4 col-md-6 col-12">
 
-		    		<label>Skills </label>
+		    		<label>Skills</label>
 		    		<select name="skills_importance" class="custom-select">
 		    			@foreach($weights as $w)
 		    			<option value="{{ $w->weight }}"
