@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>
         <strong>{{ $referee->seeker->public_name }}</strong> has invited you to provide an honest assessment while they worked as <strong>{{ $referee->seekerJobs[0]->job_title }}</strong> at <strong>{{ $referee->organization }}</strong>.
     </p>
-    <p class="text-center purple">This form takes an average of five (5) minutes to complete.</p>
+    <p class="text-center">This form takes an average of five (5) minutes to complete.</p>
 
     <div class="section1">
         <div class="card">

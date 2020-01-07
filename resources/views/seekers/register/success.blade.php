@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="d-flex flex-column justify-content-center align-center">
     <p>Your account as a job seeker has been created succesfully.</p>
-    <p class="purple">Check your e-mail inbox for your username and password to log in.</p>
+    <p>Check your e-mail inbox for your username and password to log in.</p>
 
     <div class="mt-4">
         <a href="/login" class="btn btn-orange">Log in</a>

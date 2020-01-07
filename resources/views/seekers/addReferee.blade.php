@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <button type="submit" name="button" class="btn btn-orange">Save Referee</button>
             </div>
             <div class="text-center mt-3">
-                <p class="purple">
+                <p>
                     An one-time e-mail would be sent to your referee for verification.
                 </p>
             </div>

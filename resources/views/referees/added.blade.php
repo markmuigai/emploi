@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Thank you for saving <strong>{{ $referee->name }}</strong> as your referee to your profile. An e-mail has been sent for {{ $referee->name }} provide your assessment, which will be used to boost your rank as employers do their
             shortlisting.
         </p>
-        <p class="purple">
+        <p>
             Kindly get in touch with your referee to ensure an assessment is submitted.
         </p>
 

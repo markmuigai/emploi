@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <button type="submit" name="button" class="btn btn-orange">Submit Application</button>
 
-            <p class="purple">
+            <p>
                 Your profile and resume will be made available to {{ $post->company->name }}. <a href="/profile/edit" class="orange">Edit my profile</a>
             </p>
         </form>
