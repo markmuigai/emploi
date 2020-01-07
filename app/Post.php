@@ -28,8 +28,8 @@ class Post extends Model
 
     public function getTitle($len = false){
         if($len)
-            return substr(ucwords($this->title), 0, 30);
-        return ucwords($this->title);
+            return substr(ucwords(strtolower($this->title)), 0, 30);
+        return ucwords(strtolower($this->title));
         
     }
 
