@@ -787,12 +787,12 @@ main.sign-page p {
     }
 
     nav.navbar {
-        height: 50px;
+        min-height: 50px;
         transition: height 0.2s;
     }
 
     nav.navbar.scrolled {
-        height: 40px;
+        min-height: 40px;
     }
 
     .navbar-nav .nav-link {
@@ -805,8 +805,13 @@ main.sign-page p {
 
     nav.navbar a.navbar-brand {
         position: absolute;
+        top: -5px;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    nav.navbar.scrolled a.navbar-brand {
+        top: -2px;
     }
 
     .navbar:focus-within {

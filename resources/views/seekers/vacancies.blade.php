@@ -21,7 +21,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <input list="locations" value="" class="custom-select" placeholder="Select Location">
           <datalist id="locations">
               @forelse($locations as $l)
-              <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
+              <option class="d-flex" value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
                   {{ $l->name.', '.$l->country->code }}
               </option>
               @empty
