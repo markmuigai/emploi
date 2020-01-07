@@ -31,9 +31,9 @@ $().ready(function(){
 
 		<form method="post">
 			@if(!$post->hasModelSeeker())
-		    <p><em>
+		    <p>
 		    	By creating an RSI Model, you will be able to rank applicants according by comparing their education, experience, skills, inteview scores and much more. <a href="/employers/role-suitability-index" class="pull-right">learn more</a>
-		    </em></p>
+		  	</p>
 		    @else
 				<h4 class="orange">Adjust Importance</h4>
 		    <div class="row">
@@ -210,7 +210,7 @@ $().ready(function(){
 
 				<div class="form-row">
 					<div class="col-lg-10 col-12">
-						<select class="custom-select" id="course-select">
+						<select class="custom-select" data-live-search="true" id="course-select">
 							@forelse($courses as $course)
 							<option value="{{ $course->id }}">{{ $course->title }}</option>
 							@empty
@@ -370,7 +370,7 @@ $().ready(function(){
 				<h6 class="mt-3">Add new skill</h6>
 				<div class="form-row justify-content-center">
 					<div class="col-md-7 col-12">
-						<select class="custom-select" id="select-skill">
+						<select class="custom-select" data-live-search="true" id="select-skill">
 							<option value="-1">Select</option>
 							@foreach($industrySkills as $s)
 							<option value="{{ $s->id }}">{{ $s->name }}</option>

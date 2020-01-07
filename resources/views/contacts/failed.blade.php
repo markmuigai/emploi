@@ -14,9 +14,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p>
             An error occured that resulted in failure while submitting your message.
         </p>
-        <p><em>
-                Please try again later or contact us through other chanels.
-            </em></p>
+        <p class="purple">
+            Please try again later or contact us through other chanels.
+        </p>
 
         <a href="/contact" class="btn btn-sm btn-orange">Contact Us</a>
         <a href="mailto:info@emploi.co" class="btn btn-sm btn-orange-alt">Email us</a>

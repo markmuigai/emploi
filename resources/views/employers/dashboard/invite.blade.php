@@ -44,7 +44,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </a>
         </div>
         <p>
-            <em>All applicants <strong>must register a profile</strong> and update their profile</em>
+            All applicants <strong>must register a profile</strong> and update their profile
         </p>
         @else
         <p>

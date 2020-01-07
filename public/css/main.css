@@ -76,12 +76,12 @@ ul.tick li:before {
     outline: 0
 }
 
-.orange {
-    color: var(--secondary) !important
-}
-
 .purple {
     color: var(--primary) !important
+}
+
+.orange {
+    color: var(--secondary) !important
 }
 
 .coloured-card .card {

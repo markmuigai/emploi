@@ -15,18 +15,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}">
     </div>
     <div class="col-lg-3 col-md-6 py-2">
-        <select class="custom-select" name="location">
-            <option value="">All Locations</option>
-            @forelse($locations as $l)
-            <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
-                {{ $l->name.', '.$l->country->code }}
-            </option>
-            @empty
-            @endforelse
-        </select>
+
+
+
+        <input list="locations" value="" class="custom-select" placeholder="Select Location">
+          <datalist id="locations">
+              @forelse($locations as $l)
+              <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
+                  {{ $l->name.', '.$l->country->code }}
+              </option>
+              @empty
+              @endforelse
+          </datalist>
     </div>
     <div class="col-lg-3 col-md-6 py-2">
-        <select class="custom-select" name="industry">
+        <select class="custom-select" data-live-search="true" name="industry">
             <option value="">All Industries</option>
             @forelse($industries as $ind)
             <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
