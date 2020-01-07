@@ -32,7 +32,7 @@
 <script type="text/javascript">
     // Initialize the service worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', {
+        navigator.serviceWorker.register('/OneSignalSDKWorker.js', {
             scope: '.'
         }).then(function(registration) {
             // Registration was successful
@@ -81,3 +81,5 @@
   });
 </script>
 @endif
+
+<script src="{{ asset('js/online-monitor.js') }}" async="" defer=""></script>
