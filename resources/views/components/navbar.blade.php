@@ -23,6 +23,12 @@
                 <li class=" nav-item d-md-none d-block">
                     <a class="nav-link" href="/employers/browse">Browse Candidates</a>
                 </li>
+                <li class=" nav-item d-md-none d-block">
+                    <a class="nav-link" href="/employers/saved">Saved Profiles</a>
+                </li>
+                <li class=" nav-item d-md-none d-block">
+                    <a class="nav-link" href="/employers/cv-requests">Requested Profiles</a>
+                </li>
                 <!-- EMPLOYER SIDEBAR -->
 
                 <!-- JOB SEEKER SIDEBAR -->

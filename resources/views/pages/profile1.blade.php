@@ -51,13 +51,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="col-md-7 col-8">
                                 <h3 class="text-uppercase">{{ $user->name }}</h3>
                                 <h5>
-                                    @if($user->seeker->searching)
-                                    <b style="color: green">SEARCHING</b> 
-                                    @endif
                                     Job Seeker
-                                    <br>
-                                    <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small> 
+                                    @if($user->seeker->searching)
+                                    <span class="badge badge-success">Searching</span>
+                                    @endif
                                 </h5>
+                                <h6 title="Referral Credits">[ {{ $user->totalCredits }} credits ]</h6>
                                 @if(!$user->seeker->hasCompletedProfile())
                                 <p class="text-center">
                                     <a href="/profile/edit" class="text-danger"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
