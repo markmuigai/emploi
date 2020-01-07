@@ -32,7 +32,8 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        switch (Auth::user()->role) {
+        $user = Auth::user();
+        switch ($user->role) {
             case 'employer':
                 return redirect('/employers/dashboard');
                 break;
@@ -45,15 +46,38 @@ class HomeController extends Controller
                 return redirect('/desk/admins');
                 break;
 
-            default:
+            case 'seeker':
                 if ($request->session()->has('redirectToPost')) {
                     $post_slug = session('redirectToPost');
+                    if(!$user->seeker->hasCompletedProfile())
+                    {
+                        if($request->session()->has('redirectToPostRetries'))
+                        {
+                            $tries = session('redirectToPostRetries');
+                            $tries++;
+                            $request->session()->put('redirectToPostRetries', $tries);
+                            if(session('redirectToPostRetries') > 3)
+                            {
+                                $request->session()->forget('redirectToPostRetries');
+                                $request->session()->forget('redirectToPost');
+                                return redirect('/job-seekers/dashboard');
+                            }
+                        }
+                        else
+                        {
+                            $request->session()->put('redirectToPostRetries', 1);
+                        }
+
+                        return redirect('/vacancies/'.$post_slug);
+                    }
                     $request->session()->forget('redirectToPost');
                     return redirect('/vacancies/'.$post_slug);
                     
                 }
                 return redirect('/job-seekers/dashboard');
                 break;
+            default:
+                return abort(403);
         }
 
     }

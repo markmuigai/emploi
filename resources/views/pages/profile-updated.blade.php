@@ -15,7 +15,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         	{{ $message }}
         </p>
       	<a href="/profile" class="btn btn-purple">View Profile</a>
-      	<a href="/profile/edit" class="btn btn-orange">Edit Profile</a>
+      	<a href="/home" class="btn btn-orange">
+      		<?php
+      		if(session('redirectToPost'))
+      		{
+      			print 'Continue to Apply Job';      			
+      		}
+      		else
+      			print 'Dashboard';
+      		?>
+      		
+      	</a>
     </div>
 </div>
 
