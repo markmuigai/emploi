@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: '.$post->title )
+@section('title','Emploi :: '.$post->getTitle() )
 
 @section('description')
 {{ $post->brief }}
@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-@section('page_title', $post->title )
+@section('page_title', $post->getTitle() )
 <!-- NAV-TABS -->
 <ul class="nav nav-tabs" id="jobDetails" role="tablist">
     <li class="nav-item">
@@ -59,7 +59,7 @@
                         <hr>
                         <div class="row pb-3">
                             <div class="col-12 col-md-6 col-lg-7">
-                                <h5>{{ $post->title }} <span class="badge badge-secondary">{{ $post->positions }} Positions</span></h5>
+                                <h5>{{ $post->getTitle() }} <span class="badge badge-secondary">{{ $post->positions }} Positions</span></h5>
                                 <a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
                                 <p>
                                     <i class="fas fa-map-marker-alt orange"></i>

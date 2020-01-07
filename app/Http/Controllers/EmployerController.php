@@ -283,6 +283,7 @@ class EmployerController extends Controller
 
     public function jobs(Request $request)
     {
+        $q = isset($request->q) ? $request->q : '';
         $employer = Auth::user()->employer;
         //return $employer->posts;
         $companies = $employer->user->companies;
@@ -291,15 +292,25 @@ class EmployerController extends Controller
         {
             array_push($company_ids, $companies[$i]->id);
         }
-        $posts = Post::whereIn('company_id',$company_ids)->orderBy('id','DESC')->paginate(20);
+        if(isset($request->q))
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->where('title','like','%'.$request->q.'%')->orderBy('id','DESC')->paginate(20);
+        }
+        else
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->orderBy('id','DESC')->paginate(20);
+        }
+
+        
         return view('employers.dashboard.jobs')
+                ->with('q',$q)
                 ->with('posts',$posts);
         
     }
 
     public function activeJobs(Request $request)
     {
-        
+        $q = isset($request->q) ? $request->q : '';
         $employer = Auth::user()->employer;
         $companies = $employer->user->companies;
         $company_ids = array();
@@ -307,8 +318,18 @@ class EmployerController extends Controller
         {
             array_push($company_ids, $companies[$i]->id);
         }
-        $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->orderBy('id','DESC')->paginate(20);
+        if(isset($request->q))
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->where('title','like','%'.$request->q.'%')->where('status','active')->orderBy('id','DESC')->paginate(20);
+        }
+        else
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->orderBy('id','DESC')->paginate(20);
+        }
+
+        
         return view('employers.dashboard.jobs-active')
+                ->with('q',$q)
                 ->with('activePosts',$posts);
         
         
@@ -316,7 +337,7 @@ class EmployerController extends Controller
 
     public function otherJobs(Request $request)
     {
-        
+        $q = isset($request->q) ? $request->q : '';
         $employer = Auth::user()->employer;
         $companies = $employer->user->companies;
         $company_ids = array();
@@ -324,8 +345,17 @@ class EmployerController extends Controller
         {
             array_push($company_ids, $companies[$i]->id);
         }
-        $posts = Post::whereIn('company_id',$company_ids)->where('status','!=','active')->orderBy('id','DESC')->paginate(20);
+        if(isset($request->q))
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->where('title','like','%'.$request->q.'%')->where('status','!=','active')->orderBy('id','DESC')->paginate(20);
+        }
+        else
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->where('status','!=','active')->orderBy('id','DESC')->paginate(20);
+        }
+        
         return view('employers.dashboard.jobs-other')
+                ->with('q',$q)
                 ->with('closedPosts',$posts);
         
         
@@ -333,7 +363,7 @@ class EmployerController extends Controller
 
     public function shortlistingJobs(Request $request)
     {
-        
+        $q = isset($request->q) ? $request->q : '';
         $employer = Auth::user()->employer;
         $companies = $employer->user->companies;
         $company_ids = array();
@@ -341,8 +371,19 @@ class EmployerController extends Controller
         {
             array_push($company_ids, $companies[$i]->id);
         }
-        $posts = Post::whereIn('company_id',$company_ids)->where('how_to_apply',null)->orderBy('id','DESC')->paginate(20);
+
+        if(isset($request->q))
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->where('title','like','%'.$request->q.'%')->where('how_to_apply',null)->orderBy('id','DESC')->paginate(20);
+        }
+        else
+        {
+            $posts = Post::whereIn('company_id',$company_ids)->where('how_to_apply',null)->orderBy('id','DESC')->paginate(20);
+        }
+
+        
         return view('employers.dashboard.jobs-shortlisting')
+                ->with('q',$q)
                 ->with('posts',$posts);
         
         

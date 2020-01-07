@@ -19,7 +19,7 @@
                 <h5>Featured Jobs</h5>
                 <ul>
                     @forelse($posts as $f)
-                    <li><a href="/vacancies/{{ $f->slug }}">{{ $f->title }}</a></li>
+                    <li><a href="/vacancies/{{ $f->slug }}">{{ $f->getTitle(true) }}</a></li>
                     @empty
                     @endforelse
                 </ul>

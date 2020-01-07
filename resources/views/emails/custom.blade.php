@@ -135,7 +135,7 @@
                             </div>
 
 
-                            <a target="_blank" style="text-decoration: none;" href="https://github.com/konsav/email-templates/"><img border="0" vspace="0" hspace="0" src="{{ asset('images/logo.png') }}" width="100" height="30" alt="Logo" title="Logo"
+                            <a target="_blank" style="text-decoration: none;" href="https://emploi.co?source=email"><img border="0" vspace="0" hspace="0" src="{{ asset('images/logo.png') }}" width="100" height="30" alt="Logo" title="Logo"
                                   style="
 				color: #000000;
 				font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
@@ -218,18 +218,34 @@
                                 <tr>
 
                                     <!-- ICON 1 -->
-                                    <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 10px; padding-right: 10px; border-collapse: collapse; border-spacing: 0;">
-                                        <a target="_blank" href="https://facebook.com/jobsikaz" style="text-decoration: none;">
+                                    <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 5px; padding-right: 5px; border-collapse: collapse; border-spacing: 0;">
+                                        <a target="_blank" href="https://facebook.com/emploi.co" style="text-decoration: none;">
                                             <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;					color: #000000;" alt="F"
                                               title="Facebook" width="44" height="44" src="{{ asset('images/facebook.png') }}">
                                         </a>
                                     </td>
 
                                     <!-- ICON 2 -->
-                                    <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 10px; padding-right: 10px; border-collapse: collapse; border-spacing: 0;">
-                                        <a target="_blank" href="https://www.linkedin.com/company/jobsikaz-com?trk=biz-companies-cym" style="text-decoration: none;">
+                                    <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 5px; padding-right: 5px; border-collapse: collapse; border-spacing: 0;">
+                                        <a target="_blank" href="https://www.linkedin.com/company/emploike" style="text-decoration: none;">
                                             <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;					color: #000000;" alt="F"
                                               title="LinkedIn" width="44" height="44" src="{{ asset('images/linkedin1.png') }}">
+                                        </a>
+                                    </td>
+
+                                    <!-- ICON 3 -->
+                                    <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 5px; padding-right: 5px; border-collapse: collapse; border-spacing: 0;">
+                                        <a target="_blank" href="https://twitter.com/emploike" style="text-decoration: none;">
+                                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;                 color: #000000;" alt="F"
+                                              title="LinkedIn" width="44" height="44" src="{{ asset('images/twitter.png') }}">
+                                        </a>
+                                    </td>
+
+                                    <!-- ICON 4 -->
+                                    <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 5px; padding-right: 5px; border-collapse: collapse; border-spacing: 0;">
+                                        <a target="_blank" href="https://instagram.com/emploi.co" style="text-decoration: none;">
+                                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;                 color: #000000;" alt="F"
+                                              title="LinkedIn" width="44" height="44" src="{{ asset('images/instagram.png') }}">
                                         </a>
                                     </td>
 
@@ -246,12 +262,21 @@
 							padding-bottom: 20px;
 							color: #999999;
 							font-family: sans-serif;" class="footer">
-                            Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.
+                            <?php
+                            $arr = array();
+                            $arr[] = "Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.";
+                            $arr[] = "Emploi is an online placement platform that does it right and does it fast.";
 
+                            print $arr[rand(0,1)];
+
+                            ?>
+                            
+
+                            
 
                             <br>
 
-                            <a href="{{ url('/') }}" style="text-align: center;">Emploi</a>
+                            <a href="{{ url('/?source=email') }}" style="text-align: center;">Emploi</a>
 
                         </td>
                     </tr>

@@ -1,13 +1,13 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Apply '.$post->title)
+@section('title','Emploi :: Apply '.$post->getTitle())
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'Apply as '.$post->title)
+@section('page_title', 'Apply as '.$post->getTitle())
 
 <div class="card">
     <div class="card-body">
@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row align-items-center">
             <div class="col-md-6">
                 <?php $img = $post->image == 'unknown.png' ? 'images/a1.jpg' : $post->image ?>
-                <img src="{{ asset($post->imageUrl) }}" class="img-responsive w-100" alt="{{ $post->title }}" />
+                <img src="{{ asset($post->imageUrl) }}" class="img-responsive w-100" alt="{{ $post->getTitle() }}" />
             </div>
             <div class="col-md-6">
                 <p><strong>Posted: </strong>{{ $post->since }}</p>
@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
 
         <div class="text-center pt-3">
-            <h3 class="orange">Application for {{ $post->title }}</h3>
+            <h3 class="orange">Application for {{ $post->getTitle() }}</h3>
         </div>
         @if(!Auth::user()->seeker->hasApplied($post))
         <form method="post" action="/vacancies/{{ $post->slug }}/apply">

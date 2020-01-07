@@ -29,6 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- ALL JOBS -->
     <div class="tab-pane fade show active" id="all-jobs" role="tabpanel" aria-labelledby="all-jobs-tab">
         <!-- JOB CARD -->
+        @include('components.employer-search')
         @forelse($posts as $post)
         <div class="card py-2 mb-4">
             <div class="card-body">

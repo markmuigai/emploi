@@ -67,11 +67,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="row align-items-center">
                     <div class="col-4">
                         <a href="/vacancies/{{$post->slug}}/">
-                            <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="w-100 lazy" alt="{{ $post->title }}" />
+                            <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="w-100 lazy" alt="{{ $post->getTitle() }}" />
                         </a>
                     </div>
                     <div class="col-8">
-                        <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->title }}</a></h4>
+                        <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->getTitle() }}</a></h4>
                         <a href="/companies/{{$post->company->name}}/" class="text-success">{{ $post->company->name }}</a>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                         <p>

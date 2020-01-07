@@ -26,6 +26,13 @@ class Post extends Model
                     ->get();
     }
 
+    public function getTitle($len = false){
+        if($len)
+            return substr(ucwords(strtolower($this->title)), 0, 30);
+        return ucwords(strtolower($this->title));
+        
+    }
+
     public function getShareTextAttribute(){
         $tit = explode(" ", $this->title);
         return implode("+", $tit).' '.$this->location->country->currency.' '.$this->monthly_salary;

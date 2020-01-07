@@ -229,7 +229,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
                 </div>
                 <p class="badge badge-secondary">{{$p->positions}} Postions</p>
-                <h5>{{ $p->title }}</h5>
+                <h5>{{ $p->getTitle(true) }}</h5>
                 <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
                 <p>
                     @if(isset(Auth::user()->id))
