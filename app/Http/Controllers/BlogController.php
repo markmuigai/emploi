@@ -21,7 +21,7 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog.index')
-                ->with('blogs',Blog::orderBy('id','desc')->paginate(12));
+                ->with('blogs',Blog::orderBy('id','desc')->paginate(4));
     }
 
     public function create()
