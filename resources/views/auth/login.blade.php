@@ -28,10 +28,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     @enderror
     <div class="form-group">
-        <label for="identity">
+        <label for="username">
             Username or E-mail
         </label>
-        <input type="text" name="identity" required="required" value="{{ old('identity') }}" class="form-control" placeholder="">
+        <input type="text" name="username" required="required" value="{{ old('username') }}" class="form-control" placeholder="">
     </div>
     <div class="form-group">
         <label for="password">

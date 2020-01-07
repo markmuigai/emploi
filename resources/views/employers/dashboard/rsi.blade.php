@@ -389,7 +389,6 @@ $().ready(function(){
 					</div>
 				</div>
 
-			@endif
 			<hr>
 			<h4 class="orange">Other Skills</h4>
 
@@ -411,6 +410,8 @@ $().ready(function(){
 					<span id="add-other-skill" class="btn btn-success btn-sm">Add</span>
 				</div>
 			</div>
+			@endif
+			
 
 
 			@if($post->hasModelSeeker())

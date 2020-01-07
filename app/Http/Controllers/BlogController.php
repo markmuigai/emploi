@@ -21,7 +21,7 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog.index')
-                ->with('blogs',Blog::active(20));
+                ->with('blogs',Blog::orderBy('id','desc')->paginate(12));
     }
 
     public function create()
@@ -65,9 +65,8 @@ class BlogController extends Controller
         $c = BlogCategory::where('slug',$id)->where('status','active')->first();
         if(isset($c->id))
         {
-            $blogs = Blog::where('status','active')->where('blog_category_id',$c->id)->paginate(20);
+            $blogs = Blog::where('status','active')->where('blog_category_id',$c->id)->paginate(12);
             return view('blog.index')
-                ->with('links',true)
                 ->with('blogs',$blogs);
         }
         $blog = Blog::where('slug',$id)->where('status','active')->firstOrFail();
