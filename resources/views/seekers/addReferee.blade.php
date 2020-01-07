@@ -58,9 +58,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="text-center mt-3">
                 <p>
-                    <em>
-                        An one-time e-mail would be sent to your referee for verification.
-                    </em>
+                    An one-time e-mail would be sent to your referee for verification.
                 </p>
             </div>
         </form>

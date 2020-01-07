@@ -54,7 +54,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/contact" class="btn btn-purple">Contact Us</a>
             </div>
         </div>
-        <?php 
+        <?php
         $user = isset(Auth::user()->id) ? Auth::user() : false;
         ?>
         <div class="col-lg-5">
@@ -86,8 +86,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="text-center">
                             <input type="submit" class="btn btn-orange" value="Submit">
                             @if(!$user || $user->role != 'employer')
-                            <p><em>Create an Employer profile and shortlist with our Role Suitability Index. <br>
-                            	<a href="/employers/register" class="orange">Employer Registration</a></em></p>
+                            <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
+                            	<a href="/employers/register" class="orange">Employer Registration</a></p>
                             @endif
                         </div>
                     </form>

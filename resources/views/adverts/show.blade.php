@@ -21,7 +21,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Submitted By:</strong> {{ $advert->name }}</p>
                 <p><strong>Email:</strong> <a href="mailto:{{ $advert->email }}" class="orange">{{ $advert->email }}</a></p>
                 <p><strong>Phone:</strong> {{ $advert->phone_number }}</p>
-                <p><em>{{ $advert->description }}</em></p>
+                <p>{{ $advert->description }}</p>
             </div>
             <div class="col-md-6">
                 <form method="POST" action="/admin/received-requests/{{ $advert->id }}">

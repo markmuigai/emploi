@@ -33,7 +33,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </form>
         @else
         <p>
-            <em>{{ $r->status }} on {{ $r->updated_at }}</em>
+            {{ $r->status }} on {{ $r->updated_at }}
         </p>
         @endif
 
