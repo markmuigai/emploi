@@ -38,9 +38,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         @endforelse
     </div>
-    @if(isset($links))
-    {{ $blogs->links() }}
-    @endif
+    <div>
+        {{ $blogs->links() }}
+    </div>
+    
 </div>
 
 <!-- SEARCH BAR -->
