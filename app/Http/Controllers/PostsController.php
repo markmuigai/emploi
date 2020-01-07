@@ -31,18 +31,19 @@ class PostsController extends Controller
     {
         $post = Post::where('slug',$slug)
                 ->firstOrFail();
-        if(!isset(Auth::user()->id))
+        $user = Auth::user();
+        if(!isset($user->id))
             return redirect('/login');
-        if(Auth::user()->role != 'seeker')
+        if($user->role != 'seeker')
             return abort(405);
-        if(!Auth::user()->seeker->hasCompletedProfile())
+        if(!$user->seeker->hasCompletedProfile())
         {
             $request->session()->put('redirectToPost', $post->slug);
             return view('seekers.update-profile');
         }
         
         return view('seekers.apply')
-                ->with('user',Auth::user())
+                ->with('user',$user)
                 ->with('post',$post);
         return 'application';
     }
