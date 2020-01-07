@@ -86,7 +86,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <h4>Education and Qualification</h4>
                         <div id="education_records">
-                            
+
                         </div>
 
                     </div>
@@ -99,7 +99,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body">
                         <h4>Experience</h4>
                         <div id="experience_records">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="text-center">
                     <p><strong>{{ $user->name }}</strong></p>
                     @if($user->seeker->searching)
-                    <b style="color: green; font-size: 80%">SEARCHING</b> 
+                    <span class="badge badge-success">Searching</span>
                     @endif
                     <br>
                     @if( $user->seeker->featured != 0 )
@@ -260,7 +260,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 '<p>'+education
                 '</p>';
             }
-            
+
         }
 
         $('#education_records').append($p);
@@ -286,7 +286,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 '</div>';
             }
 
-            
+
         }
         else
         {
@@ -302,13 +302,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 '<p>'+experience
                 '</p>';
             }
-            
-            
+
+
         }
 
         $('#experience_records').append($p);
      });
-     
+
 </script>
 
 
