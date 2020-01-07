@@ -36,7 +36,7 @@
             scope: '.'
         }).then(function(registration) {
             // Registration was successful
-            console.log('Emploi PWA: ServiceWorker registration successful with scope: ', registration.scope);
+            //console.log('Emploi PWA: ServiceWorker registration successful with scope: ', registration.scope);
         }, function(err) {
             // registration failed :(
             console.log('Emploi PWA: ServiceWorker registration failed: ', err);
