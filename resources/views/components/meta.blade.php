@@ -31,17 +31,17 @@
 @yield('meta-include')
 <script type="text/javascript">
     // Initialize the service worker
-    // if ('serviceWorker' in navigator) {
-    //     navigator.serviceWorker.register('/sw.js', {
-    //         scope: '.'
-    //     }).then(function(registration) {
-    //         // Registration was successful
-    //         //console.log('Emploi PWA: ServiceWorker registration successful with scope: ', registration.scope);
-    //     }, function(err) {
-    //         // registration failed :(
-    //         console.log('Emploi PWA: ServiceWorker registration failed: ', err);
-    //     });
-    // }
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/OneSignalSDKWorker.js', {
+            scope: '.'
+        }).then(function(registration) {
+            // Registration was successful
+            //console.log('Emploi PWA: ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            // registration failed :(
+            console.log('Emploi PWA: ServiceWorker registration failed: ', err);
+        });
+    }
 </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -82,4 +82,4 @@
 </script>
 @endif
 
-<script src="{{ asset('js/online-monitor.js') }}"></script>
+<script src="{{ asset('js/online-monitor.js') }}" async="" defer=""></script>
