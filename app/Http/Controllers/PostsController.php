@@ -29,14 +29,18 @@ class PostsController extends Controller
 
     public function apply(Request $request, $slug)
     {
+        $post = Post::where('slug',$slug)
+                ->firstOrFail();
         if(!isset(Auth::user()->id))
             return redirect('/login');
         if(Auth::user()->role != 'seeker')
             return abort(405);
         if(!Auth::user()->seeker->hasCompletedProfile())
+        {
+            $request->session()->put('redirectToPost', $post->slug);
             return view('seekers.update-profile');
-        $post = Post::where('slug',$slug)
-                ->firstOrFail();
+        }
+        
         return view('seekers.apply')
                 ->with('user',Auth::user())
                 ->with('post',$post);
