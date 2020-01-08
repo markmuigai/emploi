@@ -77,6 +77,8 @@
                             <?php echo $pg->description; ?>
                         </div>
 
+                        @if(count($pg->postGroupJobs) > 0)
+
                         <hr>
                         <h5 class="pt-3 pb-2">Vacancies</h5>
                         @forelse($pg->postGroupJobs as $pgs)
@@ -101,6 +103,10 @@
                         </div>
 
                         @endforelse
+
+                        @endif
+
+                        
                     </div>
                 </div>
                 <!-- END OF JOB CARD -->
