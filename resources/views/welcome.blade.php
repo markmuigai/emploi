@@ -108,22 +108,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-briefcase"></i>
                         <h5>Total Jobs</h5>
-                        <h1 class="counter">14515</h1>
+                        <h1 class="counter">{{ count(\App\Post::all()) }}</h1>
                         <p>Find your next job effortlessly.</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-clipboard-check"></i>
                         <h5>Total Candidates</h5>
-                        <h1 class="counter">2451</h1>
+                        <h1 class="counter">{{ count(\App\Seeker::all()) }}</h1>
                         <p>Get hired will minimal effort.</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-building"></i>
                         <h5>Total Companies</h5>
-                        <h1 class="counter">451</h1>
-                        <p>Get discovered by top comapanies.</p>
+                        <h1 class="counter">{{ count(\App\Company::all()) }}</h1>
+                        <p>{{ count(\App\Company::getHiringCompanies2()) }} companies are hiring</p>
                         <hr class="d-block d-md-none">
                     </div>
                 </div>
@@ -144,31 +144,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <h5>Employer Services</h5>
                         <a href="/employers/browse" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-briefcase"></i>
                                 <p>Browse Talent Database</p>
                             </div>
                         </a>
                         <a href="/employers/services" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-briefcase"></i>
                                 <p>Recruitment Process Outsourcing</p>
                             </div>
                         </a>
                         <a href="/employers/services" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-briefcase"></i>
                                 <p>Assess Candidate</p>
                             </div>
                         </a>
                         <a href="/employers/publish" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-briefcase"></i>
                                 <p>Advertise Jobs</p>
                             </div>
                         </a>
                         <a href="/employers/services" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-briefcase"></i>
                                 <p>Background Checks</p>
                             </div>
                         </a>
