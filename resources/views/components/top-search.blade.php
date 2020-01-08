@@ -4,10 +4,18 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>Top Industries</h5>
                 <ul>
-                    @forelse(\App\Industry::top(10) as $f)
-                    <li><a href="/vacancies/{{ $f->slug }}">{{ $f->name }}</a></li>
-                    @empty
-                    @endforelse
+                    
+                    <li><a href="/vacancies/ngo">NGO, Community & Social Devt</a></li>
+                    <li><a href="/vacancies/sales" style="font-weight: bold;">Sales Jobs</a></li>
+                    <li><a href="/vacancies/drivers">Drivers Jobs</a></li>
+                    <li><a href="/vacancies/it-and-telecoms">IT & Telecoms</a></li>
+                    <li><a href="/vacancies/hr">Human Resource</a></li>
+                    <li><a href="/vacancies/admin">Office and Admin Jobs</a></li>
+                    <li><a href="/vacancies/accounting">Accounting Jobs</a></li>
+                    <li><a href="/vacancies/government">Government Jobs</a></li>
+                    <li><a href="/vacancies/customer-service">Customer Service Jobs</a></li>
+                    <li><a href="/vacancies/project-management">Project Management</a></li>
+                    <li><a href="/vacancies/graduate-jobs">Graduate Jobs</a></li>
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">

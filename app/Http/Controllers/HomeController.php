@@ -152,7 +152,7 @@ class HomeController extends Controller
                 $seeker->phone_number = $request->phone_number;
                 $seeker->current_position = $request->current_position;
                 $seeker->post_address = $request->post_address;
-                $seeker->years_experience = $request->years_experience;
+                $seeker->years_experience = $request->years_experience ? $request->years_experience : 0;
                 $seeker->industry_id = $request->industry;
                 $seeker->country_id = $request->country;
                 $seeker->location_id = $request->location;
