@@ -169,11 +169,27 @@ class AdminController extends Controller
                 
             }
 
+            $featured ="";
+            if(isset($request->featured) && $request->featured != 'all')
+            {
+                $f = $request->featured == 'yes' ? 1 : 0;
+                if($first)
+                {
+                    $phone_number = "featured = $f";
+                    $first = false;
+                }
+                else
+                {
+                    $phone_number = "OR featured = $f";
+                }
+                
+            }
+
             if(!$first)
                 $where = " WHERE ";
             else
                 $where = "";
-            $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $keywords ORDER BY id DESC";
+            $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $keywords $featured ORDER BY id DESC";
             $results = DB::select($sql);
             $seekers = [];
 
@@ -220,6 +236,7 @@ class AdminController extends Controller
                     ->with('search',true)
                     ->with('location',$request->location)
                     ->with('industry',$request->industry)
+                    ->with('featured',$request->featured)
                     ->with('gender',$request->gender)
                     ->with('phone_number',$request->phone_number)
                     ->with('keywords',$request->keywords)

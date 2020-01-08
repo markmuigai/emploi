@@ -30,6 +30,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <option value="I" {{ isset($gender) && $gender=='I' ? 'selected="selected"' : '' }}>Other</option>
             </select>
         </div>
+        <div class="form-group col-lg-3">
+            <select name="featured" class="custom-select">
+                <option value="all" <?php if(isset($featured) && $featured == 'all'){ print  'selected=""'; } ?>>All Job Seekers</option>
+                <option value="yes"  <?php if(isset($featured) && $featured == 'yes'){ print  'selected=""'; } ?>>Featured Job Seekers</option>
+                <option value="not"  <?php if(isset($featured) && $featured == 'no'){ print  'selected=""'; } ?>>Job Seekers Not Featured </option>
+            </select>
+        </div>
     </div>
     <div class="form-row mt-3">
         <div class="form-group col-lg-4 text-center">
