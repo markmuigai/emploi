@@ -116,14 +116,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <i class="fas fa-clipboard-check"></i>
                         <h5>Total Candidates</h5>
                         <h1 class="counter">{{ count(\App\Seeker::all()) }}</h1>
-                        <p>Get hired will minimal effort.</p>
+                        <p>Get hired with minimal effort.</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-building"></i>
                         <h5>Total Companies</h5>
                         <h1 class="counter">{{ count(\App\Company::all()) }}</h1>
-                        <p>{{ count(\App\Company::getHiringCompanies2()) }} companies are hiring</p>
+                        <p>{{ count(\App\Company::getHiringCompanies2()) }} companies are hiring.</p>
                         <hr class="d-block d-md-none">
                     </div>
                 </div>
