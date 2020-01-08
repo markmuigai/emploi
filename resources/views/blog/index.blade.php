@@ -9,6 +9,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 <div class="container py-5">
     <h2 class="text-center">Blogs and News</h2>
+    <div class="dropdown text-right">
+        <button class="btn btn-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/blog">All</a>
+            @forelse(\App\BlogCategory::all() as $c)
+            <a class="dropdown-item text-capitalize" href="/blog/{{$c->slug}}">{{$c->title}}</a>
+            @empty
+            @endforelse
+        </div>
+    </div>
     <div class="row pt-3">
         @forelse($blogs as $blog)
         <div class="col-lg-4 col-md-6">
@@ -31,17 +43,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         @empty
-        <div class="col-12 card">
+        <div class="col-12">
+          <div class="card">
             <div class="card-body text-center">
                 <p>No blogs found</p>
             </div>
+          </div>
         </div>
         @endforelse
     </div>
     <div>
         {{ $blogs->links() }}
     </div>
-    
+
 </div>
 
 <!-- SEARCH BAR -->

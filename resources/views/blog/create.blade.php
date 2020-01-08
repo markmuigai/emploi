@@ -16,11 +16,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label class="col-md-3 control-lable" for="title">Title *</label>
+                    <label for="title">Title *</label>
                     <input type="text" required="" path="" name="title" id="title" class="form-control input-sm" maxlength="100" value="" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label class="col-md-3 control-lable" for="category">Category *</label>
+                    <label for="category">Category *</label>
                     <select class="form-control" name="category">
                         @foreach($categories as $c)
                         <option value="{{ $c->id }}">
@@ -36,14 +36,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="form-group" title="Featured Image (500x300p)">
-                        <label class="col-md-3 control-lable" for="title">Image *</label>
+                        <label for="title">Image *</label>
                         <input type="file" accept=".png, .jpg, .jpeg" name="featured_image" required="">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group" title="Other Image (500x300p)">
-                        <label class="col-md-3 control-lable" for="title">Other Image</label>
+                        <label for="title">Other Image</label>
                         <input type="file" accept=".png, .jpg, .jpeg" name="other_image">
                     </div>
                 </div>
