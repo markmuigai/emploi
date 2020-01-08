@@ -160,14 +160,37 @@ ul.tick li:before {
     color: #fff
 }
 
-.custom-select, .form-control {
+.custom-select, .form-control, .selectpicker {
     border-radius: 20px
 }
 
-.custom-select:focus, .form-control:focus {
+.custom-select:focus, .form-control:focus, .bootstrap-select:focus {
     border-color: #8c8c8c;
     outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(140, 140, 140, .25)
+    box-shadow: 0 0 0 .2rem rgba(140, 140, 140, .25);
+    border-radius: 20px;
+}
+
+.btn-light {
+    background: white;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+}
+
+.bootstrap-select .btn {
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    /* color: #495057; */
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #ced4da;
 }
 
 input[type=file] {

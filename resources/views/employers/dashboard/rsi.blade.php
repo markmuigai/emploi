@@ -49,10 +49,9 @@ $().ready(function(){
 		    				>{{ $w->name }}</option>
 		    			@endforeach
 		    		</select>
-
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12">
 		    		<label>Experience</label>
 		    		<select name="experience_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -64,8 +63,8 @@ $().ready(function(){
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12">
 		    		<label>Interview</label>
 		    		<select name="interview_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -77,8 +76,8 @@ $().ready(function(){
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12">
 		    		<label>Skills</label>
 		    		<select name="skills_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -90,8 +89,8 @@ $().ready(function(){
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12" style="display: none;">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12" style="display: none;">
 		    		<label>Intellectual Quotent </label>
 		    		<select name="iq_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -103,8 +102,8 @@ $().ready(function(){
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12">
 		    		<label>Psychometric Test </label>
 		    		<select name="psychometric_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -116,8 +115,8 @@ $().ready(function(){
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12">
 		    		<label>Personal Traits</label>
 		    		<select name="personality_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -129,8 +128,8 @@ $().ready(function(){
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12">
 		    		<label>Previous Company Size </label>
 		    		<select name="company_size_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -142,8 +141,8 @@ $().ready(function(){
 		    			@endforeach
 		    		</select>
 		    	</div>
-		    	<div class="form-group col-md-4 col-md-6 col-12">
 
+		    	<div class="form-group col-md-4 col-md-6 col-12">
 		    		<label>Referee Feedback</label>
 		    		<select name="feedback_importance" class="custom-select">
 		    			@foreach($weights as $w)
@@ -157,7 +156,6 @@ $().ready(function(){
 		    	</div>
 		    </div>
 		    @endif
-
 
 		    <hr>
 			@csrf
@@ -199,10 +197,10 @@ $().ready(function(){
 				<div class="row accepted-courses">
 
 					@forelse($post->modelSeeker->modelSeekerCourses as $course)
-					<div class="col-12 col-md-6 hover-bottom py-2">
+					<div class="col-12 col-md-6 hover-bottom py-2 d-flex justify-content-between">
 							{{ $course->course->title }}
 						<input type="hidden" name="modelSeekerCourses[]" class="listed-course" value="{{ $course->course->id }}">
-						<span class="text-danger pull-right remove-course"><i class="fas fa-times"></i></span>
+						<span class="text-danger remove-course"><i class="fas fa-times"></i></span>
 					</div>
 					@empty
 					@endforelse
@@ -210,7 +208,7 @@ $().ready(function(){
 
 				<div class="form-row">
 					<div class="col-lg-10 col-12">
-						<select class="custom-select" data-live-search="true" id="course-select">
+						<select class="selectpicker" data-live-search="true" id="course-select">
 							@forelse($courses as $course)
 							<option value="{{ $course->id }}">{{ $course->title }}</option>
 							@empty
@@ -221,7 +219,6 @@ $().ready(function(){
 						<span class="btn btn-success" id="course-add">Add</span>
 					</div>
 				</div>
-
 			</div>
 			@endif
 
@@ -253,10 +250,11 @@ $().ready(function(){
 								selected=""
 							@endif
 						@endif
-						>{{ $l->name }}</option>
+						>{{ $l->name }}
+					</option>
 			    	@empty
 			    	@endforelse
-			    </select>
+			   </select>
 			</div>
 
 			<div class="form-group" style="display: none;">
@@ -359,9 +357,10 @@ $().ready(function(){
 					<div class="col-md-6 ms-skill" skill_id="{{ $mskill->industrySkill->id }}">
 						<input type="hidden" name="skill_id[]" value="{{ $mskill->industrySkill->id }}">
 						<input type="hidden" class="skill-weight" name="skill_weight[]" value="{{ $mskill->weight }}">
-						<p>
-							<strong>{{ $mskill->industrySkill->name }}</strong> || <i>{{ $mskill->weightName }}</i>
-							<span class="pull-right text-danger remove-skill" skill_id="{{ $mskill->industrySkill->id }}"><i class="fas fa-times"></i></span>
+						<p class="d-flex justify-content-between">
+							<span>
+							<strong>{{ $mskill->industrySkill->name }}</strong> || {{ $mskill->weightName }}</i>
+							<span class="text-danger remove-skill" skill_id="{{ $mskill->industrySkill->id }}"><i class="fas fa-times"></i></span>
 						</p>
 					</div>
 					@empty
@@ -370,7 +369,7 @@ $().ready(function(){
 				<h6 class="mt-3">Add new skill</h6>
 				<div class="form-row justify-content-center">
 					<div class="col-md-7 col-12">
-						<select class="custom-select" data-live-search="true" id="select-skill">
+						<select class="selectpicker" data-live-search="true" id="select-skill">
 							<option value="-1">Select</option>
 							@foreach($industrySkills as $s)
 							<option value="{{ $s->id }}">{{ $s->name }}</option>
@@ -390,11 +389,11 @@ $().ready(function(){
 				</div>
 
 			<hr>
+
 			<h4 class="orange">Other Skills</h4>
-
 			<div class="row other-skills-pool mb-3">
-
 			</div>
+
 			<div class="form-row justify-content-center">
 				<div class="col-md-7">
 					<input type="text" name="" id="other-skill-name" class="form-control" placeholder="Enter Skill Name">
@@ -411,7 +410,7 @@ $().ready(function(){
 				</div>
 			</div>
 			@endif
-			
+
 
 
 			@if($post->hasModelSeeker())
@@ -423,9 +422,9 @@ $().ready(function(){
 				<div class="col-md-6 ms-trait" trait_id="{{ $trait->personalityTrait->id }}">
 					<input type="hidden" name="trait_id[]" value="{{ $trait->personalityTrait->id }}">
 					<input type="hidden" class="trait-weight" name="personal_trait_weight[]" value="{{ $trait->weight }}">
-					<p>
-						<strong>{{ $trait->personalityTrait->name }}</strong> || <i>{{ $trait->weightName }}</i>
-						<span class="pull-right btn btn-sm btn-danger remove-trait" trait_id="">x</span>
+					<p class="d-flex justify-content-between">
+						<strong>{{ $trait->personalityTrait->name }}</strong> || {{ $trait->weightName }}</i>
+						<span class="btn btn-sm btn-danger remove-trait" trait_id="">x</span>
 					</p>
 				</div>
 				@empty
@@ -434,7 +433,7 @@ $().ready(function(){
 			<h4 class="mt-3">Add Desired Personality Trait</h4>
 			<div class="form-row justify-content-center">
 				<div class="col-md-7 col-12">
-					<select class="custom-select" id="select-trait">
+					<select class="selectpicker" data-live-search="true" id="select-trait">
 						<option value="-1">Select</option>
 						@forelse($personalityTraits as $trait)
 						<option value="{{ $trait->id }}">{{ $trait->name }}</option>
