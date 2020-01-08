@@ -153,6 +153,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('employers', 'AdminController@employers');
     Route::post('log-in-as', 'AdminController@loginas');
 
+    Route::resource('job-post-groups', 'PostGroupController');
+
     Route::get('received-requests/{id?}', 'AdvertController@index');
     Route::post('received-requests/{id}', 'AdvertController@saveNotes');
 

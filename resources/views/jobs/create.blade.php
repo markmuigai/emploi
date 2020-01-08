@@ -106,7 +106,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="form-group">
                     <label>Number of Positions Available*</label>
                     <select name="positions" class="form-control">
-                        @for($i=1; $i<20;$i++ ) <option value="{{ $i }}">{{ $i }}</option>
+                        @for($i=1; $i<100;$i++ ) <option value="{{ $i }}">{{ $i }}</option>
                             @endfor
                     </select>
                 </div>

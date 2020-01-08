@@ -127,6 +127,10 @@ class Post extends Model
         return $this->hasMany(Candidate::class);
     }
 
+    public function postGroupJobs(){
+        return $this->hasMany(PostGroupJob::class);
+    }
+
     public function industry(){
     	return $this->belongsTo(Industry::class);
     }
