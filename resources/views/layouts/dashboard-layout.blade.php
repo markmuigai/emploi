@@ -28,6 +28,10 @@
     <!-- Slick JS -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.css')}}" />
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"> -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
@@ -55,9 +59,11 @@
     <!-- Notify JS Notifications -->
     <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/emploi-notify.js')}}"></script>
-
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script> -->
+    <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
     <!-- Slick JS -->
-    <script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}"></script>
 </head>

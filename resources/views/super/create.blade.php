@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="form-group">
                 <label>Country:</label>
-                <select class="custom-select" name="country">
+                <select  class="selectpicker" data-live-search="true" name="country">
                     @foreach($countries as $c)
                     <option value="{{ $c->id }}">{{ $c->name }}</option>
                     @endforeach

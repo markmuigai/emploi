@@ -15,21 +15,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}">
     </div>
     <div class="col-lg-3 col-md-6 py-2">
-
-
-
-        <input list="locations" value="" class="custom-select" placeholder="Select Location">
-          <datalist id="locations">
+        <select class="selectpicker" data-live-search="true" name="location">
+              <option value="">All Locations</option>
               @forelse($locations as $l)
               <option class="d-flex" value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
                   {{ $l->name.', '.$l->country->code }}
               </option>
               @empty
               @endforelse
-          </datalist>
+        </select>
     </div>
     <div class="col-lg-3 col-md-6 py-2">
-        <select class="custom-select" data-live-search="true" name="industry">
+        <select class="selectpicker" data-live-search="true" name="industry">
             <option value="">All Industries</option>
             @forelse($industries as $ind)
             <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
@@ -40,7 +37,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </select>
     </div>
     <div class="col-lg-3 col-md-6 py-2">
-        <select class="custom-select" name="vacancyType">
+        <select class="selectpicker" name="vacancyType" data-live-search="true">
             <option value="">All Vacancy Types</option>
             @forelse($vacancyTypes as $l)
             <option value="{{ $l->id }}" {{ isset($search_vtype) && $search_vtype == $l->id ? 'selected=""' : '' }}>

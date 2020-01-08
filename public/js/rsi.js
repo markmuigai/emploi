@@ -36,11 +36,11 @@ $().ready(function() {
 
             var $s = '' +
                 '<div class="col-md-6 ms-skill" skill_id="' + s + '">' +
-                '<p><strong>' +
-                t + '</strong> || <em>' + wn + '</em>' +
+                '<p class="d-flex justify-content-between"><span><strong>' +
+                t + '</strong> || ' + wn +
                 '<input type="hidden" name="skill_id[]" value="' + s + '">' +
-                '<input type="hidden"  class="skill-weight" name="skill_weight[]" value="' + w + '">' +
-                '<span class="pull-right text-danger remove-new-skill" skill_id="' + s + '">x</span>' +
+                '<input type="hidden"  class="skill-weight" name="skill_weight[]" value="' + w + '"></span>' +
+                '<span class="pull-right text-danger remove-new-skill" skill_id="' + s + '"><i class="fas fa-times"></i></span>' +
                 '</p>' +
                 '</div>';
             $('.selected-skills').append($s);
@@ -85,10 +85,10 @@ $().ready(function() {
 
             var $trait = '' +
                 '<div class="col-md-6 ms-trait" trait_id="' + s + '">' +
-                '<p><strong>' +
-                t + '</strong> || <em>' + wn + '</em>' +
+                '<p class="d-flex justify-content-between"><span><strong>' +
+                t + '</strong> || ' + wn +
                 '<input type="hidden" name="trait_id[]" value="' + s + '">' +
-                '<input type="hidden"  class="trait-weight" name="trait_weight[]" value="' + w + '">' +
+                '<input type="hidden"  class="trait-weight" name="trait_weight[]" value="' + w + '"></span>' +
                 '<span class="pull-right text-danger remove-new-trait" trait_id="' + s + '"><i class="fas fa-times"></i></span>' +
                 '</p>' +
                 '</div>';
@@ -143,7 +143,7 @@ $().ready(function() {
 
 
                 var $c = '' +
-                    '<div class="col-12 col-md-6 py-2">' +
+                    '<div class="col-12 col-md-6 py-2 d-flex justify-content-between">' +
                     name +
                     '<input type="hidden" name="modelSeekerCourses[]" class="listed-course" value="' + response.id + '">' +
                     '<span class="text-danger pull-right remove-course"><i class="fas fa-times"></i></span>' +
@@ -181,11 +181,11 @@ $().ready(function() {
         if (weight == 3)
             weightName = 'Very Important';
         $o = '' +
-            '<div class="col-md-4 col-6 other-skill" skill_name="' + name + '">' +
-            '<input type="hidden" name="other_skill_name[]" class="other-skill" value="' + name + '">' +
+            '<div class="col-md-4 col-6 other-skill d-flex justify-content-between" skill_name="' + name + '">' +
+            '<p><input type="hidden" name="other_skill_name[]" class="other-skill" value="' + name + '">' +
             '<input type="hidden" name="other_skill_weight[]" value="' + weight + '">' +
-            name + ' || <em>' + weightName + '</em>' +
-            '<span class="text-danger pull-right remove-other-skill">x</span>' +
+            name + ' || ' + weightName +
+            '</p><span class="text-danger pull-right remove-other-skill"><i class="fas fa-times"></i></span>' +
             '</div>';
         $('.other-skills-pool').append($o);
         $('.remove-other-skill').click(function() {
