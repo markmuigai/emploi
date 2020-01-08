@@ -78,6 +78,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     for($i=0; $i<count($posts); $i++)
     {
         $newPosts.= "[".$posts[$i]->id.",'".$posts[$i]->title."']";
+        if($i+1 != count($posts))
+            $newPosts .= ',';
     }
     $newPosts = '['.$newPosts.']';
     print 'posts = '.$newPosts.';';
