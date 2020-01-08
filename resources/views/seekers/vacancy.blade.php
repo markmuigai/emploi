@@ -8,13 +8,8 @@
 
 @section('meta-include')
 <meta property="og:url"           content="{{ url('/vacancies/'.$post->slug) }}/" />
-<meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{ $post->title }}" />
 <meta property="og:description"   content="{{ $post->brief }}" />
-<meta property="og:image:width"   content="500" />
-<meta property="og:image:height"  content="500" />
-<meta property="fb:app_id"  content="449830008990681" />
-<meta property="og:site_name" content="Emploi Recruitment" />
 @endsection
 
 @section('content')

@@ -12,7 +12,7 @@ use App\Country;
 use App\EducationLevel;
 use App\Industry;
 use App\Location;
-use App\OldPost;
+use App\PostGroup;
 use App\Post;
 use App\User;
 use App\VacancyType;
@@ -356,10 +356,19 @@ class PostsController extends Controller
                     //->where('status','active')
                     ->where('status','!=','inactive')
                     //->where('deadline','>',Carbon::now()->format('Y-m-d'))
-                    ->firstOrFail();
+                    ->first();
 
-        return view('seekers.vacancy')
+        if(isset($post->id))
+        {
+            return view('seekers.vacancy')
                 ->with('post',$post);
+        }
+
+        $pg = PostGroup::where('slug',$param)->firstOrFail();
+        return view('admins.postGroup.show')
+                ->with('postGroup',$pg);
+
+        
 
         // if(isset($post->id))
         // {
