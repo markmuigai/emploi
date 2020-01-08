@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="/blog">All</a>
             @forelse(\App\BlogCategory::all() as $c)
-            <a class="dropdown-item text-capitalize" href="/blog/{{$c->slug}}">{{$c->title}}</a>
+            <a class="dropdown-item text-capitalize" href="/blog/{{$c->slug}}">{{$c->name}}</a>
             @empty
             @endforelse
         </div>
