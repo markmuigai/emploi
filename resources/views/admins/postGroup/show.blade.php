@@ -3,7 +3,7 @@
 @section('title','Emploi :: '.$postGroup->getTitle() )
 
 @section('description')
-{{ $postGroup->description }}
+{!!html_entity_decode($postGroup->description)!!}
 @endsection
 
 @section('meta-include')
