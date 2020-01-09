@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Job Vacancies')
+@section('page_title', $title)
 <hr>
 <h4>Search</h4>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}">

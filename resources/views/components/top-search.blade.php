@@ -36,13 +36,13 @@
                 <h5>Jobs by Category</h5>
                 <ul>
                     <li>
-                        <a href="/vacancies/featured">Featured</a>
+                        <a href="/vacancies/featured">Featured Jobs</a>
                     </li>
                     <li>
-                        <a href="/vacancies/full-time">Full Time</a>
+                        <a href="/vacancies/full-time">Full Time Jobs</a>
                     </li>
                     <li>
-                        <a href="/vacancies/part-time">Part-time</a>
+                        <a href="/vacancies/part-time">Part-time Jobs</a>
                     </li>
                     <li>
                         <a href="/vacancies/internships">Internships</a>
@@ -51,14 +51,17 @@
                         <a href="/vacancies/contract">Contract</a>
                     </li>
                     <li>
-                        <a href="/vacancies/volunteer">Volunteer</a>
+                        <a href="/vacancies/volunteer">Volunteer Positions</a>
                     </li>
                     <li>
-                        <a href="/vacancies/remote">Remote</a>
+                        <a href="/vacancies/remote">Remote Jobs</a>
                     </li>
+                    @forelse(\App\Country::active() as $c)
                     <li>
-                        <a href="/vacancies">All Jobs</a>
+                        <a href="/vacancies/{{ $c->name }}">Jobs in {{ $c->name }}</a>
                     </li>
+                    @empty
+                    @endforelse
 
                 </ul>
             </div>
