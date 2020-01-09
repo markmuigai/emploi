@@ -19,6 +19,12 @@ class Post extends Model
         'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions','max_salary'
     ];
 
+    public static function cleanString($string) {
+       $string = str_replace(' ', '-', $string);
+
+       return preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+    }
+
     public static function active($counter = 200)
     {
         return Post::where('status','active')->where('deadline','>',Carbon::now()->format('Y-m-d'))
