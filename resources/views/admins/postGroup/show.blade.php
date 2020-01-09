@@ -146,7 +146,7 @@
         <div class="card">
             <div class="card-body text-center">
                 
-                @if(Auth::user()->role == 'admin')
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
                 <a href="/admin/job-post-groups/{{ $pg->id }}/edit">edit</a>
                 @else
                 <a href="/vacancies">Other Vacancies</a>
