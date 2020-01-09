@@ -3,17 +3,157 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 use App\Blog;
 use App\Contact;
+use App\Country;
+use App\CvRequest;
+use App\JobApplication;
 use App\Location;
+use App\Referral;
+use App\Parser;
 use App\Post;
+use App\Seeker;
 use App\User;
+use App\UserPermission;
 
 use App\Jobs\EmailJob;
 
+use Storage;
+
 class ContactController extends Controller
 {
+    public function easyApply($slug, Request $request)
+    {
+        $user = User::where('email',$request->email)->first();
+        $post = Post::where('slug',$slug)->firstOrFail();
+        $created = false;
+        if(!isset($user->id))
+        {
+            $username = explode(" ", strtolower($request->name));
+            $username = implode("-", $username).rand(1000,30000);
+            $password = User::generateRandomString(10);
+            $created = true;
+
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'username' => $username,
+                'email_verification' => User::generateRandomString(10),
+                'password' => Hash::make($password),
+            ]);
+
+            if(!isset($user->id))
+            {
+                abort(500);
+            }
+
+            $perm = UserPermission::create([
+                'user_id' => $user->id, 
+                'permission_id' => 4
+            ]);
+
+            $storage_path = '/public/resumes';
+            $resume_url = basename(Storage::put($storage_path, $request->file('resume')));
+
+            $parser = new Parser($resume_url);
+
+            Referral::creditFor($request->email);
+
+            $country = Country::findOrFail($request->prefix);
+
+            $seeker = Seeker::create([
+                'user_id' => $user->id,
+                'public_name' => $username,
+                'gender' => $request->gender,
+                'phone_number' => $country->prefix.$request->phone_number,
+                'country_id' => $post->location->country->id,
+                'industry_id' => $post->industry_id,
+                'resume' => $resume_url,
+                'resume_contents' => $parser->convertToText()
+            ]);
+
+            
+
+            $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
+                $contents = "Here are your login credentials for Emploi: <br>
+            username: $username <br>
+            <br>
+
+            Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+            <br><br>
+            Your Password: $password
+
+            <br>
+                    ";
+            EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+        }
+        if(!$user->seeker->hasApplied($post))
+        {
+            $j = JobApplication::create([
+                'user_id' => $user->id,
+                'post_id' => $post->id,
+                'cover' => 'Job seeker did not attach a cover letter'
+            ]);
+
+            $r = CvRequest::where('employer_id',$post->company->user->employer->id)
+                    ->where('seeker_id',$user->seeker->id)
+                    ->first();
+
+            if(isset($r->id))
+            {
+                $r->status = 'accepted';
+                $r->save();
+            }
+            else
+            {
+                CvRequest::create([
+                    'employer_id' => $post->company->user->employer->id, 
+                    'seeker_id' => $user->seeker->id, 
+                    'status' => 'accepted'
+                ]);
+            }
+
+            if(isset($j->id))
+            {
+
+                $caption = "You have applied for ".$post->title;
+                $contents = "Your application for the ".$post->title." has been submitted succesfully. Your Job Application Id is ".$j->id.". <br>
+                The application has been sent to <strong>".$post->company->name."</strong> for consideration.<br><br>
+                In the meantime, update your profile with your updated CV to rank better against other applicants.
+                <br>
+                All the best.
+                <br><br>
+
+                <a href='".url('/vacancies')."'>Browse Other Vacancies</a>
+                ";
+                EmailJob::dispatch($user->name, $user->email, 'Applied for '.$post->title, $caption, $contents);
+
+                $caption = "Application Received for ".$post->title;
+                $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position.
+                <a href='".url('/home')."'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
+                <br>
+                Thank you for choosing Emploi
+                <br><br>
+
+                <a href='".url('/home')."'>My Account</a>
+                ";
+                $email = $post->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
+
+                $email = $email = null ? $post->company->user->email : $email;
+
+                EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+                return view('seekers.easy-applied')
+                        ->with('created',$created)
+                        ->with('post',$post);
+            }
+        }
+        return view('seekers.apply-failed')
+                ->with('post',$post);
+    }
+
     public function save(Request $request)
     {
     	//return $request->all();
