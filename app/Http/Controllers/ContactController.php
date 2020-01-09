@@ -79,11 +79,11 @@ class ContactController extends Controller
             $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
                 $contents = "Here are your login credentials for Emploi: <br>
             username: $username <br>
+            Password: $password <br>
             <br>
 
             Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
-            <br><br>
-            Your Password: $password
+            <br>
 
             <br>
                     ";
