@@ -3,7 +3,7 @@
 @section('title','Emploi :: Background Checks')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Protect your organization with Emploi's comprehensive employment background checks ranging Identity checks, Verification of academic certificates, Interviews with referees and Substance Abuse Screening amongs't others.
 @endsection
 
 @section('content')
