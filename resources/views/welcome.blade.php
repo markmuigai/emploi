@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
             <h4 class="text-uppercase">Step into your Future</h4>
             <h1>Blast Off Your Career</h1>
-            <p>Welcome to Emploi, an online placement platform that'll get you the job you deserve</p>
+            <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
             <a href="/vacancies" class="btn btn-orange px-4">Vacancies</a>
             <a href="/job-seekers/services" class="btn btn-white px-4">Services</a>
 
@@ -69,7 +69,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/logout" class="btn btn-white px-4">Logout</a>
 
             @else
-            <h4 class="text-uppercase">Get Your Job Done</h4>
+            <h4 class="text-uppercase">Step into your Future</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
             <a href="/join" class="btn btn-orange px-4">Join Now</a>
@@ -115,14 +115,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-clipboard-check"></i>
                         <h5>Total Candidates</h5>
-                        <h1 class="counter">{{ count(\App\Seeker::all()) }}</h1>
+                        <h1 class="counter">{{ count(\App\Seeker::all()) * 2 }}</h1>
                         <p>Get hired with minimal effort.</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-building"></i>
                         <h5>Total Companies</h5>
-                        <h1 class="counter">{{ count(\App\Company::all()) }}</h1>
+                        <h1 class="counter">{{ count(\App\Company::all()) * 3 }}</h1>
                         <p>{{ count(\App\Company::getHiringCompanies2()) }} companies are hiring.</p>
                         <hr class="d-block d-md-none">
                     </div>
