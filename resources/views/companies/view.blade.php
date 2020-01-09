@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<div class="card-body pb-0">
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
-						<img src="{{ asset($company->logoUrl) }}" alt="{{ $company->name }}" class="circle-img w-100 h-100">
+						<img src="{{ asset($company->logoUrl) }}" alt="{{ $company->name }}" class="company-logo-img">
 					</div>
 				</div>
 				<div class="row align-items-center">

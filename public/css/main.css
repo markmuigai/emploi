@@ -567,7 +567,12 @@ main {
 
 .card-header.cover+.card-body {
     position: relative;
-    top: -100px
+    top: -85px
+}
+
+.company-logo-img {
+    width: auto;
+    height: 100px;
 }
 
 .nav-pills {
@@ -665,6 +670,11 @@ main {
     position: absolute;
     height: 55vh;
     width: 100%
+}
+
+.company-logo-img {
+    width: auto;
+    height: 100px;
 }
 
 .advert-details {
