@@ -37,6 +37,7 @@ class AdminController extends Controller
         $user = User::findOrFail($request->user_id);
         if($user->role == 'admin' || $user->role == 'super-admin')
             abort(403);
+        $request->session()->put('last-admin-id', Auth::user()->id);
         Auth::loginUsingId($request->user_id, true);
         return redirect('/home');
     }
