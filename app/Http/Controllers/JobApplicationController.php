@@ -73,7 +73,7 @@ class JobApplicationController extends Controller
 
                 <a href='".url('/home')."'>My Account</a>
                 ";
-                $email = $post->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
+                $email = $post->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $post->company->email;
 
                 $email = $email = null ? $post->company->user->email : $email;
 
