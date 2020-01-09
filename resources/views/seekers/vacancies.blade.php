@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </form>
 <!-- JOB CARD -->
 @forelse($posts as $post)
-<div class="card mb-4">
+<div class="card mb-4" style="border-bottom: 0.1em solid black">
     <div class="card-body">
         <div class="row align-items-center">
             <div class="col-12 col-lg-8">
@@ -73,8 +73,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                         <p>
                             <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
-                                <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                                <span class="badge {{ $post->vacancyType->badge }}">
+                                    @if($post->featured != 1)
+                                    <b>Featured </b>
+                                    @endif
+                                    {{ $post->vacancyType->name }}
+                                    @if($post->featured != 1)
+                                    <b>Job </b>
+                                    @endif
+                                </span>
                             </a>
+                            
+                        </p>
+                        <p>
+                            <i class="fa fa-graduation-cap"></i> {{ $post->educationLevel->name }}
                         </p>
                     </div>
                 </div>
