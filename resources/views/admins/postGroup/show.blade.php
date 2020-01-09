@@ -84,7 +84,10 @@
                         @forelse($pg->postGroupJobs as $pgs)
 
                         <div>
-                            <a href="/vacancies/{{ $pgs->post->slug }}" style="font-weight: bold;">{{ $pgs->post->getTitle() }}</a>
+                            <span>
+                                {{ $pgs->post->getTitle() }}
+                            </span>
+                            <a href="/vacancies/{{ $pgs->post->slug }}" class="btn btn-orange btn-sm">View and Apply</a>
                             <br>
                             <br>
                             <?php 
