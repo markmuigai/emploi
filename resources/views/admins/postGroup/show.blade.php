@@ -74,7 +74,7 @@
                         <!-- JOB DESCRIPTION -->
                         <h5 class="pt-3 pb-2">Description</h5>
                         <div>
-                            <?php echo $pg->description; ?>
+                            {!!html_entity_decode($pg->description)!!}
                         </div>
 
                         @if(count($pg->postGroupJobs) > 0)
@@ -90,9 +90,9 @@
                             <?php 
                                 $shortRes = $pgs->post->responsibilities;
                                 $len = strlen($shortRes);
-
-                                print substr($shortRes, 0, $len > 250 ? 250 : $len ); 
                             ?>
+
+                            {!!html_entity_decode(substr($shortRes, 0, $len > 250 ? 250 : $len ))!!}
                             <hr>
                         </div>
 
