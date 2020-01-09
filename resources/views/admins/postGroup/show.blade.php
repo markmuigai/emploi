@@ -92,7 +92,7 @@
                                 $len = strlen($shortRes);
                             ?>
 
-                            {!!html_entity_decode(substr($shortRes, 0, $len > 250 ? 250 : $len ))!!}
+                            {!!html_entity_decode($pgs->post->responsibilities)!!}
                             <hr>
                         </div>
 
