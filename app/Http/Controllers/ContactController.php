@@ -90,6 +90,8 @@ class ContactController extends Controller
             EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
         }
+        if($user->role != 'seeker')
+            die('Only job seekers can apply. <a href="/login">Login</a>');
         if(!$user->seeker->hasApplied($post))
         {
             $j = JobApplication::create([
