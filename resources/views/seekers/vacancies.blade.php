@@ -74,13 +74,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p>
                             <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
                                 <span class="badge {{ $post->vacancyType->badge }}">
-                                    @if($post->featured == 1)
-                                    <b>Featured </b>
+                                    @if($post->featured == 'true')
+                                        <b>Featured </b> {{ $post->vacancyType->name }} <b> Job </b>
+                                    @else
+                                        {{ $post->vacancyType->name }}
                                     @endif
-                                    {{ $post->vacancyType->name }}
-                                    @if($post->featured == 1)
-                                    <b>Job </b>
-                                    @endif
+                                    
                                 </span>
                             </a>
                             
