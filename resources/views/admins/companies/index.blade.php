@@ -34,9 +34,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/companies/{{ $c->name }}" target="_blank" class="btn btn-orange">View</a>
             </div>
             <div class="col-lg-5 col-md-6">
-                <b>Job Posts</b> [Total {{ count($c->posts) }}] <br>
+                <b>Recent Job Posts</b> [Total {{ count($c->posts) }}] <br>
 
-                @forelse($c->posts as $p)
+                @forelse(\App\Post::where('company_id',$c->id)->limit(20)->get() as $p)
                 <a href="/vacancies/{{ $p->slug }}" class="btn btn-primary" target="_blank">{{ $p->title }}</a>
                 @empty
                 No jobs posted under this company
