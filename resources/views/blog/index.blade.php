@@ -9,13 +9,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 <div class="container py-5">
     <h2 class="text-center">{{ $pageTitle }}</h2>
-    <div class="row">
-        <div class="col-md-8 text-right">
-            <form action="/blog/search">
-                <input type="text" name="q" required="" class="form-control" placeholder="search blogs" value="{{ isset($q) ? $q : '' }}">
+    <div class="row justify-content-between">
+        <div class="col-lg-6 col-md-6 text-right">
+            <form action="/blog/search" class="form-row">
+                <input type="text" name="q" required="" class="form-control col-9" placeholder="Search Blogs" value="{{ isset($q) ? $q : '' }}">
+                <button type="submit" class="btn btn-orange col-3">Search</button>
             </form>
         </div>
-        <div class="col-md-4 dropdown text-right">
+        <div class="col-md-4 dropdown text-md-right text-left mt-2 mt-md-0">
             <button class="btn btn-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Categories
             </button>
@@ -28,8 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    
-    
+
     <div class="row pt-3">
         @forelse($blogs as $blog)
         <div class="col-lg-4 col-md-6">
