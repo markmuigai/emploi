@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container">
     <div class="card my-5">
-        <div class="card-body px-5 px-3">
+        <div class="card-body px-lg-5 px-4">
             <div class="main-blog-image mb-4 d-none d-md-block" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($blog->imageUrl) }}')">
                 <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-lg-5 px-4 heading">
                     <h2>{{ $blog->title }}</h2>
@@ -21,8 +21,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
             <div class="d-block d-md-none">
-              <div class="main-blog-image mb-4" style="background-image:url('{{ asset($blog->imageUrl) }}')">
-              </div>
+              <img src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100">
+              <h2>{{ $blog->title }}</h2>
               <p>
                   <i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}
               </p>

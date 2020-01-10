@@ -22,11 +22,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					</div>
 					<div class="col-8">
 						<h5>{{ $b->title }}</h5>
-						<span class="badge badge-orange">
-							<a href="/blog/{{ $b->category->slug }}">
-								{{ $b->category->name }}
-							</a>
-						</span>
+						<a href="/blog/{{ $b->category->slug }}" class="badge badge-purple">
+							{{ $b->category->name }}
+						</a>
+						<br>
 						<a href="/blog/{{ $b->slug }}" class="btn btn-sm btn-orange-alt pull-right">Read Blog</a>
 					</div>
 				</div>
@@ -55,7 +54,7 @@ $user = Auth::user();
 $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('status','active')->orderBy('id','DESC')->orderBy('featured','DESC')->paginate(8);
 ?>
 <div class="row">
-	
+
 	@forelse ($posts as $b)
 	<div class="col-lg-6">
 		<div class="card my-2">
@@ -65,12 +64,10 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 						<img src="{{ asset($b->imageUrl) }}" class="w-100" alt="{{ $b->title }}">
 					</div>
 					<div class="col-8">
-						<h5>{{ $b->title }}</h5>
-						<span class="badge badge-dark">
-							<a href="/vacancies/{{ $b->slug }}">
-								{{ $b->monthlySalary() }}
-							</a>
-						</span>
+						<h5><a href="/vacancies/{{ $b->slug }}">{{ $b->title }}</a></h5>
+						<p class="badge badge-purple">
+							{{ $b->monthlySalary() }}
+						</p>
 						<a href="/vacancies/{{ $b->slug }}" class="btn btn-sm btn-orange-alt pull-right">View</a>
 					</div>
 				</div>

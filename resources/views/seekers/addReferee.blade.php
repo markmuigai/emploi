@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="pull-right">
                 <button type="button" name="button" class="btn btn-purple" id="add-position">Add Position</button>
             </div>
-            <h4>Positions at Organization</h4>
+            <h4 class="mt-2">Positions at Organization</h4>
             <div id="positions-at-org"></div>
             <hr>
             <div class="text-right">
@@ -58,7 +58,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="text-center mt-3">
                 <p>
-                    An one-time e-mail would be sent to your referee for verification.
+                    A one-time e-mail would be sent to your referee for verification.
                 </p>
             </div>
         </form>

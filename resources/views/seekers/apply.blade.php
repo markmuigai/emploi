@@ -13,14 +13,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
         <div class="text-right">
             <a href="/vacancies/{{ $post->slug }}" class="btn btn-sm btn-purple">View Job</a>
-            <a href="#share-links" class="btn btn-sm btn-orange-alt" style="display: none">Share</a>
+            <!-- <a href="#share-links" class="btn btn-sm btn-orange-alt">Share</a> -->
         </div>
         <div class="row align-items-center">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <?php $img = $post->image == 'unknown.png' ? 'images/a1.jpg' : $post->image ?>
                 <img src="{{ asset($post->imageUrl) }}" class="img-responsive w-100" alt="{{ $post->getTitle() }}" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <p><strong>Posted: </strong>{{ $post->since }}</p>
                 <p><strong>Position: </strong>{{ $post->vacancyType->name }}</p>
                 <p><strong>Company: </strong>{{ isset(Auth::user()->id) ? $post->company->name : 'Login to view' }}</p>

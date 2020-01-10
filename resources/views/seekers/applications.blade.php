@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p class="text-primary">Pending</p>
                         @endif
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 text-md-right text-left">
                         <a href="/profile/applications/{{ $app->id }}" class="btn btn-orange pull-right">View</a>
                     </div>
                 </div>

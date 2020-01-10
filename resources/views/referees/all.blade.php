@@ -21,22 +21,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<h4>
 					{{ $i.'. '.$ref->name }}
 				</h4>
-				<p>
+				<p class="text-capitalize">
 					{{ $ref->position_held }} <i> at </i>
 					<strong>
 						{{ $ref->organization }}
 					</strong>
 				</p>
-				<p>
+				<p class="text-capitalize">
 					[ {{ $ref->relationship }} ]
 				</p>
 				<!-- <hr> -->
-				<p>
+				<p class="text-capitalize">
 					{{ $ref->responsibilities }}
 				</p>
 			</div>
 			<div class="col-md-4">
-				<p class="pull-right">
+				<p class="pull-right text-capitalize">
 					{{ $ref->status }}
 				</p>
 			</div>

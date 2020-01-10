@@ -64,7 +64,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 	<div class="col-md-12 col-lg-3 mt-2">
 		<div class="card">
-			<div class="card-body text-center px-0">
+			<div class="card-body text-center px-1">
 				<h5 class="orange">Contact Details</h5>
 				@if(isset(Auth::user()->id))
 				<h6>Address</h6>
