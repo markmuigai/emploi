@@ -21,6 +21,7 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog.index')
+                ->with('pageTitle','Emploi Career Center')
                 ->with('blogs',Blog::orderBy('id','desc')->paginate(12));
     }
 
@@ -60,13 +61,28 @@ class BlogController extends Controller
         return redirect('/admin/blog');
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
+        if($id == 'search')
+        {
+            $q = isset($request->q) ? $request->q : ' ';
+            $blogs = Blog::where('status','active')->where('title','like','%'.$q.'%')
+                    ->orderBy('id','DESC')
+                    ->paginate(12);
+            return view('blog.index')
+                    ->with('pageTitle',"Blog Search Results \"$q\"")
+                    ->with('q',$q)
+                ->with('blogs',$blogs);
+        }
         $c = BlogCategory::where('slug',$id)->where('status','active')->first();
         if(isset($c->id))
         {
-            $blogs = Blog::where('status','active')->where('blog_category_id',$c->id)->paginate(12);
+            $blogs = Blog::where('status','active')->where('blog_category_id',$c->id)
+                    ->orderBy('id','DESC')
+                    ->paginate(12);
             return view('blog.index')
+                    ->with('blogCategory',$c->id)
+                    ->with('pageTitle','Emploi '.$c->name.' Blog')
                 ->with('blogs',$blogs);
         }
         $blog = Blog::where('slug',$id)->where('status','active')->firstOrFail();

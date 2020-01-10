@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Emploi :: Career Centre')
+@section('title',$pageTitle)
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
@@ -8,19 +8,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 <div class="container py-5">
-    <h2 class="text-center">Blogs and News</h2>
-    <div class="dropdown text-right">
-        <button class="btn btn-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/blog">All</a>
-            @forelse(\App\BlogCategory::all() as $c)
-            <a class="dropdown-item text-capitalize" href="/blog/{{$c->slug}}">{{$c->name}}</a>
-            @empty
-            @endforelse
+    <h2 class="text-center">{{ $pageTitle }}</h2>
+    <div class="row">
+        <div class="col-md-8 text-right">
+            <form action="/blog/search">
+                <input type="text" name="q" required="" class="form-control" placeholder="search blogs" value="{{ isset($q) ? $q : '' }}">
+            </form>
+        </div>
+        <div class="col-md-4 dropdown text-right">
+            <button class="btn btn-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/blog">All</a>
+                @forelse(\App\BlogCategory::all() as $c)
+                <a class="dropdown-item text-capitalize {{ isset($blogCategory) && $blogCategory == $c->id ? 'active' : '' }}" href="/blog/{{$c->slug}}">{{$c->name}}</a>
+                @empty
+                @endforelse
+            </div>
         </div>
     </div>
+    
+    
     <div class="row pt-3">
         @forelse($blogs as $blog)
         <div class="col-lg-4 col-md-6">
