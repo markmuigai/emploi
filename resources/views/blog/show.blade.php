@@ -6,6 +6,16 @@
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
+@section('meta-include')
+<meta property="og:url"           content="{{ url('/blog/'.$blog->slug) }}/" />
+<meta property="og:title"         content="{{ $blog->title }}" />
+<meta property="og:description"   content="Career Centre Blog on {{ $blog->category->name }}" />
+
+<meta property="og:image" content="{{ asset($blog->imageUrl) }}">
+<meta property="og:image:width"   content="900" />
+<meta property="og:image:height"  content="600" />
+@endsection
+
 @section('content')
 
 <div class="container">
