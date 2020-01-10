@@ -69,7 +69,7 @@
                             <a href="/employers/register" class="btn btn-orange"> Employer Registration</a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" id="search-prompt" href="#"><i class="fas fa-search"></i></a>
+                            <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
                         </li>
                         <div class="d-md-flex">
                             <!-- <li class="nav-item search-form hide">
