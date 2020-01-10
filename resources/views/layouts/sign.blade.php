@@ -65,19 +65,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/companies">See Who's Hiring</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="/employers/register" class="btn btn-orange"> Employer Registration</a>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
                         </li>
-                        <div class="d-md-flex">
-                            <!-- <li class="nav-item search-form hide">
-                                <form action="" class="form-inline mt-2">
-                                    <input type="text" name="search" placeholder="Search" class="form-control" id="search">
-                                </form>
-                            </li> -->
-                        </div>
                     </ul>
                 </div>
             </div>
@@ -113,6 +103,7 @@
     <!-- INVITE FRIENDS -->
     @include('components.invite')
     <!-- END OF INVITE FRIENDS -->
+    @include('components.search-modal')
 
     {{--@include('cookieConsent::index')--}}
     <!-- INLINE SCRIPTS -->
