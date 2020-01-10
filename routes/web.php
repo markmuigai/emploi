@@ -155,6 +155,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('log-in-as', 'AdminController@loginas');
 
     Route::resource('job-post-groups', 'PostGroupController');
+    Route::resource('countries', 'CountryController');
+    Route::resource('locations', 'LocationController');
 
     Route::get('received-requests/{id?}', 'AdvertController@index');
     Route::post('received-requests/{id}', 'AdvertController@saveNotes');
