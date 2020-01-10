@@ -9,6 +9,7 @@ use App\BlogCategory;
 
 use Auth;
 use Storage;
+use Image;
 
 class BlogController extends Controller
 {
@@ -33,12 +34,24 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        $storage_path = '/public/blogs/';
-        $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
+        $featured_image = $request->file('featured_image');
+        $featured_image_url = time() . '.' . $featured_image->getClientOriginalExtension();
+        $storage_path = storage_path().'/app/public/blogs/'.$featured_image_url;
+        $watermark = Image::make(public_path('/images/logo.png'));   
+        // $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
+
+        Image::make($featured_image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
         
 
         if(isset($request->other_image))
         {
+            $other_image = $request->file('other_image');
+            $other_image_url = time() . '.' . $other_image->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/blogs/'.$other_image_url;
+            //$watermark = Image::make(public_path('/images/logo.png'));   
+
+            Image::make($other_image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
+
             $other_image_url = basename(Storage::put($storage_path, $request->other_image));
         }
         else
@@ -108,11 +121,31 @@ class BlogController extends Controller
         $storage_path = '/public/blogs/';
         if(isset($request->featured_image))
         {
-            $blog->image1 = basename(Storage::put($storage_path, $request->featured_image));
+            $featured_image = $request->file('featured_image');
+            $featured_image_url = time() . '.' . $featured_image->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/blogs/'.$featured_image_url;
+            $watermark = Image::make(public_path('/images/logo.png'));   
+
+            Image::make($featured_image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
+            $oldImage = storage_path().'/app/public/blogs/'.$blog->image1;
+
+            if(file_exists($oldImage))
+                unset($oldImage);
+            $blog->image1 = $featured_image_url;
         }
         if(isset($request->other_image))
         {
-            $blog->image2 = basename(Storage::put($storage_path, $request->other_image));
+            $other_image = $request->file('other_image');
+            $featured_image_url = time() . '.' . $other_image->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/blogs/'.$featured_image_url;
+            $watermark = Image::make(public_path('/images/logo.png'));   
+
+            Image::make($other_image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
+            $oldImage = storage_path().'/app/public/blogs/'.$blog->image1;
+
+            if(file_exists($oldImage))
+                unset($oldImage);
+            $blog->image2 = $featured_image_url;
         }
 
         $blog->save();

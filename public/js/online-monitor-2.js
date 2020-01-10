@@ -9,7 +9,7 @@ $().ready(function(){
 		if(offlineState)
 		{
 			offlineState = true;
-			notify("Connection re-established!");
+			notify("Connection re-established!",'success');
 		}
 	});
 	window.addEventListener('offline',  function (){
