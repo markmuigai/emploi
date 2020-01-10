@@ -87,4 +87,4 @@
 </script>
 @endif
 
-<script src="{{ asset('js/online-monitor.js') }}" async="" defer=""></script>
+<script src="{{ asset('js/online-monitor-1.js') }}" async="" defer=""></script>

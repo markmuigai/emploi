@@ -1,6 +1,6 @@
 
 
-$().ready(function(){
+//$().ready(function(){
 	if(!navigator.onLine) { 
 		notify('You are working offline!','error');
 	}
@@ -9,7 +9,7 @@ $().ready(function(){
 		if(offlineState)
 		{
 			offlineState = true;
-			notify("Connection re-established!");
+			notify("Connection re-established!",'success');
 		}
 	});
 	window.addEventListener('offline',  function (){
@@ -23,4 +23,4 @@ $().ready(function(){
 		}
 		offlineState = true;
 	});
-});
+//});
