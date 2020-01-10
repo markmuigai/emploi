@@ -1,6 +1,6 @@
 
 
-//$().ready(function(){
+$().ready(function(){
 	if(!navigator.onLine) { 
 		notify('You are working offline!','error');
 	}
@@ -23,4 +23,4 @@
 		}
 		offlineState = true;
 	});
-//});
+});
