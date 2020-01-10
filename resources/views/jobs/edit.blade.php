@@ -28,7 +28,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @enderror
                 <h3>Step 1 of 3</h3>
                 <div class="form-group">
-                    <label>Company *</label>
+                    <div class="d-flex justify-content-between align-items-center pb-2">
+                      <label>Company *</label>
+                      <!-- <a href="/companies/create" class="btn btn-sm btn-orange-alt">Create New</a> -->
+                    </div>
                     <select name="company" class="form-control" disabled="">
                         @foreach($companies as $i)
                         <option value="{{ $i->id }}" @if($post->company_id == $i->id)
@@ -118,9 +121,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                 </div>
 
-                <a href="#" class="btn btn-sm btn-orange-alt toSection1">
-                    < Previous</a> <a href="#" class="btn btn-sm btn-orange pull-right toSection3">Next >
-                </a>
+                <div class="d-flex justify-content-between">
+                  <a href="#" class="btn btn-sm btn-orange-alt toSection1">< Previous</a>
+                  <a href="#" class="btn btn-sm btn-orange pull-right toSection3">Next ></a>
+                </div>
             </div>
         </div>
     </div>
@@ -172,8 +176,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <input type="file" name="image" placeholder="" accept=".jpg, .png,.jpeg">
                 </div>
 
-                <a href="#" class="btn btn-sm btn-orange-alt toSection2">Previous Page</a>
-                <a class="btn btn-sm btn-orange pull-right" id="save-job-post" href="#">Save Job Post</a>
+                <div class="d-flex justify-content-between">
+                  <a href="#" class="btn btn-sm btn-orange-alt toSection2">< Previous Page</a>
+                  <a class="btn btn-sm btn-orange pull-right" id="save-job-post" href="#">Save Job Post</a>
+                </div>
             </div>
         </div>
     </div>

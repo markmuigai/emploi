@@ -29,7 +29,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="form-group">
                   <div class="d-flex justify-content-between align-items-center pb-2">
                     <label>Company *</label>
-                    <a href="/companies/create" class="btn btn-sm btn-orange-alt">create new</a>
                   </div>
                     <select name="company" class="form-control">
                         @foreach($companies as $i)
@@ -110,10 +109,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @endfor
                     </select>
                 </div>
-
-                <a href="#" class="btn btn-sm btn-purple toSection1">
-                    < Previous</a> <a href="#" class="btn btn-sm btn-orange pull-right toSection3">Next >
-                </a>
+                <div class="d-flex justify-content-between">
+                  <a href="#" class="btn btn-sm btn-purple toSection1">< Previous</a>
+                  <a href="#" class="btn btn-sm btn-orange pull-right toSection3">Next ></a>
+                </div>
             </div>
         </div>
     </div>

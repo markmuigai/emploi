@@ -22,8 +22,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-lg-2 col-3">
                         <img src="{{ asset($s->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $s->user->username }}">
                     </div>
-                    <div class="col-5 col-md-5 col-lg-6">
-                        <h3>
+                    <div class="col-9 col-md-6 col-lg-10">
+                        <h4>
                             <a href="/employers/browse/{{ $s->user->username }}">
                                 <strong>{{ $s->public_name }}</strong>
 
@@ -31,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @if($s->searching)
                             <span class="badge badge-success">Searching</span>
                             @endif
-                        </h3>
+                        </h4>
                         <p class="text-success">{{ $s->current_position ? $s->current_position : 'N/A' }}</p>
                         <p>{{ $s->industry->name }}</p>
                         <p><i class="fas fa-map-marker-alt orange"></i>
@@ -41,15 +41,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             {{ $s->country->name }}
                             @endif
                         </p>
-                        <p>
+                        <h6>
                             @if($p->status == 'accepted')
-                            <span style="text-decoration: underline; color: #500095">REQUEST ACCEPTED</span>
+                            <span class="text-success">REQUEST ACCEPTED</span>
                             @elseif($p->status == 'pending')
-                            <span style="text-decoration: underline; color: black">REQUEST PENDING</span>
+                            <span class="text-warning">REQUEST PENDING</span>
                             @else
-                            <span style="text-decoration: underline; color: red">REQUEST DENIED</span>
+                            <span class="text-danger">REQUEST DENIED</span>
                             @endif
-                        </p>
+                        </h6>
                     </div>
                 </div>
                 <hr>

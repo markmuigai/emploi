@@ -176,7 +176,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <form method="POST" action="/employers/saved">
                             @csrf
                             <input type="hidden" name="seeker_id" value="{{ $user->seeker->id }}">
-                            <input type="submit" value="Save Profile" class="btn btn-sm btn-primary">
+                            <input type="submit" value="Save Profile" class="btn btn-sm btn-purple">
                         </form>
                         @else
                         <form method="POST" action="/employers/saved/{{ $sp->id }}">
