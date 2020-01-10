@@ -50,7 +50,7 @@
                                 <a href="{{ $post->shareWhatsappLink }}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
                             </div>
                             <div class="col-lg-7 col-md-12 text-right">
-                                
+
                             </div>
                         </div>
                         <hr>
@@ -74,7 +74,7 @@
                                         @endif
                                     </strong>
                                     <br>
-                                    
+
                                     <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
                                         <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
                                     </a>
@@ -86,7 +86,7 @@
 
                                     <span>Posted <span style="text-decoration: underline;">{{ $post->since }}</span></span>
                                 </p>
-                                
+
                             </div>
                         </div>
                         <!-- JOB DESCRIPTION -->
@@ -118,15 +118,15 @@
                             <form method="POST" action="/apply-easy/{{ $post->slug }}/" enctype="multipart/form-data">
                                 @csrf
                                 <div>
-                                    <label>Full Name <b style="color: red">*</b></label>
+                                    <label>Full Name <strong class="text-danger">*</strong></label>
                                     <input type="text" name="name" maxlength="50" required="" class="form-control">
                                 </div>
                                 <div>
-                                    <label>E-mail Address <b style="color: red">*</b></label>
+                                    <label>E-mail Address <strong class="text-danger">*</strong></label>
                                     <input type="email" name="email" maxlength="50" required="" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone_number">Phone Number <b style="color: red">*</b></label>
+                                    <label for="phone_number">Phone Number <strong class="text-danger">*</strong></label>
                                     <div class="row pl-3">
                                         <select class="custom-select col-3" name="prefix">
                                             @foreach(\App\Country::active() as $c)
@@ -140,23 +140,23 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label>Gender <b style="color: red">*</b></label>
+                                    <label>Gender <strong class="text-danger">*</strong></label>
                                     <select name="gender" class="form-control">
                                         <option value="M">Male</option>
                                         <option value="F">Female</option>
                                         <option value="I">Other</option>
                                     </select>
                                 </div>
-                                
+
                                 <div>
-                                    <label>Attach Resume <b style="color: red">*</b></label>
+                                    <label>Attach Resume <strong class="text-danger">*</strong></label>
                                     <input type="file" name="resume" required="">
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="submit" value="Submit Application" class="btn btn-success">
+                                    <input type="submit" value="Submit Application" class="btn btn-orange">
                                 </div>
-                                
+
                             </form>
                         </p>
                         @endif
