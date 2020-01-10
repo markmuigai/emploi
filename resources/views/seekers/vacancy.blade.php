@@ -46,6 +46,8 @@
                                 <a href="{{ $post->shareLinkedinLink }}" target="_blank">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
+
+                                <a href="{{ $post->shareWhatsappLink }}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
                             </div>
                             <div class="col-lg-7 col-md-12 text-right">
                                 

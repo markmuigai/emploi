@@ -245,6 +245,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                         <i class="fab fa-linkedin" style="margin: 0.25em"></i>
 
+                        <i class="fab fa-whatsapp" style="margin: 0.25em"></i>
+
                 </p>
             </div>
         </a>

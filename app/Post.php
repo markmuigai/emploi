@@ -56,6 +56,10 @@ class Post extends Model
         return 'http://www.linkedin.com/shareArticle?mini=true&url='.url('/vacancies/'.$this->slug);
     }
 
+    public function getShareWhatsappLinkAttribute(){
+       return "whatsapp://send?text=Apply for ".$this->title.' on Emploi. '.url('/vacancies/'.$this->slug);
+    }
+
     public function getIsActiveAttribute(){
         $deadline = Carbon::parse($this->deadline);
         $today = Carbon::now();
