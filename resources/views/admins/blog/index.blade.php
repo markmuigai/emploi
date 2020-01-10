@@ -13,7 +13,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         @if(count($blogs) > 0)
-        <p><a href="/blog/create" class="btn btn-orange">Create Blog</a></p>
+        <p class="row">
+            <form style="display: inline;" class=" col-md-10">
+                <input type="text" name="q" placeholder="search blogs" class="form-control" required="">
+            </form>
+            <a href="/blog/create" class="btn btn-orange col-md-2">Create Blog</a>
+        </p>
         @endif
         @forelse($blogs as $blog)
         <div class="row align-items-center">

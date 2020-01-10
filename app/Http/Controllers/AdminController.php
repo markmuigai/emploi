@@ -59,8 +59,18 @@ class AdminController extends Controller
     }
 
     public function blog(Request $request){
+        if(isset($request->q))
+        {
+            $blogs = Blog::where('title','like','%'.$request->q.'%')
+                    ->orderBy('id','DESC')
+                    ->paginate(10);
+        }
+        else
+        {
+            $blogs = Blog::orderBy('id','desc')->paginate(10);
+        }
         return view('admins.blog.index')
-                ->with('blogs',Blog::orderBy('id','desc')->paginate(10));
+                ->with('blogs',$blogs);
     }
 
     public function updatePost($slug, Request $request)
