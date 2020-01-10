@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </form>
 <!-- JOB CARD -->
 @forelse($posts as $post)
-<div class="card mb-4" style="border-bottom: 0.1em solid black">
+<div class="card mb-4">
     <div class="card-body">
         <div class="row align-items-center">
             <div class="col-12 col-lg-8">
@@ -74,13 +74,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p>
                             <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
                                 <span class="badge {{ $post->vacancyType->badge }}">
-                                    @if($post->featured == 1)
-                                    <b>Featured </b>
+                                    @if($post->featured == 'true')
+                                        <b>Featured </b> {{ $post->vacancyType->name }} <b> Job </b>
+                                    @else
+                                        {{ $post->vacancyType->name }}
                                     @endif
-                                    {{ $post->vacancyType->name }}
-                                    @if($post->featured == 1)
-                                    <b>Job </b>
-                                    @endif
+                                    
                                 </span>
                             </a>
                             
@@ -122,6 +121,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <a href="{{ $post->shareFacebookLink }}" target="_blank" class="ml-1"><i class="fab fa-facebook-f"></i></a>
                     <a href="{{ $post->shareTwitterLink }}" target="_blank" class="ml-1"><i class="fab fa-twitter"></i></a>
                     <a href="{{ $post->shareLinkedinLink }}" target="_blank" class="ml-1"><i class="fab fa-linkedin"></i></a>
+                    <a href="{{ $post->shareWhatsappLink }}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
                     {{-- @else
                     <span>Sharing Disabled</span>
                     @endif --}}

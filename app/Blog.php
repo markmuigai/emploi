@@ -94,4 +94,8 @@ class Blog extends Model
     public function getShareLinkedinLinkAttribute(){
         return 'http://www.linkedin.com/shareArticle?mini=true&url='.url('/blog/'.$this->slug);
     }
+
+    public function getShareWhatsappLinkAttribute(){
+       return "whatsapp://send?text=Read ".$this->title.' Blog on Emploi\'s Career Centre. '.url('/blog/'.$this->slug);
+    }
 }
