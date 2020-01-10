@@ -7,6 +7,10 @@
 @endsection
 
 @section('meta-include')
+<meta property="og:image" content="{{ asset('images/500g.png') }}">
+<meta property="og:image:width"   content="900" />
+<meta property="og:image:height"  content="600" />
+
 <meta property="og:url"           content="{{ url('/vacancies/'.$postGroup->slug) }}/" />
 <meta property="og:title"         content="{{ $postGroup->title }}" />
 <meta property="og:description"   content="{{ $postGroup->description }}" />
