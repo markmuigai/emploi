@@ -950,6 +950,10 @@ main.sign-page p {
         font-size: 1em
     }
 
+    footer {
+        padding-bottom: 4rem;
+    }
+
     .collapse.navbar-collapse .navbar-nav {
         grid-template-columns: repeat(2, 1fr)
     }
