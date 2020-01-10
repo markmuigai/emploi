@@ -251,7 +251,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @empty
         @endforelse
     </div>
-    <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
+    <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a> <a href="whatsapp://send?text=The text to share!" data-action="share/whatsapp/share">Share via Whatsapp</a>
     @endif
 </div>
 <!-- END OF FEATURED JOBS -->
