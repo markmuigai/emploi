@@ -29,6 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="form-group">
                   <div class="d-flex justify-content-between align-items-center pb-2">
                     <label>Company *</label>
+                    <a href="/companies/create" class="btn btn-sm btn-primary">Create New</a>
                   </div>
                     <select name="company" class="form-control">
                         @foreach($companies as $i)
