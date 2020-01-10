@@ -17,6 +17,14 @@ class Company extends Model
         'name', 'user_id', 'logo', 'cover','tagline', 'about','website', 'industry_id','company_size_id','location_id','status','phone_number','email'
     ];
 
+    public function getEmail(){
+        return $this->email ? $this->email : $this->user->email;
+    }
+
+    public function getPhone(){
+        return $this->phone_number ? $this->phone_number : $this->user->employer->company_phone;
+    }
+
     public function user(){
     	return $this->belongsTo(User::class,'user_id');
     }

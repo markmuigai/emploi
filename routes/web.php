@@ -151,6 +151,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('metrics', 'AdminController@seekerMetrics');
 
     Route::get('employers', 'AdminController@employers');
+    Route::get('companies', 'AdminController@companies');
     Route::post('log-in-as', 'AdminController@loginas');
 
     Route::resource('job-post-groups', 'PostGroupController');

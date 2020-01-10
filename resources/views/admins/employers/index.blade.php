@@ -34,9 +34,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 {{ $e->address }}
             </div>
             <div class="col-lg-5 col-md-6">
-                <b>Companies</b> [{{ count($e->companies) }}] <br>
+                <b>Companies</b> [Total {{ count($e->companies) }}] <br>
+
                 @forelse($e->companies as $c)
-                <a href="#">{{ $c->name }}</a>
+                <a href="/admin/companies/{{ $c->id }}" class="btn btn-orange">{{ $c->name }}</a>
                 @empty
                 No companies match this profile
                 @endforelse

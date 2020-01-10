@@ -280,15 +280,35 @@ class AdminController extends Controller
     }
 
     public function employers(Request $request){
-        $employers = Employer::orderBy('name')->paginate(20);
+        
         if(isset($request->q))
         {
             $employers = Employer::where('name','like','%'.$request->q.'%')
                     ->orderBy('name')
                     ->paginate(20);
         }
+        else
+        {
+            $employers = Employer::orderBy('name')->paginate(20);
+        }
         return view('admins.employers.index')
                 ->with('employers',$employers);
+    }
+
+    public function companies(Request $request){
+        
+        if(isset($request->q))
+        {
+            $companies = Company::where('name','like','%'.$request->q.'%')
+                    ->orderBy('name')
+                    ->paginate(20);
+        }
+        else
+        {
+            $companies = Company::orderBy('name')->paginate(20);
+        }
+        return view('admins.companies.index')
+                ->with('companies',$companies);
     }
 
     public function emails(){
