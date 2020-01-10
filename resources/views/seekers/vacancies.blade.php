@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </form>
 <!-- JOB CARD -->
 @forelse($posts as $post)
-<div class="card mb-4" style="border-bottom: 0.1em solid black">
+<div class="card mb-4">
     <div class="card-body">
         <div class="row align-items-center">
             <div class="col-12 col-lg-8">

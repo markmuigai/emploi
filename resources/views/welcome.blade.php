@@ -235,8 +235,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @if(isset(Auth::user()->id))
                     {{ $p->monthlySalary() }} {{ $p->monthly_salary == 0 ? '' : 'p.m.' }}
                     @else
-                    Login to view salary
                     @endif
+                </p>
+                <p>
+                    
+                        <i class="fab fa-facebook-f" style="margin: 0.25em"></i>
+
+                        <i class="fab fa-twitter" style="margin: 0.25em"></i>
+
+                        <i class="fab fa-linkedin" style="margin: 0.25em"></i>
+
                 </p>
             </div>
         </a>
