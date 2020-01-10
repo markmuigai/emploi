@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @if($user->role == 'seeker')
 <div class="row align-items-center">
-    <div class="col-md-10">
+    <div class="col-md-12 col-lg-10">
         <!-- NAV-TABS -->
         <ul class="nav nav-tabs mb-3" id="jobDetails" role="tablist">
             <li class="nav-item">
@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </ul>
     </div>
     @if(isset(Auth::user()->id))
-    <div class="col-md-2">
+    <div class="col-md-12 col-lg-2 text-right">
         <a href="/profile/edit" class="btn btn-orange"><i class="fas fa-edit"></i> Edit</a>
     </div>
     @endif
