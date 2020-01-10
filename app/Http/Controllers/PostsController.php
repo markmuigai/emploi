@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Storage;
 use Carbon\Carbon;
+use Image;
 
 use App\Country;
 use App\EducationLevel;
@@ -94,8 +95,16 @@ class PostsController extends Controller
         ]);
         if(isset($request->image))
         {
-            $storage_path = '/public/images/logos';
-            $image_url = basename(Storage::put($storage_path, $request->image));
+            $image = $request->file('image');
+            $image_url = time() . '.' . $image->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/images/logos/'.$image_url;
+            $watermark = Image::make(public_path('/images/logo.png'));   
+            // $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
+
+            Image::make($image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
+
+            // $storage_path = '/public/images/logos';
+            // $image_url = basename(Storage::put($storage_path, $request->image));
         }
         else
         {
@@ -426,9 +435,21 @@ class PostsController extends Controller
             abort(403);
         if(isset($request->image))
         {
+            $image = $request->file('image');
+            $image_url = time() . '.' . $image->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/images/logos/'.$image_url;
+            $watermark = Image::make(public_path('/images/logo.png'));   
+            // $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
 
-            $storage_path = '/public/images/logos';
-            $post->image = basename(Storage::put($storage_path, $request->image));
+            Image::make($image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
+
+            $oldImage = storage_path().'/app/public/images/logos/'.$post->image;
+
+            if(file_exists($oldImage))
+                unset($oldImage);
+
+            //$storage_path = '/public/images/logos';
+            $post->image = $image_url;
         }
         else
         {
