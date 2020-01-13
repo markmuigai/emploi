@@ -41,17 +41,17 @@
                                 <p>
                                     <i class="fas fa-share-alt"></i> Share:
                                 </p>
-                                <a href="{{ $post->shareFacebookLink }}" target="_blank">
+                                <a href="{{ $post->shareFacebookLink }}" target="_blank"  rel="noreferrer">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="{{ $post->shareTwitterLink }}" target="_blank">
+                                <a href="{{ $post->shareTwitterLink }}" target="_blank"  rel="noreferrer">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="{{ $post->shareLinkedinLink }}" target="_blank">
+                                <a href="{{ $post->shareLinkedinLink }}" target="_blank"  rel="noreferrer">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
 
-                                <a href="{{ $post->shareWhatsappLink }}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
+                                <a href="{{ $post->shareWhatsappLink }}" target="_blank"  rel="noreferrer" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
                             </div>
                             <div class="col-lg-7 col-md-12 text-right">
 

@@ -29,9 +29,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<p>
 							<i class="fas fa-share-alt"></i>
 							Share:
-							<a href="http://www.facebook.com/sharer.php?u={{ url('/company/'.$company->slug) }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-							<a href="https://twitter.com/share?url={{ url('/company/'.$company->slug) }}&amp;text={{ urlencode($company->title) }}&amp;hashtags=EmploiBlog" target="_blank"><i class="fab fa-twitter"></i></a>
-							<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/company/'.$company->slug) }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+							<a href="http://www.facebook.com/sharer.php?u={{ url('/company/'.$company->slug) }}" target="_blank" rel="noreferrer"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://twitter.com/share?url={{ url('/company/'.$company->slug) }}&amp;text={{ urlencode($company->title) }}&amp;hashtags=EmploiBlog" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
+							<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/company/'.$company->slug) }}" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
 						</p>
 					</div>
 				</div>
@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				</p>
 				<div class="row mt-4">
 					<div class="col-md-6">
-						<p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank">{{ $company->website }}</a></p>
+						<p><strong>Website: </strong><a href="{{ $company->website }}" rel="noreferrer" target="_blank">{{ $company->website }}</a></p>
 					</div>
 					<div class="col-md-6">
 						<p><strong>Company Size: </strong>{{ $company->companySize->lower_limit.' - '.$company->companySize->upper_limit }} ({{ $company->companySize->title }})</p>

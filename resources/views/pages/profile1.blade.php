@@ -240,7 +240,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </h3>
         <div class="row">
             <div class="col-md-6">
-                <p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank">{{ $company->website }}</a></p>
+                <p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank" rel="noreferrer">{{ $company->website }}</a></p>
             </div>
             <div class="col-md-6">
                 <p><strong>Company Size: </strong>{{ $company->companySize->title }}</p>

@@ -48,10 +48,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <p>
                 <i class="fas fa-share-alt"></i>
                 Share:
-                <a href="{{ $blog->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="{{ $blog->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="{{ $blog->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
+                <a href="{{ $blog->shareFacebookLink }}" rel="noreferrer" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{ $blog->shareTwitterLink }}" rel="noreferrer" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="{{ $blog->shareLinkedinLink }}" rel="noreferrer" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="{{ $blog->shareWhatsappLink }}" rel="noreferrer" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
             </p>
         </div>
     </div>

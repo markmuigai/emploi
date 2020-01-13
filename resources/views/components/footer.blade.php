@@ -14,11 +14,6 @@
                     <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
                 </ul>
-                <div class="d-block d-md-none social">
-                    <a href="https://www.facebook.com/jobsikaz/" target="_blank"><i class="fab fa-facebook-f pr-3"></i></a>
-                    <a href="https://twitter.com/jobsikaz?lang=en" target="_blank"><i class="fab fa-twitter pr-3"></i></a>
-                    <a href="https://ke.linkedin.com/company/jobsikaz-com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
             </div>
             <div class="col-md-4 col-sm-5 col-7 location">
                 <h4>FIND US</h4>
@@ -56,10 +51,10 @@
             <div class="col-md-2 offset-md-2 d-none d-md-block social ">
                 <h4>SOCIAL</h4>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/emploi.co/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/emploike" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://ke.linkedin.com/company/emploike" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://instagram.com/emploi.co" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/emploike" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://ke.linkedin.com/company/emploike" target="_blank" rel="noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/emploi.co" target="_blank" rel="noreferrer"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>

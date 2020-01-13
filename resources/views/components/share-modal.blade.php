@@ -10,10 +10,10 @@
                 <input type="text" class="form-control" name="" readonly value="{{ url('blog/'.$blog->slug) }}">
 
                 <div class="d-flex justify-content-around mt-3 sign-left">
-                    <a href="{{ $blog->shareFacebookLink }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ $blog->shareTwitterLink }}" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ $blog->shareLinkedinLink }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp"></i></a>
+                    <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>

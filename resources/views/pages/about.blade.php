@@ -119,8 +119,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Sophy Mwale</h5>
                 <h6>Chief Executive Officer</h6>
                 <a href="mailto:sophy.mwale@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://twitter.com/sophymwale?lang=en" target="_blank"><i class="fab fa-twitter"> </i></a>
-                <a href="https://www.linkedin.com/in/sophy-mwale-81656b21/?originalSubdomain=ke" target="_blank"><i class="fab fa-linkedin"> </i></a>
+                <a href="https://twitter.com/sophymwale?lang=en" target="_blank" rel="noreferrer"><i class="fab fa-twitter"> </i></a>
+                <a href="https://www.linkedin.com/in/sophy-mwale-81656b21/?originalSubdomain=ke" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
         <div class="card">
@@ -129,7 +129,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Sally Muya</h5>
                 <h6>Human Resource Manager</h6>
                 <a href="mailto:sally.muya@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://linkedin.com/in/sally-muya-326795123/" target="_blank"><i class="fab fa-linkedin"> </i></a>
+                <a href="https://linkedin.com/in/sally-muya-326795123/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
         <div class="card">
@@ -138,7 +138,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Maureen Kaunda</h5>
                 <h6>Snr Director, New Business</h6>
                 <a href="mailto:maureen.kaunda@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.linkedin.com/in/maureen-mukhanyi-kaunda-277680a7/" target="_blank"><i class="fab fa-linkedin"> </i></a>
+                <a href="https://www.linkedin.com/in/maureen-mukhanyi-kaunda-277680a7/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
         <div class="card">
@@ -147,8 +147,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Obare C. Brian</h5>
                 <h6>Chief Technology Officer</h6>
                 <a href="mailto:brian.obare@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.twitter.com/chiefbrob/" target="_blank"><i class="fab fa-twitter"> </i></a>
-                <a href="https://www.linkedin.com/in/chiefbrob/" target="_blank"><i class="fab fa-linkedin"> </i></a>
+                <a href="https://www.twitter.com/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-twitter"> </i></a>
+                <a href="https://www.linkedin.com/in/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
     </div>
@@ -159,7 +159,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Millicent Kevore</h5>
                 <h6>Lead Recruitment Consultant</h6>
                 <a href="mailto:millicent.kevore@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.linkedin.com/in/millicent-kevore-056512ab/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/millicent-kevore-056512ab/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
         <div class="card">
@@ -168,7 +168,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Margaret Ongachi</h5>
                 <h6>Snr Strategist Client Relations</h6>
                 <a href="mailto:margaret.ongachi@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.linkedin.com/in/margaret-ongachi-6713a0143/" target="_blank"><i class="fab fa-linkedin"> </i></a>
+                <a href="https://www.linkedin.com/in/margaret-ongachi-6713a0143/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
         <div class="card">
@@ -177,8 +177,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Ernest Wanyonyi</h5>
                 <h6>Head Of Digital Marketting</h6>
                 <a href="mailto:ernest.wanyonyi@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://twitter.com/ernestwanyonyi9" target="_blank"><i class="fab fa-twitter"> </i></a>
-                <a href="https://www.linkedin.com/in/ernest-wanyonyi-042590194/" target="_blank"><i class="fab fa-linkedin"> </i></a>
+                <a href="https://twitter.com/ernestwanyonyi9" target="_blank" rel="noreferrer"><i class="fab fa-twitter"> </i></a>
+                <a href="https://www.linkedin.com/in/ernest-wanyonyi-042590194/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
 
             </div>
         </div>
@@ -188,8 +188,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>Felicity </h5>
                 <h6>Lead Recruitment Consultant</h6>
                 <a href="mailto:brian.obare@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.twitter.com/chiefbrob/" target="_blank"><i class="fab fa-twitter"> </i></a>
-                <a href="https://www.linkedin.com/in/chiefbrob/" target="_blank"><i class="fab fa-linkedin"> </i></a>
+                <a href="https://www.twitter.com/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-twitter"> </i></a>
+                <a href="https://www.linkedin.com/in/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
     </div>

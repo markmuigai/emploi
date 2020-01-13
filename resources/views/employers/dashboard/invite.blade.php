@@ -33,13 +33,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </a></h4>
 
         <div class="social">
-            <a class="p-3" href="http://www.facebook.com/sharer.php?u={{ url('/vacancies/'.$post->slug.'/apply') }}" target="_blank">
+            <a class="p-3" href="http://www.facebook.com/sharer.php?u={{ url('/vacancies/'.$post->slug.'/apply') }}" target="_blank" rel="noreferrer">
                 <i class="fab fa-facebook"></i> Share
             </a>
-            <a class="p-3" href="https://twitter.com/share?url={{ url('/vacancies/'.$post->slug.'/apply') }}&amp;text={{ urlencode($post->title) }}&amp;hashtags=Emploi{{ $post->location->country->code }}" target="_blank">
+            <a class="p-3" href="https://twitter.com/share?url={{ url('/vacancies/'.$post->slug.'/apply') }}&amp;text={{ urlencode($post->title) }}&amp;hashtags=Emploi{{ $post->location->country->code }}" target="_blank" rel="noreferrer">
                 <i class="fab fa-twitter"></i> Tweet
             </a>
-            <a class="p-3" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/vacancies/'.$post->slug) }}" target="_blank">
+            <a class="p-3" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/vacancies/'.$post->slug) }}" target="_blank" rel="noreferrer">
                 <i class="fab fa-linkedin"></i> Share
             </a>
         </div>
