@@ -73,8 +73,8 @@ class Post extends Model
         $string = $this->how_to_apply;
         $pattern = '/[a-z0-9_\-\+\.]+@[a-z0-9\-]+\.([a-z]{2,4})(?:\.[a-z]{2})?/i';
         preg_match_all($pattern, $string, $matches);
-        if(count($matches) > 0)
-            return $matches[0];
+        if(count($matches[0]) > 0)
+            return $matches[0][0];
         return false;
     }
 

@@ -19,6 +19,7 @@ use App\User;
 use App\UserPermission;
 
 use App\Jobs\EmailJob;
+use App\Jobs\VacancyEmail;
 
 use Storage;
 
@@ -133,6 +134,8 @@ class ContactController extends Controller
                 ";
                 EmailJob::dispatch($user->name, $user->email, 'Applied for '.$post->title, $caption, $contents);
 
+
+
                 $caption = "Application Received for ".$post->title;
                 $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position.
                 <a href='".url('/home')."'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
@@ -146,7 +149,12 @@ class ContactController extends Controller
 
                 $email = $email = null ? $post->company->user->email : $email;
 
-                EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+                $email = isset($request->external_apply) ? $request->external_apply : $email;
+                $name = isset($request->external_apply) ? 'Employer' : $post->company->user->name;
+
+                VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom','/storage/resumes/'.$user->seeker->resume,false,false);
+
+                //EmailJob::dispatch($name, $email, 'Application for '.$post->title." Received", $caption, $contents);
                 return view('seekers.easy-applied')
                         ->with('created',$created)
                         ->with('post',$post);
