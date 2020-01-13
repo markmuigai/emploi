@@ -5,31 +5,20 @@
     <title>@yield('title')</title>
     @include('components.meta')
 
-    <!-- LOAD SCREEN -->
-    <!-- <link rel="stylesheet" href="{{asset('css/load-screen.css')}}"> -->
-
-    <!-- Load Screen Scripts -->
-    <!-- <script type="text/javascript">
-        window.addEventListener("load", function() {
-            var load_screen = document.getElementById("load_screen");
-            document.body.removeChild(load_screen);
-        });
-    </script> -->
-
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" rel="preload">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap" rel="stylesheet">
     <!--Font Awesome-->
     <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- ChartJS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"  rel="preload"/>
     <!-- Slick JS -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}"  rel="preload"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.css')}}"  rel="preload"/>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="preload">
 
 
     <!-- SCRIPTS -->

@@ -9,13 +9,13 @@
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" rel="preload">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap" rel="stylesheet">
     <!--Font Awesome-->
     <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="preload">
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
