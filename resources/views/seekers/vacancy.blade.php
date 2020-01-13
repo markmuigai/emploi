@@ -169,6 +169,12 @@
 
                             </form>
                         </p>
+                        @elseif($post->externalSimpleApply())
+                        <br>
+                        <p style="text-align: center;">
+                            OR APPLY EASILY
+                        </p>
+                        
                         @endif
                         @else
 
