@@ -60,7 +60,7 @@
                         <hr>
                         <div class="row pb-3">
                             <div class="col-12 col-md-6 col-lg-7">
-                                <h5>{{ $post->getTitle() }} <span class="badge badge-secondary">{{ $post->positions }} Positions</span></h5>
+                                <h5>{{ $post->getTitle() }} <span class="badge badge-secondary">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></h5>
                                 <a href="/companies/{{ $post->company->name }}">{{ $post->company->name }}</a>
                                 <p>
                                     <i class="fas fa-map-marker-alt orange"></i>

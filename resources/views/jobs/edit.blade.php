@@ -108,8 +108,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <option value="12" {{ $post->experience_requirements == 12 ? 'selected="selected"' : '' }}>1 year Experience</option>
                         <option value="24" {{ $post->experience_requirements == 24 ? 'selected="selected"' : '' }}>2 years Experience</option>
                         <option value="36" {{ $post->experience_requirements == 36 ? 'selected="selected"' : '' }}>3 years Experience</option>
+                        <option value="48" {{ $post->experience_requirements == 48 ? 'selected="selected"' : '' }}>4 years Experience</option>
                         <option value="60" {{ $post->experience_requirements == 60 ? 'selected="selected"' : '' }}>5 years Experience</option>
+                        <option value="72" {{ $post->experience_requirements == 72 ? 'selected="selected"' : '' }}>6 years Experience</option>
+                        <option value="84" {{ $post->experience_requirements == 84 ? 'selected="selected"' : '' }}>7 years Experience</option>
+                        <option value="96" {{ $post->experience_requirements == 96 ? 'selected="selected"' : '' }}>8 years Experience</option>
+                        <option value="108" {{ $post->experience_requirements == 108 ? 'selected="selected"' : '' }}>9 years Experience</option>
                         <option value="120" {{ $post->experience_requirements == 120 ? 'selected="selected"' : '' }}>10 years Experience</option>
+
+                        <option value="132" {{ $post->experience_requirements == 132 ? 'selected="selected"' : '' }}>11 years Experience</option>
+                        <option value="144" {{ $post->experience_requirements == 144 ? 'selected="selected"' : '' }}>12 years Experience</option>
+                        <option value="156" {{ $post->experience_requirements == 156 ? 'selected="selected"' : '' }}>13 years Experience</option>
+                        <option value="168" {{ $post->experience_requirements == 168 ? 'selected="selected"' : '' }}>14 years Experience</option>
+                        <option value="180" {{ $post->experience_requirements == 180 ? 'selected="selected"' : '' }}>15 years Experience</option>
+                        <option value="192" {{ $post->experience_requirements == 192 ? 'selected="selected"' : '' }}>16 years Experience</option>
+                        <option value="204" {{ $post->experience_requirements == 204 ? 'selected="selected"' : '' }}>17 years Experience</option>
+                        <option value="216" {{ $post->experience_requirements == 216 ? 'selected="selected"' : '' }}>18 years Experience</option>
+                        <option value="228" {{ $post->experience_requirements == 228 ? 'selected="selected"' : '' }}>19 years Experience</option>
+
+                        <option value="240" {{ $post->experience_requirements == 240 ? 'selected="selected"' : '' }}>20 years Experience</option>
                     </select>
                 </div>
 
