@@ -33,9 +33,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <?php $pool = $shortlist ? $post->shortlisted: $post->applications; $kk=0; ?>
 
                 <!-- JOB CARD -->
+                
+                @forelse($pool as $a)
                 <div class="card mb-4">
                     <div class="card-body">
-                        @forelse($pool as $a)
                         <p class="d-none">{{ $a->user->seeker->industry->name }}
                             <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
                                 <span class="pull-right purple"><strong>RSI {{ $a->user->seeker->getRsi($post) }}%</strong></span>
@@ -50,8 +51,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <div class="col-12 col-md-8 col-lg-8">
                                         <h4>{{ $a->user->name }}</h4>
                                         <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
+                                        @if(isset($a->user->seeker->location_id))
                                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
                                             {{ $a->user->seeker->location->country->name }}</p>
+                                        @endif
                                     </div>
                                     <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
                                         <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
@@ -86,15 +89,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
                             </div>
                         </div>
-                        <!-- END OF JOB CARD -->
+                    </div>
+                </div>
                         <?php $kk++; ?>
                         @empty
+                <div class="card mb-4">
+                    <div class="card-body">
                         <p class="text-center">
                             No applications have been found
                         </p>
-                        @endforelse
                     </div>
                 </div>
+                        @endforelse
+                    
             </div>
             <div class="tab-pane fade" id="shortlist" role="tabpanel" aria-labelledby="shortlist-tab">
                 <!-- JOB CARD -->
