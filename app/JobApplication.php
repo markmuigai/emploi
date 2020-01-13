@@ -3,15 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Watson\Rememberable\Rememberable;
 
 use App\Referee;
 use App\SeekerApplication;
 
 class JobApplication extends Model
 {
-    use Rememberable;
-    public $rememberFor = 300;
 
     protected $fillable = [
         'user_id','post_id','cover','status'
