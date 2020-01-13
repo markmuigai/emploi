@@ -21,10 +21,11 @@ $().ready(function(){
     <div class="card-body">
 
 	    <h3>
+
 	    	@if(!$post->hasModelSeeker())
-	    	<i class="fas fa-warning" title="RSI Model Not Created"></i>
+	    	<a href="/employers/applications/{{ $post->slug }}" title="RSI Model Not Created"><i class="fa fa-arrow-left"></i></a>
 	    	@else
-	    	<i class="fas fa-check" title=""></i>
+	    	<a href="/employers/applications/{{ $post->slug }}" title="View Applications"><i class="fa fa-arrow-left"></i></a>
 	    	@endif
 	    </h3>
 
