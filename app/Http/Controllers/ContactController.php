@@ -152,7 +152,7 @@ class ContactController extends Controller
                 $email = isset($request->external_apply) ? $request->external_apply : $email;
                 $name = isset($request->external_apply) ? 'Employer' : $post->company->user->name;
 
-                VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom','/storage/resumes/'.$user->seeker->resume,false,false);
+                VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom',storage_path().'/app/public/resumes/'.$user->seeker->resume,false,false);
 
                 //EmailJob::dispatch($name, $email, 'Application for '.$post->title." Received", $caption, $contents);
                 return view('seekers.easy-applied')
