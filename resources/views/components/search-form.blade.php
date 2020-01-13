@@ -4,9 +4,11 @@
         <form method="get" action="/vacancies/search" class="text-center">
             <div class="row no-gutters">
                 <div class="col-12 col-sm-6 col-md-6">
+                    <label for="" style="display: none">Query</label>
                     <input type="text" name="q" required="" class="form-control" placeholder="Enter Keyword(s)" value="" onfocus="" onblur="">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
+                    <label for="" style="display: none">Locations</label>
                     <select name="location" class="custom-select">
                         <option value="-1">All Locations</option>
                         @foreach(\App\Location::active() as $l)
