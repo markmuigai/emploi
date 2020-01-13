@@ -2,6 +2,8 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 if (workbox) {
 
+	workbox.setConfig({debug: false});
+
   	workbox.routing.registerRoute(
 	  /\.js$/,
 	  new workbox.strategies.NetworkFirst()
