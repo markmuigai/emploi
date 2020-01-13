@@ -58,6 +58,14 @@ class AdminController extends Controller
     			->with('admin',Auth::user());
     }
 
+    public function viewPost($slug){
+        $post = Post::where('slug',$slug)
+                    ->firstOrFail();
+
+        return view('seekers.vacancy')
+                ->with('post',$post);
+    }
+
     public function blog(Request $request){
         if(isset($request->q))
         {

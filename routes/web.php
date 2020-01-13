@@ -139,6 +139,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('/', 'AdminController@panel');
     Route::get('panel', 'AdminController@panel');
     Route::get('posts', 'AdminController@posts');
+    Route::get('posts/{slug}', 'AdminController@viewPost');
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
     Route::get('blog','AdminController@blog');
     Route::get('seekers/{username?}','AdminController@seekers');

@@ -33,10 +33,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="row">
                     <div class="col-md-9">
                         <h3 class="orange">
-                            <a href="/admin/posts/{{$p->slug}}">{{ $p->title }}</a>
+                            <a href="/admin/posts/{{$p->slug}}" target="_blank">{{ $p->title }}</a>
                         </h3>
-                        <h6><a href="/admin/posts/{{$p->slug}}">
-                                {{ $p->company->name }}</a>
+                        <h6>
+                            <a href="/companies/{{$p->company->name }}" target="_blank">
+                                {{ $p->company->name }}
+                            </a>
                         </h6>
                     </div>
                     <div class="col-md-3 text-md-right text-left">
