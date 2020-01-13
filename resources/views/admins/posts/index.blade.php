@@ -66,6 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </option>
                         </select>
                     </div>
+                    @if(Request::server ("SERVER_NAME") == 'emploi.co')
                     <div class="col-lg-4 col-md-6 col-12">
                         <select name="notification" class="custom-select" onchange="">
                             <option value="false">
@@ -76,6 +77,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </option>
                         </select>
                     </div>
+                    @else
+                    <input type="hidden" name="notification" value="false">
+                    @endif
+                    
                     <div class="col-lg-2 col-md-6 col-12">
                         <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
                     </div>
