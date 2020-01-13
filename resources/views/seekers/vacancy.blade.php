@@ -80,7 +80,13 @@
                                     <br>
 
                                     <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
-                                        <span class="badge {{ $post->vacancyType->badge }}">{{ $post->vacancyType->name }}</span>
+                                        <span class="badge {{ $post->vacancyType->badge }}">
+                                            @if($post->featured == 'true')
+                                                <b>Featured </b> {{ $post->vacancyType->name }} <b> Job </b>
+                                            @else
+                                            {{ $post->vacancyType->name }}
+                                            @endif
+                                        </span>
                                     </a>
                                     <br>
                                     <a href="/vacancies/{{ $post->industry->slug }}" title="View {{ $post->industry->name }} jobs">
