@@ -23,11 +23,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     Our services include <strong>Premium Recruitment</strong> - where we source and vet candidates on your behalf, <strong>Job Advertising and Shortlisting</strong>, and <strong>Database Search.</strong>
                 </p>
                 <p>
-                    To access these features, register as an employer and streamline your recruitment, advertise a job and browse candidates.
+                    To access these features, <a href="/employers/register">register as an employer</a> and streamline your recruitment, advertise a job and browse candidates.
                 </p>
             </div>
 
             <div class="row mt-4 mb-2">
+                <iframe class="col-md-10 offset-md-1" style="border: none; margin-bottom: 1em;" 
+                src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=1">
+                </iframe>
                 <div class="col-md-6">
                     <h5>Advertising Features</h5>
                     <ul class="feature_list">
