@@ -47,6 +47,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal"><i class="fas fa-share-alt"></i> Share</button>
                     <!-- SHARE MODAL -->
                     @include('components.share-modal')
+
+                    <span style="float: right;">
+                        <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
+                        @if($likes == 1)
+                            1 Like
+                        @else
+                            {{ $likes }} Likes
+                        @endif 
+
+                        |
+                        
+                        @guest
+                            <a href="/login" title="Login to Like">Login to Like</a>
+                        @else
+                            @if(Auth::user()->hasLiked('blog',$blog->id))
+
+                                <a href="/likes/blog/{{ $blog->slug }}" style="color: #500095" title="Unlike Blog">
+                                    <i class="fa fa-thumbs-up"></i> Unlike
+                                </a>
+
+                            @else
+
+                                <a href="/likes/blog/{{ $blog->slug }}" title="Like Blog">
+                                    <i class="fa fa-thumbs-up"></i> Like
+                                </a>
+
+                            @endif
+
+                        
+
+                        @endguest
+                    </span>
                     <!-- END OF SHARE MODAL -->
                 </div>
             </div>
