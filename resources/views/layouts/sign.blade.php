@@ -126,6 +126,8 @@
         $('a[href="' + location.pathname + '"]').closest('.nav-pills .nav-link').addClass('active');
     </script>
     @include('components.tawk')
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
     <script type="text/javascript">
         var lazyLoadInstance = new LazyLoad({
             elements_selector: ".lazy"
@@ -133,6 +135,9 @@
         });
         lazyLoadInstance.update();
     </script>
+    @include('components.onesignal')
+    @include('components.vue')
+    <script src="{{ asset('js/online-monitor-2.js') }}" async="" defer=""></script>
 </body>
 
 </html>
