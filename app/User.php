@@ -13,9 +13,11 @@ use App\UserPermission;
 
 use App\Jobs\EmailJob;
 
+use App\Traits\CanLike;
+
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, CanLike;
     
     protected $fillable = [
         'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password','created_at'

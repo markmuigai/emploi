@@ -16,6 +16,10 @@ class Blog extends Model
         'user_id', 'blog_category_id', 'title','slug','contents', 'image1','image2','status'
     ];
 
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+
     public function category(){
     	return $this->belongsTo(BlogCategory::class,'blog_category_id');
     }

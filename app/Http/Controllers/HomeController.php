@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Validator;
 use Auth;
 use Storage;
 
+use App\Blog;
 use App\Country;
 use App\Course;
 use App\EducationLevel;
 use App\Industry;
 use App\IndustrySkill;
+use App\Like;
 use App\Location;
 use App\Parser;
 use App\Referee;
@@ -80,6 +82,18 @@ class HomeController extends Controller
                 return abort(403);
         }
 
+    }
+
+    public function toggleLike($target_class, $slug)
+    {
+        $user = Auth::user();
+        $item = $target_class == 'blog' ? Blog::where('slug',$slug)->firstOrFail() : false;
+        if(!$item)
+        {
+            return redirect()->back();
+        }
+        $like = $user->toggleLike($target_class,$item->id);
+        return redirect()->back();
     }
 
     public function getCourse($id)

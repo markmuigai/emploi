@@ -38,6 +38,8 @@ Route::post('profile/add-referee', 'HomeController@saveReferee');
 Route::get('/referees/{slug}', 'RefereeController@assess');
 Route::post('/referees/{slug}/save', 'RefereeController@saveAssessment');
 
+Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
+
 
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
