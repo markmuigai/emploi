@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
 
             <div class="row mt-4 mb-2">
-                <iframe class="col-md-10 offset-md-1" style="border: none; margin-bottom: 1em;" 
+                <iframe class="col-md-12" style="border: none; margin-bottom: 1em;" 
                 src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=1">
                 </iframe>
                 <div class="col-md-6">
