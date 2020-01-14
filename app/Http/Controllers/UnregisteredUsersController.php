@@ -51,7 +51,6 @@ class UnregisteredUsersController extends Controller
         }
         $storage_path = storage_path();
         $file = $storage_path.'/app/unique-emails2.csv';
-        $i = 0;
         if(file_exists($file)){
                     
             $handle = fopen($file, "r");
@@ -60,10 +59,6 @@ class UnregisteredUsersController extends Controller
                 $email = User::cleanEmail($row[0]);
                 $name = $row[1];
                 $match = UnregisteredUser::where('email',$email)->first();
-
-                $i++;
-                if($i>100)
-                    break;
 
                 if(filter_var($email, FILTER_VALIDATE_EMAIL)){
                     if(!isset($match->id))
