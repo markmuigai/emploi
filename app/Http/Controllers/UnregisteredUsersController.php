@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Storage;
+
 use App\UnregisteredUser;
 use App\User;
 
@@ -12,6 +14,42 @@ class UnregisteredUsersController extends Controller
     public function __construct()
     {
         $this->middleware('admin');
+    }
+
+    public function import(Request $request)
+    {
+        $storage_path = storage_path();
+        $file = $storage_path.'/app/unique-emails.csv';
+        if(file_exists($file)){
+                    
+            $handle = fopen($file, "r");
+            for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+
+                $email = User::cleanEmail($row[0]);
+                $match = UnregisteredUser::where('email',$email)->first();
+
+
+                if(filter_var($email, FILTER_VALIDATE_EMAIL) && !isset($match->id)){
+                    UnregisteredUser::create([
+                        'email' => $email,
+                        'name' => 'Job Seeker'
+                    ]);
+                }
+
+
+                //UnregisteredUser::create(['email',$email]);
+                
+                // if(User::subscriptionStatus($email))
+                // {
+                //     VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                //     //print "<br> ".$row[0];
+                // }
+                
+            }
+            fclose($handle);
+            
+        }
+        return redirect('/admins/unregistered-users');
     }
 
     /**

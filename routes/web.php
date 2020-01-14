@@ -164,6 +164,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('locations', 'LocationController');
 
     Route::resource('unregistered-users', 'UnregisteredUsersController');
+    Route::post('unregistered-users/import', 'UnregisteredUsersController@import');
 
     Route::get('received-requests/{id?}', 'AdvertController@index');
     Route::post('received-requests/{id}', 'AdvertController@saveNotes');

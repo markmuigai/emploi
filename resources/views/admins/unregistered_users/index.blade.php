@@ -15,7 +15,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row" style="text-align: right; border-bottom: 0.1em solid #e88725">
             <a href="/admin" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
             <a href="/admin/unregistered-users/create" class="btn btn-primary">Add</a>  
-            <i>Users already existing in users table will be skipped from the Mailing list</i>
+            <form method="POST" action="/admin/unregistered-users/import" style="display: inline;" id="import-form">
+                @csrf
+                <input type="submit" name="" value="Import">
+                
+
+            </form> 
             <br>
         </div>
         @forelse($users as $c)
