@@ -163,6 +163,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('countries', 'CountryController');
     Route::resource('locations', 'LocationController');
 
+    Route::resource('unregistered-users', 'UnregisteredUsersController');
+
     Route::get('received-requests/{id?}', 'AdvertController@index');
     Route::post('received-requests/{id}', 'AdvertController@saveNotes');
 
