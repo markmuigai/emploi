@@ -208,6 +208,16 @@ class ContactController extends Controller
     	return view('contacts.failed');
     }
 
+    public function webmail()
+    {
+        return redirect('https://mail.emploi.co:2096/');
+    }
+
+    public function cpanel()
+    {
+        return redirect('http://54.36.168.64:2082/');
+    }
+
     public function index(Request $request)
     {
         return view('welcome')

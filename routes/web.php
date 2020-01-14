@@ -15,6 +15,8 @@ Route::get('/privacy-policy', 'ContactController@policy');
 Route::get('/mass-recruitment', 'ContactController@mass_recruitment');
 Route::get('/employers/role-suitability-index', 'ContactController@rsi');
 
+Route::get('/webmail', 'ContactController@webmail');
+Route::get('/cpanel', 'ContactController@cpanel');
 
 Route::post('/contact', 'ContactController@save');
 
