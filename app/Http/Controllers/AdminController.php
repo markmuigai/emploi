@@ -292,12 +292,12 @@ class AdminController extends Controller
         if(isset($request->q))
         {
             $employers = Employer::where('name','like','%'.$request->q.'%')
-                    ->orderBy('name')
+                    ->orderBy('created_at','DESC')
                     ->paginate(20);
         }
         else
         {
-            $employers = Employer::orderBy('name')->paginate(20);
+            $employers = Employer::orderBy('created_at','DESC')->paginate(20);
         }
         return view('admins.employers.index')
                 ->with('employers',$employers);
@@ -308,12 +308,12 @@ class AdminController extends Controller
         if(isset($request->q))
         {
             $companies = Company::where('name','like','%'.$request->q.'%')
-                    ->orderBy('name')
+                    ->orderBy('created_at','desc')
                     ->paginate(20);
         }
         else
         {
-            $companies = Company::orderBy('name')->paginate(20);
+            $companies = Company::orderBy('created_at','desc')->paginate(20);
         }
         return view('admins.companies.index')
                 ->with('companies',$companies);
