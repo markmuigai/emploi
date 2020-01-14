@@ -49,7 +49,42 @@ class UnregisteredUsersController extends Controller
             fclose($handle);
             
         }
-        return redirect('/admins/unregistered-users');
+        $storage_path = storage_path();
+        $file = $storage_path.'/app/unique-emails2.csv';
+        $i = 0;
+        if(file_exists($file)){
+                    
+            $handle = fopen($file, "r");
+            for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+
+                $email = User::cleanEmail($row[0]);
+                $name = $row[1];
+                $match = UnregisteredUser::where('email',$email)->first();
+
+                $i++;
+                if($i>100)
+                    break;
+
+                if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    if(!isset($match->id))
+                    {
+                        UnregisteredUser::create([
+                            'email' => $email,
+                            'name' => $name
+                        ]);
+                    }
+                    else
+                    {
+                        $match->name = $name;
+                        $match->save();
+                    }
+                    
+                }
+            }
+            fclose($handle);
+            
+        }
+        return redirect('/admin/unregistered-users');
     }
 
     /**
@@ -59,7 +94,7 @@ class UnregisteredUsersController extends Controller
      */
     public function index(Request $request)
     {
-        $users = UnregisteredUser::orderBy('email','ASC')->paginate(10);
+        $users = UnregisteredUser::orderBy('created_at','DESC')->paginate(10);
         return view('admins.unregistered_users.index')
                 ->with('users',$users);
     }
@@ -91,9 +126,9 @@ class UnregisteredUsersController extends Controller
 
         if(isset($u->id))
         {
-            return redirect('/admins/unregistered-users/'.$u->id);
+            return redirect('/admin/unregistered-users/'.$u->id);
         }
-        return redirect('/admins/unregistered-users/create');
+        return redirect('/admin/unregistered-users/create');
     }
 
     /**
