@@ -21,6 +21,7 @@ use App\ModelSeeker;
 use App\Post;
 use App\Referee;
 use App\Seeker;
+use App\UnregisteredUser;
 use App\User;
 use App\Jobs\VacancyEmail;
 
@@ -479,34 +480,46 @@ class AdminController extends Controller
                 break;
                 
             case 'unregistered':
-                $storage_path = storage_path();
-                $file = $storage_path.'/app/unique-emails.csv';
-                //$file = $storage_path.'/app/emails.csv';
-                if(file_exists($file)){
-                    
-                    $handle = fopen($file, "r");
-                    for ($i = 0; $row = fgetcsv($handle ); ++$i) {
-
-                        $email = User::cleanEmail($row[0]);
-                        
-                        if(User::subscriptionStatus($email))
-                        {
-                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
-                            //print "<br> ".$row[0];
-                        }
-                        
-                    }
-                    fclose($handle);
-                    
-                }
-                else
+                $users = UnregisteredUser::all();
+                for($i=0; $i<count($users); $i++)
                 {
-                    die("File $file not found");
+                    $user = User::where('email',$users[$i]->email)->first();
+                    if(!isset($user->id) && User::subscriptionStatus($users[$i]->email))
+                    {
+                        $email = $users[$i]->email;
+                        $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                    }
                 }
+                // $storage_path = storage_path();
+                // $file = $storage_path.'/app/unique-emails.csv';
+                // //$file = $storage_path.'/app/emails.csv';
+                // if(file_exists($file)){
+                    
+                //     $handle = fopen($file, "r");
+                //     for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+
+                //         $email = User::cleanEmail($row[0]);
+                        
+                //         if(User::subscriptionStatus($email))
+                //         {
+                //             VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                //             //print "<br> ".$row[0];
+                //         }
+                        
+                //     }
+                //     fclose($handle);
+                    
+                // }
+                // else
+                // {
+                //     die("File $file not found");
+                // }
                 break;
                 
             case 'test-users':
                 VacancyEmail::dispatch('brian@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                VacancyEmail::dispatch('sophy@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 // $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
                 // //die($sql);
                 // $result = DB::select($sql);
