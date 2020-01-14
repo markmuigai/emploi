@@ -139,8 +139,9 @@ class EmployerController extends Controller
             'permission_id' => 3
         ]);
 
-        //$c = Company::where('name',$request->name)->first();
-        $co_name = $request->co_name.User::generateRandomString(4);
+        $ec = Company::where('name',$request->name)->first();
+        $co_name = isset($ec->id) ? $request->co_name.'-'.User::generateRandomString(4) : $request->co_name;
+        //$co_name = $request->co_name.User::generateRandomString(4);
 
         $c = Company::create([
             'name' => $co_name,

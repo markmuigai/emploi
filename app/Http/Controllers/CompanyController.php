@@ -60,7 +60,7 @@ class CompanyController extends Controller
 
         if(isset($c->id))
         {
-            $co_name = $request->name.rand(1,900);
+            $co_name = $request->name.'-'.rand(1,900);
         }
 
         $storage_path = '/public/companies';
