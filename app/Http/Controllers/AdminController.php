@@ -491,30 +491,68 @@ class AdminController extends Controller
                         VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                     }
                 }
-                // $storage_path = storage_path();
-                // $file = $storage_path.'/app/unique-emails.csv';
-                // //$file = $storage_path.'/app/emails.csv';
-                // if(file_exists($file)){
-                    
-                //     $handle = fopen($file, "r");
-                //     for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+                break;
 
-                //         $email = User::cleanEmail($row[0]);
-                        
-                //         if(User::subscriptionStatus($email))
-                //         {
-                //             VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
-                //             //print "<br> ".$row[0];
-                //         }
-                        
-                //     }
-                //     fclose($handle);
-                    
-                // }
-                // else
-                // {
-                //     die("File $file not found");
-                // }
+            case 'all-seekers':
+
+                $users = UnregisteredUser::all();
+                for($i=0; $i<count($users); $i++)
+                {
+                    $user = User::where('email',$users[$i]->email)->first();
+                    if(!isset($user->id) && User::subscriptionStatus($users[$i]->email))
+                    {
+                        $email = $users[$i]->email;
+                        $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                    }
+                }
+
+                $filter = '';
+                if($industry == 'all')
+                {
+                    $filter = "";
+                }
+                elseif($industry == 'incomplete')
+                {
+                    $filter = " WHERE LENGTH(education) < 10 OR LENGTH(experience) < 10";
+                }
+                elseif($industry == 'incomplete-edu')
+                {
+                    $filter = " WHERE LENGTH(education) < 10";
+                }
+                elseif($industry == 'incomplete-exp')
+                {
+                    $filter = " WHERE LENGTH(experience) < 10";
+                }
+                elseif($industry == 'corrupt')
+                {
+                    $filter = " WHERE resume not like \"%.%\"";
+                }
+                elseif($industry == 'test-users')
+                {
+                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
+                }
+                else
+                {
+                    $filter = " WHERE industry = $industry";
+                }
+                $sql = "SELECT user_id FROM seekers $filter";
+
+                //die($sql);
+                
+                $result = DB::select($sql);
+                
+                foreach($result as $seeker)
+                {
+                    $user = User::find($seeker->user_id);
+                    if(!isset($user->id))
+                        continue;
+                    if(User::subscriptionStatus($user->email))
+                    {
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                    }
+                }
+
                 break;
                 
             case 'test-users':

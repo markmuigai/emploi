@@ -18,8 +18,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label for="target">{{ __('Target Group') }}</label>
                     <select class="form-control" name="target" id="target">
                         <option value="jobseekers">Job Seekers</option>
-                        <option value="employers">Registered Employers</option>
                         <option value="unregistered">Unregistered Users</option>
+                        <option value="all-seekers">Job Seekers & Unregistered Users</option>
+                        <option value="employers">Registered Employers</option>
                         <option value="team">Emploi Team</option>
                         <option value="test-users">Test Users</option>
                         <option value="employers-list">Employers Mailing List</option>
