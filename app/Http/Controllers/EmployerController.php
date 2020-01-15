@@ -971,7 +971,21 @@ class EmployerController extends Controller
         if($user->role != 'seeker')
             abort(403);
         $employer = Auth::user()->employer;
-        $r = CvRequest::requestCV($employer,$user->seeker);
+        //$admin = Auth::user();
+        if($employer->user->email == 'jobs@emploi.co')
+        {
+            CvRequest::create([
+                'employer_id' => $employer->id, 
+                'seeker_id' => $user->seeker->id, 
+                'status' => 'accepted'
+            ]);
+        }
+        else
+        {
+            $r = CvRequest::requestCV($employer,$user->seeker);
+        }
+        
+
         //try accept cv
         return redirect()->back();
 
