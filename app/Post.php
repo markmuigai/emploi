@@ -164,18 +164,21 @@ class Post extends Model
 
     public function getShortlistedAttribute(){
         return JobApplication::where('post_id',$this->id)
+                    ->distinct('user_id')
                     ->where('status','shortlisted')
                     ->get();
     }
 
     public function getSelectedAttribute(){
         return JobApplication::where('post_id',$this->id)
+                    ->distinct('user_id')
                     ->where('status','selected')
                     ->get();
     }
 
     public function getRejectedAttribute(){
         return JobApplication::where('post_id',$this->id)
+                    ->distinct('user_id')
                     ->where('status','rejected')
                     ->get();
     }
