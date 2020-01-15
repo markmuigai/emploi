@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 
+use App\Notifications\VerifyAccount;
 use App\Jobs\EmailJob;
 
 class LoginController extends Controller
@@ -60,11 +61,13 @@ class LoginController extends Controller
             // $user->email_verification = User::generateRandomString();
             // $user->save();
 
-            $caption = "Verification code for your Emploi Account";
-        $contents = "
-        Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account
-        ";
-        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+        //     $caption = "Verification code for your Emploi Account";
+        // $contents = "
+        // Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account
+        // ";
+        // EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+            $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
 
             Auth::logout();
             return view('pages.not-verified');
