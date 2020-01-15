@@ -40,6 +40,7 @@ use App\User;
 use App\UserPermission;
 
 use App\Jobs\EmailJob;
+use App\Notifications\VerifyAccount;
 
 class EmployerController extends Controller
 {
@@ -153,13 +154,15 @@ class EmployerController extends Controller
             'company_size_id' => 1
         ]);
 
-        $caption = "Thank you for registering your profile on Emploi as an Employer";
-        $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
-        <br>
+        $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
 
-        Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
-                ";
-        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+        // $caption = "Thank you for registering your profile on Emploi as an Employer";
+        // $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
+        // <br>
+
+        // Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+        //         ";
+        // EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
         $caption = "A new employer has registered on Emploi";
         $contents = $c->user->name." has created a company on Emploi using the name <b>".$c->name."<b>.<br>

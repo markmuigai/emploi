@@ -18,8 +18,12 @@ use App\User;
 use App\UserPermission;
 
 use Storage;
+//use Notification;
+
+use App\Notifications\VerifyAccount;
 
 use App\Jobs\EmailJob;
+
 
 
 class RegisterController extends Controller
@@ -115,14 +119,17 @@ class RegisterController extends Controller
             'user_id' => $user->id, 
             'permission_id' => 4
         ]);
-        $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
-        $contents = "Here are your login credentials for Emploi: <br>
-username: $username <br>
-<br>
+        // $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
+        // $contents = "Here are your login credentials for Emploi: <br>
+        //     username: $username <br>
+        //     <br>
 
-Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
-        ";
-        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+        //     Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+        //     ";
+        // EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+        $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
+        //Notification::route('mail', $user->name)->notify(new VerifyAccount($email,'TEST-VERIFY',$name));
 
         return $user;
     }

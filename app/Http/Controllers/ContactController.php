@@ -22,9 +22,17 @@ use App\Jobs\EmailJob;
 use App\Jobs\VacancyEmail;
 
 use Storage;
+use Notification;
+use App\Notifications\VerifyAccount;
 
 class ContactController extends Controller
 {
+    public function testEmail(Request $request){
+        $email = isset($request->email) ? $request->email : 'brian@jobsikaz.com';
+        $name = isset($request->name) ? $request->name : 'Brian Obare';
+        $res = Notification::route('mail', $email)->notify(new VerifyAccount($email,'TEST-VERIFY',$name));
+        dd($res);
+    }
     public function easyApply($slug, Request $request)
     {
         $user = User::where('email',$request->email)->first();
