@@ -21,7 +21,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <p>
                 {{ $application->user->seeker->years_experience }}yr{{ $application->user->seeker->years_experience > 1 ? 's' : '' }} experience in <strong>{{ $application->user->seeker->industry->name }}</strong> <br>
                 {{ $application->user->seeker->sex }} <br>
+                @if(isset($application->user->seeker->location_id))
                 {{ $application->user->seeker->location->name }}, {{ $application->user->seeker->location->country->code }}
+                @endif
             </p>
             <div class="row">
                 <!-- <div class="col-lg-3 col-md-6 col-12" style="display: none;margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
