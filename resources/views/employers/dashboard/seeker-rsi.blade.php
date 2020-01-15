@@ -11,21 +11,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container">
     <div class="card">
-        <div class="card-body text-center">
-            <h2>{{ $application->user->name }}</h2>
-            <p>
-                RSI -
-                <a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a>
-                | {{ $application->user->seeker->getRsi($application->post) }}%
-            </p>
-            <p>
-                {{ $application->user->seeker->years_experience }}yr{{ $application->user->seeker->years_experience > 1 ? 's' : '' }} experience in <strong>{{ $application->user->seeker->industry->name }}</strong> <br>
-                {{ $application->user->seeker->sex }} <br>
-                @if(isset($application->user->seeker->location_id))
-                {{ $application->user->seeker->location->name }}, {{ $application->user->seeker->location->country->code }}
-                @endif
-            </p>
-            <div class="row">
+        <div class="card-body row">
+            <div class="col-md-10 offset-md-1">
+                <h2>
+                    <a href="/employers/applications/{{ $application->post->slug }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Applications</a>
+                    {{ $application->user->name }}
+                    <div style="float: right;">
+                        <small>RSI {{ $application->user->seeker->getRsi($application->post) }}%</small>
+                        
+                    </div>
+                </h2>
+            </div>
+            <hr>
+            
+            <div class="col-md-10 offset-md-1" style="text-align: center;">
+                <p>
+                    Position: <b>
+                    <a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a></b>
+                    
+                </p>
+                <p>
+                    {{ $application->user->seeker->years_experience }}yr{{ $application->user->seeker->years_experience > 1 ? 's' : '' }} experience in <strong>{{ $application->user->seeker->industry->name }}</strong> <br>
+                    {{ $application->user->seeker->sex }} <br>
+                    @if(isset($application->user->seeker->location_id))
+                        {{ $application->user->seeker->location->name }}, {{ $application->user->seeker->location->country->code }}
+                    @endif
+                </p>
+            </div>
+            <div class="row col-md-10 offset-md-1 text-center" style="text-align: center;">
                 <!-- <div class="col-lg-3 col-md-6 col-12" style="display: none;margin-bottom: 0.5em; border-bottom: 0.1em solid gray">
                             Personality Traits<br>
                             <a class="btn btn-edit btn-orange-alt" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/personality">
@@ -69,8 +82,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <a class="btn btn-edit btn-orange-alt" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/rsi/referees">Manage</a>
                 </div>
             </div>
-            <div class="pt-4">
-                <a class="btn btn-purple" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/cover"><i class="far fa-file"></i> Cover Letter</a>
+            <div class="col-md-10 offset-md-1" style="text-align: center;">
+                <br><br>
+                <a class="btn btn-success" href="/employers/applications/{{ $application->post->slug }}/{{ $application->id }}/cover"><i class="far fa-file"></i> Cover Letter</a>
                 <a href="/employers/browse/{{ $application->user->username }}" class="btn btn-orange"><i class="fas fa-user"></i> Profile</a>
                 <a class="btn btn-purple" href="{{ asset('/storage/resumes/'.$application->user->seeker->resume) }}"><i class="far fa-file"></i> Resume</a>
             </div>

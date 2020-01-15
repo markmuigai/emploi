@@ -16,6 +16,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', $user->name)
 <!-- NAV-TABS -->
 <ul class="nav nav-tabs" id="jobDetails" role="tablist">
+    <li class="nav-item" title="Go Back">
+        <a class="nav-link" id="back-tab" data-toggle="tab" href="#" onclick="window.history.back()" role="tab" aria-controls="" aria-selected="false">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </li>
     <li class="nav-item">
         <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About {{ $user->name }}</a>
     </li>
