@@ -62,40 +62,37 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="fullName">Start Date</label>
-                                    <input type="date" required="" name="start_date[]" class="form-control input-sm" maxlength="50" value="{{ $rs->start_date }}" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="fullName">End Date</label>
+                            <div class="col-md-6 form-group"> 
+                                <label for="fullName">Start Date</label>
+                                <input type="date" required="" name="start_date[]" class="form-control input-sm" maxlength="50" value="{{ $rs->start_date }}" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="fullName">End Date</label>
 
-                                    <input type="date" required="" name="end_date[]" class="form-control input-sm" maxlength="50" value="{{ $rs->end_date }}" />
-                                </div>
+                                <input type="date" required="" name="end_date[]" class="form-control input-sm" maxlength="50" value="{{ $rs->end_date }}" />
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="form-group col-md-6">
-                                    <label for="fullName">Performance</label>
-                                    <select required="" name="performance[]" class="form-control">
-                                        <option value="100">Excellent</option>
-                                        <option value="80">Above Average</option>
-                                        <option value="50" selected="">Average</option>
-                                        <option value="30">Below Average</option>
-                                        <option value="0">Poor</option>
-                                    </select>
-                                </div>
+                        <div class="form-row">
+                            <div class="col-md-6 form-group"> 
+                                <label for="">Performance</label>
+                                <select required="" name="performance[]" class="form-control">
+                                    <option value="100">Excellent</option>
+                                    <option value="80">Above Average</option>
+                                    <option value="50" selected="">Average</option>
+                                    <option value="30">Below Average</option>
+                                    <option value="0">Poor</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="fullName">Work Quality</label>
-                            <select required="" name="work_quality[]" class="form-control">
-                                <option value="100">Excellent</option>
-                                <option value="80">Above Average</option>
-                                <option value="50" selected="">Average</option>
-                                <option value="30">Below Average</option>
-                                <option value="0">Poor</option>
-                            </select>
+                            <div class="col-md-6 form-group"> 
+                                <label for="">Work Quality</label>
+                                <select required="" name="work_quality[]" class="form-control">
+                                    <option value="100">Excellent</option>
+                                    <option value="80">Above Average</option>
+                                    <option value="50" selected="">Average</option>
+                                    <option value="30">Below Average</option>
+                                    <option value="0">Poor</option>
+                                </select>
+                            </div>
                         </div>
                         <hr>
                         <?php $k++; ?>
@@ -105,41 +102,55 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-6">
-                        <label>Industry Skills</label>
-                        <select class="custom-select" id="industry-skill">
-                            @forelse($skills as $skill)
-                            <option value="{{ $skill->id }}">{{ $skill->name }}</option>
-                            @empty
-                            @endforelse
-                        </select>
+                    <div class="form-group col-md-8 offset-md-1 row">
+                        <div class="col-md-8">
+                            <label>Industry Skill</label>
+                            <select class="custom-select" id="industry-skill">
+                                @forelse($skills as $skill)
+                                <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Rating</label>
+                            <select class="custom-select" id="industry-skill-weight">
+                                @foreach([10,9,8,7,6,5,4,3,2,1] as $w)
+                                <option value="{{ $w }}">{{$w}}/10</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
+                        
                     </div>
-                    <div class="col-4">
-                        <select class="custom-select" id="industry-skill-weight">
-                            @foreach([10,9,8,7,6,5,4,3,2,1] as $w)
-                            <option value="{{ $w }}">{{$w}}/10</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-2">
-                        <span class="btn btn-success btn-sm" id="add-industry-skill">Add</span>
+                    <div class="col-2" style="text-align: center;">
+                        <br>
+                        <span class="btn btn-success btn-sm" id="add-industry-skill" style="margin-top: 0.5em">Add Skill</span>
                     </div>
                 </div>
 
-                <div id="industry-skills-pool" class="row p-2 mt-3"></div>
+                <div id="industry-skills-pool" class="row col"></div>
 
-                <div class="form-group col-md-6">
-                    <label>Other Skills</label>
+                <hr>
 
-                    <div class="col-md-7">
+                <div class="form-group col row">
+                    
 
+                    <div class="col-md-7  offset-md-1" style="text-align: center;">
+                        <label>Other Skills</label>
                         <input type="text" id="skill-name" class=" form-control" name="">
                     </div>
 
-                    <span class="btn btn-sm btn-success" id="add-skill">Add Skill</span>
+                    <div class="col-md-3">
+                        <br>
+                        <span class="btn btn-sm btn-success" id="add-skill" style="margin-top: 0.5em">Add Other Skill</span>
+                    </div>
 
-                    <div id="skill-pool" class=" " style="padding: 0.5em "></div>
+                    
+
+                    <div id="skill-pool" class="col-md-10 offset-md-1 row" style=""></div>
                 </div>
+                <hr>
                 <div class="form-group">
                     <label>Discplinary Cases</label>
                     <select class="custom-select" name="discplinary_cases">

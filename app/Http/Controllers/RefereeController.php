@@ -30,6 +30,7 @@ class RefereeController extends Controller
     		}
     		else
     		{
+                return view('referees.already-assessed');
     			die('Assessment already submitted. <a href="/join">Register on Emploi</a>');
     		}
     		

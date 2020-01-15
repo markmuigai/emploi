@@ -37,7 +37,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</div>
 			<div class="col-md-4">
 				<p class="pull-right text-capitalize">
-					{{ $ref->status }}
+					Status: {{ $ref->status }}
 				</p>
 			</div>
 		</div>

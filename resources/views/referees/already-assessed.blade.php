@@ -7,14 +7,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', Error: Referee Assessment Exists)
+@section('page_title', 'Error: Referee Assessment Exists')
 
 <div class="container">
     <div class="single">
         <p>
-            An assessment has already been provided for the job seeker. To edit or update this, kindly <a href="/contact" class="orange">Contact us </a> for advise.
+            An assessment has already been provided for the job seeker. <br>To edit or update your assessment, kindly <a href="/contact" class="orange">Contact us </a>.
         </p>
-        <a href="/" class="btn btn-orange mt-3">Home</a>
+        <a href="/" class="btn-sm btn btn-orange mt-3">Home</a>
+        <a href="/join" class="btn-sm btn btn-primary mt-3">Register</a>
+        <a href="/login" class="btn-sm btn btn-default mt-3">Login</a>
     </div>
 </div>
 
