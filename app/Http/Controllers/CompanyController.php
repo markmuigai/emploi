@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Storage;
+use Image;
 
 use App\Company;
 use App\CompanySize;
@@ -63,12 +64,26 @@ class CompanyController extends Controller
             $co_name = $request->name.'-'.rand(1,900);
         }
 
-        $storage_path = '/public/companies';
-        $logo = basename(Storage::put($storage_path, $request->logo));
+        $avatar = $request->file('logo');
+        $logo = time() . '.' . $avatar->getClientOriginalExtension();
+        $storage_path = storage_path().'/app/public/companies/'.$logo;
+
+        Image::make($avatar)->resize(300, 300)->save($storage_path);
+
+        // $storage_path = '/public/companies';
+        // $logo = basename(Storage::put($storage_path, $request->logo));
         //$logo = null;
         $cover = null;
         if(isset($request->cover))
-            $cover = basename(Storage::put($storage_path, $request->cover));
+        {
+            $avatar = $request->file('cover');
+            $cover = time() . '.' . $avatar->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/companies/'.$cover;
+
+            Image::make($avatar)->resize(1280, 720)->save($storage_path);
+
+            //$cover = basename(Storage::put($storage_path, $request->cover));
+        }
 
         $c = Company::create([
             'name' => $co_name, 
@@ -149,18 +164,31 @@ class CompanyController extends Controller
         $logo = $c->logo;
         if(isset($request->logo))
         {
-            $storage_path = '/public/companies';
-            $logo = basename(Storage::put($storage_path, $request->logo));
+            // $storage_path = '/public/companies';
+            // $logo = basename(Storage::put($storage_path, $request->logo));
+
+            $avatar = $request->file('logo');
+            $logo = time() . '.' . $avatar->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/companies/'.$logo;
+
+            Image::make($avatar)->resize(300, 300)->save($storage_path);
         }
         $cover = $c->cover;
         if(isset($request->cover))
         {
-            $storage_path = '/public/companies';
-            $cover = basename(Storage::put($storage_path, $request->cover));
+            $avatar = $request->file('cover');
+            $cover = time() . '.' . $avatar->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/companies/'.$cover;
+
+            Image::make($avatar)->resize(1280, 720)->save($storage_path);
+
+            // $storage_path = '/public/companies';
+            // $cover = basename(Storage::put($storage_path, $request->cover));
         }
 
         $c->name = $request->name;
         $c->logo = $logo;
+        $c->cover = $cover;
         $c->tagline = $request->tagline;
         $c->about = $request->about;
         $c->website = $request->website;
