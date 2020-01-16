@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use Storage;
+use Image;
 
 use App\Blog;
 use App\Country;
@@ -150,8 +151,16 @@ class HomeController extends Controller
 
             if(isset($request->avatar))
             {
-                $storage_path = '/public/avatars';
-                $user->avatar = basename(Storage::put($storage_path, $request->avatar));
+                $avatar = $request->file('avatar');
+                $avatar_url = time() . '.' . $avatar->getClientOriginalExtension();
+                $storage_path = storage_path().'/app/public/avatars/'.$avatar_url;
+
+                Image::make($avatar)->resize(300, 300)->save($storage_path);
+
+                // $storage_path = '/public/avatars';
+                // $user->avatar = basename(Storage::put($storage_path, $request->avatar));
+
+                $user->avatar = $avatar_url;
             }
 
             $user->updated_at = now();
@@ -250,9 +259,18 @@ class HomeController extends Controller
 
             if(isset($request->avatar))
             {
-                
-                $storage_path = '/public/avatars';
-                $user->avatar = basename(Storage::put($storage_path, $request->avatar));
+                $avatar = $request->file('avatar');
+                $avatar_url = time() . '.' . $avatar->getClientOriginalExtension();
+                $storage_path = storage_path().'/app/public/avatars/'.$avatar_url;
+
+                Image::make($avatar)->resize(300, 300)->save($storage_path);
+
+                // $storage_path = '/public/avatars';
+                // $user->avatar = basename(Storage::put($storage_path, $request->avatar));
+
+                $user->avatar = $avatar_url;
+                // $storage_path = '/public/avatars';
+                // $user->avatar = basename(Storage::put($storage_path, $request->avatar));
             }
             if( $user->save() )
             {
