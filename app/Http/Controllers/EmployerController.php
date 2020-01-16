@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 use Auth;
+use DB;
 
 use App\Candidate;
 use App\Company;
@@ -179,110 +180,191 @@ class EmployerController extends Controller
     {
         //errors exist
         $seekers = Seeker::orderBy('featured')->paginate(10);
-        $title = "All Job Seekers";
-        $location = false;
-        $industry = false;
-        $q = "";
-
-        if(isset($request->q) && isset($request->industry) && isset($request->location))
+        $title = "Browse Job Seekers";
+        //$location = isset($request->location_id) ? " OR location_id = ".$request->location_id : '';
+        $industry = isset($request->industry) ? Industry::where('slug',$request->industry)->firstOrFail() : '';
+        $q = $request->q ? '"%'.$request->q.'%"' : '';
+        $query = $q == '' ? '' : "WHERE experience like $q OR education LIKE $q OR resume_contents LIKE $q";
+        //dd($query);
+        if($query == '')
         {
-            $i = Industry::where('slug',$request->industry)->firstOrFail();
-            $location = Location::findOrFail($request->location);
-            $q = $request->q;
-
-            $seekers = Seeker::where('industry_id',$i->id)
-                    ->where('location_id',$location->id)
-                    ->where('experience','like',"%$q%")
-                    ->orWhere('education','like',"%$q%")
-                    ->orWhere('resume_contents','like',"%$q%")
-                    ->orderBy('featured')->paginate(10);
-
-
-
-            $title = 'Search results';
-            $industry = $i;
-
+            if(isset($request->location))
+            {
+                $query .= " WHERE location_id = ".$request->location;
+            }
         }
-        elseif(isset($request->q) && isset($request->industry))
+        else
         {
-            $i = Industry::where('slug',$request->industry)->firstOrFail();
-            $q = $request->q;
-
-            $seekers = Seeker::where('industry_id',$i->id)
-                    ->where('experience','like',"%$q%")
-                    ->orWhere('education','like',"%$q%")
-                    ->orWhere('resume_contents','like',"%$q%")
-                    ->orderBy('featured')->paginate(10);
-
-            $title = 'Search results';
-            $industry = $i;
-        }
-        elseif(isset($request->q) && isset($request->location))
-        {
-            $location = Location::findOrFail($request->location);
-            $q = $request->q;
-
-            $seekers = Seeker::where('location_id',$location->id)
-                    ->where('experience','like',"%$q%")
-                    ->orWhere('education','like',"%$q%")
-                    ->orWhere('resume_contents','like',"%$q%")
-                    ->orderBy('featured')->paginate(10);
-
-            $title = 'Search results';
-        }
-        elseif(isset($request->industry) && isset($request->location) )
-        {
-            $i = Industry::where('slug',$request->industry)->firstOrFail();
-            $location = Location::findOrFail($request->location);
-
-
-            $seekers = Seeker::where('industry_id',$i->id)
-                    ->where('location_id',$location->id)
-                    ->orderBy('featured')->paginate(10);
-            $title = $i->name;
-            //dd($location);
-            //$location = $l;
-            $industry = $i;
-        }
-        elseif(isset($request->industry))
-        {
-            $i = Industry::where('slug',$request->industry)->firstOrFail();
-            $seekers = Seeker::where('industry_id',$i->id)->orderBy('featured')->paginate(10);
-            $title = $i->name;
-            $industry = $i;
-        }
-        elseif(isset($request->location))
-        {
-            $i = Location::findOrFail($request->location);
-
-            $seekers = Seeker::where('location_id',$i->id)->orderBy('featured')->paginate(10);
-            $title = 'Job Seekers in '.$i->name;
-            $location = $i;
-        }
-        elseif(isset($reqeust->q))
-        {
-            $q = $request->q;
-
-            $seekers = Seeker::where('experience','like',"%$q%")
-                    ->orWhere('education','like',"%$q%")
-                    ->orWhere('resume_contents','like',"%$q%")
-                    ->orderBy('featured')->paginate(10);
-
-            $title = 'Search results';
-
+            if(isset($request->location))
+            {
+                $query .= " OR WHERE location_id = ".$request->location;
+            }
         }
 
+        //dd($query);
+
+        if($query == '')
+        {
+            if(isset($request->industry))
+            {
+                $query .= " WHERE industry_id = ".$industry->id;
+            }
+        }
+        else
+        {
+            if(isset($request->industry))
+            {
+                $query .= " OR industry_id = ".$industry->id;
+            }
+        }
+
+        //$query = $query == '' ? '' : "$query";
 
 
+
+
+        $sql = "SELECT id FROM seekers $query ORDER BY featured DESC";
+        $results = DB::select($sql);
+
+        //dd($sql);
+        $arr = [];
+        for($i=0;$i<count($results); $i++)
+        {
+            $arr[] = $results[$i]->id;
+        }
+        //$results = DB::select($arr);
+
+        $seekers = Seeker::whereIn('id',$arr)->paginate(10);
+        //dd($seekers);
 
         return view('employers.browse')
                 ->with('seekers',$seekers)
                 ->with('industries',Industry::active())
                 ->with('locations',Location::active())
-                ->with('location',$location)
-                ->with('industry',$industry)
+                ->with('location',$request->location )
+                ->with('industry',$industry ? $industry : '')
                 ->with('query',$request->q)
                 ->with('title',$title);
+
+        
+
+        //dd($results);
+
+        // $seekers = Seeker::where('industry_id',$industry)
+        //             ->where('location_id',$location)
+        //             ->where('experience','like',"%$q%")
+        //             ->where('education','like',"%$q%")
+        //             ->where('resume_contents','like',"%$q%")
+        //             ->orderBy('featured')->paginate(10);
+
+        // return view('employers.browse')
+        //         ->with('seekers',$seekers)
+        //         ->with('industries',Industry::active())
+        //         ->with('locations',Location::active())
+        //         ->with('location',$location)
+        //         ->with('industry',$industry)
+        //         ->with('query',$request->q)
+        //         ->with('title',$title);
+
+        // if(isset($request->q) && isset($request->industry) && isset($request->location))
+        // {
+        //     $i = Industry::where('slug',$request->industry)->firstOrFail();
+        //     $location = Location::findOrFail($request->location);
+        //     $q = $request->q;
+
+        //     $seekers = Seeker::where('industry_id',$i->id)
+        //             ->where('location_id',$location->id)
+        //             ->where('experience','like',"%$q%")
+        //             ->orWhere('education','like',"%$q%")
+        //             ->orWhere('resume_contents','like',"%$q%")
+        //             ->orderBy('featured')->paginate(10);
+
+
+
+        //     $title = 'Search results';
+        //     $industry = $i;
+
+        // }
+        // elseif(isset($request->q) && isset($request->industry))
+        // {
+        //     $i = Industry::where('slug',$request->industry)->firstOrFail();
+        //     $q = $request->q;
+
+        //     $seekers = Seeker::where('industry_id',$i->id)
+        //             ->where('experience','like',"%$q%")
+        //             ->orWhere('education','like',"%$q%")
+        //             ->orWhere('resume_contents','like',"%$q%")
+        //             ->orderBy('featured')->paginate(10);
+
+        //     $title = 'Search results';
+        //     $industry = $i;
+        // }
+        // elseif(isset($request->q) && isset($request->location))
+        // {
+        //     $location = Location::findOrFail($request->location);
+        //     $q = $request->q;
+
+        //     $seekers = Seeker::where('location_id',$location->id)
+        //             ->where('experience','like',"%$q%")
+        //             ->orWhere('education','like',"%$q%")
+        //             ->orWhere('resume_contents','like',"%$q%")
+        //             ->orderBy('featured')->paginate(10);
+
+        //     $title = 'Search results';
+        // }
+        // elseif(isset($request->industry) && isset($request->location) )
+        // {
+        //     $i = Industry::where('slug',$request->industry)->firstOrFail();
+        //     $location = Location::findOrFail($request->location);
+
+
+        //     $seekers = Seeker::where('industry_id',$i->id)
+        //             ->where('location_id',$location->id)
+        //             ->orderBy('featured')->paginate(10);
+        //     $title = $i->name;
+        //     //dd($location);
+        //     //$location = $l;
+        //     $industry = $i;
+        // }
+        // elseif(isset($request->industry))
+        // {
+        //     $i = Industry::where('slug',$request->industry)->firstOrFail();
+        //     $seekers = Seeker::where('industry_id',$i->id)->orderBy('featured')->paginate(10);
+        //     $title = $i->name;
+        //     $industry = $i;
+        // }
+        // elseif(isset($request->location))
+        // {
+        //     $i = Location::findOrFail($request->location);
+
+        //     $seekers = Seeker::where('location_id',$i->id)->orderBy('featured')->paginate(10);
+        //     $title = 'Job Seekers in '.$i->name;
+        //     $location = $i;
+        // }
+        // elseif(isset($reqeust->q))
+        // {
+        //     $q = $request->q;
+
+        //     $seekers = Seeker::where('experience','like',"%$q%")
+        //             ->orWhere('education','like',"%$q%")
+        //             ->orWhere('resume_contents','like',"%$q%")
+        //             ->orderBy('featured')->paginate(10);
+
+        //     $title = 'Search results';
+
+        // }
+
+
+
+
+        // return view('employers.browse')
+        //         ->with('seekers',$seekers)
+        //         ->with('industries',Industry::active())
+        //         ->with('locations',Location::active())
+        //         ->with('location',$location)
+        //         ->with('industry',$industry)
+        //         ->with('query',$request->q)
+        //         ->with('title',$title);
     }
 
     public function jobs(Request $request)

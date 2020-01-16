@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <select name="location" class="custom-select">
                 <option value="">All Locations</option>
                 @forelse($locations as $i)
-                <option value="{{ $i->id }}" @if(isset($location->id) && $i->id == $location->id)
+                <option value="{{ $i->id }}" @if(isset($location) && $i->id == $location)
                     selected=""
                     @endif
                     >{{ $i->name }}</option>
