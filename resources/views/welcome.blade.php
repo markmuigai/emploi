@@ -346,6 +346,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p class="badge badge-secondary">{{ $blog->category->name }}</p>
                         <p class="truncate-long">{!!html_entity_decode($blog->longPreview(500))!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                        <span>
+                            <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
+                            <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
+                        </span>
                     </div>
                 </div>
                 @empty
@@ -368,6 +374,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                        <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
+                            <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 @empty
@@ -391,6 +401,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                        <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 @empty
