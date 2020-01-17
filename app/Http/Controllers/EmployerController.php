@@ -175,7 +175,16 @@ class EmployerController extends Controller
             'company_size_id' => 1
         ]);
 
-        $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
+        if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+        {
+            $user->verifyAccount();
+        }
+        else
+        {
+            $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
+        }
+
+        
 
         // $caption = "Thank you for registering your profile on Emploi as an Employer";
         // $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
