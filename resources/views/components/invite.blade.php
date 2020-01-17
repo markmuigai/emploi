@@ -1,4 +1,4 @@
-<div class="prompts">
+<div class="prompts" title="Invite Friends">
     <button type="button" name="button" class="invite" data-toggle="modal" data-target="#inviteFriends"><i class="fas fa-user-plus"></i></button>
 </div>
 
@@ -7,7 +7,14 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content px-3 pt-3">
             <div class="modal-body">
-                <h5 class="modal-title" id="inviteFriendsLabel">Invite Friends to Use Emploi</h5>
+                <h5 class="modal-title" id="inviteFriendsLabel">
+                    Invite Friends
+                    @guest
+                        to use Emploi
+                    @else
+                        , get Redeemable Credits
+                    @endguest
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
@@ -29,7 +36,7 @@
                         </div> -->
                     </div>
                     <div class="text-right mt-2">
-                        <button class="btn btn-orange">Invite</button>
+                        <button class="btn btn-orange">Send Email Invite</button>
                     </div>
                 </form>
             </div>

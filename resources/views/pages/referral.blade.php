@@ -9,9 +9,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <div class="container">
-    <div class="single">
+	<br><br>
+    <div class="single row">
 
-	 <div class="col-md-8 single_right">
+	 <div class="row col-md-8 offset-md-2">
+	 	<br><br>
 	      <h3>
 	      	<i class="fas fa-arrow-left" onclick="window.history.back()"></i>
 	      	{{ $title }}
@@ -19,9 +21,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      <div class="row_1">
 	      	<div class="clearfix"> </div>
 	      </div>
-
+	      <br>
 	      <div class="col-md-8 offset-md-2">
 	      	{{ $message }}
+	      </div>
+
+	      <br>
+
+	       <div class="col-md-8 offset-md-2">
+	       	<br>
+	       	@guest
+	       	<br>
+	       	<a href="/join" class="btn btn-sm btn-orange">Register</a>
+	       	<a href="/login" class="btn btn-sm btn-primary">Login</a>
+	       	@else
+	       	You have {{ Auth::user()->totalCredits }} credits.
+	       	<br>
+	       	<a href="/profile" class="btn btn-sm btn-orange">My Profile</a>
+	       	<a href="/home" class="btn btn-sm btn-primary">Dashboard</a>
+	       	@endguest
+	      	
 	      </div>
 
 
