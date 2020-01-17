@@ -223,6 +223,7 @@ class AdminController extends Controller
             }
 
             $seekers = Seeker::whereIn('user_id',$newseekers)
+                    ->appends(request()->query())
                     ->paginate(20);
 
 
