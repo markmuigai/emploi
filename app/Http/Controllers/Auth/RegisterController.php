@@ -116,7 +116,7 @@ class RegisterController extends Controller
                 Referral::creditFor($user->email,10);
             }
 
-            Session::forget('invite_id');
+            //Session::forget('invite_id');
         }
 
         //$resume_url = Storage::putFile('avatars', $request->file('avatar'));

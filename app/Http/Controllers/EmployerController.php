@@ -129,7 +129,7 @@ class EmployerController extends Controller
                 Referral::creditFor($user->email,20);
             }
 
-            Session::forget('invite_id');
+            //Session::forget('invite_id');
         }
 
         //return $request->all();
