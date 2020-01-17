@@ -35,8 +35,13 @@
                             </button>
                         </div> -->
                     </div>
-                    <div class="text-right mt-2">
-                        <button class="btn btn-orange">Send Email Invite</button>
+                    <div class="mt-2">
+                        @guest
+                        @else
+                        <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
+
+                        @endguest
+                        <button class="btn btn-orange" style="float: right;">Send Email Invite</button>
                     </div>
                 </form>
             </div>
