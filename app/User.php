@@ -35,6 +35,14 @@ class User extends Authenticatable
         return $this->hasOne(UserPermission::class);
     }
 
+    public function inviteLinks(){
+        return $this->hasMany(InviteLink::class);
+    }
+
+    public function getInviteTextAttribute(){
+        return $this->name . ' invited you to Emploi, an Efficient Platform to perform recruitments and find work for a succesful career ';
+    }
+
     public function companies(){
         return $this->hasMany(Company::class);
     }

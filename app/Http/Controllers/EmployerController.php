@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use DB;
+use Session;
 
 use App\Candidate;
 use App\Company;
@@ -20,6 +21,7 @@ use App\IqTest;
 use App\Industry;
 use App\IndustrySkill;
 use App\InterviewResult;
+use App\InviteLink;
 use App\JobApplication;
 use App\Location;
 use App\ModelSeeker;
@@ -110,7 +112,25 @@ class EmployerController extends Controller
 
 
 
-        Referral::creditFor($request->email);
+        $credited = Referral::creditFor($request->email,20);
+
+        if(!$credited && Session::has('invite_id'))
+        {
+            $invite_id = Session::get('invite_id');
+            $link = InviteLink::find($invite_id);
+            if(isset($link->id))
+            {
+                Referral::create([
+                    'user_id' => $link->user_id, 
+                    'name' => $user->name, 
+                    'email' => $user->email
+                ]);
+
+                Referral::creditFor($user->email,20);
+            }
+
+            Session::forget('invite_id');
+        }
 
         //return $request->all();
 

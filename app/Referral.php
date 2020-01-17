@@ -17,18 +17,19 @@ class Referral extends Model
     	return $this->belongsTo(User::class);
     }
 
-    public static function creditFor($email)
+    public static function creditFor($email, $points = 10)
     {
     	$r = Referral::where('email',$email)->first();
     	if(isset($r->id) && isset($r->user_id))
     	{
     		Credit::create([
     			'user_id' => $r->user_id,
-    			'value' => 10
+    			'value' => $points
     		]);
     		$r->status = 'completed';
-    		$r->save();
+    		return $r->save();
     	}
+        return false;
 
     }
 

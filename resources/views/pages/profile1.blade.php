@@ -56,7 +56,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <span class="badge badge-success">Searching</span>
                                     @endif
                                 </h5>
-                                <h6 title="Referral Credits">[ {{ $user->totalCredits }} credits ]</h6>
+                                <h6 title="Referral Credits">
+                                    <a href="/profile/invites">
+                                    [ {{ $user->totalCredits }} credits ]
+                                    </a>
+                                </h6>
                                 @if(!$user->seeker->hasCompletedProfile())
                                 <p class="text-center">
                                     <a href="/profile/edit" class="text-danger"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
@@ -223,7 +227,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h5>
                     Employer
                     <br>
-                    <small title="Referral Credits">[ {{ $user->totalCredits }} credits ]</small>
+                    <small title="Referral Credits">
+                        <a href="/profile/invites">
+                            [ {{ $user->totalCredits }} credits ]
+                        </a>
+                    </small>
                 </h5>
 
             </div>
@@ -282,8 +290,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+@elseif($user->role == 'admin')
+Admin Account Management. <br>
+
+<a href="/profile/invites">Manage Invites</a>  <br>
+{{ $user->totalCredits }} Credits
 @else
-No actions available
+No actions available 
 @endif
 
 @endsection

@@ -285,7 +285,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <img src="/images/avatar.png" data-src="{{asset('images/testimonials/kizito.webp')}}" alt="Kipkemoi Kizito" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me as opportunity of getting there.</p>
+                        <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me an opportunity of getting there.</p>
                         <hr class="short">
                         <h5>Kipkemoi Kizito</h5>
                         <p>Job Seeker</p>

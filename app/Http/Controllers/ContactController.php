@@ -9,6 +9,7 @@ use App\Blog;
 use App\Contact;
 use App\Country;
 use App\CvRequest;
+use App\InviteLink;
 use App\JobApplication;
 use App\Location;
 use App\Referral;
@@ -21,6 +22,7 @@ use App\UserPermission;
 use App\Jobs\EmailJob;
 use App\Jobs\VacancyEmail;
 
+use Auth;
 use Storage;
 use Notification;
 use App\Notifications\VerifyAccount;
@@ -33,6 +35,40 @@ class ContactController extends Controller
         $res = Notification::route('mail', $email)->notify(new VerifyAccount($email,'TEST-VERIFY',$name));
         dd($res);
     }
+
+    public function invited($slug, Request $request){
+
+        $invite = InviteLink::where('slug',$slug)->first();
+
+        if(!isset($invite->id))
+        {            
+            return redirect('/join');
+        }
+        else
+        {
+
+            if(!isset(Auth::user()->id))
+            {
+                if(!$request->session()->has('invite_id'))
+                {
+                    $request->session()->put('invite_id', $invite->id);
+                    $invite->clicks_count++;
+                    $invite->save();
+                }          
+                
+            }
+
+            //create session
+            
+
+            return view('invites.invited')
+                ->with('invite',$invite);
+            
+            return redirect('/join');
+        }
+            
+    }
+
     public function easyApply($slug, Request $request)
     {
         $user = User::where('email',$request->email)->first();

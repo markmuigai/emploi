@@ -24,7 +24,7 @@ if(isset($name))
 <div class="container text-center">
     <p>
         @if(!isset($name))
-        Welcome to Emploi, an efficient platform to manage recruitments and find work for a succesfull career.
+        Welcome to Emploi, an efficient platform to manage recruitments and find work for a succesful career.
         @else
         Howdy {{ $name }}, welcome to Emploi. We've started creating your account, select whether you are an employer or job seeker.
         @endif

@@ -4,6 +4,7 @@
 /subscribe
 */
 Route::get('/join', 'ContactController@join');
+Route::get('/invites/{slug}', 'ContactController@invited');
 
 Route::get('/careers', 'ContactController@careers');
 Route::get('/contact', 'ContactController@contact');
@@ -51,6 +52,7 @@ Route::group([ 'middleware' => 'auth'], function(){
     Route::get('profile', 'HomeController@profile');
     Route::get('profile/edit', 'HomeController@updateProfile');
     Route::post('profile/update', 'HomeController@saveProfile');
+    Route::resource('profile/invites', 'InviteLinkController');
 });
 
 Route::post('create-account', 'RegisterSimpleController@create');

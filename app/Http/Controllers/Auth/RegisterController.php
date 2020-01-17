@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Country;
 use App\Industry;
+use App\InviteLink;
 use App\Parser;
 use App\Seeker;
 use App\Referral;
@@ -18,6 +19,7 @@ use App\User;
 use App\UserPermission;
 
 use Storage;
+use Session;
 //use Notification;
 
 use App\Notifications\VerifyAccount;
@@ -97,7 +99,25 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        Referral::creditFor($data['email']);
+        $credited = Referral::creditFor($data['email']);
+
+        if(!$credited && Session::has('invite_id'))
+        {
+            $invite_id = Session::get('invite_id');
+            $link = InviteLink::find($invite_id);
+            if(isset($link->id))
+            {
+                Referral::create([
+                    'user_id' => $link->user_id, 
+                    'name' => $user->name, 
+                    'email' => $user->email
+                ]);
+
+                Referral::creditFor($user->email,10);
+            }
+
+            Session::forget('invite_id');
+        }
 
         //$resume_url = Storage::putFile('avatars', $request->file('avatar'));
 
