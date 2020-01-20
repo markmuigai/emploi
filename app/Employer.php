@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Watson\Rememberable\Rememberable;
+use Illuminate\Notifications\Notifiable;
 
 use App\CvRequest;
 use App\JobApplication;
@@ -14,9 +15,16 @@ use Carbon\Carbon;
 
 class Employer extends Model
 {
+    use Notifiable; 
+    
     protected $fillable = [
         'user_id', 'name', 'industry_id','company_name', 'contact_phone','company_phone','company_email','country_id','address','credits','created_at'
     ];
+
+    public function routeNotificationForSlack($notification)
+    {
+        return 'https://hooks.slack.com/services/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';
+    }
 
     public function industry(){
     	return $this->belongsTo(Industry::class,'industry_id');

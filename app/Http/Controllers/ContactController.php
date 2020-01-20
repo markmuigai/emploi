@@ -26,15 +26,20 @@ use Auth;
 use Storage;
 use Notification;
 use App\Notifications\VerifyAccount;
+use App\Notifications\ContactReceived;
 
 class ContactController extends Controller
 {
-    public function testEmail(Request $request){
-        $email = isset($request->email) ? $request->email : 'brian@jobsikaz.com';
-        $name = isset($request->name) ? $request->name : 'Brian Obare';
-        $res = Notification::route('mail', $email)->notify(new VerifyAccount($email,'TEST-VERIFY',$name));
-        dd($res);
-    }
+    // public function testSlack(){
+    //     Notification::send(User::first(),new TestNotification('Emploi System notification'));
+    // }
+
+    // public function testEmail(Request $request){
+    //     $email = isset($request->email) ? $request->email : 'brian@jobsikaz.com';
+    //     $name = isset($request->name) ? $request->name : 'Brian Obare';
+    //     $res = Notification::route('mail', $email)->notify(new VerifyAccount($email,'TEST-VERIFY',$name));
+    //     dd($res);
+    // }
 
     public function invited($slug, Request $request){
 
@@ -233,17 +238,19 @@ class ContactController extends Controller
             Thank you for choosing Emploi.";
             EmailJob::dispatch($c->name, $c->email, 'Contact Received', $caption, $contents);
 
-            $caption = $c->name." contacted us";
-            $contents = "We have received a new message on Emploi, with a Tracking code of <strong>".$c->code."</strong><br><br>
-            Here are the Details: <br>
-            Name: <strong>".$c->name."</strong> <br>
-            Email: <strong>".$c->email."</strong> <br>
-            Phone Number: <strong>".$c->phone_number."</strong> <br>
-            Message: <br><i>".$c->message."</i> <br><br>
+            Notification::send(User::first(),new ContactReceived($c->name.' contacted us through the contact form. Message: '.$c->message));
 
-            <a href='".url('/admin/contacts/'.$c->id)."'>Click here</a> to respond to ".$c->name;
+            // $caption = $c->name." contacted us";
+            // $contents = "We have received a new message on Emploi, with a Tracking code of <strong>".$c->code."</strong><br><br>
+            // Here are the Details: <br>
+            // Name: <strong>".$c->name."</strong> <br>
+            // Email: <strong>".$c->email."</strong> <br>
+            // Phone Number: <strong>".$c->phone_number."</strong> <br>
+            // Message: <br><i>".$c->message."</i> <br><br>
 
-            EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'New Contact Received', $caption, $contents);
+            // <a href='".url('/admin/contacts/'.$c->id)."'>Click here</a> to respond to ".$c->name;
+
+            // EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'New Contact Received', $caption, $contents);
 
     		return view('contacts.success')
     				->with('code',$code);

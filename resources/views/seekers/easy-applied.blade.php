@@ -21,7 +21,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <br>
     	@if($created)
     	<p>
-    		We have created a job seeker profile for you. Check your e-mail address for a verification link. <i>May be incorrectly placed in spam folder</i>. <br>
+    		We have created a job seeker profile for you. Check your e-mail address for a verification link. <br>
     		<a href="/login" class="btn btn-orange btn-sm">Login</a>
             <a href="/vacancies" class="btn btn-primary btn-sm">Vacancies</a>
     	</p>

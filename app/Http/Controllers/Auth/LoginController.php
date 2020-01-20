@@ -7,10 +7,14 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
 use Auth;
+use Notification;
+
+use App\Employer;
 use App\User;
 
 use App\Notifications\VerifyAccount;
 use App\Jobs\EmailJob;
+use App\Notifications\EmployerLoggedIn;
 
 class LoginController extends Controller
 {
@@ -72,6 +76,10 @@ class LoginController extends Controller
             Auth::logout();
             return view('pages.not-verified');
             die('Account not verified. <a href="/login">Login</a>');
+        }
+        if($user->role == 'employer')
+        {
+            Notification::send(Employer::first(),new EmployerLoggedIn('EMPLOYER LOGIN: '.$user->name.' logged in. Company name: '.$user->companies[0]->name));
         }
     }
 }

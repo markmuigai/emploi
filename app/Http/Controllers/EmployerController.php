@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use DB;
 use Session;
+use Notification;
 
 use App\Candidate;
 use App\Company;
@@ -44,6 +45,7 @@ use App\UserPermission;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
+use App\Notifications\EmployerRegistered;
 
 class EmployerController extends Controller
 {
@@ -193,6 +195,8 @@ class EmployerController extends Controller
         // Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
         //         ";
         // EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+        Notification::send(Employer::first(),new EmployerRegistered('NEW EMPLOYER: '.$c->user->name.' registered and created Company '.$c->name));
 
         $caption = "A new employer has registered on Emploi";
         $contents = $c->user->name." has created a company on Emploi using the name <b>".$c->name."<b>.<br>

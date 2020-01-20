@@ -3,6 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Notification;
+use App\Notifications\CvRequested;
+
+use App\Employer;
 
 class CvRequest extends Model
 {
@@ -47,8 +51,10 @@ class CvRequest extends Model
 		]);
 		if(isset($r->id))
 		{
+            Notification::send(Employer::first(),new CvRequested('CV REQUEST: '.$employer->user->name.' has requested for '.$seeker->user->name.'\'s CV'));
 			return $r->acceptRequest();
 		}
+
     	return false;
 
     }

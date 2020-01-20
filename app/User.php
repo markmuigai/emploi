@@ -31,6 +31,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function routeNotificationForSlack($notification)
+    {
+        return 'https://hooks.slack.com/services/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';
+    }
+
     public function userPermission(){
         return $this->hasOne(UserPermission::class);
     }

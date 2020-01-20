@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\DB;
 use Storage;
 use Carbon\Carbon;
 use Image;
+use Notification;
 
 use App\Country;
 use App\EducationLevel;
+use App\Employer;
 use App\Industry;
 use App\Location;
 use App\PostGroup;
@@ -19,6 +21,8 @@ use App\User;
 use App\VacancyType;
 
 use App\Jobs\EmailJob;
+use App\Notifications\PostCreated;
+use App\Notifications\PostEdited;
 
 class PostsController extends Controller
 {
@@ -158,6 +162,8 @@ class PostsController extends Controller
             $email = $email = null ? $p->company->user->email : $email;
 
             EmailJob::dispatch($p->company->user->name, $email, $p->title.' Post on Emploi', $caption, $contents);
+
+            Notification::send(Employer::first(),new PostCreated('NEW JOB POST: '.$p->title.' created under Company '.$p->company->name.' by '.$p->company->user->name));
 
             $caption = $p->title." Job Post Request Placed";
             $contents = "
@@ -468,6 +474,7 @@ class PostsController extends Controller
         $post->max_salary = $request->max_salary;
         $post->how_to_apply = $request->how_to_apply;
         $post->save();
+        Notification::send(Employer::first(),new PostEdited('JOB POST EDITED: '.$post->title.' was edited by '.$post->company->user->name.' for Company '.$post->company->name));
         if($post->status == 'active')
             return redirect('/vacancies/'.$post->slug);
         return redirect('/employers/applications/'.$post->slug);

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Jobs\EmailJob;
+use App\Notifications\AdvertRequest;
+use Notification;
 
 use App\Advert;
-
+use App\Employer;
 
 class AdvertController extends Controller
 {
@@ -49,10 +51,15 @@ class AdvertController extends Controller
         Thank you for choosing Emploi";
         EmailJob::dispatch($a->name, $a->email, 'Emploi Advertisement Request Created', $caption, $contents);
 
-        $caption = "Advertisement request received on Emploi";
-        $contents = "We have received an Advertisement Request from <b>".$a->name."</b>.
-        Log into <a href='/admin/received-requests/".$a->id."'>Admin panel</a> to view more details.";
-        EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Emploi Advertisement Request Created', $caption, $contents);
+        $title = ' - '.$a->title ? $a->title : '';
+        $phone_number = ' - '.$a->phone_number ? $a->phone_number : '';
+
+        Notification::send(Employer::first(),new AdvertRequest('NEW ADVERT REQUEST: '.$a->name.' has requested for an advertisement'.$title.$phone_number));
+
+        // $caption = "Advertisement request received on Emploi";
+        // $contents = "We have received an Advertisement Request from <b>".$a->name."</b>.
+        // Log into <a href='/admin/received-requests/".$a->id."'>Admin panel</a> to view more details.";
+        // EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Emploi Advertisement Request Created', $caption, $contents);
 
         return view('adverts.created')
                 ->with('advert',$a);
