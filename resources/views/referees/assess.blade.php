@@ -211,7 +211,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    </div>
     <div class="section2 d-none">
         <div class="card">
             <div class="card-body p-5">
@@ -244,6 +243,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
+    
 </form>
 
 <script type="text/javascript">
