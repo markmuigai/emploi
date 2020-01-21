@@ -19,6 +19,16 @@ class Post extends Model
         'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions','max_salary'
     ];
 
+    public function getSkillsWeightAttribute(){
+        $total = 0;
+        if(count($this->industry->industrySkills) == 0)
+            return $total;
+        foreach($this->industry->industrySkills as $m)
+            $total += 1;
+
+        return $total;
+    }
+
     public static function cleanString($string) {
        $string = str_replace(' ', '-', $string);
 

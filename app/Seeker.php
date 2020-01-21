@@ -132,7 +132,288 @@ class Seeker extends Model
         return false;
     }
 
+    public function getPlainRsi($post){
+        $perc = 0;
+        $model = isset($post->modelSeeker->id) ? $post->modelSeeker : false;
+
+        if(isset($model->id))
+        {
+            $total = 
+                $model->education_level_importance + 
+                $model->experience_importance + 
+                $model->skills_importance + 
+                $model->personality_importance + 
+                $model->interview_importance + 
+                $model->psychometric_importance +  
+                $model->company_size_importance +
+                $model->feedback_importance;
+
+        }
+
+        if(!isset($model->id))
+            $total = 400;
+
+        $application = JobApplication::where('user_id',$this->user->id)
+                    ->where('post_id',$post->id)
+                    ->first();
+
+        if(isset($model->id)){
+            if($model->interview)
+            {
+                
+                $interview = $model->interview_importance == 0 ? 0 : $model->interview_importance / $total * 100;
+            }
+            else
+            {
+                $total -= $model->interview_importance;
+                $interview = 0;
+            }
+        }
+        else
+        {
+            $interview = 100 / $total * 100;
+        }
+
+        
+
+        if(isset($model->id))
+        {
+            $exp = $model->experience_importance == 0 ? 0 : $model->experience_importance / $total * 100;
+        }
+        else
+            $exp = 100 / $total * 100;
+
+        if(isset($model->id))
+        {
+            $skil = $model->skills_importance == 0 ? 0 : $model->skills_importance / $total * 100;
+        }
+        else
+            $skil = 100 / $total * 100;
+
+        if(isset($model->id))
+        {
+            $edu = $model->education_level_importance == 0 ? 0 : $model->education_level_importance / $total * 100;
+        }
+        else
+            $edu = 100 / $total * 100;
+
+        if(isset($model->id))
+        {
+            $pers = $model->personality_importance == 0 ? 0 : $model->personality_importance / $total * 100;
+        }
+        else
+            $pers = 0;
+
+        
+
+        //education
+        if(isset($model->id))
+        {
+            if(isset($this->industry_id) && $this->industry_id == $model->post->industry_id) 
+            {
+                //accepted courses
+                if(count($model->modelSeekerCourses) > 0)
+                {
+                    $found = false;
+                    for($i=0; $i< count($model->modelSeekerCourses); $i++)
+                    {
+                        $courseName = $model->modelSeekerCourses[$i]->course->name;
+                        if(!is_null($this->education) )
+                        {
+                            if( strpos($this->education, "%$courseName%") )
+                                $found = true;                        
+                        }
+
+                        if(!is_null($this->resume_contents) )
+                        {
+                            if( strpos($this->resume_contents, "%$courseName%") )
+                                $found = true;                        
+                        }
+                        if($found)
+                            break;
+                    }
+
+                    if($found)
+                    {
+                        $perc += $edu;
+                    }
+                    elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
+                    {
+                        $perc += $edu * 0.5;
+                    }
+                    elseif($this->education_level_id == $model->education_level_id)
+                    {
+                        $perc += $edu * 0.25;
+                    }
+                    
+                }
+
+            }
+        }
+        else
+        {
+            if($this->industry_id == $post->industry_id)
+            {
+                $perc += $edu;
+            }
+            elseif($this->educationLevel->isSuperiorTo($post->educationLevel) )
+            {
+                $perc += $edu * 0.5;
+            }
+            elseif($this->education_level_id == $model->education_level_id)
+            {
+                $perc += $edu * 0.25;
+            }
+        }
+
+        //experience
+        if(isset($model->id))
+        {
+            if($this->industry_id == $model->post->industry_id)
+            {
+                if($this->years_experience == $model->experience_duration)
+                    $perc += $exp * 0.8;
+                elseif($this->years_experience < $model->experience_duration)
+                {
+                    if($model->experience_duration/2 >= $this->years_experience)
+                        $perc += $exp * 0.2;
+                    else
+                        $perc += $exp * 0.4;
+                }
+                else
+                    $perc += $exp;
+            }
+        }
+        else
+        {
+            if($this->industry_id == $post->industry_id)
+            {
+                if($this->years_experience == $post->experience_requirements)
+                    $perc += $exp * 0.8;
+                elseif($this->years_experience < $post->experience_requirements)
+                {
+                    if($post->experience_requirements/2 >= $this->years_experience)
+                        $perc += $exp * 0.2;
+                    else
+                        $perc += $exp * 0.4;
+                }
+                else
+                    $perc += $exp;
+            }
+            
+        }
+
+        //interview
+        if(isset($model->id))
+        {
+            if(isset($application->id))
+            {
+                if(count($application->interviewResults) > 0)
+                {
+                    if($application->interviewScore > $model->interview_result_score)
+                        $perc += $interview;
+                    elseif($application->interviewScore == $model->interview_result_score)
+                        $perc += $interview * 0.8;
+                    else
+                        $perc += $interview * 0.4;
+                }
+                else
+                {
+                    //$perc += $interview;
+                }
+                
+            }
+        }
+        else
+        {
+            if(count($application->interviewResults) > 0)
+            {
+                if($application->interviewScore >= 90)
+                    $perc += $interview;
+                elseif($application->interviewScore >= 70)
+                    $perc += $interview * 0.8;
+                elseif($application->interviewScore >= 60)
+                    $perc += $interview * 0.6;
+                elseif($application->interviewScore >= 40)
+                    $perc += $interview * 0.3;
+                else
+                    $perc += $interview * 0.05;
+            }
+            else
+            {
+                //$perc += $interview;
+            }
+        }
+
+        if(isset($model->id))
+        {
+            if(count($model->modelSeekerSkills) > 0 || count(json_decode($model->other_skills)) > 0) //skills
+            {
+
+                $skills_count = $model->skillsWeight;
+                $exist_skills = 0;
+
+                if(count($model->modelSeekerSkills) > 0)
+                {
+                    for($i=0; $i<count($model->modelSeekerSkills); $i++)
+                    {
+                        if($this->hasSkill($model->modelSeekerSkills[$i]->industrySkill->id))
+                            $exist_skills += $model->modelSeekerSkills[$i]->weight;
+                    }
+                }
+
+                if(isset($model->other_skills) && count(json_decode($model->other_skills)) > 0)
+                {
+                    if( !is_null($this->resume_contents) )
+                    {
+                        $other_skills = json_decode($model->other_skills);
+                        $other_skills_weights = json_decode($model->other_skills_weight);
+
+                        for($i=0; $i<count($other_skills); $i++)
+                        {
+                            if(strpos($this->resume_contents, "%".$other_skills[$i]."%"))
+                            {
+                                $exist_skills += $other_skills_weights[$i];
+                            }
+                        }
+                    }
+                }
+                $perc+= $skil * $exist_skills / $skills_count;
+                
+            }
+        }
+        else
+        {
+
+            if(count(json_decode($post->industry->industrySkills)) > 0)
+            {
+                $skills_count = $post->skillsWeight;
+                $exist_skills = 0;
+
+                if(count($post->industry->industrySkills) > 0)
+                {
+                    for($i=0; $i<count($post->industry->industrySkills); $i++)
+                    {
+                        if($this->hasSkill($post->industry->industrySkills[$i]->id))
+                            $exist_skills += 1;
+                    }
+                }
+
+                $perc+= $skil * $exist_skills / $skills_count;
+
+            }
+
+
+        }
+
+        
+
+        return round($perc,2);
+
+    }
+
     public function getRsi($post){
+        return $this->getPlainRsi($post);
         $perc = 0;
 
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
