@@ -301,7 +301,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <img src="/images/avatar.png" data-src="{{asset('images/testimonials/fay.webp')}}" alt="Faith Chepkemoi" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>The Emploi Team create a great rapport with their candidates and are an invaluable asset to anyone looking for a job.</p>
+                        <p>The Emploi Team creates a great rapport with their candidates and is an invaluable asset to anyone looking for a job.</p>
                         <hr class="short">
                         <h5>Faith Chepkemoi</h5>
                         <p>Job Seeker</p>
