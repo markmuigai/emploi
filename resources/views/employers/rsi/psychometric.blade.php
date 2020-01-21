@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
 
             <button type="submit" name="button" class="btn btn-orange pull-right">Submit</button>
-            <button id="add-interview" class="btn btn-orange-alt mr-2 pull-right">Add Interview</button>
+            <button id="add-interview" class="btn btn-orange-alt mr-2 pull-right">Add Score</button>
         </form>
     </div>
 </div>
