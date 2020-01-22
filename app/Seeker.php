@@ -29,11 +29,11 @@ class Seeker extends Model
     }
 
     public function user(){
-    	return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function industry(){
-    	return $this->belongsTo(Industry::class,'industry_id');
+        return $this->belongsTo(Industry::class,'industry_id');
     }
 
     public function getResumeUrlAttribute(){
@@ -48,11 +48,11 @@ class Seeker extends Model
     }
 
     public function country(){
-    	return $this->belongsTo(Country::class,'country_id');
+        return $this->belongsTo(Country::class,'country_id');
     }
 
     public function location(){
-    	return $this->belongsTo(Location::class,'location_id');
+        return $this->belongsTo(Location::class,'location_id');
     }
 
     public function cvrequests(){
