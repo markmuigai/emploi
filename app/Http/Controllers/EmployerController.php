@@ -217,7 +217,7 @@ class EmployerController extends Controller
         //$location = isset($request->location_id) ? " OR location_id = ".$request->location_id : '';
         $industry = isset($request->industry) ? Industry::where('slug',$request->industry)->firstOrFail() : '';
         $q = $request->q ? '"%'.$request->q.'%"' : '';
-        $query = $q == '' ? '' : "WHERE experience like $q OR education LIKE $q OR resume_contents LIKE $q";
+        $query = $q == '' ? '' : "WHERE experience like $q OR (education LIKE $q OR resume_contents LIKE $q)";
         //dd($query);
         if($query == '')
         {
@@ -230,7 +230,7 @@ class EmployerController extends Controller
         {
             if(isset($request->location))
             {
-                $query .= " OR WHERE location_id = ".$request->location;
+                $query .= " AND WHERE location_id = ".$request->location;
             }
         }
 
@@ -247,7 +247,7 @@ class EmployerController extends Controller
         {
             if(isset($request->industry))
             {
-                $query .= " OR industry_id = ".$industry->id;
+                $query .= " AND industry_id = ".$industry->id;
             }
         }
 
@@ -257,6 +257,7 @@ class EmployerController extends Controller
 
 
         $sql = "SELECT id FROM seekers $query ORDER BY featured DESC";
+        //dd($sql);
         $results = DB::select($sql);
 
         //dd($sql);
