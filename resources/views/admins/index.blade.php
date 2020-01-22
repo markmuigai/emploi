@@ -62,14 +62,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/employers" class="btn btn-sm btn-success">Employers</a>
                 <a href="/admin/seekers" class="btn btn-sm btn-primary">Job Seekers</a>
                 <a href="/admin/countries" class="btn btn-sm btn-success">Countries</a>
-
-                <a href="/admin/companies" class="btn btn-sm btn-primary">Companies</a>
                 <a href="/admin/cv-requests" class="btn btn-sm btn-info">CV Requests</a>
+                <a href="/admin/companies" class="btn btn-sm btn-primary">Companies</a>
+                
 
                 <br><br>
                 <a href="/admin/job-post-groups" class="btn btn-sm btn-success">Job Post Groups</a>
                 <a href="/admin/metrics" class="btn btn-sm btn-danger">View Metrics</a>
                 <a href="/admin/unregistered-users" class="btn btn-sm btn-primary">Unregistered Users</a>
+                <a href="{{ route('cveditors') }}" class="btn btn-sm btn-info">CV Editing</a>
 
                 <a href="/admin/candidate-vetting" class="btn btn-sm btn-danger" style="display: none">Candidate Vetting</a>
                 

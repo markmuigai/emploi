@@ -49,6 +49,7 @@ Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
 Route::resource('/referrals', 'ReferralController');
+Route::resource('/cv-editing', 'CvEditController');
 
 Route::group([ 'middleware' => 'auth'], function(){
     Route::get('profile', 'HomeController@profile');
@@ -144,8 +145,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 	//Route::get('/', function () {   return redirect('/admin/panel');});
-    Route::get('/', 'AdminController@panel');
-    Route::get('panel', 'AdminController@panel');
+    Route::get('/', 'AdminController@panel')->name('adminpanel');
+    //Route::get('panel', 'AdminController@panel');
     Route::get('posts', 'AdminController@posts');
     Route::get('posts/{slug}', 'AdminController@viewPost');
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
@@ -158,6 +159,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('contacts', 'AdminController@contacts');
     Route::post('saveResolution', 'AdminController@saveResolution');
     Route::get('metrics', 'AdminController@seekerMetrics');
+    Route::get('cvediting','AdminController@cvEditing')->name('cveditors');
+    Route::get('cvediting/create','AdminController@createcvEditor')->name('newcveditor');
+    Route::post('cvediting/store','AdminController@storecvEditor')->name('storenewcveditor');
+    Route::get('cvediting/editor/{id}','AdminController@showEditor')->name('showcveditor');
 
     Route::get('employers', 'AdminController@employers');
     Route::get('companies', 'AdminController@companies');

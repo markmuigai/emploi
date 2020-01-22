@@ -618,7 +618,7 @@ class Seeker extends Model
             //     $perc += $exp;
         }
 
-        if(count($model->modelSeekerSkills) > 0 || count(json_decode($model->other_skills)) > 0) //skills
+        if(count($model->modelSeekerSkills) > 0 || $model->other_skills != null && count(json_decode($model->other_skills)) > 0) //skills
         {
 
             $skills_count = $model->skillsWeight;

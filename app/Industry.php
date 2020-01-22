@@ -22,6 +22,10 @@ class Industry extends Model
     	return $this->hasMany(Seeker::class);
     }
 
+    public function cvEditors(){
+        return $this->hasMany(CvEditor::class);
+    }
+
     public function employers(){
     	return $this->hasMany(Employer::class);
     }
@@ -44,5 +48,9 @@ class Industry extends Model
 
     public function industrySkills(){
         return $this->hasMany(IndustrySkill::class);
+    }
+
+    public function cvEditRequests(){
+        return $this->hasMany(CvEditRequest::class);
     }
 }

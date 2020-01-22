@@ -14,10 +14,11 @@ use App\UserPermission;
 use App\Jobs\EmailJob;
 
 use App\Traits\CanLike;
+use App\Traits\CanEditCv;
 
 class User extends Authenticatable
 {
-    use Notifiable, CanLike;
+    use Notifiable, CanLike, CanEditCv;
     
     protected $fillable = [
         'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password','created_at'
@@ -42,6 +43,10 @@ class User extends Authenticatable
 
     public function inviteLinks(){
         return $this->hasMany(InviteLink::class);
+    }
+
+    public function cvEditor(){
+        return $this->hasOne(CvEditor::class);
     }
 
     public function getInviteTextAttribute(){
