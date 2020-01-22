@@ -30,13 +30,14 @@ if(isset($name))
         @endif
     </p>
     <div class="row acc-links">
-        <a href="/employers/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
-            <img src="/images/employer-join.png" class="w-100 py-3" alt="Employer Registration">
-            <h4>Employer Registration</h4>
-        </a>
+       
         <a href="/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
             <img src="/images/seeker-join.png" class="w-100 py-3" alt="Job Seeker Registration">
             <h4>Job Seeker Registration</h4>
+        </a>
+         <a href="/employers/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
+            <img src="/images/employer-join.png" class="w-100 py-3" alt="Employer Registration">
+            <h4>Employer Registration</h4>
         </a>
     </div>
     @if(!isset($name))
