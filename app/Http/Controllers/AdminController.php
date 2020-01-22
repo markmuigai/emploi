@@ -125,7 +125,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $location = "OR location_id=".$request->location;
+                    $location = "AND location_id=".$request->location;
 
                 }
                 
@@ -140,7 +140,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $industry = "OR industry_id=".$request->industry;
+                    $industry = "AND industry_id=".$request->industry;
                 }
                 
             }
@@ -154,7 +154,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $gender = "OR gender='".$request->gender."'";
+                    $gender = "AND gender='".$request->gender."'";
                 }
                 
             }
@@ -169,7 +169,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $phone_number = "OR phone_number LIKE '%".$request->phone_number."%'";
+                    $phone_number = "AND phone_number LIKE '%".$request->phone_number."%'";
                 }
                 
             }
@@ -184,7 +184,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $keywords = "OR education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%'";
+                    $keywords = "AND ( education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%')";
                 }
                 
             }
@@ -200,7 +200,7 @@ class AdminController extends Controller
                 }
                 else
                 {
-                    $phone_number = "OR featured = $f";
+                    $phone_number = "AND featured = $f";
                 }
                 
             }
