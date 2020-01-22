@@ -189,6 +189,21 @@ class AdminController extends Controller
                 
             }
 
+            $experience ="";
+            if(isset($request->experience))
+            {
+                if($first)
+                {
+                    $experience = "years_experience>=".$request->experience;
+                    $first = false;
+                }
+                else
+                {
+                    $experience = "AND years_experience>=".$request->experience;
+                }
+                
+            }
+
             $featured ="";
             if(isset($request->featured) && $request->featured != 'all')
             {
@@ -209,7 +224,7 @@ class AdminController extends Controller
                 $where = " WHERE ";
             else
                 $where = "";
-            $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $keywords $featured ORDER BY id DESC";
+            $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $keywords $experience $featured ORDER BY id DESC";
             $results = DB::select($sql);
             $seekers = [];
 
@@ -261,6 +276,7 @@ class AdminController extends Controller
                     ->with('gender',$request->gender)
                     ->with('phone_number',$request->phone_number)
                     ->with('keywords',$request->keywords)
+                    ->with('experience',$request->experience)
                     ->with('seekers',$seekers);
         }
         return view('admins.seekers.index')

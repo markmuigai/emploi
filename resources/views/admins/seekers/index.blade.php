@@ -39,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="form-row mt-3">
-        <div class="form-group col-lg-4 text-center">
+        <div class="form-group col-lg-3 text-center">
             <select name="location" class="custom-select">
                 <option value="">All Locations</option>
                 @forelse($locations as $l)
@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endforelse
             </select>
         </div>
-        <div class="form-group col-lg-4 text-center">
+        <div class="form-group col-lg-3 text-center">
             <select name="industry" class="custom-select">
                 <option value="">All Industries</option>
                 @forelse($industries as $ind)
@@ -59,7 +59,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endforelse
             </select>
         </div>
-        <div class="form-group col-lg-4 text-center">
+        <div class="form-group col-lg-3">
+            <select name="experience" class="custom-select">
+                <option value="">Any Experience</option>
+                @for($i=0; $i<20; $i++)
+                <option value="{{ $i }}" {{ isset($experience) && $experience == $i ? 'selected="selected"' : '' }}>{{ $i }} year exp</option>
+                @endfor
+            </select>
+        </div>
+        <div class="form-group col-lg-3 text-center">
             <button type="submit" name="button" class="btn btn-orange">Search</button>
         </div>
     </div>
