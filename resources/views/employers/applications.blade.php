@@ -211,8 +211,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="col-5 col-md-5 col-lg-6">
                                 <h4>{{ $a->user->name }}</h4>
                                 <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
+                                @if(isset($a->user->seeker->location_id))
                                 <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
                                     {{ $a->user->seeker->location->country->name }}</p>
+                                @else
+                                    
+
+                                @endif
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
                                 <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
