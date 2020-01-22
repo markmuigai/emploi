@@ -12,7 +12,6 @@ use App\Advert;
 use App\Blog;
 use App\Company;
 use App\Contact;
-use App\CvEditor;
 use App\CvRequest;
 use App\Employer;
 use App\Industry;
@@ -343,50 +342,6 @@ class AdminController extends Controller
                 ->with('industries',Industry::orderBy('name')->get());
     }
 
-    public function cvEditing(){
-        return view('admins.cvediting.index')
-                ->with('editors',CvEditor::orderBy('status')->paginate(10));
-    }
-
-    public function createcvEditor(){
-        return view('admins.cvediting.create')
-                ->with('industries',Industry::orderBy('name')->get());
-    }
-
-    public function storecvEditor(Request $request){
-        $user = User::where('email',$request->email)->first();
-        if(!isset($user->id))
-        {
-            return view('admins.cvediting.message')
-                        ->with('title','Failed')
-                    ->with('message','Failed to create a cv-editor as email '.$request->email.' is not registered');
-        }
-        $editor = CvEditor::where('user_id',$user->id)->first();
-        if(isset($editor->id))
-        {
-            return view('admins.cvediting.message')
-                        ->with('title','Failed')
-                    ->with('message','The email '.$request->email.' is already a Cv Editor');
-        }
-
-        CvEditor::create([
-            'user_id' => $user->id,
-            'industry_id' => isset($request->industry) ? $request->industry : null
-        ]);
-
-        return view('admins.cvediting.message')
-                    ->with('title','Success')
-                    ->with('message',$user->name.' with email '.$request->email.' is now a Cv Editor');
-
-
-    }
-
-    public function showEditor($id){
-        $editor = CvEditor::findOrFail($id);
-
-        return view('admins.cvediting.show')
-                    ->with('editor',$editor);
-    }
 
     public function contacts(){
         return view('admins.contacts.index')

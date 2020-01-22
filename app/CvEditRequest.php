@@ -17,4 +17,9 @@ class CvEditRequest extends Model
     public function cvEditor(){
     	return $this->belongsTo(CvEditor::class);
     }
+
+    // public static function getAvailableCvEditRequests()
+    // {
+    // 	return CvEditRequest::where('assigned_on',null)->orderBy('id','DESC')->get();
+    // }
 }
