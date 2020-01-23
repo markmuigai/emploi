@@ -12,6 +12,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
+        <a href="/admin/panel" class="btn btn-default"><i class="fa fa-arrow-left"></i> Back</a>
+        @if(count($editors)>0)
+
+        <a href="/admin/cveditors/create" class="btn btn-orange">Add Editor</a>
+        <hr>
+        @endif
         @forelse($editors as $editor)
         @include('components.editorProfile')
         @empty

@@ -166,13 +166,16 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-left" aria-labelledby="navbarDropdown">
                         @guest
-                        <a class="dropdown-item" href="/login">Login</a>
-                        <a class="dropdown-item" href="/join">Create Profile</a>
-                        <a class="dropdown-item" href="/contact">Contact Us</a>
+                            <a class="dropdown-item" href="/login">Login</a>
+                            <a class="dropdown-item" href="/join">Create Profile</a>
+                            <a class="dropdown-item" href="/contact">Contact Us</a>
                         @else
-                        <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
-                        <a class="dropdown-item" href="/profile">View Profile</a>
-                        <a class="dropdown-item" href="/logout">Logout</a>
+                            @if(Auth::user()->canHandleCvEdits())
+                            <a class="dropdown-item" href="#"><strong>Edit Cvs</strong></a>
+                            @endif
+                            <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
+                            <a class="dropdown-item" href="/profile">View Profile</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
                         @endguest
                     </div>
                 </li>

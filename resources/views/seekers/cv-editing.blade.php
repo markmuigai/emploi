@@ -21,9 +21,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 			<p>A recruiter may spend as little as 20 seconds looking at each CV. You need to maximize on your 20 seconds to deliver maximum impression to the recruiter.</p>
 
-			<p>If you do not have the right skills to deliver a targeted, detailed and get concise CV, <a href="/contact" class="orange">YOU NEED TO TALK TO THE EXPERTS</a>.</p>
+			<p>If you do not have the right skills to deliver a targeted, detailed and get concise CV, <a href="#request-cv-edit-form" class="orange">you need to talk to the experts</a>.</p>
 
 			<p>We leverage on our expertise to provide you with a clear, concise CV that matches your professional level and will stand out before recruiters.</p>
+			<p>
+				<a href="#request-cv-edit-form" class="btn btn-orange">Request Cv Editing</a>
+			</p>
 		</div>
 	</div>
 
@@ -54,10 +57,74 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 
+	<div class="row" id="request-cv-edit-form">
+		<div class="col-md-8 offset-md-2">
+			<h3 style="text-align: center;">Request Professional CV Editing</h3>
+		</div>
+		<br><br>
+		
+		<form method="POST"  enctype="multipart/form-data" action="/cv-editing" class="col-md-8 offset-md-2">
+			@csrf
+			<p>
+				<label>Name:</label>
+				@error('name')
+			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+			        Invalid name
+			    </div>
+			    @enderror
+				<input type="text" name="name" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->name : old('name') }}">
+			</p>
+			<p>
+				<label>Email:</label>
+				@error('email')
+			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+			        Invalid e-mail address
+			    </div>
+			    @enderror
+				<input type="email" name="email" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->email : old('email') }}">
+			</p>
+			<p>
+				<label>Current CV: <small>.doc, .docx and .pdf - Max 5MB</small></label>
+				@error('resume')
+			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+			        Invalid resume uploaded
+			    </div>
+			    @enderror
+				<input type="file" name="resume" required="" accept=".pdf, .doc, .docx">
+			</p>
+			<p>
+				<label>Industry:</label>
+				@error('industry')
+			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+			        Invalid industry selected
+			    </div>
+			    @enderror
+				<select name="industry" class="form-control">
+					@forelse(\App\Industry::orderBy('name')->get() as $ind)
+					<option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
+					@empty
+					@endforelse
+				</select>
+			</p>
+			<p>
+				<label>Message:</label>
+				@error('message')
+			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+			        Invalid message
+			    </div>
+			    @enderror
+				<textarea class="form-control" placeholder="Optional message " maxlength="500" name="message">{{ old('message') }}</textarea>
+			</p>
+			<p>
+				<input type="submit" class="btn btn-success">
+			</p>
+		</form>
+	</div>
+
 
 	<h3 class="orange pt-2 text-center">Our Charges</h3>
 
-	<div class="card-deck text-center coloured-card">
+	<div class="card-deck text-center coloured-card row">
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
 				<h1>Kshs 2,000</h1>
