@@ -20,7 +20,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <div class="row">
             <div class="col-md-8">
-                <h4>{{ $edit->name }}
+                <h4>
+                    {{ $edit->name }}
                     <small>{{ $edit->created_at->diffForHumans() }}</small>
                 </h4>
                 <p>
@@ -51,7 +52,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                     @endif
                 @else
-                Assignee: {{ $edit->cvEditor->user->name }} <br>
+                Assignee: <a href="/admin/cveditors/{{ $edit->cvEditor->id }}" class="orange">{{ $edit->cvEditor->user->name }}</a> <br>
                 Email: {{ $edit->cvEditor->user->email }}
                 Assigned: {{ $edit->assigned_on }}
                 @endif

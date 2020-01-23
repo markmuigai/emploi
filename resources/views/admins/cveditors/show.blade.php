@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/admin/cveditors" class="btn btn-default">
                 <i class="fa fa-arrow-left"></i> 
             </a> 
-            Pending {{ count(\App\CvEditRequest::where('cv_editor_id',$editor->id)->where('submitted_on',null)->get()) }} | Assigned {{ count($editor->cvEditRequests) }} | Completed {{ count(\App\CvEditRequest::where('cv_editor_id',$editor->id)->where('submitted_on','!=',null)->get()) }} 
+            @include('components.editorStats')
         </h5>
         <hr>
         @include('components.editorProfile')
@@ -24,7 +24,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row">
             @forelse($editor->cvEditRequests as $er)
             <div class="col-md-10 offset-md-1">
-                
+                <strong>{{ $er->name }}</strong> <i style="float: right;">{{ $er->status }}</i>
+                <br> <small>{{ $er->industry->name }}</small> <a href="/admin/cv-edit-requests/{{ $er->id }}" class="orange" style="float: right;">view request</a>
+                <br>
+                Assigned: {{ $er->assigned_on }} | Submitted: {{ $er->submitted_on }} 
             </div>
             @empty
             <div class="col-md-10 offset-md-1">

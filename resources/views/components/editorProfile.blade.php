@@ -13,6 +13,10 @@
             Industry: {{ $editor->industry_id ? \App\Industry::find($editor->industry_id)->name : 'All Industries' }} <br>
             Registered: {{ $editor->created_at }}
         </p>
+        <hr>
+        <p>
+            @include('components.editorStats')
+        </p>
     </div>
     <div class="col-md-4 col-12 text-md-right text-left">
         <p>
