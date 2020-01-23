@@ -12,6 +12,8 @@ use App\Advert;
 use App\Blog;
 use App\Company;
 use App\Contact;
+use App\CvEditor;
+use App\CvEditRequest;
 use App\CvRequest;
 use App\Employer;
 use App\Industry;
@@ -739,6 +741,42 @@ class AdminController extends Controller
         //dd($seeker->id);
         return redirect()->back();
         //$seeker = $user->seeker;
+    }
+
+    public function editingRequests(Request $request, $id = false){
+        if(!$id)
+        {
+            return view('admins.cvediting.index')
+                ->with('edits',CvEditRequest::orderBy('submitted_url')->paginate(10));
+        }
+        $e = CvEditRequest::findOrFail($id);
+        $editors = CvEditor::where('industry_id',$e->industry_id)
+                    ->orWhere('industry_id',null)->get();
+        return view('admins.cvediting.show')
+                ->with('edit',$e)
+                ->with('editors',$editors);
+
+    }
+
+    public function assignEditingRequests(Request $request, $id)
+    {
+        $e = CvEditRequest::findOrFail($id);
+        $e->cv_editor_id = $request->editor_id;
+        $e->assigned_on = now();
+        $e->status = 'assigned';
+        $e->save();
+
+        $caption = "Cv Edit Request on Emploi";
+        $contents = "A CV Editing request has been assigned to you. Log in and process this request. <b> Consider this an urgent call. If you require additional information, kindly contact us.<br><br>
+        <a href='".url('/cv-editing/'.$e->slug)."'>View CV Editing Request</a>
+        Resolution Message: <br>
+        <i>".$c->resolve_notes."</i> <br>
+        Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br>
+        Thank you for your cooperation.";
+        EmailJob::dispatch($c->name, $c->email, 'Emploi Cv Edit Request', $caption, $contents);
+
+        return redirect()->back();
+        return $request->all();
     }
 
 }

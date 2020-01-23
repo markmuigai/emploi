@@ -160,6 +160,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('saveResolution', 'AdminController@saveResolution');
     Route::get('metrics', 'AdminController@seekerMetrics');
     Route::resource('cveditors','EditorController');
+    Route::get('cv-edit-requests/{id?}', 'AdminController@editingRequests');
+    Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingRequests');
 
     Route::get('employers', 'AdminController@employers');
     Route::get('companies', 'AdminController@companies');
