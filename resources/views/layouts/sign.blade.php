@@ -92,6 +92,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
+                <br><br>
                 @include('components.ads.responsive')
             </div>
         </div>
