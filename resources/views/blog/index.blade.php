@@ -32,6 +32,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     <div class="row pt-3">
         <?php $adsCounter=0; ?>
+        <div class="col-lg-4 col-md-6">
+            <div class="card my-2">
+                @include('components.ads.responsive')
+            </div>
+        </div>
         @forelse($blogs as $blog)
         <div class="col-lg-4 col-md-6">
             <div class="card my-2">
