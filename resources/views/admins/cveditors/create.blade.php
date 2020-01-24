@@ -13,12 +13,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         <h5>
-            <a href="/admins/cveditors" class="btn btn-default">
+            <a href="/admin/cveditors" class="btn btn-default">
                 <i class="fa fa-arrow-left"></i> 
             </a> 
             Create CvEditor
         </h5>
-        <form method="post" action="/admins/cveditors">
+        <form method="post" action="/admin/cveditors">
             @csrf
             <p>
                 <label>Email:</label>
