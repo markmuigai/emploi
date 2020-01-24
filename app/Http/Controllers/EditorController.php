@@ -32,14 +32,14 @@ class EditorController extends Controller
         $user = User::where('email',$request->email)->first();
         if(!isset($user->id))
         {
-            return view('admins.cvediting.message')
+            return view('admins.cveditors.message')
                         ->with('title','Failed')
                     ->with('message','Failed to create a cv-editor as email '.$request->email.' is not registered');
         }
         $editor = CvEditor::where('user_id',$user->id)->first();
         if(isset($editor->id))
         {
-            return view('admins.cvediting.message')
+            return view('admins.cveditors.message')
                         ->with('title','Failed')
                     ->with('message','The email '.$request->email.' is already a Cv Editor');
         }
@@ -49,7 +49,7 @@ class EditorController extends Controller
             'industry_id' => isset($request->industry) ? $request->industry : null
         ]);
 
-        return view('admins.cvediting.message')
+        return view('admins.cveditors.message')
                     ->with('title','Success')
                     ->with('message',$user->name.' with email '.$request->email.' is now a Cv Editor');
     }
