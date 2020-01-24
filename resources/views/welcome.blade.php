@@ -80,6 +80,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 <!-- END OF LANDING PAGE -->
 
+<div style="width: 100%">
+    @include('components.ads.responsive')
+</div>
+
 <!-- SEARCH BAR -->
 @include('components.search-form')
 <!-- END OF SEARCH BAR -->
@@ -257,6 +261,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     @endif
 </div>
 <!-- END OF FEATURED JOBS -->
+
+<div style="width: 100%">
+    @include('components.ads.responsive')
+</div>
 
 <!-- TESTIMONALS -->
 <div class="container">

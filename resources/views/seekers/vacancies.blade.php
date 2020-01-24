@@ -55,6 +55,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
     </div>
 </form>
+<div style="width: 100%">
+    @include('components.ads.responsive')
+</div>
 <!-- JOB CARD -->
 @forelse($posts as $post)
 <div class="card mb-4">
