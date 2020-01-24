@@ -99,6 +99,9 @@
 
                             </div>
                         </div>
+                        <div style="width: 100%">
+                            @include('components.ads.responsive')
+                        </div>
                         <!-- JOB DESCRIPTION -->
                         <h5 class="pt-3 pb-2">Job Description</h5>
                         <div>
@@ -114,6 +117,9 @@
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h5>Application Instructions</h5>
+                        <div style="width: 100%">
+                            @include('components.ads.responsive')
+                        </div>
 
                         @guest
                             <p>
