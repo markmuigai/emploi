@@ -52,6 +52,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <div class="card mt-4">
+    @include('components.ads.responsive')
+</div>
+<div class="card mt-4">
     <div class="card-body">
         <canvas id="myChart"></canvas>
     </div>

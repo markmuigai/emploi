@@ -51,6 +51,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- ALL JOBS -->
     <div class="tab-pane fade show active" id="job-description" role="tabpanel" aria-labelledby="job-description-tab">
         <!-- JOB CARD -->
+
+        <div class="card py-2 mb-4">
+            <div class="card-body">
+                @include('components.ads.responsive')
+            </div>
+        </div>
+
+        <?php $adsCounter = 0; ?>
+
         @forelse($seekers as $s)
 
         <div class="card py-2 mb-4">
@@ -96,6 +105,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
+        <?php $adsCounter++; ?>
+        @if($adsCounter % 3 == 0)
+        <div class="card py-2 mb-4">
+            <div class="card-body">
+                @include('components.ads.responsive')
+            </div>
+        </div>
+        @endif
         @empty
         <div class="text-center">
             <p>No Job Seekers found</p>

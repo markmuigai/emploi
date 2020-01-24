@@ -39,42 +39,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
               <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
             </div>
 
-            <?php
-            $ad = '
-<ins class="adsbygoogle"
+            
 
-     style="display:block"
-
-     data-ad-client="ca-pub-9948474979900683"
-
-     data-ad-slot="6102731895"
-
-     data-ad-format="auto"
-
-     data-full-width-responsive="true"></ins>
-
-<script>
-
-     (adsbygoogle = window.adsbygoogle || []).push({});
-
-</script>
-            ';
-                $contents = $blog->contents;
-
-                $placeAd = strpos($blog->contents, '<p>&nbsp;</p>',300)+13;
-                if($placeAd)
-                    $contents = substr_replace($contents,$ad,$placeAd,0);
-
-                $placeAd = strpos($blog->contents, '<p>&nbsp;</p>',2000)+13;
-                if($placeAd)
-                    $contents = substr_replace($contents,$ad,$placeAd,0);
-
-                $placeAd = strpos($blog->contents, '<p>&nbsp;</p>',4000)+13;
-                if($placeAd)
-                    $contents = substr_replace($contents,$ad,$placeAd,0);
-            ?>
-
-            <p><?php echo $contents; ?></p>
+            <p><?php echo $blog->contents; ?></p>
             @if($blog->image2)
             <br>
             <div class="blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
