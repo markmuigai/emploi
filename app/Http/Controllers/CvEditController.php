@@ -20,12 +20,26 @@ class CvEditController extends Controller
         $this->middleware('editor', ['except' => [
             'show','store','create','index'
         ]]);
+
+        $this->middleware('auth', ['except' => [
+            'store','create','index'
+        ]]);
     }
 
     public function index()
     {
+        
+        
         if(isset(Auth::user()->id) && Auth::user()->canHandleCvEdits())
-            return view('cvediting.index');
+        {
+            $rs = CvEditRequest::where('cv_editor_id',Auth::user()->cvEditor->id)
+                    ->orderBy('submitted_on')
+                    ->paginate(10);
+
+            return view('cvediting.index')
+                ->with('edits',$rs);
+        }
+
         return redirect('/job-seekers/cv-editing');
                 //->with('editRequests',Auth::user()->cvEditor->cvEditRequests->paginate(10));
     }
@@ -85,19 +99,66 @@ class CvEditController extends Controller
                 ->with('message',$message);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $user = Auth::user();
+        $r = CvEditRequest::where('slug',$slug)->firstOrFail();
+        if($user->id == $r->cvEditor->user->id || $r->email == $user->email)
+        {
+            return view('cvediting.show')
+                    ->with('edit',$r);
+        }
+        return redirect('/job-seekers/cv-editing');
     }
 
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $user = Auth::user();
+        $r = CvEditRequest::where('slug',$slug)->firstOrFail();
+        if($user->id == $r->cvEditor->user->id)
+        {
+            return view('cvediting.edit')
+                    ->with('edit',$r);
+        }
+        return redirect('/cv-editing/'.$slug);
+
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $request->validate([
+            'final_cv' => ['required','mimes:pdf,docx,doc','max:51200'],
+            'message' => ['required','max:500']
+        ]);
+        $user = Auth::user();
+        $r = CvEditRequest::where('slug',$slug)->firstOrFail();
+        if($user->id == $r->cvEditor->user->id)
+        {
+            $storage_path = '/public/resumes';
+            $resume_url = basename(Storage::put($storage_path, $request->final_cv));
+
+            $r->submitted_on = now();
+            $r->submitted_url = $resume_url;
+            $r->status = 'ready';
+            $r->save();
+
+            $contents = $r->cvEditor->user->name." has an update for you regarding your CV editing. <br>
+            <b>Message</b> <br>
+            ".$request->message." <br><br>
+            You can download it at any time <a href='".url('/storage/resumes/'.$resume_url)."'>here</a>
+            <br>
+            For additional enquiries, kindly <a href='".url('/contact')."'>contact us</a>. We wish you all the best. <br><br>
+            Thank you for choosing Emploi.
+            ";
+
+            $caption = "Your CV has been edited";
+
+            EmailJob::dispatch($r->name, $r->email, 'We have edited your CV', $caption, $contents);
+
+            User::first()->notify(new EditingRequest($r->cvEditor->user->name.' finished editing cv for '.$r->name));
+            //return $request->all();
+        }
+        return redirect('/cv-editing/'.$slug);
     }
 
     public function destroy($id)

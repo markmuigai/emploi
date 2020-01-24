@@ -171,7 +171,8 @@
                             <a class="dropdown-item" href="/contact">Contact Us</a>
                         @else
                             @if(Auth::user()->canHandleCvEdits())
-                            <a class="dropdown-item" href="#"><strong>Edit Cvs</strong></a>
+                            <a class="dropdown-item" href="/cv-editing">Edit Cvs (
+                                {{ count(App\CvEditRequest::where('cv_editor_id',Auth::user()->cvEditor->id)->where('submitted_on',null)->get()) }})</a>
                             @endif
                             <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
                             <a class="dropdown-item" href="/profile">View Profile</a>
