@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         <h5>
-            <a href="{{ route('cveditors') }}" class="btn btn-default">
+            <a href="/admins/cveditors" class="btn btn-default">
                 <i class="fa fa-arrow-left"></i> 
             </a> 
             Create CvEditor
