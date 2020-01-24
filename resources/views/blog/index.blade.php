@@ -90,7 +90,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         <?php $adsCounter++; ?>
-        @if($adsCounter %2 == 0)
+        @if($adsCounter %3 == 0)
         <div class="col-lg-4 col-md-6">
             <div class="card my-2">
                 @include('components.ads.responsive')
