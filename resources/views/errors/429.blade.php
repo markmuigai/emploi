@@ -22,4 +22,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+{{ \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError('429 - '.url()->current())) }}
 @endsection
