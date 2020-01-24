@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                @include('components.ads.responsive')
+                @include('components.ads.flat')
             </div>
         </div>
     </main>
