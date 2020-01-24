@@ -169,7 +169,10 @@
                     <!-- ADD JOB AS AN EMPLOYER -->
                     <div id="postJob" class="mb-2">
                         <h2>@yield('page_title')</h2>
-                        @include('components.ads.responsive')
+                        <div style="width: 100%">
+                            @include('components.ads.responsive')
+                        </div>
+                        
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                         <a href="/vacancies/create" class="btn btn-orange" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
 
