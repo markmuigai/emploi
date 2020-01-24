@@ -39,7 +39,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
               <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
             </div>
 
-            
+            <div style="width: 100%">
+                @include('components.ads.responsive')
+            </div>
 
             <p><?php echo $blog->contents; ?></p>
             @if($blog->image2)
