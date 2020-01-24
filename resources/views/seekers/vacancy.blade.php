@@ -117,9 +117,7 @@
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <h5>Application Instructions</h5>
-                        <div style="width: 100%">
-                            @include('components.ads.responsive')
-                        </div>
+                        
 
                         @guest
                             <p>
