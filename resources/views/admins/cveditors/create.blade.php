@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </a> 
             Create CvEditor
         </h5>
-        <form method="post" action="{{ route('storenewcveditor') }}">
+        <form method="post" action="/admins/cveditors">
             @csrf
             <p>
                 <label>Email:</label>
