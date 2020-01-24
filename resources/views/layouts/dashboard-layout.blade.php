@@ -138,7 +138,7 @@
                                 <a href="/login" class="btn btn-orange-alt">Login</a>
                             </div>
                         </div>
-                        <div style="width: 100%">
+                        <div style="width: 100%; height: 10em">
                             @include('components.ads.responsive')
                         </div>
                         <!-- END OF GUEST SIDEBAR -->
