@@ -77,7 +77,7 @@
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main class="sign-page mt-3 pb-5">
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-6 offset-lg-1">
                 <div class="sign-left text-center">
                     <h1 class="orange">@yield('user_title')</h1>
                     @if(is_null(\Route::current()->getName()))
@@ -90,6 +90,9 @@
                 <div class="container pt-3">
                     @yield('content')
                 </div>
+            </div>
+            <div class="col-lg-4">
+                @include('components.ads.responsive')
             </div>
         </div>
     </main>
