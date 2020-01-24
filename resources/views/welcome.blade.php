@@ -262,6 +262,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @endforelse
     </div>
     <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
+    <a href="/vacancies/featured" class="btn btn-primary mt-3 mb-5">Featured Vacancies</a>
     @endif
 </div>
 <!-- END OF FEATURED JOBS -->

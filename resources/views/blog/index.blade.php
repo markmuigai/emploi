@@ -31,6 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 
     <div class="row pt-3">
+        <?php $adsCounter=0; ?>
         @forelse($blogs as $blog)
         <div class="col-lg-4 col-md-6">
             <div class="card my-2">
@@ -83,6 +84,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
+        <?php $adsCounter++; ?>
+        @if($adsCounter %2 == 0)
+        <div class="col-lg-4 col-md-6">
+            <div class="card my-2">
+                @include('components.ads.responsive')
+            </div>
+        </div>
+        @endif
         @empty
         <div class="col-12">
           <div class="card">
