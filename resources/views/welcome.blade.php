@@ -365,33 +365,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @empty
                 @endforelse
 
-                @forelse ($blogs->slice(4, 4) as $blog)
                 <div class="card mb-lg-3 my-2">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">
-                                <img data-src="{{ asset($blog->imageUrl) }}" src="{{ asset('images/500g.png') }}" alt="{{ $blog->title }}" class="w-100 lazy">
-                            </div>
-                            <div class="col-8">
-                                <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
-                                <div class="d-flex">
-                                    <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
-                                </div>
-                                <p class="badge badge-secondary">{{ $blog->category->name }}</p>
-                            </div>
-                        </div>
-                        <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
-                        <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
-                        <span style="float: right; text-align: right;">
-                            <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
-                            <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
-                            <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
-                        </span>
-                    </div>
+                    <ins class="adsbygoogle"
+
+                         style="display:block"
+
+                         data-ad-format="fluid"
+
+                         data-ad-layout-key="-g5+23+ck-88-k1"
+
+                         data-ad-client="ca-pub-9948474979900683"
+
+                         data-ad-slot="6919676467"></ins>
+
+                    <script>
+
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+
+                    </script>
                 </div>
-                @empty
-                @endforelse
             </div>
             <div class="col-lg-7">
                 @forelse ($blogs->slice(1, 3) as $blog)
