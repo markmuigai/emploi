@@ -143,23 +143,7 @@
                         <!-- END OF GUEST SIDEBAR -->
                         @endif
 
-                        <ins class="adsbygoogle"
 
-                             style="display:block"
-
-                             data-ad-client="ca-pub-9948474979900683"
-
-                             data-ad-slot="6102731895"
-
-                             data-ad-format="auto"
-
-                             data-full-width-responsive="true"></ins>
-
-                        <script>
-
-                             (adsbygoogle = window.adsbygoogle || []).push({});
-
-                        </script>
 
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
 
@@ -185,6 +169,23 @@
                     <!-- ADD JOB AS AN EMPLOYER -->
                     <div id="postJob" class="mb-2">
                         <h2>@yield('page_title')</h2>
+                        <ins class="adsbygoogle"
+
+                             style="display:block"
+
+                             data-ad-client="ca-pub-9948474979900683"
+
+                             data-ad-slot="6102731895"
+
+                             data-ad-format="auto"
+
+                             data-full-width-responsive="true"></ins>
+
+                        <script>
+
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+
+                        </script>
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                         <a href="/vacancies/create" class="btn btn-orange" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
 
