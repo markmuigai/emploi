@@ -80,8 +80,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 <!-- END OF LANDING PAGE -->
 
-<div style="width: 100%">
-    @include('components.ads.responsive')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            @include('components.ads.responsive')
+        </div>        
+    </div>
 </div>
 
 <!-- SEARCH BAR -->
@@ -262,8 +266,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 <!-- END OF FEATURED JOBS -->
 
-<div style="width: 100%">
-    @include('components.ads.responsive')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            @include('components.ads.responsive')
+        </div>        
+    </div>
 </div>
 
 <!-- TESTIMONALS -->
@@ -343,6 +351,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <h2 class="text-center">Blogs And News</h2>
         <div class="row">
             <div class="col-lg-5">
+                <div class="card mb-lg-3 my-2">
+                    @include('components.ads.inarticle')
+                </div>
                 @forelse($blogs->slice(0,1) as $blog)
                 <div class="card">
                     <div class="card-body">
@@ -366,23 +377,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endforelse
 
                 <div class="card mb-lg-3 my-2">
-                    <ins class="adsbygoogle"
-
-                         style="display:block"
-
-                         data-ad-format="fluid"
-
-                         data-ad-layout-key="-g5+23+ck-88-k1"
-
-                         data-ad-client="ca-pub-9948474979900683"
-
-                         data-ad-slot="6919676467"></ins>
-
-                    <script>
-
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-
-                    </script>
+                    @include('components.ads.inarticle')
                 </div>
             </div>
             <div class="col-lg-7">
