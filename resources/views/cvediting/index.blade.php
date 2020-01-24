@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body row">
 
     	@forelse($edits as $e)
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-10 offset-md-1" style="border-bottom: 0.1em solid black">
         	<p>
         		<strong>{{ $e->name }}</strong> 
 	        	<span style="float: right;">
@@ -23,6 +23,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	        	<p>
 	        		{{ $e->industry->name }} <a href="/cv-editing/{{ $e->slug }}" style="float: right;" class="orange">view request</a>
 	        	</p>
+                <p>
+                    Status: {{ $e->status }}
+                </p>
         	</p>
         	
         </div>
