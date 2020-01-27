@@ -50,9 +50,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<p><strong>Industry: </strong>{{ $company->industry->name }}</p>
 					</div>
 					<div class="col-md-6">
-						<p><strong>Type: </strong>Privately Held</p>
-					</div>
-					<div class="col-md-6">
 						<p><strong>Loacation: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
 					</div>
 					<div class="col-md-6">
