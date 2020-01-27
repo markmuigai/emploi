@@ -868,6 +868,8 @@ class Seeker extends Model
             return false;
         if( is_null($this->education_level_id) )
             return false;
+        if( is_null($this->resume) )
+            return false;
         // if( is_null($this->education) )
         //     return false;
         // if( is_null($this->experience) )
