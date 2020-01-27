@@ -42,8 +42,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h4 class="text-uppercase">Step into your Future</h4>
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
-            <a href="/vacancies" class="btn btn-orange px-4">Vacancies</a>
+            <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange px-4">Latest Vacancies</a>
             <a href="/job-seekers/services" class="btn btn-white px-4">Services</a>
+            <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-success px-4">Request CV Editing</a>
 
             @elseif(isset(Auth::user()->id) && Auth::user()->role == 'employer')
             <h4 class="text-uppercase">Hire with ease</h4>
@@ -73,7 +74,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h1>Blast Off Your Career</h1>
             <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
             <a href="/join" class="btn btn-orange px-4">Join Now</a>
-            <a href="/vacancies" class="btn btn-white px-4">Vacancies</a>
+            <a href="/vacancies" class="btn btn-white px-4">Latest Vacancies</a>
+            <a href="/job-seekers/cv-editing" class="btn btn-success px-4">Request CV Editing</a>
             @endif
         </div>
     </div>
@@ -102,6 +104,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     matching.
                 </p>
                 <a href="/about" class="btn btn-orange">More About Us</a>
+                <a href="/employers/publish" class="btn btn-primary px-4">Advertise Here</a>
             </div>
         </div>
     </div>
@@ -152,19 +155,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <h5>Employer Services</h5>
                         <a href="/employers/browse" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-briefcase"></i>
+                                <i class="fas fa-users"></i>
                                 <p>Browse Talent Database</p>
                             </div>
                         </a>
                         <a href="/employers/services" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-briefcase"></i>
+                                <i class="fas fa-handshake"></i>
                                 <p>Recruitment Process Outsourcing</p>
                             </div>
                         </a>
                         <a href="/employers/services" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-briefcase"></i>
+                                <i class="fas fa-sort"></i>
                                 <p>Assess Candidate</p>
                             </div>
                         </a>
@@ -176,7 +179,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </a>
                         <a href="/employers/background-checks" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-briefcase"></i>
+                                <i class="fas fa-list-alt"></i>
                                 <p>Background Checks</p>
                             </div>
                         </a>
@@ -185,25 +188,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <h5>Job Seeker Services</h5>
                         <a href="/job-seekers/premium-placement" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-check"></i>
                                 <p>Premium Placement</p>
                             </div>
                         </a>
                         <a href="/job-seekers/services" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-check-circle"></i>
                                 <p>Professional Coaching</p>
                             </div>
                         </a>
                         <a href="/vacancies" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-briefcase"></i>
                                 <p>Job Vacancies</p>
                             </div>
                         </a>
                         <a href="/job-seekers/cv-editing" class="card m-2 py-2">
                             <div class="card-body">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-file"></i>
                                 <p>Professional CV Editing</p>
                             </div>
                         </a>
@@ -438,36 +441,37 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div class="content">
             @guest
-            <h1>Find the Right Job for you.</h1>
-            <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
-            <h4>More than <span>2165</span> professional got their path to success.</h4>
-            <a href="/register" class="btn btn-orange">Get Started</a>
-            <a href="/contact" class="btn btn-white px-4">Contact Us</a>
+                <h1>Find the Right Job for you.</h1>
+                <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
+                <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
+                <a href="/join" class="btn btn-orange">Get Started</a>
+                <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
+                <a href="/job-seekers/services" class="btn btn-primary px-4">Job Seeker Services</a>
             @else
-            @if(Auth::user()->role == 'seeker')
-            <h1>Find the Right Job for you.</h1>
-            <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
-            <h4>More than <span>2165</span> professional got their path to success.</h4>
-            <a href="/register" class="btn btn-orange">Get Started</a>
-            <a href="/contact" class="btn btn-white px-4">Contact Us</a>
-            @endif
-            @if(Auth::user()->role == 'employer')
-            <h1>Let us recruit for you</h1>
-            <p>Looking to hire? We offer premium recruitment solutions that'll make sure you have the right candindate</p>
-            <h4>We conduct pre-assessment, background checks, proficiency tests, have a <span>ready pool of more than 20,000 job seekers</span> to start from.</h4>
-            <a href="/employers/publish" class="btn btn-orange">Advertise</a>
-            <a href="/contact" class="btn btn-white px-4">Contact Us</a>
-            @endif
-            @if(Auth::user()->role == 'admin')
-            <h1>Admin Logged In</h1>
-            <a href="/home" class="btn btn-orange">Dashboard</a>
-            <a href="/logout" class="btn btn-white px-4">Logout</a>
-            @endif
-            @if(Auth::user()->role == 'super-admin')
-            <h1>Super Admin Logged in</h1>
-            <a href="/home" class="btn btn-orange">Dashboard</a>
-            <a href="/logout" class="btn btn-white px-4">Logout</a>
-            @endif
+                @if(Auth::user()->role == 'seeker')
+                    <h1>Find the Right Job for you.</h1>
+                    <p>Looking for a job? Maybe your CV doesn't stand out! Let us catapult your career and land you a job with our professional CV Editing.</p>
+                    <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
+                    <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange">Explore Vacancies</a>
+                    <a href="/job-seekers/cv-editing" class="btn btn-white px-4">Request CV Editing</a>
+                @endif
+                @if(Auth::user()->role == 'employer')
+                    <h1>Let us recruit for you</h1>
+                    <p>Looking to hire? We offer premium recruitment solutions that'll make sure you have the right candindate</p>
+                    <h4>We conduct pre-assessment, background checks, proficiency tests, have a <span>ready pool of more than 40,000 job seekers</span> to start from.</h4>
+                    <a href="/employers/publish" class="btn btn-orange">Advertise</a>
+                    <a href="/home" class="btn btn-white px-4">My Dashboard</a>
+                @endif
+                @if(Auth::user()->role == 'admin')
+                    <h1>Admin Logged In</h1>
+                    <a href="/home" class="btn btn-orange">Dashboard</a>
+                    <a href="/logout" class="btn btn-white px-4">Logout</a>
+                @endif
+                @if(Auth::user()->role == 'super-admin')
+                    <h1>Super Admin Logged in</h1>
+                    <a href="/home" class="btn btn-orange">Dashboard</a>
+                    <a href="/logout" class="btn btn-white px-4">Logout</a>
+                @endif
             @endguest
         </div>
     </div>
