@@ -230,7 +230,7 @@ class EmployerController extends Controller
         {
             if(isset($request->location))
             {
-                $query .= " AND WHERE location_id = ".$request->location;
+                $query .= " AND location_id = ".$request->location;
             }
         }
 
