@@ -41,8 +41,8 @@ class RegisterController extends Controller
 
     public function showRegistrationForm(Request $request)
     {
-        if(isset($request->redirectToPost))
-            $request->session()->put('redirectToPost', $request->redirectToPost);
+        if(isset($request->redirectToUrl))
+            $request->session()->put('redirectToUrl', $request->redirectToUrl);
         $email= $request->email ? $request->email : '';
         $name=$request->name ? $request->name : '';
         return view('auth.register')

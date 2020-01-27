@@ -282,8 +282,10 @@ class ContactController extends Controller
                 ->with('locations',Location::top());
     }
 
-    public function join(){
-         return view('pages.join');
+    public function join(Request $request){
+        if(isset($request->redirectToUrl))
+            $request->session()->put('redirectToUrl', $request->redirectToUrl);
+        return view('pages.join');
     }
 
     public function careers(){

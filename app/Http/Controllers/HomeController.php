@@ -36,6 +36,33 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
+        if ($request->session()->has('redirectToUrl')) {
+            $url = session('redirectToUrl');
+            if($user->role == 'seeker' && !$user->seeker->hasCompletedProfile())
+            {
+                if($request->session()->has('redirectToUrlRetries'))
+                {
+                    $tries = session('redirectToUrlRetries');
+                    $tries++;
+                    $request->session()->put('redirectToUrlRetries', $tries);
+                    if(session('redirectToUrlRetries') > 3)
+                    {
+                        $request->session()->forget('redirectToUrlRetries');
+                        $request->session()->forget('redirectToUrl');
+                        //return redirect('/job-seekers/dashboard');
+                    }
+                }
+                else
+                {
+                    $request->session()->put('redirectToUrlRetries', 1);
+                }
+
+                //return redirect('/vacancies/'.$post_slug);
+            }
+            $request->session()->forget('redirectToUrl');
+            return redirect($url);
+            
+        }
         switch ($user->role) {
             case 'employer':
                 return redirect('/employers/dashboard');
@@ -50,33 +77,6 @@ class HomeController extends Controller
                 break;
 
             case 'seeker':
-                if ($request->session()->has('redirectToPost')) {
-                    $post_slug = session('redirectToPost');
-                    if(!$user->seeker->hasCompletedProfile())
-                    {
-                        if($request->session()->has('redirectToPostRetries'))
-                        {
-                            $tries = session('redirectToPostRetries');
-                            $tries++;
-                            $request->session()->put('redirectToPostRetries', $tries);
-                            if(session('redirectToPostRetries') > 3)
-                            {
-                                $request->session()->forget('redirectToPostRetries');
-                                $request->session()->forget('redirectToPost');
-                                return redirect('/job-seekers/dashboard');
-                            }
-                        }
-                        else
-                        {
-                            $request->session()->put('redirectToPostRetries', 1);
-                        }
-
-                        return redirect('/vacancies/'.$post_slug);
-                    }
-                    $request->session()->forget('redirectToPost');
-                    return redirect('/vacancies/'.$post_slug);
-                    
-                }
                 return redirect('/job-seekers/dashboard');
                 break;
             default:

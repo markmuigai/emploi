@@ -43,10 +43,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @include('components.ads.responsive')
             </div>
 
-            <p><?php echo $blog->contents; ?></p>
-            @if($blog->image2)
-            <br>
-            <div class="blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
+            @if(isset(Auth::user()->id))
+
+                <p><?php echo $blog->contents; ?></p>
+                @if($blog->image2)
+                <br>
+                <div class="blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
+                @endif
+            @else
+                <br><br>
+                <p style="text-align: center;">
+                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">Login</a> or <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to view the full blog.
+                </p>
+
             @endif
             <hr>
             <p>

@@ -29,8 +29,8 @@ class LoginController extends Controller
 
     public function showLoginForm(Request $request)
     {
-        if(isset($request->redirectToPost))
-            $request->session()->put('redirectToPost', $request->redirectToPost);
+        if(isset($request->redirectToUrl))
+            $request->session()->put('redirectToUrl', $request->redirectToUrl);
         return view('auth.login');
     }
 

@@ -17,9 +17,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       	<a href="/profile" class="btn btn-purple">View Profile</a>
       	<a href="/home" class="btn btn-orange">
       		<?php
-      		if(session('redirectToPost'))
+      		if(session('redirectToUrl'))
       		{
-      			print 'Continue to Apply Job';      			
+            if(strpos(session('redirectToUrl'), '/blog/'))
+            {
+              print 'Continue to Blog';
+            }
+            elseif(strpos(session('redirectToUrl'), '/vacancies/'))
+            {
+      			 print 'Continue to Apply Job';      			
+            }
+            else
+            {
+              print 'Return to Intial Page';
+            }
       		}
       		else
       			print 'Dashboard';

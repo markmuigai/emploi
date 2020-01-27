@@ -121,7 +121,7 @@
 
                         @guest
                             <p>
-                                <a href="/login?redirectToPost={{ $post->slug }}" class="btn btn-orange-alt">Login</a> or <a href="/register?redirectToPost={{ $post->slug }}" class="btn btn-orange">Create Free Account</a> to apply for this position.
+                                <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">Login</a> or <a href="/register?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to apply for this position.
                             </p>
                             @if($post->how_to_apply == null || $post->externalSimpleApply())
                                 <br>
