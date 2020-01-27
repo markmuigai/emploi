@@ -61,6 +61,7 @@ class BlogController extends Controller
         $slug = strtolower($request->title);
         $slug = explode(" ", $slug);
         $slug = implode("-", $slug);
+        $slug = preg_replace('/[^A-Za-z0-9\-]/', '', strtolower($slug));
         $b = Blog::create([
             'user_id' => Auth::user()->id,
             'title' => $request->title,
