@@ -24,4 +24,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+<?php
+    $code = '419: Page Expired';
+    $url = url()->current();
+    $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
+    $message = $code.' '.$user.' '.$url;
+    \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
+?>
 @endsection

@@ -22,5 +22,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
-{{ \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError('500 - '.url()->current())) }}
+<?php
+    $code = '500: Internal Server Error';
+    $url = url()->current();
+    $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
+    $message = $code.' '.$user.' '.$url;
+    \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
+?>
 @endsection
