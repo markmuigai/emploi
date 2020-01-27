@@ -13,4 +13,8 @@ class Permission extends Model
     public function userPermissions(){
     	return $this->hasMany(UserPermissions::class);
     }
+
+    public function faqs(){
+    	return $this->hasMany(Faq::class);
+    }
 }

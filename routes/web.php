@@ -170,6 +170,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('job-post-groups', 'PostGroupController');
     Route::resource('countries', 'CountryController');
     Route::resource('locations', 'LocationController');
+    Route::resource('faqs', 'FaqController');
 
     Route::resource('unregistered-users', 'UnregisteredUsersController');
     Route::post('unregistered-users/import', 'UnregisteredUsersController@import');
