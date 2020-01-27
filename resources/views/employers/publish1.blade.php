@@ -100,5 +100,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
+<?php
+    $code = 'LOOKING-TO-ADVERTISE';
+    $url = url()->current();
+    $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
+    $message = $code.' '.$user.' '.$url.' is looking to Advertise';
+    \App\Employer::first()->notify(new \App\Notifications\TriedAdvertising($message));
+?>
+
 
 @endsection

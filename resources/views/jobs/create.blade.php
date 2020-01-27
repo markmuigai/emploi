@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Add A Job')
+@section('page_title', 'Create Job Post')
 
 <form method="post" action="/vacancies" enctype="multipart/form-data" id="create-post-form">
     @csrf
@@ -222,5 +222,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         });
     });
 </script>
+
+<?php
+    $code = 'STARTED-POSTING';
+    $url = url()->current();
+    $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
+    $message = $code.' '.$user.' '.$url.' Started Posting a job';
+    \App\Employer::first()->notify(new \App\Notifications\TriedAdvertising($message));
+?>
 
 @endsection
