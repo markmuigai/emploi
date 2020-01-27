@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h3><b style="float: right;"> [{{ $faq->permission->role }}]</b>{{ $faq->title }}</h3>
 
                 <p>
-                    {{ $faq->description }}
+                    <?php echo $faq->description; ?>
                 </p>
                 <hr>
                 <br>

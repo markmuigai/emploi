@@ -15,26 +15,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row" style="text-align: right; border-bottom: 0.1em solid #e88725">
             <a href="/admin/faqs/create" class="btn btn-primary">Create FAQ</a>  <br><hr>
         </div>
-        @forelse($faqs as $f)
         <div class="row">
-            <div class="col-md-8">
-                <h4>[{{ $f->permission->role }}] {{ $f->title }}
-                </h4>
-                <p>
-                    {{ $f->description }}
-                </p>
-            </div>
-            <div class="col-md-4 text-right">
+        @forelse($faqs as $f)
+
+
+        
+            <div class="col-md-10 offset-md-1">
+                <h4>[{{ $f->permission->role }}] {{ $f->title }} </h4>
                 <p><strong>Created:</strong> {{ $f->created_at->diffForHumans() }}</p>
-                <a href="/admin/faqs/{{$f->id}}" class="btn btn-orange btn-sm">View</a>
-                <a href="/admin/faqs/{{$f->id}}/edit" class="btn btn-link btn-sm">Edit</a>
+                <p>
+                    <a href="/admin/faqs/{{$f->id}}" class="btn btn-orange btn-sm">View</a>
+                    <a href="/admin/faqs/{{$f->id}}/edit" class="btn btn-link btn-sm">Edit</a>
+                </p>
+                <hr>
+                
             </div>
-        </div>
-        <hr>
+        
+        
         @empty
         <p class="text-center">
             No Frequently Asked Questions have been found.
         </p>
+        </div>
         @endforelse
     </div>
 </div>

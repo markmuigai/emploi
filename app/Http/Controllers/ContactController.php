@@ -9,6 +9,7 @@ use App\Blog;
 use App\Contact;
 use App\Country;
 use App\CvRequest;
+use App\Faq;
 use App\InviteLink;
 use App\JobApplication;
 use App\Location;
@@ -41,6 +42,18 @@ class ContactController extends Controller
     //     $res = Notification::route('mail', $email)->notify(new VerifyAccount($email,'TEST-VERIFY',$name));
     //     dd($res);
     // }
+
+    public function jobSeekerFaqs(Request $request)
+    {
+        return view('seekers.faqs')
+                ->with('faqs',Faq::where('permission_id',4)->paginate(10));
+    }
+
+    public function employerFaqs(Request $request)
+    {
+        return view('employers.faqs')
+                ->with('faqs',Faq::where('permission_id',3)->paginate(10));
+    }
 
     public function invited($slug, Request $request){
 

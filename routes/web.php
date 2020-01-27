@@ -194,6 +194,7 @@ Route::get('/job-seekers/cv-editing', 'ContactController@cvediting');
 Route::get('/job-seekers/cv-templates', 'ContactController@cvtemplates')->middleware('auth');
 Route::get('/job-seekers/premium-placement', 'ContactController@pplacement');
 Route::get('/job-seekers/services', 'ContactController@jservices');
+Route::get('/job-seekers/faqs', 'ContactController@jobSeekerFaqs');
 
 //Route::get('/employers/services', function () {      return view('employers.services');});
 Route::get('/employers/services', 'ContactController@eservices');
@@ -202,6 +203,7 @@ Route::get('/employers/iq-tests', 'ContactController@iqtests');
 Route::get('/employers/proficiency-tests', 'ContactController@proficiency');
 Route::get('/employers/psychometric-tests', 'ContactController@psychometric');
 Route::get('/employers/train-employees', 'ContactController@retrain');
+Route::get('/employers/faqs', 'ContactController@employerFaqs');
 
 
 Route::resource('/vacancies', 'PostsController');

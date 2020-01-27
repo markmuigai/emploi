@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     Description:
                 </label>
-                <textarea name="description" class="form-control" required="">{{ $faq->description }}</textarea>
+                <textarea name="description" class="form-control" required="" id="description">{{ $faq->description }}</textarea>
             </div>
 
             <div class="form-group">
@@ -52,5 +52,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </form>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    setTimeout(function() {
+        CKEDITOR.replace('description');
+    }, 3000);
+</script>
 
 @endsection

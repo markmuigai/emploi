@@ -108,6 +108,7 @@
                         <!-- <a class="dropdown-item" href="#">HR Services</a> -->
                         <a class="dropdown-item" href="/mass-recruitment">Mass Recruitment</a>
                         <a class="dropdown-item" href="/employers/register">Employer Registration</a>
+                        <a class="dropdown-item" href="/employers/faqs">Employer FAQs</a>
                         <!-- <a class="dropdown-item" href="/employers/role-suitability-index">Role Suitability Index</a> -->
                     </div>
                 </li>
@@ -124,6 +125,7 @@
                         <a class="dropdown-item" href="/job-seekers/cv-editing">CV Editing</a>
                         <a class="dropdown-item" href="/job-seekers/cv-templates">CV Templates</a>
                         <a class="dropdown-item" href="/job-seekers/premium-placement">Premium Placement</a>
+                        <a class="dropdown-item" href="/job-seekers/faqs">FAQs</a>
                     </div>
                 </li>
                 @endif
