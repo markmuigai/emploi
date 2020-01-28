@@ -11,6 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body text-center">
         <h2>{{ $title }}</h2>
+        @include('components.ads.responsive')
       	<p>
         	{{ $message }}
         </p>

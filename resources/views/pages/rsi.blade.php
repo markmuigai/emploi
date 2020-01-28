@@ -17,6 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <p>
                 The RSI is an important <strong>tool for employers to evaluate a candidate's abilities</strong> by measuring the candidates strengths and weaknesses. It encompases Interviews, Background Checks (Education Background, Employment Background), IQ Tests, Psychometric Tests, Skills check amongst others.
             </p>
+            @include('components.ads.responsive')
             <p>
                 To use the RSI, <a href="/employers/register" class="orange">create an employer profile</a> or <a href="/employers/dashboard" class="orange">open the dashboard</a>. Create a job advertisement and model your ideal job seeker and rank
                 applicants using the RSI Tool.

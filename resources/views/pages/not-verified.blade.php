@@ -13,6 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>
         We value our users which is why we require all accounts to be verified.
     </p>
+    @include('components.ads.responsive')
     <p>
         A confirmation e-mail has been re-sent to your e-mail address.
     </p>

@@ -22,6 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      	<div class="clearfix"> </div>
 	      </div>
 	      <br>
+	      @include('components.ads.responsive')
 	      <div class="col-md-8 offset-md-2">
 	      	{{ $message }}
 	      </div>

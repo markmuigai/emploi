@@ -10,6 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container py-5">
     <h2 class="orange text-center">Privacy Policy</h2>
+    @include('components.ads.responsive')
     <p>
         Jobsikaz Afrique built the Emploi app as a Freemium app. This SERVICE is provided by Jobsikaz Afrique at no cost and is intended for use as is.
     </p>
@@ -28,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </p>
 
     <h4 class="pt-3">Information Collection and Use</h4>
-
+    @include('components.ads.responsive')
     <p>
 
         For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained by us and used as described in this privacy policy.
@@ -49,6 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </p>
 
     <h5 class="pt-3">Cookies</h5>
+    @include('components.ads.responsive')
 
     <p>
         Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
@@ -77,6 +79,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <h5 class="pt-3">
         Security
     </h5>
+    @include('components.ads.responsive')
     <p>
         We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100%
         secure and reliable, and we cannot guarantee its absolute security.
@@ -92,6 +95,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <h5 class="pt-3">
         Children’s Privacy
     </h5>
+    @include('components.ads.responsive')
     <p>
         These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we
         immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.

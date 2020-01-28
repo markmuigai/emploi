@@ -13,15 +13,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card-body text-center">
             <h2 class="orange">About Us</h2>
             <h5>Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.</h5>
+            @include('components.ads.responsive')
             <p>At the core of our systems is a vacancy – job seeker matching engine powered by algorithms for job seeker assessment and ranking together with advanced recruitment process management tools.</p>
             <p>
                 One of the most interesting puzzles about the East African job market is the time it takes for an employer to fill a position, given the high unemployment rates in the region. In a mission to understand the puzzle and go beyond
                 the easier narrative of “unemployable graduates”, we discovered the unintended reason behind the inability of employers and job seekers to find each other as quickly, efficiently and as affordably as possible.
             </p>
             <a href="/join" class="btn btn-orange mt-3 px-4">Sign Me Up</a>
+            <a href="/employers/services" class="btn btn-default mt-3 px-4">Employer Services</a>
+            <a href="/job-seekers/services" class="btn btn-orange mt-3 px-4">Job Seeker Services</a>
             <br>
         </div>
     </div>
+    @include('components.ads.responsive')
     <div class="card">
         <div class="card-body px-5">
             <h2 class="text-center orange">Our Services</h2>

@@ -42,6 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- CANDIDATE DETAILS -->
             <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
                 <!-- INFO CARD -->
+                @include('components.ads.responsive')
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <div class="row align-items-center">

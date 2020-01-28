@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <h2 class="orange text-center">Terms and Conditions</h2>
 
     <h4 class="pt-3">Terms of engagement</h4>
+    @include('components.ads.responsive')
     <p>
         Users of this site, both employers and employees, are hereby supposed to give feedback of the outcomes of their engagement, on whether a hire is successfully done.
     </p>
@@ -25,6 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         behalf.
     </p>
     <h4 class="pt-3">Use of material</h4>
+    @include('components.ads.responsive')
     <p>
         You agree to use the Website solely for lawful purposes in the Republic of Kenya. By accessing the Website from outside Kenya, You assume responsibility for complying with the law of the applicable jurisdiction.
     </p>
@@ -51,6 +53,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </p>
 
     <h4 class="pt-3">Specific prohibited uses</h4>
+    @include('components.ads.responsive')
     <p>
         The Website may be used only for lawful purposes by individuals seeking employment and career information and employers seeking employees. Emploi.co specifically prohibits any use of the Website, and all users agree not to
         use the Website, for any of the following:
@@ -84,6 +87,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </p>
 
     <h4 class="pt-3">Emploi’s liability</h4>
+    @include('components.ads.responsive')
     <p>
         Emploi.co does not warrant that the Website will operate error-free or that the Website and its server are free of computer viruses or other harmful mechanisms. If Your use of the Website or the material results in the need
         for servicing or replacing equipment or data, Emploi.co is not responsible for those costs.
