@@ -109,6 +109,7 @@
                         <a class="dropdown-item" href="/mass-recruitment">Mass Recruitment</a>
                         <a class="dropdown-item" href="/employers/register">Employer Registration</a>
                         <a class="dropdown-item" href="/employers/faqs">Employer FAQs</a>
+                        <a class="dropdown-item" href="/employers/rate-card">Rate Card</a>
                         <!-- <a class="dropdown-item" href="/employers/role-suitability-index">Role Suitability Index</a> -->
                     </div>
                 </li>
