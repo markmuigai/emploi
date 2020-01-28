@@ -14,6 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p>
             <strong>{{ $name }}</strong> has already been added as one of your referees with the e-mail address <strong>{{ $email }}</strong>. Kindly add another referee to prevent duplication.
         </p>
+        @include('components.ads.responsive')
         <p>Thank you for your co-operation in the recruitment process.</p>
         <a href="/profile/add-referee" class="btn btn-orange mt-4">Add Referee</a>
     </div>

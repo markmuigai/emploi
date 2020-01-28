@@ -17,6 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </h4>
         <hr>
         <div class="row">
+            @include('components.ads.responsive')
             @forelse($invites as $invite)
 
                 <div class="col-md-10 offset-md-1" style="margin-bottom: 0.5em">

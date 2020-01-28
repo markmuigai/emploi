@@ -13,6 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <form method="post" action="/vacancies/{{ $post->slug }}" class="" enctype="multipart/form-data"  id="edit-post-form">
     @csrf
     {{ method_field('PUT') }}
+    @include('components.ads.responsive')
     <div id="section1" class="section-view ">
         <div class="card">
             <div class="card-body p-5">

@@ -15,6 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Thank you for taking your time to provide an honest opinion on <strong>{{ $j->seeker->user->name }}</strong>. This review will go a long way in assisting future employers to determine their suitability for work in an organization.
 
             <br>
+            @include('components.ads.responsive')
 
             <a href="/" class="btn btn-orange">Home</a>
             <a href="/join" class="btn btn-purple">Register</a>

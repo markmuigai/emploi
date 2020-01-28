@@ -15,6 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Invite Deleted [{{ Auth::user()->totalCredits }} credits]
             <a href="/profile/invites/create" style="float: right;" class="btn btn-sm btn-link">Create Invite</a>
         </h4>
+        @include('components.ads.responsive')
         <hr>
         <div>
             <b>Success!</b> <br>

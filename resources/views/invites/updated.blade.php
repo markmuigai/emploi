@@ -16,6 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/profile/invites/create" style="float: right;" class="btn btn-sm btn-link">Create Invite</a>
         </h4>
         <hr>
+        @include('components.ads.responsive')
         <div>
             <b>Success!</b> <br>
             Invite has been updated succesfully.

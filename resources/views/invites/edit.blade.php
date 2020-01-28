@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         <h4>Edit Invite</h4>
+        @include('components.ads.responsive')
         <form method="POST" action="/profile/invites/{{ $invite->slug }}">
             @csrf
             {{ method_field('PUT') }}

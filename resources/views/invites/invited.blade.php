@@ -24,6 +24,8 @@
                 <a href="/profile/invites" class="btn btn-orange">Manage My Invites</a>
                 <a href="/profile/invites/create" class="btn btn-primary">Create Invite</a>
             @endguest
+
+            @include('components.ads.responsive')
             
         </div>
     </div>
