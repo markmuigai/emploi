@@ -20,17 +20,27 @@ class SocialiteController extends Controller
     public function handleProviderCallback($provider, Request $request)
     {
         $user = Socialite::driver($provider)->user();
-        $matchedUser = User::where('email',$user->getEmail())->first();
-        if(isset($matchedUser->id))
+        $fullName = $user->getName();
+        if(isset($user->getEmail()))
         {
-        	//returning user
-        	Auth::loginUsingId($matchedUser->id, true);
-        	return redirect('/home');
+            $matchedUser = User::where('email',$user->getEmail())->first();
+            if(isset($matchedUser->id))
+            {
+                //returning user
+                Auth::loginUsingId($matchedUser->id, true);
+                return redirect('/home');
+            }
+            $email = $user->getEmail();
         }
+        else
+        {
+            $email = '';
+        }
+        
         //new user
         return view('pages.join')
-                ->with('email',$user->getEmail())
-                ->with('name',$user->getName());
+                ->with('email',$fullName)
+                ->with('name',$email);
                 
         return view('auth.social-register')
             ->with('industries',Industry::active())
