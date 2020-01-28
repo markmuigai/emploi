@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h2>Page Expired</h2>
             <p>
                 The request cannot be completed as the page has expired. <br>
-                This may have been caused by taking too long to complete a form.
+                This may have been caused by taking too long to complete a form. Kindly reload the page and try again.
             </p>
             <p>
                 If this is a mistake, please don't hesitate to <a href="/contact" class="orange">contact us</a> <br>
