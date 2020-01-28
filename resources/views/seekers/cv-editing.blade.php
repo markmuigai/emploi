@@ -30,6 +30,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 
+	 @include('components.ads.responsive')
+
 	<div class="row align-items-center justify-content-center py-4">
 		<div class="col-md-6">
 			<h5 class="pt-2">PROCESS</h5>

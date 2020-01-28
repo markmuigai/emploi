@@ -15,6 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 We provide you with seamless job placement through superior candidate selection tools that allow employers to hire very fast, Aggregated market vacancies through our Jobs board, Free and downloadable resume templates, Curated
                 expert career advice, Professional coaching and CV services.
             </p>
+            @include('components.ads.responsive')
             <div class="row pt-5">
                 <div class="col-md-6">
                     <h4>
@@ -46,6 +47,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
+
+    @include('components.ads.responsive')
 
     <div class="row justify-content-center">
         <div class="col-lg-6">

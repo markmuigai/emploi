@@ -13,6 +13,8 @@ Do you have questions? Here are frequently asked questions by Job Seekers.
     <div class="card-body">
         <div class="container">
         	<div class="panel-group" id="faqAccordion">
+        		@include('components.ads.responsive')
+        		<?php $adsCounter=0; ?>
         		@forelse($faqs as $faq)
         		<div class="panel panel-default " id="faq{{$faq->id}}">
 		            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question{{$faq->id}}">
@@ -31,6 +33,10 @@ Do you have questions? Here are frequently asked questions by Job Seekers.
 		                </div>
 		            </div>
 		        </div>
+		        <?php $adsCounter++; ?>
+		        @if($adsCounter%3 == 0)
+		        	@include('components.ads.responsive')
+		        @endif
 		        @empty
 		        <p>
 		        	Nothing here. Check back later or <a href="/contact" class="orange">Contact Us</a>

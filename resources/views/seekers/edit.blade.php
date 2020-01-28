@@ -34,6 +34,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label for="username">Username *</label>
                     <input type="text" required="" value="{{ $user->username }}" name="username" id="username" class="form-control input-sm" maxlength="50" />
                 </div>
+                @include('components.ads.responsive')
                 <div class="form-group">
                     <label for="phone_number">Phone Number *</label>
                     <input type="number" required="" path="phone_number" value="{{ $user->seeker->phone_number }}" name="phone_number" id="phone_number" class="form-control input-sm" placeholder="254712312313"

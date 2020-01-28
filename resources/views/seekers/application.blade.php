@@ -19,6 +19,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/vacancies" class="pull-right btn btn-sm btn-purple"><i class="fas fa-briefcase"></i> Vacancies</a>
             <p><strong>{{ $app->created_at }}</strong></p>
 
+            @include('components.ads.responsive')
+
             <span class="pull-right">
                 @if($app->post->isShortlisted($user->seeker))
                 <p class="text-success">SHORTLISTED</p>

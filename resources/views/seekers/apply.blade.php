@@ -37,6 +37,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="text-center pt-3">
             <h3 class="orange">Application for {{ $post->getTitle() }}</h3>
         </div>
+         @include('components.ads.responsive')
         @if(!Auth::user()->seeker->hasApplied($post))
         <form method="post" action="/vacancies/{{ $post->slug }}/apply">
             @csrf

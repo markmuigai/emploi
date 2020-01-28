@@ -16,6 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <p>Top of the search list-Allows your Profile to come up top of of the search list for employers to spot you faster.
             </p>
         </li>
+        @include('components.ads.responsive')
         <li>
             <h5 class="pt-2">Professional CV editing</h5>
             <p>We understand the challenges of creating that eye catching CV, and a CV template only may not be enough. We are able to help in preparing a professional CV that matches your requirements at friendly rates.
@@ -37,6 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 Drawing from this, we take into account the specialized needs of that industry, the market trends that are shaping its future and the unique interests of the individual companies that are looking for new talent. It is this
                 inside track, paired with our close understanding of your skills, interests, and aspirations that enable us to identify and connect you with your perfect career match.
             </p>
+            @include('components.ads.responsive')
 
             <p>Our services as a career placement agency extend far beyond lining up an interview. Once we’ve identified an opportunity that suits you, we make sure that you’re equipped to land the job, and to impress your new employer from
                 day one. And it doesn’t stop there. We periodically check in with you to see how it’s going and get an update on any new skills, promotions or other goals you’ve achieved. This enables us to continue working on your behalf as

@@ -13,6 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card">
                 <div class="card-body">
                     <h2 class="orange text-center">CV Templates</h2>
+                    @include('components.ads.responsive')
                     <ul class="numeric">
                         <li>
                             <h5>Graduate CV Template</h5>
@@ -64,6 +65,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card">
                 <div class="card-body">
                     <h5>Download Template</h5>
+
                     <ol class="pl-4">
                         <li>
                             <a href="/cv-templates/Graduate-CV-Template.doc">Graduate CV Template</a>

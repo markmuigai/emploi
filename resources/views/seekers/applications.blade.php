@@ -12,6 +12,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @if(count($user->applications) > 0)
 <h5>{{ count($user->applications) }} applications</h5>
 <div class="row">
+    <?php $adsCounter=0; ?>
+    <div class="col-lg-6">
+        <div class="card my-2">
+            <div class="card-body">
+                @include('components.ads.responsive')
+            </div>
+        </div>
+    </div>
     @forelse($user->applications as $app)
     <div class="col-lg-6">
         <div class="card my-2">
@@ -39,6 +47,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
+    <?php $adsCounter++; ?>
+    @if($adsCounter%3==0)
+    <div class="col-lg-6">
+        <div class="card my-2">
+            <div class="card-body">
+                @include('components.ads.responsive')
+            </div>
+        </div>
+    </div>
+    @endif
     @empty
     @endforelse
 </div>

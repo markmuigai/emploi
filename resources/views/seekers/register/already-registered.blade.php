@@ -11,6 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="d-flex flex-column justify-content-center align-center">
     <p>An account with the e-mail address <strong>{{ $email }}</strong> already exists in our database.</p>
+    @include('components.ads.responsive')
     <p>Please use a different e-mail address or log in to your account</p>
 
     <div class="mt-4">

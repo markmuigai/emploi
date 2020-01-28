@@ -10,7 +10,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Dashboard')
 
 
+
 <h4>Recent Blogs</h4>
+@include('components.ads.responsive')
 <div class="row">
 	@forelse ($blogs->slice(0, 4) as $b)
 	<div class="col-lg-6">
@@ -50,6 +52,7 @@ $user = Auth::user();
 @if(isset($user->seeker->industry_id))
 <hr>
 <h4>{{ $user->seeker->industry->name }} Jobs</h4>
+@include('components.ads.responsive')
 <?php
 $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('status','active')->orderBy('id','DESC')->orderBy('featured','DESC')->paginate(8);
 ?>
@@ -89,6 +92,8 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 </div>
 
 @else
+
+@include('components.ads.responsive')
 
 @endif
 
