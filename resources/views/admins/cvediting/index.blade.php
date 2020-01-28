@@ -18,6 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </a>  
             <br><hr>
         </div>
+        @include('components.ads.responsive')
         @forelse($edits as $e)
         <div class="row">
             <div class="col-md-8">

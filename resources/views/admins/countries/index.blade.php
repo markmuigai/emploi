@@ -15,6 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row" style="text-align: right; border-bottom: 0.1em solid #e88725">
             <a href="/admin/countries/create" class="btn btn-primary">Create Country</a>  <br><hr>
         </div>
+        @include('components.ads.responsive')
         @forelse($countries as $c)
         <div class="row">
             <div class="col-md-8">

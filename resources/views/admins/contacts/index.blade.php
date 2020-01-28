@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
+        @include('components.ads.responsive')
         @forelse($contacts as $c)
         <div class="row align-items-center">
             <div class=" col-lg-7 col-md-6">

@@ -17,6 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </form>
         <br>
         @forelse($companies as $c)
+        @include('components.ads.responsive')
         <div class="row align-items-center">
             <div class=" col-lg-7 col-md-6">
                 <h4>{{ $c->name }} <small>[{{ $c->industry->name }}]</small></h4>
