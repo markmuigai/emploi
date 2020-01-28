@@ -13,6 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 		<form method="post" action="/profile/update"  enctype="multipart/form-data">
 			@csrf
+			@include('components.ads.responsive')
 			<div class="form-group">
 				<label>
 					Full Name: *

@@ -9,6 +9,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 <div class="container pb-0 pb-lg-4 pt-4">
 	<h3 class="orange text-center">Linkage with Training Firms</h3>
+	@include('components.ads.responsive')
 	<div class="row pb-3 align-items-center">
 		<div class="col-md-4">
 			<img src="/images/training.png" class="w-100" alt="Linkage with Training Firms">

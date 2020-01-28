@@ -92,6 +92,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
                         <?php $kk++; ?>
+                        @if($kk%3==0)
+                            @include('components.ads.responsive')
+                        @endif
                         @empty
                 <div class="card mb-4">
                     <div class="card-body">

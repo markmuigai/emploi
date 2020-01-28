@@ -17,6 +17,7 @@ Protect your organization with Emploi's comprehensive employment background chec
             <h3 class="orange mb-4">Background Checks</h3>
             <p>
                 Acquiring new staff is imperative to achieve business goals, yet each applicant and employee adds business and security risk.
+                @include('components.ads.responsive')
                 Fortunately, performing background checks on applicants and employees is an effective way to discover potential issues that could affect your business. <br>
                 <a href="/contact" class="btn btn-primary">Request Background Checks</a>
             </p>
@@ -50,6 +51,7 @@ Protect your organization with Emploi's comprehensive employment background chec
             </div>
         </div>
     </ul>
+    @include('components.ads.responsive')
     <div class="text-center">
         <p>Want to hire the best?</p>
         <a href="/contact" class="btn btn-orange">Contact Us Today</a>

@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body text-center">
         <h3 class="orange">{{ $post->title }}</h3>
+        @include('components.ads.responsive')
         <a href="/employers/applications/{{ $post->slug }}" class="btn btn-sm btn-purple">Applications ({{ count($post->applications) }})</a>
         @if(!$post->hasModelSeeker())
         <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger">RSI Model Not Created</a>

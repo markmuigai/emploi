@@ -16,6 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 {{ $application->user->name }}
             </a>
         </h2>
+        @include('components.ads.responsive')
         <p class="orange">
             <a href="/employers/applications/{{ $application->post->slug }}">{{ $application->post->title }}</a>
         </p>

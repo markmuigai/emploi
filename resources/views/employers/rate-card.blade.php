@@ -69,6 +69,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
+    @include('components.ads.responsive')
     <div class="card-group row">
         <div class="card col-md-4">
             <div class="card-body d-flex flex-column justify-content-between">

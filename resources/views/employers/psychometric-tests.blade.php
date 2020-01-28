@@ -9,6 +9,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 <div class="container pb-0 pb-lg-4 pt-4">
 	<h3 class="orange text-center">Psychometric Tests</h3>
+	@include('components.ads.responsive')
 	<div class="row align-items-center">
 		<div class="col-md-4">
 			<img src="/images/templates.jpg" class="w-100" alt="Psychometric Tests">
@@ -32,6 +33,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 
 	<h5 class="orange mt-4">Our range of tests</h5>
+	@include('components.ads.responsive')
 	<div class="row">
 		<div class="col-md-6">
 			<h4>1. Personality And Competency</h4>
@@ -68,6 +70,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</ul>
 		</div>
 	</div>
+	@include('components.ads.responsive')
 	<p class="text-center">
 		All our tests are created as per the guidelines of <strong>International Test Commission (ITC)</strong>, <strong>American Psychometric Association(APA)</strong> and <strong>British Psychological Association (BPS)</strong>, and are also
 		validated as per the values set
