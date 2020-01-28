@@ -18,6 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </small>
         </h2>
         <br><br>
+        @include('components.ads.responsive')
         <form method="post" action="/companies/{{ $company->id }}" enctype="multipart/form-data">
             @csrf
             {{ method_field('PUT') }}

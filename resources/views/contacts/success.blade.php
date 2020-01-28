@@ -14,6 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p>
             Your message has been sent succesfully.
         </p>
+        @include('components.ads.responsive')
         <p>
             Here is your tracking code: <strong>{{ $code }}</strong>
         </p>
