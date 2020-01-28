@@ -137,7 +137,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <textarea name="address" required="" class="form-control input-sm" rows="2" placeholder="e.g. P.O. Box 123 - 00100 Nairobi. KICC Floor 21 Room 232"></textarea>
         </div>
         <div class="form-check mb-4">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required="">
             <label class="form-check-label" for="defaultCheck1">
                 I agree to the <a href="/terms-and-conditions" class="orange">Terms And Conditions</a>
             </label>
