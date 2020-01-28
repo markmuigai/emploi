@@ -119,6 +119,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 @if(isset($a->user->seeker->location_id))
                                 <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
                                     {{ $a->user->seeker->location->country->name }}</p>
+                                @else
+                                <p><i class="fas fa-map-marker-alt orange"></i>
+                                    {{ $a->user->seeker->country->name }}</p>
                                 @endif
                             </div>
                             <div class="col-4 col-md-4 col-lg-4 text-center">
