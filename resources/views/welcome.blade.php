@@ -70,12 +70,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/logout" class="btn btn-white px-4">Logout</a>
 
             @else
-            <h4 class="text-uppercase">Step into your Future</h4>
-            <h1>Blast Off Your Career</h1>
-            <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
-            <a href="/join" class="btn btn-orange px-4">Join Now</a>
-            <a href="/vacancies" class="btn btn-white px-4">Latest Vacancies</a>
-            <a href="/job-seekers/cv-editing" class="btn btn-success px-4">Request CV Editing</a>
+                <h4 class="text-uppercase">Step into your Future</h4>
+                <h1>Blast Off Your Career</h1>
+                <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
+                <a href="/employers/publish" class="btn btn-orange px-4">Advertise</a>
+                <a href="/vacancies" class="btn btn-white px-4">Latest Vacancies</a>
+                <a href="/job-seekers/cv-editing" class="btn btn-success px-4">Request CV Editing</a>
+                <br><br>
+                <div class="sign-left text-center">
+                    <a href="https://emploi.co/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://emploi.co/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
+                    <a href="https://emploi.co/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
+                </div>
+                
             @endif
         </div>
     </div>
