@@ -115,7 +115,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                             <div class="col-5 col-md-5 col-lg-6">
                                 <h4>{{ $a->user->name }}</h4>
-                                <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
+                                <p class="text-success">{{ $a->user->seeker->industry_id ? $a->user->seeker->industry->name : 'Unknown Industry' }}</p>
                                 <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
                                     {{ $a->user->seeker->location->country->name }}</p>
                             </div>
