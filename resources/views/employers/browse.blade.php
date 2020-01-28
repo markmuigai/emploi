@@ -144,5 +144,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <!-- END OF CLOSED JOBS -->
 </div>
+<?php
+    $code = 'BROWSING-CANDIDATES';
+    $url = url()->current();
+    $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
+    $message = $code.' '.$user.' '.$url.' is browsing for candidates';
+    \App\Employer::first()->notify(new \App\Notifications\BrowsingCandidates($message));
+?>
 
 @endsection
