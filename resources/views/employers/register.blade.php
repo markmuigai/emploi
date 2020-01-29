@@ -63,7 +63,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <input type="password" required="" value="" name="password_confirmation" path="password_confirmation" id="password_confirmation" class="form-control input-sm" maxlength="50" />
         </div>
         <div class="text-right">
-            <button class="btn btn-orange show-company">Next</button>
+            <a href="#" class="btn btn-orange show-company">Next</a>
         </div>
 
     </div>

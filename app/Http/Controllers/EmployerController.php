@@ -163,7 +163,7 @@ class EmployerController extends Controller
             'permission_id' => 3
         ]);
 
-        $ec = Company::where('name',$request->name)->first();
+        $ec = Company::where('name',$request->co_name)->first();
         $co_name = isset($ec->id) ? $request->co_name.'-'.User::generateRandomString(4) : $request->co_name;
         //$co_name = $request->co_name.User::generateRandomString(4);
 
