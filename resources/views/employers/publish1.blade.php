@@ -15,7 +15,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="orange text-center">
                     Advertise on Emploi
                 </h2>
-                @include('components.ads.responsive')
                 <p>
                     Advertise your job to an audience of over 100,000 on our job seeker database and social media communities. We provide advanced recruitment solutions to suit your business.
                 </p>
