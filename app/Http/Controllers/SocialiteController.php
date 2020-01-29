@@ -21,7 +21,7 @@ class SocialiteController extends Controller
     {
         $user = Socialite::driver($provider)->user();
         $fullName = $user->getName();
-        if(isset($user->getEmail()))
+        if($user->getEmail() == null)
         {
             $matchedUser = User::where('email',$user->getEmail())->first();
             if(isset($matchedUser->id))
