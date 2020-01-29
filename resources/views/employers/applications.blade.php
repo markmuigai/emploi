@@ -208,39 +208,42 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="tab-pane fade" id="rejected-jobs" role="tabpanel" aria-labelledby="rejected-jobs-tab">
                 <!-- JOB CARD -->
-                <div class="card mb-4">
-                    <div class="card-body">
+                
                         @if(count($post->rejected) > 0)
                         @forelse($post->rejected as $a)
-                        <div class="row">
-                            <div class="col-lg-2 col-3">
-                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
-                            </div>
-                            <div class="col-5 col-md-5 col-lg-6">
-                                <h4>{{ $a->user->name }}</h4>
-                                <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
-                                @if(isset($a->user->seeker->location_id))
-                                <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
-                                    {{ $a->user->seeker->location->country->name }}</p>
-                                @else
-                                    
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-2 col-3">
+                                        <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
+                                    </div>
+                                    <div class="col-5 col-md-5 col-lg-6">
+                                        <h4>{{ $a->user->name }}</h4>
+                                        <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
+                                        @if(isset($a->user->seeker->location_id))
+                                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
+                                            {{ $a->user->seeker->location->country->name }}</p>
+                                        @else
+                                            
 
-                                @endif
-                            </div>
-                            <div class="col-4 col-md-4 col-lg-4 text-center">
-                                <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
+                                        @endif
+                                    </div>
+                                    <div class="col-4 col-md-4 col-lg-4 text-center">
+                                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-12 col-md-6 col-lg-6">
+                                        <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
+                                        <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange pull-right">View Profile</a>
+                                    </div>
+                                </div>
+                                <!-- END OF JOB CARD -->
                             </div>
                         </div>
-                        <hr>
-                        <div class="row justify-content-between align-items-center">
-                            <div class="col-12 col-md-6 col-lg-6">
-                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-                                <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange pull-right">View Profile</a>
-                            </div>
-                        </div>
-                        <!-- END OF JOB CARD -->
                         @empty
                         @endforelse
                         @else
@@ -248,8 +251,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             No applicants have been rejected
                         </p>
                         @endif
-                    </div>
-                </div>
             </div>
         </div>
     </div>
