@@ -295,4 +295,10 @@ class Employer extends Model
 
 
     }
+
+    public function jobApplications(){
+        $posts = $this->posts->pluck('id');
+        return JobApplication::whereIn('post_id',$posts)->get();
+        dd($companies);
+    }
 }
