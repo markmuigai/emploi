@@ -38,10 +38,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div class="content">
 
+            <?php $line= "Welcome to Emploi, where deserving talent meets deserving opportunities"; ?>
+
             @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
             <h4 class="text-uppercase">Step into your Future</h4>
             <h1>Blast Off Your Career</h1>
-            <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
+            <p>{{ $line }}</p>
             <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange px-4">Latest Vacancies</a>
             <a href="/job-seekers/services" class="btn btn-white px-4">Services</a>
             <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-success px-4">Request CV Editing</a>
@@ -49,15 +51,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @elseif(isset(Auth::user()->id) && Auth::user()->role == 'employer')
             <h4 class="text-uppercase">Hire with ease</h4>
             <h1>Premium Recruitment</h1>
-            <p>Welcome to Emploi, an online placement platform. Hire with our <a href="/employers/role-suitability-index">Role Suitability Index</a> to rank applications</p>
+            <p>{{ $line }}</p>
             <a href="/employers/publish" class="btn btn-orange px-4">Advertise</a>
             <a href="/employers/services" class="btn btn-white px-4">Services</a>
 
 
             @elseif(isset(Auth::user()->id) && Auth::user()->role == 'admin')
             <h4 class="text-uppercase">Hello {{ Auth::user()->name }}</h4>
-            <h1>Admin Logged in</h1>
-            <p>Manage activities happening on Emploi from the administrator's dashboard for y</p>
+            <h1>Howdy Admin</h1>
+            <p>Manage activities happening on Emploi from the administrator's dashboard.</p>
             <a href="/home" class="btn btn-orange px-4">Admin Dashboard</a>
             <a href="/logout" class="btn btn-white px-4">Logout</a>
 
@@ -72,7 +74,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @else
                 <h4 class="text-uppercase">Step into your Future</h4>
                 <h1>Blast Off Your Career</h1>
-                <p>Welcome to Emploi, an online placement platform that does it right and does it fast</p>
+                <p>{{ $line }}</p>
                 <a href="/employers/publish" class="btn btn-orange px-4">Advertise</a>
                 <a href="/vacancies" class="btn btn-white px-4">Latest Vacancies</a>
                 <a href="/job-seekers/cv-editing" class="btn btn-success px-4">Request CV Editing</a>
