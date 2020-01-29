@@ -81,7 +81,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Package Includes:</p>
                 <ul class="tick">
                     <li>Unlimited searches in 1 job category</li>
-                    <li>Get up to 50 CVs per category</li>
+                    <li>Get up to 50 CVs/li>
                     <li>1 job posted for 30 days</li>
                     <li>1 job posted on our website &amp; social media pages</li>
                     <li>Job AD sent out to our entire database</li>
@@ -104,7 +104,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="tick">
-                            <li>1 Job posted</li>
+                            <li>Job posted for 30 days</li>
                             <li>Background Screening</li>
                             <li>Pre-Interviewed Candidates</li>
                             <li>Role Suitability Index Ranking</li>
