@@ -13,6 +13,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         margin: 0 !important;
         padding: 0 !important;
     }
+    .for-mobile {
+        display: none;
+    }
 
     @media only screen and (min-width: 997px) {
         .navbar {
@@ -31,6 +34,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             height: 40px;
         }
     }
+    @media only screen and (max-width: 500px) {
+        .for-mobile {
+            display: inline
+        }
+    }
 </style>
 
 <!-- LANDING PAGE -->
@@ -41,12 +49,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <?php $line= "Welcome to Emploi, where deserving talent meets deserving opportunities"; ?>
 
             @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-            <h4 class="text-uppercase">Step into your Future</h4>
-            <h1>Blast Off Your Career</h1>
-            <p>{{ $line }}</p>
-            <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange px-4">Latest Vacancies</a>
-            <a href="/job-seekers/services" class="btn btn-white px-4">Services</a>
-            <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-success px-4">Request CV Editing</a>
+            @include('components.welcome-banner')
+            
 
             @elseif(isset(Auth::user()->id) && Auth::user()->role == 'employer')
             <h4 class="text-uppercase">Hire with ease</h4>
@@ -72,12 +76,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/logout" class="btn btn-white px-4">Logout</a>
 
             @else
-                <h4 class="text-uppercase">Step into your Future</h4>
-                <h1>Blast Off Your Career</h1>
-                <p>{{ $line }}</p>
-                <a href="/employers/publish" class="btn btn-orange px-4">Advertise</a>
-                <a href="/vacancies" class="btn btn-white px-4">Latest Vacancies</a>
-                <a href="/job-seekers/cv-editing" class="btn btn-success px-4">Request CV Editing</a>
+                @include('components.welcome-banner')
                 <br><br>
                 <div class="sign-left text-center">
                     <a href="https://emploi.co/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
