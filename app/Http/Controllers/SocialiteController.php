@@ -39,8 +39,8 @@ class SocialiteController extends Controller
         
         //new user
         return view('pages.join')
-                ->with('email',$fullName)
-                ->with('name',$email);
+                ->with('email',$email)
+                ->with('name',$fullName);
                 
         return view('auth.social-register')
             ->with('industries',Industry::active())
