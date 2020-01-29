@@ -86,7 +86,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 text-md-right">
                                 <a class="orange mr-2" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                                <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
+                                <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
                             </div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
                                         <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                                        <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
+                                        <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
                                         <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                                        <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange">View Profile</a>
+                                        <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-                                        <a href="/employers/browse/{{ $a->user->username }}" class=" btn btn-orange pull-right">View Profile</a>
+                                        <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange pull-right">View Profile</a>
                                     </div>
                                 </div>
                                 <!-- END OF JOB CARD -->
