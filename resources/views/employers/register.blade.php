@@ -1,13 +1,13 @@
 @extends('layouts.sign')
 
-@section('title','Register as Employer')
+@section('title','Register a Company')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('user_title','Employer Registration')
+@section('user_title','Create Company Profile')
 
 @include('components.social-auth')
 

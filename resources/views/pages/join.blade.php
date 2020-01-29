@@ -37,7 +37,7 @@ if(isset($name))
         </a>
          <a href="/employers/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
             <img src="/images/employer-join.png" class="w-100 py-3" alt="Employer Registration">
-            <h4>Employer Registration</h4>
+            <h4>Company Registration</h4>
         </a>
     </div>
     @if(!isset($name))
