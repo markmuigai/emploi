@@ -50,7 +50,7 @@ class User extends Authenticatable
     }
 
     public function getInviteTextAttribute(){
-        return $this->name . ' invited you to Emploi, an Efficient Platform to perform recruitments and find work for a succesful career ';
+        return $this->name . ' invited you to Emploi, an Efficient Platform to perform recruitments and find work for a successful career ';
     }
 
     public function companies(){
