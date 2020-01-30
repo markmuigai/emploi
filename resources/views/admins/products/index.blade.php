@@ -11,7 +11,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <h4>Products on sale 
+        <h4>
+            <a href="/admin"><i class="fa fa-arrow-left"></i></a>
+            Products on sale 
             @if(count($products) > 0)
                 <a href="/admin/products/create" style="float: right;" class="btn btn-link ">Create</a>
             @endif

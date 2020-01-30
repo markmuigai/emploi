@@ -89,7 +89,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 
 
                 <hr>
-                <a href="/admin/products" class="btn btn-sm btn-success">Products</a>
+                <a href="/admin/products" class="btn btn-sm btn-success">Products ({{ count(\App\Product::all()) }})</a>
                 <a href="/admin/invoices" class="btn btn-sm btn-primary">Invoices</a>
                 <a href="/admin/orders" class="btn btn-sm btn-success">Orders</a>
                 <a href="/admin/product-orders" class="btn btn-sm btn-info">Product Orders</a>
