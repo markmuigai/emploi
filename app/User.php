@@ -49,6 +49,10 @@ class User extends Authenticatable
         return $this->hasOne(CvEditor::class);
     }
 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
     public function getInviteTextAttribute(){
         return $this->name . ' invited you to Emploi, an Efficient Platform to perform recruitments and find work for a successful career ';
     }

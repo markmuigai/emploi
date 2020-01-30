@@ -13,4 +13,8 @@ class Credit extends Model
     public function user(){
     	return $this->belongsTo(User::class);
     }
+
+    public function invoiceCreditRedemption(){
+    	return $this->hasOne(InvoiceCreditRedemption::class);
+    }
 }
