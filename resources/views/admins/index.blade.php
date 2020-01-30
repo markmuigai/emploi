@@ -86,7 +86,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/premium-placement" class="btn btn-sm btn-danger" style="display: none">Premium Placement Requests</a>
 
 
-                <br><br>
+                
+
+                <hr>
+                <a href="/admin/products" class="btn btn-sm btn-success">Products</a>
+                <a href="/admin/invoices" class="btn btn-sm btn-primary">Invoices</a>
+                <a href="/admin/orders" class="btn btn-sm btn-success">Orders</a>
+                <a href="/admin/product-orders" class="btn btn-sm btn-info">Product Orders</a>
+
         </div>
         <div class="clearfix"> </div>
     </div>

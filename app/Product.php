@@ -16,7 +16,7 @@ class Product extends Model
 
     public static function generateUniqueSlug($length = 20) {
     	$length = $length > 20 ? 20 : $length;
-        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $characters = '0123456789abcdefghjklmnpqrstuvwxyz';
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {

@@ -180,7 +180,7 @@
                         @elseif( isset(Auth::user()->id) && Auth::user()->role == 'admin' )
                         <h3>
                             <span class="badge badge-secondary">
-                                @yield('admin_country')
+                                {{ Auth::user()->jurisdictions[0]->country->name }}
                             </span>
                         </h3>
                         @endif

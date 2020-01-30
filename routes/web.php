@@ -179,6 +179,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('received-requests/{id}', 'AdvertController@saveNotes');
 
     Route::post('toggle-seeker-featured', 'AdminController@toggleSeekerFeatured');
+
+    Route::resource('products','ProductController');
 });
 
 
