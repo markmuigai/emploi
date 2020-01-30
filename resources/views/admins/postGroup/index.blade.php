@@ -11,13 +11,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
+        <h4>Group Jobs for sharing 
+            @if(count($postGroups) > 0)
+                <a href="/admin/job-post-groups/create" style="float: right;" class="btn btn-link ">Create</a>
+            @endif
+        </h4>
         <div>
             @forelse($postGroups as $pg)
             <div class="row">
                 <div class="col-8">
                     <b><a href="/admin/job-post-groups/{{ $pg->id }}">{{ $pg->title }}</a></b>
                     <br>
-                    <p><?php print $pg->description ?></p>
                 </div>
                 <div class="col-4 text-right">
                     <p>

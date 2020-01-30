@@ -11,13 +11,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="/admin/job-post-groups/" enctype="multipart/form-data">
+        <form method="POST" action="/admin/job-post-groups/" enctype="multipart/form-data" id="job-post-groups-compose">
             @csrf
             <div class="row">
                 <div class="col-md-12">
                     <div>
                         <label>Title</label>
-                        <input type="text" name="title" maxlength="500" required="" class="form-control">
+                        <input type="text" name="title" maxlength="500" required="" class="form-control" id="job-post-groups-title">
                     </div>
                     <div>
                         <label>Description</label>
@@ -58,7 +58,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="text-center">
                 <br>
-                <p><input type="submit" value="Save" class="btn btn-orange" name=""></p>
+                <p>
+                    <a href="#" class="btn btn-orange" id="save-job-post-group">Save</a>
+                </p>
             </div>
         </form>
         
@@ -84,6 +86,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $newPosts = '['.$newPosts.']';
     print 'posts = '.$newPosts.';';
     ?>
+    $().ready(function(){
+        $('#save-job-post-group').click(function(){
+            var title = $('#job-post-groups-title').val();
+            if (title.length < 5)
+                return notify('Job Post Group Title is too short', 'error');
+
+            var desc = CKEDITOR.instances['description'].getData().replace(/<[^>]*>/gi, '').length;
+            if(desc < 10)
+                return notify('Invalid group description provided', 'error');
+
+            var desc = CKEDITOR.instances['how_to_apply'].getData().replace(/<[^>]*>/gi, '').length;
+            if(desc < 10)
+                return notify('Invalid group application instructions', 'error');
+
+            $('#job-post-groups-compose').submit();
+        });
+    });
 </script>
 <script type="text/javascript" src="{{ asset('/js/admin-postGroup.js') }}"></script>
 
