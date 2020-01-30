@@ -36,22 +36,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <br>
 
-            <div style="text-align: center;" class="col-md-6">
+            <div class="col-md-6">
                 <h5>Metrics [ {{ $months[$focus_month-1]}}  {{ $focus_year }}]</h5>
-                <p>
+                <div style="text-align: center;">
                     Job Seekers: {{ $seekers_count }} |
                     Employers: {{ $employers_count }}<br>
                     <b>Total New Users: {{ $seekers_count + $employers_count }}</b> <br><br>
-                    Contacts: {{ $contacts_count }} <br>
-                    Adverts: {{ $adverts_count }} <br>
-                    Blogs: {{ $blogs_count }} <br>
-                    Companies: {{ $companies_count }} <br>
-                    Cv Requests: {{ $cv_requests_count }} <br>
-                    Job Applications: {{ $job_applications_count }} <br>
-                    RSI Model Seekers: {{ $model_seekers_count }} <br>
-                    Job Posts: {{ $posts_count }} <br>
-                    Referees: {{ $referees_count }} <br>
-                </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        Contacts: {{ $contacts_count }} <br>
+                        Blogs: {{ $blogs_count }} <br>
+                        Companies: {{ $companies_count }} <br>
+                        Referees: {{ $referees_count }} <br>
+                        Cv Editors: {{ $cv_editors }} <br>
+                        Faqs: {{ $faqs }} <br>
+                    </div>
+                    <div class="col-md-6">
+                        Adverts: {{ $adverts_count }} <br>
+                        Cv Requests: {{ $cv_requests_count }} <br>
+                        Job Applications: {{ $job_applications_count }} <br>
+                        RSI Model Seekers: {{ $model_seekers_count }} <br>
+                        Job Posts: {{ $posts_count }} <br>
+                        CV Edit Requests: {{ $cv_edit_requests }} <br>
+                    </div>
+                </div>
             </div>
         </form>
 

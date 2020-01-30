@@ -16,6 +16,7 @@ use App\CvEditor;
 use App\CvEditRequest;
 use App\CvRequest;
 use App\Employer;
+use App\Faq;
 use App\Industry;
 use App\JobApplication;
 use App\Location;
@@ -685,6 +686,8 @@ class AdminController extends Controller
         $model_seekers_count = 0;
         $posts_count = 0;
         $referees_count = 0;
+        $cv_editors = 0;
+        $cv_edit_requests = 0;
 
         $seekers_count = Seeker::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
@@ -699,6 +702,10 @@ class AdminController extends Controller
         $model_seekers_count = ModelSeeker::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $posts_count = Post::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $referees_count = Referee::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $cv_editors = CvEditor::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $cv_edit_requests = CvEditRequest::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $faqs = Faq::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
         $months = [
             'Jan',
@@ -716,7 +723,7 @@ class AdminController extends Controller
         ];
 
 
-        return view('admins.seekers.metrics')
+        return view('admins.metrics.index')
             ->with('seekers_count',$seekers_count)
             ->with('employers_count',$employers_count)
             ->with('contacts_count',$contacts_count)
@@ -729,6 +736,9 @@ class AdminController extends Controller
             ->with('posts_count',$posts_count)
             ->with('referees_count',$referees_count)
             ->with('months',$months)
+            ->with('faqs',$faqs)
+            ->with('cv_editors',$cv_editors)
+            ->with('cv_edit_requests',$cv_edit_requests)
             ->with('focus_year',$focus_year)
             ->with('focus_month',$focus_month)
             ;
