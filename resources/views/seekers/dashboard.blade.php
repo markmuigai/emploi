@@ -102,7 +102,7 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 						<p class="badge badge-purple">
 							{{ $b->monthlySalary() }}
 						</p>
-						<a href="/vacancies/{{ $b->slug }}" class="btn btn-sm btn-orange-alt pull-right">View</a>
+						<a href="/vacancies/{{ $b->slug }}" class="btn btn-sm btn-default">{{ $b->created_at->diffForHumans() }}</a>
 					</div>
 				</div>
 			</div>
