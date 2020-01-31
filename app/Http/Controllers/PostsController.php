@@ -63,7 +63,7 @@ class PostsController extends Controller
             ->where('status','!=','inactive')
             ->orderBy('featured','DESC')
             ->orderBy('created_at','DESC')
-            ->paginate(10)->onEachSide(3);
+            ->paginate(30)->onEachSide(3);
         return view('seekers.vacancies')
                 ->with('industries',Industry::active())
                 ->with('locations',Location::active())
@@ -209,8 +209,8 @@ class PostsController extends Controller
         $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                 ->orderBy('featured','DESC')
                 ->orderBy('created_at','DESC')
-                ->limit(25)
-                ->paginate(10);
+                ->limit(90)
+                ->paginate(30);
         
         $match = false;
 
@@ -218,7 +218,7 @@ class PostsController extends Controller
             $posts = Post::where('featured','true')
                     ->where('status','!=','inactive')
                     ->orderBy('created_at','DESC')
-                    ->paginate(10)
+                    ->paginate(30)
                     ->onEachSide(3);
             $title = 'Featured Jobs';
             $match = true;
@@ -233,7 +233,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(10)
+                        ->paginate(30)
                         ->onEachSide(3);
                 $title = $v->name.' Jobs';
                 $match = true;
@@ -255,7 +255,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(10)
+                        ->paginate(30)
                         ->onEachSide(3);
 
                 $title =  'Jobs in '.$c->name;
@@ -273,7 +273,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(10)
+                        ->paginate(30)
                         ->onEachSide(3);
                 $title = 'Jobs near '.$c->name.' ['.$c->country->code.']';
                 $match = true;
@@ -290,7 +290,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(10)
+                        ->paginate(30)
                         ->onEachSide(3);
                 $title = $c->name.' Jobs';
                 $match = true;
