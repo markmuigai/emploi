@@ -351,9 +351,10 @@ class PostsController extends Controller
             //dd($sql);
             $result = DB::select($sql);
             $posts = [];
-            foreach(DB::select($sql) as $post)
+            $results = DB::select($sql);
+            for($i=count($results)-1; $i>0; $i--)
             {
-                $post = Post::findOrFail($post->id);
+                $post = Post::findOrFail($results[$i]->id);
                 array_push($posts, $post);
             }
             return view('seekers.vacancies')
