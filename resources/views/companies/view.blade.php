@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				</div>
 				<div class="row align-items-center">
 					<div class="col-lg-9 col-md-8">
-						<h4>{{ $company->name }} <span class="badge badge-secondary">{{ count($company->activePosts) }} vacancies</span></h4>
+						<h4>{{ $company->name }} <a href="#company-vacancies" class="badge badge-secondary">{{ count($company->activePosts) }} vacancie{{ count($company->activePosts) == 1 ? '' : 's' }}</a></h4>
 						<h6 class="text-capitalize">{{ $company->tagline }}</h6>
 						<p><i class="fas fa-map-marker-alt orange"></i> {{ $company->location->name.', '.$company->location->country->name }}</p>
 					</div>
@@ -94,7 +94,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 @if(count($company->activePosts) > 0)
-<div class="featured-carousel">
+<div class="featured-carousel" id="company-vacancies">
 	@foreach($company->activePosts as $post)
 	<div class="card my-4 mx-md-0 mr-md-5 mr-md-2 mx-4">
 		<div class="card-body text-center">
@@ -102,7 +102,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<div class="d-flex justify-content-center mb-3">
 					<img src="{{ asset($company->logoUrl) }}" alt="{{ $company->name }}" class="circle-img">
 				</div>
-				<p class="badge badge-secondary">{{$post->positions}} Postions</p>
+				<p class="badge badge-secondary">{{$post->positions}} Postion{{ $post->positions == 1 ? '' : 's' }}</p>
 				<h5>{{ $post->title }}</h5>
 			</a>
 			<p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->name }}</p>
