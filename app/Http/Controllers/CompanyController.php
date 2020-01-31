@@ -29,7 +29,7 @@ class CompanyController extends Controller
         {
             return view('companies.index')
                 ->with('hiring',true)
-                ->with('companies',Company::getHiringCompanies2(27));
+                ->with('companies',Company::getHiringCompanies2(81));
         }
         return view('companies.index')
                 ->with('companies',Company::where('status','active')->paginate(9));

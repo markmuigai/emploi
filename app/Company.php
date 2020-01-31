@@ -75,7 +75,10 @@ class Company extends Model
 
     public static function getHiringCompanies2($counter = 10){
         $companies = [];
-        $sql = "SELECT DISTINCT company_id, featured, id FROM posts ORDER BY id DESC, featured DESC  LIMIT $counter";
+        $limit = "LIMIT $counter";
+        if($counter == 0)
+            $limit = '';
+        $sql = "SELECT DISTINCT company_id, featured, id FROM posts ORDER BY id DESC, featured DESC  $limit";
         $results = DB::select($sql);
         for($i=0; $i<count($results);$i++)
         {
