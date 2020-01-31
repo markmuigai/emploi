@@ -12,23 +12,54 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 <h4>Recent Blogs</h4>
-@include('components.ads.responsive')
+
 <div class="row">
 	@forelse ($blogs->slice(0, 4) as $b)
 	<div class="col-lg-6">
 		<div class="card my-2">
 			<div class="card-body">
 				<div class="row align-items-center">
-					<div class="col-4">
+					<a href="/blog/{{ $b->slug }}" class="w-100">
 						<img src="{{ asset($b->imageUrl) }}" class="w-100" alt="{{ $b->title }}">
+					</a>
+					<div class="col-4">
+						
 					</div>
 					<div class="col-8">
-						<h5>{{ $b->title }}</h5>
-						<a href="/blog/{{ $b->category->slug }}" class="badge badge-purple">
-							{{ $b->category->name }}
+						<a href="/blog/{{ $b->slug }}" class="orange">
+							<h5>{{ $b->title }}</h5>
 						</a>
+						<a href="/blog/{{ $b->category->slug }}" class="badge badge-purple">
+							{{ $b->category->name }} Blog
+						</a>
+						<span style="float: right;">
+		                    <?php $likes = \App\Like::getCount('blog',$b->id); ?>
+		                    @if($likes == 1)
+		                        1 Like
+		                    @else
+		                        {{ $likes }} Likes
+		                    @endif 
+
+		                    |
+		                    
+	                        @if(Auth::user()->hasLiked('blog',$b->id))
+
+	                            <a href="/likes/b/{{ $b->slug }}" style="color: #500095" title="Unlike Blog">
+	                                <i class="fa fa-thumbs-up"></i> Unlike
+	                            </a>
+
+	                        @else
+
+	                            <a href="/likes/b/{{ $b->slug }}" title="Like Blog">
+	                                <i class="fa fa-thumbs-up"></i> Like
+	                            </a>
+
+	                        @endif
+
+		                    
+		                </span>
 						<br>
-						<a href="/blog/{{ $b->slug }}" class="btn btn-sm btn-orange-alt pull-right">Read Blog</a>
+						
 					</div>
 				</div>
 			</div>
@@ -43,8 +74,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 	@endforelse
+	<div style="text-align: center;" class="col">
+		<a href="/blog" class="btn btn-orange">Read more blogs</a>
+	</div>
 </div>
-
+@include('components.ads.responsive')
 <?php
 $user = Auth::user();
 ?>
