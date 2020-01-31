@@ -72,7 +72,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/metrics" class="btn btn-sm btn-danger">View Metrics</a>
                 <a href="/admin/unregistered-users" class="btn btn-sm btn-primary">Unregistered Users</a>
                 <br><br>
-                <a href="/admin/cv-edit-requests" class="btn btn-sm btn-success">CV Edit Requests</a>
+                <a href="/admin/cv-edit-requests" class="btn btn-sm btn-success">CV Edit Requests ({{ count(\App\CvEditRequest::all()) }})</a>
                 <a href="/admin/cveditors" class="btn btn-sm btn-info">CV Editors</a>
                 <a href="/admin/faqs" class="btn btn-sm btn-danger">FAQs</a>
 

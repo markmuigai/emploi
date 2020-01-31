@@ -46,7 +46,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     Currency:
                 </label>
-                <input type="text" name="currency" placeholder="" value="" required="required" class="form-control" maxlength="10">
+                <input type="text" name="currency" placeholder="" value="" required="required" class="form-control" maxlength="5">
             </div>
 
             
