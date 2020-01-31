@@ -84,17 +84,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <!-- END OF JOB CARD -->
             </div>
             <div class="tab-pane fade show active" id="unrejected-jobs" role="tabpanel" aria-labelledby="unrejected-jobs">
-                <?php $pool = $shortlist ? $post->shortlisted: $post->applications; $kk=0; ?>
 
                 <!-- JOB CARD -->
                 
-                @forelse($pool as $a)
+                @forelse($post->unrejected as $a)
                     @include('components.applicant')
                 @empty
                     <div class="card mb-4">
                         <div class="card-body">
                             <p class="text-center">
-                                No applications have been found
+                                No applications have not been rejected
                             </p>
                         </div>
                     </div>
