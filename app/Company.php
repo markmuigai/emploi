@@ -29,6 +29,10 @@ class Company extends Model
     	return $this->belongsTo(User::class,'user_id');
     }
 
+    public function getWebsite(){
+        return $this->website == 'https://emploi.co' ? url('/companies/'.$this->name) : $this->website;
+    }
+
     public function industry(){
     	return $this->belongsTo(Industry::class,'industry_id');
     }

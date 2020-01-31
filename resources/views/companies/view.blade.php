@@ -7,12 +7,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Company Details' )
+@section('page_title', $company->name )
 
 <div class="row">
 	<div class="col-md-12 col-lg-9">
 		<div class="card">
-			@include('components.ads.responsive')
+			
 			<div class="card-header cover" style="background-image: url('{{ $company->coverUrl }}');"></div>
 			<div class="card-body pb-0">
 				<div class="row">
@@ -20,6 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<img src="{{ asset($company->logoUrl) }}" alt="{{ $company->name }}" class="company-logo-img">
 					</div>
 				</div>
+				@include('components.ads.responsive')
 				<div class="row align-items-center">
 					<div class="col-lg-9 col-md-8">
 						<h4>{{ $company->name }} <a href="#company-vacancies" class="badge badge-secondary">{{ count($company->activePosts) }} vacancie{{ count($company->activePosts) == 1 ? '' : 's' }}</a></h4>
@@ -30,9 +31,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<p>
 							<i class="fas fa-share-alt"></i>
 							Share:
-							<a href="http://www.facebook.com/sharer.php?u={{ url('/company/'.$company->slug) }}" target="_blank" rel="noreferrer"><i class="fab fa-facebook-f"></i></a>
-							<a href="https://twitter.com/share?url={{ url('/company/'.$company->slug) }}&amp;text={{ urlencode($company->title) }}&amp;hashtags=EmploiBlog" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
-							<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/company/'.$company->slug) }}" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+							<a href="http://www.facebook.com/sharer.php?u={{ url('/company/'.$company->name) }}" target="_blank" rel="noreferrer"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://twitter.com/share?url={{ url('/company/'.$company->name) }}&amp;text={{ urlencode($company->title) }}&amp;hashtags=EmploiBlog" target="_blank" rel="noreferrer"><i class="fab fa-twitter"></i></a>
+							<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('/company/'.$company->name) }}" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
 						</p>
 					</div>
 				</div>
@@ -42,7 +43,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				</p>
 				<div class="row mt-4">
 					<div class="col-md-6">
-						<p><strong>Website: </strong><a href="{{ $company->website }}" rel="noreferrer" target="_blank">{{ $company->website }}</a></p>
+						<p><strong>Website: </strong><a href="{{ $company->getWebsite() }}" rel="noreferrer" target="_blank">{{ $company->getWebsite() }}</a></p>
 					</div>
 					<div class="col-md-6">
 						<p><strong>Company Size: </strong>{{ $company->companySize->lower_limit.' - '.$company->companySize->upper_limit }} ({{ $company->companySize->title }})</p>
