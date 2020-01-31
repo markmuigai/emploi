@@ -193,6 +193,13 @@ class Post extends Model
                     ->get();
     }
 
+    public function getUnrejectedAttribute(){
+        return JobApplication::where('post_id',$this->id)
+                    ->distinct('user_id')
+                    ->where('status','active')
+                    ->get();
+    }
+
     public function isShortlisted($seeker){
         if(!$seeker->hasApplied($this))
             return false;
