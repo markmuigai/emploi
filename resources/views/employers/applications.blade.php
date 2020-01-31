@@ -39,168 +39,41 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <!-- JOB CARD -->
                 
                 @forelse($pool as $a)
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <p class="d-none">{{ $a->user->seeker->industry->name }}
-                            <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
-                                <span class="pull-right purple"><strong>RSI {{ $a->user->seeker->getRsi($post) }}%</strong></span>
-                            </a>
-                        </p>
-                        <div class="row align-items-center">
-                            <div class="col-lg-2 col-4">
-                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
-                            </div>
-                            <div class="col-8 col-md-8 col-lg-10">
-                                <div class="row align-items-center">
-                                    <div class="col-12 col-md-8 col-lg-8">
-                                        <h4>{{ $a->user->name }}</h4>
-                                        <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
-                                        @if(isset($a->user->seeker->location_id))
-                                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
-                                            {{ $a->user->seeker->location->country->name }}</p>
-                                        @endif
-                                    </div>
-                                    <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
-                                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row justify-content-between align-items-center">
-                            <div class="col-12 col-md-6 col-lg-6">
-                                @if($a->status == 'rejected')
-                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
-                                @else
-
-                                @if($a->status == 'selected')
-                                <a href="#" class="text-success"> <i class="fas fa-check"></i> <strong>SELECTED</strong></a>
-                                @else
-
-                                @if($post->isShortlisted($a->user->seeker))
-                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
-
-                                @else
-                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
-                                @endif
-                                |
-                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
-                                @endif
-                                @endif
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-5 text-md-right">
-                                <a class="orange mr-2" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                                <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
-                            </div>
+                    @include('components.applicant')
+                    <?php $kk++; ?>
+                    @if($kk%3==0)
+                        @include('components.ads.responsive')
+                    @endif
+                @empty
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="text-center">
+                                No applications have been found
+                            </p>
                         </div>
                     </div>
-                </div>
-                        <?php $kk++; ?>
-                        @if($kk%3==0)
-                            @include('components.ads.responsive')
-                        @endif
-                        @empty
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <p class="text-center">
-                            No applications have been found
-                        </p>
-                    </div>
-                </div>
-                        @endforelse
+                @endforelse
                     
             </div>
             <div class="tab-pane fade" id="shortlist" role="tabpanel" aria-labelledby="shortlist-tab">
                 <!-- JOB CARD -->
-                        @if(count($post->shortlisted) > 0)
-                        @forelse($post->shortlisted as $a)
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-2 col-3">
-                                        <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
-                                    </div>
-                                    <div class="col-5 col-md-5 col-lg-6">
-                                        <h4>{{ $a->user->name }}</h4>
-                                        <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
-                                        @if(isset($a->user->seeker->location_id))
-                                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
-                                            {{ $a->user->seeker->location->country->name }}</p>
-                                        @else
-                                        <p><i class="fas fa-map-marker-alt orange"></i>
-                                            {{ $a->user->seeker->country->name }}</p>
-                                        @endif
-                                    </div>
-                                    <div class="col-4 col-md-4 col-lg-4 text-center">
-                                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row justify-content-between align-items-center">
-                                    <div class="col-12 col-md-6 col-lg-6">
-                                        @if($post->isShortlisted($a->user->seeker))
-                                        <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
-
-                                        @else
-                                        <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
-                                        @endif
-
-                                        |
-
-                                        <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-                                        <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                                        <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @empty
-                        @endforelse
-                        @else
-                        <p class="text-center">
-                            No applicants have been shortlisted
-                        </p>
-                        @endif
+                @if(count($post->shortlisted) > 0)
+                    @forelse($post->shortlisted as $a)
+                        @include('components.applicant')
+                    @empty
+                    @endforelse
+                @else
+                    <p class="text-center">
+                        No applicants have been shortlisted
+                    </p>
+                @endif
                 <!-- END OF JOB CARD -->
             </div>
             <div class="tab-pane fade" id="selected" role="tabpanel" aria-labelledby="selected-tab">
                 <!-- JOB CARD -->
                         @if(count($post->selected) > 0)
                         @forelse($post->selected as $a)
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-2 col-3">
-                                        <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
-                                    </div>
-                                    <div class="col-5 col-md-5 col-lg-6">
-                                        <h4>{{ $a->user->name }}</h4>
-                                        <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
-                                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
-                                            {{ $a->user->seeker->location->country->name }}</p>
-                                    </div>
-                                    <div class="col-4 col-md-4 col-lg-4 text-center">
-
-                                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row justify-content-between align-items-center">
-                                    <div class="col-12 col-md-6 col-lg-6">
-
-
-
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-                                        <a class="orange" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                                        <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @include('components.applicant')
                         @empty
                         @endforelse
                         @else
@@ -216,117 +89,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <!-- JOB CARD -->
                 
                 @forelse($pool as $a)
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <p class="d-none">{{ $a->user->seeker->industry->name }}
-                            <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
-                                <span class="pull-right purple"><strong>RSI {{ $a->user->seeker->getRsi($post) }}%</strong></span>
-                            </a>
-                        </p>
-                        <div class="row align-items-center">
-                            <div class="col-lg-2 col-4">
-                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
-                            </div>
-                            <div class="col-8 col-md-8 col-lg-10">
-                                <div class="row align-items-center">
-                                    <div class="col-12 col-md-8 col-lg-8">
-                                        <h4>{{ $a->user->name }}</h4>
-                                        <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
-                                        @if(isset($a->user->seeker->location_id))
-                                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
-                                            {{ $a->user->seeker->location->country->name }}</p>
-                                        @endif
-                                    </div>
-                                    <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
-                                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row justify-content-between align-items-center">
-                            <div class="col-12 col-md-6 col-lg-6">
-                                @if($a->status == 'rejected')
-                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
-                                @else
-
-                                @if($a->status == 'selected')
-                                <a href="#" class="text-success"> <i class="fas fa-check"></i> <strong>SELECTED</strong></a>
-                                @else
-
-                                @if($post->isShortlisted($a->user->seeker))
-                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
-
-                                @else
-                                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
-                                @endif
-                                |
-                                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
-                                @endif
-                                @endif
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-5 text-md-right">
-                                <a class="orange mr-2" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                                <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
-                            </div>
+                    @include('components.applicant')
+                @empty
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="text-center">
+                                No applications have been found
+                            </p>
                         </div>
                     </div>
-                </div>
-                        <?php $kk++; ?>
-                        @if($kk%3==0)
-                            @include('components.ads.responsive')
-                        @endif
-                        @empty
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <p class="text-center">
-                            No applications have been found
-                        </p>
-                    </div>
-                </div>
-                        @endforelse
+                @endforelse
                     
             </div>
             <div class="tab-pane fade" id="rejected-jobs" role="tabpanel" aria-labelledby="rejected-jobs-tab">
                 <!-- JOB CARD -->
                 
                         @if(count($post->rejected) > 0)
-                        @forelse($post->rejected as $a)
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-2 col-3">
-                                        <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
-                                    </div>
-                                    <div class="col-5 col-md-5 col-lg-6">
-                                        <h4>{{ $a->user->name }}</h4>
-                                        <p class="text-success">{{ $a->user->seeker->industry->name }}</p>
-                                        @if(isset($a->user->seeker->location_id))
-                                        <p><i class="fas fa-map-marker-alt orange"></i> {{ $a->user->seeker->location->name }},
-                                            {{ $a->user->seeker->location->country->name }}</p>
-                                        @else
-                                            
-
-                                        @endif
-                                    </div>
-                                    <div class="col-4 col-md-4 col-lg-4 text-center">
-                                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row justify-content-between align-items-center">
-                                    <div class="col-12 col-md-6 col-lg-6">
-                                        <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-between align-items-center">
-                                        <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange pull-right">View Profile</a>
-                                    </div>
-                                </div>
-                                <!-- END OF JOB CARD -->
-                            </div>
-                        </div>
-                        @empty
-                        @endforelse
+                            @forelse($post->rejected as $a)
+                                @include('components.applicant')
+                            @empty
+                            @endforelse
                         @else
                         <p class="text-center">
                             No applicants have been rejected
