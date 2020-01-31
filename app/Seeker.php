@@ -649,7 +649,8 @@ class Seeker extends Model
                     }
                 }
             }
-            $perc+= $skil * $exist_skills / $skills_count;
+            if($skills_count != 0)
+                $perc+= $skil * $exist_skills / $skills_count;
             
         }
         else
