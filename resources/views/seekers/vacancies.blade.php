@@ -8,8 +8,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 @section('page_title', $title)
-<hr>
-<h4>Search</h4>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}">
     <div class="col-lg-3 col-md-6 py-2">
         <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}">
@@ -53,6 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <button type="reset" name="button" class="btn btn-sm btn-orange-alt ml-3"><a href="/vacancies">Reset</a></button>
         @endif
         <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-primary">Request CV Editing</a>
+        <a href="/employers/publish" class="btn btn-success">Advertise here</a>
         <hr>
     </div>
 </form>
