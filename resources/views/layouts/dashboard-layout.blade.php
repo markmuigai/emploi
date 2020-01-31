@@ -141,7 +141,7 @@
                                 <h6 class="mt-3">- Have An Account -</h6>
                                 <a href="/login" class="btn btn-orange-alt">Login</a>
 
-
+                                
                             </div>
                         </div>
                         <!-- END OF GUEST SIDEBAR -->

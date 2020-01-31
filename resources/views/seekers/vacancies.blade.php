@@ -52,6 +52,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @if(isset($search_vtype) || isset($search_ind) || isset($search_location) || isset($search_query))
         <button type="reset" name="button" class="btn btn-sm btn-orange-alt ml-3"><a href="/vacancies">Reset</a></button>
         @endif
+        <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-primary">Request CV Editing</a>
         <hr>
     </div>
 </form>
