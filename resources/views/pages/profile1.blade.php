@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!-- CANDIDATE DETAILS -->
             <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
                 <!-- INFO CARD -->
-                @include('components.ads.responsive')
+                
                 <div class="card py-2 mb-4">
                     <div class="card-body">
                         <div class="row align-items-center">
@@ -206,6 +206,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     {{ $user->seeker->location_id ? $user->seeker->location->name.', '.$user->seeker->location->country->code : 'Not set' }}</strong>
                 </p>
                 <a href="/profile/referees" class="btn btn-purple">Referees</a>
+                @if(isset($user->seeker->resume))
+                <a href="/storage/resumes/{{ $user->seeker->resume }}" class="btn btn-success-">View Current CV</a>
+                @else
+                <span>CV Not Found! <a href="/profile/edit">edit profile</a></span>
+                @endif
             </div>
         </div>
     </div>

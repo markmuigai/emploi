@@ -24,6 +24,14 @@ class Blog extends Model
     	return $this->belongsTo(BlogCategory::class,'blog_category_id');
     }
 
+    public function getTitle($length = 50){
+        if($length > strlen($this->title))
+        {
+            return substr($this->title, 0,$length);
+        }
+        return $this->title;
+    }
+
     public function getPreviewAttribute(){
         $max_length = strlen($this->contents);
         if($max_length > 250)

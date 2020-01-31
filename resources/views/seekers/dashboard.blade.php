@@ -15,22 +15,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="row">
 	@forelse ($blogs->slice(0, 4) as $b)
-	<div class="col-lg-6">
+	<div class="col-md-4 ">
 		<div class="card my-2">
 			<div class="card-body">
 				<div class="row align-items-center">
 					<a href="/blog/{{ $b->slug }}" class="w-100">
 						<img src="{{ asset($b->imageUrl) }}" class="w-100" alt="{{ $b->title }}">
 					</a>
-					<div class="col-4">
-						
-					</div>
-					<div class="col-8">
+					<div>
 						<a href="/blog/{{ $b->slug }}" class="orange">
-							<h5>{{ $b->title }}</h5>
+							<h5>{{ $b->getTitle() }}</h5>
 						</a>
 						<a href="/blog/{{ $b->category->slug }}" class="badge badge-purple">
-							{{ $b->category->name }} Blog
+							{{ $b->category->name }}
 						</a>
 						<span style="float: right;">
 		                    <?php $likes = \App\Like::getCount('blog',$b->id); ?>
@@ -74,7 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 	@endforelse
-	<div style="text-align: center;" class="col">
+	<div style="text-align: center;" class="col-md-10 offset-md-1">
 		<a href="/blog" class="btn btn-orange">Read more blogs</a>
 	</div>
 </div>
