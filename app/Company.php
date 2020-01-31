@@ -30,7 +30,8 @@ class Company extends Model
     }
 
     public function getWebsite(){
-        return $this->website == 'http://emploi.co' ? url('/companies/'.$this->name) : $this->website;
+
+        return ($this->website == 'http://emploi.co' || $this->website == null) ? url('/companies/'.$this->name) : $this->website;
     }
 
     public function industry(){
