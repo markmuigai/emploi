@@ -78,7 +78,7 @@ class Company extends Model
         $limit = "LIMIT $counter";
         if($counter == 0)
             $limit = '';
-        $sql = "SELECT DISTINCT company_id, featured, id FROM posts ORDER BY id DESC, featured DESC  $limit";
+        $sql = "SELECT DISTINCT company_id, featured, id, created_at FROM posts ORDER BY created_at DESC, featured DESC  $limit";
         $results = DB::select($sql);
         for($i=0; $i<count($results);$i++)
         {
