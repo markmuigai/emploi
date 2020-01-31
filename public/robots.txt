@@ -2,8 +2,4 @@
 User-agent: Googlebot
 Disallow: /nogooglebot/
 
-# Group 2
-User-agent: *
-Allow: /
-
 Sitemap: https://emploi.co/sitemap.xml
