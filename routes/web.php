@@ -5,7 +5,7 @@
 */
 Route::get('/join', 'ContactController@join');
 Route::get('/invites/{slug}', 'ContactController@invited');
-Route::get('/payment', 'PesapalController@makePayment');
+//Route::get('/checkout', 'PesapalController@checkout');
 //Route::get('/test-slack', 'ContactController@testSlack');
 
 Route::get('/careers', 'ContactController@careers');

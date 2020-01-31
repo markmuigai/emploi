@@ -78,7 +78,10 @@ class User extends Authenticatable
         if(count($this->credits) == 0)
             return 0;
         foreach($this->credits as $c)
-            $total += $c->value;
+        {
+            if(!isset($c->invoiceCreditRedemption->id))
+                $total += $c->value;
+        }
         return $total;
     }
 

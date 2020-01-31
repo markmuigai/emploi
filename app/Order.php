@@ -22,7 +22,7 @@ class Order extends Model
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-        return $randomString;
+        return 'EORDER_'.$randomString;
     }
 
     public function invoice(){

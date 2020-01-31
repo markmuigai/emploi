@@ -4,10 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+use Auth;
+
 class PesapalController extends Controller
 {
-    public function makePayment(Request $request)
+    public function checkout(Request $request)
     {
-    	return view('pesapal.index');
+    	
+    	if(isset($request->product))
+    	{
+    		$product = Product::where('slug',$request->product)->firstOrFail();
+    		return view('pesapal.checkout')
+    				->with('product',$product);
+    	}
+
+    	return redirect()->back();
+
+    	if(!isset(Auth::user()->id))
+    	{
+    		return redirect('/employers/rate-card');
+    	}
+
+    	if(Auth::user()->role == 'employer')
+    	{
+    		return redirect('/employers/rate-card');
+    	}
+
+    	return redirect('/job-seekers/services');
+    	
     }
 }
