@@ -64,7 +64,7 @@ class JobApplied extends Notification
 
     public function toSlack($notifiable)
     {
-        return (new SlackMessage)
-                    ->content($this->content);
+        // return (new SlackMessage)
+        //             ->content($this->content);
     }
 }
