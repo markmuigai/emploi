@@ -349,14 +349,11 @@ class AdminController extends Controller
 
 
     public function vacancyEmails(Request $request){
-        $blogs = Blog::orderBy('id','DESC')->limit(3)->get();
-        $featuredPosts = Post::where('status','active')->where('featured','true')->orderBy('id','DESC')->get();
-        $featured_ids = $featuredPosts->pluck('id');
-        $posts = Post::where('status','active')->where('featured','false')->whereNotIn('id',$featured_ids)->orderBy('id','DESC')->get();
+        
 
         //return $posts;
 
-        $message = Post::composeVacancyEmail($featuredPosts, $posts, $blogs);
+        $message = Post::composeVacancyEmail();
 
         return view('admins.emails.compose')
                 ->with('message',$message)
@@ -618,22 +615,23 @@ class AdminController extends Controller
                         'info@emploi.co'
                     )
                 );
-                Mail::to('sophy@emploi.co')
-                ->send(
-                    new CustomVacancyEmail(
-                        'Sophy Mwale',
-                        $subject,
-                        $caption,
-                        $contents,
-                        'sophy@emploi.co',
-                        $banner,
-                        $template,
-                        $attachment1,
-                        $attachment2,
-                        $attachment3,
-                        'info@emploi.co'
-                    )
-                );
+                
+                // Mail::to('sophy@emploi.co')
+                // ->send(
+                //     new CustomVacancyEmail(
+                //         'Sophy Mwale',
+                //         $subject,
+                //         $caption,
+                //         $contents,
+                //         'sophy@emploi.co',
+                //         $banner,
+                //         $template,
+                //         $attachment1,
+                //         $attachment2,
+                //         $attachment3,
+                //         'info@emploi.co'
+                //     )
+                // );
                 //VacancyEmail::dispatch('brian@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 //VacancyEmail::dispatch('sophy@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 // $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
@@ -705,6 +703,20 @@ class AdminController extends Controller
                 
                           
         }
+
+        return new CustomVacancyEmail(
+            'Recepient Name',
+            $subject,
+            $caption,
+            $contents,
+            'recepient@gmail.com',
+            $banner,
+            $template,
+            $attachment1,
+            $attachment2,
+            $attachment3,
+            'info@emploi.co'
+        );
 
         return view('admins.emails.queued');
 

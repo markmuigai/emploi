@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
 
+use App\Blog;
 use App\JobApplication;
 use App\Like;
 use App\User;
@@ -30,32 +31,35 @@ class Post extends Model
         return $total;
     }
 
-    public static function composeVacancyEmail($featuredPosts, $posts, $blogs)
+    public static function composeVacancyEmail()
     {
-        $message = '';
+        $blogs = Blog::orderBy('id','DESC')->limit(2)->get();
+        $featuredPosts = Post::where('status','active')->where('featured','true')->orderBy('id','DESC')->get();
+        //$featuredPosts = Post::all();
+        $featured_ids = $featuredPosts->pluck('id');
+        $posts = Post::where('status','active')->where('featured','false')->whereNotIn('id',$featured_ids)->orderBy('id','DESC')->limit(15)->get();
+
+        $message = '<div class="container">';
 
         
 
         if(count($featuredPosts) > 0)
         {
             $message .= '
-            <h3 style="text-align:center"><strong>Featured Vacancies</strong></h3>
+            <h3 style="text-align:center"><strong>Featured Vacancies, Apply Now</strong></h3>
 
-            <p style="text-align:center">Here are the latest vacancies we, or our direct clients are shortlisting on Emploi.</p>
-
-            <p>&nbsp;
-            </p>';
+            <p style="text-align:center">Here are the latest vacancies we, or our direct clients are shortlisting on Emploi.</p>';
             $message .= '<div class="row">';
             for($i=0; $i<count($featuredPosts); $i++)
             {
                 $post = $featuredPosts[$i];
                 
-                    $message .= '<div class="col-md-3"><a href="'.url('/vacancies/'.$post->slug).'">';
-                    $message .= '<h4 style="text-align: center">'.$post->title.'</h4>';
-                    $message .= '<img src="'.url($post->imageUrl).'" style="width: 100%"/>';
-                    $message .= '<p style="font-weight: strong">'.$post->monthlySalary().'</p>';
+                    $message .= '<div style="width: 32%; margin-left: 1.33%; float: left; overflow: hidden">';
+                    $message .= '<h4 style="text-align: center"><a href="'.url('/vacancies/'.$post->slug).'">'.$post->title.'</a></h4>';
+                    $message .= '<p>'.$post->company->name.'</p>';
+                    $message .= '<i style=" text-align: center">'.$post->brief.'</i>';
                     
-                    $message .= '</a></div>';
+                    $message .= '</div>';
             }
             $message .= '</div>';
         }
@@ -66,26 +70,45 @@ class Post extends Model
             <h3 style="text-align:center"><strong>Latest Blogs from our Career Centre</strong></h3>
 
             
-            <p>&nbsp;</p>
-            </p>';
+            ';
             $message .= '<div class="row">';
             for($i=0; $i<count($blogs); $i++)
             {
                 $blog = $blogs[$i];
                
-                    $message .= '<div class="col-md-3"><a href="'.url('/blog/'.$blog->slug).'">';
-                    $message .= '<h4 style="text-align: center">'.$blog->title.'</h4>';
-                    $message .= '<img src="'.url($blog->imageUrl).'" style="width: 100%"/>';
-                    $message .= '<p style="font-weight: strong"> Posted by: '.$blog->user->name.' | '.Like::getCount('blog',$blog->id).' Likes | '.$blog->created_at->diffForHumans().'</p>';
+                    $message .= '<div style="width: 49%; margin-left: 1%; float: left; overflow: hidden">';
+                    $message .= '<a href="'.url('/blog/'.$blog->slug).'"><h4 style="text-align: center">'.$blog->title.'</h4></a>';
+                    $message .= '<p style="font-weight: strong; text-align: center"> By: '.$blog->user->name.' | '.Like::getCount('blog',$blog->id).' Likes | '.$blog->created_at->diffForHumans().'</p>';
                     
                 $message .= '</a></div>';
             }
             $message .= '</div>';
         }
 
+        if(count($posts) > 0)
+        {
+            $message .= '
+            <h3 style="text-align:center"><strong>Trending Vacancies on Emploi</strong></h3>
+
+            <p style="text-align:center">Here are other trending vacancies on Emploi</p>';
+            $message .= '<div class="row">';
+            for($i=0; $i<count($posts); $i++)
+            {
+                $post = $posts[$i];
+                
+                    $message .= '<div style="width: 32%; margin-left: 1.33%; float: left; overflow: hidden">';
+                    $message .= '<h4 style="text-align: center"><a href="'.url('/vacancies/'.$post->slug).'">'.$post->title.'</a></h4>';
+                    $message .= '<p style="font-weight: strong; text-align: center">'.$post->monthlySalary().'</p>';
+                    
+                    $message .= '</div>';
+            }
+            $message .= '</div>';
+        }
+
+
         
 
-        return $message;
+        return $message.'</div>';
     }
 
     public static function cleanString($string) {

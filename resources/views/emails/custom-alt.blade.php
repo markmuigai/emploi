@@ -12,6 +12,7 @@ Author URL: http://w3layouts.com
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="Email Templates, Newsletters, Marketing Email templates,
 	Webdesign, free Newsletter" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
     <style media="screen">
         /*--
