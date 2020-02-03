@@ -215,7 +215,7 @@ class ContactController extends Controller
                 $email = isset($request->external_apply) ? $request->external_apply : $email;
                 $name = isset($request->external_apply) ? 'Employer' : $post->company->user->name;
 
-                Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
+                //Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
 
                 VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom',storage_path().'/app/public/resumes/'.$user->seeker->resume,false,false);
 

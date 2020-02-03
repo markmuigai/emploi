@@ -80,7 +80,7 @@ class JobApplicationController extends Controller
                 $email = $email = null ? $post->company->user->email : $email;
 
                 EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
-                Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
+                //Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
 	    		return view('seekers.applied')
 	    				->with('post',$post);
 	    	}
