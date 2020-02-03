@@ -66,6 +66,7 @@ class Post extends Model
         if(count($blogs) > 0)
         {
             $message .= '
+            <p>&nbsp;</p><p>&nbsp;</p>
             <h3 style="text-align:center"><strong>Latest Blogs from our Career Centre</strong></h3>
 
             
@@ -87,6 +88,7 @@ class Post extends Model
         if(count($posts) > 0)
         {
             $message .= '
+            <p>&nbsp;</p><p>&nbsp;</p>
             <h3 style="text-align:center"><strong>Trending Vacancies on Emploi</strong></h3>
 
             <p style="text-align:center">Here are other trending vacancies on Emploi</p>';
