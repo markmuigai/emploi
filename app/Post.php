@@ -56,7 +56,6 @@ class Post extends Model
                 
                     $message .= '<div style="width: 32%; margin-left: 1.33%; float: left; overflow: hidden">';
                     $message .= '<h4 style="text-align: center"><a href="'.url('/vacancies/'.$post->slug).'">'.$post->getTitle().'</a></h4>';
-                    $message .= '<p>'.$post->company->name.'</p>';
                     $message .= '<i style=" text-align: center">'.$post->brief.'</i>';
                     
                     $message .= '</div>';
@@ -78,7 +77,7 @@ class Post extends Model
                
                     $message .= '<div style="width: 49%; margin-left: 1%; float: left; overflow: hidden">';
                     $message .= '<a href="'.url('/blog/'.$blog->slug).'"><h4 style="text-align: center">'.$blog->title.'</h4></a>';
-                    $message .= '<p style="font-weight: strong; text-align: center"> By: '.$blog->user->name.' | '.Like::getCount('blog',$blog->id).' Likes | '.$blog->created_at->diffForHumans().'</p>';
+                    $message .= '<i style="font-weight: strong; text-align: center"> By: '.$blog->user->name.' | '.Like::getCount('blog',$blog->id).' Likes | '.$blog->created_at->diffForHumans().'</i>';
                     
                 $message .= '</a></div>';
             }
@@ -98,7 +97,6 @@ class Post extends Model
                 
                     $message .= '<div style="width: 32%; margin-left: 1.33%; float: left; overflow: hidden">';
                     $message .= '<h4 style="text-align: center"><a href="'.url('/vacancies/'.$post->slug).'">'.$post->getTitle().'</a></h4>';
-                    $message .= '<p style="font-weight: strong; text-align: center">'.$post->monthlySalary().'</p>';
                     
                     $message .= '</div>';
             }
