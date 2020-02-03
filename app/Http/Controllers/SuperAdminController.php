@@ -35,6 +35,7 @@ class SuperAdminController extends Controller
             'email' => $request->email,
             'username' => $request->username,
             'email_verified_at' => now(),
+            'email_verification' => 'super-admin-created-'.rand(1,900000),
             'password' => Hash::make($request->password),
             'remember_token' => User::generateRandomString(10),
         ]);
