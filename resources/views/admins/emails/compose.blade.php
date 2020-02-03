@@ -61,7 +61,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
 
             <div class="form-group">
-                <textarea class="form-control" name="contents" rows="12" id="message"></textarea>
+                <textarea class="form-control" name="contents" rows="12" id="message"><?php  if(isset($message)){ print $message; }?></textarea>
             </div>
 
             <div class="form-group">

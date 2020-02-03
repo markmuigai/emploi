@@ -346,6 +346,28 @@ class AdminController extends Controller
     }
 
 
+    public function vacancyEmails(Request $request){
+        $blogs = Blog::orderBy('id','DESC')->limit(3)->get();
+        $featuredPosts = Post::where('status','active')->where('featured','true')->orderBy('id','DESC')->get();
+        $featured_ids = $featuredPosts->pluck('id');
+        $posts = Post::where('status','active')->where('featured','false')->whereNotIn('id',$featured_ids)->orderBy('id','DESC')->get();
+
+        //return $posts;
+
+        $message = Post::composeVacancyEmail($featuredPosts, $posts, $blogs);
+
+        return view('admins.emails.compose')
+                ->with('message',$message)
+                ->with('industries',Industry::orderBy('name')->get());
+
+        //latest blogs
+        //featured jobs
+        //industry jobs
+        //promotions
+    }
+
+
+
     public function contacts(){
         return view('admins.contacts.index')
                 ->with('contacts',Contact::orderBy('resolved_on','DESC')->orderBy('id','DESC')->paginate(20));

@@ -29,6 +29,65 @@ class Post extends Model
         return $total;
     }
 
+    public static function composeVacancyEmail($featuredPosts, $posts, $blogs)
+    {
+        $message = '';
+
+        
+
+        if(count($featuredPosts) > 0)
+        {
+            $message .= '
+            <h3 style="text-align:center"><strong>Featured Vacancies</strong></h3>
+
+            <p style="text-align:center">Here are the latest vacancies we, or our direct clients are shortlisting on Emploi.</p>
+
+            <p>&nbsp;
+            <p>&nbsp;</p>
+            </p>';
+            $message .= '<div class="row">';
+            for($i=0; $i<count($featuredPosts); $i++)
+            {
+                $post = $featuredPosts[$i];
+                
+                    $message .= '<div class="col-md-3"><a href="'.url('/vacancies/'.$post->slug).'">';
+                    $message .= '<h4 style="text-align: center">'.$post->title.'</h4>';
+                    $message .= '<img src="'.url($post->imageUrl).'" style="width: 100%"/>';
+                    $message .= '<p style="font-weight: strong">'.$post->monthlySalary().'</p>';
+                    
+                    $message .= '</a></div>';
+            }
+            $message .= '</div>';
+        }
+
+        if(count($blogs) > 0)
+        {
+            $message .= '
+            <h3 style="text-align:center"><strong>Latest Blogs from our Career Centre</strong></h3>
+
+            
+            <p>&nbsp;</p>
+            </p>';
+            $message .= '<div class="row">';
+            for($i=0; $i<count($blogs); $i++)
+            {
+                $blog = $blogs[$i];
+               
+                    $message .= '<div class="col-md-3"><a href="'.url('/blog/'.$blog->slug).'">';
+                    $message .= '<h4 style="text-align: center">'.$blog->title.'</h4>';
+                    $message .= '<img src="'.url($blog->imageUrl).'" style="width: 100%"/>';
+                    $message .= '<p style="font-weight: strong"> Posted by: '.$blog->user->name.' | '.count($blog->likes).' Likes</p>';
+                    
+                $message .= '</a></div>';
+            }
+            $message .= '</div>';
+        }
+
+        
+
+        return $message;
+    }
+
     public static function cleanString($string) {
        $string = str_replace(' ', '-', $string);
 
