@@ -56,7 +56,7 @@ class Post extends Model
                 
                     $message .= '<div style="width: 32%; margin-left: 1.33%; float: left; overflow: hidden">';
                     $message .= '<h4 style="text-align: center"><a href="'.url('/vacancies/'.$post->slug).'">'.$post->getTitle().'</a></h4>';
-                    $message .= '<i style=" text-align: center">'.$post->brief.'</i>';
+                    $message .= '<i style=" text-align: center">'.substr($post->brief,0,100).'</i>';
                     
                     $message .= '</div>';
             }
