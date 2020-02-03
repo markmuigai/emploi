@@ -54,9 +54,9 @@ class Post extends Model
             {
                 $post = $featuredPosts[$i];
                 
-                    $message .= '<div style="width: 32%; margin-left: 1.33%; float: left; overflow: hidden">';
+                    $message .= '<div style="width: 49%; margin-left: 1%; float: left; overflow: hidden">';
                     $message .= '<h4 style="text-align: center"><a href="'.url('/vacancies/'.$post->slug).'">'.$post->getTitle().'</a></h4>';
-                    $message .= '<i style=" text-align: center">'.substr($post->brief,0,100).'</i>';
+                    $message .= '<p style=" text-align: center">'.$post->monthlySalary().'</p>';
                     
                     $message .= '</div>';
             }
@@ -97,7 +97,7 @@ class Post extends Model
                 
                     $message .= '<div style="width: 32%; margin-left: 1.33%; float: left; overflow: hidden">';
                     $message .= '<h4 style="text-align: center"><a href="'.url('/vacancies/'.$post->slug).'">'.$post->getTitle().'</a></h4>';
-                    
+                    $message .= '<p style=" text-align: center">'.$post->monthlySalary().'</p>';
                     $message .= '</div>';
             }
             $message .= '</div>';
