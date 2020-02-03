@@ -132,25 +132,25 @@ class User extends Authenticatable
     }
 
     public static function admins(){
-        $admins = [];
-        foreach(User::all() as $user)
+        $admins = UserPermission::where('permission_id',2)->where('status','active')->get();
+        $retVal = [];
+
+        for($i=0; $i<count($admins); $i++)
         {
-            if($user->role == 'admin')
-                array_push($admins, $user);
+            $retVal[] = $admins[$i]->user;
         }
-        return $admins;
+        return $retVal;
     }
 
     public static function inactiveAdmins(){
-        $admins = [];
-        foreach(User::all() as $user)
+        $admins = UserPermission::where('permission_id',2)->where('status','inactive')->get();
+        $retVal = [];
+
+        for($i=0; $i<count($admins); $i++)
         {
-            if($user->userPermission->permission_id == 2 && $user->userPermission->status == 'inactive')
-            {
-                array_push($admins, $user);
-            }
+            $retVal[] = $admins[$i]->user;
         }
-        return $admins;
+        return $retVal;
     }
 
     public function getJurisdictionsAttribute(){
