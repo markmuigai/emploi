@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 use App\JobApplication;
+use App\Like;
 use App\User;
 
 use Watson\Rememberable\Rememberable;
@@ -43,7 +44,6 @@ class Post extends Model
             <p style="text-align:center">Here are the latest vacancies we, or our direct clients are shortlisting on Emploi.</p>
 
             <p>&nbsp;
-            <p>&nbsp;</p>
             </p>';
             $message .= '<div class="row">';
             for($i=0; $i<count($featuredPosts); $i++)
@@ -76,7 +76,7 @@ class Post extends Model
                     $message .= '<div class="col-md-3"><a href="'.url('/blog/'.$blog->slug).'">';
                     $message .= '<h4 style="text-align: center">'.$blog->title.'</h4>';
                     $message .= '<img src="'.url($blog->imageUrl).'" style="width: 100%"/>';
-                    $message .= '<p style="font-weight: strong"> Posted by: '.$blog->user->name.' | '.count($blog->likes).' Likes</p>';
+                    $message .= '<p style="font-weight: strong"> Posted by: '.$blog->user->name.' | '.Like::getCount('blog',$blog->id).' Likes | '.$blog->created_at->diffForHumans().'</p>';
                     
                 $message .= '</a></div>';
             }
