@@ -29,6 +29,8 @@ use App\User;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
+use Mail;
+use App\Mail\CustomVacancyEmail;
 
 class AdminController extends Controller
 {
@@ -599,8 +601,41 @@ class AdminController extends Controller
                 break;
                 
             case 'test-users':
-                VacancyEmail::dispatch('brian@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
-                VacancyEmail::dispatch('sophy@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+
+                Mail::to('brian@emploi.co')
+                ->send(
+                    new CustomVacancyEmail(
+                        'Brian Obare',
+                        $subject,
+                        $caption,
+                        $contents,
+                        'brian@emploi.co',
+                        $banner,
+                        $template,
+                        $attachment1,
+                        $attachment2,
+                        $attachment3,
+                        'info@emploi.co'
+                    )
+                );
+                Mail::to('sophy@emploi.co')
+                ->send(
+                    new CustomVacancyEmail(
+                        'Sophy Mwale',
+                        $subject,
+                        $caption,
+                        $contents,
+                        'sophy@emploi.co',
+                        $banner,
+                        $template,
+                        $attachment1,
+                        $attachment2,
+                        $attachment3,
+                        'info@emploi.co'
+                    )
+                );
+                //VacancyEmail::dispatch('brian@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                //VacancyEmail::dispatch('sophy@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 // $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
                 // //die($sql);
                 // $result = DB::select($sql);
