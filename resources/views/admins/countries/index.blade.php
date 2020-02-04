@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <div class="row" style="text-align: right; border-bottom: 0.1em solid #e88725">
+        <div class="row" style="text-align: right; border-bottom: 0.1em solid #ff5e00">
             <a href="/admin/countries/create" class="btn btn-primary">Create Country</a>  <br><hr>
         </div>
         @include('components.ads.responsive')

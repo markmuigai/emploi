@@ -1,6 +1,6 @@
 :root {
     --primary: #500095;
-    --secondary: #E88725;
+    --secondary: #ff5e00;
 }
 
 * {
@@ -211,7 +211,7 @@ a.navbar-brand img {
 
 .btn-orange {
     color: white;
-    background-color: #e88725;
+    background-color: #ff5e00;
     border-radius: 12px;
     padding: 1em 2em;
     text-decoration: capitalize

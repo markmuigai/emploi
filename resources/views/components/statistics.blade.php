@@ -4,7 +4,7 @@
   <div class=" col-lg-6 clients"  style="padding: 1em">
     <div class="title-heading-stats">
         <h3 style="color: #500095; font-weight: bold">OUR JOURNEY</h3>
-        <h4 style="color: #e88725">STATS</h4>
+        <h4 style="color: #ff5e00">STATS</h4>
     </div>
      <p>Jobsikaz is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.</p>
     <!-- Button trigger modal -->

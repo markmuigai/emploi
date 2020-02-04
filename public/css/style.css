@@ -2641,8 +2641,8 @@ p.sm_1 {
     }
 
     .navbar-default .navbar-toggle {
-        border-color: #e88725;
-        background-color: #e88725;
+        border-color: #ff5e00;
+        background-color: #ff5e00;
         border-radius: 2px;
     }
 
@@ -2651,7 +2651,7 @@ p.sm_1 {
     }
 
     .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-        background-color: #e88725;
+        background-color: #ff5e00;
     }
 
     .navbar-default .navbar-collapse, .navbar-default .navbar-form {

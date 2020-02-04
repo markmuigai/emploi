@@ -131,7 +131,7 @@
 					@endif
 					@if(isset(Auth::user()->id))
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #e88725; font-weight: bold">My Account<strong class="caret"></strong></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ff5e00; font-weight: bold">My Account<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
 							<li><a href="/home">Dashboard</a></li>
 							<li><a href="/profile">Profile</a></li>
@@ -148,7 +148,7 @@
 					</li>
 					@else
 					<li><a href="/login">Login</a></li>
-					<li><a href="/join" style="color: #e88725; font-weight: bold">Register</a></li>
+					<li><a href="/join" style="color: #ff5e00; font-weight: bold">Register</a></li>
 					@endif
 				</ul>
 			</div>
@@ -210,7 +210,7 @@
 					<p style="display: none;">World-class Publications for your growth</p>
 					<form method="post" action="/subscribe">
 						<input type="email" name="email" required="required" class="form-control" placeholder="Enter your email">
-						<input type="submit" style="background-color: #e88725 " class="btn red" name="" value="Subscribe now!">
+						<input type="submit" style="background-color: #ff5e00 " class="btn red" name="" value="Subscribe now!">
 					</form>
 				</div>
 			</div>
