@@ -324,7 +324,7 @@ class Post extends Model
         $peo = $this->positions == 1 ? 'person' : 'people';
         //$exp = /24;
         $exp = $this->experience_requirements > 12 ? round($this->experience_requirements/12).' years' : $this->experience_requirements.' months';
-        return 'This position requires '.$this->positions." $peo with $exp experience. Ideal candidate should be located in ".$this->location->name." with a ".$exp." qualification in ".$this->industry->name." industry. ".$this->monthlySalary();
+        return 'This position requires '.$this->positions." $peo with $exp experience. Ideal candidate should be located in ".$this->location->name." with a ".$exp." experience in ".$this->industry->name." industry. ".$this->monthlySalary();
     }
 
     public function getReadableDeadlineAttribute(){
