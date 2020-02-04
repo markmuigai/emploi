@@ -83,7 +83,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			        Invalid phone number
 			    </div>
 			    @enderror
-				<input type="number" name="phone_number" required="" maxlength="50" class="form-control" value="{{ old('phone_number') }}" placeholder="2547XXXXXXXX">
+				<input type="number" name="phone_number" required="" maxlength="20" class="form-control" value="{{ old('phone_number') }}" placeholder="2547XXXXXXXX">
 			</p>
 			<p>
 				<label>Email:</label>

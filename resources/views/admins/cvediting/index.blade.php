@@ -29,6 +29,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <b>{{ $e->industry->name }}</b> <br>
                     {{ $e->message }}
                 </p>
+                <p>
+                    Phone: {{ $e->phone_number }}<br>
+                    Email: {{ $e->email }}
+                </p>
                 
             </div>
             <div class="col-md-4 text-right">

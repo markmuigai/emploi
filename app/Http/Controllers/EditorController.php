@@ -18,7 +18,7 @@ class EditorController extends Controller
     public function index()
     {
         return view('admins.cveditors.index')
-                ->with('editors',CvEditor::orderBy('status')->paginate(10));
+                ->with('editors',CvEditor::orderBy('created_at','DESC')->paginate(10));
     }
 
     public function create()

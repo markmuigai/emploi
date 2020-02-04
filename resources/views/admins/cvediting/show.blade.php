@@ -28,6 +28,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <b>{{ $edit->industry->name }}</b> <a href="/storage/resumes/{{ $edit->original_url }}">Initial CV</a><br>
                     {{ $edit->message }}
                 </p>
+                <p>
+                    Phone: {{ $edit->phone_number }}<br>
+                    Email: {{ $edit->email }}
+                </p>
                 
             </div>
             <div class="col-md-4 text-right">

@@ -55,6 +55,7 @@ class CvEditController extends Controller
             'name' => ['required', 'string', 'max:50'],
             'email'  =>  ['required', 'string', 'email','max:50'],
             'resume' => ['required','mimes:pdf,docx,doc','max:51200'],
+            'phone_number' => ['required', 'string', 'max:20'],
             'industry'    =>  ['integer'],
             'message' => ['max:500']
         ]);
@@ -66,6 +67,7 @@ class CvEditController extends Controller
             'email' => $request->email,
             'industry_id' => $request->industry, 
             'name' => $request->name,
+            'phone_number' => $request->phone_number,
             'message' => $request->message ? $request->message : 'No custom message',
             'slug' => strtolower(User::generateRandomString(30)),
             'original_url' => $resume_url

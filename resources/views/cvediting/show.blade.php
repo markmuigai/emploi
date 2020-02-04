@@ -21,6 +21,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     Requested: {{ $edit->created_at->diffForHumans() }}
                 <br>
                 Status: {{ $edit->status }}
+                <p>
+                    Phone: {{ $edit->phone_number }}<br>
+                    Email: {{ $edit->email }}
+                </p>
             </div>
             <div class="col-md-6">
                 Industry: {{ $edit->industry->name }} <br>
