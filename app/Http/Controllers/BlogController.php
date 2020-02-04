@@ -23,7 +23,7 @@ class BlogController extends Controller
     {
         return view('blog.index')
                 ->with('pageTitle','Emploi Career Center')
-                ->with('blogs',Blog::orderBy('id','desc')->paginate(12));
+                ->with('blogs',Blog::where('status','active')->orderBy('id','desc')->paginate(12));
     }
 
     public function create()
@@ -62,6 +62,9 @@ class BlogController extends Controller
         $slug = explode(" ", $slug);
         $slug = implode("-", $slug);
         $slug = preg_replace('/[^A-Za-z0-9\-]/', '', strtolower($slug));
+
+        $blog_status = Auth::user()->role == 'admin' ? 'active' : 'pending';
+
         $b = Blog::create([
             'user_id' => Auth::user()->id,
             'title' => $request->title,
@@ -70,7 +73,7 @@ class BlogController extends Controller
             'blog_category_id' => $request->category,
             'image1' => $featured_image_url,
             'image2' => $other_image_url,
-            'status' => 'active'
+            'status' => $blog_status
         ]);
         return redirect('/admin/blog');
     }
@@ -81,6 +84,7 @@ class BlogController extends Controller
         {
             $q = isset($request->q) ? $request->q : ' ';
             $blogs = Blog::where('status','active')->where('title','like','%'.$q.'%')
+                    ->where('status','active')
                     ->orderBy('id','DESC')
                     ->paginate(12);
             return view('blog.index')
@@ -92,6 +96,7 @@ class BlogController extends Controller
         if(isset($c->id))
         {
             $blogs = Blog::where('status','active')->where('blog_category_id',$c->id)
+                    ->where('status','active')
                     ->orderBy('id','DESC')
                     ->paginate(12);
             return view('blog.index')
@@ -107,7 +112,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::where('slug',$id)->firstOrFail();
-        return view('admins.blog.edit')
+        return view('blog.edit')
                 ->with('categories', BlogCategory::where('status','active')->get())
                 ->with('blog',$blog);
     }
@@ -118,6 +123,7 @@ class BlogController extends Controller
         $blog->title = $request->title;
         $blog->blog_category_id = $request->category;
         $blog->contents = $request->contents;
+        $blog->status = $request->status;
 
         $storage_path = '/public/blogs/';
         if(isset($request->featured_image))
@@ -148,7 +154,7 @@ class BlogController extends Controller
                 unset($oldImage);
             $blog->image2 = $featured_image_url;
         }
-
+        $blog->updated_at = now();
         $blog->save();
         return redirect()->back();
     }

@@ -34,6 +34,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @endforeach
                 </select>
             </div>
+            @if(Auth::user()->role == 'admin')
+            <div class="form-group">
+                <label for="title">Status: </label>
+                <select class="form-control" name="status">
+                    <option value="pending" {{ $blog->status == 'pending' ? 'selected=""' : '' }}>Pending</option>
+                    <option value="active" {{ $blog->status == 'active' ? 'selected=""' : '' }}>Active</option>
+                    <option value="removed" {{ $blog->status == 'removed' ? 'selected=""' : '' }}>Removed</option>
+                </select>
+            </div>
+
+            @else
+            <input type="hidden" name="status" value="{{ $blog->status }}">
+            @endif
             <div class="form-group">
                 <textarea class="form-control" name="contents" required="" id="contents" rows="10">{{ $blog->contents }}</textarea>
             </div>
@@ -55,6 +68,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
             </div>
+
             <hr>
             <div class="text-right">
                 <button type="submit" class="btn btn-orange" name="button">Update</button>

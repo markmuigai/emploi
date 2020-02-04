@@ -14,11 +14,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
         @include('components.ads.responsive')
         @if(count($blogs) > 0)
-        <p class="row">
+        <p class="row" style="text-align: center;">
             <form style="display: inline;" class=" col-md-10">
                 <input type="text" name="q" placeholder="search blogs" class="form-control" required="">
             </form>
-            <a href="/blog/create" class="btn btn-orange col-md-2">Create Blog</a>
+            <a href="/blog/create" class="btn btn-orange ">Create New Blog</a>
         </p>
         @endif
         @forelse($blogs as $blog)
@@ -27,14 +27,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <img src="{{ $blog->imageUrl }} " class="w-100">
             </div>
             <div class=" col-lg-7 col-md-6">
-                <h4>{{ $blog->title }}</h4>
+                <h4><a href="{{ url('/blog/'.$blog->slug) }}" target="_blank">{{ $blog->title }}</a></h4>
                 <p>
-                    {{ $blog->user->name }} || {{ $blog->category->name }}
+                    {{ $blog->user->name }} || {{ $blog->category->name }} <small class="badge badge-{{ $blog->status == 'active' ? 'orange' : 'secondary' }}">{{ $blog->status }}</small>
                 </p>
             </div>
             <div class="col-lg-3 col-md-3">
                 <a href="{{ url('/blog/'.$blog->slug.'/edit') }}" class="btn btn-sm btn-orange-alt">Edit</a>
-                <a href="{{ url('/blog/'.$blog->slug) }}" class="btn btn-sm btn-purple" target="_blank">View</a>
             </div>
         </div>
         <hr>
