@@ -151,6 +151,11 @@ class HomeController extends Controller
 
             if(isset($request->avatar))
             {
+                if(isset($user->avatar) && file_exists(storage_path()."/app/public/avatars/".$user->avatar))
+                {
+                    unlink(storage_path().'/app/public/avatars/'.$user->avatar);
+                }
+
                 $avatar = $request->file('avatar');
                 $avatar_url = time() . '.' . $avatar->getClientOriginalExtension();
                 $storage_path = storage_path().'/app/public/avatars/'.$avatar_url;
@@ -203,6 +208,10 @@ class HomeController extends Controller
 
                 if(isset($request->resume))
                 {
+                    if(isset($seeker->resume) && file_exists(storage_path()."/app/public/resumes/".$seeker->resume))
+                    {
+                        unlink(storage_path().'/app/public/resumes/'.$seeker->resume);
+                    }
                     $storage_path = '/public/resumes';
                     $resume_url = basename(Storage::put($storage_path, $request->resume));
                     $seeker->resume = $resume_url;
@@ -259,6 +268,11 @@ class HomeController extends Controller
 
             if(isset($request->avatar))
             {
+                if(isset($user->avatar) && file_exists(storage_path()."/app/public/avatars/".$user->avatar))
+                {
+                    unlink(storage_path().'/app/public/avatars/'.$user->avatar);
+                }
+
                 $avatar = $request->file('avatar');
                 $avatar_url = time() . '.' . $avatar->getClientOriginalExtension();
                 $storage_path = storage_path().'/app/public/avatars/'.$avatar_url;
