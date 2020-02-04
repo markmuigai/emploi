@@ -48,13 +48,20 @@ class CleanResumes extends Command
             $name = $name[count($name)-1];
             $seeker = Seeker::where('resume',$name)->first();
             if(!isset($seeker->id))
+            {
                 $wasted += filesize($filename) / 1024;
+                if(file_exists($filename))
+                {
+                    unlink($filename);
+                    $this->info('File '.$name.' was purged!');
+                }
+            }
             else
                 $useful += filesize($filename) / 1024;
             //$this->info($name);
             //$this->info("$filename size " . filesize($filename));
         }
-        $this->info("Wasted Storage on CVs: ".round($wasted)." KB | ".round($wasted/1024).' MB');
+        $this->info("Wasted Storage on CVs: ".round($wasted)." KB | ".round($wasted/1024).' MB was cleaned');
         $this->info("Used Storage on CVs: ".round($useful)." KB | ".round($wasted/1024).' MB');
     }
 }
