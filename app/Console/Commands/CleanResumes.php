@@ -54,7 +54,7 @@ class CleanResumes extends Command
             //$this->info($name);
             //$this->info("$filename size " . filesize($filename));
         }
-        $this->info("Wasted Storage on CVs: ".round($wasted)." MB");
-        $this->info("Used Storage on CVs: ".round($useful)." MB");
+        $this->info("Wasted Storage on CVs: ".round($wasted)." KB | ".round($wasted/1024).' MB');
+        $this->info("Used Storage on CVs: ".round($useful)." KB | ".round($wasted/1024).' MB');
     }
 }
