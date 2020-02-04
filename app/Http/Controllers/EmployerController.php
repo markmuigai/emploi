@@ -537,6 +537,8 @@ class EmployerController extends Controller
 
     public function viewSeeker(Request $request,$username)
     {
+        if(Auth::user()->role == 'admin')
+            return redirect('/admin/seekers/'.$username);
         $user = User::where('username',$username)->firstOrFail();
         return view('employers.seeker')
                 ->with('user',$user);
