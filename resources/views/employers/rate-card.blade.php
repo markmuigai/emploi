@@ -69,7 +69,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </div>
-    @include('components.ads.responsive')
     <div class="card-group row">
         <div class="card col-md-4">
             <div class="card-body d-flex flex-column justify-content-between">
@@ -127,6 +126,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
+
+
     </div>
+
+    <div class="col-md-8 offset-md-2">
+            <div class="card my-2">
+                <div class="card-body">
+                    <p>
+                        Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace. By creating an account, you can advertise and shortlist with our advanced tools, including the Role Suitability Index. 
+                    </p>
+                    <a href="/employers/register" class="btn btn-orange">Create Company Profile</a>
+                </div>
+            </div>
+        </div>
     
     @endsection

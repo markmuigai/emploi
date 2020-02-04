@@ -77,6 +77,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<input type="text" name="name" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->name : old('name') }}">
 			</p>
 			<p>
+				<label>Phone Number:</label>
+				@error('phone_number')
+			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+			        Invalid phone number
+			    </div>
+			    @enderror
+				<input type="number" name="phone_number" required="" maxlength="50" class="form-control" value="{{ old('phone_number') }}" placeholder="2547XXXXXXXX">
+			</p>
+			<p>
 				<label>Email:</label>
 				@error('email')
 			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
