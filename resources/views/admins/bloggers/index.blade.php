@@ -13,14 +13,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         @include('components.ads.responsive')
-        @if(count($bloggers) > 0)
-        <p class="row" style="text-align: center;">
-            <form style="display: inline;" class=" col-md-10">
-                <input type="text" name="q" placeholder="search blogs" class="form-control" required="">
-            </form>
-            <a href="/admin/bloggers/create" class="btn btn-orange ">New Blogger</a>
-        </p>
-        @endif
         @forelse($bloggers as $blogger)
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-3">
