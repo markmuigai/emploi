@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-10 offset-md-1 row">
             <div class="col-md-6">
                 <strong>
-                    <a href="/cvediting"><i class="fa fa-arrow-left"></i></a>
+                    <a href="/cv-editing"><i class="fa fa-arrow-left"></i></a>
                     {{ $edit->slug }}
                 </strong>  <br>
                     Requested: {{ $edit->created_at->diffForHumans() }}
@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @guest
                 @else
 
-                @if(Auth::user()->id == $edit->cvEditor->user->id)
+                @if(isset($edit->cvEditor->user_id) && Auth::user()->id == $edit->cvEditor->user->id)
 
                 Requested by: {{ $edit->name }} <br>
 
