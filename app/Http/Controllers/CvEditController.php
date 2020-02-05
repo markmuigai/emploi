@@ -103,13 +103,26 @@ class CvEditController extends Controller
 
     public function show($slug)
     {
-        $user = Auth::user();
         $r = CvEditRequest::where('slug',$slug)->firstOrFail();
-        if($user->id == $r->cvEditor->user->id || $r->email == $user->email)
+        $show = true;
+        if(isset(Auth::user()->id))
+        {
+            $user = Auth::user();
+            if($user->email != $r->email)
+                $show = false;
+        }
+        if($show)
         {
             return view('cvediting.show')
                     ->with('edit',$r);
         }
+        // $user = Auth::user();
+        // $r = CvEditRequest::where('slug',$slug)->firstOrFail();
+        // if($user->id == $r->cvEditor->user->id || $r->email == $user->email)
+        // {
+        //     return view('cvediting.show')
+        //             ->with('edit',$r);
+        // }
         return redirect('/job-seekers/cv-editing');
     }
 
