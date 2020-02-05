@@ -42,10 +42,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
                 @endguest
 
-                Original CV: <a href="/storage/resumes/{{ $edit->original_url }}">view</a> <br>
+                Original CV: <a href="/storage/resume-edits/{{ $edit->original_url }}" class="btn btn-default btn-sm">view</a> <br>
                 Edited CV: 
                 @if($edit->submitted_url)
-                <a href="/storage/resumes/{{ $edit->submitted_url }}" class="orange">view</a>
+                <a href="/storage/resume-edits/{{ $edit->submitted_url }}" class="btn btn-link btn-sm">view</a>
                 @else
                 -not submitted-
                 @endif

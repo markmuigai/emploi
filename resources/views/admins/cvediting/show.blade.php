@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <small>{{ $edit->created_at->diffForHumans() }}</small>
                 </h4>
                 <p>
-                    <b>{{ $edit->industry->name }}</b> <a href="/storage/resumes/{{ $edit->original_url }}">Initial CV</a><br>
+                    <b>{{ $edit->industry->name }}</b> <a href="/storage/resume-edits/{{ $edit->original_url }}">Initial CV</a><br>
                     {{ $edit->message }}
                 </p>
                 <p>
@@ -67,7 +67,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="row">
                 @if($edit->submitted_on)
                 <div class="col-md-8 offset-md-2">
-                    Final Cv: <a href="/storage/resumes/{{ $edit->submitted_url }}">View CV</a> <br>
+                    Final Cv: <a href="/storage/resume-edits/{{ $edit->submitted_url }}">View CV</a> <br>
                     Last Submission: {{ $edit->submitted_on }}
                 </div>
                 @else

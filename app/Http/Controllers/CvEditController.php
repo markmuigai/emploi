@@ -60,7 +60,7 @@ class CvEditController extends Controller
             'message' => ['max:500']
         ]);
 
-        $storage_path = '/public/resumes';
+        $storage_path = '/public/resume-edits';
         $resume_url = basename(Storage::put($storage_path, $request->resume));
 
         $r = CvEditRequest::create([
@@ -151,7 +151,7 @@ class CvEditController extends Controller
         $r = CvEditRequest::where('slug',$slug)->firstOrFail();
         if($user->id == $r->cvEditor->user->id)
         {
-            $storage_path = '/public/resumes';
+            $storage_path = '/public/resume-edits';
             $resume_url = basename(Storage::put($storage_path, $request->final_cv));
 
             $r->submitted_on = now();
@@ -162,7 +162,7 @@ class CvEditController extends Controller
             $contents = $r->cvEditor->user->name." has an update for you regarding your CV editing. <br>
             <b>Message</b> <br>
             ".$request->message." <br><br>
-            You can download it at any time <a href='".url('/storage/resumes/'.$resume_url)."'>here</a>
+            You can download it at any time <a href='".url('/storage/resume-edits/'.$resume_url)."'>here</a>
             <br>
             For additional enquiries, kindly <a href='".url('/contact')."'>contact us</a>. We wish you all the best. <br><br>
             Thank you for choosing Emploi.
