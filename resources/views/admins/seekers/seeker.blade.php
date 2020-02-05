@@ -24,6 +24,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @endif
                 </p>
                 <a href="{{ $seeker->resumeUrl }}" class="btn btn-sm btn-orange">View Resume</a>
+                <form action="/admin/log-in-as" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ $seeker->user->id }}">
+                    <input type="submit" name="" class="btn btn-sm btn-link pull-right" value="Login As">
+                </form>
             </div>
         </div>
         <div class="row">

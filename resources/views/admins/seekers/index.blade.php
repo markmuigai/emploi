@@ -106,6 +106,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                     <input type="submit" value="Apply" class="btn btn-sm btn-primary">
                 </form>
+                <form action="/admin/log-in-as" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ $seeker->user->id }}">
+                    <input type="submit" name="" class="btn btn-sm btn-link pull-right" value="Login As">
+                </form>
             </div>
         </div>
         <hr>
