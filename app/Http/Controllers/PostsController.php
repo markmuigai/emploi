@@ -17,6 +17,7 @@ use App\Industry;
 use App\Location;
 use App\PostGroup;
 use App\Post;
+use App\SearchedKey;
 use App\User;
 use App\VacancyType;
 
@@ -308,6 +309,14 @@ class PostsController extends Controller
             $search_ind = false;
             $search_query = false;
 
+            $user_id = isset(Auth::user()->id) ? Auth::user()->id : null;
+
+            $searchedKey = SearchedKey::create([
+                'keywords' => isset($request->q) ? $request->q : '-BLANK-SEARCH-',
+                'user_id' => $user_id,
+                'domain' => $request->getHttpHost()
+            ]);
+
             if(isset($request->location))
             {
                 $location = Location::find($request->location);
@@ -315,6 +324,7 @@ class PostsController extends Controller
                 {
                     $search_location = $location->id;
                     $params .= "AND location_id = ".$location->id." ";
+                    $searchedKey->location_id = $location->id;
                 }
             }
             if(isset($request->vacancyType))
@@ -324,6 +334,7 @@ class PostsController extends Controller
                 {
                     $search_vtype = $vt->id;
                     $params .= "AND vacancy_type_id = ".$vt->id." ";
+                    $searchedKey->vacancy_type_id = $vt->id;
                 }
             }
 
@@ -334,6 +345,7 @@ class PostsController extends Controller
                 {
                     $search_ind = $ind->id;
                     $params .= " AND industry_id = ".$ind->id." ";
+                    $searchedKey->industry_id = $ind->id;
                 }
             }
 
@@ -345,6 +357,7 @@ class PostsController extends Controller
                 $search_query = $request->q;
                 $params .= " AND title like \"%".$request->q."%\"";
             }
+            $searchedKey->save();
             //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
             $sql = "SELECT id, title, created_at FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured, created_at DESC Limit 30";

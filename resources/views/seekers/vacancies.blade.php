@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', $title)
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}">
     <div class="col-lg-3 col-md-6 py-2">
-        <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}">
+        <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50">
     </div>
     <div class="col-lg-3 col-md-6 py-2">
         <select class="selectpicker" data-live-search="true" name="location">

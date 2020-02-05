@@ -8,7 +8,7 @@
                 <h4 class="orange">Search</h4>
                 <form class="form-row" action="/vacancies/search" method="get">
                     <div class="col-9">
-                        <input type="text" class="form-control" name="q" placeholder="Search" required="">
+                        <input type="text" class="form-control" name="q" placeholder="Search" required="" maxlength="50">
                     </div>
                     <div class="col-3">
                         <button type="submit" name="button" class="btn btn-orange">Search</button>
