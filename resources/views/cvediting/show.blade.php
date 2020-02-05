@@ -29,6 +29,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-md-6">
                 Industry: {{ $edit->industry->name }} <br>
 
+                @guest
+                @else
+
                 @if(Auth::user()->id == $edit->cvEditor->user->id)
 
                 Requested by: {{ $edit->name }} <br>
@@ -37,6 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
 
                 @endif
+                @endguest
 
                 Original CV: <a href="/storage/resumes/{{ $edit->original_url }}">view</a> <br>
                 Edited CV: 
