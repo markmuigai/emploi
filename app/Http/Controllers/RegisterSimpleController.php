@@ -84,8 +84,12 @@ class RegisterSimpleController extends Controller
         if(!$user->email_verified_at)
         {
             $user->verifyAccount();
+            return view('pages.verified')
+                    ->with('user',$user);
             return 'Account verified succesfully. <a href="/login">Login</a>';
         }
+        return view('pages.already-verified')
+                    ->with('user',$user);
         return 'Account has already been verified.  <a href="/login">Login</a>';
         
         
