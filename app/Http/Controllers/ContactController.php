@@ -88,6 +88,22 @@ class ContactController extends Controller
             
     }
 
+    public function robotsFile(Request $request){
+        $robots = "# Group 1
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
+        return response($robots)
+            ->header('Content-Type', 'text/plain');
+    }
+
+    public function googleAdsFile(){
+        $ads = 'google.com, pub-9948474979900683, DIRECT, f08c47fec0942fa0';
+        return response($ads)
+            ->header('Content-Type', 'text/plain');
+    }
+
     public function easyApply($slug, Request $request)
     {
         $user = User::where('email',$request->email)->first();
