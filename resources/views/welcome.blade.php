@@ -404,7 +404,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <p class="badge badge-secondary">{{ $blog->category->name }}</p>
                             </div>
                         </div>
-                        <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
+                        <p class="">{!!html_entity_decode($blog->preview)!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                         <span style="float: right; text-align: right;">
                             <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>

@@ -177,6 +177,9 @@
                             <a class="dropdown-item" href="/cv-editing">Edit Cvs (
                                 {{ count(App\CvEditRequest::where('cv_editor_id',Auth::user()->cvEditor->id)->where('submitted_on',null)->get()) }})</a>
                             @endif
+                            @if(Auth::user()->canWriteBlogs())
+                            <a class="dropdown-item" href="/my-blogs">Blogging Panel</a>
+                            @endif
                             <a class="dropdown-item" href="/home"><strong>Dashboard</strong></a>
                             <a class="dropdown-item" href="/profile">View Profile</a>
                             <a class="dropdown-item" href="/logout">Logout</a>

@@ -59,6 +59,7 @@ Route::group([ 'middleware' => 'auth'], function(){
     Route::get('profile/edit', 'HomeController@updateProfile');
     Route::post('profile/update', 'HomeController@saveProfile');
     Route::resource('profile/invites', 'InviteLinkController');
+    Route::get('my-blogs','BlogController@admin');
 });
 
 Route::post('create-account', 'RegisterSimpleController@create');
@@ -154,6 +155,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('posts/{slug}', 'AdminController@viewPost');
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
     Route::get('blog','AdminController@blog');
+    Route::resource('bloggers','BloggersController');
     Route::get('seekers/{username?}','AdminController@seekers');
     Route::get('cv-requests/{id?}','AdminController@cvRequests');
     //Route::resource('posts', 'PostsController');

@@ -14,9 +14,20 @@ use Image;
 class BlogController extends Controller
 {
     public function __construct() {
-        $this->middleware('admin', ['except' => [
+        $this->middleware('blogger', ['except' => [
             'index','show'
         ]]);
+    }
+
+    public function admin(Request $request)
+    {
+        $user = Auth::user();
+        //$blogger = Blogger::findOrFail($id);
+        $blogs = Blog::where('user_id',$user->id)->paginate(20);
+        return view('admins.bloggers.show')
+                ->with('blogger',$user->blogger)
+                ->with('blogs',$blogs);
+        //$blogs = Blog::where('user_id',$user->id)->paginate(20)
     }
 
     public function index()
@@ -75,7 +86,9 @@ class BlogController extends Controller
             'image2' => $other_image_url,
             'status' => $blog_status
         ]);
-        return redirect('/admin/blog');
+        if(Auth::user()->role == 'admin')
+            return redirect('/admin/blog');
+        return redirect('/my-blogs');
     }
 
     public function show($id, Request $request)

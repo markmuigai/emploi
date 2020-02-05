@@ -18,7 +18,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <form style="display: inline;" class=" col-md-10">
                 <input type="text" name="q" placeholder="search blogs" class="form-control" required="">
             </form>
-            <a href="/blog/create" class="btn btn-orange ">Create New Blog</a>
         </p>
         @endif
         @forelse($blogs as $blog)

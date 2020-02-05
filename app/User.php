@@ -15,10 +15,11 @@ use App\Jobs\EmailJob;
 
 use App\Traits\CanLike;
 use App\Traits\CanEditCv;
+use App\Traits\CanBlog;
 
 class User extends Authenticatable
 {
-    use Notifiable, CanLike, CanEditCv;
+    use Notifiable, CanLike, CanEditCv, CanBlog;
     
     protected $fillable = [
         'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password','created_at'
