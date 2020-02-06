@@ -208,7 +208,7 @@ class HomeController extends Controller
 
                 if(isset($request->resume))
                 {
-                    if(isset($seeker->resume) && file_exists(storage_path()."/app/public/resumes/".$seeker->resume))
+                    if(isset($seeker->resume) && file_exists(storage_path()."/app/public/resumes/".$seeker->resume) && $seeker->resume != null)
                     {
                         unlink(storage_path().'/app/public/resumes/'.$seeker->resume);
                     }
