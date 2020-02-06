@@ -25,4 +25,31 @@ class Jurisdiction extends Model
     {
         return 'https://hooks.slack.com/services/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';
     }
+
+    public static function getVerificationsGraph(){
+        $weekMap = [
+            0 => 'Sun',
+            1 => 'Mon',
+            2 => 'Tue',
+            3 => 'Wed',
+            4 => 'Thu',
+            5 => 'Fri',
+            6 => 'Sat',
+        ];
+
+        
+        $weekelyCount = array();
+        for($i=6; $i>=0; $i--)
+        {
+            $day = \Carbon\Carbon::now()->subDays($i);
+            $day_reg = explode(" ", $day);
+            $day_reg = $day_reg[0];
+            $users = \App\User::where('email_verified_at','like',"$day_reg%")->get();
+            $counter = count($users);
+
+
+            array_push($weekelyCount, array($counter,$weekMap[$day->dayOfWeek]));
+        }
+        return $weekelyCount;
+    }
 }

@@ -67,5 +67,72 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
+<div class="card">
+    <div class="card-body">
+        <canvas id="verifications-graph"></canvas>
+
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script>
+    <?php
+
+    $weekelyCount = \App\Jurisdiction::getVerificationsGraph();
+    //return $stats;
+    //$weekelyCount = Auth::user()->employer->weekApplicationsCounter;
+    $counter = '[';
+    $labels = '[';
+    for($i=0; $i<count($weekelyCount); $i++)
+    {
+        $counter .= $weekelyCount[$i][0];
+        $labels .= '"'.$weekelyCount[$i][1].'"';
+        if(count($weekelyCount) != $i-1)
+        {
+            $counter.=',';
+            $labels.=',';
+        }
+    }
+    $counter .= ']';
+    $labels .= ']';
+    
+    echo "var graph_data = $counter;";
+    echo "var graph_labels = $labels;";
+
+
+    ?>
+
+    var ctx = document.getElementById('verifications-graph');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: graph_labels,
+            datasets: [{
+                label: 'Account Verifications',
+                data: graph_data,
+                borderColor: 'rgb(232, 135, 37)',
+                // backgroundColor: 'rgba(253, 242, 232, 0.5)',
+                backgroundColor: 'rgba(0,0,0,0)',
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: "Total Account Verifications over the Past Week"
+            },
+            legend: {
+              boxWidth: 20,
+            },
+        },
+        maintainAspectRatio: false,
+    });
+    
+</script>
 
 @endsection
