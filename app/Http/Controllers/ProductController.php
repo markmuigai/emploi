@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $p = Product::create([
-            'slug' => Product::generateUniqueSlug(), 
+            'slug' => Product::generateUniqueSlug(11), 
             'title' => $request->title, 
             'tagline' => $request->tagline, 
             'description' => $request->description, 
