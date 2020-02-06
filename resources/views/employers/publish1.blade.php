@@ -100,6 +100,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
+@guest
+@else
+
 <?php
     $code = 'LOOKING-TO-ADVERTISE';
     $url = url()->current();
@@ -107,6 +110,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $message = $code.' '.$user.' '.$url.' is looking to Advertise';
     \App\Employer::first()->notify(new \App\Notifications\TriedAdvertising($message));
 ?>
+@endguest
 
 
 @endsection
