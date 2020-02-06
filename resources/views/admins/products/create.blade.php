@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="col-md-12">
                     <div>
                         <label><a href="/admin/products"><i class="fa fa-arrow-left"></i></a> Title</label>
-                        <input type="text" name="title" maxlength="500" required="" class="form-control" id="title" maxlength="100">
+                        <input type="text" name="title" required="" class="form-control" id="title" maxlength="100">
                     </div>
                     <div>
                         <label>Tagline</label>

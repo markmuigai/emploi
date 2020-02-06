@@ -20,13 +20,13 @@ class Invoice extends Model
 
     public function getTotalAttribute(){
     	$total = 0;
-    	if(count($this->order->productOrders) > 0)
+    	if($this->order_id !== null)
     	{
     		for($i=0; $i<count($this->order->productOrders); $i++)
     			$total += $this->order->productOrders[$i]->price;
     	}
     	else
-    		$total = $this->sub_total;
+            return  $this->sub_total;
 
     	$total_credits = 0;
     	if(count($this->invoiceCreditRedemptions) > 0)
@@ -46,8 +46,8 @@ class Invoice extends Model
 
     }
 
-    public static function generateUniqueSlug($length = 100) {
-        $length = $length > 100 ? 100 : $length;
+    public static function generateUniqueSlug($length = 11) {
+        $length = $length > 41 ? 41 : $length;
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
@@ -55,5 +55,13 @@ class Invoice extends Model
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return 'EINVOICE_'.$randomString;
+    }
+
+    public function getPaidAttribute(){
+        if($this->pesapal_transaction_tracking_id)
+            return 'pesapal';
+        if($this->alternative_payment_slug)
+            return 'alternative';
+        return false;
     }
 }

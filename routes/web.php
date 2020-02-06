@@ -188,6 +188,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('toggle-seeker-featured', 'AdminController@toggleSeekerFeatured');
 
     Route::resource('products','ProductController');
+    Route::resource('invoices','InvoiceController');
 });
 
 
