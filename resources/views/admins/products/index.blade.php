@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                     <div class="col-4 text-right">
                         <p>
-                            Price: Ksh {{ $p->price }} for {{ $p->days_duration  }} days<br>
+                            Price: Ksh {{ round($p->price) }} for {{ $p->days_duration  }} days<br>
                             <a href="/admin/products/{{ $p->slug }}" class="btn btn-sm btn-default">view</a>
                         </p>
                     </div>
