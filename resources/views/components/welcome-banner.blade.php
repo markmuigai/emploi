@@ -12,8 +12,8 @@ if(isset(Auth::user()->id))
 }
 
 ?>
-<p style="text-align: center;">
+<p>
     <a href="/vacancies/{{ $subcat }}" class="btn btn-orange px-4">Latest Vacancies</a>
     <br class="for-mobile"><br class="for-mobile">
-    <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-default px-4" style="color: black; background-color: white">Request CV Editing</a>
+    <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn orange px-4" style="color: black; background-color: white">Request CV Editing</a>
 </p>
