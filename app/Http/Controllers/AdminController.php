@@ -39,6 +39,15 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    public function loginWithUsername($username, Request $request){
+        $user = User::where('username',$username)->firstOrFail();
+        if($user->role == 'admin' || $user->role == 'super-admin')
+            abort(403);
+        $request->session()->put('last-admin-id', Auth::user()->id);
+        Auth::loginUsingId($user->id, true);
+        return redirect('/employers/jobs');
+    }
+
     public function loginas(Request $request){
         $user = User::findOrFail($request->user_id);
         if($user->role == 'admin' || $user->role == 'super-admin')
