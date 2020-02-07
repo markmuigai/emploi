@@ -21,31 +21,34 @@ class SocialiteController extends Controller
     {
         try {
             $user = Socialite::driver($provider)->user();
-            $fullName = $user->getName();
-            if($user->getEmail() !== null)
-            {
-                $matchedUser = User::where('email',$user->getEmail())->first();
-                if(isset($matchedUser->id))
-                {
-                    //returning user
-                    Auth::loginUsingId($matchedUser->id, true);
-                    return redirect('/home');
-                }
-                $email = $user->getEmail();
-            }
-            else
-            {
-                $email = '';
-            }
             
-            //new user
-            return view('pages.join')
-                    ->with('email',$email)
-                    ->with('name',$fullName);
         } catch (Exception $e) {
             return view('pages.auth-error')
                     ->with('provider',$provider);
         }
+
+        $fullName = $user->getName();
+        if($user->getEmail() !== null)
+        {
+            $matchedUser = User::where('email',$user->getEmail())->first();
+            if(isset($matchedUser->id))
+            {
+                //returning user
+                if(!isset(Auth::user()->id))
+                    Auth::loginUsingId($matchedUser->id, true);
+                return redirect('/home');
+            }
+            $email = $user->getEmail();
+        }
+        else
+        {
+            $email = '';
+        }
+        
+        //new user
+        return view('pages.join')
+                ->with('email',$email)
+                ->with('name',$fullName);
         
                 
         return view('auth.social-register')

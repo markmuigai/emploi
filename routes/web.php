@@ -32,6 +32,8 @@ Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');
 
 Route::get('/courses/{id}', 'HomeController@getCourse');
 
+Route::get('/invoice/{slug}', 'InvoiceController@show');
+
 Auth::routes();
 Route::get('/', 'ContactController@index');
 //Route::get('/', function () {   /*dd(\Auth::user()->role );*/ return view('welcome'); 	});
@@ -189,6 +191,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::resource('products','ProductController');
     Route::resource('invoices','InvoiceController');
+    Route::get('invoices/{slug}/remindViaEmail', 'InvoiceController@remindViaEmail');
 });
 
 

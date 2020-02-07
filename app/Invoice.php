@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Invoice extends Model
 {
+    use Notifiable;
+
     protected $fillable = [
         'order_id', 'slug','first_name','last_name','phone_number','email','description','sub_total','pesapal_merchant_reference','pesapal_transaction_tracking_id','alternative_payment_slug'
     ];
@@ -59,9 +62,27 @@ class Invoice extends Model
 
     public function getPaidAttribute(){
         if($this->pesapal_transaction_tracking_id)
-            return 'pesapal';
+            return $this->pesapal_transaction_tracking_id;
         if($this->alternative_payment_slug)
-            return 'alternative';
+            return $this->alternative_payment_slug;
         return false;
+    }
+
+    public function routeNotificationForSlack($notification)
+    {
+        return 'https://hooks.slack.com/services/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';
+    }
+
+    public function remind($channel)
+    {
+        switch ($channel) {
+            case 'email':
+                # code...
+                break;
+            
+            default:
+                return false;
+                break;
+        }
     }
 }
