@@ -235,6 +235,7 @@ Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
     Route::post('create-admin', 'SuperAdminController@saveAdmin');
     Route::get('enable-admin', 'SuperAdminController@enable');
     Route::get('disable-admin', 'SuperAdminController@disable');
+    Route::get('documenatation',  'SuperAdminController@document');
 });
 
 Route::get('auth-with/{provider}', 'SocialiteController@redirectToProvider');
