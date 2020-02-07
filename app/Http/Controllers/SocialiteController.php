@@ -19,6 +19,9 @@ class SocialiteController extends Controller
 
     public function handleProviderCallback($provider, Request $request)
     {
+        if (!$request->has('code') || $request->has('denied')) {
+            return redirect('/join');
+        }
         try {
             $user = Socialite::driver($provider)->user();
             
