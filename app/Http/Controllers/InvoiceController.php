@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 
 use App\Invoice;
+use App\Jobs\EmailJob;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\InvoicePaid;
 
@@ -82,9 +83,27 @@ class InvoiceController extends Controller
         if($invoice->alternative_payment_slug)
             return abort(403);
         $invoice->alternative_payment_slug = Auth::user()->id.'_'.$request->alternative_payment_slug;
+        $invoice->updated_at = now();
         $invoice->save();
-    $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' was marked paid by '.Auth::user()->name.'. Payment Reference: '.$invoice->alternative_payment_slug;
+        $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' was marked paid by '.Auth::user()->name.'. Payment Reference: '.$invoice->alternative_payment_slug;
         $invoice->notify(new InvoicePaid($message));
+
+        $caption = "Emploi Invoice ".$invoice->slug.' was paid';
+        $contents = "The Invoice <a href='".url('/invoice/'.$invoice->slug)."'>".$invoice->slug."</a> totalling to Ksh ".$invoice->total."is due was paid succesfully <br><br>
+
+        <a href='".url('/invoice/'.$invoice->slug)."' style='padding: 0.5em; '>View Invoice</a> 
+
+        <br>
+        <h5>Description</h5>
+        <p>
+        ".$invoice->description."
+        </p>
+
+        <br>
+
+        Thank you for chosing Emploi.
+        ";
+        EmailJob::dispatch($invoice->first_name, $invoice->email, 'Emploi Invoice Paid', $caption, $contents);
 
         return redirect('/admin/invoices/'.$invoice->slug);
     }

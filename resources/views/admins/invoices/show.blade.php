@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         <hr>
         @if($invoice->paid)
-        Payment: 'Paid' 
+        Payment: Paid
             @guest
             @else
                 @if(Auth::user()->email == $invoice->email || Auth::user()->role == 'admin')
