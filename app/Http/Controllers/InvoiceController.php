@@ -77,6 +77,11 @@ class InvoiceController extends Controller
         //
     }
 
+    public function payment(Request $request)
+    {
+        return $request->all();
+    }
+
     public function update(Request $request, $slug)
     {
         $invoice = Invoice::where('slug',$slug)->firstOrFail();

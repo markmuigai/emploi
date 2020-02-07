@@ -1,7 +1,7 @@
 <?php
-//dd(getcwd());
 include_once('../app/Helpers/OAuth.php');
 
+//pesapal params
 $token = $params = NULL;
 
 if (config('app.env') === 'production')
@@ -19,19 +19,18 @@ else
 
 $signature_method = new OAuthSignatureMethod_HMAC_SHA1();
 
-$amount = $invoice->total;
-$amount = number_format($amount, 2);
+//get form details
+$amount = number_format($invoice->total, 2);
+
 $desc = $invoice->description;
 $type = 'MERCHANT';
 $reference = $invoice->slug;
-$first_name = $invoice->first_name;
+$first_name = $invoice->first_name;;
+$last_name = $invoice->last_name;;
+$email = $invoice->email;;
+$phonenumber = '';
 
-$last_name = $invoice->last_name;
-$email = $invoice->email;
-
-$phonenumber = $invoice->phone_number ? $invoice->phone_number : '';//ONE of email or phonenumber is required
-
-$callback_url = url('/invoice/'.$invoice->slug);
+$callback_url = 'https://beta.emploi.co/invoice/payment'; 
 
 $post_xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><PesapalDirectOrderInfo xmlns:xsi=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"https://www.w3.org/2001/XMLSchema\" Amount=\"".$amount."\" Description=\"".$desc."\" Type=\"".$type."\" Reference=\"".$reference."\" FirstName=\"".$first_name."\" LastName=\"".$last_name."\" Email=\"".$email."\" PhoneNumber=\"".$phonenumber."\" xmlns=\"https://www.pesapal.com\" />";
 $post_xml = htmlentities($post_xml);
