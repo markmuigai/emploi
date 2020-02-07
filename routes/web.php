@@ -173,7 +173,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('cveditors','EditorController');
     Route::get('cv-edit-requests/{id?}', 'AdminController@editingRequests');
     Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingRequests');
-
+    Route::resource('industries', 'IndustryController');
     Route::get('employers', 'AdminController@employers');
     Route::get('companies', 'AdminController@companies');
     Route::post('log-in-as', 'AdminController@loginas');
