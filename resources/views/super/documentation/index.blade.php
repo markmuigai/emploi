@@ -19,8 +19,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <p>
 
-
-<!-- Contents
+<!-- 
+Contents
 Introduction    3
 Requirements    3
 System  4
@@ -113,19 +113,16 @@ Renewal command is: certbot renew<br>
     2. Email service
 Emploi email hosting for users have been setup with Truehost and require annual renewal to keep them functional. This can be done from the provider’s website www.truehost.co.ke<br>
 
-
-
-
-
-<h3>Routes</h3>
-Route::get('/robots.txt', 'ContactController@robotsFile'); -> dispays confirmation page for real humans
-
-Route::get('/ads.txt', 'ContactController@googleAdsFile'); -> displays google ads
-
 </p>
 
-
     </div>
+
+    <div class="card">
+    <div class="card-body">
+        <div class="text-right">
+            <a href="/routesdoc" class="btn btn-sm btn-orange pull-right">Routes Documentation</a>
+        </div>
+
 </div>
 
 @endsection
