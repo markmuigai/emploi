@@ -78,6 +78,6 @@ class SuperAdminController extends Controller
     }
     public function document()
     {
-        return view('super.maindoc'); 
+        return view('super.documentation.maindoc'); 
    }
 }
