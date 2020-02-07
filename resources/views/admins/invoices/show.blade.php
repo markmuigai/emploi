@@ -61,7 +61,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @else
 
                 
-                <a href="#" class="btn btn-orange">Make Payment</a>
+                @include('components.pesapal')
                 
 
             @endif
