@@ -53,11 +53,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="col-md-3">
                             <input type="submit" class="btn btn-orange" value="Mark Invoice Paid">
                         </div>
-                        <div class="col-md-3">
-                            <a href="/admin/invoices/{{ $invoice->slug }}/remindViaEmail" class="btn btn-danger">Send Email Reminder</a>
-                            
-                        </div>
                         
+                    </form>
+
+                    <br>
+
+                    <form method="post" action="/admin/invoices/{{ $invoice->slug }}/remindViaEmail">
+                        @csrf
+                        <input type="submit" value="Send Email Reminder" class="btn btn-danger">
                     </form>
                     
 

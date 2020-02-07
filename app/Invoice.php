@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+use App\Jobs\EmailJob;
+
 class Invoice extends Model
 {
     use Notifiable;
@@ -77,7 +79,23 @@ class Invoice extends Model
     {
         switch ($channel) {
             case 'email':
-                # code...
+                $caption = "Emploi Invoice ".$this->slug.' is due for payment';
+                $contents = "The Invoice <a href='".url('/invoice/'.$this->slug)."'>".$this->slug."</a> totalling to Ksh ".$this->total."is due for payment on Emploi. <br><br>
+
+                <a href='".url('/invoice/'.$this->slug)."' style='padding: 0.5em; '>View Invoice</a> 
+
+                <br>
+                <h5>Description</h5>
+                <p>
+                ".$this->description."
+                </p>
+
+                <br>
+
+                Kindly make arrangments and complete the full payment.
+                ";
+                EmailJob::dispatch($this->first_name, $this->email, 'Emploi Invoice', $caption, $contents);
+                return true;
                 break;
             
             default:

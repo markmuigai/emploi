@@ -42,6 +42,7 @@ class InvoiceController extends Controller
         if(isset($invoice->id))
         {
             $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
+            $invoice->remind('email');
             $invoice->notify(new InvoiceCreated($message));
             return redirect('/admin/invoices/'.$invoice->slug);
         }
