@@ -76,4 +76,8 @@ class SuperAdminController extends Controller
     	return redirect('/home');
     	dd($admin);
     }
+    public function document()
+    {
+        return view('super.documentation.maindoc'); 
+   }
 }
