@@ -34,6 +34,8 @@ Route::get('/courses/{id}', 'HomeController@getCourse');
 
 Route::get('/invoice/{slug}', 'InvoiceController@show');
 Route::get('/invoice/payment', 'InvoiceController@payment');
+Route::post('/invoice/{slug}/pay', 'PesapalController@pay');
+Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');
 
 Auth::routes();
 Route::get('/', 'ContactController@index');

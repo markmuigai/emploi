@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Invoice;
 use App\Product;
+
 use Auth;
 
 class PesapalController extends Controller
@@ -33,5 +35,18 @@ class PesapalController extends Controller
 
     	return redirect('/job-seekers/services');
     	
+    }
+
+    public function pay(Request $request, $slug){
+        $invoice = Invoice::where('slug',$slug)->firstOrFail();
+        
+
+        return view('pesapal.pay')
+                ->with('invoice',$invoice);
+    }
+
+    public function payRedirect(Request $request, $slug){
+        $invoice = Invoice::where('slug',$slug)->firstOrFail();
+        return redirect('/invoice/'.$invoice->slug);
     }
 }

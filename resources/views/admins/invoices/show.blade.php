@@ -60,8 +60,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </form>
             @else
 
-                
-                @include('components.pesapal')
+                <form method="POST" action="/invoice/{{ $invoice->slug }}/pay">
+                    @csrf
+                    <input type="hidden" name="email" value="{{ $invoice->email }}">
+                    <input type="submit" value="Make Payment" class="btn btn-success">
+                </form>
                 
 
             @endif
