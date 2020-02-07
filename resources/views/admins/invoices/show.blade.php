@@ -41,31 +41,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @endguest
         @else
         
-            @guest
-            <a href="#" class="btn btn-orange">Make Payment</a>
+            @if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+                <form method="post" action="/admin/invoices/{{ $invoice->slug }}" class="row">
+                    @csrf
+                    {{ method_field('PUT') }}
+                    <input type="text" name="alternative_payment_slug" class="form-control col-md-6" placeholder="payment reference code" required="" maxlength="100">
+                    <div class="col-md-3">
+                        <input type="submit" class="btn btn-orange" value="Mark Invoice Paid">
+                    </div>
+                    
+                </form>
+
+                <br>
+
+                <form method="post" action="/admin/invoices/{{ $invoice->slug }}/remindViaEmail">
+                    @csrf
+                    <input type="submit" value="Send Email Reminder" class="btn btn-danger">
+                </form>
             @else
-                @if(Auth::user()->role == 'admin')
-                    
-                    <form method="post" action="/admin/invoices/{{ $invoice->slug }}" class="row">
-                        @csrf
-                        {{ method_field('PUT') }}
-                        <input type="text" name="alternative_payment_slug" class="form-control col-md-6" placeholder="payment reference code" required="" maxlength="100">
-                        <div class="col-md-3">
-                            <input type="submit" class="btn btn-orange" value="Mark Invoice Paid">
-                        </div>
-                        
-                    </form>
 
-                    <br>
+                @include('components.pesapalIframe')
+                
+                
 
-                    <form method="post" action="/admin/invoices/{{ $invoice->slug }}/remindViaEmail">
-                        @csrf
-                        <input type="submit" value="Send Email Reminder" class="btn btn-danger">
-                    </form>
-                    
-
-                @endif
-            @endguest
+            @endif
         @endif
         <hr>
 
