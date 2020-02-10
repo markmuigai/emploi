@@ -32,6 +32,11 @@ Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');
 
 Route::get('/courses/{id}', 'HomeController@getCourse');
 
+Route::get('/invoice/{slug}', 'InvoiceController@show');
+Route::get('/invoice/payment', 'InvoiceController@payment');
+Route::post('/invoice/{slug}/pay', 'PesapalController@pay');
+Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');
+
 Auth::routes();
 Route::get('/', 'ContactController@index');
 //Route::get('/', function () {   /*dd(\Auth::user()->role );*/ return view('welcome'); 	});
@@ -168,7 +173,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('cveditors','EditorController');
     Route::get('cv-edit-requests/{id?}', 'AdminController@editingRequests');
     Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingRequests');
-
+    Route::resource('industries', 'IndustryController');
     Route::get('employers', 'AdminController@employers');
     Route::get('companies', 'AdminController@companies');
     Route::post('log-in-as', 'AdminController@loginas');
@@ -189,6 +194,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::resource('products','ProductController');
     Route::resource('invoices','InvoiceController');
+    Route::post('invoices/{slug}/remindViaEmail', 'InvoiceController@remindViaEmail');
+    Route::get('invoices/{slug}/remindViaEmail', 'InvoiceController@show');
 });
 
 

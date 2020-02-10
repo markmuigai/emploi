@@ -117,12 +117,12 @@ Emploi email hosting for users have been setup with Truehost and require annual 
 
     </div>
 
-    <div class="card">
+  <!--   <div class="card">
     <div class="card-body">
         <div class="text-right">
             <a href="/routesdoc" class="btn btn-sm btn-orange pull-right">Routes Documentation</a>
         </div>
 
-</div>
+</div> -->
 
 @endsection

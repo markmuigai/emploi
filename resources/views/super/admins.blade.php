@@ -10,6 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Emploi Administrators')
 <div class="card">
     <div class="card-body">
+<<<<<<< HEAD
          <div class="dropdown">
                         <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
@@ -25,6 +26,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                                  
                 <h4>Active Administrators</h4>
+=======
+        <h4>Active Administrators</h4>
+>>>>>>> ebfb571be76bf8e6abdea45dadc3d1e2359eb244
 
         @forelse($admins as $admin)
 

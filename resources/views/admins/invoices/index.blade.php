@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @forelse($invoices as $invoice)
                 <div class="row">
                     <div class="col-8">
-                        <b><a href="/admin/products/{{ $invoice->slug }}">{{ $invoice->slug }}</a></b>
+                        <b><a href="/admin/invoices/{{ $invoice->slug }}">{{ $invoice->slug }}</a></b>
                         <br>
                         {{ $invoice->email }}
                         <br>
@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-4 text-right">
                         <p>
                             Payment: {{ $invoice->paid ? $invoice->paid : '-not-paid-' }}<br>
-                            <a href="/admin/invoices/{{ $invoice->id }}" class="btn btn-sm btn-default">view</a>
+                            <a href="/admin/invoices/{{ $invoice->slug }}" class="btn btn-sm btn-default">show</a>
                         </p>
                     </div>
                 </div>

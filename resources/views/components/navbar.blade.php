@@ -131,21 +131,20 @@
                 </li>
                 @endif
 
-                @if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'super-admin')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
+                        Super Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/posts">Job Posts</a>
-                        <a class="dropdown-item" href="/admin/cv-requests">CV Requests</a>
-                        <a class="dropdown-item" href="/admin/seekers">Job Seekers</a>
-                        <a class="dropdown-item" href="/admin/blog">Blogs</a>
-                        <a class="dropdown-item" href="/admin/emails">Send Emails</a>
+                        <a class="dropdown-item" href="/desk/documentation">Documentation</a>
+                        <a class="dropdown-item" href="/desk/create-admin">Create Admins</a>
+                        <a class="dropdown-item" href="/desk/admins">Manage Admins</a>
                     </div>
                 </li>
                 @else
                 @endif
+
                 @if(isset(Auth::user()->id))
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>

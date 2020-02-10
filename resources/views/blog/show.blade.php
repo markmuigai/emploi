@@ -51,6 +51,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
                 @endif
             @else
+                <p>
+                    {!!html_entity_decode($blog->preview)!!}
+                </p>
                 <br><br>
                 <p style="text-align: center;">
                     <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">Login</a> or <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to view the full blog.
