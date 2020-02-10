@@ -10,17 +10,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Emploi Administrators')
 <div class="card">
     <div class="card-body">
-        <div class="text-right">
+         <div class="dropdown">
+                        <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="documentation/index">Index</a></li>
+                            <li><a href="documentation/routes">Routes</a></li>
+                            <li><a href="documentation/controllers">Controllers</a></li>
+                            <li><a href="documentation/views" >Views</a></li>
+                          </ul>
+                      </div>
+        <div class="text-right">            
             <a href="/desk/create-admin" class="btn btn-sm btn-orange pull-right">Create Administrators</a>
         </div>
 
-         <div class="nav-item">
-            <div class="text-right">
-                    <a href="documentation" class="btn btn-green px-3">View Documentation</a>
-                </div>
-                </div>
-
-        <h4>Active Administrators</h4>
+                                 
+                <h4>Active Administrators</h4>
 
         @forelse($admins as $admin)
 

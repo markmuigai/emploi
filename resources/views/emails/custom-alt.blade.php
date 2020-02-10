@@ -1041,7 +1041,7 @@ Author URL: http://w3layouts.com
                                 </tr>
                                 <tr>
                                     <td align="center" style="font-size: 12px; color: #9b9a9c; line-height: 18px;">
-                                        Copyright © 2019. All rights reserved.
+                                        Copyright © 2020. All rights reserved.
                                         <!-- Design by <a style="color: #1d44b8; font-weight: bold;" href="https://w3layouts.com/">W3layouts</a> -->
                                     </td>
                                 </tr>

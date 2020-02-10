@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </p>
         @include('components.ads.responsive')
         <p>
-            Please try again later or contact us through other chanels.
+            Please try again later or contact us through other channels.
         </p>
 
         <a href="/contact" class="btn btn-sm btn-orange">Contact Us</a>
