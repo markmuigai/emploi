@@ -59,6 +59,42 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 
+	<h3 class="orange pt-2 text-center">Our Charges</h3>
+
+	<div class="card-deck text-center coloured-card row">
+		<div class="card">
+			<div class="card-body d-flex flex-column justify-content-center">
+				<h1>Kshs 2,000</h1>
+				<p>Entry Level</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body d-flex flex-column justify-content-center">
+				<h1>Kshs 4,000</h1>
+				<p>Mid Level</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body d-flex flex-column justify-content-center">
+				<h1>Kshs 6,000</h1>
+				<p>Career Change / Promotion Seeking CV</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body d-flex flex-column justify-content-center">
+				<h1>Kshs 6,000</h1>
+				<p>Management Level</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body d-flex flex-column justify-content-center">
+				<h1>Kshs 10,000</h1>
+				<p>Senior Management Level</p>
+			</div>
+		</div>
+	</div>
+</div>
+
 	<div class="row" id="request-cv-edit-form">
 		<div class="col-md-8 offset-md-2">
 			<h3 style="text-align: center;">Request Professional CV Editing</h3>
@@ -133,41 +169,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 
 
-	<h3 class="orange pt-2 text-center">Our Charges</h3>
-
-	<div class="card-deck text-center coloured-card row">
-		<div class="card">
-			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 2,000</h1>
-				<p>Entry Level</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 4,000</h1>
-				<p>Mid Level</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 6,000</h1>
-				<p>Career Change / Promotion Seeking CV</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 6,000</h1>
-				<p>Management Level</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 10,000</h1>
-				<p>Senior Management Level</p>
-			</div>
-		</div>
-	</div>
-</div>
+	
 
 
 @endsection

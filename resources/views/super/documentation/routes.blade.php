@@ -48,6 +48,22 @@ routes, it defines console based entry points (routes) into the application.</p>
 <li>Route::get('/privacy-policy', 'ContactController@policy'); ->displays our privacy policy</li>
 <li>Route::get('/mass-recruitment', 'ContactController@mass_recruitment'); ->displays what we offer on mass recruitment</li>
 <li>Route::get('/employers/role-suitability-index', 'ContactController@rsi'); ->displays an important tool for employers to evaluate a candidate's abilities by measuring the candidates strengths and weaknesses. </li>
+
+<li>Route::get('/webmail', 'ContactController@webmail');</li>
+<li>Route::get('/cpanel', 'ContactController@cpanel');</li>
+
+<li>Route::post('/contact', 'ContactController@save');</li>
+
+<li>Route::get('/verify-account/{code}', 'RegisterSimpleController@verify');</li>
+
+<li>Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');</li>
+
+<li>Route::get('/courses/{id}', 'HomeController@getCourse');</li>
+
+<li>Route::get('/invoice/{slug}', 'InvoiceController@show');</li>
+<li>Route::get('/invoice/payment', 'InvoiceController@payment');</li>
+<li>Route::post('/invoice/{slug}/pay', 'PesapalController@pay');</li>
+<li>Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');</li>
 </ul>
 
 </p>

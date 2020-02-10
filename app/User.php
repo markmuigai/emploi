@@ -185,7 +185,7 @@ class User extends Authenticatable
             <br>
             Have a look around and <a href='".url('/contact')."'>contact us</a> for support should you need it.
             <br><br>
-            Update your profile and start applying for jobs. Employers are always recruiting on our platform, ensure you upload your updated resume. <a href='".url('/login')."'>Login Here</a>
+            Update your profile and start applying for jobs. Employers are always recruiting on our platform, ensure you upload your updated resume.
             "; 
             EmailJob::dispatch($this->name, $this->email, 'Warm Welcome to Emploi', $caption, $contents);
 
