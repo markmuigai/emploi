@@ -1,16 +1,4 @@
-@extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Invoice Payment')
-
-@section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
-@endsection
-
-@section('content')
-@section('page_title', 'Invoice Payment')
-
-<div class="card">
-    <div class="card-body">
 
 		<?php
 			include_once('../app/Helpers/OAuth.php');
@@ -47,10 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			$iframe_src->sign_request($signature_method, $consumer, $token);
 		?>
 
-		<iframe src="<?php echo $iframe_src;?>" width="100%" height="2000px"  scrolling="no" frameBorder="0">
+		<iframe src="<?php echo $iframe_src;?>" width="100%" height="100%" scrolling="auto"  frameBorder="0" style="display: block;">
 			<p>Browser unable to load iFrame</p>
 		</iframe>
-	</div>
-</div>
-
-@endsection
+	
