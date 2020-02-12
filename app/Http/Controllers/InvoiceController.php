@@ -82,12 +82,12 @@ class InvoiceController extends Controller
         $invoice = Invoice::where('slug',$slug)->firstOrFail();
         if(!$invoice->pesapal_merchant_reference)
         {
-            $invoice->pesapal_merchant_reference = $request->pesapal_merchant_reference;
+            //$invoice->pesapal_merchant_reference = $request->pesapal_merchant_reference;
             $invoice->pesapal_transaction_tracking_id = $request->pesapal_transaction_tracking_id;
             $invoice->updated_at = now();
             $invoice->save();
         }
-        return view();
+        return view('pesapal.paid');
         return $request->all();
     }
 
