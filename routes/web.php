@@ -36,6 +36,7 @@ Route::get('/invoice/{slug}', 'InvoiceController@show');
 Route::get('/invoice/{slug}/paid', 'InvoiceController@payment');
 Route::post('/invoice/{slug}/pay', 'PesapalController@pay');
 Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');
+Route::get('/pesapalNotifications','PesapalController@ipn');
 
 Auth::routes();
 Route::get('/', 'ContactController@index');
