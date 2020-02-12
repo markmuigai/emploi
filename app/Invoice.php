@@ -103,4 +103,40 @@ class Invoice extends Model
                 break;
         }
     }
+
+    public function hasBeenPaid(){
+        if(isset($this->order_id))
+        {
+            $order = $this->order;
+            for($i=0; $i<count($order->productOrders); $i++)
+            {
+                $p = $order->productOrder[$i];
+
+                switch ($p->product->slug) {
+                    case 'featured_seeker':
+                        # code...
+                        break;
+                    
+                    default:
+                        # code...
+                        break;
+                }
+
+                //activate invoice product features
+                //featured_seeker
+                //entry_level_cv_edit
+                //medium_level_cv_edit
+                //c_change_cv_edit
+                //mgnt_cv_edit
+                //s_mgnt_cv_edit
+                //seeker_basic
+                //stawi
+                //solo
+                //solo-plus
+                //infiniti
+            }
+            
+        }
+        
+    }
 }
