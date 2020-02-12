@@ -14,7 +14,8 @@ class TestCron extends Command
      *
      * @var string
      */
-    protected $signature = 'TestCrontab';
+    protected $signature = 'TestCron';
+    protected $name = 'TestCron';
 
     /**
      * The console command description.
