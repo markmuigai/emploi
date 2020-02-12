@@ -33,7 +33,7 @@ Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');
 Route::get('/courses/{id}', 'HomeController@getCourse');
 
 Route::get('/invoice/{slug}', 'InvoiceController@show');
-Route::get('/invoice/payment', 'InvoiceController@payment');
+Route::get('/invoice/{slug}/paid', 'InvoiceController@payment');
 Route::post('/invoice/{slug}/pay', 'PesapalController@pay');
 Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');
 
