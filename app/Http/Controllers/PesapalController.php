@@ -8,6 +8,7 @@ use App\Invoice;
 use App\Product;
 
 use Auth;
+use App\Notifications\PaymentMade;
 
 class PesapalController extends Controller
 {
@@ -49,4 +50,32 @@ class PesapalController extends Controller
         $invoice = Invoice::where('slug',$slug)->firstOrFail();
         return redirect('/invoice/'.$invoice->slug);
     }
+
+    public function ipn(Request $request)
+    {
+        $message = 'Pesapal Notification: '.$request->pesapal_notification_type.' Ref: '.$request->pesapal_transaction_tracking_id;
+        $invoice = Invoice::first();
+        $invoice->notify(new PaymentMade($message));
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

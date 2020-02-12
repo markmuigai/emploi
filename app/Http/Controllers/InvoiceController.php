@@ -14,7 +14,7 @@ class InvoiceController extends Controller
 {
     public function __construct() {
         $this->middleware('admin', ['except' => [
-            'show'
+            'show','payment'
         ]]);
     }   
 
@@ -77,8 +77,17 @@ class InvoiceController extends Controller
         //
     }
 
-    public function payment(Request $request)
+    public function payment(Request $request, $slug)
     {
+        $invoice = Invoice::where('slug',$slug)->firstOrFail();
+        if(!$invoice->pesapal_merchant_reference)
+        {
+            //$invoice->pesapal_merchant_reference = $request->pesapal_merchant_reference;
+            $invoice->pesapal_transaction_tracking_id = $request->pesapal_transaction_tracking_id;
+            $invoice->updated_at = now();
+            $invoice->save();
+        }
+        return view('pesapal.paid');
         return $request->all();
     }
 
