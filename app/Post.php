@@ -128,7 +128,6 @@ class Post extends Model
         if($len)
             return substr(ucwords(strtolower($this->title)), 0, 30);
         return ucwords(strtolower($this->title));
-
         
     }
 
@@ -137,11 +136,12 @@ class Post extends Model
     public function getShareTextAttribute(){
         $tit = explode(" ", $this->title);
         return implode("+", $tit).' '.$this->location->country->currency.' '.$this->monthly_salary;
+
+        return '<a href= '.url('/login').">Login Here</a>";
+       
+
     }
-     // //  /*   /*<a href='".url('/login')."'>Login Here</a>*/
-     //    {!! Html::link Onclick="location.href='{{ url('/login') }}'">
-     // Login</button> !!}
-    
+  
     public function getShareFacebookLinkAttribute(){
         return 'https://www.facebook.com/sharer.php?u='.url('/vacancies/'.$this->slug);
     }

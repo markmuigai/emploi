@@ -49,21 +49,21 @@ routes, it defines console based entry points (routes) into the application.</p>
 <li>Route::get('/mass-recruitment', 'ContactController@mass_recruitment'); ->displays what we offer on mass recruitment</li>
 <li>Route::get('/employers/role-suitability-index', 'ContactController@rsi'); ->displays an important tool for employers to evaluate a candidate's abilities by measuring the candidates strengths and weaknesses. </li>
 
-<li>Route::get('/webmail', 'ContactController@webmail');</li>
-<li>Route::get('/cpanel', 'ContactController@cpanel');</li>
+<li>Route::get('/webmail', 'ContactController@webmail');</li> ->displays the webmail
+<li>Route::get('/cpanel', 'ContactController@cpanel');</li> ->displays the cpanel
 
-<li>Route::post('/contact', 'ContactController@save');</li>
+<li>Route::post('/contact', 'ContactController@save');</li> ->saves the contact message from the client
 
-<li>Route::get('/verify-account/{code}', 'RegisterSimpleController@verify');</li>
+<li>Route::get('/verify-account/{code}', 'RegisterSimpleController@verify');</li> ->retrieves verification code
 
-<li>Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');</li>
+<li>Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');</li> ->displays if an email is registered
 
-<li>Route::get('/courses/{id}', 'HomeController@getCourse');</li>
+<li>Route::get('/courses/{id}', 'HomeController@getCourse');</li> ->displays courses
 
-<li>Route::get('/invoice/{slug}', 'InvoiceController@show');</li>
-<li>Route::get('/invoice/payment', 'InvoiceController@payment');</li>
-<li>Route::post('/invoice/{slug}/pay', 'PesapalController@pay');</li>
-<li>Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');</li>
+<li>Route::get('/invoice/{slug}', 'InvoiceController@show');</li> ->retrieves invoice with a certain number 
+<li>Route::get('/invoice/payment', 'InvoiceController@payment');</li> ->displays payment for invoice
+<li>Route::post('/invoice/{slug}/pay', 'PesapalController@pay');</li> ->sends the payment
+<li>Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');</li> ->
 </ul>
 
 </p>
