@@ -26,6 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<p>We leverage on our expertise to provide you with a clear, concise CV that matches your professional level and will stand out before recruiters.</p>
 			<p>
 				<a href="#request-cv-edit-form" class="btn btn-orange">Request Cv Editing</a>
+				<a href="#charges" class="btn orange">View Charges</a>
 			</p>
 		</div>
 	</div>
@@ -59,7 +60,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 
-	<h3 class="orange pt-2 text-center">Our Charges</h3>
+	<h3 class="orange pt-2 text-center" id="charges">Our Charges</h3>
 
 	<div class="card-deck text-center coloured-card row">
 		<div class="card">
