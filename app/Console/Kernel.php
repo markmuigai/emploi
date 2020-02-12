@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'App\Console\Commands\TestCron',
+        // 'App\Console\Commands\TestCron',
     ];
 
     /**
@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         // $schedule->command('backup:clean')->daily()->at('01:00');
         // $schedule->command('backup:run')->daily()->at('02:00');
-        $schedule->command('TestCron')->everyMinute()->emailOutputOnFailure('brian@jobsikaz.com');
+        // $schedule->command('TestCron')->everyMinute()->emailOutputOnFailure('brian@jobsikaz.com');
     }
 
     /**
