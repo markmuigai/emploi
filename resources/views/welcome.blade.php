@@ -77,12 +77,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             @else
                 @include('components.welcome-banner')
-                <br>
-                <div class="sign-left ">
-                    <a href="https://emploi.co/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://emploi.co/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
-                    <a href="https://emploi.co/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
-                </div>
                 
             @endif
         </div>

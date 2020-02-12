@@ -29,7 +29,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </h5>
                 <p class="truncate-short">{{ $c->industry->name }}</p>
                 <p><i class="fas fa-map-marker-alt"></i> {{ $c->location->name.', '.$c->location->country->name }}</p>
-                <p>{{ $c->staff }}</p>
+                <p>{{ $c->companySize->title }}</p>
+                <p style="text-align: center;">
+                    <a href="/companies/{{ $c->name }}" class="btn btn-success">View Vacancies</a>
+                </p>
             </div>
         </div>
     </div>

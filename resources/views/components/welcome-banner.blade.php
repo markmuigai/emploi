@@ -1,4 +1,4 @@
-<h4 class="text-uppercase">Step into your Future</h4>
+
 <h1>Blast Off Your Career</h1>
 <p>{{ $line }}</p>
 <?php
@@ -15,5 +15,5 @@ if(isset(Auth::user()->id))
 <p>
     <a href="/vacancies/{{ $subcat }}" class="btn btn-orange px-4">Latest Vacancies</a>
     <br class="for-mobile"><br class="for-mobile">
-    <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn orange px-4" style="color: black; background-color: white">Request CV Editing</a>
+    <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-white px-4">Request CV Editing</a>
 </p>

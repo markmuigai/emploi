@@ -7,98 +7,187 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+<?php
+$user = isset(Auth::user()->id) ? Auth::user() : false;
+?>
+<style type="text/css">
+    .purpleBkg {
+        background-color: #500095;
+        color: white;
+        font-size: 80%;
+        
+
+    }
+    .purpleBkg h4,p {
+        text-align: center;
+    }
+    ul.tick {
+      font-size: 0;
+    }
+    ul.tick li {
+       font-size:1.0rem;
+      display: inline;
+    }
+</style>
 <div class="top-bg"></div>
-<div class="container pb-0 pb-lg-4">
+<div class="container pb-0 pb-lg-4 ">
     <div class="row">
-        <div class="col-lg-7">
-            <div class="advert-details">
-                <h2 class="orange text-center">
+        <div class="row col-md-12">
+            <div class="col-md-5 advert-details mt-1" style="background-color: white; color: #000000; border-radius: 5%; border-bottom: 0.1em solid black; border-top: 0.1em solid black ">
+                <h2 class="orange ">
                     Advertise on Emploi
                 </h2>
-                <p>
-                    Advertise your job to an audience of over 100,000 on our job seeker database and social media communities. We provide advanced recruitment solutions to suit your business.
-                </p>
-
-                <p>
-                    Our services include <strong>Premium Recruitment</strong> - where we source and vet candidates on your behalf, <strong>Job Advertising and Shortlisting</strong>, and <strong>Database Search.</strong>
-                </p>
-                <p>
-                    To access these features, <a href="/employers/register">register as an employer</a> and streamline your recruitment, advertise a job and browse candidates.
-                </p>
-            </div>
-
-            <div class="row mt-4 mb-2">
-                <iframe class="col-md-12" style="border: none; margin-bottom: 1em;" 
-                src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=1">
-                </iframe>
-                <div class="col-md-6">
-                    <h5>Advertising Features</h5>
-                    <ul class="feature_list">
-                        <li>Reach over 100,000 job seekers through our partner networks</li>
-                        <li>Shortlisting dashboard</li>
-                        <li>Easily Schedule Interviews with candidates</li>
-                        <li>Job post sent as featured to job seekers</li>
-                        <li>Job post shared on Facebook, Twitter and LinkedIn Pages</li>
-                    </ul>
+                <ul>
+                    <li>Audience of 100k+ subscribers</li>
+                    <li>Advanced Recruitment tools</li>
+                    <li>Candidate Ranking Algorithm</li>
+                </ul>
+                <div>
+                    <a href="#advertise-form" class="btn orange">Post Job Advert</a>
                 </div>
-                <div class="col-md-6">
-                    <h5>Employer Benefits</h5>
-                    <ul class="feature_list">
-                        <li>Browse our database of job seekers</li>
-                        <li>Shortlist and schedule interviews with job seekers</li>
-                        <li>Request premium recruitment</li>
-                        <li>Request Candidate Vetting</li>
-                        <li>Advertise jobs</li>
-                    </ul>
+                
+            </div>
+
+            <div class="col-md-10 offset-md-1 row ">
+                <div class="col-md-12">
+                    <br>
+                    <iframe class="col-md-12" style="border: none; margin-bottom: none; height: 55vh;" 
+                        src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=1">
+                    </iframe>
+                    <br>
+                </div>
+                
+                <div class="col-md-10 offset-md-1 row">
+                    <div class="col-md-5" style="width: 49%; float: right;">
+                        <h5>Advertising Features</h5>
+                        <ul class="feature_list">
+                            <li>Reach over 100,000 job seekers through our partner networks</li>
+                            <li>Shortlisting dashboard</li>
+                            <li>Easily Schedule Interviews with candidates</li>
+                            <li>Job post sent as featured to job seekers</li>
+                            <li>Job post shared on Facebook, Twitter and LinkedIn Pages</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 offset-md-2" style="width: 49%; float: right;">
+                        <h5>Employer Benefits</h5>
+                        <ul class="feature_list">
+                            <li>Browse our database of job seekers</li>
+                            <li>Shortlist and schedule interviews with job seekers</li>
+                            <li>Request premium recruitment</li>
+                            <li>Request Candidate Vetting</li>
+                            <li>Advertise jobs</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="text-center">
-                <a href="/vacancies/create" class="btn btn-orange">Publish Job Post</a>
-                <a href="/contact" class="btn btn-purple">Contact Us</a>
+
+            <div class="card-deck text-center coloured-card row">
+                <div class="col-md-12">
+                    <h3 class="orange pt-2 text-center" id="charges">Our Charges</h3>
+                </div>
+                <div class="card">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h1>Kshs <br>2,500</h1>
+                        <p>SOLO</p>
+                        <ul class="tick">
+                            <li>1 Job posted for 30 days</li><br>
+                            <li>Shared to social media pages</li>
+                        </ul>
+                        <br>
+                        <br><br>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h1>Kshs <BR>4,750</h1>
+                        <p>SOLO PLUS</p>
+                        <ul class="tick">
+                            <li>2-4 jobs posted for 30 days</li><br>
+                            <li>Shared to Social media pages</li><br>
+                            <li>Job AD sent out to our entire database</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h1>Kshs 6,000</h1>
+                        <p>INFINITI</p>
+                        <ul class="tick">
+                            <li>More than 4 jobs posted for 30 days</li><br>
+                            <li>Shared to Social media pages</li><br>
+                            <li>Job AD sent out to entire database</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h1>Kshs 10,000</h1>
+                        <p>STAWI</p>
+                        <ul class="tick">
+                            <li>All   in Solo</li><br>
+                            <li>Search talent database</li><br>
+                            <li>Unlimited searches in 1 job category</li><br>
+                            <li>Get up to 50 CVs</li><br>
+                            <li>Referee reports</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
+            
         </div>
-        <?php
-        $user = isset(Auth::user()->id) ? Auth::user() : false;
-        ?>
-        <div class="col-lg-5">
-            <div class="card mt-5">
-                <div class="card-body">
-                    <h4 class="text-center">Let's Advertise for you</h4>
-                    <form action="/employers/publish" method="POST">
-                    	@csrf
-                        <div class="form-group">
-                            <label for="">Your Name</label>
-                            <input type="text" name="name" value="{{ $user ? $user->name : '' }}" required="" class="form-control" placeholder="" maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Phone Number</label>
-                            <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Email Address</label>
-                            <input type="email" name="email" value="{{ $user ? $user->email : '' }}" required="" class="form-control" placeholder="" maxlength="50">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Job Title</label>
-                            <input type="text" name="title" maxlength="100" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Job Description</label>
-                            <textarea name="description" id="description" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <input type="submit" class="btn btn-orange" value="Submit">
-                            @if(!$user || $user->role != 'employer')
-                            <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
-                            	<a href="/employers/register" class="orange">Employer Registration</a></p>
-                            @endif
-                        </div>
-                    </form>
-                </div>
+
+
+        
+        
+    </div>
+    <br id="advertise-form"><br>
+    <div class="row">
+        <div class="card col-md-8 offset-md-2">
+            <div class="card-body">
+                
+                <h4 class="text-center">Let's Advertise for you</h4>
+                <form action="/employers/publish" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="">Your Name</label>
+                        <input type="text" name="name" value="{{ $user ? $user->name : '' }}" required="" class="form-control" placeholder="" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Phone Number</label>
+                        <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email Address</label>
+                        <input type="email" name="email" value="{{ $user ? $user->email : '' }}" required="" class="form-control" placeholder="" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Job Title</label>
+                        <input type="text" name="title" maxlength="100" class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Job Description</label>
+                        <textarea name="description" id="description" rows="5" class="form-control"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-orange" value="Submit">
+                        @if(!$user || $user->role != 'employer')
+                        <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
+                            <a href="/employers/register" class="orange">Employer Registration</a></p>
+                        @endif
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    setTimeout(function() {
+        CKEDITOR.replace('description');
+    }, 3000);
+</script>
 
 @guest
 @else
