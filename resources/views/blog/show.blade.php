@@ -52,7 +52,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
             @else
                 <p>
-                    {!!html_entity_decode($blog->preview)!!}
+                    {!!html_entity_decode($blog->longPreview(500))!!}
                 </p>
                 <br><br>
                 <p style="text-align: center;">
@@ -80,7 +80,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     |
                     
                     @guest
-                        <a href="/login" title="Login to Like">Login to Like</a>
                     @else
                         @if(Auth::user()->hasLiked('blog',$blog->id))
 
