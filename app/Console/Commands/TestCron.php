@@ -4,8 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\InvoicePaid;
-use App\Invoice;
+use App\Notifications\InvoicePaid;
+use App\User;
 
 class TestCron extends Command
 {
@@ -40,7 +40,7 @@ class TestCron extends Command
      */
     public function handle()
     {
-        $invoice = Invoice::first();
-        $invoice->notify(InvoicePaid('Testing '));
+        $user = User::first();
+        $user->notify(new InvoicePaid('Testing '));
     }
 }
