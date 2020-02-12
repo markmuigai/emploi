@@ -105,38 +105,64 @@ class Invoice extends Model
     }
 
     public function hasBeenPaid(){
-        if(isset($this->order_id))
-        {
-            $order = $this->order;
-            for($i=0; $i<count($order->productOrders); $i++)
-            {
-                $p = $order->productOrder[$i];
+    //     if(isset($this->order_id))
+    //     {
+    //         $order = $this->order;
+    //         for($i=0; $i<count($order->productOrders); $i++)
+    //         {
+    //             $p = $order->productOrder[$i];
 
-                switch ($p->product->slug) {
-                    case 'featured_seeker':
-                        # code...
-                        break;
+    //             switch ($p->product->slug) {
+    //                 case 'featured_seeker':
+    //                     //
+    //                     break;
+
+    //                 case 'entry_level_cv_edit':
+    //                     //$p->contents = 365;
+    //                     break;
+
+    //                 case 'mid_level_cv_edit':
+    //                     //$p->contents = 365;
+    //                     break;
+
+    //                 case 'c_change_cv_edit':
+    //                     //$p->contents = 365;
+    //                     break;
+
+    //                 case 'mgnt_cv_edit':
+    //                     //$p->contents = 365;
+    //                     break;
+
+    //                 case 's_mgnt_cv_edit':
+    //                     //$p->contents = 365;
+    //                     break;
+
+    //                 case 'seeker_basic':
+    //                     # code...
+    //                     break;
+
+    //                 case 'stawi':
+    //                     $p->contents = 1; //5000 credits to employer
+    //                     $p->save();
+    //                     break;
+
+    //                 case 'solo-plus':
+    //                     $p->contents = 4;
+    //                     $p->save();
+    //                     break;
+
+    //                 case 'infinity':
+    //                     # code...
+    //                     break;
                     
-                    default:
-                        # code...
-                        break;
-                }
+    //                 default:
+    //                     # code...
+    //                     break;
+    //             }
 
-                //activate invoice product features
-                //featured_seeker
-                //entry_level_cv_edit
-                //medium_level_cv_edit
-                //c_change_cv_edit
-                //mgnt_cv_edit
-                //s_mgnt_cv_edit
-                //seeker_basic
-                //stawi
-                //solo
-                //solo-plus
-                //infiniti
-            }
+    //         }
             
-        }
+    //     }
         
-    }
+    // }
 }

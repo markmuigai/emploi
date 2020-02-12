@@ -41,7 +41,7 @@ class TestCron extends Command
      */
     public function handle()
     {
-        $user = User::first();
-        $user->notify(new InvoicePaid('Testing '));
+        // $user = User::first();
+        // $user->notify(new InvoicePaid('Testing '));
     }
 }
