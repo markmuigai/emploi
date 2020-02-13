@@ -44,7 +44,9 @@ class PesapalController extends Controller
             }
             if(!isset($user->id))
             {
-                die('Account not registered');
+                return view('pesapal.error')
+                    ->with('title','Account not registered')
+                    ->with('message','The e-mail address provided was not linked to a registered account. Kindly create an account as a job seeker or employer. <br> <a href="/join?returnToUrl='.url('/checkout').'" class="btn orange">Create Account</a>.');
             }
 
             $product = Product::where('slug',session('product'))->firstOrFail();
@@ -78,6 +80,10 @@ class PesapalController extends Controller
                 $invoice->notify(new InvoiceCreated($message));
                 return redirect('/invoice/'.$invoice->slug);
             }
+
+            return view('pesapal.error')
+                    ->with('title','An Error Occurred')
+                    ->with('message','We were unable to submit your order. Kindly try again after a while.');
 
             die('Something happened on our end');
 
