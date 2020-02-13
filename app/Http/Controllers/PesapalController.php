@@ -115,7 +115,9 @@ class PesapalController extends Controller
     }
 
     public function payRedirect(Request $request, $slug){
-        $invoice = Invoice::where('slug',$slug)->firstOrFail();
+        $invoice = Invoice::where('slug',$slug)->first();
+        if(!isset($invoice->id))
+            return redirect('/');
         return redirect('/invoice/'.$invoice->slug);
     }
 
