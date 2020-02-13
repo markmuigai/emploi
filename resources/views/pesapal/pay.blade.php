@@ -12,7 +12,7 @@
 	$amount = number_format($invoice->total, 2);
 
 	$desc = urldecode(html_entity_decode(strip_tags($invoice->description)));
-	$desc = 'Emploi Invoice';
+	//$desc = 'Emploi Invoice';
 	$type = 'MERCHANT';
 	$reference = $invoice->slug;
 	$first_name = $invoice->first_name;
