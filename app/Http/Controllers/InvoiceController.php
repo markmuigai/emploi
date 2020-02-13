@@ -54,7 +54,6 @@ class InvoiceController extends Controller
 
     public function show($slug)
     {
-        dd(Auth::user()->seeker->canGetNotifications());
         return view('admins.invoices.show')
                 ->with('invoice',Invoice::where('slug',$slug)->firstOrFail());
     }

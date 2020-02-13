@@ -88,6 +88,10 @@ class ContactController extends Controller
             
     }
 
+    public function indexRedirect(){
+        return redirect('/');
+    }
+
     public function robotsFile(Request $request){
         $robots = "# Group 1
 User-agent: Googlebot
