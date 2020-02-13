@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @forelse($invoices as $invoice)
                 <div class="row">
                     <div class="col-8">
-                        <b><a href="/admin/invoices/{{ $invoice->slug }}">{{ $invoice->slug }}</a></b>
+                        <b><a href="/admin/invoices/{{ $invoice->slug }}">{{ $invoice->slug }}</a> <small>[ Ksh {{ $invoice->total }} ]</small></b>
                         <br>
                         {{ $invoice->email }}
                         <br>
