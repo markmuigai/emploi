@@ -15,6 +15,7 @@
 	//     $iframelink = 'https://demo.pesapal.com/api/PostPesapalDirectOrderV4';
 	// }
 	// $signature_method = new OAuthSignatureMethod_HMAC_SHA1();
+	 die('Processing Payment');
 	$amount = number_format($invoice->total, 2);
 	$desc = $invoice->description;
 	$type = 'MERCHANT';
