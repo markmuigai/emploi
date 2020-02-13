@@ -32,19 +32,19 @@
                 <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
                 @else
 
-                @if($a->status == 'selected')
-                <a href="#" class="text-success"> <i class="fas fa-check"></i> <strong>SELECTED</strong></a>
-                @else
+                    @if($a->status == 'selected')
+                    <a href="#" class="text-success"> <i class="fas fa-check"></i> <strong>SELECTED</strong></a>
+                    @else
 
-                @if($post->isShortlisted($a->user->seeker))
-                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Shortlisted</a>
+                    @if($post->isShortlisted($a->user->seeker))
+                    <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Remove from Shortlist</a>
 
-                @else
-                <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Not Shortlisted</a>
-                @endif
-                |
-                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
-                @endif
+                    @else
+                    <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Shortlist</a>
+                    @endif
+                    |
+                    <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
+                    @endif
                 @endif
             </div>
             <div class="col-12 col-md-6 col-lg-5 text-md-right">
