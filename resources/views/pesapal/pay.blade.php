@@ -23,7 +23,7 @@
 			$last_name = isset($invoice->last_name) ? $invoice->last_name : '';
 			$email = $invoice->email;
 			$phonenumber = isset($invoice->phone_number) ? $invoice->phone_number : '';//ONE of email or phonenumber is required
-			$phonenumber = '';
+			//$phonenumber = '';
 			$callback_url = url('/invoice/'.$invoice->slug.'/paid');
 			$post_xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><PesapalDirectOrderInfo xmlns:xsi=\"http://www.w3.org/2001/XMLSchemainstance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" Amount=\"".$amount."\" Description=\"".$desc."\" Type=\"".$type."\" Reference=\"".$reference."\" FirstName=\"".$first_name."\" LastName=\"".$last_name."\" Email=\"".$email."\" PhoneNumber=\"".$phonenumber."\" xmlns=\"http://www.pesapal.com\" />";
 			//dd($post_xml);
