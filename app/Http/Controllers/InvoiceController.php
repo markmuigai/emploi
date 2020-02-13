@@ -54,6 +54,7 @@ class InvoiceController extends Controller
 
     public function show($slug)
     {
+        dd(Auth::user()->seeker->canGetNotifications());
         return view('admins.invoices.show')
                 ->with('invoice',Invoice::where('slug',$slug)->firstOrFail());
     }
@@ -88,7 +89,8 @@ class InvoiceController extends Controller
             $invoice->save();
             $invoice->hasBeenPaid();
         }
-        return view('pesapal.paid');
+        return view('pesapal.paid')
+                ->with('invoice',$invoice);
         return $request->all();
     }
 

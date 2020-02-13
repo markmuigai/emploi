@@ -14,6 +14,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <p class="text-center">
                 We provide you with seamless job placement through superior candidate selection tools that allow employers to hire very fast, Aggregated market vacancies through our Jobs board, Free and downloadable resume templates, Curated
                 expert career advice, Professional coaching and CV services.
+                <br>
+                <a href="/register" class="btn orange">Upload Your CV</a>
             </p>
             @include('components.ads.responsive')
             <div class="row pt-5">
@@ -63,7 +65,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>
                                 If you want to get a good job, you need a good resume. Resume templates are a great place to start when you're reformatting or writing a resume. We provide free templates to job seekers to get started.
                             </p>
-                            <a href="/job-seekers/cv-templates" class="orange">Learn More</a>
+                            <a href="/job-seekers/cv-templates" class="orange">View Templates</a>
                         </div>
                     </div>
                 </div>
@@ -102,6 +104,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 to land your dream job.
                             </p>
                             <a href="/job-seekers/premium-placement" class="orange">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card my-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 col-12 pb-2 pb-md-0">
+                            <img src="/images/500g.png" class="w-100" alt="Job Seeker Basic Package" style="border-radius: 5%">
+                        </div>
+                        <div class="col-md-8 col-12">
+                            <h5>Job Seeker Basic Package</h5>
+                            <p>
+                                This package entails getting notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter. Notifications include when you're shortlisted, profile has been viewed and shortlisting status. 
+                            </p>
+                            <form method="POST" action="/checkout">
+                                @csrf
+                                <input type="hidden" name="product" value="seeker_basic">
+                                <input type="submit" class="btn btn-link" value="Get Package">
+                            </form>
                         </div>
                     </div>
                 </div>

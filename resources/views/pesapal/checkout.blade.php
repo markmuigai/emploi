@@ -47,19 +47,36 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				</ul>
 			</div>
 			<div class="col-md-7 order-md-1">
-				<h4 class="mb-3 orange">Billing address</h4>
-				<form class="needs-validation" novalidate="">
+				<form method="POST" action="/checkout">
+					@csrf
+					<input type="hidden" name="createInvoice" value="true">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="firstName">First name</label>
-							<input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+							<?php
+							$fname = '';
+							$lname = '';
+							$email = '';
+							$phone = '';
+
+							if(isset(Auth::user()->id))
+							{
+								$full_name = Auth::user()->name;
+								$full_name = explode(" ", $full_name);
+								$fname = $full_name[0];
+								$lname = isset($full_name[1]) ? $full_name[1] : '';
+								$email = Auth::user()->email;
+							}
+
+							?>
+							<input type="text" class="form-control" id="firstName" name="first_name" placeholder="" value="{{ $fname }}" required="">
 							<div class="invalid-feedback">
 								Valid first name is required.
 							</div>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="lastName">Last name</label>
-							<input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+							<input type="text" class="form-control" id="lastName" name="last_name" placeholder="" value="{{ $lname }}" required="">
 							<div class="invalid-feedback">
 								Valid last name is required.
 							</div>
@@ -79,7 +96,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				                </option>
 				                @endforeach
 				            </select>
-				            <input type="number" required="" path="phone_number" value="{{ old('phone_number') }}" name="phone_number" id="phone_number" class="form-control col-8 ml-3" placeholder="7123123123"
+				            <input type="number"  path="phone_number" value="{{ old('phone_number') ? old('phone_number') : $phone }}" name="phone_number" id="phone_number" class="form-control col-8 ml-3" placeholder="7123123123"
 				              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" />
 
 						</div>
@@ -87,7 +104,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 					<div class="mb-3">
 						<label for="email">Email </label>
-						<input type="email" class="form-control" id="email" placeholder="you@example.com">
+						<input type="email" class="form-control" id="email" placeholder="you@example.com" required="" name="email" value="{{ $email }}">
 						<div class="invalid-feedback">
 							Please enter a valid email address for shipping updates.
 						</div>

@@ -539,7 +539,7 @@ class AdminController extends Controller
                     {
                         $email = $users[$i]->email;
                         $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
-                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co');
                     }
                 }
                 break;
@@ -554,7 +554,7 @@ class AdminController extends Controller
                     {
                         $email = $users[$i]->email;
                         $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
-                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co');
                     }
                 }
 

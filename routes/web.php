@@ -8,7 +8,8 @@ Route::get('/ads.txt', 'ContactController@googleAdsFile');
 
 Route::get('/join', 'ContactController@join');
 Route::get('/invites/{slug}', 'ContactController@invited');
-//Route::get('/checkout', 'PesapalController@checkout');
+Route::get('/checkout', 'PesapalController@checkout');
+Route::post('/checkout', 'PesapalController@checkout');
 //Route::get('/test-slack', 'ContactController@testSlack');
 
 Route::get('/careers', 'ContactController@careers');
@@ -32,6 +33,7 @@ Route::get('/user/is/registered', 'RegisterSimpleController@checkEmail');
 
 Route::get('/courses/{id}', 'HomeController@getCourse');
 
+Route::post('/invoice', 'InvoiceController@productCheckout');
 Route::get('/invoice/{slug}', 'InvoiceController@show');
 Route::get('/invoice/{slug}/paid', 'InvoiceController@payment');
 Route::post('/invoice/{slug}/pay', 'PesapalController@pay');

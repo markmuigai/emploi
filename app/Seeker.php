@@ -45,6 +45,26 @@ class Seeker extends Model
         return '#';
     }
 
+    public static function disableFeaturedUserByUserId($user_id){
+        $seeker = Seeker::where('user_id',$user_id)->first();
+        if(isset($seeker->id))
+        {
+            $seeker->featured = 0;
+            return $seeker->save();
+        }
+        return false;
+    }
+
+    // public static function enableFeaturedUserByUserId($user_id){
+    //     $seeker = Seeker::where('user_id',$user_id)->first();
+    //     if(isset($seeker->id))
+    //     {
+    //         $seeker->featured = 1;
+    //         return $seeker->save();
+    //     }
+    //     return false;
+    // }
+
     public function testFeatured(){
         // $orders = Order::where('user_id',$this->user->id)->get();
         // $products = [];
@@ -59,6 +79,22 @@ class Seeker extends Model
         //         }
         //     }
         // }
+    }
+
+    public function canGetNotifications(){
+        if($this->featured == 1)
+            return true;
+        $orders = $this->user->orders;
+        for($i=0; $i<count($orders); $i++)
+        {
+            for($k=0; $k<count($orders[$i]->productOrders); $k++)
+            {
+                $productOrder = $orders[$i]->productOrders[$k];
+                if($productOrder->product->slug == 'seeker_basic' && $productOrder->contents != null && $productOrder->contents != 'completed')
+                    return true;
+            }
+        }
+        return false;
     }
 
     public function educationLevel(){

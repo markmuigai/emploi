@@ -7,6 +7,8 @@ use Illuminate\Notifications\Notifiable;
 
 use App\Jobs\EmailJob;
 
+use App\ProductOrder;
+
 class Invoice extends Model
 {
     use Notifiable;
@@ -32,6 +34,8 @@ class Invoice extends Model
     	}
     	else
             return  $this->sub_total;
+
+        return $total;
 
     	$total_credits = 0;
     	if(count($this->invoiceCreditRedemptions) > 0)
@@ -110,55 +114,11 @@ class Invoice extends Model
             $order = $this->order;
             for($i=0; $i<count($order->productOrders); $i++)
             {
-                $p = $order->productOrder[$i];
+                $p = $order->productOrders[$i];
 
-                switch ($p->product->slug) {
-                    case 'featured_seeker':
-                        //
-                        break;
+                ProductOrder::toggle($p);
 
-                    case 'entry_level_cv_edit':
-                        //$p->contents = 365;
-                        break;
-
-                    case 'mid_level_cv_edit':
-                        //$p->contents = 365;
-                        break;
-
-                    case 'c_change_cv_edit':
-                        //$p->contents = 365;
-                        break;
-
-                    case 'mgnt_cv_edit':
-                        //$p->contents = 365;
-                        break;
-
-                    case 's_mgnt_cv_edit':
-                        //$p->contents = 365;
-                        break;
-
-                    case 'seeker_basic':
-                        # code...
-                        break;
-
-                    case 'stawi':
-                        $p->contents = 1; //5000 credits to employer
-                        $p->save();
-                        break;
-
-                    case 'solo-plus':
-                        $p->contents = 4;
-                        $p->save();
-                        break;
-
-                    case 'infinity':
-                        # code...
-                        break;
-                    
-                    default:
-                        # code...
-                        break;
-                }
+                
 
             }
             
