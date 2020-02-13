@@ -33,7 +33,7 @@
 	$iframe_src->set_parameter("oauth_callback", $callback_url);
 	$iframe_src->set_parameter("pesapal_request_data", $post_xml);
 	$iframe_src->sign_request($signature_method, $consumer, $token);
-	dd($iframe_src);
+	//dd($iframe_src);
 ?>
 
 <iframe src="<?php echo $iframe_src;?>" width="100%" height="100%" scrolling="auto"  frameBorder="0" style="display: block;">
