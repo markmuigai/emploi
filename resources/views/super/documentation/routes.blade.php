@@ -104,7 +104,7 @@ routes, it defines console based entry points (routes) into the application.</p>
 @index Show the main view<br>
 @create Show the view to create cv editing request<br>
 @store Save a cv editing request in database<br>
-@edit Show the view to cv editors<br>
+@edit Show the view to edit cv editor<br>
 @update Update cv data in database<br>
 @destroy Delete a cv editing request in database<br>
 </li>
@@ -113,38 +113,52 @@ routes, it defines console based entry points (routes) into the application.</p>
     <li>Route::get('profile', 'HomeController@profile'); ->displays the profile view</li>
     <li>Route::get('profile/edit', 'HomeController@updateProfile'); ->shows the view to edit prifile</li>
     <li>Route::post('profile/update', 'HomeController@saveProfile'); ->update the profile in the database</li>
-    <li>Route::resource('profile/invites', 'InviteLinkController'); -></li>
+    <li>Route::resource('profile/invites', 'InviteLinkController'); -><br>
+@index Show the main view<br>
+@create Show the view to create an invite<br>
+@store Save an invite to the database<br>
+@edit Show the view for invites<br>
+@update Update invites in database<br>
+@destroy Delete an invite in database<br>
+    </li>
     <li>Route::get('my-blogs','BlogController@admin');
-});</li>
+}); ->display my blogs</li>
 
-<li>Route::post('create-account', 'RegisterSimpleController@create');</li>
-<li>Route::get('/create-account', 'ContactController@createAcc');</li>
+<li>Route::post('create-account', 'RegisterSimpleController@create'); ->send the registration to the database</li>
+<li>Route::get('/create-account', 'ContactController@createAcc'); ->shows the page for new registrations</li>
 
 <br><b>Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){</b><br>
-    <li>Route::get('dashboard', 'EmployerController@dashboard');</li>
-    <li>Route::get('dashboard-data', 'EmployerController@dashboardData');</li>
+    <li>Route::get('dashboard', 'EmployerController@dashboard'); ->displays the employer's dashboard</li>
+    <li>Route::get('dashboard-data', 'EmployerController@dashboardData'); -> </li>
     <li>Route::get('jobs', 'EmployerController@jobs');</li>
     <li>Route::get('jobs/active', 'EmployerController@activeJobs');</li>
     <li>Route::get('jobs/other', 'EmployerController@otherJobs');</li>
     <li>Route::get('jobs/shortlisting', 'EmployerController@shortlistingJobs');
 });</li>
 
-<li>Route::get('/employers/register', 'EmployerController@register');</li>
-<li>Route::post('/employers/register', 'EmployerController@create');</li>
+<li>Route::get('/employers/register', 'EmployerController@register'); ->display view for employer registration</li>
+<li>Route::post('/employers/register', 'EmployerController@create'); ->send the employer registration data to the database</li>
 
-<li>Route::get('/employers/rate-card', 'ContactController@rateCard');</li>
+<li>Route::get('/employers/rate-card', 'ContactController@rateCard'); ->shows the employers rate-card view</li>
 
-<li>Route::get('/employers/premium-recruitment', 'ContactController@precruit');</li>
-<li>Route::get('/employers/candidate-vetting', 'ContactController@cvetting');</li>
-<li>Route::get('/employers/hr-services', 'ContactController@hrservices');</li>
-<li>Route::get('/employers', 'ContactController@employersIndex');</li>
+<li>Route::get('/employers/premium-recruitment', 'ContactController@precruit'); ->shows the premium recrutment view</li>
+<li>Route::get('/employers/candidate-vetting', 'ContactController@cvetting'); ->shows the candidate vetting view</li>
+<li>Route::get('/employers/hr-services', 'ContactController@hrservices'); ->shows hr-services view</li>
+<li>Route::get('/employers', 'ContactController@employersIndex'); ->displays advertisement view for employers</li>
 
 <br><b>Route::group([ 'middleware' => 'shortlist'], function(){</b><br>
-    <li>Route::resource('/employers/cv-requests', 'CvRequestController');</li>
+    <li>Route::resource('/employers/cv-requests', 'CvRequestController');
+         @index Show the main view<br>
+         @create Show the view to create cv request<br>
+         @store Save a cv request  <br>
+         @edit Show the cv request view<br>
+         @update Update cv request in database<br>
+         @destroy Delete a cv request in database<br>
+     </li>
     <li>Route::resource('/employers/saved', 'SavedProfileController');</li>
-    <li>Route::get('/employers/browse', 'EmployerController@browse');</li>
-    <li>Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');</li>
-    <li>Route::post('/employers/shortlist', 'EmployerController@applyForUser');</li>
+    <li>Route::get('/employers/browse', 'EmployerController@browse'); ->shows employers the list of job seekers</li>
+    <li>Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker'); ->shows a view for a job seeker with a certain username</li>
+    <li>Route::post('/employers/shortlist', 'EmployerController@applyForUser'); </li>
     <li>Route::get('/employers/applications/{slug}', 'EmployerController@applications');</li>
     <li>Route::get('/employers/applications/{slug}/rsi', 'EmployerController@rsi');</li>
     <li>Route::post('/employers/applications/{slug}/rsi', 'EmployerController@saveRsi');</li>
