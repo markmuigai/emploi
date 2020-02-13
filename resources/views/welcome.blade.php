@@ -77,12 +77,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             @else
                 @include('components.welcome-banner')
-                <br>
-                <div class="sign-left ">
-                    <a href="https://emploi.co/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://emploi.co/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
-                    <a href="https://emploi.co/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
-                </div>
                 
             @endif
         </div>
@@ -375,7 +369,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
                         </div>
                         <p class="badge badge-secondary">{{ $blog->category->name }}</p>
-                        <p class="">{!!html_entity_decode($blog->longPreview(500))!!}</p>
+                        <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                         <span style="float: right; text-align: right;">
                             <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
@@ -404,7 +398,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <p class="badge badge-secondary">{{ $blog->category->name }}</p>
                             </div>
                         </div>
-                        <p class="">{!!html_entity_decode($blog->preview)!!}</p>
+                        <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                         <span style="float: right; text-align: right;">
                             <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>

@@ -24,6 +24,14 @@ if(isset($name))
 <div class="container text-center">
     <p>
         @if(!isset($name))
+
+        
+        <div class="sign-left ">
+            <a href="https://emploi.co/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://emploi.co/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
+            <a href="https://emploi.co/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <br>
         Welcome to Emploi, an efficient platform to manage recruitments and find work for a succesful career.
         @else
         Howdy {{ $name }}, welcome to Emploi. We've started creating your account, select whether you are an employer or job seeker.

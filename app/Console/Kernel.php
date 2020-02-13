@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\DisableProducts',
     ];
 
     /**
@@ -26,8 +26,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('backup:clean')->daily()->at('01:00');
-        $schedule->command('backup:run')->daily()->at('02:00');
+        // $schedule->command('backup:clean')->daily()->at('01:00');
+        // $schedule->command('backup:run')->daily()->at('02:00');
+        $schedule->command('DisableProducts')->daily()->at('04:20')->emailOutputOnFailure('brian@emploi.com');
     }
 
     /**

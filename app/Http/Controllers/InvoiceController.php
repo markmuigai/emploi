@@ -80,12 +80,13 @@ class InvoiceController extends Controller
     public function payment(Request $request, $slug)
     {
         $invoice = Invoice::where('slug',$slug)->firstOrFail();
-        if(!$invoice->pesapal_merchant_reference)
+        if(!$invoice->pesapal_transaction_tracking_id)
         {
             //$invoice->pesapal_merchant_reference = $request->pesapal_merchant_reference;
             $invoice->pesapal_transaction_tracking_id = $request->pesapal_transaction_tracking_id;
             $invoice->updated_at = now();
             $invoice->save();
+            $invoice->hasBeenPaid();
         }
         return view('pesapal.paid');
         return $request->all();
@@ -99,6 +100,7 @@ class InvoiceController extends Controller
         $invoice->alternative_payment_slug = Auth::user()->id.'_'.$request->alternative_payment_slug;
         $invoice->updated_at = now();
         $invoice->save();
+        $invoice->hasBeenPaid();
         $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' was marked paid by '.Auth::user()->name.'. Payment Reference: '.$invoice->alternative_payment_slug;
         $invoice->notify(new InvoicePaid($message));
 
