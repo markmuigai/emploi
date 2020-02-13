@@ -36,7 +36,7 @@
 	//dd($iframe_src);
 ?>
 
-<iframe src="<?php echo $iframe_src;?>" width="100%" height="100%" scrolling="auto"  frameBorder="0" style="display: block;">
+<iframe src="/<?php echo $iframe_src;?>" width="100%" height="100%" scrolling="auto"  frameBorder="0" style="display: block;">
 	<p>Browser unable to load iFrame</p>
 </iframe>
 	
