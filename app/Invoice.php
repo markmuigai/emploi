@@ -125,4 +125,27 @@ class Invoice extends Model
         }
         
     }
+
+    public function maskedEmail($minLength = 3, $maxLength = 10, $mask = "***") {
+        $email = $this->email;
+        $atPos = strrpos($email, "@");
+        $name = substr($email, 0, $atPos);
+        $len = strlen($name);
+        $domain = substr($email, $atPos);
+
+        if (($len / 2) < $maxLength) $maxLength = ($len / 2);
+
+        $shortenedEmail = (($len > $minLength) ? substr($name, 0, $maxLength) : "");
+        return  "{$shortenedEmail}{$mask}{$domain}";
+    }
+
+    // public function obfuscatedEmail()
+    // {
+    //     $email = $this->email;
+    //     $em   = explode("@",$email);
+    //     $name = implode(array_slice($em, 0, count($em)-1), '@');
+    //     $len  = floor(strlen($name)/2);
+
+    //     return substr($name,0, $len) . str_repeat('*', $len) . "@" . end($em);   
+    // }
 }
