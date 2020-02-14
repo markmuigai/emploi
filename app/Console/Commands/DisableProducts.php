@@ -5,9 +5,6 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 use App\ProductOrder;
-use App\Seeker;
-
-use Carbon\Carbon;
 
 class DisableProducts extends Command
 {

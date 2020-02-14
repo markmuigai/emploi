@@ -117,6 +117,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <img src="/images/500g.png" class="w-100" alt="Job Seeker Basic Package" style="border-radius: 5%">
                         </div>
                         <div class="col-md-8 col-12">
+                            <h5>Featured Job Seeker Package</h5>
+                            <p>
+                                This package will ensure your profile appears first on employer lists, including applications and in searches. You will get detailed notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter. Notifications include when you're shortlisted, profile has been viewed and shortlisting status. 
+                            </p>
+                            <form method="POST" action="/checkout">
+                                @csrf
+                                <input type="hidden" name="product" value="featured_seeker">
+                                <input type="submit" class="btn btn-link" value="Get Package">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card my-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 col-12 pb-2 pb-md-0">
+                            <img src="/images/500g.png" class="w-100" alt="Job Seeker Basic Package" style="border-radius: 5%">
+                        </div>
+                        <div class="col-md-8 col-12">
                             <h5>Job Seeker Basic Package</h5>
                             <p>
                                 This package entails getting notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter. Notifications include when you're shortlisted, profile has been viewed and shortlisting status. 

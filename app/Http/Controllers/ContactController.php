@@ -239,7 +239,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
                 ";
                 $email = $post->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $post->company->email;
 
-                $email = $email = null ? $post->company->user->email : $email;
+                $email = $email == null ? $post->company->user->email : $email;
 
                 $email = isset($request->external_apply) ? $request->external_apply : $email;
                 $name = isset($request->external_apply) ? 'Employer' : $post->company->user->name;

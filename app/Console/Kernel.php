@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'App\Console\Commands\DisableProducts',
+        'App\Console\Commands\EnableProducts',
     ];
 
     /**
@@ -28,7 +29,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         // $schedule->command('backup:clean')->daily()->at('01:00');
         // $schedule->command('backup:run')->daily()->at('02:00');
-        $schedule->command('DisableProducts')->twiceDaily(4, 13)->emailOutputOnFailure('brian@emploi.co');
+        $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('info@emploi.co');
+        $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('info@emploi.co');
     }
 
     /**

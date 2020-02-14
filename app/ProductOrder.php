@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 use App\Seeker;
+use App\User;
+
+use App\Jobs\EmailJob;
 
 class ProductOrder extends Model
 {
@@ -32,8 +35,51 @@ class ProductOrder extends Model
     	{
     		if($action == 'activate')
         	{
-        		$p->contents = now()->add($p->days_duration,'day');
-            	$p->save();
+                $packageUser = User::findOrFail($p->order->user_id);
+                if($packageUser->role == 'seeker' && $packageUser->seeker->featured == 0)
+                {
+                    $p->contents = now()->add($p->days_duration,'day');
+                    $p->save();
+
+                    $seeker = $packageUser->seeker;
+                    $seeker->featured = 1;
+                    $seeker->save();
+
+                    
+                    $caption = "You are a Featured Job Seeker on Emploi";
+                    $contents = "We have marked your profile as featured on Emploi. Here are the benefits you will get in the coming ".$p->days_duration." days, or until ".$p->contects.". <br>
+                    You will receive notifications whenever: <br>
+                    <ul>
+                        <li>An Employer views your profile</li>
+                        <li>You apply for a job</li>
+                        <li>An Employer shortlists you for a position</li>
+                        <li>An Employer rejects your application, with possible reasons</li>
+                        <li>An Employer fails to shortlist your application</li>
+                    </ul>
+
+                    <br>
+
+                    Your profile will rank first on our platform. Here are the lists which your profile will be prioritized:
+                    <br>
+                    <ul>
+                        <li>Whenever an employer browses for potential employees</li>
+                        <li>Your job application will appear first among'st applicants</li>
+                    </ul>
+
+
+                    <p>
+                    Get started by applying <a href='".url('/vacancies/featured')."'>Featured Jobs</a> on Emploi.
+                    </p>
+
+                    <p>If you require further information on your job applications, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    We wish you the very best in your job search. 
+
+                    <br>";
+                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Featured Job Seeker Package Activated', $caption, $contents);
+                    
+                }
+        		
         	}
         	else
         	{
@@ -43,8 +89,26 @@ class ProductOrder extends Model
         			$p->contents = 'completed';
         			$p->save();
         			Seeker::disableFeaturedUserByUserId($p->order->user_id);
-        			//check if user should remain featured
-        				//disable if they have no other products marking them featured
+
+                    $caption = "Your ".$p->product->title." Package has Expired";
+                    $contents = "
+                    <p>We have removed you from our featured job seekers list as your package has expired. </p>
+                    <p>You will no longer receive preferrential notifications from Emploi. To enable this, kindly re-activate this package below.</p>
+
+                    <br>
+
+                    <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate". $p->product->title ." Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+                    
+
+                    <br>";
+                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, $p->product->title.' Package Expired', $caption, $contents);
         		}
         		
         	}
@@ -53,8 +117,36 @@ class ProductOrder extends Model
     	{
     		if($action == 'activate')
         	{
-        		$p->contents = now()->add($p->days_duration,'day');
-            	$p->save();
+                $packageUser = User::findOrFail($p->order->user_id);
+                if($packageUser->role == 'seeker' && !$packageUser->seeker->canGetNotifications())
+                {
+                    $p->contents = now()->add($p->days_duration,'day');
+                    $p->save();
+
+                    $caption = "Job Seeker Basic Package was activated on Emploi";
+                    $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback from Emploi, has been activated and is functional for the next ".$p->days_duration." days. <br>
+                    You will receive notifications whenever: <br>
+                    <ul>
+                        <li>An Employer views your profile</li>
+                        <li>You apply for a job</li>
+                        <li>An Employer shortlists you for a position</li>
+                        <li>An Employer rejects your application, with possible reasons</li>
+                        <li>An Employer fails to shortlist your application</li>
+                    </ul>
+
+                    <p>
+                    Get started by applying <a href='".url('/vacancies/featured')."'>Featured Jobs</a> on Emploi.
+                    </p>
+
+                    <p>If you require further information on your job application, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    We wish you the very best in your job search. 
+
+                    <br>";
+                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Job Seeker Basic Package Activated', $caption, $contents);
+                }
+        		
+
         	}
         	else
         	{
@@ -63,7 +155,47 @@ class ProductOrder extends Model
         		{
         			$p->contents = 'completed';
         			$p->save();
+
+                    $caption = "Job Seeker Basic Package has Expired";
+                    $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback, <b>has expired</b>.
+                    <br>
+                    You will no longer receive preferrential notifications from Emploi. To enable this, kindly re-activate this package below.
+                    <br><br>
+
+                    <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+
+                    <br>";
+                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Job Seeker Basic Package Expired', $caption, $contents);
+
+                    //notification package ended
         		}
+                elseif($today->diff($expiry)->days == 1)
+                {
+                    $caption = "Job Seeker Basic Package is Expiring Tomorrow";
+                    $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback, will expire tomorrow.
+                    <br>
+                    You will no longer receive preferrential notifications from Emploi. To enable this, kindly re-activate this package below to stay in the know.
+                    <br><br>
+
+                    <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+
+                    <br>";
+                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Job Seeker Basic Package is Expiring', $caption, $contents);
+                }
         	}
 
     	}
@@ -147,5 +279,12 @@ class ProductOrder extends Model
     	$ps = ProductOrder::where('contents','!=',null)->where('contents','not like','completed')->get();
     	for($i=0; $i<count($ps); $i++)
     		ProductOrder::toggle($ps[$i],'deactivate');
+    }
+
+    public static function enablePending()
+    {
+        $ps = ProductOrder::where('contents','==',null)->get();
+        for($i=0; $i<count($ps); $i++)
+            ProductOrder::toggle($ps[$i]);
     }
 }
