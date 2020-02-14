@@ -660,7 +660,6 @@ class AdminController extends Controller
                     ['brian@emploi.co','Obare C. Brian'],
                     ['sophy@emploi.co','Sophy Mwale'],
                     ['phinney@emploi.co','Phinney Aska'],
-                    ['sally@emploi.co','Sally Muya'],
                     ['john@emploi.co','John'],
                     ['simon@emploi.co','Simon'],
                     ['silvia@emploi.co','Silvia Kamau'],
