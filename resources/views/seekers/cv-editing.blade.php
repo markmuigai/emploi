@@ -25,8 +25,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 			<p>We leverage on our expertise to provide you with a clear, concise CV that matches your professional level and will stand out before recruiters.</p>
 			<p>
-				<a href="#request-cv-edit-form" class="btn btn-orange">Request Cv Editing</a>
-				<a href="#charges" class="btn orange">View Charges</a>
+				<a href="#request-cv-edit-form" class="btn orange">Request Cv Editing</a>
+				<a href="#charges" class="btn btn-orange">View Charges</a>
+				<a href="#testimonialsView" class="btn orange">Testimonials</a>
 			</p>
 		</div>
 	</div>
@@ -95,6 +96,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 	</div>
 </div>
+	<br id="request-cv-edit-form">
+	<br>
+	<br>
+	<br>
 
 	<div class="row" id="request-cv-edit-form">
 		<div class="col-md-8 offset-md-2">
@@ -168,6 +173,74 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</p>
 		</form>
 	</div>
+
+	<br id="testimonialsView">
+	<br>
+
+	<h3 class="orange pt-2 text-center" id="charges">Testimonials</h3>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi1.png') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi2.png') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi3.png') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi4.png') }}" alt="First slide">
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"  style="background-color: #500095"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"  style="background-color: #500095"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel1">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi5.png') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi6.png') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi7.png') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi8.png') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="{{ asset('images/cv-edit-testimonials/testi9.png') }}" alt="First slide">
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #500095"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #500095"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	
 
 
 	
