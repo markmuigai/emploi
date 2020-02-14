@@ -125,9 +125,25 @@ class PesapalController extends Controller
 
     public function ipn(Request $request)
     {
-        $message = 'Pesapal Notification: '.$request->pesapal_notification_type.' Ref: '.$request->pesapal_transaction_tracking_id;
-        $invoice = Invoice::first();
-        $invoice->notify(new PaymentMade($message));
+        $invoice = Invoice::where('slug',$request->pesapal_merchant_reference)->first();
+        if(isset($invoice->id) && $invoice->pesapal_transaction_tracking_id == null)
+        {
+            $invoice->pesapal_transaction_tracking_id = $request->pesapal_transaction_tracking_id;
+            $invoice->updated_at = now();
+            $invoice->save();
+            $invoice->hasBeenPaid();
+
+            $message = $invoice->slug.' Paid. Pesapal Ref: '.$request->pesapal_transaction_tracking_id;
+            $invoice->notify(new PaymentMade($message));
+        }
+        else
+        {
+            $invoice = Invoice::first();
+            $message = 'Pesapal Notification: '.$request->pesapal_notification_type.' Ref: '.$request->pesapal_transaction_tracking_id;
+            $invoice->notify(new PaymentMade($message));
+        }
+        
+        
     }
 }
 

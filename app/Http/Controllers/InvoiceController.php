@@ -80,14 +80,14 @@ class InvoiceController extends Controller
     public function payment(Request $request, $slug)
     {
         $invoice = Invoice::where('slug',$slug)->firstOrFail();
-        if(!$invoice->pesapal_transaction_tracking_id)
-        {
-            //$invoice->pesapal_merchant_reference = $request->pesapal_merchant_reference;
-            $invoice->pesapal_transaction_tracking_id = $request->pesapal_transaction_tracking_id;
-            $invoice->updated_at = now();
-            $invoice->save();
-            $invoice->hasBeenPaid();
-        }
+        // if(!$invoice->pesapal_transaction_tracking_id)
+        // {
+        //     //$invoice->pesapal_merchant_reference = $request->pesapal_merchant_reference;
+        //     $invoice->pesapal_transaction_tracking_id = $request->pesapal_transaction_tracking_id;
+        //     $invoice->updated_at = now();
+        //     $invoice->save();
+        //     $invoice->hasBeenPaid();
+        // }
         return view('pesapal.paid')
                 ->with('invoice',$invoice);
         return $request->all();
