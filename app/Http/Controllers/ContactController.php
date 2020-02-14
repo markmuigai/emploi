@@ -110,6 +110,15 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
 
     public function easyApply($slug, Request $request)
     {
+        $request->validate([
+            'name'          =>  ['required','max:50','string'],
+            'email'         =>  ['required', 'string', 'email', 'max:50'],
+            'phone_number' => ['required', 'string', 'max:15'],
+            'gender' => ['required', 'string', 'max:1'],
+            'prefix' => ['required','integer'],
+            'resume' => ['required','mimes:pdf,docx,doc','max:51200']
+        ]);
+
         $user = User::where('email',$request->email)->first();
         $post = Post::where('slug',$slug)->firstOrFail();
         $created = false;
