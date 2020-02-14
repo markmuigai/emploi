@@ -659,11 +659,12 @@ class AdminController extends Controller
                 $team = [
                     ['brian@emploi.co','Obare C. Brian'],
                     ['sophy@emploi.co','Sophy Mwale'],
-                    ['phinney@emploi.co','Phinney Aska'],
+                    ['phinney@emploi.co','Phinney Asca'],
                     ['john@emploi.co','John'],
                     ['simon@emploi.co','Simon'],
                     ['silvia@emploi.co','Silvia Kamau'],
                     ['david@emploi.co','David'],
+                    ['ernest@emploi.co','Ernest Wanyonyi'],
                     ['margaret@emploi.co','Margaret Ongachi']
                 ];
 
