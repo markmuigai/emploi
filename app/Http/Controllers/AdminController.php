@@ -625,22 +625,22 @@ class AdminController extends Controller
                     )
                 );
                 
-                // Mail::to('sophy@emploi.co')
-                // ->send(
-                //     new CustomVacancyEmail(
-                //         'Sophy Mwale',
-                //         $subject,
-                //         $caption,
-                //         $contents,
-                //         'sophy@emploi.co',
-                //         $banner,
-                //         $template,
-                //         $attachment1,
-                //         $attachment2,
-                //         $attachment3,
-                //         'info@emploi.co'
-                //     )
-                // );
+                Mail::to('sophy@emploi.co')
+                ->send(
+                    new CustomVacancyEmail(
+                        'Sophy Mwale',
+                        $subject,
+                        $caption,
+                        $contents,
+                        'sophy@emploi.co',
+                        $banner,
+                        $template,
+                        $attachment1,
+                        $attachment2,
+                        $attachment3,
+                        'info@emploi.co'
+                    )
+                );
                 //VacancyEmail::dispatch('brian@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 //VacancyEmail::dispatch('sophy@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 // $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
@@ -659,9 +659,12 @@ class AdminController extends Controller
                 $team = [
                     ['brian@emploi.co','Obare C. Brian'],
                     ['sophy@emploi.co','Sophy Mwale'],
-                    ['liza@emploi.co','Liza Adhiambo'],
+                    ['phinney@emploi.co','Phinney Aska'],
                     ['sally@emploi.co','Sally Muya'],
-                    ['adam@emploi.co','Adam'],
+                    ['john@emploi.co','John'],
+                    ['simon@emploi.co','Simon'],
+                    ['silvia@emploi.co','Silvia Kamau'],
+                    ['david@emploi.co','David'],
                     ['margaret@emploi.co','Margaret Ongachi']
                 ];
 
