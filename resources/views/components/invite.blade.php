@@ -41,7 +41,7 @@
                         <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
 
                         @endguest
-                        <a href="#" class="btn btn-sm btn-primary" id="attachCSVButton">Invite CSV Contacts</a>
+                        <a href="#" class="btn btn-primary" id="attachCSVButton" style="display: none;">Invite CSV Contacts</a>
                         <button class="btn btn-orange" style="float: right;">Send Email Invite</button>
                     </div>
                 </form>

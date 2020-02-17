@@ -27,6 +27,7 @@ class ReferralController extends Controller
                 if(count($data) == 1) //email column only
                 {
                     $invite = Referral::inviteEmail($data[0]);
+                    
                     if($invite)
                         $successful[] = $data[0];
                     else
@@ -182,7 +183,7 @@ class ReferralController extends Controller
 
     public function show($id)
     {
-        //
+        return redirect('/');
     }
 
     public function edit($id)

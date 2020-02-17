@@ -64,7 +64,7 @@ class PostsController extends Controller
             ->where('status','!=','inactive')
             ->orderBy('featured','DESC')
             ->orderBy('created_at','DESC')
-            ->paginate(30)->onEachSide(3);
+            ->paginate(15)->onEachSide(3);
         return view('seekers.vacancies')
                 ->with('industries',Industry::active())
                 ->with('locations',Location::active())
@@ -211,7 +211,7 @@ class PostsController extends Controller
                 ->orderBy('featured','DESC')
                 ->orderBy('created_at','DESC')
                 ->limit(90)
-                ->paginate(30);
+                ->paginate(15);
         
         $match = false;
 
@@ -234,7 +234,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(30)
+                        ->paginate(15)
                         ->onEachSide(3);
                 $title = $v->name.' Jobs';
                 $match = true;
@@ -256,7 +256,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(30)
+                        ->paginate(15)
                         ->onEachSide(3);
 
                 $title =  'Jobs in '.$c->name;
@@ -274,7 +274,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(30)
+                        ->paginate(15)
                         ->onEachSide(3);
                 $title = 'Jobs near '.$c->name.' ['.$c->country->code.']';
                 $match = true;
@@ -291,7 +291,7 @@ class PostsController extends Controller
                         ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
                         ->orderBy('featured','DESC')
                         ->orderBy('created_at','DESC')
-                        ->paginate(30)
+                        ->paginate(15)
                         ->onEachSide(3);
                 $title = $c->name.' Jobs';
                 $match = true;
@@ -360,16 +360,16 @@ class PostsController extends Controller
             $searchedKey->save();
             //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
-            $sql = "SELECT id, title, created_at FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured, created_at DESC Limit 30";
+            $sql = "SELECT * FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured DESC Limit 30";
             //dd($sql);
-            $result = DB::select($sql);
+            //$result = DB::select($sql);
+
             $posts = [];
             $results = DB::select($sql);
-            for($i=count($results)-1; $i>0; $i--)
-            {
-                $post = Post::findOrFail($results[$i]->id);
-                array_push($posts, $post);
-            }
+            
+            for($i=count($results); $i>0; $i--)
+                $posts[] = Post::findOrFail($results[$i-1]->id);
+
             return view('seekers.vacancies')
                     ->with('industries',$industries)
                     ->with('locations',$locations)
