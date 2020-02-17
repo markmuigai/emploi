@@ -55,9 +55,13 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         //verify users who registered with name and e-mail only
-        if($user->role == 'seeker' && !isset($user->seeker->phone_number))
+        if($user->role == 'seeker' && $user->seeker->featured == -1)
         {
             $user->verifyAccount();
+            $seeker = $user->seeker;
+
+            $seeker->featured = 0;
+            $seeker->save();
         }
 
         if(!$user->email_verified_at)

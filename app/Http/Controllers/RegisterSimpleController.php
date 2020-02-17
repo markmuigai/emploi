@@ -8,6 +8,8 @@ use Auth;
 
 use App\Jobs\EmailJob;
 
+use App\Country;
+use App\Industry;
 use App\Referral;
 use App\Seeker;
 use App\User;
@@ -16,6 +18,14 @@ use App\UserPermission;
 class RegisterSimpleController extends Controller
 {
     public function create(Request $request){
+        $request->validate([
+            'name' => ['required', 'string', 'max:50'],
+            'email'  =>  ['required', 'string', 'email','max:50','unique:users'],
+            'phone_number' => ['required', 'string', 'max:20'],
+            'industry'    =>  ['integer'],
+            'contact_prefix' => ['integer']
+        ]);
+
     	if(isset(Auth::user()->id))
     		return redirect('/home');
 
@@ -52,8 +62,10 @@ class RegisterSimpleController extends Controller
         $seeker = Seeker::create([
             'user_id' => $user->id,
             'public_name' => $username,
-            'industry_id' => 1,
-            'country_id' => 1
+            'phone_number' => isset($request->phone_number) ? Country::findOrFail($request->contact_prefix)->prefix.$request->phone_number : null,
+            'industry_id' => isset($request->industry) ? $request->industry : 32,
+            'country_id' => 1,
+            'featured' => -1
         ]);
 
         if(!isset($seeker->id))
@@ -101,5 +113,11 @@ class RegisterSimpleController extends Controller
         if(isset($user->id))
             return 'true';
         return 'false';
+    }
+
+    public function seeker(){
+        return view('seekers.register.index')
+                ->with('industries',Industry::orderBy('name')->get())
+                ->with('countries',Country::orderBy('name')->get());
     }
 }

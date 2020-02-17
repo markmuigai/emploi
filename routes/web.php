@@ -213,6 +213,7 @@ Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
     Route::get('feed', 'SeekerController@feed');
 });
 
+Route::get('/job-seekers/register', 'RegisterSimpleController@seeker');
 Route::get('/job-seekers/cv-editing', 'ContactController@cvediting');
 Route::get('/job-seekers/cv-templates', 'ContactController@cvtemplates')->middleware('auth');
 Route::get('/job-seekers/premium-placement', 'ContactController@pplacement');
