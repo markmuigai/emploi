@@ -1,7 +1,4 @@
 
-<div class="card">
-    <div class="card-body">
-        <h4>
             
 <?php
 if(is_array($invite))
@@ -25,6 +22,3 @@ else
 	print "Email: <b>$invite</b>";
 }
 ?>
-			</h4>
-	</div>
-</div>

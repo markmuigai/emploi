@@ -27,6 +27,7 @@ class ReferralController extends Controller
                 if(count($data) == 1) //email column only
                 {
                     $invite = Referral::inviteEmail($data[0]);
+                    
                     if($invite)
                         $successful[] = $data[0];
                     else
@@ -104,6 +105,10 @@ class ReferralController extends Controller
         return view('pages.csv-invites')
                 ->with('successful',$successful)
                 ->with('failed',$failed);
+    }
+
+    public function processCSVRedirect(){
+        return redirect('/profile');
     }
 
     public function create()
