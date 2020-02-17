@@ -16,12 +16,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         </div>
 
-
-
-<p>
-
 <h3>Controllers</h3>
 
+<p>
+	Controllers can group related request handling logic into a single class. Controllers are stored in the app/Http/Controllers directory.
 </p>
 
 
