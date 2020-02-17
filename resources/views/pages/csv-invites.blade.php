@@ -11,10 +11,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <h3 class="orange text-center">CSV Import Result</h3>
     <div class="row align-items-center">
         <div class="col-md-6">
-            <h4>Successful Invites</h4>
+            <h4>Succesful Invites</h4>
             <div class="row">
                 @forelse($successful as $invite)
-                <div class="col-md-4">
+                <div class="col-md-6">
                     @include('components.invitedContact')
                 </div>
 
@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h4>Failed Invites</h4>
             <div class="row">
                 @forelse($failed as $invite)
-                <div class="col-md-4">
+                <div class="col-md-6">
                     @include('components.invitedContact')
                 </div>
                 @empty
