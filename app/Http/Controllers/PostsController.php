@@ -360,16 +360,16 @@ class PostsController extends Controller
             $searchedKey->save();
             //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
-            $sql = "SELECT id, title, created_at FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured DESC Limit 30";
+            $sql = "SELECT * FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured DESC Limit 30";
             //dd($sql);
-            $result = DB::select($sql);
+            //$result = DB::select($sql);
+
             $posts = [];
             $results = DB::select($sql);
-            for($i=count($results)-1; $i>0; $i--)
-            {
-                $post = Post::findOrFail($results[$i]->id);
-                array_push($posts, $post);
-            }
+            
+            for($i=count($results); $i>0; $i--)
+                $posts[] = Post::findOrFail($results[$i-1]->id);
+
             return view('seekers.vacancies')
                     ->with('industries',$industries)
                     ->with('locations',$locations)
