@@ -39,14 +39,15 @@ class Post extends Model
         $featured_ids = $featuredPosts->pluck('id');
         $posts = Post::where('status','active')->where('featured','false')->whereNotIn('id',$featured_ids)->orderBy('id','DESC')->limit(15)->get();
 
-        $message = '<div class="container">';
+        $message = '<div class="container" style=" overflow: hidden">';
 
         
 
         if(count($featuredPosts) > 0)
         {
             $message .= '
-            <h3 style="text-align:center"><strong>Featured Vacancies, Apply Now</strong></h3>
+            <div class="row" style="overflow: hidden; ">
+            <h3 style="text-align:center; "><strong>Featured Vacancies, Apply Now</strong></h3>
 
             <p style="text-align:center">Here are the latest vacancies we, or our direct clients are shortlisting on Emploi.</p>';
             $message .= '<div class="row">';
@@ -61,12 +62,15 @@ class Post extends Model
                     $message .= '</div>';
             }
             $message .= '</div>';
+            $message .= '</div>';
+            
         }
 
         if(count($blogs) > 0)
         {
             $message .= '
-            <p>&nbsp;</p><p>&nbsp;</p>
+            <div class="row" style="overflow: hidden; ">
+            
             <h3 style="text-align:center"><strong>Latest Blogs from our Career Centre</strong></h3>
 
             
@@ -83,11 +87,13 @@ class Post extends Model
                 $message .= '</a></div>';
             }
             $message .= '</div>';
+            $message .= '</div>';
         }
 
         if(count($posts) > 0)
         {
             $message .= '
+            <div class="row" style="overflow: hidden; ">
             <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
             <h3 style="text-align:center"><strong>Trending Vacancies on Emploi</strong></h3>
 
@@ -102,6 +108,7 @@ class Post extends Model
                     $message .= '<p style=" text-align: center">'.$post->monthlySalary().'</p>';
                     $message .= '</div>';
             }
+            $message .= '</div>';
             $message .= '</div>';
         }
 

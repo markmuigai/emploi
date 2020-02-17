@@ -364,6 +364,33 @@ class AdminController extends Controller
 
         $message = Post::composeVacancyEmail();
 
+        // $subject = 'Sample subject';
+        // $caption = 'THis sid sTHis sid sTHis sid s';
+        // $contents = $message;
+
+        // $attachment1 = false;
+        // $attachment2 = false;
+        // $attachment3 = false;
+
+        // $banner = '/images/email-banner.jpg';
+
+        // $template = 'custom';
+
+
+        // return new CustomVacancyEmail(
+        //     'Recepient Name',
+        //     $subject,
+        //     $caption,
+        //     $contents,
+        //     'recepient@gmail.com',
+        //     $banner,
+        //     $template,
+        //     $attachment1,
+        //     $attachment2,
+        //     $attachment3,
+        //     'info@emploi.co'
+        // );
+
         return view('admins.emails.compose')
                 ->with('message',$message)
                 ->with('industries',Industry::orderBy('name')->get());
