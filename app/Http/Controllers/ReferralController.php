@@ -17,6 +17,95 @@ class ReferralController extends Controller
         return redirect('/');
     }
 
+    public function processCSV(Request $request)
+    {
+        $file = $request->file('csv');
+        $successful = [];
+        $failed = [];
+        if (($handle = fopen($file, "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+                if(count($data) == 1) //email column only
+                {
+                    $invite = Referral::inviteEmail($data[0]);
+                    if($invite)
+                        $successful[] = $data[0];
+                    else
+                        $failed[] = $data[0];
+                }
+                if(count($data) == 2) //two columns [email,name] [name,email]
+                {
+                    if(!filter_var($data[0], FILTER_VALIDATE_EMAIL) || !preg_match('/@.+\./', $data[0]))
+                    {
+                        $invite = Referral::inviteEmail($data[1],$data[0]);
+                        if($invite)
+                            $successful[] = [$data[1],$data[0]];
+                        else
+                            $failed[] = [$data[1],$data[0]];
+                    }
+                    else
+                    {
+                        $invite = Referral::inviteEmail($data[0],$data[1]);
+
+                        if($invite)
+                            $successful[] = [$data[0],$data[1]];
+                        else
+                            $failed[] = [$data[0],$data[1]];
+                    }
+
+                    
+                }
+
+                if(count($data) == 3) //three columns [email,name,role] [name,email,role]
+                {
+                    if(!filter_var($data[0], FILTER_VALIDATE_EMAIL) || !preg_match('/@.+\./', $data[0]))
+                    {
+                        $invite = Referral::inviteEmail($data[1],$data[0], $data[2]);
+                        if($invite)
+                            $successful[] = [$data[1],$data[0], $data[2]];
+                        else
+                            $failed[] = [$data[0],$data[1], $data[2]];
+                    }
+                    else{
+                        $invite = Referral::inviteEmail($data[0],$data[1], $data[2]);
+            
+                        if($invite)
+                            $successful[] = [$data[0],$data[1], $data[2]];
+                        else
+                            $failed[] = [$data[0],$data[1], $data[2]];
+                    
+                    }
+                }     
+
+
+                if(count($data) == 4) //four columns [email,name,role, message] [name,email,role, message]
+                {
+                    if(!filter_var($data[0], FILTER_VALIDATE_EMAIL) || !preg_match('/@.+\./', $data[0]))
+                    {
+                        $invite = Referral::inviteEmail($data[1],$data[0], $data[2],$data[3]);
+                        if($invite)
+                            $successful[] = [$data[1],$data[0], $data[2], $data[3]];
+                        else
+                            $failed[] = [$data[0],$data[1], $data[2], $data[3]];
+                    }
+                    else
+                    {
+                        $invite = Referral::inviteEmail($data[0],$data[1], $data[2], $data[3]);
+                                     
+            
+                        if($invite)
+                            $successful[] = [$data[0],$data[1], $data[2], $data[3]];
+                        else
+                            $failed[] = [$data[0],$data[1], $data[2], $data[3]];
+                    }
+                    
+                }
+            }
+        }
+        return view('pages.csv-invites')
+                ->with('successful',$successful)
+                ->with('failed',$failed);
+    }
+
     public function create()
     {
         return redirect('/');
@@ -61,9 +150,9 @@ class ReferralController extends Controller
         }
         else
         {
-            $caption = "You have been invited you to Emploi, a Job seeker - Employer matching Platform";
+            $caption = "You have been invited to Emploi, where deserving talent meets deserving opportunities";
             $title = "You've been invited to Emploi";
-            $line = "You have been invited you to create a free profile on our platform, so you too can have access to our superior services.";
+            $line = "You have been invited to create a free profile on our platform, as an employer or job seeker ,so you too can have access to our superior recruitment services.";
         }
 
         Referral::create([

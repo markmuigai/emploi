@@ -61,6 +61,7 @@ Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
 Route::resource('/referrals', 'ReferralController');
+Route::post('/referrals/processCSV','ReferralController@processCSV')->name('processCSV');
 Route::resource('/cv-editing', 'CvEditController');
 
 Route::group([ 'middleware' => 'auth'], function(){

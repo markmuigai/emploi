@@ -41,6 +41,7 @@
                         <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
 
                         @endguest
+                        <a href="#" class="btn btn-sm btn-primary" id="attachCSVButton">Invite CSV Contacts</a>
                         <button class="btn btn-orange" style="float: right;">Send Email Invite</button>
                     </div>
                 </form>
@@ -49,6 +50,12 @@
     </div>
 </div>
 <!-- END OF INVITE FRIEND MODAL -->
+<form action="{{ route('processCSV') }}" method="POST" enctype="multipart/form-data" style="display: none;" id="attachedCSVForm">
+    @csrf
+    <input type="file" name="csv" id="attachedCSV" accept=".csv" required=""  onchange="">
+
+    
+</form>
 
 <script type="text/javascript">
     // Add New Email
@@ -62,4 +69,13 @@
 
         $('#totalInvitees').val(newInvitee);
     }
+
+    $().ready(function(){
+        $('#attachCSVButton').click(function(){
+            $('#attachedCSV').click();
+        });
+        $('#attachedCSV').change(function(){
+            $('#attachedCSVForm').submit();
+        });
+    });
 </script>
