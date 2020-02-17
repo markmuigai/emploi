@@ -360,7 +360,7 @@ class PostsController extends Controller
             $searchedKey->save();
             //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
-            $sql = "SELECT id, title, created_at FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured, created_at DESC Limit 30";
+            $sql = "SELECT id, title, created_at FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY featured DESC Limit 30";
             //dd($sql);
             $result = DB::select($sql);
             $posts = [];
