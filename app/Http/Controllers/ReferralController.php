@@ -107,10 +107,6 @@ class ReferralController extends Controller
                 ->with('failed',$failed);
     }
 
-    public function processCSVRedirect(){
-        return redirect('/profile');
-    }
-
     public function create()
     {
         return redirect('/');
@@ -187,7 +183,7 @@ class ReferralController extends Controller
 
     public function show($id)
     {
-        //
+        return redirect('/');
     }
 
     public function edit($id)
