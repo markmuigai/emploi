@@ -21,7 +21,7 @@ class RegisterSimpleController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'email'  =>  ['required', 'string', 'email','max:50','unique:users'],
-            'phone_number' => ['required', 'string', 'max:20'],
+            'phone_number' => [ 'string', 'max:20'],
             'industry'    =>  ['integer'],
             'contact_prefix' => ['integer']
         ]);
