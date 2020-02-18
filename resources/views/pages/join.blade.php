@@ -32,7 +32,7 @@ if(isset($name))
             <a href="https://emploi.co/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
         </div>
         <br>
-        Welcome to Emploi, an efficient platform to manage recruitments and find work for a succesful career.
+        Welcome to Emploi, an efficient platform to manage recruitments and find work for a successful career.
         @else
         Howdy {{ $name }}, welcome to Emploi. We've started creating your account, select whether you are an employer or job seeker.
         @endif

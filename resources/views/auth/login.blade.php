@@ -29,12 +29,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </label>
         <input type="text" name="username" required="required" value="{{ old('username') }}" class="form-control" placeholder="">
     </div>
+
     <div class="form-group">
         <label for="password">
             Password
         </label>
-        <input type="password" name="password" required="required" class="form-control " placeholder="">
-    </div>
+        <input type="password" name="password" required="required" class="form-control" id="pass" placeholder="">
+           <p><input type="checkbox" onclick="Toggle()"> Show Password</p> 
+   </div>
+
     <div class="d-flex justify-content-between align-items-center">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" name="remember" checked="" id="">
@@ -55,4 +58,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <h5 class="mt-4">Don't have an account?
     <a href="/join" class="btn btn-orange px-5">Sign Up</a>
 </h5>
+
+ <script> 
+    // Change the type of input to password or text 
+        function Toggle() { 
+            var temp = document.getElementById("pass"); 
+            if (temp.type === "password") { 
+                temp.type = "text"; 
+            } 
+            else { 
+                temp.type = "password"; 
+            } 
+        } 
+</script> 
 @endsection
