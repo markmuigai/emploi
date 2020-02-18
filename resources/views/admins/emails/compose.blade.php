@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="/admin/emails/send" id="new-blog-form" enctype="multipart/form-data">
+        <form method="POST" action="/admin/emails/send" id="new-email-form" enctype="multipart/form-data">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -24,6 +24,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <option value="team">Emploi Team</option>
                         <option value="test-users">Test Users</option>
                         <option value="employers-list">Employers Mailing List</option>
+                        <option value="contact-list">Contact Form Users</option>
+                        <option value="cv-edit-request-list">CV Edit Request Users</option>
+                        <option value="employers-advertise">Advertising Request Users</option>
+                        <option value="referees">Referees</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -61,6 +65,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
 
             <div class="form-group">
+                <label for="featured_url">{{ __('Featured Image URL') }}</label>
+                <input id="featured_url" value="{{ url('/') }}" type="url" class="form-control" name="featured_url" value="" placeholder="e.g. {{ url('/vacancies') }}" required >
+            </div>
+
+            <div class="form-group">
                 <textarea class="form-control" name="contents" rows="12" id="message"><?php  if(isset($message)){ print $message; }?></textarea>
             </div>
 
@@ -79,12 +88,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <input type="file" value="" name="attachment3" value="">
             </div>
             <hr>
+            <a href="#" target="_blank" class="btn btn-sm btn-link" id="preview-link">Preview Email</a>
             <div class="text-right">
-                <button type="submit" name="button" class="btn btn-orange">Send</button>
+                <input type="submit" value="Send Emails" class="btn btn-orange">
             </div>
-            <a href="#" style="display: none" target="_blank" class="btn btn-sm btn-link" style="float: right">Preview</a>
+            
         </form>
     </div>
+    <form id="previewForm" method="POST" action="/admin/emails/preview" target="_blank" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="contents" id="previewContents" value="">
+        <input type="hidden" name="subject" id="previewSubject" value="">
+        <input type="hidden" name="caption" id="previewCaption" value="">
+        <input type="hidden" name="featured_url" id="previewFeaturedUrl" value="">
+    </form>
 </div>
 <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
@@ -93,6 +110,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         CKEDITOR.replace('message');
 
     }, 3000);
+</script>
+
+<script type="text/javascript">
+    $('#preview-link').click(function(e){
+        e.preventDefault();
+        notify('Creating Email Preview ...');
+
+        $('#previewSubject').val($('#subject').val());
+        $('#previewCaption').val($('#caption').val());
+        $('#previewFeaturedUrl').val($('#featured_url').val());
+        $('#previewContents').val(CKEDITOR.instances['message'].getData());
+        
+        setTimeout(function(){
+            $('#previewForm').submit();
+        },1019);
+        
+    });
 </script>
 
 @endsection

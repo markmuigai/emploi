@@ -17,8 +17,9 @@ class VacancyEmail implements ShouldQueue
     public $recepient, $name, $subject, $caption, $contents;
     public $banner, $template, $attachment1, $attachment2, $attachment3;
     public $sender_address;
+    public $url;
 
-    public function __construct($recepient, $name, $subject, $caption, $contents,$banner,$template,$attachment1,$attachment2,$attachment3,$sender_address=false)
+    public function __construct($recepient, $name, $subject, $caption, $contents,$banner,$template,$attachment1,$attachment2,$attachment3,$sender_address=false,$url=false)
     {
         $this->recepient = $recepient;
         $this->name = $name;
@@ -31,6 +32,7 @@ class VacancyEmail implements ShouldQueue
         $this->attachment2 = $attachment2;
         $this->attachment3 = $attachment3;
         $this->sender_address = $sender_address;
+        $this->url = $url;
     }
 
     public function handle()
@@ -48,7 +50,8 @@ class VacancyEmail implements ShouldQueue
                     $this->attachment1,
                     $this->attachment2,
                     $this->attachment3,
-                    $this->sender_address
+                    $this->sender_address,
+                    $this->url
                 )
             );
     }

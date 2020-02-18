@@ -14,8 +14,9 @@ class CustomVacancyEmail extends Mailable
     public $name, $subject,$contents,$caption,$email;
     public $banner, $template, $attachment1, $attachment2, $attachment3;
     public $sender_address;
+    public $url;
     
-    public function __construct($name, $subject, $caption, $contents, $email, $banner, $template, $attachment1, $attachment2, $attachment3, $sender_address = false)
+    public function __construct($name, $subject, $caption, $contents, $email, $banner, $template, $attachment1, $attachment2, $attachment3, $sender_address = false, $url=false)
     {
         $this->name = $name;
         $this->subject = $subject;
@@ -28,6 +29,7 @@ class CustomVacancyEmail extends Mailable
         $this->attachment2 = $attachment2;
         $this->attachment3 = $attachment3;
         $this->sender_address = $sender_address;
+        $this->url = $url;
         
     }
 
@@ -40,7 +42,8 @@ class CustomVacancyEmail extends Mailable
                 ->with('contents',$this->contents)
                 ->with('caption',$this->caption)
                 ->with('email',$this->email)
-                ->with('name',$this->name);
+                ->with('name',$this->name)
+                ->with('url',$this->url);
 
         //dd($this->attachment3);
 

@@ -11,11 +11,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <p <i class="fa fa-arrow-left" onclick="window.location = '/admin/panel'"></i>
+        <p> <a href="/admin/panel"><i class="fa fa-arrow-left"></i></a>
         </p>
         <hr>
         <p class="text-center">
-            E-mails have been queued.
+            E-mails have been queued. <br><br>
+            <a href="/admin/emails" class="btn btn-sm btn-orange-alt">Compose Emails</a>
         </p>
     </div>
 </div>

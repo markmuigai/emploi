@@ -131,7 +131,7 @@
                             <!-- Set text color to background color -->
                             <div style="display: none; visibility: hidden; overflow: hidden; opacity: 0; font-size: 1px; line-height: 1px; height: 0; max-height: 0; max-width: 0;
 			color: #F0F0F0;" class="preheader">
-                                Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker matching
+                                {{ $caption }}
                             </div>
 
 
@@ -184,7 +184,8 @@
                     ?>
 
                     <tr>
-                        <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;			padding-top: 20px;" class="hero"> <a target="_blank" style="text-decoration: none;" href="{{ url('/') }}"><img
+                        <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;			padding-top: 20px;" class="hero"> 
+                            <a target="_blank" style="text-decoration: none;" href="{{ $url ? $url : url('/') }}"><img
                                   border="0" vspace="0" hspace="0" src="{{ asset($banner) }}" alt="Featured Image" title="Emploi" width="560"
                                   style="	width: 100%;			max-width: 560px;			color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" /></a>
                         </td>

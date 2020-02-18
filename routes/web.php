@@ -173,6 +173,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('vacancy-emails', 'AdminController@vacancyEmails');
     Route::get('emails', 'AdminController@emails');
     Route::post('emails/send', 'AdminController@sendEmails');
+    Route::post('emails/preview', 'AdminController@previewEmail');
     Route::get('contacts', 'AdminController@contacts');
     Route::post('saveResolution', 'AdminController@saveResolution');
     Route::get('metrics', 'AdminController@seekerMetrics');

@@ -426,12 +426,42 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function previewEmail(Request $request){
+        $contents=$request->contents;
+        $subject=$request->subject;
+        $caption = $request->caption;
+        $url = $request->featured_url;
+        $banner = '/images/email-banner.jpg';
+        $template = 'custom';
+
+        $attachment1 = false;
+        $attachment2 = false;
+        $attachment3 = false;
+
+        return new CustomVacancyEmail(
+            'Recepient Name',
+            $subject,
+            $caption,
+            $contents,
+            'recepient@gmail.com',
+            $banner,
+            $template,
+            $attachment1,
+            $attachment2,
+            $attachment3,
+            'info@emploi.co',
+            $url
+        );
+
+
+    }
+
     public function sendEmails(Request $request){
         $contents=$request->contents;
         $subject=$request->subject;
         $industry = $request->category;
         $caption = $request->caption;
-
+        $url = $request->featured_url;
         $banner = '/images/email-banner.jpg';
 
         $template = $request->template;
@@ -528,7 +558,7 @@ class AdminController extends Controller
                         continue;
                     if(User::subscriptionStatus($user->email))
                     {
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co',$url);
                     }
                 }
                 break;
@@ -551,7 +581,7 @@ class AdminController extends Controller
                     if(!isset($user->id))
                         continue;
                     if(User::subscriptionStatus($user->email))
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
                 }
                 
                 
@@ -566,7 +596,7 @@ class AdminController extends Controller
                     {
                         $email = $users[$i]->email;
                         $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
-                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co');
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co',$url);
                     }
                 }
                 break;
@@ -581,7 +611,7 @@ class AdminController extends Controller
                     {
                         $email = $users[$i]->email;
                         $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
-                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co');
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co',$url);
                     }
                 }
 
@@ -627,7 +657,7 @@ class AdminController extends Controller
                         continue;
                     if(User::subscriptionStatus($user->email))
                     {
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'no-reply@emploi.co',$url);
                     }
                 }
 
@@ -648,26 +678,28 @@ class AdminController extends Controller
                         $attachment1,
                         $attachment2,
                         $attachment3,
-                        'info@emploi.co'
+                        'info@emploi.co',
+                        $url
                     )
                 );
                 
-                Mail::to('sophy@emploi.co')
-                ->send(
-                    new CustomVacancyEmail(
-                        'Sophy Mwale',
-                        $subject,
-                        $caption,
-                        $contents,
-                        'sophy@emploi.co',
-                        $banner,
-                        $template,
-                        $attachment1,
-                        $attachment2,
-                        $attachment3,
-                        'info@emploi.co'
-                    )
-                );
+                // Mail::to('sophy@emploi.co')
+                // ->send(
+                //     new CustomVacancyEmail(
+                //         'Sophy Mwale',
+                //         $subject,
+                //         $caption,
+                //         $contents,
+                //         'sophy@emploi.co',
+                //         $banner,
+                //         $template,
+                //         $attachment1,
+                //         $attachment2,
+                //         $attachment3,
+                //         'info@emploi.co',
+                //         $url
+                //     )
+                // );
                 //VacancyEmail::dispatch('brian@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 //VacancyEmail::dispatch('sophy@jobsikaz.com','Brian Obare', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3);
                 // $sql = "SELECT name, email FROM users WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
@@ -697,7 +729,7 @@ class AdminController extends Controller
 
                 for($i=0; $i<count($team); $i++)
                 {
-                    VacancyEmail::dispatch($team[$i][0],$team[$i][1], $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                    VacancyEmail::dispatch($team[$i][0],$team[$i][1], $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
                 }
 
                 // $sql = "SELECT name, email FROM users WHERE email like \"%@emploi.co\"";
@@ -723,7 +755,7 @@ class AdminController extends Controller
                         
                         if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
                         {
-                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
                             //print "<br> ".$row[0];
                         }
                         
@@ -736,6 +768,47 @@ class AdminController extends Controller
                     die("File $file not found");
                 }
                 break;
+
+            case 'contact-list':
+
+                $contacts = Contact::all();
+                for($i=0; $i<count($contacts); $i++)
+                {
+                    $contact = $contacts[$i];
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
+                break;
+
+            case 'cv-edit-request-list':
+
+                $contacts = CvEditRequest::all();
+                for($i=0; $i<count($contacts); $i++)
+                {
+                    $contact = $contacts[$i];
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
+                break;
+
+            case 'employers-advertise':
+
+                $contacts = Advert::all();
+                for($i=0; $i<count($contacts); $i++)
+                {
+                    $contact = $contacts[$i];
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
+                break;
+
+            case 'referees':
+
+                $contacts = Referee::all();
+                for($i=0; $i<count($contacts); $i++)
+                {
+                    $contact = $contacts[$i];
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
+                break;
+
                 
             default:
                 die("No category has been selected. Invalid Parameters");
@@ -743,19 +816,20 @@ class AdminController extends Controller
                           
         }
 
-        return new CustomVacancyEmail(
-            'Recepient Name',
-            $subject,
-            $caption,
-            $contents,
-            'recepient@gmail.com',
-            $banner,
-            $template,
-            $attachment1,
-            $attachment2,
-            $attachment3,
-            'info@emploi.co'
-        );
+        // return new CustomVacancyEmail(
+        //     'Recepient Name',
+        //     $subject,
+        //     $caption,
+        //     $contents,
+        //     'recepient@gmail.com',
+        //     $banner,
+        //     $template,
+        //     $attachment1,
+        //     $attachment2,
+        //     $attachment3,
+        //     'info@emploi.co',
+        //     $url
+        // );
 
         return view('admins.emails.queued');
 
