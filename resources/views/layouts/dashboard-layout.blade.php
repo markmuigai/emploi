@@ -252,6 +252,8 @@
     @include('components.onesignal')
     @include('components.vue')
     <script src="{{ asset('js/online-monitor-2.js') }}" async="" defer=""></script>
+
+    @include('components.exit-popup')
 </body>
 
 </html>
