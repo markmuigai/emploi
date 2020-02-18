@@ -23,7 +23,7 @@
                     <label for="new_invitee">Enter Email address</label>
                     <div class="form-row" id="invitees">
                         <div class="col-md-6 col-12">
-                            <input type="text" name="name" class="form-control my-1" id="new_invitee_name" placeholder="John Doe" required="">
+                            <input type="text" name="name" class="form-control my-1" id="new_invitee_name" placeholder="John Doe" required=""><br>
                         </div>
                         <div class="col-md-6 col-12">
                             <input type="email" name="email" class="form-control my-1" id="new_invitee" placeholder="john@example.com" required="">
@@ -38,12 +38,36 @@
                     <div class="mt-2">
                         @guest
                         @else
+                        
                         <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
 
                         @endguest
-                        <a href="#" class="btn btn-primary" id="attachCSVButton">Invite CSV Contacts</a>
-                        <button class="btn btn-orange" style="float: right;">Send Email Invite</button>
+                        <a href="#" class="btn btn-primary" style="float: left;" id="attachCSVButton">Invite CSV Contacts</a>
+                          
+
+                       </div>
+                        <button class="btn btn-orange" style="float: left;">Send Email Invite</button>
                     </div>
+
+                               <div id="csvguide">
+                            <div class="modal-title"><b>USER GUIDE</b></div>
+     <!--Body-->
+      <div class="modal-body">
+        <div class="container">
+          <i class=""></i>
+          <p>
+            Thank you for your interest of inviting your friends. You can do so in two ways;<br>
+            1.Send email invite by inputting name and email above and sent the invitation.<br>
+            2.Invite CSV contacts. Click <a href="{{route('csvGuide')}}">here </a> for guide.<br>
+          </p>
+        </div>
+      </div>
+  </div>
+
+        </div>
+    <!--/.Content-->
+  </div>
+</div>
                 </form>
             </div>
         </div>
@@ -58,6 +82,7 @@
 </form>
 
 <script type="text/javascript">
+
     // Add New Email
     $('.add').on('click', add);
 
