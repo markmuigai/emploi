@@ -10,7 +10,6 @@ Route::get('/join', 'ContactController@join');
 Route::get('/invites/{slug}', 'ContactController@invited');
 Route::get('/checkout', 'PesapalController@checkout');
 Route::post('/checkout', 'PesapalController@checkout');
-//Route::get('/test-slack', 'ContactController@testSlack');
 
 Route::get('/careers', 'ContactController@careers');
 Route::get('/contact', 'ContactController@contact');
@@ -225,6 +224,7 @@ Route::get('/job-seekers/cv-templates', 'ContactController@cvtemplates')->middle
 Route::get('/job-seekers/premium-placement', 'ContactController@pplacement');
 Route::get('/job-seekers/services', 'ContactController@jservices');
 Route::get('/job-seekers/faqs', 'ContactController@jobSeekerFaqs');
+Route::get('/job-seekers/cv-builder', 'ContactController@cvBuilder');
 
 //Route::get('/employers/services', function () {      return view('employers.services');});
 Route::get('/employers/services', 'ContactController@eservices');
