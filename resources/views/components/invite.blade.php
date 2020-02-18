@@ -24,8 +24,6 @@
                     
                 </p>
             </div>
-            <div class="modal-footer" style="text-align: center;">
-            </div>
         </div>
     </div>
 </div>
@@ -62,20 +60,23 @@
                             <input type="email" name="email" class="form-control my-1" id="new_invitee" placeholder="john@example.com" required="">
                         </div>
                     </div>
-                    <div class="mt-2">
-                        @guest
-                        @else
-                        
-                        <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
-
-                        @endguest
-                        <a href="#" class="btn btn-primary" style="float: left;" id="showCsvModal" data-toggle="modal" data-target="#inviteFriends">Invite CSV Contacts</a>
-                          
-
-                    </div>
-                    <button class="btn btn-orange" style="float: left;">Send Email Invite</button>
+                    
+                    <button class="btn btn-sm btn-orange" style="float: left;">Send Invite</button>
                    
                 </form>
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <div class="mt-2">
+                    @guest
+                    @else
+                    
+                    <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
+
+                    @endguest
+                    <a href="#" class="btn btn-primary" style="float: left;" id="showCsvModal" data-toggle="modal" data-target="#inviteFriends">Invite CSV Contacts</a>
+                      
+
+                </div>
             </div>
         </div>
     </div>
