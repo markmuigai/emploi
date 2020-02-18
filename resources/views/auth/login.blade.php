@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Password
         </label>
         <input type="password" name="password" required="required" class="form-control" id="pass" placeholder="">
-           <p><input type="checkbox" onclick="Toggle()"> Show Password</p> 
+           <p style="display: none"><input type="checkbox" onclick="Toggle()"> Show Password</p> 
    </div>
 
     <div class="d-flex justify-content-between align-items-center">
