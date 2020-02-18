@@ -32,7 +32,7 @@
 			<div class="modal-footer" style="text-align: center;">
 				<a href="{{ url('/register') }}" class="btn btn-sm btn-orange-alt">Upload CV</a>
 				<a href="{{ url('/job-seekers/cv-editing') }}" class="btn btn-sm btn-orange-alt">CV Editing</a>
-				<a href="{{ url('/job-seekers/services') }}" class="btn btn-sm btn-orange-alt">Company Registration</a>
+				<a href="{{ url('/employers/register') }}" class="btn btn-sm btn-orange-alt">Company Registration</a>
 			</div>
 		</div>
 	</div>
@@ -47,7 +47,7 @@
     	array_shift($path);
     	array_shift($path);
     	array_shift($path);
-    	
+
     	print 'path = '.json_encode($path).';';
     	if(isset(Auth::user()->id)) 
     	{

@@ -107,10 +107,6 @@ class ReferralController extends Controller
                 ->with('failed',$failed);
     }
 
-    public function csvGuide(){
-        return view('pages.csv-guide');
-    }
-
     public function create()
     {
         return redirect('/');

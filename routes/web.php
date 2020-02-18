@@ -63,7 +63,6 @@ Route::resource('companies', 'CompanyController');
 Route::resource('/referrals', 'ReferralController');
 Route::post('/referrals/processCSV','ReferralController@processCSV')->name('processCSV');
 Route::get('/referrals/processCSV','ReferralController@processCSVRedirect');
-Route::get('/pages/csvguide','ReferralController@csvGuide')->name('csvGuide');
 Route::resource('/cv-editing', 'CvEditController');
 
 Route::group([ 'middleware' => 'auth'], function(){
