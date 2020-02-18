@@ -1,6 +1,37 @@
+<div id="importCSVModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #500095; color: white">
+                
+                <h4 class="modal-title">
+                    Structure CSV for Import
+
+                </h4>
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <img src="{{ asset('images/csv-instructions.png') }}" style="width: 100%">
+                <p>
+                    <b>email </b> should be on the first column <br>
+                    <b>names </b> can only be on the second column -OPTIONAL-<br>
+                    <b>role </b> can only be on the third column ( 'job seeker' or 'employer')  -OPTIONAL-<br>
+                    <b>message </b> custom message -OPTIONAL-<br>
+                </p>
+                <p style="text-align: center;">
+                    <br>
+                    <a type="submit" class="btn btn-sm btn-orange" id="attachCSVButton" style="color: white">Attach CSV File</a>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="prompts" title="Invite Friends">
     <button type="button" name="button" class="invite" data-toggle="modal" data-target="#inviteFriends"><i class="fas fa-user-plus"></i></button>
 </div>
+
 
 <!-- INVITE FRIEND MODAL -->
 <div class="modal fade" id="inviteFriends" tabindex="-1" role="dialog" aria-labelledby="inviteFriendsLabel" aria-hidden="true">
@@ -15,7 +46,7 @@
                         , get Redeemable Credits
                     @endguest
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeInviteFriendsModal">
                     <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
                 <form class="form-group" method="post" action="/referrals">
@@ -28,47 +59,24 @@
                         <div class="col-md-6 col-12">
                             <input type="email" name="email" class="form-control my-1" id="new_invitee" placeholder="john@example.com" required="">
                         </div>
-                        <!-- <input type="hidden" value="1" id="totalInvitees"> -->
-                        <!-- <div class="col-3 col-md-2">
-                            <button type="button" name="button" class="btn btn-purple add">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div> -->
                     </div>
-                    <div class="mt-2">
-                        @guest
-                        @else
-                        
-                        <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
-
-                        @endguest
-                        <a href="#" class="btn btn-primary" style="float: left;" id="attachCSVButton">Invite CSV Contacts</a>
-                          
-
-                       </div>
-                        <button class="btn btn-orange" style="float: left;">Send Email Invite</button>
-                    </div>
-
-                               <div id="csvguide">
-                            <div class="modal-title"><b>USER GUIDE</b></div>
-     <!--Body-->
-      <div class="modal-body">
-        <div class="container">
-          <i class=""></i>
-          <p>
-            Thank you for your interest of inviting your friends. You can do so in two ways;<br>
-            1.Send email invite by inputting name and email above and sent the invitation.<br>
-            2.Invite CSV contacts. Click <a href="{{route('csvGuide')}}">here </a> for guide.<br>
-          </p>
-        </div>
-      </div>
-  </div>
-
-        </div>
-    <!--/.Content-->
-  </div>
-</div>
+                    
+                    <button class="btn btn-sm btn-orange" style="float: left;">Send Invite</button>
+                   
                 </form>
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <div class="mt-2">
+                    @guest
+                    @else
+                    
+                    <a href="/profile/invites" class="btn btn-sm btn-success">My Invites</a>
+
+                    @endguest
+                    <a href="#" class="btn btn-primary" style="float: left;" id="showCsvModal" data-toggle="modal" data-target="#inviteFriends">Invite CSV Contacts</a>
+                      
+
+                </div>
             </div>
         </div>
     </div>
@@ -102,5 +110,11 @@
         $('#attachedCSV').change(function(){
             $('#attachedCSVForm').submit();
         });
+        $('#showCsvModal').click(function(){
+            $('#importCSVModal').modal();
+            $('#inviteFriends').modal();
+        });
+        //$('#importCSVModal').modal();
+
     });
 </script>
