@@ -41,12 +41,16 @@
 <script type="text/javascript">
     var exit_trials = 0;
     var role = 'guest';
+    var seekerPopup = false;
     <?php 
     	$path = url()->current();
     	$path = explode("/", $path);
     	array_shift($path);
     	array_shift($path);
     	array_shift($path);
+
+    	if(\Request::session()->has('disable-seeker-register-popup'))
+    		print 'seekerPopup = true;';
 
     	print 'path = '.json_encode($path).';';
     	if(isset(Auth::user()->id)) 
@@ -62,11 +66,26 @@
     $().ready(function(){
     	document.body.addEventListener('mouseout', function(e) {
 	        if (!e.relatedTarget && !e.toElement) {
-	        	console.log(path);
+	        	//console.log(path);
 	            if(exit_trials == 0)
 	            {
-	            	if(role == 'guest')
+	            	if(role == 'guest' && !seekerPopup)
+	            	{
 	            		$('#seekerRegisterModal').modal();
+
+	            		$.ajax({
+				            type: 'GET',
+				            url: '/browser-sessions/disable-seeker-register-popup',
+				            success: function(response) {
+
+				            	console.log('Seeker Signup Notifications disabled for this session');
+				            },
+				            error: function(e) {
+
+				                //notify('Failed to add course', 'error');
+				            },
+				        });
+	            	}
 	            }
 	            // if(exit_trials == 1)
 	            // {

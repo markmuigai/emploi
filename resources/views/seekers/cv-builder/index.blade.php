@@ -79,6 +79,19 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
             
             <br>
             <hr>
+            <h4>Education Records</h4>
+
+            <br>
+            <hr>
+            <h4>Work Experience</h4>
+
+            <br>
+            <hr>
+            <h4>Skills</h4>
+
+            <br>
+            <hr>
+            <h4>Referees</h4>
 
             <p>
                 <input type="submit" value="Create CV" class="btn btn-orange">
