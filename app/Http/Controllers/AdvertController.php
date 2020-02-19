@@ -42,7 +42,7 @@ class AdvertController extends Controller
         ]);
 
         $caption = "Advertisement request on Emploi has been submitted.";
-        $contents = "We have received your request to advertise on Emploi and will get in touch with you shortly. Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.<br>
+        $contents = "We have received your Advertisement Request on Emploi and will get in touch with you shortly. Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.<br>
         <a href='".url('/employers/create')."'>Create an account as an employer</a> and get access to recruitment with our Role Suitability Index and much more.<br><br>
 
         If you have any questions, feel free to call us on +(254) 702 068 282 or write to us info@emploi.co.
