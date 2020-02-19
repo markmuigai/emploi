@@ -16,6 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 candidate Guarantee.
                 <br>
                 <a href="/employers/register" class="btn btn-orange">Create Company Profile</a>
+                <a href="/employers/publish" class="btn btn-orange-alt">Advertise on Emploi</a>
             </p>
             @include('components.ads.responsive')
             <div class="row pt-5">
@@ -167,6 +168,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>
                     Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace. By creating an account, you can advertise and shortlist with our advanced tools, including the Role Suitability Index. 
                 </p>
+                <a href="/employers/publish" class="btn btn-orange-alt">Advertise on Emploi</a>
                 <a href="/employers/register" class="btn btn-orange">Create Company Profile</a>
             </div>
         </div>
