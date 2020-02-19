@@ -93,15 +93,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             <li>1 Job posted for 30 days</li><br>
                             <li>Shared to social media pages</li>
                         </ul>
-                        <br>
+                        <br><br><br><br><br>
                         <form method="POST" action="/checkout">
                             @csrf
                             <input type="hidden" name="product" value="solo">
                             <p>
-                                <input type="submit" name="" value="Request" class="btn btn-primary">
+                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
                             </p>
                         </form>
-                        <br><br>
+                        <br>
                     </div>
                 </div>
                 <div class="card">
@@ -113,6 +113,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             <li>Shared to Social media pages</li><br>
                             <li>Job AD sent out to our entire database</li>
                         </ul>
+                        <br>
+                        <form method="POST" action="/checkout">
+                            @csrf
+                            <input type="hidden" name="product" value="solo_plus">
+                            <p>
+                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
+                            </p>
+                        </form>
                     </div>
                 </div>
                 <div class="card">
@@ -124,6 +132,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             <li>Shared to Social media pages</li><br>
                             <li>Job AD sent out to entire database</li>
                         </ul>
+                        <br>
+                        <form method="POST" action="/checkout">
+                            @csrf
+                            <input type="hidden" name="product" value="infiniti">
+                            <p>
+                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
+                            </p>
+                        </form>
                     </div>
                 </div>
                 <div class="card">
@@ -137,6 +153,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             <li>Get up to 50 CVs</li><br>
                             <li>Referee reports</li>
                         </ul>
+                        <br>
+                        <form method="POST" action="/checkout">
+                            @csrf
+                            <input type="hidden" name="product" value="stawi">
+                            <p>
+                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
