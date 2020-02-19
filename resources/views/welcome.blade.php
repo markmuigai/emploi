@@ -106,7 +106,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     matching.
                 </p>
                 <a href="/about" class="btn btn-orange">More About Us</a>
-                <a href="/employers/publish" class="btn btn-primary px-4">Advertise Here</a>
+                <a href="/employers/publish" class="btn btn-orange-alt px-4">Advertise Here</a>
             </div>
         </div>
     </div>
@@ -267,7 +267,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @endforelse
     </div>
     <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
-    <a href="/vacancies/featured" class="btn btn-primary mt-3 mb-5">Featured Vacancies</a>
+    <a href="/vacancies/featured" class="btn btn-orange-alt mt-3 mb-5">Featured Vacancies</a>
     @endif
 </div>
 <!-- END OF FEATURED JOBS -->
@@ -446,9 +446,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h1>Find the Right Job for you.</h1>
                 <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
                 <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
-                <a href="/join" class="btn btn-orange">Get Started</a>
                 <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
-                <a href="/job-seekers/services" class="btn btn-primary px-4">Job Seeker Services</a>
+                <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
             @else
                 @if(Auth::user()->role == 'seeker')
                     <h1>Find the Right Job for you.</h1>
