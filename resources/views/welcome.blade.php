@@ -372,10 +372,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                         <span style="float: right; text-align: right;">
-                            <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
-                            <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
-                            <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
+                            @include('components.share-modal')
+                            
                         </span>
                     </div>
                 </div>
@@ -401,10 +399,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                         <span style="float: right; text-align: right;">
-                            <a href="{{ $blog->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
-                            <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
-                            <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
+                            @include('components.share-modal')
                         </span>
                     </div>
                 </div>
