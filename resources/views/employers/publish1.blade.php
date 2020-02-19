@@ -178,7 +178,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="card col-md-8 offset-md-2">
             <div class="card-body">
                 
-                <h4 class="text-center">Let's Advertise for you</h4>
+                <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here</h4>
                 <form action="/employers/publish" method="POST">
                     @csrf
                     <div class="form-group">
