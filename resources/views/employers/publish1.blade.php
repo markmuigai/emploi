@@ -87,13 +87,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
                 <div class="card">
                     <div class="card-body d-flex flex-column justify-content-center">
+                        
                         <h1>Kshs <br>2,500</h1>
                         <p>SOLO</p>
                         <ul class="tick">
-                            <li>1 Job posted for 30 days</li><br>
-                            <li>Shared to social media pages</li>
+                            <li>1 Job Advert posted for 30 days</li><br>
+                            <li>Shared to social media pages</li><br>
+                            <li>Job AD sent out to our entire database</li>
                         </ul>
-                        <br><br><br><br><br>
+                        <br>
                         <form method="POST" action="/checkout">
                             @csrf
                             <input type="hidden" name="product" value="solo">
@@ -101,7 +103,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                 <input type="submit" name="" value="Get Started" class="btn btn-primary">
                             </p>
                         </form>
-                        <br>
                     </div>
                 </div>
                 <div class="card">
@@ -109,7 +110,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         <h1>Kshs <BR>4,750</h1>
                         <p>SOLO PLUS</p>
                         <ul class="tick">
-                            <li>2-4 jobs posted for 30 days</li><br>
+                            <li>2-4 job Adverts posted for 30 days</li><br>
                             <li>Shared to Social media pages</li><br>
                             <li>Job AD sent out to our entire database</li>
                         </ul>
@@ -128,7 +129,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         <h1>Kshs 6,000</h1>
                         <p>INFINITI</p>
                         <ul class="tick">
-                            <li>More than 4 jobs posted for 30 days</li><br>
+                            <li>More than 4 job Adverts posted for 30 days</li><br>
                             <li>Shared to Social media pages</li><br>
                             <li>Job AD sent out to entire database</li>
                         </ul>
