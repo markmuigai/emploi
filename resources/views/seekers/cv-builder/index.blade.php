@@ -13,7 +13,6 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
     $name = isset(Auth::user()->id) ? Auth::user()->name : '';
     $email = isset(Auth::user()->id) ? Auth::user()->email : '';
     $phone = '';
-    $website = '';
     $summary = '';
     $address = '';
     $city = '';
@@ -37,7 +36,7 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
 
         
-        <form method="POST" action="/job-seekers/cv-builder" enctype="multipart/form-data">
+        <form method="POST" action="/job-seekers/cv-builder/download" enctype="multipart/form-data">
             @csrf
             <h4>Personal Details</h4>
             <p>
@@ -51,10 +50,6 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
             <p>
                 <label>Your Phone:</label>
                 <input type="text" name="phone" value="{{ $phone }}" class="form-control" required="" maxlength="20" placeholder="254712312312">
-            </p>
-            <p>
-                <label>Your Website:</label>
-                <input type="text" name="website" value="" class="form-control" maxlength="50">
             </p>
             <p>
                 <label>Profile Summary:</label>

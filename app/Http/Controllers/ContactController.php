@@ -32,8 +32,20 @@ use App\Notifications\JobApplied;
 
 class ContactController extends Controller
 {
-    public function cvBuilder(){
+    public function cvBuilder(Request $request){
         return view('seekers.cv-builder.index');
+    }
+
+    public function cvBuilderDownload(Request $request)
+    {
+        return view('seekers.cv-builder.template')
+                ->with('name',$request->name)
+                ->with('email',$request->email)
+                ->with('phone',$request->phone)
+                ->with('skills',Auth::user()->seeker->skills)
+                ->with('summary',$request->summary)
+                ->with('referees',Auth::user()->seeker->referees);
+        return $request->all();
     }
     // public function testSlack(){
     //     Notification::send(User::first(),new TestNotification('Emploi System notification'));

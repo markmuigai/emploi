@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>Jonathan Doe | Web Designer, Director | name@yourdomain.com</title>
+	<title>{{ $name }} | Web Designer, Director | {{ $email }}</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 	<meta name="keywords" content="" />
@@ -89,15 +89,15 @@
 		<div id="hd">
 			<div class="yui-gc">
 				<div class="yui-u first">
-					<h1>Jonathan Doe</h1>
+					<h1>{{ $name }}</h1>
 					<h2>Web Designer, Director</h2>
 				</div>
 
 				<div class="yui-u">
 					<div class="contact-info">
-						<h3><a id="pdf" href="#">Download PDF</a></h3>
-						<h3><a href="mailto:name@yourdomain.com">name@yourdomain.com</a></h3>
-						<h3>(313) - 867-5309</h3>
+						<h3><a id="pdf" href="tel:{{ $phone }}">{{ $phone }}</a></h3>
+						<h3><a href="mailto:{{ $email }}">{{ $email }}</a></h3>
+						<h3>{{ $phone }}</h3>
 					</div><!--// .contact-info -->
 				</div>
 			</div><!--// .yui-gc -->
@@ -113,58 +113,10 @@
 						</div>
 						<div class="yui-u">
 							<p class="enlarge">
-								Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change. 
+								{{ $summary }}
 							</p>
 						</div>
 					</div><!--// .yui-gf -->
-
-					<div class="yui-gf">
-						<div class="yui-u first">
-							<h2>Skills</h2>
-						</div>
-						<div class="yui-u">
-
-								<div class="talent">
-									<h2>Web Design</h2>
-									<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
-								</div>
-
-								<div class="talent">
-									<h2>Interface Design</h2>
-									<p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
-								</div>
-
-								<div class="talent">
-									<h2>Project Direction</h2>
-									<p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
-								</div>
-						</div>
-					</div><!--// .yui-gf -->
-
-					<div class="yui-gf">
-						<div class="yui-u first">
-							<h2>Technical</h2>
-						</div>
-						<div class="yui-u">
-							<ul class="talent">
-								<li>XHTML</li>
-								<li>CSS</li>
-								<li class="last">Javascript</li>
-							</ul>
-
-							<ul class="talent">
-								<li>Jquery</li>
-								<li>PHP</li>
-								<li class="last">CVS / Subversion</li>
-							</ul>
-
-							<ul class="talent">
-								<li>OS X</li>
-								<li>Windows XP/Vista</li>
-								<li class="last">Linux</li>
-							</ul>
-						</div>
-					</div><!--// .yui-gf-->
 
 					<div class="yui-gf">
 	
@@ -206,6 +158,62 @@
 						</div><!--// .yui-u -->
 					</div><!--// .yui-gf -->
 
+					@if(count($referees)>0)
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Referees</h2>
+						</div>
+						<div class="yui-u">
+
+								<div class="talent">
+									<h2>Web Design</h2>
+									<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
+								</div>
+
+								<div class="talent">
+									<h2>Interface Design</h2>
+									<p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
+								</div>
+
+								<div class="talent">
+									<h2>Project Direction</h2>
+									<p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
+								</div>
+						</div>
+					</div><!--// .yui-gf -->
+					@endif
+
+					@if(count($skills)>0)
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+						<div class="yui-u">
+							<?php 
+								$lasti = 0;
+								for($i =0;$i<count($skills); $i++)
+								{
+									if($i==0)
+										print '<ul class="talent">';
+									print '<li>'.$skills[$i]->skill->name.'</li>';
+									if($i%3 == 0)
+										print '</ul>';
+									if(count($skills)-1 > $i)
+										print '<ul class="talent">';
+									$lasti++;
+								}
+								if($i%3 != 0)
+									print '</ul>';
+
+							?>
+						</div>
+					</div><!--// .yui-gf-->
+
+					@endif
+
+
 
 					<div class="yui-gf last">
 						<div class="yui-u first">
@@ -223,7 +231,7 @@
 		</div><!--// bd -->
 
 		<div id="ft">
-			<p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) - 867-5309</p>
+			<p>{{ $name }} &mdash; <a href="mailto:{{ $email }}">{{ $email }}</a> &mdash; {{ $phone }}</p>
 		</div><!--// footer -->
 
 	</div><!-- // inner -->
