@@ -371,10 +371,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p class="badge badge-secondary">{{ $blog->category->name }}</p>
                         <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
-                        <span style="float: right; text-align: right;">
-                            @include('components.share-modal')
-                            
-                        </span>
+                        @include('components.share-modal')
                     </div>
                 </div>
                 @empty
@@ -398,9 +395,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
-                        <span style="float: right; text-align: right;">
-                            @include('components.share-modal')
-                        </span>
+                        @include('components.share-modal')
                     </div>
                 </div>
                 @empty
