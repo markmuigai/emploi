@@ -94,6 +94,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             <li>Shared to social media pages</li>
                         </ul>
                         <br>
+                        <form method="POST" action="/checkout">
+                            @csrf
+                            <input type="hidden" name="product" value="solo">
+                            <p>
+                                <input type="submit" name="" value="Request" class="btn btn-primary">
+                            </p>
+                        </form>
                         <br><br>
                     </div>
                 </div>
