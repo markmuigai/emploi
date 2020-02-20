@@ -18,6 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <li><a href="documentation/routes">Routes</a></li>
                             <li><a href="documentation/controllers">Controllers</a></li>
                             <li><a href="documentation/views" >Views</a></li>
+                            <li><a href="documentation/rsi" >RSI</a></li>
                           </ul>
                       </div>
         <div class="text-right">            

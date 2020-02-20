@@ -206,7 +206,7 @@ class ImportData extends Command
                     fclose($handle);
                 }
                 $this->info(' '.$count_seekers_skipped.'  skipped');
-                $this->info('2/7 Job Seekers Import completed succesfully ['.$count_seekers.']');
+                $this->info('2/7 Job Seekers Import completed successfully ['.$count_seekers.']');
                 $this->info('3/7 Importing Employers ');
 
                 
@@ -390,7 +390,7 @@ class ImportData extends Command
                     }
                 }
 
-                $this->info('6/7 Employers Import completed succesfully ');
+                $this->info('6/7 Employers Import completed successfully ');
                 $this->info('7/7 Changing Import status to imported ');
 
                 //import seekers   

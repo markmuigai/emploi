@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body text-center">
         <p>
-            The Invoice <b>{{ $invoice->slug }}</b> was paid succesfully.
+            The Invoice <b>{{ $invoice->slug }}</b> was paid successfully.
         </p>
         @include('components.ads.responsive')
         <p>

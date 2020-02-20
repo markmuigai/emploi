@@ -101,7 +101,7 @@ class CompanyController extends Controller
 
         if(isset($c->id))
         {
-            $message = $c->name." has been created succesfully. <br> You can now post vacancies <a href='/vacancies/create'>here</a>";
+            $message = $c->name." has been created successfully. <br> You can now post vacancies <a href='/vacancies/create'>here</a>";
 
             $caption = "A new company has been created on Emploi";
             $contents = $c->user->name." has created a company on Emploi using the name <b>".$c->name."<b>.<br>

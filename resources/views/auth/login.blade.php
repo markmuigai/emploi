@@ -25,14 +25,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     @enderror
     <div class="form-group">
         <label for="username">
+        <i class="fa fa-user" aria-hidden="true">
             Username or E-mail
+        </i>
         </label>
         <input type="text" name="username" required="required" value="{{ old('username') }}" class="form-control" placeholder="">
     </div>
 
     <div class="form-group">
         <label for="password">
+        <i class="fa fa-key" aria-hidden="true">
             Password
+        </i>
         </label>
         <input type="password" name="password" required="required" class="form-control" id="pass" placeholder="">
            <p style="display: none"><input type="checkbox" onclick="Toggle()"> Show Password</p> 

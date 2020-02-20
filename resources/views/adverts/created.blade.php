@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     	</h4>
     	<p>
     		Hello {{ $advert->name }},<br>
-    		<b>Your advertisment request has been received succesfully.</b> 
+    		<b>Your advertisment request has been received successfully.</b> 
             <?php
             $products = \App\Product::where('slug','infinity')->orWhere('slug','solo')->orWhere('slug','solo_plus')->orWhere('slug','stawi')->get();
             ?>  
