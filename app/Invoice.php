@@ -88,7 +88,7 @@ class Invoice extends Model
 
                 <a href='".url('/invoice/'.$this->slug)."' style='padding: 0.5em; '>View Invoice</a> 
 
-                <br>
+                <br><br>
                 <h5>Description</h5>
                 <p>
                 ".$this->description."

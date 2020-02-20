@@ -529,17 +529,6 @@ class Seeker extends Model
             else
                 $perc = $perc * 0.1;
 
-            // if($targets<10)
-            //     $perc = $perc * 0.25;
-            // elseif($targets<25)
-            //     $perc = $perc * 0.5;
-            // elseif($targets<50)
-            //     $perc = $perc * 0.75;
-            // elseif($targets<75)
-            //     $perc = $perc * 1.0;
-            // else
-            //     $perc = $perc * 1.25;
-
             //discplinary cases
             $gross = false;
             $mod = false;
