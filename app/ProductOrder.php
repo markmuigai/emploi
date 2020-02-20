@@ -222,12 +222,16 @@ class ProductOrder extends Model
     	{
     		if($action == 'activate')
         	{
-        		$p->contents = 1;
+        		$p->contents = "1|50";
         		$p->save();
         	}
         	else
         	{
-        		if( (int) $p->contents == 0 )
+                $cont_ = $p->contents;
+                $cont_ = explode("|", $cont_);
+
+
+        		if( (int) $cont_[0] == 0 &&  (int) $cont_[0] == 0 )
         		{
         			$p->contents = 'completed';
         			$p->save();
@@ -236,7 +240,7 @@ class ProductOrder extends Model
 
     	}
 
-    	if($slug == 'solo-plus')
+    	if($slug == 'solo_plus')
     	{
     		if($action == 'activate')
         	{
@@ -283,8 +287,14 @@ class ProductOrder extends Model
 
     public static function enablePending()
     {
-        $ps = ProductOrder::where('contents','==',null)->get();
+        $ps = ProductOrder::where('contents',NULL)->get();
         for($i=0; $i<count($ps); $i++)
-            ProductOrder::toggle($ps[$i]);
+        {
+            $p_o = $ps[$i];
+            if($p_o->order->invoice->paid)
+            {
+                ProductOrder::toggle($p_o);
+            }
+        }
     }
 }

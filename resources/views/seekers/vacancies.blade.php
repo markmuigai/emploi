@@ -48,10 +48,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="col-12 my-2 text-center">
         <button type="submit" name="button" class="btn btn-sm btn-orange">Search</button>
         @if(isset($search_vtype) || isset($search_ind) || isset($search_location) || isset($search_query))
-        <button type="reset" name="button" class="btn btn-sm btn-orange-alt ml-3"><a href="/vacancies">Reset</a></button>
+        <button type="reset" name="button" class="btn btn-sm btn-danger ml-3"><a href="/vacancies">Reset</a></button>
         @endif
-        <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-primary">Request CV Editing</a>
-        <a href="/employers/publish" class="btn btn-success">Advertise here</a>
+        <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-orange-alt">Request CV Editing</a>
+        <a href="/employers/publish" class="btn btn-orange">Advertise here</a>
         <hr>
     </div>
 </form>

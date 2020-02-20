@@ -85,7 +85,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @endif
                     
                     <div class="col-lg-2 col-md-6 col-12">
+                        <?php 
+                            $showSubmit = false; 
+                            $comment = 'Unpaid Job';
+
+                            if($p->status == 'inactive')
+                            {
+                                if($p->company->user->employer->canPostJob())
+                                    $showSubmit = true;
+                            }
+                            else
+                            {
+                                $showSubmit = true;
+                            }
+                        ?>
+
+                        @if($showSubmit)
                         <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
+                        @else
+                        <span class="badge badge-danger">{{ $comment }}</span>
+                        @endif
                     </div>
                 </form>
             </div>

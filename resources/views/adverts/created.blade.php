@@ -49,7 +49,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 One of our representative will get in touch with you shortly.
                 <br>
             @endif
-    		Thank you for chosing Emploi.
+    		Thank you for choosing Emploi.
     		<br><br>
     		<a href="/contact" class="btn btn-sm btn-success">Contact Us</a>
             <a href="mailto:info@emploi.co" class="btn btn-sm btn-default">Email Us</a>

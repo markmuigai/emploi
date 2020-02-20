@@ -158,11 +158,13 @@ class PostsController extends Controller
             <a class='btn btn-sm btn-primary' href='".url('/vacancies/create')."'>Create Advert</a>.
             ";
 
-            $email = $p->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
+            // $email = $p->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
 
-            $email = $email = null ? $p->company->user->email : $email;
+            // $email = $email = null ? $p->company->user->email : $email;
 
-            EmailJob::dispatch($p->company->user->name, $email, $p->title.' Post on Emploi', $caption, $contents);
+            $email = $p->company->user->email;
+            if($email != 'jobs@emploi.co')
+                EmailJob::dispatch($p->company->user->name, $email, $p->title.' Post on Emploi', $caption, $contents);
 
             Notification::send(Employer::first(),new PostCreated('NEW JOB POST: '.$p->title.' created under Company '.$p->company->name.' by '.$p->company->user->name));
 
