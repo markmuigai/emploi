@@ -236,7 +236,7 @@ class ProductOrder extends Model
 
     	}
 
-    	if($slug == 'solo-plus')
+    	if($slug == 'solo_plus')
     	{
     		if($action == 'activate')
         	{
@@ -283,8 +283,14 @@ class ProductOrder extends Model
 
     public static function enablePending()
     {
-        $ps = ProductOrder::where('contents','==',null)->get();
+        $ps = ProductOrder::where('contents',NULL)->get();
         for($i=0; $i<count($ps); $i++)
-            ProductOrder::toggle($ps[$i]);
+        {
+            $p_o = $ps[$i];
+            if($p_o->order->invoice->paid)
+            {
+                ProductOrder::toggle($p_o);
+            }
+        }
     }
 }

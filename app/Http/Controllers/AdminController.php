@@ -101,18 +101,32 @@ class AdminController extends Controller
     	$post = Post::where('slug',$slug)->first();
     	if(!isset($post->id))
     		abort(404);
-    	$post->status = $request->status;
-        $post->featured = $request->featured;
-    	$post->save();
-        if($request->notification == 'true')
+
+        if($post->company->user->employer->canPostJob())
         {
-            OneSignal::sendNotificationToAll(
-                $post->title, 
-                $url = url('/vacancies/'.$post->slug)
-            );
+            if($post->status == 'inactive' && $request->status == 'active')
+            {
+                $approval = $post->company->user->employer->hasPostedAJob($post);
+                if(!$approval)
+                    die("Job Post Approval Failed. Employer hasn't purchased a package! <a href='/admin/posts'>Job Posts</a>");
+            }
+
+            $post->status = $request->status;
+            $post->featured = $request->featured;
+            $post->save();
+
+            if($request->notification == 'true')
+            {
+                OneSignal::sendNotificationToAll(
+                    $post->title, 
+                    $url = url('/vacancies/'.$post->slug)
+                );
+            }
+
         }
+    	
         
-    	return redirect()->back(); ;
+    	return redirect()->back(); 
     	return $request->all();
     }
 

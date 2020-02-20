@@ -12,6 +12,7 @@ use App\JobApplication;
 use App\SavedProfile;
 
 use Carbon\Carbon;
+use App\Jobs\EmailJob;
 
 class Employer extends Model
 {
@@ -300,5 +301,149 @@ class Employer extends Model
         $posts = $this->posts->pluck('id');
         return JobApplication::whereIn('post_id',$posts)->get();
         dd($companies);
+    }
+
+    public function canPostJob($counter = 1){
+        if($this->user->email == 'jobs@emploi.co')
+            return true;
+        $orders = $this->user->orders;
+        $productOrders = [];
+        for($i=0; $i<count($orders); $i++)
+        {
+            $order = $orders[$i];
+            if(!$order->invoice->paid)
+                continue;
+            $orderProducts = $order->productOrders;
+            for($k=0; $k<count($orderProducts); $k++)
+            {
+                if($orderProducts[$k]->contents && $orderProducts[$k]->contents != 'completed')
+                    array_push($productOrders, $orderProducts[$k]);
+            }
+        }
+        if(count($productOrders) == 0)
+            return false;
+        $max = 0;
+        for($i=0; $i<count($productOrders); $i++)
+        {
+            $po = $productOrders[$i];
+            if($po->product->slug == 'infinity')
+                return true;
+
+            if($po->product->slug == 'stawi' || $po->product->slug == 'solo')
+            {
+                if((int) $po->contents != 0)
+                    $max++;
+            }
+
+            if($po->product->slug == 'solo_plus')
+            {
+                if((int) $po->contents != 0)
+                {
+                    $max += (int) $po->contents;
+                }
+            }
+        }
+        if($max >= $counter)
+            return true;
+        return false;
+    }
+
+    public function hasPostedAJob($post)
+    {
+        if($this->user->email == 'jobs@emploi.co')
+            return true;
+
+        $orders = $this->user->orders;
+        $productOrders = [];
+        for($i=0; $i<count($orders); $i++)
+        {
+            $order = $orders[$i];
+            if(!$order->invoice->paid)
+                continue;
+            $orderProducts = $order->productOrders;
+            for($k=0; $k<count($orderProducts); $k++)
+            {
+                if($orderProducts[$k]->contents  && $orderProducts[$k]->contents != 'completed')
+                    array_push($productOrders, $orderProducts[$k]);
+            }
+        }
+
+        if(count($productOrders) == 0)
+            return false;
+
+
+        for($i=0; $i<count($productOrders); $i++)
+        {
+            $po = $productOrders[$i];
+            if($po->product->slug == 'infinity')
+            {
+                $caption = "We have approved ".$post->title." job post on Emploi, under Emploi Infinity Package";
+                $contents = "Our Administrator has approved <b>".$post->title."</b> under the Emploi Infinity Package. This package enables you to post as many jobs until ".$po->contents."
+                <br>
+                <a class='btn btn-sm btn-success' href='".url('/vacancies/'.$post->slug)."'>View Job Post</a>
+                <a class='btn btn-sm btn-primary' href='".url('/employers/applications/'.$post->slug)."'>View Applications</a>
+                <br>
+                Job Seekers will start sending applications any moment from now. 
+                Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a> for further enquiries<br>
+                Thank you for choosing Emploi.";
+                EmailJob::dispatch($po->order->user->name, $po->order->user->email, 'Emploi Infinity Package - Job Post Approved', $caption, $contents);
+                return true;
+            }
+
+            if($po->product->slug == 'stawi' || $po->product->slug == 'solo')
+            {
+                if((int) $po->contents != 0)
+                {
+                    $po->contents = 0;
+                    $saved = $po->save();
+                    if($saved)
+                    {
+                        $package = $po->product->slug == 'solo' ? 'Solo Package' : 'Stawi Package';
+
+                        $caption = "We have approved ".$post->title." job post on Emploi, under Emploi $package";
+                        $contents = "Our Administrator has approved <b>".$post->title."</b> under the Emploi $package. 
+                        <br>
+                        <a class='btn btn-sm btn-success' href='".url('/vacancies/'.$post->slug)."'>View Job Post</a>
+                        <a class='btn btn-sm btn-primary' href='".url('/employers/applications/'.$post->slug)."'>View Applications</a>
+                        <br>
+                        Job Seekers will start sending applications any moment from now. 
+                        Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a> for further enquiries<br>
+                        Thank you for choosing Emploi.";
+                        EmailJob::dispatch($po->order->user->name, $po->order->user->email, "Emploi $package - Job Post Approved", $caption, $contents);
+                        return true;
+                    }
+
+                }
+            }
+
+            if($po->product->slug == 'solo_plus')
+            {
+                if((int) $po->contents != 0)
+                {
+                    $remaining = (int) $po->contents;
+                    $remaining -= 1;
+
+                    $po->contents = $remaining;
+                    $saved = $po->save();
+                    if($saved)
+                    {
+                        $caption = "We have approved ".$post->title." job post on Emploi, under Emploi Solo Plus";
+                        $contents = "Our Administrator has approved <b>".$post->title."</b> under the Emploi Solo Plus. This package allows you to post 4 jobs, $remaining remain.
+                        <br>
+                        <a class='btn btn-sm btn-success' href='".url('/vacancies/'.$post->slug)."'>View Job Post</a>
+                        <a class='btn btn-sm btn-primary' href='".url('/employers/applications/'.$post->slug)."'>View Applications</a>
+                        <br>
+                        Job Seekers will start sending applications any moment from now. 
+                        Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a> for further enquiries<br>
+                        Thank you for choosing Emploi.";
+                        EmailJob::dispatch($po->order->user->name, $po->order->user->email, 'Emploi Solo Plus Package - Job Post Approved', $caption, $contents);
+
+                        return true;
+                    }
+                }
+            }
+
+        }
+        return false;
     }
 }
