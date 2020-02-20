@@ -106,19 +106,15 @@ class InvoiceController extends Controller
         $invoice->notify(new InvoicePaid($message));
 
         $caption = "Emploi Invoice ".$invoice->slug.' was paid';
-        $contents = "The Invoice <a href='".url('/invoice/'.$invoice->slug)."'>".$invoice->slug."</a> totalling to Ksh ".$invoice->total."is due was paid succesfully <br><br>
+        $contents = "The Invoice <a href='".url('/invoice/'.$invoice->slug)."'>".$invoice->slug."</a> totalling to Ksh ".$invoice->total."  was paid succesfully <br><br>
 
         <a href='".url('/invoice/'.$invoice->slug)."' style='padding: 0.5em; '>View Invoice</a> 
 
-        <br>
-        <h5>Description</h5>
-        <p>
-        ".$invoice->description."
-        </p>
+        
 
         <br>
 
-        Thank you for chosing Emploi.
+        Thank you for choosing Emploi.
         ";
         EmailJob::dispatch($invoice->first_name, $invoice->email, 'Emploi Invoice Paid', $caption, $contents);
 

@@ -390,7 +390,7 @@ class Employer extends Model
                 return true;
             }
 
-            if($po->product->slug == 'stawi' || $po->product->slug == 'solo')
+            if($po->product->slug == 'solo')
             {
                 if((int) $po->contents != 0)
                 {
@@ -398,10 +398,10 @@ class Employer extends Model
                     $saved = $po->save();
                     if($saved)
                     {
-                        $package = $po->product->slug == 'solo' ? 'Solo Package' : 'Stawi Package';
+                        //$package = $po->product->slug == 'solo' ? 'Solo Package' : 'Stawi Package';
 
-                        $caption = "We have approved ".$post->title." job post on Emploi, under Emploi $package";
-                        $contents = "Our Administrator has approved <b>".$post->title."</b> under the Emploi $package. 
+                        $caption = "We have approved ".$post->title." job post on Emploi, under Emploi Solo Package";
+                        $contents = "Our Administrator has approved <b>".$post->title."</b> under the Emploi Solo Package. 
                         <br>
                         <a class='btn btn-sm btn-success' href='".url('/vacancies/'.$post->slug)."'>View Job Post</a>
                         <a class='btn btn-sm btn-primary' href='".url('/employers/applications/'.$post->slug)."'>View Applications</a>
@@ -409,10 +409,46 @@ class Employer extends Model
                         Job Seekers will start sending applications any moment from now. 
                         Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a> for further enquiries<br>
                         Thank you for choosing Emploi.";
-                        EmailJob::dispatch($po->order->user->name, $po->order->user->email, "Emploi $package - Job Post Approved", $caption, $contents);
+                        EmailJob::dispatch($po->order->user->name, $po->order->user->email, "Emploi Solo Package - Job Post Approved", $caption, $contents);
                         return true;
                     }
 
+                }
+            }
+
+            if($po->product->slug == 'stawi')
+            {
+                $cont_ = $po->contents;
+                $cont_ = explode("|", $cont_);
+
+                if( (int) $cont_[0] == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    $po->contents = '0|'.$cont_[1];
+                    $saved = $po->save();
+
+                    if($saved)
+                    {
+
+                        $caption = "We have approved ".$post->title." job post on Emploi, under Emploi Stawi Package";
+                        $contents = "Our Administrator has approved <b>".$post->title."</b> under the Emploi Stawi Package. 
+                        <br>
+                        <a class='btn btn-sm btn-success' href='".url('/vacancies/'.$post->slug)."'>View Job Post</a>
+                        <a class='btn btn-sm btn-primary' href='".url('/employers/applications/'.$post->slug)."'>View Applications</a>
+                        <br>
+                        Job Seekers will start sending applications any moment from now. <br>
+                        You can shortlist other job seekers, ".$cont_[1]." profiles remain. <br>
+                        This package also enables you to view referee reports which are accessible on the employers dashboard.
+
+                        <br>
+                        Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a> for further enquiries<br>
+                        Thank you for choosing Emploi.";
+                        EmailJob::dispatch($po->order->user->name, $po->order->user->email, "Emploi Solo Package - Job Post Approved", $caption, $contents);
+                        return true;
+                    }
                 }
             }
 

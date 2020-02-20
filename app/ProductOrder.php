@@ -222,12 +222,16 @@ class ProductOrder extends Model
     	{
     		if($action == 'activate')
         	{
-        		$p->contents = 1;
+        		$p->contents = "1|50";
         		$p->save();
         	}
         	else
         	{
-        		if( (int) $p->contents == 0 )
+                $cont_ = $p->contents;
+                $cont_ = explode("|", $cont_);
+
+
+        		if( (int) $cont_[0] == 0 &&  (int) $cont_[0] == 0 )
         		{
         			$p->contents = 'completed';
         			$p->save();

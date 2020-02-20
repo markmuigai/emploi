@@ -331,8 +331,8 @@ class Seeker extends Model
                 else
                     $perc += $exp * 0.4;
             }
-            // else
-            //     $perc += $exp;
+            else
+                $perc += $exp;
         }
 
         if(count($model->modelSeekerSkills) > 0 || $model->other_skills != null && count(json_decode($model->other_skills)) > 0) //skills
@@ -446,6 +446,7 @@ class Seeker extends Model
             $targets = array();
             $rehire = array();
             $discplinary = array();
+
             for($i=0; $i<count($this->jobApplicationReferees); $i++)
             {
                 $rf = $this->jobApplicationReferees[$i];
@@ -467,58 +468,77 @@ class Seeker extends Model
             $workQuality = count($workQuality) > 0 ? array_sum($workQuality ) / count($workQuality) : 0;
             $targets = count($targets) > 0 ? array_sum($targets ) / count($targets) : 0;
 
-            $perc += $ref;
+            //$perc += $ref;
 
             //would you rehire
-            $hire = false;
-            $nohire = false;
+            $hire = true;
+            //$nohire = false;
             for($i=0; $i<count($rehire);$i++)
             {
-                if($discplinary[$i] == 'no')
-                    $hire = true;
-                if($discplinary[$i] == 'maybe')
-                    $nohire = true;
+                if($rehire[$i] == 'no' || $rehire[$i] == 'maybe')
+                    $hire = false;
+                // if($rehire[$i] == 'maybe')
+                //     $nohire = true;
             }
-            if($hire)
+            if(!$hire)
                 $perc = $perc * 0.7;
-            elseif($nohire)
-                $perc = $perc * 0.85;
+            // elseif($nohire)
+            //     $perc = $perc * 0.85;
 
             //performance
-            if($performance<10)
-                $perc = $perc * 0.25;
-            elseif($performance<25)
-                $perc = $perc * 0.5;
-            elseif($performance<50)
-                $perc = $perc * 0.75;
-            elseif($performance<75)
-                $perc = $perc * 1.0;
-            else
+            if($performance >= 90)
                 $perc = $perc * 1.25;
+            elseif($performance>=75)
+                $perc = $perc * 1;
+            elseif($performance>=60)
+                $perc = $perc * 0.75;
+            elseif($performance>=50)
+                $perc = $perc * 0.5;
+            elseif($performance>=30)
+                $perc = $perc * 0.25;
+            else
+                $perc = $perc * 0.1;
+
 
             //work quality
-            if($workQuality<10)
-                $perc = $perc * 0.25;
-            elseif($workQuality<25)
-                $perc = $perc * 0.5;
-            elseif($workQuality<50)
-                $perc = $perc * 0.75;
-            elseif($workQuality<75)
-                $perc = $perc * 1.0;
-            else
+            if($workQuality >= 90)
                 $perc = $perc * 1.25;
+            elseif($workQuality>=75)
+                $perc = $perc * 1;
+            elseif($workQuality>=60)
+                $perc = $perc * 0.75;
+            elseif($workQuality>=50)
+                $perc = $perc * 0.5;
+            elseif($workQuality>=30)
+                $perc = $perc * 0.25;
+            else
+                $perc = $perc * 0.1;
 
             //ability to meet targets
-            if($targets<10)
-                $perc = $perc * 0.25;
-            elseif($targets<25)
-                $perc = $perc * 0.5;
-            elseif($targets<50)
-                $perc = $perc * 0.75;
-            elseif($targets<75)
-                $perc = $perc * 1.0;
-            else
+
+            if($targets >= 90)
                 $perc = $perc * 1.25;
+            elseif($targets>=75)
+                $perc = $perc * 1;
+            elseif($targets>=60)
+                $perc = $perc * 0.75;
+            elseif($targets>=50)
+                $perc = $perc * 0.5;
+            elseif($targets>=30)
+                $perc = $perc * 0.25;
+            else
+                $perc = $perc * 0.1;
+
+            // if($targets<10)
+            //     $perc = $perc * 0.25;
+            // elseif($targets<25)
+            //     $perc = $perc * 0.5;
+            // elseif($targets<50)
+            //     $perc = $perc * 0.75;
+            // elseif($targets<75)
+            //     $perc = $perc * 1.0;
+            // else
+            //     $perc = $perc * 1.25;
 
             //discplinary cases
             $gross = false;

@@ -84,7 +84,7 @@ class Invoice extends Model
         switch ($channel) {
             case 'email':
                 $caption = "Emploi Invoice ".$this->slug.' is due for payment';
-                $contents = "The Invoice <a href='".url('/invoice/'.$this->slug)."'>".$this->slug."</a> totalling to Ksh ".$this->total."is due for payment on Emploi. <br><br>
+                $contents = "The Invoice <a href='".url('/invoice/'.$this->slug)."'>".$this->slug."</a> totalling to Ksh ".$this->total." is due for payment on Emploi. <br><br>
 
                 <a href='".url('/invoice/'.$this->slug)."' style='padding: 0.5em; '>View Invoice</a> 
 

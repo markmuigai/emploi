@@ -145,7 +145,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
                 <div class="card">
                     <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs 10,000</h1>
+                        <h1>Kshs 7,000</h1>
                         <p>STAWI</p>
                         <ul class="tick">
                             <li>All   in Solo</li><br>
