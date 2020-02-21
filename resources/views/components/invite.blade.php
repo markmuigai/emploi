@@ -28,9 +28,15 @@
     </div>
 </div>
 
-<div class="prompts" title="Invite Friends">
+<div class="prompts" data-toggle="tooltip" data-placement="top" title="Invite your friends, Let's reward you">
     <button type="button" name="button" class="invite" data-toggle="modal" data-target="#inviteFriends"><i class="fas fa-user-plus"></i></button>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 
 <!-- INVITE FRIEND MODAL -->
@@ -43,7 +49,7 @@
                     @guest
                         to use Emploi
                     @else
-                        , get Redeemable Credits
+                        for checkout discounts
                     @endguest
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeInviteFriendsModal">
