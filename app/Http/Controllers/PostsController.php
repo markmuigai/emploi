@@ -369,8 +369,8 @@ class PostsController extends Controller
             $posts = [];
             $results = DB::select($sql);
             
-            for($i=count($results); $i>0; $i--)
-                $posts[] = Post::findOrFail($results[$i-1]->id);
+            for($i=0; $i<count($results); $i++)
+                $posts[] = Post::findOrFail($results[$i]->id);
 
             return view('seekers.vacancies')
                     ->with('industries',$industries)
