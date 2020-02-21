@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
         <div>
             <b>Success!</b> <br>
-            Invite <u>{{ $slug }} has been deleted</u> succesfully. Visitors to the link will still be able to register normally. 
+            Invite <u>{{ $slug }} has been deleted</u> successfully. Visitors to the link will still be able to register normally. 
             <br>
             <br>
             <a href="/profile/invites" class="btn btn-primary">My Invites</a>

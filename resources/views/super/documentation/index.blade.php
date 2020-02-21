@@ -48,7 +48,7 @@ Ubuntu 18.04 <br>
 <p>Latest version of PHP is required. At the time of writing, PHP 7.4 is the latest PHP Version released. The system minimum requirement PHP 7.2.
 <br>MySQL 5.7
 <p>Database to be used is MySQL Server whose latest version at the time of this writing is 5.7. Alternative databases can be used but performance and stability may vary.</p>
-<br>Composer<br>
+Composer<br>
 Laravel uses Composer to manage package dependencies and as such the latest version of composer is required.
 <br>Supervisor<br>
 Supervisor manages queues, allowing us to queue emails for later sending. Latest version of supervisor is required. 
@@ -89,6 +89,7 @@ storage/app/public/images
 storage/app/public/avatars
 
 <h3>System Emails</h3>
+<p>The system uses mailgun API to sent emails.</p>
 
 <h3>Installation</h3>
 Installation instructions have been included in the readme.md file located in the folder root.

@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="d-flex flex-column justify-content-center align-center">
     <p>
-        Your account as an employer has been created succesfully.
+        Your account as an employer has been created successfully.
     </p>
     <p>
         A confirmation e-mail has been sent.

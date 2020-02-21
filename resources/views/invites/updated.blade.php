@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @include('components.ads.responsive')
         <div>
             <b>Success!</b> <br>
-            Invite has been updated succesfully.
+            Invite has been updated successfully.
             <br>
             <br>
             <a href="/profile/invites/{{ $invite->slug }}" class="btn btn-orange">View</a>

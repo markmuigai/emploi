@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body text-center">
         <h2>Hello Job Seeker</h2>
         <p>
-            Your account as a job seeker has been created succesfully.
+            Your account as a job seeker has been created successfully.
         </p>
         @include('components.ads.responsive')
         <p>

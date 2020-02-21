@@ -16,6 +16,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         </div>
 
+<!-- 
+<form method="get" class="col-12 my-2 text-center" action="{{ url('/search') }}">    
+        <div class="col-md-4">
+        <input type="text" name="q" class="form-control" placeholder="Enter keyword(s) to search" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50"><br>
+    </div>
+    
+                
+    <div class="col-md-4">
+        <button type="submit" name="button" class="btn btn-sm btn-orange">Search</button>
+        @if(isset($search_query))
+        <button type="reset" name="button" class="btn btn-sm btn-orange-alt ml-3"><a href="/">Reset</a></button>
+        @endif    
+     </div>  
+
+</form> -->
 
 
 <p>

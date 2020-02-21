@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body text-center">
         <p>
-            Your message has been sent succesfully.
+            Your message has been sent successfully.
         </p>
         @include('components.ads.responsive')
         <p>
