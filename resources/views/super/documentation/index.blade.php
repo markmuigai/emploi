@@ -111,21 +111,36 @@ Emploi supports 5 user types as shown below:<br>
     2. Administrators – Administrators are responsible for coordinating activities on the platform. By default, one admin is created during seeding with the username info. Super admin can create more administrators.<br>
     3. Employers – Employers are users who post jobs and conduct recruitment on the platform. By default, an employer with the username jobs is created while seeding. Other employers can register or have their data imported from cv-portal.<br>
     4. Job Seekers – These are individuals who are seeking work on the platform. They can register or have their profiles imported from cv-portal.<br>
-    5. Referees – Jobseekers add referees to their profile who provide insight into them. Referees submit assessment of the job seeker which is used by the RSI scoring algorithm.
-Important Folders
-Important Files
+    5. Referees – Jobseekers add referees to their profile who provide insight into them. Referees submit assessment of the job seeker which is used by the RSI scoring algorithm.</p>
+Important Folders</br>
+Important Files</br>
 
 
 <h3>Maintenance</h3>
 
 <p>This involves all procedures that have to be undertaken to keep the platform running optimally, adding and removing features as well as trouble shooting.</p>
-    1. SSL Certificate
+    1. SSL Certificate-
 The SSL certificate has been approved for 90 days, and has to be renewed for free once this period has lapsed. 
 Renewal command is: certbot renew<br>
-    2. Email service
+    2. Email service-
 Emploi email hosting for users have been setup with Truehost and require annual renewal to keep them functional. This can be done from the provider’s website www.truehost.co.ke<br>
 
-</p>
+</p><br>
+<h3>Custom Commands</h3>
+<p>In addition to the commands provided with Artisan, the system is also has custom commands stored in the app/Console/Commands directory.These command include;</p>
+<ul>
+    <li>cleanResumes-Deletes all resumes that are not mentioned on job seekers table.</li>
+    <li>disableProducts-Disables products which have expired.</li>
+    <li>enableProducts-Enables products which have not been activated.</li>
+    <li>FindMissingUsers-Finds users who were left out when moving from cv-portal</li>
+    <li>FixMissingSeekers-Creates users who were left out by first import</li>
+    <li>FixRegistrationDate-Fixes the registration date of users who were imported on the platform</li>
+    <li>ImportData-imports data from cv-portal</li>
+    <li>ImportPosts-imports data from career resources database</li>
+    <li>SplitPosts-Splits  posts table that have how to apply mentioned in responsibilities</li>
+    <li>TestCron-Tests whether crontab is working correctly</li>
+    <li>VerificationEmailsResend-Sends verification emails to job seekers whos verification emails experienced error registering</li>
+</ul>
 
     </div>
 
