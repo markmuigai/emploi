@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <li><a href="views" >Views</a></li>
                             <li><a href="rsi" >RSI</a></li>
                           </ul>
-                      </div>
+                 </div>
 
         <div class="text-right">
             <h2>EMPLOI DOCUMENTATION</h2>
@@ -111,30 +111,100 @@ Emploi supports 5 user types as shown below:<br>
     2. Administrators – Administrators are responsible for coordinating activities on the platform. By default, one admin is created during seeding with the username info. Super admin can create more administrators.<br>
     3. Employers – Employers are users who post jobs and conduct recruitment on the platform. By default, an employer with the username jobs is created while seeding. Other employers can register or have their data imported from cv-portal.<br>
     4. Job Seekers – These are individuals who are seeking work on the platform. They can register or have their profiles imported from cv-portal.<br>
-    5. Referees – Jobseekers add referees to their profile who provide insight into them. Referees submit assessment of the job seeker which is used by the RSI scoring algorithm.
-Important Folders
-Important Files
+    5. Referees – Jobseekers add referees to their profile who provide insight into them. Referees submit assessment of the job seeker which is used by the RSI scoring algorithm.</p>
+Important Folders</br>
+Important Files</br>
 
 
 <h3>Maintenance</h3>
 
 <p>This involves all procedures that have to be undertaken to keep the platform running optimally, adding and removing features as well as trouble shooting.</p>
-    1. SSL Certificate
+    1. SSL Certificate-
 The SSL certificate has been approved for 90 days, and has to be renewed for free once this period has lapsed. 
 Renewal command is: certbot renew<br>
-    2. Email service
+    2. Email service-
 Emploi email hosting for users have been setup with Truehost and require annual renewal to keep them functional. This can be done from the provider’s website www.truehost.co.ke<br>
 
+</p><br>
+<h3>Custom Commands</h3>
+<p>In addition to the commands provided with Artisan, the system is also has custom commands stored in the app/Console/Commands directory.These command include;</p>
+<ul>
+    <li>cleanResumes-Deletes all resumes that are not mentioned on job seekers table.</li>
+    <li>disableProducts-Disables products which have expired.</li>
+    <li>enableProducts-Enables products which have not been activated.</li>
+    <li>FindMissingUsers-Finds users who were left out when moving from cv-portal</li>
+    <li>FixMissingSeekers-Creates users who were left out by first import</li>
+    <li>FixRegistrationDate-Fixes the registration date of users who were imported on the platform</li>
+    <li>ImportData-imports data from cv-portal</li>
+    <li>ImportPosts-imports data from career resources database</li>
+    <li>SplitPosts-Splits  posts table that have how to apply mentioned in responsibilities</li>
+    <li>TestCron-Tests whether crontab is working correctly</li>
+    <li>VerificationEmailsResend-Sends verification emails to job seekers whos verification emails experienced error registering</li>
+</ul>
+
+<h3>Invite Friends</h3>
+<p>The systems allows for a registered user to invite his/her friends. The user is required to click on a 'user plus' icon located at the bottom right corner. Once an invited friend registers, the invitee is elligible to gain credit. </p>
+
+<h3>Countries</h3>
+<p>Currently the system supports vacancies from Kenya, Uganda, Tanzania,Rwanda, Ghana, Somalia, South Africa and Zimbabwe.</p>
+
+<h3>Products</h3>
+<p><b>Career Change or Promotion Seeking CV</b>-
+  Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications Price: Ksh 4000 for 365 days</p>
+
+  <p><b>Featured Job Seeker</b>-
+Top of the list search, Shortlisting Notifications
+Price: Ksh 159 for 30 days</p>
+
+<p><b>Infinity Advertising Package</b>-
+Advertise many jobs on Emploi for 30 days.
+Price: Ksh 9025 for 30 days</p>
+
+<p><b>Job Seeker Basic Package</b>-
+Get notifications when shortlisted by an employer
+Price: Ksh 49 for 30 days</p>
+
+<p><b>Management Level Professional CV Editing</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 6000 for 365 days</p>
+
+<p><b>Premium Entry Level Job Seeker</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 2000 for 366 days</p>
+
+<p><b>Premium Mid Level Job Seeker</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 4000 for 365 days</p>
+
+<p><b>Senior Management Level CV Editing</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 10000 for 365 days</p>
+
+<p><b>Solo Advertising Package</b>-
+Advertise your vacancy on Emploi
+Price: Ksh 2500 for 30 days</p>
+
+<p><b>Solo Plus Advertising Package</b>-
+Advertise 2-4 jobs on Emploi
+Price: Ksh 4750 for 30 days</p>
 </p>
 
+<h3>Invoice</h3>
+<p></p>
+
+<h3>Bloggers</h3>
+<p>Bloggers are the people who post blogs in the system. Currently there are four active bloggers</p>
+
+<h3>Emailer</h3>
+<p>To send a message, the system use the 'to' method on the Mail facade. The to method accepts an email address, a user instance, or a collection of users. If you pass an object or collection of objects, the mailer will automatically use their email and name properties when setting the email recipients.</p>
+
+<h3>CV Request</h3>
+<p>A registered employer can request a CV of a particular jobseeker.</p>
+
+<h3>CV Editing</h3>
+<p>A job seeker can request for CV Editing services offered at a cost. The CVs are edited by registered CV Editors</p>
     </div>
 
-  <!--   <div class="card">
-    <div class="card-body">
-        <div class="text-right">
-            <a href="/routesdoc" class="btn btn-sm btn-orange pull-right">Routes Documentation</a>
-        </div>
 
-</div> -->
 
 @endsection

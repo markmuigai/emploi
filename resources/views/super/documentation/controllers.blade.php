@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Documentation')
+@section('page_title', 'Controllers Documentation')
 <div class="card">
     <div class="card-body">
     	  <div class="dropdown">
@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <h3>Controllers</h3>
 
 <p>
-	Controllers can group related request handling logic into a single class. Controllers are stored in the app/Http/Controllers directory.
+	Controllers can group related request handling logic into a single class. Controllers are stored in the app/Http/Controllers directory. They can be invoked by defining routes in routes.php
 </p>
 
 

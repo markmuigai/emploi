@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Documentation')
+@section('page_title', 'Views Documentation')
 <div class="card">
     <div class="card-body">
     	  <div class="dropdown">
@@ -34,8 +34,7 @@ each response.</p>
 <p>Views are stored in the resources/views directory.
 A view can be called using the view helper function:
 view(string $path, array $data = [])
-The first parameter of the helper is the path to a view file, and the second parameter is an optional
-array of data to pass to the view.
+The first parameter of the helper is the path to a view file, and the second parameter is an optional array of data to pass to the view.
 Therefore, to call the resources/views/index.blade.php , you would use:
 view('index');</p>
 View files in subfolders within the resources/views directory, such as

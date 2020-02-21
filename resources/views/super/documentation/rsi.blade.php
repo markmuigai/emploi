@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Documentation')
+@section('page_title', 'RSI Documentation')
 <div class="card">
     <div class="card-body">
           <div class="dropdown">
