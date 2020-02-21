@@ -132,7 +132,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 job-actions">
+                <?php 
+                    $show = true; 
+                    if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->hasApplied($post))
+                    {
+                        $show = false;
+                    }
+                ?>
+                @if($show)
                 <a href="/vacancies/{{$post->slug}}/" class="btn btn-orange">View and Apply</a>
+                @else
+                <span class="btn btn-orange-alt">Already Applied</span>
+                @endif
             </div>
         </div>
     </div>

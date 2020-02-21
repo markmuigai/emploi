@@ -96,13 +96,32 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 				<div class="row align-items-center">
 					<div class="col-4">
 						<img src="{{ asset($b->imageUrl) }}" class="w-100" alt="{{ $b->title }}">
+						<br>
+						<span href="/vacancies/{{ $b->slug }}">{{ $b->created_at->diffForHumans() }}</span>
 					</div>
 					<div class="col-8">
 						<h5><a href="/vacancies/{{ $b->slug }}">{{ $b->title }}</a></h5>
-						<p class="badge badge-purple">
-							{{ $b->monthlySalary() }}
+						<p>
+							<a href="/companies/{{ $b->company->name }}">{{ $b->company->name }}</a>
+							<small class="badge badge-purple">{{ $b->monthlySalary() }}</small>
 						</p>
-						<a href="/vacancies/{{ $b->slug }}" class="btn btn-sm btn-default">{{ $b->created_at->diffForHumans() }}</a>
+						
+
+						
+						<?php 
+		                    $show = true; 
+		                    if(Auth::user()->seeker->hasApplied($b))
+		                    {
+		                        $show = false;
+		                    }
+		                ?>
+		                @if($show)
+		                <a href="/vacancies/{{ $b->slug }}" class="btn btn-orange">View and Apply</a>
+
+		                @else
+		                <span class="btn btn-orange-alt">Applicattion Sent</span>
+
+		                @endif
 					</div>
 				</div>
 			</div>
