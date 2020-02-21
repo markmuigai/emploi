@@ -83,7 +83,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @endif
                 <!-- END OF JOB CARD -->
             </div>
-            <div class="tab-pane fade show active" id="unrejected-jobs" role="tabpanel" aria-labelledby="unrejected-jobs">
+            <div class="tab-pane fade" id="unrejected-jobs" role="tabpanel" aria-labelledby="unrejected-jobs">
 
                 <!-- JOB CARD -->
                 
