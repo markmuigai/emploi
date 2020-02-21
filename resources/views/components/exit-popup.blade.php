@@ -75,7 +75,7 @@
 
 	            		$.ajax({
 				            type: 'GET',
-				            url: '/browser-sessions/disable-seeker-register-popup',
+				            url: '/browser-sessions/disable-seeker-register-popup?csrf-token='+$('#csrf_token').attr('content'),
 				            success: function(response) {
 
 				            	console.log('Seeker Signup Notifications disabled for this session');
