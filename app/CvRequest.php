@@ -17,10 +17,15 @@ class CvRequest extends Model
     public function acceptRequest(){
     	if($this->status == 'pending' && $this->employer->credits > 100)
     	{
-    		$this->employer->credits -= 100;
-    		$this->employer->save();
-    		$this->status = 'accepted';
-    		return $this->save();
+            $employer = $this->employer;
+
+    		$employer->credits -= 100;
+    		if($employer->save())
+            {
+                $this->status = 'accepted';
+                return $this->save();
+            }
+    		
     	}
     	return false;
     }
@@ -47,12 +52,18 @@ class CvRequest extends Model
     		return false;
     	$r = CvRequest::create([
 			'employer_id' => $employer->id, 
-			'seeker_id' => $seeker->id
+			'seeker_id' => $seeker->id,
+            'status' => 'pending'
 		]);
 		if(isset($r->id))
 		{
-            Notification::send(Employer::first(),new CvRequested('CV REQUEST: '.$employer->user->name.' has requested for '.$seeker->user->name.'\'s CV'));
-			return $r->acceptRequest();
+            
+            $status = $r->acceptRequest();
+            if(!$status)
+            {
+                Notification::send(Employer::first(),new CvRequested('CV REQUEST: '.$employer->user->name.' has requested for '.$seeker->user->name.'\'s CV'));
+                return $status;
+            }
 		}
 
     	return false;

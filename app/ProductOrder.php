@@ -222,7 +222,17 @@ class ProductOrder extends Model
     	{
     		if($action == 'activate')
         	{
-        		$p->contents = "1|50";
+                if($p->order->user->role != 'employer')
+        		    $p->contents = "1|50";
+                else
+                {
+                    $employer = $p->order->user->employer;
+                    $employer->credits += 5000;
+                    if($employer->save())
+                    {
+                        $p->contents = "1|0";
+                    }
+                }
         		$p->save();
         	}
         	else

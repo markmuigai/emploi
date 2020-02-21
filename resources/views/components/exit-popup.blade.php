@@ -5,8 +5,7 @@
 			<div class="modal-header" style="background-color: #500095; color: white">
 				
 				<h4 class="modal-title">
-					Let's get you a job
-
+					Get Your Dream Job Today
 				</h4>
 				<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
 			</div>
@@ -49,7 +48,7 @@
     	array_shift($path);
     	array_shift($path);
 
-    	if(\Request::session()->has('disable-seeker-register-popup'))
+    	if(session()->has('disable-seeker-register-popup'))
     		print 'seekerPopup = true;';
 
     	print 'path = '.json_encode($path).';';
@@ -67,7 +66,7 @@
     	document.body.addEventListener('mouseout', function(e) {
 	        if (!e.relatedTarget && !e.toElement) {
 	        	//console.log(path);
-	            if(exit_trials == 0)
+	            if(exit_trials == 1)
 	            {
 	            	if(role == 'guest' && !seekerPopup)
 	            	{
