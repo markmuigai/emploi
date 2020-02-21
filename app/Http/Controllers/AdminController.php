@@ -259,10 +259,10 @@ class AdminController extends Controller
 
 
             $newseekers = [];
-            for($i=0; $i<count($results); $i++)
+            for($i=count($results)-1; $i >0; $i--)
             {
                 //$s = Seeker::find($results[$i]->id);
-                array_push($newseekers,$results[$i]->user_id);
+                array_push($newseekers,$results[$i-1]->user_id);
             }
 
             $seekers = Seeker::whereIn('user_id',$newseekers)
