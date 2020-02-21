@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Documentation')
+@section('page_title', 'Routes Documentation')
 <div class="card">
     <div class="card-body">
           <div class="dropdown">
@@ -27,24 +27,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         </div>
 
-<!-- 
-<form method="get" class="col-12 my-2 text-center" action="{{ url('/search') }}">    
-        <div class="col-md-4">
-        <input type="text" name="q" class="form-control" placeholder="Enter keyword(s) to search" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50"><br>
-    </div>
-    
-                
-    <div class="col-md-4">
-        <button type="submit" name="button" class="btn btn-sm btn-orange">Search</button>
-        @if(isset($search_query))
-        <button type="reset" name="button" class="btn btn-sm btn-orange-alt ml-3"><a href="/">Reset</a></button>
-        @endif    
-     </div>  
-
-</form> -->
-
-
-<p>
 <h3>Routes</h3>
 <p>The routes directory contains all of the route definitions for  application. By default, several route files are included with Laravel: web.php, api.php, console.php and channels.php.</p>
 <p>The <b>api.php</b> file contains routes that the RouteServiceProvider places in the api middleware group, which provides rate limiting.
@@ -385,8 +367,6 @@ routes, it defines console based entry points (routes) into the application.</p>
 <li>Route::get('/sitemap/posts.xml', 'SitemapController@posts');</li>
 <li>Route::get('/sitemap/blogs.xml', 'SitemapController@blogs');</li>
 </ul>
-
-</p>
 
 
     </div>

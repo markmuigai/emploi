@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <li><a href="views" >Views</a></li>
                             <li><a href="rsi" >RSI</a></li>
                           </ul>
-                      </div>
+                 </div>
 
         <div class="text-right">
             <h2>EMPLOI DOCUMENTATION</h2>
@@ -142,14 +142,69 @@ Emploi email hosting for users have been setup with Truehost and require annual 
     <li>VerificationEmailsResend-Sends verification emails to job seekers whos verification emails experienced error registering</li>
 </ul>
 
+<h3>Invite Friends</h3>
+<p>The systems allows for a registered user to invite his/her friends. The user is required to click on a 'user plus' icon located at the bottom right corner. Once an invited friend registers, the invitee is elligible to gain credit. </p>
+
+<h3>Countries</h3>
+<p>Currently the system supports vacancies from Kenya, Uganda, Tanzania,Rwanda, Ghana, Somalia, South Africa and Zimbabwe.</p>
+
+<h3>Products</h3>
+<p><b>Career Change or Promotion Seeking CV</b>-
+  Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications Price: Ksh 4000 for 365 days</p>
+
+  <p><b>Featured Job Seeker</b>-
+Top of the list search, Shortlisting Notifications
+Price: Ksh 159 for 30 days</p>
+
+<p><b>Infinity Advertising Package</b>-
+Advertise many jobs on Emploi for 30 days.
+Price: Ksh 9025 for 30 days</p>
+
+<p><b>Job Seeker Basic Package</b>-
+Get notifications when shortlisted by an employer
+Price: Ksh 49 for 30 days</p>
+
+<p><b>Management Level Professional CV Editing</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 6000 for 365 days</p>
+
+<p><b>Premium Entry Level Job Seeker</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 2000 for 366 days</p>
+
+<p><b>Premium Mid Level Job Seeker</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 4000 for 365 days</p>
+
+<p><b>Senior Management Level CV Editing</b>-
+Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
+Price: Ksh 10000 for 365 days</p>
+
+<p><b>Solo Advertising Package</b>-
+Advertise your vacancy on Emploi
+Price: Ksh 2500 for 30 days</p>
+
+<p><b>Solo Plus Advertising Package</b>-
+Advertise 2-4 jobs on Emploi
+Price: Ksh 4750 for 30 days</p>
+</p>
+
+<h3>Invoice</h3>
+<p></p>
+
+<h3>Bloggers</h3>
+<p>Bloggers are the people who post blogs in the system. Currently there are four active bloggers</p>
+
+<h3>Emailer</h3>
+<p>To send a message, the system use the 'to' method on the Mail facade. The to method accepts an email address, a user instance, or a collection of users. If you pass an object or collection of objects, the mailer will automatically use their email and name properties when setting the email recipients.</p>
+
+<h3>CV Request</h3>
+<p>A registered employer can request a CV of a particular jobseeker.</p>
+
+<h3>CV Editing</h3>
+<p>A job seeker can request for CV Editing services offered at a cost. The CVs are edited by registered CV Editors</p>
     </div>
 
-  <!--   <div class="card">
-    <div class="card-body">
-        <div class="text-right">
-            <a href="/routesdoc" class="btn btn-sm btn-orange pull-right">Routes Documentation</a>
-        </div>
 
-</div> -->
 
 @endsection
