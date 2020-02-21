@@ -81,6 +81,121 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</p>
 			<p>By administering proficiency tests on a candidate, the employer will be able to deeply analyze a candidate's strengths and weaknesses which may not be present in their resume.</p>
 	    </ul>
+
+	    <h3>RSI Calculation</h3>
+
+ <p><b> //instantiatiate percentage as perc to zero</b>
+    public function getRsi($post){
+                $perc = 0; </p>       
+                     
+                       <p><b>//check if profile is complete</b>
+                 if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())</p>
+
+                <p><b> //computes the percentage in education</b> level,experience,personality,company size and feedback
+        $edu = $model->education_level_importance == 0 ? 0 : $model->education_level_importance / $total * 100;
+        $exp = $model->experience_importance == 0 ? 0 : $model->experience_importance / $total * 100;
+        $skil = $model->skills_importance == 0 ? 0 : $model->skills_importance / $total * 100;
+        $pers = $model->personality_importance == 0 ? 0 : $model->personality_importance / $total * 100;
+        $cosize = $model->company_size_importance == 0 ? 0 : $model->company_size_importance  / $total * 100;
+        $ref = $model->feedback_importance == 0 ? 0 : $model->feedback_importance / $total * 100;</p>
+   
+   <p><b>//checks if the psychometric  test is more than zero</b> 
+      if(count($application->psychometricTests) > 0)</p>
+            {   
+            	<p><b>//if applicant score is more than the set score it assigns perc+=psy</b>
+                if($application->psychometricScore > $model->psychometric_test_score)
+                    $perc += $psy;</p>
+                 <p><b>//if applicant score is equals the set score perc will be 80% of psy</b>   
+                elseif($application->psychometricScore == $model->psychometric_test_score)
+                    $perc += $psy * 0.8;
+                else</p>
+                <p><b>//perc will be 40%of psy</b>
+                    $perc += $psy * 0.4;</p>
+
+
+            <p><b>//checks for accepted courses</b>
+             if(count($model->modelSeekerCourses) > 0)
+            {
+                $found = false;
+                for($i=0; $i< count($model->modelSeekerCourses); $i++)
+                {
+                    $courseName = $model->modelSeekerCourses[$i]->course->name;
+                    if(!is_null($this->education) )
+                    {
+                        if( strpos($this->education, "%$courseName%") )
+                            $found = true;  </p>        
+   
+     <p><b>If the education level is higher it multiplies perc by 50% </b>
+     elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
+                {
+                    $perc += $edu * 0.5;
+                }</p>
+                <p><b>//If the education level is lower it multiplies perc by 25%</b>
+                elseif($this->education_level_id == $model->education_level_id)
+                {
+                    $perc += $edu * 0.25;</p>
+   
+   <p><b>//Checks for other skills in the cv if available</b>
+        if(isset($model->other_skills) && count(json_decode($model->other_skills)) > 0)
+            {
+                if( !is_null($this->resume_contents) )
+                {
+                    $other_skills = json_decode($model->other_skills);
+                    $other_skills_weights = json_decode($model->other_skills_weight);</p>
+
+
+        <p><b>//Checks if any referee and has provided assessment. perc will be += $total_traits/$model->traitsWeight * $pers;</b>
+
+            if(count($this->referees) != 0) 
+            {
+                $assessed = array();
+                for($i=0; $i<count($this->referees); $i++)
+                {
+                    if($this->referees[$i]->status != 'pending-details')
+                        array_push($assessed, $this->referees[$i]);
+                }</p>
+
+         <p><b>//Checks for referees feedback on these parameters</b>
+           if(count($this->jobApplicationReferees) > 0)
+        {
+            $performance = array();
+            $workQuality = array();
+            $targets = array();
+            $rehire = array();
+            $discplinary = array();</p>
+
+         <p><b>The final value of perc</b>
+                return round($perc,2);</p>
+          
+   <!--   <p><b>//Checks for personality, if result is zero it will return false else true</b>
+	    public function hasPersonalityTrait($trait_id){
+        $sql = "SELECT id FROM seeker_personality_traits WHERE seeker_id = ".$this->id." LIMIT 1";
+        $result = DB::select($sql);
+        if(count($result) == 0)
+            return false;
+        return true;
+    }</p>
+
+    <p><b>//Checks for personality trait weight</b> 
+    	public function getPersonalityTraitWeight($trait_id){
+        if(!$this->hasPersonalityTrait($trait_id))
+            return 0;
+        $sql = "SELECT weight FROM seeker_personality_traits WHERE seeker_id = ".$this->id. " AND personality_trait_id = $trait_id";
+        $traitstotal = 0;
+        $counter = 0;
+        $results = DB::select($sql);
+
+        for($i=0; $i<count($results); $i++ )
+        {
+            $counter ++;
+
+            $traitstotal += $results[$i]->weight;
+        }</p>
+        <p><b>returns the total traits</b>
+        if($traitstotal == 0)
+            return $traitstotal;
+        return $traitstotal/$counter;
+    }</p> -->
     </div>
 
 @endsection
