@@ -76,8 +76,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/logout" class="btn btn-white px-4">Logout</a>
 
             @else
-                @include('components.welcome-banner')
-                
+            @include('components.welcome-banner')
+
             @endif
         </div>
     </div>
@@ -111,42 +111,207 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
-<!-- END OF ABOUT SESSION -->
-<!-- STATISTICS -->
-<div class="statistics">
-    <div class="container">
-        <div class="card mx-5">
-            <div class="card-body text-center py-3 py-lg-4">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fas fa-briefcase"></i>
-                        <h5>Total Jobs</h5>
-                        <h1 class="counter">{{ count(\App\Post::all()) }}</h1>
-                        <p>Find your next job effortlessly.</p>
-                        <hr class="d-block d-md-none">
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fas fa-clipboard-check"></i>
-                        <h5>Total Candidates</h5>
-                        <h1 class="counter">{{ count(\App\Seeker::all()) * 2 }}</h1>
-                        <p>Get hired with minimal effort.</p>
-                        <hr class="d-block d-md-none">
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fas fa-building"></i>
-                        <h5>Total Companies</h5>
-                        <h1 class="counter">{{ count(\App\Company::all()) * 3 }}</h1>
-                        <p>{{ count(\App\Company::getHiringCompanies2(0)) * 3 }} companies are hiring.</p>
-                        <hr class="d-block d-md-none">
-                    </div>
+
+
+<div class="container" >
+    <div class="card mx-5" style="background: linear-gradient(140deg, #8900ff 0, #500095 60%); color: #fff">
+        <div class="card-body text-center py-3 py-lg-4">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-12">
+                    <i class="fas fa-briefcase"></i>
+                    <h5>Total Jobs</h5>
+                    <h1 class="counter">{{ count(\App\Post::all()) }}</h1>
+                    <p>Find your next job effortlessly.</p>
+                    <hr class="d-block d-md-none">
+                </div>
+                <div class="col-md-4 col-sm-4 col-12">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h5>Total Candidates</h5>
+                    <h1 class="counter">{{ count(\App\Seeker::all()) * 2 }}</h1>
+                    <p>Get hired with minimal effort.</p>
+                    <hr class="d-block d-md-none">
+                </div>
+                <div class="col-md-4 col-sm-4 col-12">
+                    <i class="fas fa-building"></i>
+                    <h5>Total Companies</h5>
+                    <h1 class="counter">{{ count(\App\Company::all()) * 3 }}</h1>
+                    <p>{{ count(\App\Company::getHiringCompanies2(0)) * 3 }} companies are hiring.</p>
+                    <hr class="d-block d-md-none">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- END OF ABOUT SESSION -->
+<!-- STATISTICS -->
+
+
 <!-- END OF STATISTICS -->
 <!-- SERVICES -->
-<div class="services my-3">
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-body text-center">
+            <h2 class="orange">Our Services</h2>
+            <p>We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
+
+            <div class="row">
+                <div class="col-sm-6">  
+                    <div class="card "> 
+                        <div class="card-title" style="text-align: center;"> <h5><b>Employer Services</b></h5>    
+
+
+                          <div class="row">
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <a href="/employers/browse" class="card m-2 py-0"  style="background-color: #500095; color: #fff">
+                         <!-- <img class="img-responsive" src="#">
+                         -->
+                          <i class="fas fa-users"></i>
+                         <span class="card-title">Browse Talent Database</span>
+                     </a>
+                 </div>
+             </div>
+
+
+             <div class="col-sm-3">
+                 <div class="card" >
+                   <a href="/employers/services" class="card m-2 py-0" style="background-color: #500095; color: #fff">
+                       <!-- <img class="img-responsive" src="#"> -->
+                       <i class="fas fa-handshake"></i>
+                       <span class="card-title" style="font-size: 15px">Recruitment Process Outsourcing</span>
+                   </a>
+               </div>
+           </div>
+
+
+           <div class="col-sm-3">
+               <div class="card">
+                  <a href="/employers/services" class="card m-2 py-0"  style="background-color: #500095; color: #fff">
+                     <!--    <img class="img-responsive" src="#"> -->
+                     <i class="fas fa-sort"></i>
+                     <span class="card-title">Assess Candidate</span>
+                 </a>
+             </div>
+         </div>
+
+
+        <div class="col-sm-4">
+          <div class="card">
+             <a href="/employers/publish" class="card m-2 py-0" style="background-color: #500095; color: #fff">
+               <!--  <img class="img-responsive" src="#"> -->
+                <i class="fas fa-briefcase"></i><br>
+               <span class="card-title">Advertise Jobs</span>
+           </a>
+       </div>
+   </div>
+
+
+               <div class="col-sm-3">
+                  <div class="card">
+                    <a href="/employers/background-checks"  style="background-color: #500095; color: #fff">
+                       <!--   <img class="img-responsive" src="#"> -->
+                        <i class="fas fa-list-alt"></i>
+                       <span class="card-title">Background Checks</span>
+                   </a>
+               </div>
+            </div>     
+         </div>
+       </div>
+   </div>
+</div>
+
+
+
+<div class="col-sm-6">  
+    <div class="card"> 
+     <div class="card-title" style="text-align: center;"> <h5><b>Job Seeker Services</b></h5>
+
+       <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <a href="/job-seekers/premium-placement" class="card m-2 py-0"  style="background-color: #500095; color: #fff">
+                         <!-- <img class="img-responsive" src="#">
+                         --> 
+                          <i class="fas fa-check"></i>
+                         <span class="card-title">Premium Placement</span>
+                     </a>
+                 </div>
+             </div>
+             
+
+             <div class="col-sm-3">
+                <div class="card">
+                   <a href="/job-seekers/services" class="card m-2 py-0" style="background-color: #500095; color: #fff">
+                       <!-- <img class="img-responsive" src="#"> -->
+                        <i class="fas fa-check-circle"></i>
+                       <span class="card-title" style="font-size: 15px">Professional Coaching</span>
+                   </a>
+               </div>
+           </div>
+
+
+           <div class="col-sm-3">
+            <div class="card">
+                <a href="/vacancies" class="card m-2 py-0"  style="background-color: #500095; color: #fff">
+                         <!-- <img class="img-responsive" src="#">
+                         -->
+                          <i class="fas fa-briefcase"></i>
+                         <span class="card-title">Job Vacancies</span>
+                     </a>
+                 </div>
+             </div>
+             
+
+             <div class="col-sm-4">
+                <div class="card">
+                   <a href="/job-seekers/cv-editing" class="card m-2 py-0" style="background-color: #500095; color: #fff">
+                       <!-- <img class="img-responsive" src="#"> -->
+                       <i class="fas fa-file"></i>
+                       <span class="card-title" style="font-size: 15px">Professional CV Editing</span>
+                   </a>
+               </div>
+           </div>
+
+
+           <div class="col-sm-3">
+            <div class="card">
+               <a href="/blog" class="card m-2 py-0"  style="background-color: #500095; color: #fff">
+                   <!-- <img class="img-responsive" src="#"> -->
+                   <i class="fas fa-user"></i>
+                   <span class="card-title">Career Centre</span>
+               </a>
+           </div>
+       </div>
+
+
+
+   </div>
+</div>
+</div>
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="services my-3">
     <div class="container">
         <div class="card">
             <div class="card-body text-center">
@@ -154,32 +319,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
                 <div class="row pt-2 service-cards">
                     <div class="col-md-6 col-sm-6">
-                        <h5>Employer Services</h5>
-                        <a href="/employers/browse" class="card m-2 py-2">
+                        <h5><b>Employer Services</b></h5>
+                        <a href="/employers/browse" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-users"></i>
                                 <p>Browse Talent Database</p>
                             </div>
                         </a>
-                        <a href="/employers/services" class="card m-2 py-2">
+                        <a href="/employers/services" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-handshake"></i>
                                 <p>Recruitment Process Outsourcing</p>
                             </div>
                         </a>
-                        <a href="/employers/services" class="card m-2 py-2">
+                        <a href="/employers/services" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-sort"></i>
                                 <p>Assess Candidate</p>
                             </div>
                         </a>
-                        <a href="/employers/publish" class="card m-2 py-2">
+                        <a href="/employers/publish" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-briefcase"></i>
                                 <p>Advertise Jobs</p>
                             </div>
                         </a>
-                        <a href="/employers/background-checks" class="card m-2 py-2">
+                        <a href="/employers/background-checks" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-list-alt"></i>
                                 <p>Background Checks</p>
@@ -187,32 +352,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </a>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <h5>Job Seeker Services</h5>
-                        <a href="/job-seekers/premium-placement" class="card m-2 py-2">
+                        <h5><b>Job Seeker Services</b></h5>
+                        <a href="/job-seekers/premium-placement" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-check"></i>
                                 <p>Premium Placement</p>
                             </div>
                         </a>
-                        <a href="/job-seekers/services" class="card m-2 py-2">
+                        <a href="/job-seekers/services" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-check-circle"></i>
                                 <p>Professional Coaching</p>
                             </div>
                         </a>
-                        <a href="/vacancies" class="card m-2 py-2">
+                        <a href="/vacancies" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-briefcase"></i>
                                 <p>Job Vacancies</p>
                             </div>
                         </a>
-                        <a href="/job-seekers/cv-editing" class="card m-2 py-2">
+                        <a href="/job-seekers/cv-editing" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-file"></i>
                                 <p>Professional CV Editing</p>
                             </div>
                         </a>
-                        <a href="/blog" class="card m-2 py-2">
+                        <a href="/blog" class="card m-2 py-0">
                             <div class="card-body">
                                 <i class="fas fa-user"></i>
                                 <p>Career Centre</p>
@@ -224,6 +389,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+-->
+
+
+
 <!-- END OF SERVICES -->
 
 <!-- FEATURED JOBS -->
@@ -251,14 +420,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @endif
                 </p>
                 <p>
-                    
-                        <i class="fab fa-facebook-f" style="margin: 0.25em"></i>
 
-                        <i class="fab fa-twitter" style="margin: 0.25em"></i>
+                    <i class="fab fa-facebook-f" style="margin: 0.25em"></i>
 
-                        <i class="fab fa-linkedin" style="margin: 0.25em"></i>
+                    <i class="fab fa-twitter" style="margin: 0.25em"></i>
 
-                        <i class="fab fa-whatsapp" style="margin: 0.25em"></i>
+                    <i class="fab fa-linkedin" style="margin: 0.25em"></i>
+
+                    <i class="fab fa-whatsapp" style="margin: 0.25em"></i>
 
                 </p>
             </div>
@@ -435,36 +604,36 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div class="content">
             @guest
-                <h1>Find the Right Job for you.</h1>
-                <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
-                <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
-                <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
-                <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
+            <h1>Find the Right Job for you.</h1>
+            <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
+            <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
+            <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
+            <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
             @else
-                @if(Auth::user()->role == 'seeker')
-                    <h1>Find the Right Job for you.</h1>
-                    <p>Looking for a job? Maybe your CV doesn't stand out! Let us catapult your career and land you a job with our professional CV Editing.</p>
-                    <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
-                    <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange">Explore Vacancies</a>
-                    <a href="/job-seekers/cv-editing" class="btn btn-white px-4">Request CV Editing</a>
-                @endif
-                @if(Auth::user()->role == 'employer')
-                    <h1>Let us recruit for you</h1>
-                    <p>Looking to hire? We offer premium recruitment solutions that'll make sure you have the right candindate</p>
-                    <h4>We conduct pre-assessment, background checks, proficiency tests, have a <span>ready pool of more than 40,000 job seekers</span> to start from.</h4>
-                    <a href="/employers/publish" class="btn btn-orange">Advertise</a>
-                    <a href="/home" class="btn btn-white px-4">My Dashboard</a>
-                @endif
-                @if(Auth::user()->role == 'admin')
-                    <h1>Admin Logged In</h1>
-                    <a href="/home" class="btn btn-orange">Dashboard</a>
-                    <a href="/logout" class="btn btn-white px-4">Logout</a>
-                @endif
-                @if(Auth::user()->role == 'super-admin')
-                    <h1>Super Admin Logged in</h1>
-                    <a href="/home" class="btn btn-orange">Dashboard</a>
-                    <a href="/logout" class="btn btn-white px-4">Logout</a>
-                @endif
+            @if(Auth::user()->role == 'seeker')
+            <h1>Find the Right Job for you.</h1>
+            <p>Looking for a job? Maybe your CV doesn't stand out! Let us catapult your career and land you a job with our professional CV Editing.</p>
+            <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
+            <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange">Explore Vacancies</a>
+            <a href="/job-seekers/cv-editing" class="btn btn-white px-4">Request CV Editing</a>
+            @endif
+            @if(Auth::user()->role == 'employer')
+            <h1>Let us recruit for you</h1>
+            <p>Looking to hire? We offer premium recruitment solutions that'll make sure you have the right candindate</p>
+            <h4>We conduct pre-assessment, background checks, proficiency tests, have a <span>ready pool of more than 40,000 job seekers</span> to start from.</h4>
+            <a href="/employers/publish" class="btn btn-orange">Advertise</a>
+            <a href="/home" class="btn btn-white px-4">My Dashboard</a>
+            @endif
+            @if(Auth::user()->role == 'admin')
+            <h1>Admin Logged In</h1>
+            <a href="/home" class="btn btn-orange">Dashboard</a>
+            <a href="/logout" class="btn btn-white px-4">Logout</a>
+            @endif
+            @if(Auth::user()->role == 'super-admin')
+            <h1>Super Admin Logged in</h1>
+            <a href="/home" class="btn btn-orange">Dashboard</a>
+            <a href="/logout" class="btn btn-white px-4">Logout</a>
+            @endif
             @endguest
         </div>
     </div>
@@ -481,26 +650,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
             responsive: [{
-                    breakpoint: 996,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 2,
-                    }
-                },
-                {
-                    breakpoint: 737,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 500,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                },
+                breakpoint: 996,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 737,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
             ]
         });
         $('.testimonials').slick({
@@ -524,26 +693,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             autoplay: true,
             speed: 500,
             responsive: [{
-                    breakpoint: 996,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 736,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 425,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                },
+                breakpoint: 996,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 736,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 425,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
             ]
         });
 

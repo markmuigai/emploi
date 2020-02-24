@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
           <div class="dropdown">
                         <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index">Index</a></li>
+                            <li><a href="#">Index</a></li>
                             <li><a href="routes">Routes</a></li>
                             <li><a href="controllers">Controllers</a></li>
                             <li><a href="views" >Views</a></li>
@@ -199,7 +199,7 @@ Price: Ksh 4750 for 30 days</p>
 <p>To send a message, the system use the 'to' method on the Mail facade. The to method accepts an email address, a user instance, or a collection of users. If you pass an object or collection of objects, the mailer will automatically use their email and name properties when setting the email recipients.</p>
 
 <h3>CV Request</h3>
-<p>A registered employer can request a CV of a particular jobseeker.</p>
+<p>A registered employer can request a CV of a particular job seeker.</p>
 
 <h3>CV Editing</h3>
 <p>A job seeker can request for CV Editing services offered at a cost. The CVs are edited by registered CV Editors</p>
