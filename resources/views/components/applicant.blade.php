@@ -1,10 +1,5 @@
 <div class="card mb-4">
     <div class="card-body">
-        <p class="d-none">{{ $a->user->seeker->industry->name }}
-            <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi" title="View Details">
-                <span class="pull-right purple"><strong>RSI {{ $a->user->seeker->getRsi($post) }}%</strong></span>
-            </a>
-        </p>
         <div class="row align-items-center">
             <div class="col-lg-2 col-4">
                 <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" class="avatar-small" alt="{{ $a->user->name }}">
@@ -20,7 +15,16 @@
                         @endif
                     </div>
                     <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
-                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
+                        <h5>
+                            RSI 
+                            <?php
+                                if(!isset($last_rsi))
+                                    $last_rsi = [];
+                                if(!array_key_exists('seeker_'.$a->user->seeker->id, $last_rsi))
+                                    $last_rsi['seeker_'.$a->user->seeker->id] = $a->user->seeker->getRsi($post);
+                            ?>
+                            {{ $last_rsi['seeker_'.$a->user->seeker->id] }}%
+                        </h5>
                     </div>
                 </div>
             </div>

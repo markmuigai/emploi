@@ -60,7 +60,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
 
             <div class="form-group">
-                <label for="caption">{{ __('Featured Image') }}</label>
+                <label for="caption">{{ __('Featured Image') }} 1280*720</label>
                 <input type="file" value="" title="Size 1280px * 720px" accept="image/png, image/jpeg" name="featured_image" value="">
             </div>
 

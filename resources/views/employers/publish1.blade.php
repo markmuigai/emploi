@@ -100,7 +100,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             @csrf
                             <input type="hidden" name="product" value="solo">
                             <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
+                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
                             </p>
                         </form>
                     </div>
@@ -119,15 +119,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             @csrf
                             <input type="hidden" name="product" value="solo_plus">
                             <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
+                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
                             </p>
                         </form>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs 6,000</h1>
-                        <p>INFINITI</p>
+                        <h1>Kshs 9,025</h1>
+                        <p>INFINITY</p>
                         <ul class="tick">
                             <li>More than 4 job Adverts posted for 30 days</li><br>
                             <li>Shared to Social media pages</li><br>
@@ -136,9 +136,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         <br>
                         <form method="POST" action="/checkout">
                             @csrf
-                            <input type="hidden" name="product" value="infiniti">
+                            <input type="hidden" name="product" value="infinity">
                             <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
+                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
                             </p>
                         </form>
                     </div>
@@ -159,7 +159,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             @csrf
                             <input type="hidden" name="product" value="stawi">
                             <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-primary">
+                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
                             </p>
                         </form>
                     </div>

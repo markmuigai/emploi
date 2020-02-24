@@ -229,6 +229,9 @@ Route::get('/job-seekers/faqs', 'ContactController@jobSeekerFaqs');
 Route::get('/job-seekers/cv-builder', 'ContactController@cvBuilder');
 Route::post('/job-seekers/cv-builder/download', 'ContactController@cvBuilderDownload');
 
+Route::get('/job-seekers/get-featured', 'ContactController@getFeatured');
+Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');
+
 //Route::get('/employers/services', function () {      return view('employers.services');});
 Route::get('/employers/services', 'ContactController@eservices');
 Route::get('/employers/background-checks', 'ContactController@bkgtests');
