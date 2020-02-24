@@ -15,7 +15,16 @@
                         @endif
                     </div>
                     <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
-                        <h5>RSI 0%</h5>
+                        <h5>
+                            RSI 
+                            <?php
+                                if(!isset($last_rsi))
+                                    $last_rsi = [];
+                                if(!array_key_exists('seeker_'.$a->user->seeker->id, $last_rsi))
+                                    $last_rsi['seeker_'.$a->user->seeker->id] = $a->user->seeker->getRsi($post);
+                            ?>
+                            {{ $last_rsi['seeker_'.$a->user->seeker->id] }}%
+                        </h5>
                     </div>
                 </div>
             </div>

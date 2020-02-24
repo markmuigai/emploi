@@ -9,6 +9,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', $post->title.' Candidates')
 
+<?php
+$last_rsi = [];
+?>
+
 <!-- NAV-TABS -->
 <ul class="nav nav-tabs" id="allCandidates" role="tablist">
     <li class="nav-item">
