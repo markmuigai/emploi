@@ -20,7 +20,7 @@
                         @endif
                     </div>
                     <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
-                        <h5>RSI {{ $a->user->seeker->getRsi($post) }}%</h5>
+                        <h5>RSI 0%</h5>
                     </div>
                 </div>
             </div>
