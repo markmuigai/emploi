@@ -569,8 +569,44 @@ class EmployerController extends Controller
         return array($counter,$labels);
     }
 
-    public function applications(Request $request, $slug){
+    public function applications(Request $request, $slug, $endpoint = null){
         $post = Post::where('slug',$slug)->firstOrFail();
+        if($post->company->user_id != Auth::user()->id)
+            return abort(403);
+
+        switch ($endpoint) {
+            case 'shortlisted':
+                return view('employers.applications.shortlisted')
+                    ->with('pool',$post->shortlisted)
+                    ->with('post',$post);
+                break;
+
+            case 'selected':
+                return view('employers.applications.selected')
+                    ->with('pool',$post->selected)
+                    ->with('post',$post);
+                break;
+
+            case 'rejected':
+                return view('employers.applications.rejected')
+                    ->with('pool',$post->rejected)
+                    ->with('post',$post);
+                break;
+
+            case 'unrejected':
+                return view('employers.applications.unrejected')
+                    ->with('pool',$post->unrejected)
+                    ->with('post',$post);
+                break;
+            
+            default:
+                return view('employers.applications.index')
+                    ->with('pool',$post->applications)
+                    ->with('post',$post);
+                break;
+        }
+
+
         $shortlist = isset($request->shortlist) ? true : false;
 
         if($post->company->user_id == Auth::user()->id)
