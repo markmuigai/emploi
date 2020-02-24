@@ -150,76 +150,113 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div class="card">
             <div class="card-body text-center">
-                <h2 class="orange">Our Services</h2>
+                <h2 class="orange" id="our-services-section">Our Services</h2>
                 <p>We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
                 <div class="row pt-2 service-cards">
-                    <div class="col-md-6 col-sm-6">
-                        <h5>Employer Services</h5>
-                        <a href="/employers/browse" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-users"></i>
-                                <p>Browse Talent Database</p>
+                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist" style="width: 100%">
+                        <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">For Job Seekers</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">For Employers</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <br>
+                            <div class="card-deck">
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/logo.png" alt="Professional CV Editing">
+                                    <div class="card-body">
+                                        <h5 class="card-title">CV Editing</h5>
+                                        <p class="card-text">A recruiter may spend as little as 20 seconds looking at each CV. You need to maximize on your 20 seconds to deliver maximum impression to the recruiter.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/job-seekers/cv-editing" class="btn btn-orange-alt">Request Service</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Premium Placement</h5>
+                                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/job-seekers/premium-placement" class="btn btn-orange">Learn More</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/logo.png" alt="Latest Vacancies">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Job Vacancies</h5>
+                                        <p class="card-text">
+                                        We aggregate top vacancies from companies and job boards, ensuring your career progresses upwards steadily </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">
+                                            <a href="/vacancies" class="btn btn-orange-alt">View Vacancies</a>
+                                        </small>
+                                    </div>
+                                </div>
+
                             </div>
-                        </a>
-                        <a href="/employers/services" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-handshake"></i>
-                                <p>Recruitment Process Outsourcing</p>
+                            <br>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <br>
+                            <div class="card-deck">
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/logo.png" alt="Professional CV Editing">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Talent Database</h5>
+                                        <p class="card-text">Search tens of thousands of qulaified CVs for quick shortlisting, direct contact and hire</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/employers/browse" class="btn btn-orange-alt">Browse</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/logo.png" alt="Advertise on Emploi">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Advertise Jobs</h5>
+                                        <p class="card-text">Reach an Audience of 100k+ subscribers, Utilize Advanced Recruitment tools and Candidate Ranking Algorithm.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="/employers/publish" class="btn btn-orange">Advertise Here</a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/logo.png" alt="Latest Vacancies">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Recruitment Process Outsourcing</h5>
+                                        <p class="card-text">
+                                        Use our Talent database and powerful Search-Sort-Assess-Score engine to cut down your recruitment workload by Up to 70% and your costs By Up to 65%. </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">
+                                            <a href="/employers/services" class="btn btn-orange-alt">View Services</a>
+                                        </small>
+                                    </div>
+                                </div>
+
                             </div>
-                        </a>
-                        <a href="/employers/services" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-sort"></i>
-                                <p>Assess Candidate</p>
-                            </div>
-                        </a>
-                        <a href="/employers/publish" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-briefcase"></i>
-                                <p>Advertise Jobs</p>
-                            </div>
-                        </a>
-                        <a href="/employers/background-checks" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-list-alt"></i>
-                                <p>Background Checks</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <h5>Job Seeker Services</h5>
-                        <a href="/job-seekers/premium-placement" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-check"></i>
-                                <p>Premium Placement</p>
-                            </div>
-                        </a>
-                        <a href="/job-seekers/services" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-check-circle"></i>
-                                <p>Professional Coaching</p>
-                            </div>
-                        </a>
-                        <a href="/vacancies" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-briefcase"></i>
-                                <p>Job Vacancies</p>
-                            </div>
-                        </a>
-                        <a href="/job-seekers/cv-editing" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-file"></i>
-                                <p>Professional CV Editing</p>
-                            </div>
-                        </a>
-                        <a href="/blog" class="card m-2 py-2">
-                            <div class="card-body">
-                                <i class="fas fa-user"></i>
-                                <p>Career Centre</p>
-                            </div>
-                        </a>
+                            <br>
+                        </div>
                     </div>
                 </div>
+                <script type="text/javascript">
+                $(document).ready(function(){
+                    $(".nav-tabs a").click(function(){
+                        $(this).tab('show');
+                    });
+                    $('.nav-tabs a').on('shown.bs.tab', function(event){
+                        var x = $(event.target).text();         // active tab
+                        var y = $(event.relatedTarget).text();  // previous tab
+                        $(".act span").text(x);
+                        $(".prev span").text(y);
+                    });
+                });
+                </script>
             </div>
         </div>
     </div>
