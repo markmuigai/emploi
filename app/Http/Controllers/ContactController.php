@@ -38,13 +38,39 @@ class ContactController extends Controller
 
     public function cvBuilderDownload(Request $request)
     {
+        $education = array();
+        if (isset($request->institution_name)) {
+            foreach ($request->institution_name as $key => $value) {
+                array_push($education, array($value, $request->course_name[$key], $request->course_duration[$key]));
+            }
+        }
+        $education  = json_encode($education);
+
+        $experience = array();
+        if (isset($request->organization_name)) {
+            foreach ($request->organization_name as $key => $value) {
+                array_push($experience, array($value, $request->job_title[$key], $request->job_start[$key], $request->job_end[$key], $request->responsibilities[$key]));
+            }
+        }
+        $experience  = json_encode($experience);
+
+        $skills = [];
+        if(isset($request->skills))
+        {
+            for ($i=0; $i < count($request->skills); $i++) { 
+                $skill_id = $request->skills[$i];
+                array_push($skills, \App\IndustrySkill::findOrFail($skill_id));
+            }           
+        }
+
         return view('seekers.cv-builder.template')
                 ->with('name',$request->name)
                 ->with('email',$request->email)
                 ->with('phone',$request->phone)
-                ->with('skills',Auth::user()->seeker->skills)
-                ->with('summary',$request->summary)
-                ->with('referees',Auth::user()->seeker->referees);
+                ->with('education',$education)
+                ->with('experience',$experience)
+                ->with('skills',$skills)
+                ->with('summary',$request->summary);
         return $request->all();
     }
     // public function testSlack(){
@@ -324,6 +350,16 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function webmail()
     {
         return redirect('https://mail.emploi.co:2096/');
+    }
+
+    public function getFeatured()
+    {
+        return redirect(url('/checkout?product=featured_seeker'));
+    }
+
+    public function getAlerts()
+    {
+        return redirect(url('/checkout?product=seeker_basic'));
     }
 
     public function cpanel()
