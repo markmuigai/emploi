@@ -83,7 +83,7 @@ class Company extends Model
         $limit = "LIMIT $counter";
         if($counter == 0)
             $limit = '';
-        $sql = "SELECT DISTINCT company_id, featured, id, created_at FROM posts ORDER BY created_at DESC, featured DESC  $limit";
+        $sql = "SELECT DISTINCT company_id, featured, id, created_at, status FROM posts WHERE status = 'active' ORDER BY created_at DESC, featured DESC  $limit";
         $results = DB::select($sql);
         for($i=0; $i<count($results);$i++)
         {
