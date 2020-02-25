@@ -246,53 +246,52 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
 
-        @forelse($user->companies as $company)
-        <hr>
-        <h3  class="orange">
-            <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
-            <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-orange-alt">Edit Company Details</a>
-        </h3>
-        <div class="row">
-            <div class="col-md-6">
-                <p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank" rel="noreferrer">{{ $company->website }}</a></p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Company Size: </strong>{{ $company->companySize->title }}</p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Industry: </strong>{{ $company->industry->name }}</p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Location: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
-            </div>
-            <div class="col-md-6">
-                <p class="text-capitalize"><strong>Tagline: </strong>{{ $company->tagline }}</p>
-            </div>
-            <div class="col-md-6">
-                <p class="text-capitalize"><strong>Status: </strong>{{ $company->status }}</p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Jobs Posted: </strong>{{ count($company->posts) }}</p>
-            </div>
-        </div>
+        <?php
+        $companies = \App\Company::where('user_id',$user->id)->paginate(20);
+        ?>
 
-        <h5 class="pt-3">About</h5>
-        <p><?php echo $company->about ?></p>
+        @forelse($companies as $company)
+            <hr>
+            <h3  class="orange">
+                <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
+                <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-orange-alt">Edit Company Details</a>
+            </h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank" rel="noreferrer">{{ $company->website }}</a></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Company Size: </strong>{{ $company->companySize->title }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Industry: </strong>{{ $company->industry->name }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Location: </strong>{{ $company->location->name . ', '.$company->location->country->name }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-capitalize"><strong>Tagline: </strong>{{ $company->tagline }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-capitalize"><strong>Status: </strong>{{ $company->status }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Jobs Posted: </strong>{{ count($company->posts) }}</p>
+                </div>
+            </div>
+
+            <h5 class="pt-3">About</h5>
+            <p><?php echo $company->about ?></p>
         @empty
 
-        <p class="text-center">
-            No companies found. <a href="/companies/create">Create a company</a>
-        </p>
+            <p class="text-center">
+                No companies found. <a href="/companies/create">Create a company</a>
+            </p>
 
         @endforelse
 
-        <div class="d-none">
-            <hr>
-            <h5 class="mt-4">Office Location</h5>
-            <p>Repen Complex, Syokimau Junction</p>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6634497341915!2d36.92601481464639!3d-1.378599798994531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f0ce7aa2120e1%3A0x2905bde1b42e68a!2sREPEN%20Complex!5e0!3m2!1sen!2ske!4v1573633191589!5m2!1sen!2ske"
-              frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        <div>
+            {{ $companies->links() }}
         </div>
     </div>
 </div>

@@ -286,6 +286,25 @@ class ProductOrder extends Model
         	}
 
     	}
+
+        if($slug == 'featured_company')
+        {
+            if($action == 'activate')
+            {
+                // $p->contents = now()->add($p->days_duration,'day');
+                // $p->save();
+            }
+            else
+            {
+                $expiry = new Carbon($productOrder->contents);
+                if($today->diff($expiry)->days <= 0)
+                {
+                    $p->contents = 'completed';
+                    $p->save();
+                }
+            }
+
+        }
     }
 
     public static function deactivateExpired()
