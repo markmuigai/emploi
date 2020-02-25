@@ -459,7 +459,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         @forelse($hiringCompanies as $c)
         <div class="d-flex justify-content-center my-2">
-            <img alt="{{ $c->name }}" class="lazy" src="images/company-logo.png" data-src="{{ $c->logoUrl }}">
+            <a href="/companies/{{ $c->name }}" title="{{ $c->name }}, {{ count($c->activePosts) }} Job(s)">
+                <img alt="{{ $c->name }}" class="lazy" src="images/company-logo.png" data-src="{{ $c->logoUrl }}">
+            </a>
         </div>
         @empty
         @endforelse
