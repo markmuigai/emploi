@@ -30,7 +30,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @guest
             <span style="float: right;">{{ $invoice->maskedEmail() }}</span>
             @else
-             <span style="float: right;">{{ $invoice->email }}</span>
+             <span style="float: right;">{{ $invoice->email }}</span> <br>
+            <span style="float: right;">{{ $invoice->phone_number }}</span> <br>
 
             @endguest
 

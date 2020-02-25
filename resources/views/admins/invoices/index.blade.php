@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-8">
                         <b><a href="/admin/invoices/{{ $invoice->slug }}">{{ $invoice->slug }}</a> <small>[ Ksh {{ $invoice->total }} ]</small></b>
                         <br>
-                        {{ $invoice->email }}
+                        {{ $invoice->email }} | {{ $invoice->phone_number }}
                         <br>
                         {{ $invoice->created_at->diffForHumans() }}
                     </div>
