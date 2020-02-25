@@ -454,11 +454,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="employers-carousel py-4">
         <?php
         $featuredEmployers = ['abcl','apa','bingwa','biolight','bridgecap','brilliant','crystal','ecopharm','ess','esto-africa','global-internet','jambo_logistics','knbs','kpl','limelight','mboga','neema','novacent','papaya','pelings','pergamon','platinum_credit','rvibs','saif','sanlam','sirmit','texas','timecon','uniliver','wilco','zydii'];
+        $hiringCompanies = \App\Company::getHiringCompanies2(24);
         ?>
 
-        @forelse($featuredEmployers as $f)
+        @forelse($hiringCompanies as $c)
         <div class="d-flex justify-content-center my-2">
-            <img alt="{{ $f }}" class="lazy" src="images/company-logo.png" data-src="images/logos/{{ $f }}.webp">
+            <img alt="{{ $c->name }}" class="lazy" src="images/company-logo.png" data-src="{{ $c->logoUrl }}">
         </div>
         @empty
         @endforelse
