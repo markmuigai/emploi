@@ -207,6 +207,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('invoices','InvoiceController');
     Route::post('invoices/{slug}/remindViaEmail', 'InvoiceController@remindViaEmail');
     Route::get('invoices/{slug}/remindViaEmail', 'InvoiceController@show');
+    Route::get('/how-to', 'AdminController@adminFaqs');
 });
 
 

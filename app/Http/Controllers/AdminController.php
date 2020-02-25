@@ -39,6 +39,12 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    public function adminFaqs()
+    {
+        return view('employers.faqs')
+                ->with('faqs',Faq::where('permission_id',2)->paginate(10));
+    }
+
     public function loginWithUsername($username, Request $request){
         $user = User::where('username',$username)->firstOrFail();
         if($user->role == 'admin' || $user->role == 'super-admin')

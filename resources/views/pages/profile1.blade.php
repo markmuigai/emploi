@@ -247,7 +247,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
 
         <?php
-        $companies = \App\Company::where('user_id',$user->id)->paginate(20);
+        $companies = \App\Company::where('user_id',$user->id)->orderBy('name')->paginate(20);
         ?>
 
         @forelse($companies as $company)
