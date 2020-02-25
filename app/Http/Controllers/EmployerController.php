@@ -588,14 +588,22 @@ class EmployerController extends Controller
                 break;
 
             case 'rejected':
+                $rejects = JobApplication::where('post_id',$this->id)
+                    ->distinct('user_id')
+                    ->where('status','rejected')
+                    ->paginate(20);
                 return view('employers.applications.rejected')
-                    ->with('pool',$post->rejected)
+                    ->with('pool',$rejects)
                     ->with('post',$post);
                 break;
 
             case 'unrejected':
+                $unrejected = JobApplication::where('post_id',$post->id)
+                    ->distinct('user_id')
+                    ->where('status','active')
+                    ->paginate(20);
                 return view('employers.applications.unrejected')
-                    ->with('pool',$post->unrejected)
+                    ->with('pool',$unrejected)
                     ->with('post',$post);
                 break;
             
