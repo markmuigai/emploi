@@ -59,6 +59,12 @@ $last_rsi = [];
                 @endforelse
                     
             </div>
+
+            <div class="row">
+                <div class="col">
+                    {{ $pool->links() }}
+                </div>
+            </div>
             
         </div>
     </div>
