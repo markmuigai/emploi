@@ -88,10 +88,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<div class="input-group">
 							<select class="custom-select col-3" name="prefix">
 				                @foreach(\App\Country::all() as $c)
-				                <option value="{{ $c->id }}" @if( old('prefix') && old('prefix')==$c->id)
-				                    selected="selected"
-				                    @endif
-				                    >
+				                <option value="{{ $c->prefix }}">
 				                    {{ $c->code }} {{ $c->prefix }}
 				                </option>
 				                @endforeach
