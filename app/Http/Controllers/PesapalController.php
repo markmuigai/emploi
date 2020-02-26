@@ -73,11 +73,14 @@ class PesapalController extends Controller
                 'description' => $product->description
             ]);
 
+            $request->session()->forget('product');
+
             if(isset($invoice->id))
             {
                 $invoice->remind('email');
                 $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
-                $invoice->notify(new InvoiceCreated($message));
+                if(app()->environment('production'))
+                    $invoice->notify(new InvoiceCreated($message));
                 return redirect('/invoice/'.$invoice->slug);
             }
 

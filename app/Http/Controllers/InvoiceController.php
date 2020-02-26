@@ -44,7 +44,8 @@ class InvoiceController extends Controller
         {
             $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
             $invoice->remind('email');
-            $invoice->notify(new InvoiceCreated($message));
+            if(app()->environment('production'))
+                $invoice->notify(new InvoiceCreated($message));
             return redirect('/admin/invoices/'.$invoice->slug);
         }
 
@@ -103,7 +104,8 @@ class InvoiceController extends Controller
         $invoice->save();
         $invoice->hasBeenPaid();
         $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' was marked paid by '.Auth::user()->name.'. Payment Reference: '.$invoice->alternative_payment_slug;
-        $invoice->notify(new InvoicePaid($message));
+        if(app()->environment('production'))
+            $invoice->notify(new InvoicePaid($message));
 
         $caption = "Emploi Invoice ".$invoice->slug.' was paid';
         $contents = "The Invoice <a href='".url('/invoice/'.$invoice->slug)."'>".$invoice->slug."</a> totalling to Ksh ".$invoice->total."  was paid succesfully <br><br>

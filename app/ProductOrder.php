@@ -207,6 +207,27 @@ class ProductOrder extends Model
         	{
         		$p->contents = 1;
         		$p->save();
+
+                $caption = "You can advertise a job on Emploi";
+                $contents = "The Solo Package, which enables an employer to post a single vacancy, has been activated.
+                <br>
+                You can now login to your account and post a vacancy, afterwhich our administrator will approve and you can start receiving applications.
+                <br>
+
+                <a href='".url('/vacancies/create')."'>Post a Job</a>
+                 
+
+                <br><br>
+
+                The vacancy will be featured for 30 days from the date of approval. Using our <b>Role Suitability Index</b>, you can now predict which candidates will be a success at your organization.
+                <br>
+
+                <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                Thank you for choosing Emploi.
+
+                <br>";
+                EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Solo Package Activated', $caption, $contents);
         	}
         	else
         	{
@@ -214,6 +235,23 @@ class ProductOrder extends Model
         		{
         			$p->contents = 'completed';
         			$p->save();
+
+                    $caption = "Solo Package on Emploi Expired";
+                    $contents = "The Solo Package, which enables an employer to post one vacancy, has <b>has expired</b>.
+                    You can renew this package by clicking the link below:
+                    <br>
+
+                    <a href='".url('/checkout?product=solo')."'>Renew Solo Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+
+                    <br>";
+                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Solo Package Expired', $caption, $contents);
         		}
         	}
 
@@ -235,6 +273,29 @@ class ProductOrder extends Model
                     }
                 }
         		$p->save();
+
+                $caption = "You can advertise a job and browse job seekers on Emploi";
+                $contents = "The Stawi Package, which enables an employer to post upto 1 vacancy and request 50 job seeker profiles, has been activated.
+                <br>
+                You can now login to your account and post a vacancy, afterwhich our administrator will approve and you can start receiving applications.
+                <br>
+
+
+                <a href='".url('/vacancies/create')."'>Post a Job</a>
+                <a href='".url('/employers/browse')."'>Browse Job Seekers</a>
+                 
+
+                <br><br>
+
+                Each vacancy will be featured for 30 days from the date of approval. Using our <b>Role Suitability Index</b>, you can now predict which candidates will be a success at your organization.
+                <br>
+
+                <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                Thank you for choosing Emploi.
+
+                <br>";
+                EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Stawi Package Activated', $caption, $contents);
         	}
         	else
         	{
@@ -246,6 +307,23 @@ class ProductOrder extends Model
         		{
         			$p->contents = 'completed';
         			$p->save();
+
+                    $caption = "Stawi Package on Emploi Expired";
+                    $contents = "The Stawi Package, which enables an employer to post one vacancy and request 50 job seeker profiles, has <b>has expired</b>. 
+                    You can renew this package by clicking the link below:
+                    <br>
+
+                    <a href='".url('/checkout?product=stawi')."'>Renew Stawi Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+
+                    <br>";
+                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Stawi Package Expired', $caption, $contents);
         		}
         	}
 
@@ -257,6 +335,27 @@ class ProductOrder extends Model
         	{
         		$p->contents = 4;
         		$p->save();
+
+                $caption = "You can advertise a job on Emploi";
+                $contents = "The Solo Plus Package, which enables an employer to post upto 4 vacancies, has been activated.
+                <br>
+                You can now login to your account and post a vacancy, afterwhich our administrator will approve and you can start receiving applications.
+                <br>
+
+                <a href='".url('/vacancies/create')."'>Post a Job</a>
+                 
+
+                <br><br>
+
+                Each vacancy will be featured for 30 days from the date of approval. Using our <b>Role Suitability Index</b>, you can now predict which candidates will be a success at your organization.
+                <br>
+
+                <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                Thank you for choosing Emploi.
+
+                <br>";
+                EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Solo Plus Package Activated', $caption, $contents);
         	}
         	else
         	{
@@ -264,6 +363,23 @@ class ProductOrder extends Model
         		{
         			$p->contents = 'completed';
         			$p->save();
+
+                    $caption = "Solo Plus Package on Emploi Expired";
+                    $contents = "The Solo Plus Package, which enables an employer to post as many vacancies, has <b>has expired</b>.
+                    You can renew this package by clicking the link below:
+                    <br>
+
+                    <a href='".url('/checkout?product=solo_plus')."'>Renew Solo Plus Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+
+                    <br>";
+                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Solo Plus Package Expired', $caption, $contents);
         		}
         	}
 
@@ -275,6 +391,27 @@ class ProductOrder extends Model
         	{
         		$p->contents = now()->add($p->days_duration,'day');
             	$p->save();
+
+                $caption = "You can advertise multiple jobs on Emploi";
+                $contents = "The Solo Plus Package, which enables an employer to post as many vacancies for ".$p->product->days_duration." days, has been activated.
+                <br>
+                You can now login to your account and post a vacancy, afterwhich our administrator will approve and you can start receiving applications. <b>This package expires on ".$p->contents."</b>
+                <br>
+
+                <a href='".url('/vacancies/create')."'>Post a Job</a>
+                 
+
+                <br><br>
+
+                Each vacancy will be featured for 30 days from the date of approval. Using our <b>Role Suitability Index</b>, you can now predict which candidates will be a success at your organization.
+                <br>
+
+                <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                Thank you for choosing Emploi.
+
+                <br>";
+                EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Infinity Package Activated', $caption, $contents);
         	}
         	else
         	{
@@ -283,6 +420,23 @@ class ProductOrder extends Model
         		{
         			$p->contents = 'completed';
         			$p->save();
+
+                    $caption = "Renew Infinity Package Expired ";
+                    $contents = "The Infinity Package, which enables an employer to post as many vacancies, has <b>has expired</b>.
+                    You can renew this package by clicking the link below:
+                    <br>
+
+                    <a href='".url('/checkout?product=infinity')."'>Renew Infinity Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+
+                    <br>";
+                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Infinity Package Expired', $caption, $contents);
         		}
         	}
 
@@ -313,11 +467,12 @@ class ProductOrder extends Model
                         $company->featured = null;
                         $company->save();
 
-                        $caption = "Company Package has Expired";
+                        $caption = "Featured Company Package Expired";
                         $contents = "The Featured Company Package for ".$company->name.", which highlights the company and vacancies, <b>has expired</b>.
+                        You can renew this package by following the link below:
                         <br>
 
-                        <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate Package</a>
+                        <a href='".url('/checkout?product=featured_company')."'>Reactivate Package</a>
                          
 
                         <br><br>

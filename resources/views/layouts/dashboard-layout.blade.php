@@ -123,9 +123,10 @@
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" href="/admin/panel" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/posts" role="tab" aria-controls="v-pills-messages" aria-selected="false">Job Posts <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="/admin/cv-requests" role="tab" aria-controls="v-pills-messages" aria-selected="false">CV Requests <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/admin/username/jobs" role="tab" aria-controls="v-pills-messages" aria-selected="false">Emploi Profile <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/blog" role="tab" aria-controls="v-pills-messages" aria-selected="false">Blogs <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/emails" role="tab" aria-controls="v-pills-messages" aria-selected="false">Send emails <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/admin/invoices" role="tab" aria-controls="v-pills-messages" aria-selected="false">Invoices <i class="fas fa-chevron-right"></i></a>
                         </div>
 
                         <!-- END OF ADMIN SIDEBAR -->

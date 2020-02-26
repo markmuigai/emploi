@@ -67,8 +67,8 @@ class Company extends Model
             $this->featured = 1;
             if($this->save())
             {
-                $caption = $company->name." is now a Featured Company on Emploi";
-                $contents = $company->name." has been highlighted for Job seekers on Emploi.
+                $caption = $this->name." is now a Featured Company on Emploi";
+                $contents = $this->name." has been highlighted for Job seekers on Emploi.
                 <br>
                 Visitors to our site will more likely see your company and job adverts on Emploi. This service will be active for ".$po->product->days_duration." days until $until.
 
@@ -77,7 +77,7 @@ class Company extends Model
                 Thank you for choosing Emploi.
 
                 <br>";
-                EmailJob::dispatch( $po->order->first_name.' '.$po->order->last_name, $po->order->email, 'Featured Company Package Activated', $caption, $contents);
+                EmailJob::dispatch( $po->order->invoice->first_name.' '.$po->order->invoice->last_name, $po->order->invoice->email, 'Featured Company Package Activated', $caption, $contents);
                 return true;
             }
             else
