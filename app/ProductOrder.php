@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
 
+use App\Company;
 use App\Seeker;
 use App\User;
 
@@ -296,11 +297,39 @@ class ProductOrder extends Model
             }
             else
             {
-                $expiry = new Carbon($productOrder->contents);
+                $expiry = explode("_", $productOrder->contents);
+                $company_id = (int) $expiry[0];
+
+                $expiry = new Carbon($expiry[1]);
+
                 if($today->diff($expiry)->days <= 0)
                 {
                     $p->contents = 'completed';
                     $p->save();
+
+                    $company = Company::find($company_id);
+                    if(isset($company->id))
+                    {
+                        $company->featured = null;
+                        $company->save();
+
+                        $caption = "Company Package has Expired";
+                        $contents = "The Featured Company Package for ".$company->name.", which highlights the company and vacancies, <b>has expired</b>.
+                        <br>
+
+                        <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate Package</a>
+                         
+
+                        <br><br>
+
+                        <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                        Thank you for choosing Emploi.
+
+                        <br>";
+                        EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Featured Company Package Expired', $caption, $contents);
+                    }
+
                 }
             }
 

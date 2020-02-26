@@ -95,7 +95,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
             <div class="col-12 col-lg-4 job-actions">
-                <p style="display: none"><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
+                @if($post->company->isFeatured())
+                <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange-alt"><i class="far fa-calendar-check"></i> HIRING NOW</a>
+                @endif
                 <p>
                     <strong>
                         @if(isset(Auth::user()->id))

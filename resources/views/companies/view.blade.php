@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				@include('components.ads.responsive')
 				<div class="row align-items-center">
 					<div class="col-lg-9 col-md-8">
-						<h4>{{ $company->name }} <a href="#company-vacancies" class="badge badge-secondary">{{ count($company->activePosts) }} vacancie{{ count($company->activePosts) == 1 ? '' : 's' }}</a></h4>
+						<h4>{{ $company->name }} <a href="#company-vacancies" class="badge badge-secondary">{{ count($company->activePosts) }} vacancies</a></h4>
 						<h6 class="text-capitalize">{{ $company->tagline }}</h6>
 						<p><i class="fas fa-map-marker-alt orange"></i> {{ $company->location->name.', '.$company->location->country->name }}</p>
 					</div>

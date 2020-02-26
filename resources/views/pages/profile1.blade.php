@@ -248,14 +248,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         <?php
         $companies = \App\Company::where('user_id',$user->id)->orderBy('name')->paginate(20);
+        $boosts = Auth::user()->employer->remainingCompanyBoosts();
         ?>
 
         @forelse($companies as $company)
             <hr>
             <h3  class="orange">
                 <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
-                <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-orange-alt">Edit Company Details</a>
+                <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-orange-alt" style="float: right;">Edit Company Details</a>
+                
             </h3>
+            @if(!$company->isFeatured())
+                @if(count($boosts) > 0)
+                <hr>
+                <p>
+                    <a href="/companies/{{ $company->name }}/make-featured" class="btn btn-orange">Boost {{ $company->name }}</a>
+                </p>
+                <hr>
+                @else
+                <p>
+                    You don't have company boosts
+                    <a href="/checkout?product=featured_company" class="btn btn-orange"> Purchase Boosts</a>
+                </p>
+                @endif
+            @else
+            <p>
+                <a href="#" class="btn btn-orange"> <i class="fa fa-check"></i> Boosted</a>
+            </p>
+            @endif
             <div class="row">
                 <div class="col-md-6">
                     <p><strong>Website: </strong><a href="{{ $company->website }}" target="_blank" rel="noreferrer">{{ $company->website }}</a></p>

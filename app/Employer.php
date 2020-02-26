@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 use App\CvRequest;
 use App\JobApplication;
+use App\ProductOrder;
 use App\SavedProfile;
 
 use Carbon\Carbon;
@@ -75,6 +76,24 @@ class Employer extends Model
         if(isset($r->id))
             return false;
         return true;
+    }
+
+    public function remainingCompanyBoosts(){
+        $orders = $this->user->orders;
+        $productOrders = [];
+
+        for($i=0; $i<count($orders); $i++)
+        {
+            $order = $orders[$i];
+            for ($k=0; $k < count($order->productOrders); $k++) { 
+                $po = $order->productOrders[$k];
+                if($po->product->slug == 'featured_company' && $po->contents == null)
+                    $productOrders[] = $po;
+            }
+            //$productOrders[] = $order->productOrders;
+            
+        }
+        return $productOrders;
     }
 
 

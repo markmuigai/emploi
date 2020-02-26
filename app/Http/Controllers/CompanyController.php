@@ -205,4 +205,24 @@ class CompanyController extends Controller
     {
         //
     }
+
+    public function makeFeatured($name)
+    {
+        $user = Auth::user();
+        $company = Company::where('name',$name)->firstOrFail();
+        if($company->user->id != $user->id)
+            return abort(403);
+        $boosts = $user->employer->remainingCompanyBoosts();
+
+        if(count($boosts)>0)
+        {
+            if($company->makeFeatured($boosts[0]))
+            {
+                return view('companies.featured.featured-success')
+                        ->with('company',$company);
+            }
+        }
+        return view('companies.featured.featured-failed')
+                ->with('company',$company);
+    }
 }
