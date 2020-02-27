@@ -23,9 +23,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <span style='color: #500095; font-weight: bold'>*FEATURED*</span>
                     @endif
                 </p>
-                 @if(isset($user->seeker->resume))
-                <a href="{{ $seeker->resumeUrl }}" class="btn btn-sm btn-orange">View Resume</a>
-                   @else
+                @if($seeker->resume!=null)
+                <a href="{{ $seeker->resumeUrl }}" class="btn btn-sm btn-orange">View Resume
+                </a>
+                @else
                 <span style="color: red">CV Not Found!</span>
                 @endif
                 <form action="/admin/log-in-as" method="POST">
