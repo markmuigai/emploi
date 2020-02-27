@@ -77,7 +77,7 @@ class ProductOrder extends Model
                     We wish you the very best in your job search. 
 
                     <br>";
-                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Featured Job Seeker Package Activated', $caption, $contents);
+                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email,  'Featured Job Seeker Package Activated', $caption, $contents);
                     
                 }
         		
@@ -98,7 +98,7 @@ class ProductOrder extends Model
 
                     <br>
 
-                    <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate". $p->product->title ." Package</a>
+                    <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate ". $p->product->title ." Package</a>
                      
 
                     <br><br>
@@ -109,7 +109,7 @@ class ProductOrder extends Model
                     
 
                     <br>";
-                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, $p->product->title.' Package Expired', $caption, $contents);
+                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email,  $p->product->title.' Package Expired', $caption, $contents);
         		}
         		
         	}
@@ -144,7 +144,7 @@ class ProductOrder extends Model
                     We wish you the very best in your job search. 
 
                     <br>";
-                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Job Seeker Basic Package Activated', $caption, $contents);
+                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Job Seeker Basic Package Activated', $caption, $contents);
                 }
         		
 
@@ -173,7 +173,7 @@ class ProductOrder extends Model
                     Thank you for choosing Emploi.
 
                     <br>";
-                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Job Seeker Basic Package Expired', $caption, $contents);
+                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name,  $p->order->invoice->email, 'Job Seeker Basic Package Expired', $caption, $contents);
 
                     //notification package ended
         		}
@@ -195,7 +195,7 @@ class ProductOrder extends Model
                     Thank you for choosing Emploi.
 
                     <br>";
-                    EmailJob::dispatch($p->order->email, $p->order->first_name.' '.$p->order->last_name, 'Job Seeker Basic Package is Expiring', $caption, $contents);
+                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Job Seeker Basic Package is Expiring', $caption, $contents);
                 }
         	}
 

@@ -25,6 +25,7 @@ Route::get('/employers/role-suitability-index', 'ContactController@rsi');
 
 Route::get('/webmail', 'ContactController@webmail');
 Route::get('/cpanel', 'ContactController@cpanel');
+Route::get('/referral-credits', 'ContactController@referralCredits');
 
 Route::post('/contact', 'ContactController@save');
 

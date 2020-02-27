@@ -40,7 +40,7 @@
 <script type="text/javascript">
     var exit_trials = 0;
     var role = 'guest';
-    var seekerPopup = false;
+    var seekerPopup = true;
     <?php 
     	$path = url()->current();
     	$path = explode("/", $path);
@@ -49,7 +49,7 @@
     	array_shift($path);
 
     	if(session()->has('disable-seeker-register-popup'))
-    		print 'seekerPopup = true;';
+    		print 'seekerPopup = false;';
 
     	print 'path = '.json_encode($path).';';
     	if(isset(Auth::user()->id)) 
@@ -66,9 +66,16 @@
     	document.body.addEventListener('mouseout', function(e) {
 	        if (!e.relatedTarget && !e.toElement) {
 	        	//console.log(path);
+	        	//console.log(path[0]);
 	            if(exit_trials == 1)
 	            {
-	            	if(role == 'guest' && !seekerPopup)
+	            	if( path[0] == 'login' || path[0] == 'employers')
+	            		return;
+
+	            	if(!seekerPopup)
+	            		return console.log('Seeker Signup Notifications Already disabled for this session');
+
+	            	if(role == 'guest')
 	            	{
 	            		$('#seekerRegisterModal').modal();
 

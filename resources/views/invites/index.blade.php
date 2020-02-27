@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         <h4>
-            My Invites [{{ Auth::user()->totalCredits }} credits]
+            My Invites <a href="/referral-credits">[{{ Auth::user()->totalCredits }} credits]</a>
             <a href="/profile/invites/create" style="float: right;" class="btn btn-sm btn-link">Create Invite</a>
         </h4>
         <hr>
@@ -48,8 +48,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
             @empty
-            <p>
-                No invites have been created.
+            <p style="text-align: center;">
+                No invite links have been created. When you invite friends and they register, you get awarded <a href="/referral-credits" class="orange">referral credits</a>.
             </p>
             @endforelse
         </div>

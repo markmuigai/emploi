@@ -50,17 +50,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive w-100" alt="My Avatar" />
                             </div>
                             <div class="col-md-7 col-8">
-                                <h3 class="text-uppercase">{{ $user->name }}</h3>
+                                <h3 class="">{{ $user->getName() }}</h3>
                                 <h5>
-                                    Job Seeker
-                                    @if($user->seeker->searching)
-                                    <span class="badge badge-success">Searching</span>
+                                    
+                                    @if($user->seeker->featured == 1)
+                                    <a class="" style="font-weight: bold" href="/job-seekers/services#featured_seeker"  data-toggle="tooltip" data-placement="left"  title="You are a featured Job Seeker on Emploi">
+                                    Featured
+                                    </a>
                                     @endif
+                                    
+                                    Job Seeker
+                                    
+                                    @if($user->seeker->canGetNotifications())
+                                    <a class="fa fa-bell" href="/job-seekers/services#seeker_basic"  data-toggle="tooltip" data-placement="right" title="Shortlist Notifications Enabled" ></a>
+                                    @else
+                                    <a class="fa fa-bell-slash" href="/job-seekers/services#seeker_basic"  data-toggle="tooltip" data-placement="right"  title="Shortlist Notifications Disabled"></a>
+                                    @endif
+
+                                    
                                 </h5>
                                 <h6 title="Referral Credits">
                                     <a href="/profile/invites">
                                     [ {{ $user->totalCredits }} credits ]
                                     </a>
+                                    @if($user->seeker->searching)
+                                    <span class="badge badge-success">Searching</span>
+                                    @endif
                                 </h6>
                                 @if(!$user->seeker->hasCompletedProfile())
                                 <p class="text-center">
@@ -196,7 +211,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h4>Contact Info</h4>
                 <p>
                     <strong>Email: </strong>
-                    {{ $user->email }}
+                    {{ $user->getEmail() }}
                 </p>
                 <p><strong>Phone Number: </strong>
                     {{ $user->seeker->phone_number ? $user->seeker->phone_number : '-no phone number-' }}
@@ -205,12 +220,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <strong>Location: </strong>
                     {{ $user->seeker->location_id ? $user->seeker->location->name.', '.$user->seeker->location->country->code : 'Not set' }}</strong>
                 </p>
-                <a href="/profile/referees" class="btn btn-purple">Referees</a>
-                @if(isset($user->seeker->resume))
-                <a href="/storage/resumes/{{ $user->seeker->resume }}" class="btn btn-success-">View Current CV</a>
-                @else
-                <span>CV Not Found! <a href="/profile/edit">edit profile</a></span>
+                <p>
+                    @if($user->seeker->featured != 1)
+                    <a class="btn btn-orange" href="/job-seekers/services#featured_seeker" title="Let employers find you easily">
+                        <i class="fa fa-star"></i>
+                    Get Featured
+                    </a>
+                    @endif
+                </p>
+                <p>
+                    <a href="/profile/referees" class="btn btn-purple">My Referees</a>
+                </p>
+                
+                <p>
+                    @if(isset($user->seeker->resume))
+                    <a href="/storage/resumes/{{ $user->seeker->resume }}" class="btn btn-success-">View Current CV</a>
+                    @else
+                    <span>CV Not Found! <a href="/profile/edit">edit profile</a></span>
+                    @endif
+                </p>
+
+                @if(!$user->seeker->canGetNotifications())
+                <p>
+                    <a href="/job-seekers/services#seeker_basic" class="btn btn-orange-alt">Enable Shortlist Notifications</a>
+                </p>
                 @endif
+                
+
+                
             </div>
         </div>
     </div>

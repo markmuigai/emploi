@@ -49,7 +49,7 @@
                     @guest
                         to use Emploi
                     @else
-                        for checkout discounts
+                        for <a href="/referral-credits" class="orange">referral credits</a>
                     @endguest
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeInviteFriendsModal">

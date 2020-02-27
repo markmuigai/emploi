@@ -36,6 +36,10 @@ class ContactController extends Controller
         return view('seekers.cv-builder.index');
     }
 
+    public function referralCredits(){
+        return view('pages.referralCredits');
+    }
+
     public function cvBuilderDownload(Request $request)
     {
         $education = array();

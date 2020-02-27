@@ -105,6 +105,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </p>
                             <a href="/job-seekers/premium-placement" class="orange">Learn More</a>
                         </div>
+                        <br id="featured_seeker">
                     </div>
                 </div>
             </div>
@@ -131,6 +132,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
+        <br id="seeker_basic">
         <div class="col-lg-6">
             <div class="card my-2">
                 <div class="card-body">

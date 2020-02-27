@@ -33,6 +33,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getName(){
+        return ucwords($this->name);
+    }
+
+    public function getEmail(){
+        return strtolower($this->email);
+    }
+
     public function routeNotificationForSlack($notification)
     {
         return 'https://hooks.slack.com/services/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';
