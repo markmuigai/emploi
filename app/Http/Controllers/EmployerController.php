@@ -460,7 +460,7 @@ class EmployerController extends Controller
             <a href="/employers/jobs/shortlisting">Shortlisting Jobs: 
                 '. count(Post::whereIn('company_id',$user->companies->pluck('id'))->where('how_to_apply',null)->orderBy('id','DESC')->get()) .'
             </a><br>
-            Applications Received: '. count($user->employer->jobApplications()) .' <br>
+            <p>Applications Received: '. count($user->employer->jobApplications()) .' </p>
             <a href="/profile">Companies: '. count($user->companies) .'</a></a><br>
             <a href="/employers/saved">Saved Profiles: '. count($user->employer->savedProfiles) .'</a><br>
             <a href="/employers/cv-requests">CV Requests: '. count($user->employer->cvRequests->where('status','P')) .' Pending | '. count($user->employer->cvRequests->where('status','C')) .' Accepted </a>';

@@ -115,7 +115,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 url: '/employers/dashboard-stats?csrf-token='+$('#csrf_token').attr('content'),
                 success: function(response) {
                     $('#stats-field').children().remove();
-                    console.log(response);
                     $('#stats-field').append(response);
                     console.log('Statistics loaded');
                 },
