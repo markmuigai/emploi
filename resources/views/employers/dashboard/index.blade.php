@@ -116,7 +116,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 success: function(response) {
                     $('#stats-field').children().remove();
                     $('#stats-field').append(response);
-                    console.log('Statistics loaded');
+
                 },
                 error: function(e) {
 
