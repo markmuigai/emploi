@@ -9,26 +9,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Dashboard')
 
-<div class="card-deck" style="display: none">
-    <div class="card">
-        <div class="card-body">
-            <h1>186</h1>
-            <p>Candidates viewed your profile</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h1>35</h1>
-            <p>Job views</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h1>14</h1>
-            <p>Search appearances</p>
-        </div>
-    </div>
-</div>
 <div class="card my-2 recents">
     <div class="card-body row">
         <div class="col-md-7">
@@ -51,18 +31,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
             </ul>
         </div>
-        <div class="col-md-5">
-            <h6>My Statistics</h6>
-            <a href="/employers/jobs">Jobs Posted: {{ count(Auth::user()->employer->posts) }} </a><br>
-            <a href="/employers/jobs/active">Active Jobs: {{ count(Auth::user()->employer->activePosts) }} </a><br>
-            <a href="/employers/jobs/other">Closed Jobs: {{ count(Auth::user()->employer->closedPosts) }}</a><br>
-            <a href="/employers/jobs/shortlisting">Shortlisting Jobs: 
-                {{ count(\App\Post::whereIn('company_id',Auth::user()->companies->pluck('id'))->where('how_to_apply',null)->orderBy('id','DESC')->get()) }}
-            </a><br>
-            Applications Received: {{ count(Auth::user()->employer->jobApplications()) }} <br>
-            <a href="/profile">Companies: {{ count(Auth::user()->companies) }}</a></a><br>
-            <a href="/employers/saved">Saved Profiles: {{ count(Auth::user()->employer->savedProfiles) }}</a><br>
-            <a href="/employers/cv-requests">CV Requests: {{ count(Auth::user()->employer->cvRequests->where('status','P')) }} Pending | {{ count(Auth::user()->employer->cvRequests->where('status','C')) }} Accepted </a>
+        <div class="col-md-5" id="stats-field">
+            <p>Loading stats...</p>
         </div>
         
     </div>
@@ -134,6 +104,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         maintainAspectRatio: false,
     });
     
+</script>
+
+<script type="text/javascript">
+    $().ready(function(){
+        function loadStats(){
+            console.log('Loading stats');
+            $.ajax({
+                type: 'GET',
+                url: '/employers/dashboard-stats?csrf-token='+$('#csrf_token').attr('content'),
+                success: function(response) {
+                    $('#stats-field').children().remove();
+                    console.log(response);
+                    $('#stats-field').append(response);
+                    console.log('Statistics loaded');
+                },
+                error: function(e) {
+
+                    notify('Failed to Statistics', 'error');
+                },
+            });
+        }
+        loadStats();
+        setInterval(loadStats,60000);
+    });
 </script>
 
 @endsection
