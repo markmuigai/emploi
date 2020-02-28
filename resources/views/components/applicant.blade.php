@@ -83,14 +83,14 @@
                     if(response == 'shortlisted')
                     {
                         $element.text('Remove from Shortlist');
-                        $element.attr('title',user_name)
+                        $element.attr('title','Remove '+ user_name+' shortlist');
                         notify(username + ' was shortlisted','success');
                         
                     }
                     else
                     {
                         $element.text('Shortlist');
-                        $element.attr('title',user_name)
+                        $element.attr('title','Add ' + user_name + ' to shortlist');
                         notify(username + ' was removed from shortlisted');
                     }
                     
