@@ -185,7 +185,7 @@
                             @if(Auth::user()->role == 'admin')
                             <a class="dropdown-item" href="/admin/how-to">Admin FAQs</a>
                             @endif
-                            @if(Auth::user()->canWriteBlogs())
+                            @if(Auth::user()->canUseBloggingPanel())
                             <a class="dropdown-item" href="/my-blogs">Blogging Panel</a>
                             @endif
 

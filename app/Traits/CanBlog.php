@@ -11,9 +11,15 @@ trait CanBlog {
     
 
     public function canWriteBlogs(){
-    	if(isset($this->blogger) && $this->blogger->status == 'active')
+    	if(isset($this->blogger) && $this->blogger->status == 'active' || $this->role == 'admin')
     		return true;
         return false;
+    }
+
+    public function canUseBloggingPanel(){
+    	if(isset($this->blogger) && $this->blogger->status == 'active')
+    		return true;
+    	return false;
     }
 
     public function blogger(){

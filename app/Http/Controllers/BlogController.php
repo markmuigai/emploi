@@ -23,6 +23,8 @@ class BlogController extends Controller
     {
         $user = Auth::user();
         //$blogger = Blogger::findOrFail($id);
+        if(!$user->canUseBloggingPanel())
+            return abort(403);
         $blogs = Blog::where('user_id',$user->id)->paginate(20);
         return view('admins.bloggers.show')
                 ->with('blogger',$user->blogger)
@@ -39,12 +41,19 @@ class BlogController extends Controller
 
     public function create()
     {
+        $user = Auth::user();
+        if(!isset($user->blogger))
+            return abort(403);
         return view('blog.create')
                 ->with('categories', BlogCategory::where('status','active')->get());
     }
 
     public function store(Request $request)
     {
+        $user = Auth::user();
+        if(!$user->canUseBloggingPanel())
+            return abort(403);
+
         $featured_image = $request->file('featured_image');
         $featured_image_url = time() . '.' . $featured_image->getClientOriginalExtension();
         $storage_path = storage_path().'/app/public/blogs/'.$featured_image_url;
@@ -124,7 +133,11 @@ class BlogController extends Controller
 
     public function edit($id)
     {
+        $user = Auth::user();
         $blog = Blog::where('slug',$id)->firstOrFail();
+
+        if($blog->user_id != $user->id && $user->role != 'admin')
+            return abort(403);
         return view('blog.edit')
                 ->with('categories', BlogCategory::where('status','active')->get())
                 ->with('blog',$blog);
@@ -132,7 +145,12 @@ class BlogController extends Controller
 
     public function update(Request $request, $id)
     {
+        $user = Auth::user();
         $blog = Blog::where('slug',$id)->firstOrFail();
+
+        if($blog->user_id != $user->id && $user->role != 'admin')
+            return abort(403);
+
         $blog->title = $request->title;
         $blog->blog_category_id = $request->category;
         $blog->contents = $request->contents;
