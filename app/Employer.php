@@ -28,6 +28,25 @@ class Employer extends Model
         return 'https://hooks.slack.com/services/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';
     }
 
+    public function isOnStawiPackage(){
+        if($this->user->email == 'jobs@emploi.co')
+            return true;
+        $orders = $this->user->orders;
+        foreach ($orders as $order) {
+            foreach ($order->productOrders as $po) {
+                if($po->slug == 'stawi' && $po->contents != null)
+                {
+                    $cont = $po->contents;
+                    $cont = explode("|", $cont_);
+
+                    if($cont[2] != 'completed')
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public function industry(){
     	return $this->belongsTo(Industry::class,'industry_id');
     }
