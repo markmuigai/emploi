@@ -195,6 +195,12 @@ Import files below into /storage/app directory using scp
 unique-emails.csv
 employers-list.csv
 
+i) products creation
+//created
+//username change
+
+j) crontab
+
 
 ## Security Vulnerabilities
 
