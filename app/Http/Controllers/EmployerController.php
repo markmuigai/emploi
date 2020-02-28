@@ -682,6 +682,27 @@ class EmployerController extends Controller
         return redirect('/employers/applications/'.$post->slug.'/rsi?saved=true');
     }
 
+    public function shortlistSeekerToggle(Request $request, $slug, $username){
+        $user = User::where('username',$username)->firstOrFail();
+        $post = Post::where('slug',$slug)->firstOrFail();
+        if($user->seeker->hasApplied($post))
+        {
+            $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
+            if($j->status == 'active')
+            {
+                $j->status = 'shortlisted';
+                $j->save();
+                return 'shortlisted';
+            }
+            elseif($j->status == 'shortlisted')
+            {
+                $j->status = 'active';
+                $j->save();
+                return 'remove-from-shortlist';
+            }
+        }
+    }
+
     public function toggleShortlist(Request $request, $slug, $username){
         $user = User::where('username',$username)->firstOrFail();
         $post = Post::where('slug',$slug)->firstOrFail();

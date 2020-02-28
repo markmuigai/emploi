@@ -131,6 +131,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/applications/{slug}/', 'EmployerController@applications');
     
     Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@toggleShortlist');
+    Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@shortlistSeekerToggle');
     Route::get('/employers/reject-toggle/{slug}/{username}', 'EmployerController@toggleReject');
     Route::get('/employers/applications/{slug}/close', 'EmployerController@closeJob');
     Route::post('/employers/applications/{slug}/close', 'EmployerController@saveCandidate');

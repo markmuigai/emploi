@@ -41,10 +41,15 @@
                     @else
 
                         @if($post->isShortlisted($a->user->seeker))
-                            <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}"  data-toggle="tooltip" data-placement="bottom"  title="Remove {{ $a->user->getName() }} from Shortlist">Remove from Shortlist</a>
+                            <span style="cursor: pointer">
+                                <span  id="shortlist-user-{{ $a->user->id }}" title="Remove {{ $a->user->getName() }} from Shortlist"  slug="{{$post->slug}}" username="{{$a->user->username}}" user_name="{{ $a->user->getName() }}">Remove from Shortlist</span>
+                            </span>
 
                         @else
-                            <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}"  data-toggle="tooltip" data-placement="bottom"  title="Click to shortlist {{ $a->user->getName() }}">Shortlist</a>
+                            <!-- <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" >Shortlist</a> -->
+                            <span style="cursor: pointer">
+                                <span id="shortlist-user-{{ $a->user->id }}" title="Add {{ $a->user->getName() }} to shortlist " slug="{{$post->slug}}" username="{{$a->user->username}}" user_name="{{ $a->user->getName() }}">Shortlist</span>
+                            </span>                            
                         @endif
                         |
                         <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}"  data-toggle="tooltip" data-placement="bottom" title="Reject Application" class="text-danger">Reject</a>
@@ -58,3 +63,44 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $().ready(function(){
+        $('#shortlist-user-{{ $a->user->id }}').click(function(){
+            slug = $(this).attr('slug');
+            username = $(this).attr('username');
+            user_name = $(this).attr('user_name');
+
+            $element = $(this);
+            
+
+            $.ajax({
+                type: 'GET',
+                url: '/employers/shortlist-toggle/'+slug+'/'+username+'?csrf-token='+$('#csrf_token').attr('content'),
+                success: function(response) {
+
+                    //$parent.children().remove();
+
+                    if(response == 'shortlisted')
+                    {
+                        $element.text('Remove from Shortlist');
+                        $element.attr('title',user_name)
+                        notify(username + ' was shortlisted','success');
+                        
+                    }
+                    else
+                    {
+                        $element.text('Shortlist');
+                        $element.attr('title',user_name)
+                        notify(username + ' was removed from shortlisted');
+                    }
+                    
+                },
+                error: function(e) {
+
+                    notify('Shortlisting Error occurred', 'error');
+                },
+            });
+            
+        });
+    });
+</script>
