@@ -75,9 +75,18 @@
 	            	if(!seekerPopup)
 	            		return console.log('Seeker Signup Notifications Already disabled for this session');
 
+	            	var registerPopupDisabled = localStorage.getItem("disable-seeker-register-popup");
+	            	var registerPopupLastShown = localStorage.getItem("register-popup-last-shown");
+
+	            	if(registerPopupDisabled != null)
+	            		return console.log('Register popup disabled, last shown: ' + registerPopupLastShown);
+
 	            	if(role == 'guest')
 	            	{
 	            		$('#seekerRegisterModal').modal();
+
+	            		localStorage.setItem("disable-seeker-register-popup", "true");
+	            		localStorage.setItem("register-popup-last-shown", new Date());
 
 	            		$.ajax({
 				            type: 'GET',

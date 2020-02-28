@@ -20,10 +20,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						<img src="{{ asset($company->logoUrl) }}" alt="{{ $company->name }}" class="company-logo-img">
 					</div>
 				</div>
+				@if(!$company->isFeatured())
 				@include('components.ads.responsive')
+				@endif
 				<div class="row align-items-center">
 					<div class="col-lg-9 col-md-8">
-						<h4>{{ $company->name }} <a href="#company-vacancies" class="badge badge-secondary">{{ count($company->activePosts) }} vacancies</a></h4>
+						<h4 style="">
+							{{ $company->name }} 
+							<a href="#company-vacancies" class="badge badge-secondary">{{ count($company->activePosts) }} vacancies</a>
+							@if($company->isFeatured())
+							<a href="#company-vacancies" class="badge badge-success" style="float: right; color: gold">FEATURED</a>
+							@endif
+						</h4>
 						<h6 class="text-capitalize">{{ $company->tagline }}</h6>
 						<p><i class="fas fa-map-marker-alt orange"></i> {{ $company->location->name.', '.$company->location->country->name }}</p>
 					</div>

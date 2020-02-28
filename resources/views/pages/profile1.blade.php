@@ -279,22 +279,58 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             </div>
             <div class="col-md-2 col-12">
-                <a href="/profile/edit" class="orange"><i class="fas fa-edit"></i> Edit</a>
+                <a href="/profile/edit" class="orange"><i class="fas fa-edit"></i> Edit Profile</a>
             </div>
         </div>
 
         <?php
         $companies = \App\Company::where('user_id',$user->id)->orderBy('name')->paginate(20);
         $boosts = Auth::user()->employer->remainingCompanyBoosts();
+        $products = \App\Product::whereIn('slug',['featured_company','solo','solo_plus','infinity','stawi'])->get()
         ?>
 
+        <div style="border: 0.1em solid #500095;  padding: 1em; text-align: center;">
+            
+            Let users find your company on the front page, and have jobs highlighted.  <br>
+            <form method="post" action="/checkout" id="featured_company_form">
+                @csrf
+                <select name="product" class="form-control" required="">
+                    @forelse($products as $product)
+                    <option value="{{ $product->slug }}">{{ $product->title }} - {{ $product->getPrice() }}</option>
+                    @empty
+                    @endforelse
+                </select>
+                <p>
+                    <input type="submit" title="Purchase" class="btn btn-orange btn-sm">
+                    <a href="/employers/publish" class="btn btn-sm btn-orange-alt">Learn more</a>
+                </p>
+            </form>
+        </div>
+
         @forelse($companies as $company)
-            <hr>
+            <hr id="">
             <h3  class="orange">
                 <a href="/companies/{{ $company->name }}">{{ $company->name }}</a>
                 <a href="/companies/{{ $company->name }}/edit" class="pull-right btn btn-sm btn-orange-alt" style="float: right;">Edit Company Details</a>
                 
             </h3>
+
+            @if(!$company->isFeatured())
+                @if(count($boosts) > 0)
+                <hr>
+                <p>
+                    <a href="/companies/{{ $company->name }}/make-featured" class="btn btn-orange">Boost {{ $company->name }}</a> This will make the company appear top, and vacancies highlighted
+                </p>
+                <hr>
+                @else
+                
+                @endif
+            @else
+            <p>
+                <a href="/companies/{{ $company->name }}" class="btn btn-orange"> <i class="fa fa-check"></i> Boosted</a>
+            </p>
+            @endif
+
             
             <div class="row">
                 <div class="col-md-6">

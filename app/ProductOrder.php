@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 use App\Company;
+use App\Order;
 use App\Seeker;
 use App\User;
 
@@ -26,7 +27,21 @@ class ProductOrder extends Model
     	return $this->belongsTo(Product::class);
     }
 
-    public static function toggle($productOrder, $action = 'activate')
+    public static function featuredEmployer(Order $order)
+    {
+        $product = Product::where('slug','featured_company')->first();
+        if(!isset($product->id))
+            return false;
+
+        ProductOrder::create([
+            'order_id' => $order->id, 
+            'product_id' => $product->id,
+            'days_duration' => $product->days_duration,
+            'price' => 0
+        ]);
+    }
+
+    public static function toggle(ProductOrder $productOrder, $action = 'activate')
     {
     	$p = $productOrder;
     	$slug = $p->product->slug;
@@ -274,6 +289,8 @@ class ProductOrder extends Model
                 }
         		$p->save();
 
+                ProductOrder::featuredEmployer($p->order);
+
                 $caption = "You can advertise a job and browse job seekers on Emploi";
                 $contents = "The Stawi Package, which enables an employer to post upto 1 vacancy and request 50 job seeker profiles, has been activated.
                 <br>
@@ -336,6 +353,8 @@ class ProductOrder extends Model
         		$p->contents = 4;
         		$p->save();
 
+                ProductOrder::featuredEmployer($p->order);
+
                 $caption = "You can advertise a job on Emploi";
                 $contents = "The Solo Plus Package, which enables an employer to post upto 4 vacancies, has been activated.
                 <br>
@@ -391,6 +410,8 @@ class ProductOrder extends Model
         	{
         		$p->contents = now()->add($p->days_duration,'day');
             	$p->save();
+
+                ProductOrder::featuredEmployer($p->order);
 
                 $caption = "You can advertise multiple jobs on Emploi";
                 $contents = "The Solo Plus Package, which enables an employer to post as many vacancies for ".$p->product->days_duration." days, has been activated.
