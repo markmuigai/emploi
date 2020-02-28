@@ -426,7 +426,7 @@ class AdminController extends Controller
 
     public function contacts(){
         return view('admins.contacts.index')
-                ->with('contacts',Contact::orderBy('resolved_on','DESC')->orderBy('id','DESC')->paginate(20));
+                ->with('contacts',Contact::orderBy('id','DESC')->paginate(20));
     }
 
     public function saveResolution(Request $request){
