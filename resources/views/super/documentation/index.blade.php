@@ -10,42 +10,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Documentation')
 <div class="card">
     <div class="card-body">
-          <div class="dropdown">
-                        <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Index</a></li>
-                            <li><a href="routes">Routes</a></li>
-                            <li><a href="controllers">Controllers</a></li>
-                            <li><a href="views" >Views</a></li>
-                            <li><a href="rsi" >RSI</a></li>
-                          </ul>
-                 </div>
-
-        <div class="text-right">
-            <h2>EMPLOI DOCUMENTATION</h2>
-            <p>By Obare C. Brian and David Kirarit</p>
-
+        <div class="dropdown">
+            <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation    <strong class="caret"></strong></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Index</a></li>
+                    <li><a href="routes">Routes</a></li>
+                    <li><a href="controllers">Controllers</a></li>
+                    <li><a href="views" >Views</a></li>
+                    <li><a href="rsi" >RSI</a></li>
+                </ul>
         </div>
 
+                <div class="text-right">
+                  <h2>EMPLOI DOCUMENTATION</h2>
+                  <p>By Obare C. Brian and David Kirarit</p>
 
-<p>
+                </div>
 
-<!-- 
-Contents
-Introduction    3
-Requirements    3
-System  4
-Models  4
-Views   4
-Controllers 4
-Middleware’s    4
-Routes  4
-Storage 4
-System Emails   4
-Installation    5
-User types  5
-Maintenance 6
- -->
 
 <h3>Introduction</h3>
 
@@ -54,11 +35,11 @@ The system was built by Brian Obare and Latasha Wanjiru.</p>
 
 <h3>Requirements</h3>
 Ubuntu 18.04 <br>
-<pP>For development and production server. Alternative linux distros can be used but Ubuntu 18.04 has been tested and Emploi is stable when run on ubuntu.
+<p>For development and production server. Alternative linux distros can be used but Ubuntu 18.04 has been tested and Emploi is stable when run on ubuntu.</p>
 <br>PHP 7.4
 <p>Latest version of PHP is required. At the time of writing, PHP 7.4 is the latest PHP Version released. The system minimum requirement PHP 7.2.
 <br>MySQL 5.7
-<p>Database to be used is MySQL Server whose latest version at the time of this writing is 5.7. Alternative databases can be used but performance and stability may vary.</p>
+<p>Database to be used is MySQL Server whose latest version at the time of this writing is 5.7. Alternative databases can be used but performance and stability may vary.
 Composer<br>
 Laravel uses Composer to manage package dependencies and as such the latest version of composer is required.
 <br>Supervisor<br>
@@ -68,7 +49,7 @@ Version control used is GIT and the latest version should be installed on your s
 <br>Certbot<br>
 Certbot by Lets Encrypt is the SSL provider that Emploi uses to secure communication. 
 <br>Nginx Server<br>
-Nginx server is recommended as the LEMP stack is a high performance stack. 
+Nginx server is recommended as the LEMP stack is a high performance stack. </p>
 
 
 <h3>System</h3>
@@ -143,13 +124,36 @@ Emploi email hosting for users have been setup with Truehost and require annual 
 </ul>
 
 <h3>Invite Friends</h3>
-<p>The systems allows for a registered user to invite his/her friends. The user is required to click on a 'user plus' icon located at the bottom right corner. Once an invited friend registers, the invitee is elligible to gain credit. </p>
+<p>The systems allows for a registered user to invite his/her friends. The user is required to click on a 'user plus' icon located at the bottom right corner. Once an invited friend registers, the invitee is awarded 10 points for every job seeker and 20 points for employer sign up.Redeem referrals can be redeemed on Emploi credits or airtime. Credits are only available to registered users.</p>
 
 <h3>Countries</h3>
-<p>Currently the system supports vacancies from Kenya, Uganda, Tanzania,Rwanda, Ghana, Somalia, South Africa and Zimbabwe.</p>
+<p>Any admin can create a new country through the countries link in the admin dashboard. A new country should have a name,phone prefix, code and currency. Once a country has been created, it can be edited by clicking view on that specific country.</p>
 
 <h3>Products</h3>
-<p><b>Career Change or Promotion Seeking CV</b>-
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"><h5>Slug</h5>
+          <h6>1</h6><br>
+          <h6>2</h6>
+          <h6>3</h6><br>
+        </div>
+        <div class="col-md-3"><h5>Product Name</h5>
+         <h6>Career Change or Promotion Seeking CV </h6>
+         <h6>Featured Job Seeker</h6>
+         <h6>Infinity Advertising Package</h6>
+        </div>
+          
+        <div class="col-md-7"><h5>Description</h5>
+          <p>Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications</p>
+          <p>Top of the list search, Shortlisting Notifications</p>
+          <p>Advertise many jobs on Emploi for 30 days.</p>
+          <p></p>
+        </div>
+        
+    </div>
+</div>
+
+<!-- <p><b>Career Change or Promotion Seeking CV</b>-
   Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications Price: Ksh 4000 for 365 days</p>
 
   <p><b>Featured Job Seeker</b>-
@@ -187,24 +191,53 @@ Price: Ksh 2500 for 30 days</p>
 <p><b>Solo Plus Advertising Package</b>-
 Advertise 2-4 jobs on Emploi
 Price: Ksh 4750 for 30 days</p>
-</p>
+</p> -->
 
 <h3>Invoice</h3>
-<p></p>
+<p>An invoice is created by admin for every product ordered.</p>
 
 <h3>Bloggers</h3>
 <p>Bloggers are the people who post blogs in the system. Currently there are four active bloggers</p>
+<p>Bloggers can be created by tapping on the blogger link in the admin dashboard</p>
 
 <h3>Emailer</h3>
-<p>To send a message, the system use the 'to' method on the Mail facade. The to method accepts an email address, a user instance, or a collection of users. If you pass an object or collection of objects, the mailer will automatically use their email and name properties when setting the email recipients.</p>
+<p>To send a message, the system use the 'to' method on the Mail facade. The to method accepts an email addresses of certain target group of a certain category. If you pass an object or collection of objects, the mailer will automatically use their email and name properties when setting the email recipients.</p>
 
 <h3>CV Request</h3>
 <p>A registered employer can request a CV of a particular job seeker.</p>
 
 <h3>CV Editing</h3>
 <p>A job seeker can request for CV Editing services offered at a cost. The CVs are edited by registered CV Editors</p>
+
+
+<h3>Errors</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"><h5>Error</h5>
+         <ul>
+             <li>401</li><br>
+             <li>403</li><br><br><br>
+             <li>404</li><br>
+             <li>419</li>
+             <li>429</li><br>
+             <li>500</li><br><br><br>
+             <li>503</li>
+         </ul>
+         </div>
+        <div class="col-md-9"><h5>Description</h5>
+        <ul>
+            <li>This error indicates that the requested file requires authentication (a username and password).</li>
+            <li>This error indicates that the server will not allow the visitor to access the requested file. If a visitor receives this code unexpectedly, you should check the file's permission settings, or check whether the file has been protected.</li>
+            <li>This error indicates that the server could not find the file that the visitor requested. This commonly occurs when a URL is mistyped.</li>
+            <li>Indicates that previously valid authentication has expired. </li>
+            <li>Indicates the user has sent too many requests in a given amount of time.</li>
+            <li>This error indicates that the server has encountered an unexpected condition. This often occurs when an application request cannot be fulfilled due to the application being configured incorrectly on the server.</li>
+            <li>This error occurs when the server is unable to handle requests due to a temporary overload or due to the server being temporarily closed for maintenance. The error indicates that the server will only temporarily be down.</li>
+        </ul>
+        </div>
     </div>
-
-
+</div>
+    </div>
+</div>
 
 @endsection

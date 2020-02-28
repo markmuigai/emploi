@@ -10,22 +10,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'RSI Documentation')
 <div class="card">
     <div class="card-body">
-          <div class="dropdown">
-                        <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="index">Index</a></li>
-                            <li><a href="routes">Routes</a></li>
-                            <li><a href="controllers">Controllers</a></li>
-                            <li><a href="views" >Views</a></li>
-                            <li><a href="#" >RSI</a></li>
-                          </ul>
-                      </div>
+        <div class="dropdown">
+            <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
+            <ul class="dropdown-menu">
+                <li><a href="index">Index</a></li>
+                <li><a href="routes">Routes</a></li>
+                <li><a href="controllers">Controllers</a></li>
+                <li><a href="views" >Views</a></li>
+                <li><a href="#" >RSI</a></li>
+            </ul>
+        </div>
 
-        <div class="text-right">
+    <div class="text-right">
             <h2>EMPLOI DOCUMENTATION</h2>
             <p>By Obare C. Brian and David Kirarit</p>
 
-        </div>
+    </div>
     <h3>Role Suitability Index(RSI)</h3>
 
     <p>The RSI is an important <strong>tool for employers to evaluate a candidate's abilities</strong> by measuring the candidates strengths and weaknesses. It encompasess interviews, Background checks(Education Background, Employment Background),IQ Tests, Psychometric Tests, Skills check among others.</p>
