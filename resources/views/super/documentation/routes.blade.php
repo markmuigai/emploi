@@ -34,20 +34,17 @@ These routes are intended to be stateless, so requests entering the application 
 <p>The <b>console.php</b> file is where you may define all of your Closure based console commands. Each Closure is bound to a command instance allowing a simple approach to interacting with each command's IO methods. Even though this file does not define HTTP
 routes, it defines console based entry points (routes) into the application.</p>
 <p>The <b>channels.php</b> file is where you may register all of the event broadcasting channels that your application supports.</p>
-<p>The <b>web.php</b> file contains routes that the RouteServiceProvider places in the web middleware group, which provides session state, CSRF protection, and cookie encryption. In this system we have the following web routes;</p>
+<p>The <b>web.php</b> file contains routes that the RouteServiceProvider places in the web middleware group, which provides session state, CSRF protection, and cookie encryption. The following are some of the web routes in this system;</p>
 
-<ul>
+
 <br><b>Auth::routes();</b><br>
-<li>Route::get('/', 'ContactController@index'); ->shows the contact view</li>
-<li>Route::get('/registered', 'ContactController@registered'); ->displays the registered job seekers</li>
-<li>Route::get('/logout', 'Auth\LoginController@logout'); ->ends a session</li>
-<li>Route::get('/home', 'HomeController@index')->name('home'); ->shows the home view</li>
-<li>Route::get('profile/add-referee', 'HomeController@addReferee'); ->shows the view to add referee</li>
-<li>Route::post('profile/add-referee', 'HomeController@saveReferee'); ->saves the referee details in the database</li><br>
+<p>This is the default laravel authentication which allows use of multiple Authentication types with specific guards. It is a helper class that helps generate all the routes required for user authentication.</p>
+<p>Auth is a facade and is defined in config/app.php you will find the class that acts as its provider in that configuration file.</p><br>
 
 
-<p>Laravel resource routing assigns the typical "CRUD" routes to a controller with a single line of code.</p>
-<li>Route::resource('companies', 'CompanyController'); -><br>
+<p>Laravel <b>resource routing</b> assigns the typical "CRUD" routes to a controller with a single line of code.</p>
+<ul>
+<li>Route::resource('companies', 'CompanyController');<br>
  @index Show the main view<br>
  @create Show the view to create a company<br>
  @store Save a company in database<br>
@@ -55,7 +52,7 @@ routes, it defines console based entry points (routes) into the application.</p>
  @update Update company data in database<br>
  @destroy Delete a company in database<br>
 </li>
-<li>Route::resource('/referrals', 'ReferralController'); -><br>
+<li>Route::resource('/referrals', 'ReferralController');<br>
 @index Show the main view<br>
 @create Show the view to create a referral<br>
 @store Save a referee in database<br>
@@ -63,12 +60,11 @@ routes, it defines console based entry points (routes) into the application.</p>
 @update Update referee data in database<br>
 @destroy Delete a referee in database<br>
 </li>
+</ul><br>
 
-
-<br>
-<p>Route groups allows for sharing route attributes, such as middleware or namespaces, across a large number of routes without needing to define those attributes on each individual route. Shared attributes are specified in an array format as the first parameter
-to the Route</p>
+<p><b>Route groups</b> allows for sharing route attributes, such as middleware or namespaces, across a large number of routes without needing to define those attributes on each individual route. Shared attributes are specified in an array format as the first parameter to the Route</p>
 <b>Route::group([ 'middleware' => 'auth'], function(){</b><br>
+    <ul>
     <li>Route::get('profile', 'HomeController@profile'); ->displays the profile view</li>
     <li>Route::get('profile/edit', 'HomeController@updateProfile'); ->shows the view to edit prifile</li>
     <li>Route::post('profile/update', 'HomeController@saveProfile'); ->update the profile in the database</li>
@@ -82,10 +78,11 @@ to the Route</p>
     </li>
     <li>Route::get('my-blogs','BlogController@admin');
 }); ->display my blogs</li>
+    </ul>
 
 
-
-<br><b>Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){</b><br>
+<p>These routes uses the same prefix employers and same middleware employer </p>
+<b>Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){</b><br><ul>
     <li>Route::get('dashboard', 'EmployerController@dashboard'); ->displays the employer's dashboard</li>
     <li>Route::get('dashboard-data', 'EmployerController@dashboardData'); -> </li>
     <li>Route::get('jobs', 'EmployerController@jobs');</li>
@@ -93,40 +90,34 @@ to the Route</p>
     <li>Route::get('jobs/other', 'EmployerController@otherJobs');</li>
     <li>Route::get('jobs/shortlisting', 'EmployerController@shortlistingJobs');
 });</li>
+   </ul>
 
 
-
-<br><b>Route::group([ 'middleware' => 'shortlist'], function(){</b><br>
-    <li>Route::resource('/employers/cv-requests', 'CvRequestController');
-         @index Show the main view<br>
-         @create Show the view to create cv request<br>
-         @store Save a cv request  <br>
-         @edit Show the cv request view<br>
-         @update Update cv request in database<br>
-         @destroy Delete a cv request in database<br>
-     </li>
-    <li>Route::resource('/employers/saved', 'SavedProfileController');</li>
+    <ul>
     <li>Route::get('/employers/browse', 'EmployerController@browse'); ->shows employers the list of job seekers</li>
    <li>Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker'); ->shows a view for a job seeker with a certain username</li>
+   </ul>
 
    
-
-<br><b>Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){</b><br>
-	<li>Route::get('/', 'AdminController@panel')->name('adminpanel') ->displays admin panel view</li>
+    <p>These routes uses the same prefix admin and same middleware admin </p>
+    <b>Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){</b><br>
+	<ul>
+    <li>Route::get('/', 'AdminController@panel')->name('adminpanel') ->displays admin panel view</li>
     <li>Route::get('panel', 'AdminController@panel');  ->displays admin panel </li>
     <li>Route::get('posts', 'AdminController@posts'); ->displays job posts view</li>
     <li>Route::get('posts/{slug}', 'AdminController@viewPost'); ->displays a particular job post</li>
-    
+    </ul>
 
-<br><b>Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){</b><br>
+ <b>Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){</b><br>
+    <ul>
     <li>Route::get('/', 'SeekerController@toProfile'); ->displays seeker's profile</li>
-    <li>Route::get('dashboard', 'SeekerController@dashboard'); ->display seeker's dashboard</li>
-    <li>Route::get('feed', 'SeekerController@feed'); 
+    <li>Route::get('dashboard', 'SeekerController@dashboard'); ->display seeker's dashboard</li> 
 });</li>
+  </ul>
 
+<p>These routes uses the same prefix <b>desk</b> and middleware <b>super</b></p>
+<b>Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){</b>
 
-<br><b>Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){</b><br>
-</ul>
 
 
     </div>

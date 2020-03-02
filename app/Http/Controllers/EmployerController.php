@@ -450,6 +450,23 @@ class EmployerController extends Controller
         return array($counter,$labels);
     }
 
+    public function dashboardStats(){
+        $user = Auth::user();
+
+        return '<h6>My Statistics</h6>
+            <a href="/employers/jobs">Jobs Posted: '.count($user->employer->posts)  .'</a><br>
+            <a href="/employers/jobs/active">Active Jobs:'. count($user->employer->activePosts) .' </a><br>
+            <a href="/employers/jobs/other">Closed Jobs: '. count($user->employer->closedPosts) .'</a><br>
+            <a href="/employers/jobs/shortlisting">Shortlisting Jobs: 
+                '. count(Post::whereIn('company_id',$user->companies->pluck('id'))->where('how_to_apply',null)->orderBy('id','DESC')->get()) .'
+            </a><br>
+            <p>Applications Received: '. count($user->employer->jobApplications()) .' </p>
+            <a href="/profile">Companies: '. count($user->companies) .'</a></a><br>
+            <a href="/employers/saved">Saved Profiles: '. count($user->employer->savedProfiles) .'</a><br>
+            <a href="/employers/cv-requests">CV Requests: '. count($user->employer->cvRequests->where('status','P')) .' Pending | '. count($user->employer->cvRequests->where('status','C')) .' Accepted </a>';
+
+    }
+
     public function applications(Request $request, $slug, $endpoint = null){
         $post = Post::where('slug',$slug)->firstOrFail();
         if($post->company->user_id != Auth::user()->id)

@@ -167,7 +167,7 @@
 					<ul class="f_list f_list1">
 						<li><a href="/register">Upload CV</a></li>
 						<li><a href="/job-seekers/cv-editing">CV Editing</a></li>
-						<li style="display: none;"><a href="/employers/publish">Advise</a></li>
+						<li style="display: none;"><a href="/employers/publish">Advertise</a></li>
 						<li><a href="/contact">Contact</a></li>
 					</ul>
 					<ul class="f_list">
@@ -238,7 +238,7 @@
 							<i class="fa fa-map-marker"></i>
 						</div>
 						<div class="col-xs-10 col-sm-10">
-							<p>Syokimau Junction, along Mombasa road, Repen Complex. 4<sup>th</sup> Floor Room 414B</p>
+							<p>Even Business Park, Airport North Rd, Nairobi</p>
 						</div>
 					</div>
 					<br>
