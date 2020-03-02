@@ -199,7 +199,7 @@ i) Products Creation
   Products can be created by tapping on products link and then create link. It should have a title, description, price and validity period.
 
 j) Crontab
-  This file contains a list of commands to be executed peridically
+  This file contains a list of commands to be executed periodically
 
 
 ## Security Vulnerabilities
