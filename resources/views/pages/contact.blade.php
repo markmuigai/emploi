@@ -56,12 +56,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					</div>
 					<div class="form-group">
 
-						<input type="text" class="form-control" name="phone" placeholder="Phone number" required="" onfocus="" onblur="">
+						<input type="number" class="form-control" name="phone" placeholder="Phone number" required="" onfocus="" onblur="">
 					</div>
 					<div class="form-group">
 
 						<textarea placeholder="Message" class="form-control" name="message" onfocus="" onblur="" required=""></textarea>
 					</div>
+								
 					<button type="submit" class="btn btn-orange" name="button">Send</button>
 				</form>
 			</div>

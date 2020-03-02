@@ -11,6 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body">
         <div class="dropdown">
+
             <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
             <ul class="dropdown-menu">
                 <li><a href="#">Index</a></li>
@@ -27,26 +28,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         </div>
 
-
-<p>
-
-<!-- 
-Contents
-Introduction    3
-Requirements    3
-System  4
-Models  4
-Views   4
-Controllers 4
-Middleware’s    4
-Routes  4
-Storage 4
-System Emails   4
-Installation    5
-User types  5
-Maintenance 6
- -->
-
     <h3>Introduction</h3>
 
     <p>This documentation explains the Emploi platforms structure, installation and maintenance. The platform was created with PHP Laravel Framework v6.6.2 following commonly used standards.
@@ -54,7 +35,7 @@ Maintenance 6
 
     <h3>Requirements</h3>
     Ubuntu 18.04 <br>
-    <pP>For development and production server. Alternative linux distros can be used but Ubuntu 18.04 has been tested and Emploi is stable when run on ubuntu.
+    <p>For development and production server. Alternative linux distros can be used but Ubuntu 18.04 has been tested and Emploi is stable when run on ubuntu.
     <br>PHP 7.4
     <p>Latest version of PHP is required. At the time of writing, PHP 7.4 is the latest PHP Version released. The system minimum requirement PHP 7.2.
     <br>MySQL 5.7
@@ -68,7 +49,7 @@ Maintenance 6
     <br>Certbot<br>
     Certbot by Lets Encrypt is the SSL provider that Emploi uses to secure communication. 
     <br>Nginx Server<br>
-    Nginx server is recommended as the LEMP stack is a high performance stack. 
+    Nginx server is recommended as the LEMP stack is a high performance stack.</p> 
 
 
     <h3>System</h3>
@@ -112,8 +93,8 @@ Maintenance 6
         3. Employers – Employers are users who post jobs and conduct recruitment on the platform. By default, an employer with the username jobs is created while seeding. Other employers can register or have their data imported from cv-portal.<br>
         4. Job Seekers – These are individuals who are seeking work on the platform. They can register or have their profiles imported from cv-portal.<br>
         5. Referees – Jobseekers add referees to their profile who provide insight into them. Referees submit assessment of the job seeker which is used by the RSI scoring algorithm.</p>
-    Important Folders</br>
-    Important Files</br>
+  <!--   Important Folders</br>
+    Important Files</br> -->
 
 
     <h3>Maintenance</h3>
@@ -131,101 +112,372 @@ Maintenance 6
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h4>Command</h4>
+                <b>Command</b>
             </div>
             <div class="col-md-3">
-                <h4>Usage</h4>
+                <b>Usage</b>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-3">
                 CleanResumes
             </div>
             <div class="col-md-9">
                 <p>
-                    Use when there exists resumes in /storage/app/public/resumes that are not linked to a job seekers profile in seeekers table, resume column
+                    Use when there exists resumes in /storage/app/public/resumes that are not linked to a job seekers profile in seeekers table, resume column.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+              DisableProducts  
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Use to deactivate products that have expired.  
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+              EnableProducts  
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Used to activate products that have already been paid for.  
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+              FindMissingUsers 
+            </div>
+            <div class="col-md-9">
+                <p>
+                   Finds users who were left out from last import and store them in /app/fixregdate.csv.  
+                </p>
+            </div>
+        </div>
+
+           <div class="row">
+            <div class="col-md-3">
+              FixMissingSeekers 
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Creates users who were left out by first import and store them in /app/missing-seekers.csv
+                </p>
+            </div>
+        </div>
+
+
+         <div class="row">
+            <div class="col-md-3">
+              FixRegistrationDate 
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Fixes the registration date of users who were imported on the platform and store in /app/fixregdate.csv
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+              ImportData 
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Imports data from cv-portal and store as a csv file.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+              ImportPosts 
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Imports data from career resources database and store in /app/posts.csv
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+              SplitPosts 
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Splits  posts table that have how to apply mentioned in responsibilities
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3">
+              TestCron 
+            </div>
+            <div class="col-md-9">
+                <p>
+                    Tests whether the commands are working correctly
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+              VerificationEmailsResend 
+            </div>
+            <div class="col-md-9">
+                <p>
+                   Sends verification emails to job seekers whos verification emails experienced error registering
                 </p>
             </div>
         </div>
     </div>
-    <ul>
-        <li>cleanResumes-Deletes all resumes that are not mentioned on job seekers table.</li>
-        <li>disableProducts-Disables products which have expired.</li>
-        <li>enableProducts-Enables products which have not been activated.</li>
-        <li>FindMissingUsers-Finds users who were left out when moving from cv-portal</li>
-        <li>FixMissingSeekers-Creates users who were left out by first import</li>
-        <li>FixRegistrationDate-Fixes the registration date of users who were imported on the platform</li>
-        <li>ImportData-imports data from cv-portal</li>
-        <li>ImportPosts-imports data from career resources database</li>
-        <li>SplitPosts-Splits  posts table that have how to apply mentioned in responsibilities</li>
-        <li>TestCron-Tests whether crontab is working correctly</li>
-        <li>VerificationEmailsResend-Sends verification emails to job seekers whos verification emails experienced error registering</li>
-    </ul>
 
-    <h3>Invite Friends</h3>
-    <p>The systems allows for a registered user to invite his/her friends. The user is required to click on a 'user plus' icon located at the bottom right corner. Once an invited friend registers, the invitee is elligible to gain credit. </p>
 
-    <h3>Countries</h3>
-    <p>Currently the system supports vacancies from Kenya, Uganda, Tanzania,Rwanda, Ghana, Somalia, South Africa and Zimbabwe.</p>
+<h3>Invite Friends</h3>
+<p>The systems allows for a registered user to invite his/her friends. The user is required to click on a 'user plus' icon located at the bottom right corner. Once an invited friend registers, the invitee is awarded 10 points for every job seeker and 20 points for employer sign up.Redeem referrals can be redeemed on Emploi credits or airtime. Credits are only available to registered users.</p>
+
+<h3>Countries</h3>
+<p>Any admin can create a new country through the countries link in the admin dashboard. A new country should have a name,phone prefix, code and currency. Once a country has been created, it can be edited by clicking view on that specific country.</p>
+
+
+
 
     <h3>Products</h3>
-    <p><b>Career Change or Promotion Seeking CV</b>-
-      Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications Price: Ksh 4000 for 365 days</p>
 
-      <p><b>Featured Job Seeker</b>-
-    Top of the list search, Shortlisting Notifications
-    Price: Ksh 159 for 30 days</p>
+     <div class="container">
+        <p>Products can be created by an admin. It should include title, tagline, description, price,days_duration and a unique slug generated dynamically.</p>
+        <div class="row">
+            <div class="col-md-3">
+                <b>Product Name</b>
+            </div>
+            <div class="col-md-9">
+                <b>Description</b>
+            </div>
+        </div>
 
-    <p><b>Infinity Advertising Package</b>-
-    Advertise many jobs on Emploi for 30 days.
-    Price: Ksh 9025 for 30 days</p>
+         <div class="row">
+            <div class="col-md-3">
+                Career Change or Promotion Seeking CV
+            </div>
+            <div class="col-md-9">
+                <p>This includes top of the list search, professional CV editing, exclusive placement services and interview coaching for 365 days</p>
+            </div>
+        </div>
 
-    <p><b>Job Seeker Basic Package</b>-
-    Get notifications when shortlisted by an employer
-    Price: Ksh 49 for 30 days</p>
+        <div class="row">
+            <div class="col-md-3">
+               Featured Company
+            </div>
+            <div class="col-md-9">
+                <p>Rank company higher in job seeker searches, get featured on our vacancies e-mail banner for 30 days</p>
+            </div>
+        </div>
 
-    <p><b>Management Level Professional CV Editing</b>-
-    Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
-    Price: Ksh 6000 for 365 days</p>
+         <div class="row">
+            <div class="col-md-3">
+               Featured Job Seeker
+            </div>
+            <div class="col-md-9">
+                <p>Includes top of the list search and shortlisting Notifications for 30 days</p>
+            </div>
+        </div>
 
-    <p><b>Premium Entry Level Job Seeker</b>-
-    Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
-    Price: Ksh 2000 for 366 days</p>
+           <div class="row">
+            <div class="col-md-3">
+               Infinity Advertising Package
+            </div>
+            <div class="col-md-9">
+                <p>Allows for many jobs advertisements for 30 days.</p>
+            </div>
+        </div>
 
-    <p><b>Premium Mid Level Job Seeker</b>-
-    Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
-    Price: Ksh 4000 for 365 days</p>
+        <div class="row">
+            <div class="col-md-3">
+               Job Seeker Basic Package
+            </div>
+            <div class="col-md-9">
+                <p>Get notifications when shortlisted by an employer</p>
+            </div>
+        </
+        <div class="row">
+            <div class="col-md-3">
+               Management Level Professional CV Editing
+            </div>
+            <div class="col-md-9">
+                <p>It include top of the list search, professional CV editing, exclusive placement services, interview coaching and shortlisting Notifications for 365 days</p>
+            </div>
+        </div>
 
-    <p><b>Senior Management Level CV Editing</b>-
-    Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching, Shortlisting Notifications
-    Price: Ksh 10000 for 365 days</p>
+        <div class="row">
+            <div class="col-md-3">
+               Premium entry level job seeker
+            </div>
+            <div class="col-md-9">
+                <p>This includes top of the list search, professional CV editing, exclusive placement pervices, interview coaching and shortlisting notifications</p>
+            </div>
+        </div>
 
-    <p><b>Solo Advertising Package</b>-
-    Advertise your vacancy on Emploi
-    Price: Ksh 2500 for 30 days</p>
 
-    <p><b>Solo Plus Advertising Package</b>-
-    Advertise 2-4 jobs on Emploi
-    Price: Ksh 4750 for 30 days</p>
-    </p>
+        <div class="row">
+            <div class="col-md-3">
+              Premium mid level level job seeker
+             </div>
+            <div class="col-md-9">
+                <p>Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching and Shortlisting Notifications for 365 days</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                Senior Management Level CV Editing
+            </div>
+            <div class="col-md-9">
+                <p>Top of the list search, Professional CV editing, Exclusive Placement Services, Interview coaching and Shortlisting Notifications for 365 days</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                Solo advertising package
+            </div>
+            <div class="col-md-9">
+                <p>Allows for advertisement of only one vacancy on Emploi for 30 days</p>
+            </div>
+        </div>
+
+          <div class="row">
+            <div class="col-md-3">
+               Solo Plus Advertising Package
+            </div>
+            <div class="col-md-9">
+                <p>Allows for 2-4 jobs advertisement on Emploi</p>
+            </div>
+        </div>
+
+            <div class="row">
+            <div class="col-md-3">
+               Stawi
+            </div>
+            <div class="col-md-9">
+                <p>Source and shortlist for candidates on Emploi Platform</p>
+            </div>
+        </div>
+    </div>
+   
 
     <h3>Invoice</h3>
-    <p></p>
+    <p> An invoice is created for the product ordered. Pesapal as the main mode of payment in the system is build with a good invoicing feature. Then later the payment can be made through options available on Pesapal, in this case Mobile Money is the most convenient and efficient.</p>
 
     <h3>Bloggers</h3>
     <p>Bloggers are the people who post blogs in the system. Currently there are four active bloggers</p>
-    [creation, approval of blogs, ]
+    <p>Bloggers can be created by tapping on the blogger link in the admin dashboard, enter the email address then status as active</p>
+    <p>Blogs can be created by any active blogger. It should have a title,contents,slug,category_id and image</p>
+    
 
     <h3>Emailer</h3>
-    <p>To send a message, the system use the 'to' method on the Mail facade. The to method accepts an email address, a user instance, or a collection of users. If you pass an object or collection of objects, the mailer will automatically use their email and name properties when setting the email recipients.</p>
+    <p>To send a message, the system use the 'to' method on the Mail facade. The to method accepts an email addresses of certain target group of a certain category. If you pass an object or collection of objects, the mailer will automatically use their email and name properties when setting the email recipients.</p>
 
     <h3>CV Request</h3>
     <p>A registered employer can request a CV of a particular job seeker.</p>
 
     <h3>CV Editing</h3>
     <p>A job seeker can request for CV Editing services offered at a cost. The CVs are edited by registered CV Editors</p>
+
+
+<h3>Errors</h3>
+<div class="container">
+<p>All errors and exceptions, both custom and default, are handled by the Handler class in
+app/Exceptions/Handler.php. Then views related to specific error is created.</p>
+    <div class="row">
+        <div class="col-md-3">
+        <b>Error</b>
+        </div>
+        <div class="col-md-9">
+        <b>Description</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+         401
+        </div>
+        <div class="col-md-9">
+         <p>This error indicates that the requested file requires authentication (a username and password).</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+        403
+        </div>
+        <div class="col-md-9">
+        <p>This error indicates that the server will not allow the visitor to access the requested file. If a visitor receives this code unexpectedly, you should check the file's permission settings, or check whether the file has been protected.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+        404
+        </div>
+        <div class="col-md-9">
+        <p>This error indicates that the server could not find the file that the visitor requested. This commonly occurs when a URL is mistyped.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+        419
+        </div>
+        <div class="col-md-9">
+        <p>Indicates that previously valid authentication has expired. </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+        429
+        </div>
+        <div class="col-md-9">
+        <p>Indicates the user has sent too many requests in a given amount of time.</p>
+        </div>
     </div>
 
 
+    <div class="row">
+        <div class="col-md-3">
+        500
+        </div>
+        <div class="col-md-9">
+        <p>This error indicates that the server has encountered an unexpected condition. This often occurs when an application request cannot be fulfilled due to the application being configured incorrectly on the server.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+        503
+        </div>
+        <div class="col-md-9">
+        <p>This error occurs when the server is unable to handle requests due to a temporary overload or due to the server being temporarily closed for maintenance. The error indicates that the server will only temporarily be down.</p>
+        </div>
+    </div>
+  
+             </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
