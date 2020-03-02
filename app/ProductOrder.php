@@ -277,14 +277,14 @@ class ProductOrder extends Model
     		if($action == 'activate')
         	{
                 if($p->order->user->role != 'employer')
-        		    $p->contents = "1|50";
+        		    $p->contents = "1|50|".now()->add($p->days_duration,'day');
                 else
                 {
                     $employer = $p->order->user->employer;
                     $employer->credits += 5000;
                     if($employer->save())
                     {
-                        $p->contents = "1|0";
+                        $p->contents = "1|0|".now()->add($p->days_duration,'day');
                     }
                 }
         		$p->save();
@@ -320,10 +320,10 @@ class ProductOrder extends Model
                 $cont_ = explode("|", $cont_);
 
 
-        		if( (int) $cont_[0] == 0 &&  (int) $cont_[0] == 0 )
-        		{
-        			$p->contents = 'completed';
-        			$p->save();
+                if ($cont_[2] != 'completed') {
+                    $expiry = new Carbon($cont_[2]);
+                    $p->contents = $cont_[0].'|'.$cont_[1].'|completed';
+                    $p->save();
 
                     $caption = "Stawi Package on Emploi Expired";
                     $contents = "The Stawi Package, which enables an employer to post one vacancy and request 50 job seeker profiles, has <b>has expired</b>. 
@@ -341,6 +341,19 @@ class ProductOrder extends Model
 
                     <br>";
                     EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Stawi Package Expired', $caption, $contents);
+                }
+
+                
+
+
+
+
+        		if( (int) $cont_[0] == 0 )
+        		{
+        			$p->contents = '0|'.$count_[1].'|completed';
+        			$p->save();
+
+                    
         		}
         	}
 

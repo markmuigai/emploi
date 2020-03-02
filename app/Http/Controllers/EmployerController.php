@@ -721,8 +721,8 @@ class EmployerController extends Controller
             $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
             if($j->status == 'rejected')
             {
-                $j->status = 'active';
-                $j->save();
+                // $j->status = 'active';
+                // $j->save();
             }
             else
             {

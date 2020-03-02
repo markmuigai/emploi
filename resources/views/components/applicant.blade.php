@@ -33,27 +33,27 @@
         <div class="row justify-content-between align-items-center">
             <div class="col-12 col-md-6 col-lg-6">
                 @if($a->status == 'rejected')
-                <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger"><strong>Cancel Reject</strong></a>
+                    <strong style="color: red"  data-toggle="tooltip" data-placement="right" title="NO ACTIONS AVAILABLE">REJECTED</strong>
                 @else
 
                     @if($a->status == 'selected')
-                    <a href="#" class="text-success"> <i class="fas fa-check"></i> <strong>SELECTED</strong></a>
+                        <a href="#" class="text-success"  data-toggle="tooltip" data-placement="bottom" title="Candidate was selected"> <i class="fas fa-check"></i> <strong>SELECTED</strong></a>
                     @else
 
-                    @if($post->isShortlisted($a->user->seeker))
-                    <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Remove from Shortlist">Remove from Shortlist</a>
+                        @if($post->isShortlisted($a->user->seeker))
+                            <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}"  data-toggle="tooltip" data-placement="bottom"  title="Remove {{ $a->user->getName() }} from Shortlist">Remove from Shortlist</a>
 
-                    @else
-                    <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}" title="Add to Shortlist">Shortlist</a>
-                    @endif
-                    |
-                    <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}" class="text-danger">Reject</a>
+                        @else
+                            <a href="/employers/shortlist-toggle/{{$post->slug}}/{{$a->user->username}}"  data-toggle="tooltip" data-placement="bottom"  title="Click to shortlist {{ $a->user->getName() }}">Shortlist</a>
+                        @endif
+                        |
+                        <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}"  data-toggle="tooltip" data-placement="bottom" title="Reject Application" class="text-danger">Reject</a>
                     @endif
                 @endif
             </div>
             <div class="col-12 col-md-6 col-lg-5 text-md-right">
-                <a class="orange mr-2" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">Actions</a>
-                <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange">View Profile</a>
+                <a class="orange mr-2" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi"  data-toggle="tooltip" data-placement="bottom" title="Additional Candidate Information">Actions</a>
+                <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange"  data-toggle="tooltip" data-placement="bottom" title="View Profile, CV, about and Skills">View Profile</a>
             </div>
         </div>
     </div>
