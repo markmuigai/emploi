@@ -20,6 +20,7 @@
         "silviolleite/laravelpwa": "^1.0",
         "spatie/laravel-backup": "^6.7",
         "spatie/laravel-cookie-consent": "^2.10",
+        "spatie/laravel-honeypot": "^1.4",
         "spatie/pdf-to-text": "^1.2",
         "watson/rememberable": "^3.2"
     },

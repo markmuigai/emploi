@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <form method="POST" action="/create-account">
     @csrf
+    @honeypot
     <div id="details">
         <div class="form-group">
             <label for="fullName">Your Full Name <b style="color: red">*</b></label>

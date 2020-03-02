@@ -27,7 +27,7 @@ Route::get('/webmail', 'ContactController@webmail');
 Route::get('/cpanel', 'ContactController@cpanel');
 Route::get('/referral-credits', 'ContactController@referralCredits');
 
-Route::post('/contact', 'ContactController@save');
+Route::post('/contact', 'ContactController@save')->middleware(\Spatie\Honeypot\ProtectAgainstSpam::class);
 
 Route::get('/verify-account/{code}', 'RegisterSimpleController@verify');
 
@@ -76,7 +76,7 @@ Route::group([ 'middleware' => 'auth'], function(){
     Route::get('my-blogs','BlogController@admin');
 });
 
-Route::post('create-account', 'RegisterSimpleController@create');
+Route::post('create-account', 'RegisterSimpleController@create')->middleware(\Spatie\Honeypot\ProtectAgainstSpam::class);
 Route::get('/create-account', 'ContactController@createAcc');
 //Route::get('/create-account', function () {       return redirect('/join');    });
 

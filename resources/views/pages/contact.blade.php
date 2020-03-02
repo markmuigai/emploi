@@ -46,6 +46,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<h2 class="text-center orange">Send Us A Message</h2>
 				<form method="post" action="/contact">
 					@csrf
+					@honeypot
 					<div class="form-group">
 						<input type="text" class="form-control" name="name" placeholder="Name" onfocus="" onblur="" required="required">
 					</div>
