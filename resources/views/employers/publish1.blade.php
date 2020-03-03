@@ -44,6 +44,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </ul>
                 <div>
                     <a href="#advertise-form" class="btn orange">Post Job Advert</a>
+                    <a href="tel:0702068282" class="btn btn-orange">Call 0702 068 282</a>
                 </div>
                 
             </div>
