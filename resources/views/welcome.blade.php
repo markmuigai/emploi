@@ -470,7 +470,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 <!-- END OF FEATURED EMPLOYERS -->
 
-@include('components.ads.responsive')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            @include('components.ads.responsive')
+        </div>        
+    </div>
+</div>
 
 <!-- GET STARTED -->
 <div class="get-started">
