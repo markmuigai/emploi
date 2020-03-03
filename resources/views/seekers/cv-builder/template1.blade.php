@@ -21,7 +21,7 @@
 	display:block;
 	}
 
-	html, body {background: #500095; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+	html, body {background: white; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 	.clear {clear: both;}
 
@@ -34,9 +34,8 @@
 
 	#cv {
 		width: 90%;
-		max-width: 800px;
 		background: #f3f3f3;
-		margin: 30px auto;
+		margin: 30px auto 0 auto;
 	}
 
 	.mainDetails {
@@ -480,7 +479,7 @@
 		<section>
 			<article>
 				<div class="sectionTitle">
-					<h1>Personal Profile</h1>
+					<h1>Profile</h1>
 				</div>
 				
 				<div class="sectionContent">
@@ -493,7 +492,7 @@
 		@if(count(JSON_decode($experience)) > 0)
 		<section>
 			<div class="sectionTitle">
-				<h1>Work Experience</h1>
+				<h1>Experience</h1>
 			</div>
 			
 			<div class="sectionContent">
@@ -519,7 +518,7 @@
 		
 		<section>
 			<div class="sectionTitle">
-				<h1>Key Skills</h1>
+				<h1>Skills</h1>
 			</div>
 			
 			<div class="sectionContent">
@@ -581,6 +580,12 @@
 		@endif
 		
 	</div>
+	<p style="text-align: center;">
+		<i>
+			CV made on <a href="{{ url('/employers/services') }}">Emploi</a>
+		</i>
+		
+	</p>
 </div>
 </body>
 </html>

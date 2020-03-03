@@ -90,5 +90,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <a href="/employers/register" class="btn btn-sm btn-orange-alt px-5">Company Registration</a>
 </h5>
 
+@include('components.ads.responsive')
+
 
 @endsection
