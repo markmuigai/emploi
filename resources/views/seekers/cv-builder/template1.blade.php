@@ -21,7 +21,7 @@
 	display:block;
 	}
 
-	html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+	html, body {background: #500095; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
 
 	.clear {clear: both;}
 
