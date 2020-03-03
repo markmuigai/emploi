@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Rememberable\Rememberable;
 
 class EducationLevel extends Model
 {
+    use Rememberable;
+    public $rememberFor = 180;
+    
     protected $fillable = [
         'name', 'superior_id','inferior_id'
     ];
