@@ -73,6 +73,10 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
                 <textarea class="form-control" name="summary" required="" maxlength="300" placeholder="Briefly state what you are looking for in your next position">{{ $summary }}</textarea>
             </p>
             <p>
+                <label>Profile Picture: <small>(.jpg, .png, .jpeg ) Max 5 mb</small></label>
+                <input type="file" name="avatar" value="" class="" maxlength="50" accept=".jpg,.png,.jpeg">
+            </p>
+            <p>
                 <label>Address:</label>
                 <textarea class="form-control" name="address" required="" maxlength="300" placeholder="Home address, e.g. P.O. Box 123-00100 Nairobi GPO">{{ $address }}</textarea>
             </p>

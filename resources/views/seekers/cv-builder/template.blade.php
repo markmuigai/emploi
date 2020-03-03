@@ -82,7 +82,7 @@
 </head>
 <body>
 
-<div id="doc2" class="yui-t7">
+<div id="doc2" class="yui-t7" style="margin: none; padding: none;">
 	<div id="inner">
 	
 		<div id="hd">

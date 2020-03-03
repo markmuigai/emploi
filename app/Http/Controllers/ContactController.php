@@ -30,6 +30,7 @@ use App\Notifications\VerifyAccount;
 use App\Notifications\ContactReceived;
 use App\Notifications\JobApplied;
 use PDF;
+use Image;
 
 class ContactController extends Controller
 {
@@ -43,6 +44,10 @@ class ContactController extends Controller
 
     public function cvBuilderDownload(Request $request)
     {
+        $request->validate([
+            'avatar'    =>  ['mimes:png,jpg,jpeg','max:51200']
+        ]);
+
         $education = array();
         if (isset($request->institution_name)) {
             foreach ($request->institution_name as $key => $value) {
@@ -70,7 +75,36 @@ class ContactController extends Controller
 
         $current_position = $request->current_position ? $request->current_position : false;
 
-        return view('seekers.cv-builder.template')
+        if(isset($request->avatar))
+        {
+            $avatar = $request->file('avatar');
+            $avatar_url = time() . '.' . $avatar->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/cv-builder/'.$avatar_url;
+
+            Image::make($avatar)->resize(300, 300)->save($storage_path);
+
+            // $storage_path = '/public/avatars';
+            // $user->avatar = basename(Storage::put($storage_path, $request->avatar));
+
+            $avatar = $avatar_url;
+        }
+        else
+            $avatar = false;
+
+        $name = $request->name;
+        $email = $request->email;
+        $phone = $request->phone;
+        $summary = $request->summary;
+
+
+        $pdf = PDF::loadView('seekers.cv-builder.template1',compact(['name','email','phone','education','experience','skills','summary','current_position','avatar']));
+
+        $names = explode(" ", strtolower($request->name));
+        $names = implode("_", $names);
+
+         return $pdf->download("$names-CV.pdf");
+
+        return view('seekers.cv-builder.template1')
                 ->with('name',$request->name)
                 ->with('email',$request->email)
                 ->with('phone',$request->phone)
@@ -78,6 +112,7 @@ class ContactController extends Controller
                 ->with('experience',$experience)
                 ->with('skills',$skills)
                 ->with('summary',$request->summary)
+                ->with('avatar',$avatar)
                 ->with('current_position',$current_position);
         return $request->all();
     }
