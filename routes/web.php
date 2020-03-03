@@ -237,6 +237,7 @@ Route::get('/job-seekers/services', 'ContactController@jservices');
 Route::get('/job-seekers/faqs', 'ContactController@jobSeekerFaqs');
 Route::get('/job-seekers/cv-builder', 'ContactController@cvBuilder');
 Route::post('/job-seekers/cv-builder/download', 'ContactController@cvBuilderDownload');
+Route::get('/job-seekers/cv-builder/download', 'ContactController@cvBuilder');
 
 Route::get('/job-seekers/get-featured', 'ContactController@getFeatured');
 Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');

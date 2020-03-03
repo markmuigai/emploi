@@ -29,6 +29,7 @@ use Notification;
 use App\Notifications\VerifyAccount;
 use App\Notifications\ContactReceived;
 use App\Notifications\JobApplied;
+use PDF;
 
 class ContactController extends Controller
 {
@@ -67,6 +68,8 @@ class ContactController extends Controller
             }           
         }
 
+        $current_position = $request->current_position ? $request->current_position : false;
+
         return view('seekers.cv-builder.template')
                 ->with('name',$request->name)
                 ->with('email',$request->email)
@@ -74,7 +77,8 @@ class ContactController extends Controller
                 ->with('education',$education)
                 ->with('experience',$experience)
                 ->with('skills',$skills)
-                ->with('summary',$request->summary);
+                ->with('summary',$request->summary)
+                ->with('current_position',$current_position);
         return $request->all();
     }
     // public function testSlack(){

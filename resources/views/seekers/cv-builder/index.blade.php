@@ -25,6 +25,8 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
     $industrySkills = App\IndustrySkill::orderBy('name')->get();
     $education = $experience = null;
 
+    $current_position = '';
+
     if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' ){
         $seeker = Auth::user()->seeker;
 
@@ -40,6 +42,8 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
         $educationRecords = $seeker->education();
         $experience = $seeker->experience();
         $experienceRecords = $seeker->experience();
+
+        $current_position = $seeker->current_position;
     }
 
 ?>
@@ -137,6 +141,11 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
             <br>
             <hr>
             <h4>Work Experience</h4>
+
+            <p>
+                <label>Current Position:</label>
+                <input type="text" name="current_position" required="" value="{{ $current_position }}" class="form-control" maxlength="50">
+            </p>
 
             <div class="form-group">
                 <label for="industry">Industry *</label>
