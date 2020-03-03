@@ -55,9 +55,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
     </div>
 </form>
-<div style="width: 100%">
-    @include('components.ads.responsive')
-</div>
 <!-- JOB CARD -->
 <?php $adsCounter = 0; ?>
 @forelse($posts as $post)
@@ -151,7 +148,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <?php $adsCounter++; ?>
-@if($adsCounter % 3 == 0 || $adsCounter-1 == 0)
+@if($adsCounter % 3 == 0 || $adsCounter == 1)
 <div class="card mb-4">
     <div class="card-body">
         @include('components.ads.responsive')

@@ -129,5 +129,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <a href="/login" class="btn btn-orange px-5">Login</a>
 </h5>
 
+@include('components.ads.responsive')
+
 
 @endsection

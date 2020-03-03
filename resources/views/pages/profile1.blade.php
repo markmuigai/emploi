@@ -9,6 +9,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Profile')
 
+@include('components.ads.responsive')
+
 @if($user->role == 'seeker')
 <div class="row align-items-center">
     <div class="col-md-12 col-lg-10">
