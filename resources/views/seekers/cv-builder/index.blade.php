@@ -253,8 +253,8 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
 
             <p>
-                <input type="submit" value="Build CV" class="btn btn-orange">
-                <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;">Get Help</a>
+                <input type="submit" value="Build CV" class="btn btn-sm btn-orange">
+                <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;">Get Professional Help</a>
             </p>
 
         </form>
