@@ -330,7 +330,9 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
 
                 //Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
 
-                VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom',storage_path().'/app/public/resumes/'.$user->seeker->resume,false,false);
+                EmailJob::dispatch($name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+
+                //VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom',storage_path().'/app/public/resumes/'.$user->seeker->resume,false,false);
 
                 
 
