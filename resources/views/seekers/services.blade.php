@@ -15,7 +15,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 We provide you with seamless job placement through superior candidate selection tools that allow employers to hire very fast, Aggregated market vacancies through our Jobs board, Free and downloadable resume templates, Curated
                 expert career advice, Professional coaching and CV services.
                 <br>
-                <a href="/register" class="btn orange">Upload Your CV</a>
+                <a href="/register" class="btn btn-orange">Upload Your CV</a>
+                <a href="/checkout?product=seeker_basic" class="btn btn-orange-alt">Get Featured</a>
+                <a href="/job-seekers/cv-editing" class="btn btn-orange">Professional CV Editing</a>
             </p>
             @include('components.ads.responsive')
             <div class="row pt-5">
