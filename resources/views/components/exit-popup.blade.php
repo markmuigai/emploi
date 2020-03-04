@@ -37,6 +37,54 @@
 	</div>
 </div>
 
+<div id="seekerPackages" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #500095; color: white">
+				
+				<h4 class="modal-title">
+					Get the Most out of Emploi
+				</h4>
+				<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
+			</div>
+			<div class="modal-body">
+				<div class="card-deck">
+                    <div class="card">
+                        <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
+                        <div class="card-body">
+                            <h5 class="card-title">Basic Package</h5>
+                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/checkout?product=seeker_basic" class="btn btn-orange">Get - Ksh 49 p.m.</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="/images/logo.png" alt="Latest Vacancies">
+                        <div class="card-body">
+                            <h5 class="card-title">Featured Package</h5>
+                            <p class="card-text">
+                            	Ensure your profile appears first on employer lists, including applications and in searches, 
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">
+                                <a href="/checkout?product=featured_seeker" class="btn btn-orange-alt">Get - Ksh 159 p.m.</a>
+                            </small>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="text-align: center;">
+                	<br>
+                	<a href="{{ url('/job-seekers/cv-editing') }}" class="btn btn-sm btn-orange-alt">Get Professional CV Editing</a>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
     var exit_trials = 0;
     var role = 'guest';
@@ -63,6 +111,7 @@
     	}
     ?>
     $().ready(function(){
+    	
     	document.body.addEventListener('mouseout', function(e) {
 	        if (!e.relatedTarget && !e.toElement) {
 	        	//console.log(path);
@@ -110,6 +159,28 @@
 	            exit_trials++;
 	        }
 	    });
+	    if(path.length == 3)
+	    {
+	    	if(path[0] == 'vacancies' && path[2] == 'apply')
+	    	{
+	    		var seekerPopupCounter = localStorage.getItem("seekerPopupCounter");
+	    		var show = true;
+	    		if(seekerPopupCounter == null)
+	    		{
+	    			seekerPopupCounter = 1;
+	    			localStorage.setItem("seekerPopupCounter", seekerPopupCounter);
+	    		}
+	    		else
+	    		{
+	    			localStorage.setItem("seekerPopupCounter", ++seekerPopupCounter);
+	    		}
+	    		if(seekerPopupCounter % 2 != 0)
+	    			var show = false;
+	    		if(show)
+	    			$('#seekerPackages').modal();
+	    	}
+
+	    }
     });
     
 </script>
