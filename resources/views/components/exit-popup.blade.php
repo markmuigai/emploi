@@ -164,7 +164,6 @@
 	    	if(path[0] == 'vacancies' && path[2] == 'apply')
 	    	{
 	    		var seekerPopupCounter = localStorage.getItem("seekerPopupCounter");
-	    		var show = true;
 	    		if(seekerPopupCounter == null)
 	    		{
 	    			seekerPopupCounter = 1;
@@ -174,9 +173,7 @@
 	    		{
 	    			localStorage.setItem("seekerPopupCounter", ++seekerPopupCounter);
 	    		}
-	    		if(seekerPopupCounter % 2 != 0)
-	    			var show = false;
-	    		if(show)
+	    		if(seekerPopupCounter % 5 == 0)
 	    			$('#seekerPackages').modal();
 	    	}
 

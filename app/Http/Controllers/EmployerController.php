@@ -418,9 +418,19 @@ class EmployerController extends Controller
 
     public function viewSeeker(Request $request,$username)
     {
+        $user = User::where('username',$username)->firstOrFail();
+        if($user->role == 'seeker')
+        {
+            if(!$request->session()->has('viewed-seeker-'.$user->seeker->id))
+            {
+                $request->session()->put('viewed-seeker-'.$user->seeker->id, now());
+                $user->seeker->isBeingViewedBy(Auth::user());
+            }
+            
+        }
         if(Auth::user()->role == 'admin')
             return redirect('/admin/seekers/'.$username);
-        $user = User::where('username',$username)->firstOrFail();
+        
         return view('employers.seeker')
                 ->with('user',$user);
     }
@@ -486,7 +496,7 @@ class EmployerController extends Controller
                 break;
 
             case 'rejected':
-                $rejects = JobApplication::where('post_id',$this->id)
+                $rejects = JobApplication::where('post_id',$post->id)
                     ->distinct('user_id')
                     ->where('status','rejected')
                     ->paginate(20);
