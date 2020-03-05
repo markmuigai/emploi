@@ -17,20 +17,33 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <a href="/profile/applications" class="btn btn-sm btn-orange pull-right"><i class="fas fa-user"></i> Profile</a>
             <a href="/vacancies" class="pull-right btn btn-sm btn-purple"><i class="fas fa-briefcase"></i> Vacancies</a>
-            <p><strong>{{ $app->created_at }}</strong></p>
-
-            @include('components.ads.responsive')
-
-            <span class="pull-right">
-                @if($app->post->isShortlisted($user->seeker))
-                <p class="text-success">SHORTLISTED</p>
-                @else
-                <p>Pending</p>
-                @endif
-            </span>
+            
         </h3>
+        <p>
+            <strong>{{ $app->created_at->diffForHumans() }}</strong>
+            @if($app->user->seeker->featured != 0)
+                <?php $rsi =  $app->user->seeker->getRsi($app->post); ?>
+                <a class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="right"  title="Your Role Suitability Index for {{ $app->post->title }} is {{ $rsi }}%">RSI {{ $rsi }}%</a>
+            @else
+
+                <a href="/job-seekers/services#featured_seeker"  data-toggle="tooltip" data-placement="right"  title="Purchase Featured Package to see how your application scores">
+                    See your RSI Score <i class="fa fa-bar-chart"></i>
+                </a>
+
+            @endif
+        </p>
+
+        @include('components.ads.responsive')
+
+        <span class="pull-right">
+            @if($app->post->isShortlisted($user->seeker))
+            <p class="text-success">SHORTLISTED</p>
+            @else
+            <p>Pending</p>
+            @endif
+        </span>
         <hr>
-            <h4>Company</h4>
+            <h4>About the Company</h4>
             <a href="/companies/{{ $app->post->company->id }}">{{ $app->post->company->name }}</a>
             <a href="{{$app->post->company->website}}" class="pull-right">{{$app->post->company->website}}</a>
             <br>
