@@ -713,36 +713,36 @@ class EmployerController extends Controller
         }
     }
 
-    public function toggleShortlist(Request $request, $slug, $username){
-        $user = User::where('username',$username)->firstOrFail();
-        $post = Post::where('slug',$slug)->firstOrFail();
-        if($user->seeker->hasApplied($post))
-        {
-            $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
-            if($j->status == 'active')
-            {
-                $j->status = 'shortlisted';
-                $j->save();
-                // return view('employers.dashboard.message')
-                //     ->with('title','Added to Shortlist')
-                //     ->with('message',$user->seeker->public_name.' has been added to '.$post->title.' shortlist');
-            }
-            elseif($j->status == 'shortlisted')
-            {
-                $j->status = 'active';
-                $j->save();
-                // return view('employers.dashboard.message')
-                //     ->with('title','Removed from Shortlist')
-                //     ->with('message',$user->seeker->public_name.' has been removed from '.$post->title.' shortlist');
-            }
+    // public function toggleShortlist(Request $request, $slug, $username){
+    //     $user = User::where('username',$username)->firstOrFail();
+    //     $post = Post::where('slug',$slug)->firstOrFail();
+    //     if($user->seeker->hasApplied($post))
+    //     {
+    //         $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
+    //         if($j->status == 'active')
+    //         {
+    //             $j->status = 'shortlisted';
+    //             $j->save();
+    //             // return view('employers.dashboard.message')
+    //             //     ->with('title','Added to Shortlist')
+    //             //     ->with('message',$user->seeker->public_name.' has been added to '.$post->title.' shortlist');
+    //         }
+    //         elseif($j->status == 'shortlisted')
+    //         {
+    //             $j->status = 'active';
+    //             $j->save();
+    //             // return view('employers.dashboard.message')
+    //             //     ->with('title','Removed from Shortlist')
+    //             //     ->with('message',$user->seeker->public_name.' has been removed from '.$post->title.' shortlist');
+    //         }
 
 
-        }
-        return redirect('/employers/applications/'.$post->slug);
-        return view('employers.dashboard.message')
-            ->with('title','An Error Occurred')
-            ->with('message','An error occurred while processing your request. Please try again later');
-    }
+    //     }
+    //     return redirect('/employers/applications/'.$post->slug);
+    //     return view('employers.dashboard.message')
+    //         ->with('title','An Error Occurred')
+    //         ->with('message','An error occurred while processing your request. Please try again later');
+    // }
 
     public function toggleReject(Request $request, $slug, $username){
         $user = User::where('username',$username)->firstOrFail();
@@ -759,6 +759,10 @@ class EmployerController extends Controller
             {
                 if($j->status != 'selected')
                 {
+                    // if($user->seeker->canGetNotifications())
+                    // {
+                        
+                    // }
                     $j->status = 'rejected';
                     $j->save();
                 }

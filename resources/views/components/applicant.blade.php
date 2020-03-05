@@ -52,7 +52,7 @@
                             </span>                            
                         @endif
                         |
-                        <a href="/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}"  data-toggle="tooltip" data-placement="bottom" title="Reject Application" class="text-danger">Reject</a>
+                        <a href="#" id="reject-Application-{{ $a->id }}"  data-toggle="tooltip" data-placement="bottom" title="Reject Application" class="text-danger">Reject</a>
                     @endif
                 @endif
             </div>
@@ -64,7 +64,24 @@
     </div>
 </div>
 <script type="text/javascript">
+    <?php 
+    echo 'var notificationsEnabledFor'.$a->id.'='.$a->user->seeker->canGetNotifications().';';
+
+    ?>
     $().ready(function(){
+        $('#reject-Application-{{ $a->id }}').click(function(){
+            if(confirm('Confirm application rejection'))
+            {
+                if(notificationsEnabledFor{{ $a->id }})
+                {
+                    var message = prompt("Why are you rejecting this application?", "Candidate doesn't meet the minimum qualifications");
+                    if(message == null || message == '')
+                        return notify("Kindly specify why you are rejecting {{ $a->user->name }}'s application");
+                    return window.location = '/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}?message='+message;
+                }
+                window.location = '/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}';
+            }
+        });
         $('#shortlist-user-{{ $a->user->id }}').click(function(){
             slug = $(this).attr('slug');
             username = $(this).attr('username');
