@@ -141,10 +141,23 @@ class AdminController extends Controller
         if($username)
         {
             $user = User::where('username',$username)->firstOrFail();
-            if($user->role != 'seeker')
-                return redirect('employers/'.$user->username);
-            return view('admins.seekers.seeker')
+            
+            if($user->role == 'seeker')
+            {
+                if(!$request->session()->has('viewed-seeker-'.$user->seeker->id))
+                {
+                    $request->session()->put('viewed-seeker-'.$user->seeker->id, now());
+                    $user->seeker->isBeingViewedBy(Auth::user());
+                }
+
+                return view('admins.seekers.seeker')
                     ->with('seeker',$user->seeker);
+                
+            }
+            else
+                return redirect('employers/'.$user->username);
+
+            
         }
         if(isset($request->search))
         {
