@@ -747,6 +747,7 @@ class EmployerController extends Controller
     public function toggleReject(Request $request, $slug, $username){
         $user = User::where('username',$username)->firstOrFail();
         $post = Post::where('slug',$slug)->firstOrFail();
+        $message = isset($request->message) ? $request->message : '';
         if($user->seeker->hasApplied($post))
         {
             $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
@@ -759,12 +760,7 @@ class EmployerController extends Controller
             {
                 if($j->status != 'selected')
                 {
-                    // if($user->seeker->canGetNotifications())
-                    // {
-                        
-                    // }
-                    $j->status = 'rejected';
-                    $j->save();
+                    $j->reject($message);
                 }
 
             }
