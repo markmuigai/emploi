@@ -182,7 +182,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <p class="card-text">Beat competition to appear on top of search lists and applications</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/job-seekers/premium-placement" class="btn btn-orange">Learn More</a>
+                                        <a href="/checkout?product=featured_seeker" class="btn btn-orange">Learn More</a>
                                     </div>
                                 </div>
                                 <div class="card">
