@@ -89,12 +89,23 @@
     var exit_trials = 0;
     var role = 'guest';
     var seekerPopup = true;
+
+    var seekerFeatured = false;
+    var seekerBasic = false;
     <?php 
     	$path = url()->current();
     	$path = explode("/", $path);
     	array_shift($path);
     	array_shift($path);
     	array_shift($path);
+
+    	if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
+    	{
+    		if(Auth::user()->seeker->canGetNotifications())
+    			print 'seekerBasic = true;';
+    		if(Auth::user()->seeker->featured == 1)
+    			print 'seekerFeatured = true;';
+    	}
 
     	if(session()->has('disable-seeker-register-popup'))
     		print 'seekerPopup = false;';
@@ -173,8 +184,12 @@
 	    		{
 	    			localStorage.setItem("seekerPopupCounter", ++seekerPopupCounter);
 	    		}
-	    		if(seekerPopupCounter % 5 == 0)
-	    			$('#seekerPackages').modal();
+	    		if(seekerPopupCounter % 3 == 0 || seekerPopupCounter == 1)
+	    		{
+	    			console.log([seekerBasic,seekerFeatured]);
+	    			if(!seekerFeatured)
+	    				$('#seekerPackages').modal();
+	    		}
 	    	}
 
 	    }
