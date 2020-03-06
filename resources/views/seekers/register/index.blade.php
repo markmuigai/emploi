@@ -6,9 +6,6 @@
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('content')
-@section('user_title','Job Seeker Registration')
-
 @section('meta-include')
 <meta property="og:image" content="/images/500g.png">
 <meta property="og:image:width"   content="500" />
@@ -18,6 +15,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <meta property="og:title"         content="Let's wake up your dream" />
 <meta property="og:description"   content="Create a free job seeker account and grow your career." />
 @endsection
+
+@section('content')
+@section('user_title','Job Seeker Registration')
+
+
 
 
 <form method="POST" action="/create-account">
