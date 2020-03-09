@@ -62,7 +62,7 @@ Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::resource('/referrals', 'ReferralController');
-Route::post('/referrals/processCSV','ReferralController@processCSV')->name('processCSV');
+Route::post('/referrals/processCSV','ReferralController@processCSV');
 Route::get('/referrals/processCSV','ReferralController@processCSVRedirect');
 Route::resource('/cv-editing', 'CvEditController');
 
@@ -238,6 +238,10 @@ Route::post('/job-seekers/cv-builder/download', 'ContactController@cvBuilderDown
 Route::get('/job-seekers/cv-builder/download', 'ContactController@cvBuilder');
 
 Route::get('/job-seekers/get-featured', 'ContactController@getFeatured');
+Route::get('/jobseekers/getfeatured', 'ContactController@getFeatured');
+Route::get('/job-seekers/getfeatured', 'ContactController@getFeatured');
+Route::get('/jobseekers/get-featured', 'ContactController@getFeatured');
+
 Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');
 
 //Route::get('/employers/services', function () {      return view('employers.services');});

@@ -88,7 +88,7 @@
     </div>
 </div>
 <!-- END OF INVITE FRIEND MODAL -->
-<form action="{{ route('processCSV') }}" method="POST" enctype="multipart/form-data" style="display: none;" id="attachedCSVForm">
+<form action="/referrals/processCSV" method="POST" enctype="multipart/form-data" style="display: none;" id="attachedCSVForm">
     @csrf
     <input type="file" name="csv" id="attachedCSV" accept=".csv" required=""  onchange="">
 

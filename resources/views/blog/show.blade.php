@@ -62,12 +62,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @endif
             <hr>
             <p>
-                <i class="fas fa-share-alt"></i>
-                Share:
-                <a href="{{ $blog->shareFacebookLink }}" rel="noreferrer" target="_blank" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
-                <a href="{{ $blog->shareTwitterLink }}" rel="noreferrer" target="_blank" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
-                <a href="{{ $blog->shareLinkedinLink }}" rel="noreferrer" target="_blank" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
-                <a href="{{ $blog->shareWhatsappLink }}" rel="noreferrer" data-action="share/whatsapp/share" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
+                <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}" style="float: left;"><i class="fas fa-share-alt"></i> Share</button>
+                @include('components.share-modal')
 
                 <span style="float: right;">
                     <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
@@ -98,10 +94,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     
 
                     @endguest
-                    <div class="fb-comments" data-href="(( url('/blog/'.$blog->title) ))" data-width="100%" data-numposts="6">
-                    </div>
+                    
                 </span>
             </p>
+            <div class="fb-comments" data-href="(( url('/blog/'.$blog->title) ))" data-width="100%" data-numposts="6">
+            </div>
         </div>
     </div>
 </div>

@@ -169,7 +169,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<textarea class="form-control" placeholder="Optional message " maxlength="500" name="message">{{ old('message') }}</textarea>
 			</p>
 			<p>
-				<input type="submit" class="btn btn-success">
+				<input type="submit" class="btn btn-success" value="Request Service">
+				<a href="#charges" style="float: right;" class="btn btn-orange-alt">View Pricing</a>
 			</p>
 		</form>
 	</div>
