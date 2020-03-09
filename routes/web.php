@@ -272,8 +272,7 @@ Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
     Route::post('create-admin', 'SuperAdminController@saveAdmin');
     Route::get('enable-admin', 'SuperAdminController@enable');
     Route::get('disable-admin', 'SuperAdminController@disable');
-   /* Route::get('documentation/{endpoint?}',  'SuperAdminController@document');*/
-    Route::resource('documentation', 'DocumentationController');
+    Route::get('documentation/{endpoint?}',  'SuperAdminController@document');
     Route::post('documentation/search','DocumentationController@search')->name('search');
 });
 
