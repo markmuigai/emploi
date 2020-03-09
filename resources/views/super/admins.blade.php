@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Emploi Administrators')
 <div class="card">
     <div class="card-body">
-
+   <!--   <a href="documentation" class="btn btn-green px-3">Documentation<strong class="caret"></strong></a>
             <div class="dropdown">
                 <a href="#" class="btn btn-green px-3" data-toggle="dropdown">Documentation<strong class="caret"></strong></a>
                 <ul class="dropdown-menu">
@@ -20,7 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <li><a href="documentation/views" >Views</a></li>
                     <li><a href="documentation/rsi" >RSI</a></li>
                 </ul>
-            </div>
+            </div> -->
         <div class="text-right">            
             <a href="/desk/create-admin" class="btn btn-sm btn-orange pull-right">Create Administrators</a>
         </div>

@@ -143,7 +143,7 @@
                         Super Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <!-- <a class="dropdown-item" href="/desk/documentation">Documentation</a> -->
+                       <!--  <a class="dropdown-item" href="/desk/documentation">Documentation</a> -->
                         <a class="dropdown-item" href="/desk/create-admin">Create Admins</a>
                         <a class="dropdown-item" href="/desk/admins">Manage Admins</a>
                     </div>
