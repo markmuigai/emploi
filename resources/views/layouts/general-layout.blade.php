@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="preload">
 
     <!-- JQuery -->
-    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8" async defer></script>
+    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
 
 </head>
 <body>
