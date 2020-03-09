@@ -179,10 +179,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
                                     <div class="card-body">
                                         <h5 class="card-title">Featured Jobseeker</h5>
-                                        <p class="card-text">Beat competition to appear on top of search lists and applications</p>
+                                        <p class="card-text">Have your profile rank first in applications and searches. Includes Application updates</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/checkout?product=featured_seeker" class="btn btn-orange">Learn More</a>
+                                        <a href="/job-seekers/services" class="btn btn-orange">Learn More</a>
                                     </div>
                                 </div>
                                 <div class="card">

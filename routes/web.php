@@ -240,6 +240,10 @@ Route::post('/job-seekers/cv-builder/download', 'ContactController@cvBuilderDown
 Route::get('/job-seekers/cv-builder/download', 'ContactController@cvBuilder');
 
 Route::get('/job-seekers/get-featured', 'ContactController@getFeatured');
+Route::get('/jobseekers/getfeatured', 'ContactController@getFeatured');
+Route::get('/job-seekers/getfeatured', 'ContactController@getFeatured');
+Route::get('/jobseekers/get-featured', 'ContactController@getFeatured');
+
 Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');
 
 //Route::get('/employers/services', function () {      return view('employers.services');});

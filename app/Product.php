@@ -15,7 +15,7 @@ class Product extends Model
     }
 
     public function getPrice(){
-        return 'Ksh '.$this->price;
+        return 'Ksh '.round($this->price);
     }
 
     public static function generateUniqueSlug($length = 20) {

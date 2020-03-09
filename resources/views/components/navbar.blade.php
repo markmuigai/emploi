@@ -157,10 +157,10 @@
                 </li> -->
                 @else
                 <li class="nav-item">
-                    <a href="/login" class="btn btn-white px-3">Login</a>
+                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-white px-3">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/join" class="btn btn-orange px-3">Register</a>
+                    <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange px-3">Register</a>
                 </li>
                 @endif
                 <li class="nav-item">
