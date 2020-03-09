@@ -19,7 +19,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="preload">
 
-   
+    <!-- JQuery -->
+    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8" async defer></script>
 
 </head>
 <body>
@@ -103,21 +104,20 @@
     @include('components.vue')
     <script src="{{ asset('js/online-monitor-2.js') }}" async="" defer=""></script>
     @include('components.exit-popup')
-</body>
- <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
+
+    <!-- SCRIPTS -->
+    
     <!-- Popper -->
-    <script src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
+    <script src="{{asset('js/popper.min.js')}}" charset="utf-8" ></script>
     <!-- Bootstrap -->
-    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
+    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"  async defer></script>
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"  async defer></script>
     <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
     <!-- CountUp JS -->
-    <script src="{{asset('js/jquery.countup.js')}}"></script>
+    <script src="{{asset('js/jquery.countup.js')}}" ></script>
     <!-- Succinct JS -->
-    <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
+    <script src="{{asset('js/jQuery.succinct.min.js')}}" ></script>
     <!-- <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -128,11 +128,13 @@
         }
     </script> -->
     <!-- Notify JS Notifications -->
-    <script src="{{asset('js/notify.min.js')}}"></script>
-    <script src="{{asset('js/emploi-notify.js')}}"></script>
+    <script src="{{asset('js/notify.min.js')}}" ></script>
+    <script src="{{asset('js/emploi-notify.js')}}" ></script>
     <!-- Slick JS -->
     <script src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->
-    <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{asset('js/custom.js')}}" ></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+</body>
+ 
 </html>
