@@ -90,7 +90,8 @@ Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
 
 });
 Route::get('/employers/register', 'EmployerController@register');
-Route::post('/employers/register', 'EmployerController@create');
+Route::post('/employers/registered', 'EmployerController@create');
+Route::get('/employers/registered', 'EmployerController@register');
 
 //Route::get('/employers/publish', function () {			    	return view('employers.publish');		});
 
