@@ -53,15 +53,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/test', 'HomeController@test')->name('test');
 Route::get('profile/add-referee', 'HomeController@addReferee');
 Route::post('profile/add-referee', 'HomeController@saveReferee');
-
 Route::get('/referees/{slug}', 'RefereeController@assess');
 Route::post('/referees/{slug}/save', 'RefereeController@saveAssessment');
-
 Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 
 
 Route::resource('/blog', 'BlogController');
-Route::post('/blog/comment/{id}','BlogController@comment')->middleware('auth');
 Route::resource('companies', 'CompanyController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::resource('/referrals', 'ReferralController');

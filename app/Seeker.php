@@ -116,7 +116,7 @@ class Seeker extends Model
             elseif($this->age && $this->age < 18)
             {
                 $opportunities = true;
-                $messages[] = "The age you indicated is below 18. Kindly ensure this is correct as it may reduce your hirablity."; 
+                $messages[] = "The age you indicated is below 18. Kindly ensure this is correct as it may reduce your hireability."; 
             }
             if(!$this->phone_number)
             {
@@ -147,7 +147,7 @@ class Seeker extends Model
             
             if($opportunities)
             {
-                $contents .= "<br>We have some suggestions that may increase your hirablity: <ol>";
+                $contents .= "<br>We have some suggestions that may increase your hireability: <ol>";
                 for($i=0; $i<count($messages); $i++)
                     $contents .= "<li>".$messages[$i]."</li>";
                 $contents .= "</ol>";
