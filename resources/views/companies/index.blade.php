@@ -41,7 +41,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         $adsCounter++;
     ?>
     @if($adsCounter %3 == 0)
-    @include('components.ads.responsive')
+    <div class="col-lg-12 col-md-12 col-12">
+        @include('components.ads.responsive')
+    </div>
     @endif
     
     @empty
