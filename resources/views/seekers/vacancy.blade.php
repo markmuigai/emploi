@@ -107,6 +107,9 @@
                         <div>
                             <?php echo $post->responsibilities; ?>
                         </div>
+                        <div style="width: 100%">
+                            @include('components.ads.responsive')
+                        </div>
                     </div>
                 </div>
                 <!-- END OF JOB CARD -->

@@ -15,12 +15,16 @@ use App\JobApplicationReferee;
 use App\Post;
 use App\ProductOrder;
 use App\SeekerSkill;
+use App\User;
+
+use Watson\Rememberable\Rememberable;
+use App\Jobs\EmailJob;
 
 
 class Seeker extends Model
 {
-
-    use Notifiable; 
+    use Rememberable, Notifiable;
+    public $rememberFor = 20;
     
     protected $fillable = [
         'user_id','public_name', 'gender', 'date_of_birth', 'phone_number','current_position','post_address','years_experience','industry_id','country_id','location_id','education_level_id','objective','resume','featured','education','experience','resume_contents','searching','created_at'
@@ -55,30 +59,111 @@ class Seeker extends Model
         return false;
     }
 
-    // public static function enableFeaturedUserByUserId($user_id){
-    //     $seeker = Seeker::where('user_id',$user_id)->first();
-    //     if(isset($seeker->id))
-    //     {
-    //         $seeker->featured = 1;
-    //         return $seeker->save();
-    //     }
-    //     return false;
-    // }
-
     public function testFeatured(){
-        // $orders = Order::where('user_id',$this->user->id)->get();
-        // $products = [];
-        // $featured = false;
-        // for ($i=0; $i < count($orders); $i++) { 
-        //     $order = $orders[$i];
-        //     if($order->invoice->paid)
-        //     {
-        //         for ($k=0; $k < count($order->productOrders); $k++) { 
-        //             $p = $order->productOrders[$k];
-        //             array_push($products, $p);
-        //         }
-        //     }
-        // }
+        // 
+    }
+
+    public function isBeingViewedBy(User $user){
+        if($this->canGetNotifications())
+        {
+            $jobs = [];
+            if($user->role == 'admin')
+            {
+                $caption = "An recruiter on Emploi has viewed your profile";
+                $contents = $user->name.", an Emploi Recruitor, has viewed your profile, and may consider you for positions they are recruiting internally or for clients. ";
+            }
+            elseif($user->role == 'employer')
+            {
+                $caption = "An employer on Emploi has viewed your profile";
+                //employer profile
+                $contents = $user->name.", an Employer, has viewed your profile, and may consider you for positions they are recruiting. ";
+            }
+            else
+                return false;
+
+            
+
+            $opportunities = false;
+            $messages = [];
+
+            if($this->featured == 0)
+            {
+                $opportunities = true;
+                $messages[] = "Get featured on Emploi. Let your name be seen by ranking higher in applications and searches."; 
+                
+            }
+            if(!$this->resume)
+            {
+                $opportunities = true;
+                $messages[] = "<b style='color: red'>You have not attached a Resume!</b> Without a resume, recruiters and employers disregard your profile. Your profile will also be harder to find and your Role Suitability Score for applications you make is affected negatively."; 
+                
+            }
+            else
+            {
+                $days_since = Carbon::parse($this->updated_at)->diff(Carbon::now())->days;
+                if($days_since > 30)
+                {
+                    $opportunities = true;
+                    $messages[] = "<b>You have an old Resume!</b> Your Resume was uploaded $days_since ago, and it is important to update it. Include new achievements and check if outdated information is present."; 
+                }
+            }
+            if(!$this->age)
+            {
+                $opportunities = true;
+                $messages[] = "You have not indicated your age on Emploi. This is crucial as HR personnel are keen on age when hiring."; 
+                
+            }
+            elseif($this->age && $this->age < 18)
+            {
+                $opportunities = true;
+                $messages[] = "The age you indicated is below 18. Kindly ensure this is correct as it may reduce your hirablity."; 
+            }
+            if(!$this->phone_number)
+            {
+                $opportunities = true;
+                $messages[] = "You have not indicated a valid phone number on your profile. Include this so you can be reached easily."; 
+                
+            }
+            if(!$this->years_experience)
+            {
+                $opportunities = true;
+                $messages[] = "You have not indicated your total experience duration. Recruiters are in a rush and want to assess you quickly."; 
+                
+            }
+
+            if(!$this->location_id)
+            {
+                $opportunities = true;
+                $messages[] = "Your current location is not indicated on your profile."; 
+                
+            }
+
+            if(!$this->searching != 1)
+            {
+                $opportunities = true;
+                $messages[] = "Your <b>profile indicates you are not looking for a job</b>, change this setting to searching to be considered for positions."; 
+                
+            }
+            
+            if($opportunities)
+            {
+                $contents .= "<br>We have some suggestions that may increase your hirablity: <ol>";
+                for($i=0; $i<count($messages); $i++)
+                    $contents .= "<li>".$messages[$i]."</li>";
+                $contents .= "</ol>";
+            }
+
+            $contents .= "<br> We offer <a href='".url('/job-seekers/cv-editing')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
+            
+            //return $contents;
+
+
+
+            //shortlisting jobs, focus on applied
+            
+            
+            EmailJob::dispatch($this->user->name, $this->user->email, 'Profile Viewed', $caption, $contents);
+        }
     }
 
     public function canGetNotifications(){

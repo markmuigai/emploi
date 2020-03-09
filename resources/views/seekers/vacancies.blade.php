@@ -55,9 +55,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
     </div>
 </form>
-<div style="width: 100%">
-    @include('components.ads.responsive')
-</div>
 <!-- JOB CARD -->
 <?php $adsCounter = 0; ?>
 @forelse($posts as $post)
@@ -72,18 +69,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </a>
                     </div>
                     <div class="col-8">
-                        <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->getTitle() }}</a></h4>
+                        <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->getTitle() }}</a> 
+                            @if($post->featured == 'true')
+                                @if(now()->diffInDays($post->created_at) > 10)
+                                    <span class="badge badge-success">FEATURED</span>
+                                @else
+                                    <span class="badge badge-primary">NEW</span>
+                                @endif
+                            @endif
+                        </h4>
                         <a href="/companies/{{$post->company->name}}/" class="text-success">{{ $post->company->name }}</a>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                         <p>
                             <a href="/vacancies/{{ $post->vacancyType->slug  }}" title="View {{ $post->vacancyType->name }} jobs">
                                 <span class="badge {{ $post->vacancyType->badge }}">
-                                    @if($post->featured == 'true')
-                                        <b>Featured </b> {{ $post->vacancyType->name }} <b> Job </b>
-                                    @else
-                                        {{ $post->vacancyType->name }}
-                                    @endif
                                     
+
+                                    {{ $post->vacancyType->name }}
+
                                 </span>
                             </a>
                             
@@ -121,16 +124,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row justify-content-between align-items-center">
             <div class="col-12 col-md-6 col-lg-4">
                 <p>
-                    {{-- @if($post->isActive) --}}
-                    <i class="fas fa-share-alt"></i>
-                    Share:
-                    <a href="{{ $post->shareFacebookLink }}" target="_blank"  rel="noreferrer" class="ml-1"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ $post->shareTwitterLink }}" target="_blank"  rel="noreferrer" class="ml-1"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ $post->shareLinkedinLink }}" target="_blank"  rel="noreferrer" class="ml-1"><i class="fab fa-linkedin"></i></a>
-                    <a href="{{ $post->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank"  rel="noreferrer"><i class="fab fa-whatsapp"></i></a>
-                    {{-- @else
-                    <span>Sharing Disabled</span>
-                    @endif --}}
+                    @include('components.post-share-modal')
+                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $post->id }}"><i class="fas fa-share-alt"></i> Share</button>
+
                 </p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 job-actions">
@@ -151,7 +147,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <?php $adsCounter++; ?>
-@if($adsCounter % 3 == 0)
+@if($adsCounter % 3 == 0 || $adsCounter == 1)
 <div class="card mb-4">
     <div class="card-body">
         @include('components.ads.responsive')

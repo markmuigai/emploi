@@ -61,6 +61,8 @@ if(isset($name))
         </p>
     </div>
     @endif
+
+    @include('components.ads.responsive')
 </div>
 
 @endsection

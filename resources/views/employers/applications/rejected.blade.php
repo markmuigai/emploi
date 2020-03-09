@@ -19,7 +19,7 @@ $last_rsi = [];
         <a class="nav-link " id="#" href="/employers/applications/{{ $post->slug }}" >All ({{ count($post->applications) }})</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="#"  data-toggle="tab" href="/employers/applications/{{ $post->slug }}/shortlisted">Shortlisted ({{ count($post->shortlisted) }})</a>
+        <a class="nav-link" id="#"  href="/employers/applications/{{ $post->slug }}/shortlisted">Shortlisted ({{ count($post->shortlisted) }})</a>
     </li>
     <li class="nav-item">
         <a class="nav-link " href="/employers/applications/{{ $post->slug }}/selected">Selected ({{ count($post->selected) }})</a>

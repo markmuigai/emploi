@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Contact;
 use App\Invoice;
 use App\Order;
 use App\Product;
@@ -32,7 +33,7 @@ class PesapalController extends Controller
 
         if(isset($request->createInvoice))
         {
-            
+            $product = Product::where('slug',session('product'))->firstOrFail();
             $user = false;
             if(isset(Auth::user()->id))
             {
@@ -44,6 +45,14 @@ class PesapalController extends Controller
             }
             if(!isset($user->id))
             {
+                $request->session()->put('returnToUrl', url('/checkout'));
+                Contact::create([
+                    'code' => User::generateRandomString(20),
+                    'name'  => $request->first_name .' '. $request->last_name,
+                    'phone_number' => isset($request->phone_number) ? $request->prefix.$request->phone_number : null , 
+                    'email' => $request->email,
+                    'message' => 'SYSTEM_GENERATED_CONTACT: '.$request->name." wants to purchase ".$product->name
+                ]);
                 return view('pesapal.error')
                     ->with('title','Account not registered')
                     ->with('message','The e-mail address provided was not linked to a registered account. Kindly create an account as a job seeker or employer. <br> <a href="/join?returnToUrl='.url('/checkout').'" class="btn orange">Create Account</a>.');

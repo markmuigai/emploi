@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>{{ $name }} | Web Designer, Director | {{ $email }}</title>
+	<title>{{ $name }} {{ $current_position ? ' | '.$current_position.' | ' : '' }} {{ $email }}</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 	<meta name="keywords" content="" />
@@ -78,24 +78,25 @@
 		.yui-gf .yui-u{width:80.2%;}
 		.yui-gf div.first{width:12.3%;}
 	</style>
-	<link rel="stylesheet" type="text/css" href="resume.css" media="all" />
 
 </head>
 <body>
 
-<div id="doc2" class="yui-t7">
+<div id="doc2" class="yui-t7" style="margin: none; padding: none;">
 	<div id="inner">
 	
 		<div id="hd">
 			<div class="yui-gc">
 				<div class="yui-u first">
 					<h1>{{ $name }}</h1>
-					<h2>Web Designer, Director</h2>
+					@if($current_position)
+					<h2>{{ $current_position }}</h2>
+					@endif
 				</div>
 
 				<div class="yui-u">
 					<div class="contact-info">
-						<h3><a id="pdf" href="tel:{{ $phone }}">{{ $phone }}</a></h3>
+						<h3><a id="pdf" href="tel:{{ $phone }}">Curriculumn Vitae</a></h3>
 						<h3><a href="mailto:{{ $email }}">{{ $email }}</a></h3>
 						<h3>{{ $phone }}</h3>
 					</div><!--// .contact-info -->
@@ -118,6 +119,8 @@
 						</div>
 					</div><!--// .yui-gf -->
 
+					@if(count(JSON_decode($experience)) > 0)
+
 					<div class="yui-gf">
 	
 						<div class="yui-u first">
@@ -126,39 +129,94 @@
 
 						<div class="yui-u">
 
-							<div class="job">
-								<h2>Facebook</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
-							</div>
+							<?php
+							$experience = JSON_decode($experience);
+
+							?>
+
+							@foreach($experience as $e)
 
 							<div class="job">
-								<h2>Apple Inc.</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits. </p>
+								<h2>{{ $e[0] }}</h2>
+								<h3>{{ $e[1] }}</h3>
+								<h4>{{ $e[2] }} &mdash; {{ $e[3] }}</h4>
+								<p>{{ $e[4] }}</p>
 							</div>
 
-							<div class="job">
-								<h2>Microsoft</h2>
-								<h3>Principal and Creative Lead</h3>
-								<h4>2004-2005</h4>
-								<p>Intrinsicly transform flexible manufactured products without excellent intellectual capital. Energistically evisculate orthogonal architectures through covalent action items. Assertively incentivize sticky platforms without synergistic materials. </p>
-							</div>
+							@endforeach
 
-
-							<div class="job last">
-								<h2>International Business Machines (IBM)</h2>
-								<h3>Lead Web Designer</h3>
-								<h4>2001-2004</h4>
-								<p>Globally re-engineer cross-media schemas through viral methods of empowerment. Proactively grow long-term high-impact human capital and highly efficient innovation. Intrinsicly iterate excellent e-tailers with timely e-markets.</p>
-							</div>
+							
 
 						</div><!--// .yui-u -->
 					</div><!--// .yui-gf -->
 
-					@if(count($referees)>0)
+					@endif
+
+
+					
+
+					@if(count($skills)>0)
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+						<div class="yui-u">
+							<?php 
+								$lasti = 0;
+								$rskills = array_chunk($skills, 3);
+								for($k=0; $k<count($rskills); $k++)
+								{
+									$cskills = $rskills[$k];
+									for($i =0;$i<count($cskills); $i++)
+									{
+										$skill = $cskills[$i];
+										if($i == 0 )
+										{
+											print '<ul class="talent">';
+										}
+										// if($i==0)
+										// 	print '<ul class="talent">';
+										print '<li>'.$skill->name.'</li>';
+										// if($i%3 == 0)
+										// 	print '</ul>';
+										// if(count($skills)-1 > $i)
+										// 	print '<ul class="talent">';
+										// $lasti++;
+									}
+									// if($i%3 != 0)
+									print '</ul>';
+								}
+								
+
+							?>
+						</div>
+					</div><!--// .yui-gf-->
+
+					@endif
+
+
+					@if(count(JSON_decode($education)) > 0)
+
+					<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						<?php
+						$records = JSON_decode($education);
+						?>
+						@foreach($records as $record)
+						<div class="yui-u" style="margin-bottom: 1em">
+							<h2>{{ $record[0] }}</h2>
+							<h3>{{ $record[1] }} &mdash; <strong>{{ $record[2] }}</strong> </h3>
+						</div>
+						@endforeach
+					</div><!--// .yui-gf -->
+
+
+					@endif
+
+					@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && count(Auth::user()->seeker->referees) > 0)
 
 					<div class="yui-gf">
 						<div class="yui-u first">
@@ -183,47 +241,6 @@
 						</div>
 					</div><!--// .yui-gf -->
 					@endif
-
-					@if(count($skills)>0)
-
-					<div class="yui-gf">
-						<div class="yui-u first">
-							<h2>Skills</h2>
-						</div>
-						<div class="yui-u">
-							<?php 
-								$lasti = 0;
-								for($i =0;$i<count($skills); $i++)
-								{
-									if($i==0)
-										print '<ul class="talent">';
-									print '<li>'.$skills[$i]->skill->name.'</li>';
-									if($i%3 == 0)
-										print '</ul>';
-									if(count($skills)-1 > $i)
-										print '<ul class="talent">';
-									$lasti++;
-								}
-								if($i%3 != 0)
-									print '</ul>';
-
-							?>
-						</div>
-					</div><!--// .yui-gf-->
-
-					@endif
-
-
-
-					<div class="yui-gf last">
-						<div class="yui-u first">
-							<h2>Education</h2>
-						</div>
-						<div class="yui-u">
-							<h2>Indiana University - Bloomington, Indiana</h2>
-							<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
-						</div>
-					</div><!--// .yui-gf -->
 
 
 				</div><!--// .yui-b -->

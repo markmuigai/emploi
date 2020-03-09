@@ -24,7 +24,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="col-lg-6">
         <div class="card my-2">
             <div class="card-body">
-                <h4>{{ $app->post->title }}</h4>
+                <h4>
+                    {{ $app->post->title }}
+
+                </h4>
                 <h6 class="orange">
                   <a href="/companies/{{ $app->post->company->name }}">
                     {{ $app->post->company->name }}
@@ -35,9 +38,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-6">
                         <p>{{ $app->post->monthlySalary() }}</p>
                         @if($app->post->isShortlisted($user->seeker))
-                        <p class="text-success">Shortlisted</p>
+                        <span class="text-success">Shortlisted</span>
                         @else
-                        <p class="text-primary">Pending</p>
+                        <span class="text-primary">Pending</span>
+                        @endif
+
+                        @if($app->user->seeker->featured != 0)
+                            <?php $rsi =  $app->user->seeker->getRsi($app->post); ?>
+                            <a class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="right"  title="Your Role Suitability Index for {{ $app->post->title }} is {{ $rsi }}%">RSI {{ $rsi }}%</a>
+                        @else
+                            <a class="fa fa-bar-chart" href="/job-seekers/services#featured_seeker"  data-toggle="tooltip" data-placement="right"  title="Purchase Featured Package to see how your application scores"></a>
+
                         @endif
                     </div>
                     <div class="col-6 text-md-right text-left">

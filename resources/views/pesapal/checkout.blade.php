@@ -45,6 +45,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					@endguest
 					
 				</ul>
+				<hr>
+				<p style="text-align: center;">
+					<a href="#similar-products" class="btn btn-orange-alt">View Other Packages</a>
+				</p>
+				
 			</div>
 			<div class="col-md-7 order-md-1">
 				<form method="POST" action="/checkout">
@@ -123,6 +128,138 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 				<?php echo $product->description; ?>
 			</div>
+			<br id="similar-products">
+
+			@if($product->slug == 'seeker_basic')
+
+
+				<div class="col-md-10 offset-md-1">
+					<hr>
+					<?php $p2 = \App\Product::where('slug','featured_seeker')->first(); ?>
+	      			<br>
+					<h4>
+						{{ $p2->title }}
+						<a href="/checkout?product=featured_seeker" class="btn btn-orange-alt" style="float: right;">Get</a>
+					</h4>
+
+					<?php echo $p2->description; ?>
+					<br>
+					<a href="/checkout?product=featured_seeker" class="btn btn-orange">Get Package</a>
+				</div>
+
+			@endif
+
+			@if($product->slug == 'featured_seeker')
+
+
+				<div class="col-md-10 offset-md-1">
+					<hr>
+					<?php $p2 = \App\Product::where('slug','seeker_basic')->first(); ?>
+	      			<br>
+					<h4>
+						{{ $p2->title }}
+						<a href="/checkout?product=seeker_basic" class="btn btn-orange-alt" style="float: right;">Get</a>
+					</h4>
+
+					<?php echo $p2->description; ?>
+					<br>
+					<a href="/checkout?product=seeker_basic" class="btn btn-orange">Get Package</a>
+					<span style="float: right;">{{ $p2->getPrice() }}</span>
+				</div>
+
+			@endif
+
+			@if($product->slug == 'solo')
+
+				@foreach(['solo_plus','infinity','stawi'] as $pkg)
+
+				<div class="col-md-10 offset-md-1">
+					<hr>
+					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
+	      			<br>
+					<h4>
+						{{ $p2->title }}
+						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+					</h4>
+
+					<?php echo $p2->description; ?>
+					<br>
+					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<span style="float: right;">{{ $p2->getPrice() }}</span>
+				</div>
+
+				@endforeach
+
+			@endif
+
+			@if($product->slug == 'solo_plus')
+
+				@foreach(['solo','infinity','stawi'] as $pkg)
+
+				<div class="col-md-10 offset-md-1">
+					<hr>
+					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
+	      			<br>
+					<h4>
+						{{ $p2->title }}
+						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+					</h4>
+
+					<?php echo $p2->description; ?>
+					<br>
+					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<span style="float: right;">{{ $p2->getPrice() }}</span>
+				</div>
+
+				@endforeach
+
+			@endif
+
+			@if($product->slug == 'infinity')
+
+				@foreach(['solo','solo_plus','stawi'] as $pkg)
+
+				<div class="col-md-10 offset-md-1">
+					<hr>
+					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
+	      			<br>
+					<h4>
+						{{ $p2->title }}
+						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+					</h4>
+
+					<?php echo $p2->description; ?>
+					<br>
+					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<span style="float: right;">{{ $p2->getPrice() }}</span>
+				</div>
+
+				@endforeach
+
+			@endif
+
+			@if($product->slug == 'stawi')
+
+				@foreach(['solo','solo_plus','infinity'] as $pkg)
+
+				<div class="col-md-10 offset-md-1">
+					<hr>
+					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
+	      			<br>
+					<h4>
+						{{ $p2->title }}
+						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+					</h4>
+
+					<?php echo $p2->description; ?>
+					<br>
+					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<span style="float: right;">{{ $p2->getPrice() }}</span>
+				</div>
+
+				@endforeach
+
+			@endif
       	</div>
     </div>
 </div>

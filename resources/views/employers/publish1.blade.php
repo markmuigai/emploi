@@ -32,8 +32,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <div class="top-bg"></div>
 <div class="container pb-0 pb-lg-4 ">
     <div class="row">
-        <div class="row col-md-12">
-            <div class="col-md-5 advert-details mt-1" style="background-color: white; color: #000000; border-radius: 5%; border-bottom: 0.1em solid black; border-top: 0.1em solid black ">
+        <div class=" col-md-12 row" >
+            <div class="col-md-5 advert-details mt-1" style="background-color: white; color: #000000; border-radius: 5%; border-bottom: 0.1em solid black; border-top: 0.1em solid black; overflow: hidden;">
                 <h2 class="orange ">
                     Advertise on Emploi
                 </h2>
@@ -43,12 +43,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     <li>Candidate Ranking Algorithm</li>
                 </ul>
                 <div>
-                    <a href="#advertise-form" class="btn orange">Post Job Advert</a>
+                    <a href="#advertise-form" class="btn btn-sm orange">Post Job</a>
+                    <a href="tel:0702068282" class="btn btn-sm btn-orange">Call 0702 068 282</a>
                 </div>
                 
             </div>
 
-            <div class="col-md-10 offset-md-1 row ">
+            <div class="col-md-12 row ">
                 <div class="col-md-12">
                     <br>
                     <iframe class="col-md-12" style="border: none; margin-bottom: none; height: 55vh;" 
@@ -57,7 +58,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     <br>
                 </div>
                 
-                <div class="col-md-10 offset-md-1 row">
+                <div class="col-md-12  row">
                     <div class="col-md-5" style="width: 49%; float: right;">
                         <h5>Advertising Features</h5>
                         <ul class="feature_list">

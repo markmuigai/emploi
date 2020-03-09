@@ -29,6 +29,8 @@ use Notification;
 use App\Notifications\VerifyAccount;
 use App\Notifications\ContactReceived;
 use App\Notifications\JobApplied;
+use PDF;
+use Image;
 
 class ContactController extends Controller
 {
@@ -42,6 +44,10 @@ class ContactController extends Controller
 
     public function cvBuilderDownload(Request $request)
     {
+        $request->validate([
+            'avatar'    =>  ['mimes:png,jpg,jpeg','max:51200']
+        ]);
+
         $education = array();
         if (isset($request->institution_name)) {
             foreach ($request->institution_name as $key => $value) {
@@ -67,14 +73,47 @@ class ContactController extends Controller
             }           
         }
 
-        return view('seekers.cv-builder.template')
+        $current_position = $request->current_position ? $request->current_position : false;
+
+        if(isset($request->avatar))
+        {
+            $avatar = $request->file('avatar');
+            $avatar_url = time() . '.' . $avatar->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/cv-builder/'.$avatar_url;
+
+            Image::make($avatar)->resize(300, 300)->save($storage_path);
+
+            // $storage_path = '/public/avatars';
+            // $user->avatar = basename(Storage::put($storage_path, $request->avatar));
+
+            $avatar = $avatar_url;
+        }
+        else
+            $avatar = false;
+
+        $name = $request->name;
+        $email = $request->email;
+        $phone = $request->phone;
+        $summary = $request->summary;
+
+
+        $pdf = PDF::loadView('seekers.cv-builder.template1',compact(['name','email','phone','education','experience','skills','summary','current_position','avatar']));
+
+        $names = explode(" ", strtolower($request->name));
+        $names = implode("_", $names);
+
+         return $pdf->download("$names-CV.pdf");
+
+        return view('seekers.cv-builder.template1')
                 ->with('name',$request->name)
                 ->with('email',$request->email)
                 ->with('phone',$request->phone)
                 ->with('education',$education)
                 ->with('experience',$experience)
                 ->with('skills',$skills)
-                ->with('summary',$request->summary);
+                ->with('summary',$request->summary)
+                ->with('avatar',$avatar)
+                ->with('current_position',$current_position);
         return $request->all();
     }
     // public function testSlack(){
@@ -291,7 +330,9 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
 
                 //Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
 
-                VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom',storage_path().'/app/public/resumes/'.$user->seeker->resume,false,false);
+                EmailJob::dispatch($name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+
+                //VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom',storage_path().'/app/public/resumes/'.$user->seeker->resume,false,false);
 
                 
 

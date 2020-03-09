@@ -11,6 +11,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @include('components.social-auth')
 
+
+
 <form method="post" action="{{ route('login') }}">
     @csrf
     @error('email')
@@ -62,6 +64,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <h5 class="mt-4">Don't have an account?
     <a href="/join" class="btn btn-orange px-5">Sign Up</a>
 </h5>
+
+@include('components.ads.responsive')
 
  <script> 
     // Change the type of input to password or text 

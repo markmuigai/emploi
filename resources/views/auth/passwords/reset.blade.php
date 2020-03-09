@@ -9,6 +9,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('user_title','Reset Password')
 
+@include('components.ads.responsive')
+
 <form method="POST" action="{{ route('password.update') }}">
     @csrf
 

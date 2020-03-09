@@ -25,6 +25,8 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
     $industrySkills = App\IndustrySkill::orderBy('name')->get();
     $education = $experience = null;
 
+    $current_position = '';
+
     if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' ){
         $seeker = Auth::user()->seeker;
 
@@ -40,6 +42,8 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
         $educationRecords = $seeker->education();
         $experience = $seeker->experience();
         $experienceRecords = $seeker->experience();
+
+        $current_position = $seeker->current_position;
     }
 
 ?>
@@ -67,6 +71,10 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
             <p>
                 <label>Profile Summary:</label>
                 <textarea class="form-control" name="summary" required="" maxlength="300" placeholder="Briefly state what you are looking for in your next position">{{ $summary }}</textarea>
+            </p>
+            <p>
+                <label>Profile Picture: <small>(.jpg, .png, .jpeg ) Max 5 mb</small></label>
+                <input type="file" name="avatar" value="" class="" maxlength="50" accept=".jpg,.png,.jpeg">
             </p>
             <p>
                 <label>Address:</label>
@@ -137,6 +145,11 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
             <br>
             <hr>
             <h4>Work Experience</h4>
+
+            <p>
+                <label>Current Position:</label>
+                <input type="text" name="current_position" required="" value="{{ $current_position }}" class="form-control" maxlength="50">
+            </p>
 
             <div class="form-group">
                 <label for="industry">Industry *</label>
@@ -240,8 +253,8 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
 
             <p>
-                <input type="submit" value="Build CV" class="btn btn-orange">
-                <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;">Get Help</a>
+                <input type="submit" value="Build CV" class="btn btn-sm btn-orange">
+                <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;">Get Professional Help</a>
             </p>
 
         </form>

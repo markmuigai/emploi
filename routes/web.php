@@ -131,7 +131,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::post('/employers/applications/{slug}/rsi', 'EmployerController@saveRsi');
     Route::get('/employers/applications/{slug}/', 'EmployerController@applications');
     
-    Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@toggleShortlist');
+    //Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@toggleShortlist');
     Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@shortlistSeekerToggle');
     Route::get('/employers/reject-toggle/{slug}/{username}', 'EmployerController@toggleReject');
     Route::get('/employers/applications/{slug}/close', 'EmployerController@closeJob');
@@ -238,6 +238,7 @@ Route::get('/job-seekers/services', 'ContactController@jservices');
 Route::get('/job-seekers/faqs', 'ContactController@jobSeekerFaqs');
 Route::get('/job-seekers/cv-builder', 'ContactController@cvBuilder');
 Route::post('/job-seekers/cv-builder/download', 'ContactController@cvBuilderDownload');
+Route::get('/job-seekers/cv-builder/download', 'ContactController@cvBuilder');
 
 Route::get('/job-seekers/get-featured', 'ContactController@getFeatured');
 Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');
