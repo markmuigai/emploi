@@ -65,7 +65,7 @@ Route::post('/blog/comment/{id}','BlogController@comment')->middleware('auth');
 Route::resource('companies', 'CompanyController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::resource('/referrals', 'ReferralController');
-Route::post('/referrals/processCSV','ReferralController@processCSV')->name('processCSV');
+Route::post('/referrals/processCSV','ReferralController@processCSV');
 Route::get('/referrals/processCSV','ReferralController@processCSVRedirect');
 Route::resource('/cv-editing', 'CvEditController');
 
