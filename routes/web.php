@@ -61,6 +61,7 @@ Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 
 
 Route::resource('/blog', 'BlogController');
+Route::post('/blog/comment/{id}','BlogController@comment')->middleware('auth');
 Route::resource('companies', 'CompanyController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::resource('/referrals', 'ReferralController');
@@ -276,6 +277,7 @@ Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
     Route::get('enable-admin', 'SuperAdminController@enable');
     Route::get('disable-admin', 'SuperAdminController@disable');
     Route::get('documentation/{endpoint?}',  'SuperAdminController@document');
+    Route::post('documentation/search','DocumentationController@search')->name('search');
 });
 
 Route::get('auth-with/{provider}', 'SocialiteController@redirectToProvider');

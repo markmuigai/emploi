@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Blog;
 use App\BlogCategory;
+use App\Comment;
 
 use Auth;
 use Storage;

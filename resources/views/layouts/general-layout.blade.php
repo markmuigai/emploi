@@ -4,7 +4,6 @@
 <head>
     <title>@yield('title')</title>
     @include('components.meta')
-
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" rel="preload">
@@ -20,41 +19,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="preload">
 
+   
 
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
-    <!-- Popper -->
-    <script src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
-    <!-- Bootstrap -->
-    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
-    <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
-    <!-- CountUp JS -->
-    <script src="{{asset('js/jquery.countup.js')}}"></script>
-    <!-- Succinct JS -->
-    <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
-    <!-- <script type="application/x-javascript">
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script> -->
-    <!-- Notify JS Notifications -->
-    <script src="{{asset('js/notify.min.js')}}"></script>
-    <script src="{{asset('js/emploi-notify.js')}}"></script>
-    <!-- Slick JS -->
-    <script src="{{asset('js/slick.min.js')}}"></script>
-    <!-- Custom JS -->
-    <script src="{{asset('js/custom.js')}}"></script>
 </head>
-
 <body>
-    <!-- LOAD SCREEN -->
+       
+   <!-- LOAD SCREEN -->
     <!-- <div id="load_screen">
       <div id="loading">
         <div class="dot"></div>
@@ -134,5 +104,35 @@
     <script src="{{ asset('js/online-monitor-2.js') }}" async="" defer=""></script>
     @include('components.exit-popup')
 </body>
+ <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
+    <!-- Popper -->
+    <script src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
+    <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
+    <!-- CountUp JS -->
+    <script src="{{asset('js/jquery.countup.js')}}"></script>
+    <!-- Succinct JS -->
+    <script src="{{asset('js/jQuery.succinct.min.js')}}"></script>
+    <!-- <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script> -->
+    <!-- Notify JS Notifications -->
+    <script src="{{asset('js/notify.min.js')}}"></script>
+    <script src="{{asset('js/emploi-notify.js')}}"></script>
+    <!-- Slick JS -->
+    <script src="{{asset('js/slick.min.js')}}"></script>
+    <!-- Custom JS -->
+    <script src="{{asset('js/custom.js')}}"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 </html>

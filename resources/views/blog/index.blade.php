@@ -57,9 +57,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <span style="float: right;">
                         <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
                         @if($likes == 1)
-                            1 Like
+                            <b>1 Like</b>
                         @else
-                            {{ $likes }} Likes
+                            {{ $likes }} <b>Likes</b>
                         @endif 
 
                         |
@@ -79,11 +79,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <i class="fa fa-thumbs-up"></i> Like
                                 </a>
 
+                                
                             @endif
 
                         
 
                         @endguest
+                        
+                       <!--  <form method="POST" action="blog/comment/{$id}">
+                                @csrf
+                              
+
+                                    <div class="form-group">
+                                    <textarea id="comment" rows="2" class="form-control" name="comment" placeholder="Write a comment" required autofocus></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-sm btn-block">Comment</button>
+                                    </div>
+                        </form>  -->
+
                     </span>
                     <!-- END OF SHARE MODAL -->
                 </div>
