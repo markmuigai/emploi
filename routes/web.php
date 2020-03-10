@@ -55,6 +55,7 @@ Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
+Route::get('companies-featured', 'CompanyController@companiesFeatured');
 Route::resource('/referrals', 'ReferralController');
 Route::post('/referrals/processCSV','ReferralController@processCSV');
 Route::get('/referrals/processCSV','ReferralController@processCSVRedirect');

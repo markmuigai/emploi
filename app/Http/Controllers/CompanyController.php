@@ -23,6 +23,18 @@ class CompanyController extends Controller
         ]]);
     }
 
+    public function companiesFeatured($counter = 24){
+        $counter = $counter < 1 ? 10 : $counter;
+        $companies = Company::getHiringCompanies2($counter);
+        $ret = [];
+        for($i =0; $i<count($companies); $i++)
+        {
+            $company = $companies[$i];
+            $ret[] = [$company->name, count($company->activePosts),$company->logoUrl];
+        }
+        return $ret;
+    }
+
     public function index(Request $request)
     {
         if(isset($request->hiring))

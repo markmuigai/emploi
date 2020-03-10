@@ -454,20 +454,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- FEATURED EMPLOYERS -->
 <div class="container py-5 text-center">
     <h2>Featured Employers</h2>
-    <div class="employers-carousel py-4">
-        <?php
-        $featuredEmployers = ['abcl','apa','bingwa','biolight','bridgecap','brilliant','crystal','ecopharm','ess','esto-africa','global-internet','jambo_logistics','knbs','kpl','limelight','mboga','neema','novacent','papaya','pelings','pergamon','platinum_credit','rvibs','saif','sanlam','sirmit','texas','timecon','uniliver','wilco','zydii'];
-        $hiringCompanies = \App\Company::getHiringCompanies2(24);
-        ?>
+    <div class="employers-carousel py-4" id="featured-employers-list">
+        
+        <span class="loadFeaturedEmployers btn btn-orange-alt"><i class="fa fa-spinner"></i> Loading ..</span>
+        
+        
 
-        @forelse($hiringCompanies as $c)
-        <div class="d-flex justify-content-center my-2">
-            <a href="/companies/{{ $c->name }}" title="{{ $c->name }}, {{ count($c->activePosts) }} Job(s)">
-                <img alt="{{ $c->name }}" class="lazy" src="images/company-logo.png" data-src="{{ $c->logoUrl }}">
-            </a>
-        </div>
-        @empty
-        @endforelse
+        
     </div>
     <a href="/companies" class="btn btn-orange">See Who Is Hiring</a>
 </div>
@@ -597,6 +590,37 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 },
             ]
         });
+        $('.loadFeaturedEmployers').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: '/companies-featured',
+                success: function(response) {
+                    $('.loadFeaturedEmployers').parent().remove();
+                    var company;
+                    var $company;
+                    var str;
+                    for(var i=0; i<response.length; i++)
+                    {
+                        company = response[i];
+
+                        str = company[1] != 1 ? 'Vacancies' : 'Vacancy';
+                        $company = ''+
+                        '<div class="d-flex justify-content-center my-2">'+
+                            '<a href="/companies/'+company[0]+'" title="'+company[0]+' - '+company[1]+' '+ str +'">'+
+                                '<img alt="'+company[0]+'" class="lazy" src="'+company[2]+'" data-src="">'+
+                            '</a>'+
+                        '</div>';
+
+                        $('#featured-employers-list').append($company);
+                    }
+                },
+                error: function(e) {
+                    notify('An error occurred loading hiring companies', 'error');
+                },
+            });
+        });
+        $('.loadFeaturedEmployers').first().click();
+        
 
         // $(function() {
         //     $('.counter').countUp();
