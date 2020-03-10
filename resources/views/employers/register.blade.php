@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @include('components.social-auth')
 
-<form method="POST" action="/employers/register">
+<form method="POST" action="/employers/registered">
     @csrf
     <div id="details">
         <div class="form-group">

@@ -97,7 +97,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     
                 </span>
             </p>
-            <div class="fb-comments" data-href="(( url('/blog/'.$blog->title) ))" data-width="100%" data-numposts="6">
+            <div class="fb-comments" data-href="{{ url('/blog/'.$blog->title) }}" data-width="100%" data-numposts="6">
             </div>
         </div>
     </div>

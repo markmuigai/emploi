@@ -65,7 +65,10 @@
 </div>
 <script type="text/javascript">
     <?php 
-    echo 'var notificationsEnabledFor'.$a->id.'='.$a->user->seeker->canGetNotifications().';';
+    if($a->user->seeker->canGetNotifications())
+        echo 'var notificationsEnabledFor'.$a->id.'=true;';
+    else
+        echo 'var notificationsEnabledFor'.$a->id.'=false;';
 
     ?>
     $().ready(function(){

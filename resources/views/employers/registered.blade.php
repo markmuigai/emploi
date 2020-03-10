@@ -1,6 +1,6 @@
 @extends('layouts.sign')
 
-@section('title','Account Created')
+@section('title','Company Account Created')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.

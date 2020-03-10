@@ -224,16 +224,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     });
 </script>
 
-<?php
-    if(Auth::user()->email !== 'jobs@emploi.co')
-    {
-        $code = 'STARTED-POSTING';
-        $url = url()->current();
-        $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
-        $message = $code.' '.$user.' '.$url.' Started Posting a job';
-        \App\Employer::first()->notify(new \App\Notifications\TriedAdvertising($message));
-    }
-    
-?>
 
 @endsection

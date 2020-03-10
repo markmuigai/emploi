@@ -5,7 +5,7 @@ return [
     'manifest' => [
         'name' => env('APP_NAME', 'Emploi'),
         'short_name' => 'Emploi',
-        'start_url' => '/home',
+        'start_url' => '/',
         'background_color' => '#e88725',
         'theme_color' => '#500095',
         'display' => 'standalone',

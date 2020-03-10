@@ -1,8 +1,4 @@
 <?php
-
-/*
-/subscribe
-*/
 Route::get('/robots.txt', 'ContactController@robotsFile');
 Route::get('/ads.txt', 'ContactController@googleAdsFile');
 
@@ -45,12 +41,10 @@ Route::get('/pesapalNotifications','PesapalController@ipn');
 
 Auth::routes();
 Route::get('/', 'ContactController@index');
-//Route::get('/', function () {   /*dd(\Auth::user()->role );*/ return view('welcome'); 	});
 Route::get('/registered', 'ContactController@registered');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/test', 'HomeController@test')->name('test');
 Route::get('profile/add-referee', 'HomeController@addReferee');
 Route::post('profile/add-referee', 'HomeController@saveReferee');
 Route::get('/referees/{slug}', 'RefereeController@assess');
@@ -76,7 +70,6 @@ Route::group([ 'middleware' => 'auth'], function(){
 
 Route::post('create-account', 'RegisterSimpleController@create')->middleware(\Spatie\Honeypot\ProtectAgainstSpam::class);
 Route::get('/create-account', 'ContactController@createAcc');
-//Route::get('/create-account', function () {       return redirect('/join');    });
 
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
@@ -90,27 +83,11 @@ Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
 
 });
 Route::get('/employers/register', 'EmployerController@register');
-Route::post('/employers/register', 'EmployerController@create');
+Route::post('/employers/registered', 'EmployerController@create');
+Route::get('/employers/registered', 'EmployerController@register');
 
-//Route::get('/employers/publish', function () {			    	return view('employers.publish');		});
 
 Route::get('/employers/rate-card', 'ContactController@rateCard');
-//Route::get('/employers/rate-card', function () {    	return view('employers.rate-card');	});
-
-
-// *************************
-// Route::get('/test', function () {    	return view('new-design.test');	});
-// Route::get('/social', function () {    	return view('new-design.test-login');	});
-// Route::get('/test-email', function () {    	return view('emails.custom-alt');	});
-// Route::get('/email1', function () {    	return view('emails.custom');	});
-
-
-//Route::get('/employers/reviews', 'ContactController@reviews');
-//Route::get('/employers/applicants', 'ContactController@applicants');
-
-//Route::get('/employers/reviews', function () {    	return view('employers.dashboard.reviews');	});
-//Route::get('/employers/applicants', function () {    	return view('employers.dashboard.applicants');	});
-// *************************
 
 Route::get('/employers/premium-recruitment', 'ContactController@precruit');
 Route::get('/employers/candidate-vetting', 'ContactController@cvetting');
@@ -161,12 +138,10 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 });
 
 
-//Route::get('/employers/applications/{slug}/shortlist', 'EmployerController@shortlisted')->middleware('shortlist');
 
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
-	//Route::get('/', function () {   return redirect('/admin/panel');});
     Route::get('/', 'AdminController@panel')->name('adminpanel');
     Route::get('panel', 'AdminController@panel');
     Route::get('posts', 'AdminController@posts');
@@ -176,7 +151,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('bloggers','BloggersController');
     Route::get('seekers/{username?}','AdminController@seekers');
     Route::get('cv-requests/{id?}','AdminController@cvRequests');
-    //Route::resource('posts', 'PostsController');
     Route::get('vacancy-emails', 'AdminController@vacancyEmails');
     Route::get('emails', 'AdminController@emails');
     Route::post('emails/send', 'AdminController@sendEmails');
@@ -216,7 +190,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
 
 Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
-    //Route::get('/', function () {      return redirect('/profile'); });
     Route::get('/', 'SeekerController@toProfile');
     Route::get('dashboard', 'SeekerController@dashboard');
     Route::get('feed', 'SeekerController@feed');
@@ -244,7 +217,6 @@ Route::get('/jobseekers/get-featured', 'ContactController@getFeatured');
 
 Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');
 
-//Route::get('/employers/services', function () {      return view('employers.services');});
 Route::get('/employers/services', 'ContactController@eservices');
 Route::get('/employers/background-checks', 'ContactController@bkgtests');
 Route::get('/employers/iq-tests', 'ContactController@iqtests');
@@ -265,7 +237,6 @@ Route::post('/apply-easy/{slug}','ContactController@easyApply')->middleware('gue
 
 Route::get('/vacancies/{slug}/deactivate','PostsController@deactivate')->middleware('employer');
 Route::get('/vacancies/{slug}/activate','PostsController@activate')->middleware('employer');
-//Route::get('/employers/publish', 'PostsController@create')->middleware('auth'); //create
 
 Route::group(['prefix' => 'desk',  'middleware' => 'super'], function(){
     Route::get('admins', 'SuperAdminController@admins');

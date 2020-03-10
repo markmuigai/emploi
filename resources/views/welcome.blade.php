@@ -420,10 +420,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card mb-lg-3 my-2">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-lg">
                                 <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100 lazy">
                             </div>
-                            <div class="col-8">
+                            <div class="col-lg">
                                 <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
                                 <div class="d-flex">
                                     <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>

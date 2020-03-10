@@ -134,7 +134,7 @@ class Company extends Model
         {
             array_push($companies, $results[$i]->company_id);
         }
-        return Company::whereIn('id',$companies)->orderBy('featured','DESC')->get();
+        return Company::whereIn('id',$companies)->where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%dating%')->orderBy('featured','DESC')->orderBy('id','DESC')->get();
     }
 
     public function posts(){
