@@ -157,6 +157,7 @@ class BlogController extends Controller
         $blog->contents = $request->contents;
         $blog->status = $request->status;
 
+        Storage::disk('local')->makeDirectory('public/bogs' . $id);
         $storage_path = '/public/blogs/';
         if(isset($request->featured_image))
         {

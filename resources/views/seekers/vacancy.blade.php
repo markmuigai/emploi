@@ -1,19 +1,17 @@
 @extends('layouts.dashboard-layout')
 
 @section('title','Emploi :: '.$post->getTitle() )
-
 @section('description')
 {{ $post->brief }}
 @endsection
 
 @section('meta-include')
 <meta property="og:image" content="{{ asset($post->imageUrl) }}">
-<meta property="og:image:width"   content="900" />
-<meta property="og:image:height"  content="600" />
-
-<meta property="og:url"           content="{{ url('/vacancies/'.$post->slug) }}/" />
-<meta property="og:title"         content="{{ $post->title }}" />
-<meta property="og:description"   content="{{ $post->brief }}" />
+<meta property="og:image:width" content="900" />
+<meta property="og:mage:height"  content="600" />
+<meta property="og:url"  content="{{ url('/vacancies/'.$post->slug) }}/" />
+<meta property="og:title"  content="{{ $post->title }}" />
+<meta property="og:description" content="{{ $post->brief }}" />
 @endsection
 
 @section('content')
@@ -116,6 +114,58 @@
             </div>
             <!-- END OF ALL JOBS -->
             <!-- ACTIVE JOBS -->
+            
+
+            <?php
+            $relatedPosts = $post->related(5);
+             ?>
+
+             @if(count($relatedPosts) > 0)
+            <!-- RELATED JOBS -->
+            <h2 class="orange" style="text-align: center;">Related Vacancies</h2>
+                @foreach($relatedPosts as $rpost)
+                <div class="card mb-4" class="related-carousel">
+                    <div class="card-body" align="center">
+                        <div class="col-12 col-lg-8">
+
+                            <div class="col-4">
+                                <a href="/vacancies/{{$post->slug}}/">
+                                <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="w-100 lazy" alt="{{ $post->getTitle() }}" />
+                                </a>
+                            </div>
+                          
+                             <p class="badge badge-secondary">{{$rpost->positions}} Positions</p>
+                            <h5>{{ $rpost->getTitle(true) }}</h5>
+                            <p><i class="fas fa-map-marker-alt orange"></i> {{ $rpost->location->name }}</p>
+                            <p>
+                                @if(isset(Auth::user()->id))
+                                {{ $rpost->monthlySalary() }} {{ $rpost->monthly_salary == 0 ? '' : 'p.m.' }}
+                                @else
+                                @endif
+                            </p>
+                              <p>
+                                @include('components.post-share-modal')
+                                <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $post->id }}"><i class="fas fa-share-alt"></i></button>
+                                @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->hasApplied($post))
+                                <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange-alt">
+                                    Applied
+                                </a>
+                                @else
+                                <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange">
+                                    Apply
+                                </a>
+                                @endif
+                               </p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>               
+           
+
+            <!-- END OF RELATED JOBS -->
+
+            @endif
+
             <div class="tab-pane fade" id="apply" role="tabpanel" aria-labelledby="apply-tab">
                 <div class="card py-2 mb-4">
                     <div class="card-body">
@@ -196,4 +246,38 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.related-carousel').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 2,
+            arrows: true,
+            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+            responsive: [{
+                    breakpoint: 996,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 737,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 500,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                },
+            ]
+        })
+    });
+</script>
 @endsection

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use App\Blog;
@@ -136,6 +136,21 @@ class Post extends Model
             return substr(ucwords(strtolower($this->title)), 0, 30);
         return ucwords(strtolower($this->title));
         
+    }
+
+    public function related($counter = 3){
+        $counter = $counter < 1 ? 1 : $counter;
+        $indId = $this->industry_id;
+        $id = $this->id;
+        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND id != $id) OR (featured = 1 AND id != $id) ORDER BY RAND() LIMIT $counter";
+        $results = DB::select($sql);
+
+        $posts = [];
+        for ($i=0; $i < count($results); $i++) { 
+            $posts[] = Post::find($results[$i]->id);
+        }
+        return $posts;
+
     }
 
 
