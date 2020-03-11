@@ -19,7 +19,7 @@ class CompanyController extends Controller
 {
     public function __construct() {
         $this->middleware('auth', ['except' => [
-            'index','show'
+            'index','show','companiesFeatured'
         ]]);
     }
 

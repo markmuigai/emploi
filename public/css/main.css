@@ -504,6 +504,19 @@ main {
     border-radius: 50%
 }
 
+.related-carousel a.card:hover {
+    color: inherit;
+    text-decoration: none;
+    transform: scale(1.05);
+    transition: transform .3s
+}
+
+.related-carousel img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%
+}
+
 .blogs {
     background: linear-gradient(140deg, #8900ff 0, #500095 60%)
 }
@@ -899,6 +912,10 @@ main.sign-page p {
     }
 
     .featured-carousel .card-body {
+        padding: 1rem
+    }
+
+    .related-carousel .card-body {
         padding: 1rem
     }
 
