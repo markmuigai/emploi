@@ -672,7 +672,7 @@ class AdminController extends Controller
                 }
                 elseif($industry == 'test-users')
                 {
-                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
+                    $filter = " WHERE email = 'brian@emploi.co' OR email = 'sophy@emploi.co' OR email = 'earnest@emploi.co' OR email='david@emploi.co'";
                 }
                 else
                 {
@@ -712,7 +712,43 @@ class AdminController extends Controller
                         $attachment1,
                         $attachment2,
                         $attachment3,
-                        'info@emploi.co',
+                        'emailer-test@emploi.co',
+                        $url
+                    )
+                );
+
+                Mail::to('earnest@emploi.co')
+                ->send(
+                    new CustomVacancyEmail(
+                        'Earnest Wanyonyi',
+                        $subject,
+                        $caption,
+                        $contents,
+                        'earnest@emploi.co',
+                        $banner,
+                        $template,
+                        $attachment1,
+                        $attachment2,
+                        $attachment3,
+                        'emailer-test@emploi.co',
+                        $url
+                    )
+                );
+
+                Mail::to('david@emploi.co')
+                ->send(
+                    new CustomVacancyEmail(
+                        'David Kirarit',
+                        $subject,
+                        $caption,
+                        $contents,
+                        'david@emploi.co',
+                        $banner,
+                        $template,
+                        $attachment1,
+                        $attachment2,
+                        $attachment3,
+                        'emailer-test@emploi.co',
                         $url
                     )
                 );
