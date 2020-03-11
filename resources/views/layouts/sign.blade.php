@@ -9,11 +9,11 @@
 
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" rel="preload">
+    <link rel="preload, stylesheet" as="style" href="{{asset('css/bootstrap.min.css')}}">
     <!--Font Awesome-->
     <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="preload">
+    <link rel="preload, stylesheet" as="style" href="{{asset('css/main.css')}}">
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
