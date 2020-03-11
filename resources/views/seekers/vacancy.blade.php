@@ -194,6 +194,7 @@
             </div>
         </div>
     </div>
+    @include('components.featuredEmployers')
 </div>
 
 @endsection
