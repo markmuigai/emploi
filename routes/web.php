@@ -259,3 +259,4 @@ Route::get('/subscribe/{email}', 'EmailController@subscribe')->name('subscribe')
 Route::get('/sitemap.xml', 'SitemapController@index');
 Route::get('/sitemap/posts.xml', 'SitemapController@posts');
 Route::get('/sitemap/blogs.xml', 'SitemapController@blogs');
+Route::get('/sitemap/companies.xml', 'SitemapController@companies');
