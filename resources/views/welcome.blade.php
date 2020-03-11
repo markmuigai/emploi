@@ -469,7 +469,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     type: 'GET',
                     url: '/companies-featured',
                     success: function(response) {
-                        $('.loadFeaturedEmployers').parent().remove();
+                        $('.loadFeaturedEmployers').remove();
                         var company;
                         var $company;
                         var str;
