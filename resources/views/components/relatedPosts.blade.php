@@ -14,18 +14,26 @@ else
         @forelse($relatedPosts as $p)
         <div class="card mx-4 m-md-2 m-lg-4" >
             <div class="card-body">
-                <div class="d-flex justify-content-center mb-3">
-                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
-                </div>
+                <a href="/vacancies/{{ $p->slug }}">
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
+                    </div>
+                </a>
                 <p class="badge badge-secondary">{{$p->positions}} Postions</p>
-                <h5>{{ $p->getTitle(true) }}</h5>
-                <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
+                <a href="/vacancies/{{ $p->slug }}">
+                    <h5>{{ $p->getTitle(true) }}</h5>
+                </a>
+                <p>
+                    <a href="/vacancies/{{ $p->location->name }}" title="View Vacancies in {{ $p->location->name }}">
+                        <i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}
+                    </a>
+                </p>
                 <p>
                     {{ $post->since }}
                 </p>
                 <p>
                     
-                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $post->id }}"><i class="fas fa-share-alt"></i> </button>
+                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $p->id }}"><i class="fas fa-share-alt"></i> </button>
                     <a href="/vacancies/{{ $p->slug }}" class="btn btn-orange">View</a>
                 </p>
             </div>

@@ -1,6 +1,6 @@
 <!-- FEATURED EMPLOYERS -->
 <div class="container py-5 text-center">
-    <h2>Featured Employers</h2>
+    <h2 class="orange">Featured Employers</h2>
     <div class="employers-carousel py-4" id="featured-employers-list">
         
         <span class="loadFeaturedEmployers btn btn-orange-alt"><i class="fa fa-spinner"></i> Loading ..</span>

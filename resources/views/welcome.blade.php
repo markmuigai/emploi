@@ -154,15 +154,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
                 <div class="row pt-2 service-cards">
                     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist" style="width: 100%">
+                        <?php
+                            $seekerServices = 'active';
+                            $employerServices = '';
+
+                            if(isset(Auth::user()->id))
+                            {
+                                if(Auth::user()->role == 'employer' || Auth::user()->role == 'admin')
+                                {
+                                    $seekerServices = '';
+                                    $employerServices = 'active';
+                                }
+                                
+                            }
+                        ?>
+                        
                         <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">For Job Seekers</a>
+                            <a class="nav-link {{ $seekerServices }}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">For Job Seekers</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">For Employers</a>
+                            <a class="nav-link {{ $employerServices }}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">For Employers</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show  {{ $seekerServices == 'active' ? 'show active' : '' }}" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <br>
                             <div class="card-deck">
                                 <div class="card">
@@ -178,11 +193,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="card">
                                     <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
                                     <div class="card-body">
-                                        <h5 class="card-title">Premium Placement</h5>
-                                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                                        <h5 class="card-title">Featured Jobseeker</h5>
+                                        <p class="card-text">Have your profile rank first in applications and searches. Includes Application updates</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/job-seekers/premium-placement" class="btn btn-orange">Learn More</a>
+                                        <a href="/job-seekers/services" class="btn btn-orange">Learn More</a>
                                     </div>
                                 </div>
                                 <div class="card">
@@ -202,7 +217,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                             <br>
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="tab-pane fade {{ $employerServices == 'active' ? 'show active' : '' }}" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <br>
                             <div class="card-deck">
                                 <div class="card">
@@ -272,34 +287,43 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     @else
     <div class="featured-carousel">
-        @forelse($posts as $p)
-        <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
+        @forelse($posts as $post)
+        <span class="card mx-4 m-md-2 m-lg-4">
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
-                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
+                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="lazy"  alt="{{ $post->title }}" />
                 </div>
-                <p class="badge badge-secondary">{{$p->positions}} Postions</p>
-                <h5>{{ $p->getTitle(true) }}</h5>
-                <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
+                <p class="badge badge-secondary">{{$post->positions}} Postions</p>
+                <a href="/vacancies/{{ $post->slug }}">
+                    <h5>{{ $post->getTitle(true) }}</h5>
+                </a>
+                <p>
+                    <a href="/vacancies/{{ $post->location->name }}">
+                        <i class="fas fa-map-marker-alt orange"></i> {{ $post->location->name }}
+                    </a>
+                </p>
                 <p>
                     @if(isset(Auth::user()->id))
-                    {{ $p->monthlySalary() }} {{ $p->monthly_salary == 0 ? '' : 'p.m.' }}
+                    {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
                     @else
                     @endif
                 </p>
                 <p>
                     
-                        <i class="fab fa-facebook-f" style="margin: 0.25em"></i>
-
-                        <i class="fab fa-twitter" style="margin: 0.25em"></i>
-
-                        <i class="fab fa-linkedin" style="margin: 0.25em"></i>
-
-                        <i class="fab fa-whatsapp" style="margin: 0.25em"></i>
+                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $post->id }}"><i class="fas fa-share-alt"></i></button>
+                    @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->hasApplied($post))
+                    <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange-alt">
+                        Applied
+                    </a>
+                    @else
+                    <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange">
+                        Apply
+                    </a>
+                    @endif
 
                 </p>
             </div>
-        </a>
+        </span>
         @empty
         @endforelse
     </div>
@@ -307,6 +331,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <a href="/vacancies/featured" class="btn btn-orange-alt mt-3 mb-5">Featured Vacancies</a>
     @endif
 </div>
+@forelse($posts as $post)
+@include('components.post-share-modal')
+@empty
+@endforelse
 <!-- END OF FEATURED JOBS -->
 
 <div class="container">
@@ -450,6 +478,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @include('components.featuredEmployers')
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            @include('components.ads.responsive')
+        </div>        
+    </div>
+</div>
+
 <!-- GET STARTED -->
 <div class="get-started">
     <div class="container">
@@ -495,7 +531,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $(document).ready(function() {
         $('.featured-carousel').slick({
             infinite: true,
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 2,
             arrows: true,
             prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
