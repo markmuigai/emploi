@@ -150,7 +150,7 @@ class PostsController extends Controller
         {
             $caption = $p->title." Job Post Request Placed";
             $contents = "
-            The job post <b>".$p->title."</b> has been created succesfully on Emploi.
+            The job post <b>".$p->title."</b> has been created successfully on Emploi.
             <br> Here is your tracking code: <b>".$p->slug."</b>. <br><br>
             The listing will be made available after verification by our administrators.
             <br>
@@ -176,8 +176,8 @@ class PostsController extends Controller
             EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', $p->title.' on Emploi', $caption, $contents);
 
             return view('jobs.saved')
-                ->with('title','Job Advert Created Succesfully')
-                ->with('message','The Job Advertisement has been created succesfully. <br> Here is your tracking code: <b>'.$p->slug.'</b>. <br><br>
+                ->with('title','Job Advert Created Successfully')
+                ->with('message','The Job Advertisement has been created successfully. <br> Here is your tracking code: <b>'.$p->slug.'</b>. <br><br>
                     The listing will be made available after verification by our administrators.
 
                     <br>
@@ -409,7 +409,7 @@ class PostsController extends Controller
             return view('seekers.vacancy')
                 ->with('post',$post);
         }
-
+            
         $pg = PostGroup::where('slug',$param)->firstOrFail();
         return view('admins.postGroup.show')
                 ->with('postGroup',$pg);
@@ -538,4 +538,5 @@ class PostsController extends Controller
         }
         return redirect()->back();
     }
+
 }

@@ -178,11 +178,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="card">
                                     <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
                                     <div class="card-body">
-                                        <h5 class="card-title">Featured Jobseeker</h5>
-                                        <p class="card-text">Have your profile rank first in applications and searches. Includes Application updates</p>
+                                        <h5 class="card-title">Premium Placement</h5>
+                                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/job-seekers/services" class="btn btn-orange">Learn More</a>
+                                        <a href="/job-seekers/premium-placement" class="btn btn-orange">Learn More</a>
                                     </div>
                                 </div>
                                 <div class="card">
@@ -272,37 +272,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     @else
     <div class="featured-carousel">
-        @forelse($posts as $post)
-        <span class="card mx-4 m-md-2 m-lg-4">
+        @forelse($posts as $p)
+        <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
-                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="lazy"  alt="{{ $post->title }}" />
+                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
                 </div>
-                <p class="badge badge-secondary">{{$post->positions}} Postions</p>
-                <h5>{{ $post->getTitle(true) }}</h5>
-                <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->name }}</p>
+                <p class="badge badge-secondary">{{$p->positions}} Postions</p>
+                <h5>{{ $p->getTitle(true) }}</h5>
+                <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
                 <p>
                     @if(isset(Auth::user()->id))
-                    {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
+                    {{ $p->monthlySalary() }} {{ $p->monthly_salary == 0 ? '' : 'p.m.' }}
                     @else
                     @endif
                 </p>
                 <p>
-                    @include('components.post-share-modal')
-                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $post->id }}"><i class="fas fa-share-alt"></i></button>
-                    @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->hasApplied($post))
-                    <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange-alt">
-                        Applied
-                    </a>
-                    @else
-                    <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange">
-                        Apply
-                    </a>
-                    @endif
+                    
+                        <i class="fab fa-facebook-f" style="margin: 0.25em"></i>
+
+                        <i class="fab fa-twitter" style="margin: 0.25em"></i>
+
+                        <i class="fab fa-linkedin" style="margin: 0.25em"></i>
+
+                        <i class="fab fa-whatsapp" style="margin: 0.25em"></i>
 
                 </p>
             </div>
-        </span>
+        </a>
         @empty
         @endforelse
     </div>
@@ -453,14 +450,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @include('components.featuredEmployers')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 offset-md-1">
-            @include('components.ads.responsive')
-        </div>        
-    </div>
-</div>
-
 <!-- GET STARTED -->
 <div class="get-started">
     <div class="container">
@@ -506,7 +495,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $(document).ready(function() {
         $('.featured-carousel').slick({
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 2,
             arrows: true,
             prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',

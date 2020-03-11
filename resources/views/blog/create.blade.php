@@ -37,7 +37,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="col-md-6">
                     <div class="form-group" title="Featured Image (500x300p)">
                         <label for="title">Image *</label>
-                        <input type="file" accept=".png, .jpg, .jpeg" name="featured_image" required="">
+                        <input type="file" accept=".png, .jpg, .jpeg" name="featured_image"  required="">
                     </div>
                 </div>
 
