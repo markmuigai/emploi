@@ -523,7 +523,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         });
                     },
                     error: function(e) {
-                        notify('An error occurred loading hiring companies', 'error');
+                        setTimeout(function(){
+                            $('.loadFeaturedEmployers').first().click();
+                        },5000);
+                        //notify('An error occurred loading hiring companies', 'error');
                     },
                 });
             });
