@@ -1,3 +1,11 @@
+<?php
+if(!isset($post))
+{
+    if(isset($p))
+        $post = $p;
+}
+?>
+@if(isset($post))
 <div class="modal fade" id="postModal{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content p-3">
@@ -19,3 +27,4 @@
         </div>
     </div>
 </div>
+@endif

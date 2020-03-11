@@ -1,6 +1,6 @@
 <?php
 if(isset($post))
-    $relatedPosts = $post->related(5);
+    $relatedPosts = $post->related(6);
 else
     $relatedPosts = [];
 ?>
@@ -12,7 +12,7 @@ else
     
     <div class="featured-carousel">
         @forelse($relatedPosts as $p)
-        <a class="card mx-4 m-md-2 m-lg-4" href="/vacancies/{{ $p->slug }}">
+        <div class="card mx-4 m-md-2 m-lg-4" >
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
                     <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
@@ -21,26 +21,30 @@ else
                 <h5>{{ $p->getTitle(true) }}</h5>
                 <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
                 <p>
-                    @if(isset(Auth::user()->id))
-                    {{ $p->monthlySalary() }} {{ $p->monthly_salary == 0 ? '' : 'p.m.' }}
-                    @else
-                    @endif
+                    {{ $post->since }}
                 </p>
                 <p>
                     
-                        <i class="fab fa-facebook-f" style="margin: 0.25em"></i>
-
-                        <i class="fab fa-twitter" style="margin: 0.25em"></i>
-
-                        <i class="fab fa-linkedin" style="margin: 0.25em"></i>
-
-                        <i class="fab fa-whatsapp" style="margin: 0.25em"></i>
-
+                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $post->id }}"><i class="fas fa-share-alt"></i> </button>
+                    <a href="/vacancies/{{ $p->slug }}" class="btn btn-orange">View</a>
                 </p>
             </div>
-        </a>
+        </div>
+        @include('components.post-share-modal')
         @empty
         @endforelse
+
+        <div class="card mx-4 m-md-2 m-lg-4" >
+            <div class="card-body">
+                <div class="d-flex justify-content-center mb-3">
+                    <img src="{{ asset('images/500g.png') }}" class="lazy"  alt="View More Vacancies" />
+                </div>
+                <p class="badge badge-secondary">{{ count($post->industry->activePosts()) }} Vacancies</p>
+                <h5> Vacancies in {{ $post->industry->name }}</h5>
+                <a href="/vacancies/{{ $post->industry->slug }}" class="btn btn-orange">View and Apply</a>
+            </div>
+        </div>
+
     </div>
     <script type="text/javascript">
         $().ready(function(){

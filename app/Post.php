@@ -142,7 +142,7 @@ class Post extends Model
         $counter = $counter < 1 ? 1 : $counter;
         $indId = $this->industry_id;
         $id = $this->id;
-        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND id != $id) OR (featured = 1 AND id != $id) ORDER BY RAND() LIMIT $counter";
+        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND id != $id) OR (featured = 1 AND id != $id) ORDER BY id DESC LIMIT $counter";
         $results = DB::select($sql);
 
         $posts = [];

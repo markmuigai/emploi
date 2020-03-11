@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Watson\Rememberable\Rememberable;
+use Carbon\Carbon;
+use App\Post;
 
 class Industry extends Model
 {
@@ -52,5 +54,13 @@ class Industry extends Model
 
     public function cvEditRequests(){
         return $this->hasMany(CvEditRequest::class);
+    }
+
+    public function activePosts($counter = 10){
+        return Post::where('status','active')
+                    ->where('industry_id',$this->id)
+                    ->where('deadline','>',Carbon::now()->format('Y-m-d'))
+                    ->limit($counter)
+                    ->get();    
     }
 }
