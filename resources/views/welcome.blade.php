@@ -462,6 +462,40 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         
     </div>
+    <script type="text/javascript">
+        $().ready(function(){
+            $('.loadFeaturedEmployers').click(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: '/companies-featured',
+                    success: function(response) {
+                        $('.loadFeaturedEmployers').parent().remove();
+                        var company;
+                        var $company;
+                        var str;
+                        for(var i=0; i<response.length; i++)
+                        {
+                            company = response[i];
+
+                            str = company[1] != 1 ? 'Vacancies' : 'Vacancy';
+                            $company = ''+
+                            '<div class="d-flex justify-content-center my-2">'+
+                                '<a href="/companies/'+company[0]+'" title="'+company[0]+' - '+company[1]+' '+ str +'">'+
+                                    '<img alt="'+company[0]+'" class="lazy" src="'+company[2]+'" data-src="">'+
+                                '</a>'+
+                            '</div>';
+
+                            $('#featured-employers-list').append($company);
+                        }
+                    },
+                    error: function(e) {
+                        notify('An error occurred loading hiring companies', 'error');
+                    },
+                });
+            });
+            $('.loadFeaturedEmployers').first().click();
+        })
+    </script>
     <a href="/companies" class="btn btn-orange">See Who Is Hiring</a>
 </div>
 <!-- END OF FEATURED EMPLOYERS -->
@@ -590,36 +624,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 },
             ]
         });
-        $('.loadFeaturedEmployers').click(function(){
-            $.ajax({
-                type: 'GET',
-                url: '/companies-featured',
-                success: function(response) {
-                    $('.loadFeaturedEmployers').parent().remove();
-                    var company;
-                    var $company;
-                    var str;
-                    for(var i=0; i<response.length; i++)
-                    {
-                        company = response[i];
-
-                        str = company[1] != 1 ? 'Vacancies' : 'Vacancy';
-                        $company = ''+
-                        '<div class="d-flex justify-content-center my-2">'+
-                            '<a href="/companies/'+company[0]+'" title="'+company[0]+' - '+company[1]+' '+ str +'">'+
-                                '<img alt="'+company[0]+'" class="lazy" src="'+company[2]+'" data-src="">'+
-                            '</a>'+
-                        '</div>';
-
-                        $('#featured-employers-list').append($company);
-                    }
-                },
-                error: function(e) {
-                    notify('An error occurred loading hiring companies', 'error');
-                },
-            });
-        });
-        $('.loadFeaturedEmployers').first().click();
+        
         
 
         // $(function() {
