@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use Watson\Rememberable\Rememberable;
@@ -81,6 +82,21 @@ class Blog extends Model
                     ->limit($counter)
                     ->orderBy('id','desc')
                     ->get();
+    }
+
+     public function alsoLike($counter = 3){
+        $counter = $counter < 1 ? 1 : $counter;
+        $blogCat = $this->blog_category_id;
+        $blogId = $this->id;
+        $sql = "SELECT id FROM blogs WHERE (blog_category_id = $blogCat AND status = 'active' AND id != '$blogId') ORDER BY RAND() LIMIT $counter";
+        $results = DB::select($sql);
+
+        $blogs = [];
+        for ($i=0; $i < count($results); $i++) { 
+            $blogs[] = Blog::find($results[$i]->id);
+        }
+        return $blogs;
+
     }
 
     public function getPostedOnAttribute(){

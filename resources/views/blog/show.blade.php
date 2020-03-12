@@ -102,7 +102,54 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
-<!-- SEARCH BAR -->
-@include('components.search-form')
-<!-- END OF SEARCH BAR -->
+
+       
+
+            <?php
+            $relatedBlogs = $blog->alsoLike(3);
+             ?> 
+                @if(count($relatedBlogs) > 0)
+  <!--RELATED BLOGS -->
+        <div class="container">
+            <div class="col-md-12">
+                <div class="card-related" >
+                    <div class="card-body-related">
+                        <h2 class="orange">You Might Also Like</h2>
+                            @foreach($relatedBlogs as $rblog)                    
+                            <div class="blog-image " data-bg="url({{ asset($rblog->imageUrl) }})">                             
+                            </div>
+                            <h5><a href="{{ url('blog/'.$rblog->slug) }}">{{ $rblog->title }}</a></h5>
+                            <div class="text-center">
+                            <p><i class="fas fa-user"></i> {{ $rblog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $rblog->postedOn }}</p>
+                            </div>
+                            <a href="/blog/{{ $rblog->category->slug }}"><span class="badge badge-orange">{{ $rblog->category->name }}</span></a>
+                            <p class="truncate">{!!html_entity_decode($rblog->preview)!!}</p>
+                            <a href="{{ url('blog/'.$rblog->slug) }}" class="orange">Read More</a>
+
+                            <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $rblog->id }}"><i class="fas fa-share-alt"></i> Share
+                            </button>
+                            @endforeach
+                     </div>
+                </div>
+            </div>
+       </div>
+@endif 
+
+<style type="text/css">  
+
+    .card-related {
+        display: grid;       
+        
+    }
+
+    .card-body-related {
+        grid-template-rows: 1fr 1fr 1fr;
+        border: 1px solid #979797;
+        background: white;
+        padding: 30px 0 20px;
+        text-align: center;
+         
+       }
+</style>
+<!--  END RELATED BLOGS -->        
 @endsection
