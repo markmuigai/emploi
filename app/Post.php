@@ -377,6 +377,7 @@ class Post extends Model
         return Post:://where('status','active')
                     //->where('deadline','>',Carbon::now()->format('Y-m-d'))
                     where('status','!=','inactive')
+                    ->orderBy('id','DESC')
                     ->limit($counter)
                     ->get();
     }

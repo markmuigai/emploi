@@ -13,4 +13,10 @@
         <lastmod>{{ $blog->created_at->tz('UTC')->toAtomString() }}</lastmod>
     </sitemap>
     @endif
+    @if(count(\App\Company::all()) > 0)
+    <sitemap>
+        <loc>{{ url('/sitemap/companies.xml') }}</loc>
+        <lastmod>{{ $company->created_at->tz('UTC')->toAtomString() }}</lastmod>
+    </sitemap>
+    @endif
 </sitemapindex>

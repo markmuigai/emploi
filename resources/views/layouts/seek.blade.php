@@ -24,7 +24,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"  rel="preload"/>
 	<!-- Custom Theme files -->
 	<link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css'  rel="preload" />
-	<link href='//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 	<!--font-Awesome-->
 	<link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" rel="preload">
 	<link href="{{ asset('css/custom.css') }}" rel='stylesheet' type='text/css'  rel="preload"/>

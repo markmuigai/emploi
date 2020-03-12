@@ -6,18 +6,16 @@
     @include('components.meta')
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" rel="preload">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap" rel="stylesheet">
+    <link  rel="preload, stylesheet" as="style" href="{{asset('css/bootstrap.min.css')}}">
     <!--Font Awesome-->
     <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- ChartJS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"  rel="preload"/>
+    <link  rel="preload, stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"/>
     <!-- Slick JS -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}"  rel="preload"/>
-    <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.css')}}"  rel="preload"/>
+    <link  rel="preload, stylesheet" as="style" type="text/css" href="{{asset('css/slick.css')}}" />
+    <link  rel="preload, stylesheet" as="style" type="text/css" href="{{asset('css/slick-theme.css')}}" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/main.css')}}" rel="preload">
+    <link  rel="preload, stylesheet" as="style" href="{{asset('css/main.css')}}">
 
     <!-- JQuery -->
     <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
