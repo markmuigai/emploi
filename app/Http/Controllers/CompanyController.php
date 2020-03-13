@@ -44,7 +44,7 @@ class CompanyController extends Controller
                 ->with('companies',Company::getHiringCompanies2(81));
         }
         return view('companies.index')
-                ->with('companies',Company::where('status','active')->where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%dating%')->orderBy('featured','DESC')->orderBy('id','DESC')->paginate(9));
+                ->with('companies',Company::where('status','active')->where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%crypto%')->where('name','not like','%free%')->where('name','not like','%$%')->where('name','not like','%dating%')->orderBy('featured','DESC')->orderBy('id','DESC')->paginate(9));
     }
 
     public function create()

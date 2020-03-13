@@ -42,7 +42,7 @@ class SitemapController extends Controller
 
 	public function companies()
 	{
-	    $companies = Company::where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%dating%')->orderBy('featured','DESC')->orderBy('id','DESC')->limit(100)->get();
+	    $companies = Company::where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%crypto%')->where('name','not like','%free%')->where('name','not like','%$%')->where('name','not like','%dating%')->orderBy('featured','DESC')->orderBy('id','DESC')->limit(100)->get();
 	    return response()->view('sitemap.companies', [
 	        'companies' => $companies,
 	    ])->header('Content-Type', 'text/xml');

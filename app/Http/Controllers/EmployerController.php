@@ -87,12 +87,6 @@ class EmployerController extends Controller
 
     public function create(Request $request)
     {
-        //->where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%dating%')
-
-        //spam check
-        //$request->co_name
-        //$request->name
-
         $checkForSpam = [$request->co_name,$request->name];
         $spam = false;
 

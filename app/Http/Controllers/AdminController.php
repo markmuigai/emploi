@@ -374,12 +374,13 @@ class AdminController extends Controller
         if(isset($request->q))
         {
             $companies = Company::where('name','like','%'.$request->q.'%')
+                    ->where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%crypto%')->where('name','not like','%free%')->where('name','not like','%$%')->where('name','not like','%dating%')
                     ->orderBy('created_at','desc')
                     ->paginate(20);
         }
         else
         {
-            $companies = Company::orderBy('created_at','desc')->paginate(20);
+            $companies = Company::where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%crypto%')->where('name','not like','%free%')->where('name','not like','%$%')->where('name','not like','%dating%')->orderBy('created_at','desc')->paginate(20);
         }
         return view('admins.companies.index')
                 ->with('companies',$companies);
