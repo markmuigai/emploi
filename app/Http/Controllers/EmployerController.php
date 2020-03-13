@@ -87,12 +87,43 @@ class EmployerController extends Controller
 
     public function create(Request $request)
     {
+        //->where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%dating%')
+
+        //spam check
+        //$request->co_name
+        //$request->name
+
+        $checkForSpam = [$request->co_name,$request->name];
+        $spam = false;
+
+        for($k=0; $k<count($checkForSpam); $k++)
+        {
+            $item = strtolower($checkForSpam[$k]);
+            if(strpos($item, 'sex') !== false)
+                $spam = true;
+            if( strpos($item, 'fuck') !==false)
+                $spam = true;
+            if( strpos($item, 'http') !== false)
+                $spam = true;
+            if(strpos($item, 'adult') !== false)
+                $spam = true;
+            if(strpos($item, 'dating') !== false)
+                $spam = true;
+            if( strpos($item, 'free') !== false)
+                $spam = true;
+            if( strpos($item, 'crypto') !== false)
+                $spam = true;
+            if( strpos($item, '$') !== false)
+                $spam = true;
+            if($spam)
+                die('Unauthorised words found in your submission. Kindly <a href="/join">try again</a>!');
+        }
 
     	$user = User::where('email',$request->email)
     				->first();
     	if(isset($user->id))
     	{
-    		return 'Email has been registered';
+    		return 'Email has been registered. <a href="/login">Login here</a>';
     	}
 
 
@@ -170,8 +201,8 @@ class EmployerController extends Controller
         $c = Company::create([
             'name' => $co_name,
             'user_id' => $user->id,
-            'about' => "Insert company brief",
-            'website' => "http://emploi.co",
+            'about' => "Company on Emploi",
+            'website' => "http://emploi.co/companies/".$co_name,
             'industry_id' => $request->industry,
             'location_id' => 1,
             'company_size_id' => 1
