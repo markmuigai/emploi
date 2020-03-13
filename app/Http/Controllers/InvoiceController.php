@@ -108,7 +108,7 @@ class InvoiceController extends Controller
             $invoice->notify(new InvoicePaid($message));
 
         $caption = "Emploi Invoice ".$invoice->slug.' was paid';
-        $contents = "The Invoice <a href='".url('/invoice/'.$invoice->slug)."'>".$invoice->slug."</a> totalling to Ksh ".$invoice->total."  was paid succesfully <br><br>
+        $contents = "The Invoice <a href='".url('/invoice/'.$invoice->slug)."'>".$invoice->slug."</a> totalling to Ksh ".$invoice->total."  was paid successfully <br><br>
 
         <a href='".url('/invoice/'.$invoice->slug)."' style='padding: 0.5em; '>View Invoice</a> 
 

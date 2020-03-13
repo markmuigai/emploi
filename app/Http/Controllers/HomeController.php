@@ -245,7 +245,7 @@ class HomeController extends Controller
                 {
                     return view('pages.profile-updated')
                             ->with('title','Profile Updated')
-                            ->with('message','Your profile has been updated succesfully');
+                            ->with('message','Your profile has been updated successfully');
                 }
 
             }
@@ -290,7 +290,7 @@ class HomeController extends Controller
             {
                 return view('employers.dashboard.message')
                         ->with('title','Profile Updated')
-                        ->with('message','Your profile has been updated succesfully.');
+                        ->with('message','Your profile has been updated successfully.');
             }
             return view('employers.dashboard.message')
                         ->with('title','Profile Update Failed')
@@ -359,7 +359,7 @@ class HomeController extends Controller
 
         return view('referees.added')
                 ->with('referee',$r);
-        return 'Referee added succesfully';
+        return 'Referee added successfully';
 
         return $request->all();
     }
