@@ -115,10 +115,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-related" >
                     <div class="card-body-related">
                         <h2 class="orange">You Might Also Like</h2>
-                            @foreach($relatedBlogs as $rblog)                    
-                            <div class="blog-image " data-bg="url({{ asset($rblog->imageUrl) }})">                             
-                            </div>
-                            <h5><a href="{{ url('blog/'.$rblog->slug) }}">{{ $rblog->title }}</a></h5>
+                            @foreach($relatedBlogs as $rblog)   
+                          <div class="blog-image lazy mb-2"><img src="{{ url('blog/'.$rblog->imageUrl) }}"></div>                  
+                           <h5><a href="{{ url('blog/'.$rblog->slug) }}">{{ $rblog->title }}</a></h5>
                             <div class="text-center">
                             <p><i class="fas fa-user"></i> {{ $rblog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $rblog->postedOn }}</p>
                             </div>
