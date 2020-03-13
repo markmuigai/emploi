@@ -711,22 +711,6 @@ class Seeker extends Model
                     ->get();
     }
 
-     public function otherJobs($counter = 3){
-        $counter = $counter < 1 ? 1 : $counter;
-        $indId = $this->industry_id;
-        $id = $this->id;
-        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND id != $id) OR (featured = 1 AND id != $id) ORDER BY id DESC LIMIT $counter";
-        $results = DB::select($sql);
-
-        $posts = [];
-        for ($i=0; $i < count($results); $i++) { 
-            $posts[] = Post::find($results[$i]->id);
-        }
-         return $posts;
-
-    }
-
-
     public function referees(){
         return $this->hasMany(Referee::class);
     }
