@@ -105,10 +105,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
        
 
-            <?php
-            $relatedBlogs = $blog->alsoLike(3);
-             ?> 
-                @if(count($relatedBlogs) > 0)
+<?php
+    $relatedBlogs = $blog->alsoLike(3);
+?> 
+@if(count($relatedBlogs) > 0)
   <!--RELATED BLOGS -->
         <div class="container">
             <div class="col-md-12">
@@ -116,7 +116,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-body-related">
                         <h2 class="orange">You Might Also Like</h2>
                             @foreach($relatedBlogs as $rblog)   
-                          <div class="blog-image lazy mb-2"><img src="{{ url('blog/'.$rblog->imageUrl) }}"></div>                  
+                          <div class="blog-image lazy mb-2"><img src="{{ asset($rblog->imageUrl) }}"></div>                  
                            <h5><a href="{{ url('blog/'.$rblog->slug) }}">{{ $rblog->title }}</a></h5>
                             <div class="text-center">
                             <p><i class="fas fa-user"></i> {{ $rblog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $rblog->postedOn }}</p>
