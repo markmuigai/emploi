@@ -823,7 +823,7 @@ class EmployerController extends Controller
 
         EmailJob::dispatch($post->company->user->name, $post->company->user->email, $c->seeker->public_name." for ".$post->title, $caption, $contents);
 
-        $caption = "Application for the ".$post->title." position was successfull";
+        $caption = "Application for the ".$post->title." position was successful";
         $contents = "You have been selected for <b>".$post->title."</b> position at <b>".$post->company->name."</b>. You have been offered a <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
         <b>Employer Details</b> <br>
         Name: ".$post->company->user->name." <br>
@@ -834,7 +834,7 @@ class EmployerController extends Controller
         Thank you for choosing Emploi.
         <br>
         ";
-        EmailJob::dispatch($c->seeker->user->name, $c->seeker->user->email, "Application for ".$post->title." Successfull", $caption, $contents);
+        EmailJob::dispatch($c->seeker->user->name, $c->seeker->user->email, "Application for ".$post->title." Successful", $caption, $contents);
 
         $caption = "The position ".$post->title." has been closed, ".$c->seeker->user->name." selected";
         $contents = $c->seeker->user->name." has been selected by <a href='".url('/companies/'.$post->company->id)."'> for the <b>".$post->title."</b> position, and has been offered a  <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
@@ -848,7 +848,7 @@ class EmployerController extends Controller
         Phone: ".$c->seeker->phone_number." <br>.
         <br>
         ";
-        EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', "Candidate Selected for ".$post->title." Successfull", $caption, $contents);
+        EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', "Candidate Selected for ".$post->title." Successful", $caption, $contents);
         if($post->positions == count($post->candidates))
         {
             $post->status = 'closed';

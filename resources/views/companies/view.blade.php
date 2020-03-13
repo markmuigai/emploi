@@ -111,7 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				<div class="d-flex justify-content-center mb-3">
 					<img src="{{ asset($company->logoUrl) }}" alt="{{ $company->name }}" class="circle-img">
 				</div>
-				<p class="badge badge-secondary">{{$post->positions}} Postion{{ $post->positions == 1 ? '' : 's' }}</p>
+				<p class="badge badge-secondary">{{$post->positions}} Position{{ $post->positions == 1 ? '' : 's' }}</p>
 				<h5>{{ $post->title }}</h5>
 			</a>
 			<p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->name }}</p>

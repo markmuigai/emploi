@@ -17,7 +17,7 @@ if(!isset($posts))
                 <div class="d-flex justify-content-center mb-3">
                     <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
                 </div>
-                <p class="badge badge-secondary">{{$p->positions}} Postions</p>
+                <p class="badge badge-secondary">{{$p->positions}} Positions</p>
                 <h5>{{ $p->getTitle(true) }}</h5>
                 <p><i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}</p>
                 <p>

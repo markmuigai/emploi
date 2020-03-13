@@ -11,10 +11,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body text-center">
-        <h4>Application Failed</h4>
+        <h4 style="color: red">Application Failed</h4>
          @include('components.ads.responsive')
         <p>Application for {{ $post->title }} failed. Please try again in a few moments.</p>
         <p>If the issue persists, please <a href="/contact" class="orange">contact us</a> for assistance.</p>
+        @include('components.otherJobs')
     </div>
 </div>
 

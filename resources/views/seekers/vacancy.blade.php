@@ -162,7 +162,7 @@
                                 @else
 
                                 <p>
-                                    Application for this position was submitted succesfully. <br>
+                                    Application for this position was submitted successfully. <br>
                                      <br><br>
                                     <a href="/vacancies/featured" class="btn btn-orange">See Featured Vacancies</a>
 
@@ -201,38 +201,4 @@
     @include('components.featuredEmployers')
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.related-carousel').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 2,
-            arrows: true,
-            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-            responsive: [{
-                    breakpoint: 996,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 2,
-                    }
-                },
-                {
-                    breakpoint: 737,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 500,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                },
-            ]
-        })
-    });
-</script>
 @endsection
