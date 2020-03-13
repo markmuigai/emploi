@@ -214,7 +214,7 @@ class EmployerController extends Controller
         
 
         // $caption = "Thank you for registering your profile on Emploi as an Employer";
-        // $contents = "Your account has been created succesfully. Log in with username: <b>$username</b> <br>
+        // $contents = "Your account has been created successfully. Log in with username: <b>$username</b> <br>
         // <br>
 
         // Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
@@ -848,7 +848,7 @@ class EmployerController extends Controller
 
         EmailJob::dispatch($post->company->user->name, $post->company->user->email, $c->seeker->public_name." for ".$post->title, $caption, $contents);
 
-        $caption = "Application for the ".$post->title." position was succesfull";
+        $caption = "Application for the ".$post->title." position was successfull";
         $contents = "You have been selected for <b>".$post->title."</b> position at <b>".$post->company->name."</b>. You have been offered a <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
         <b>Employer Details</b> <br>
         Name: ".$post->company->user->name." <br>
@@ -859,7 +859,7 @@ class EmployerController extends Controller
         Thank you for choosing Emploi.
         <br>
         ";
-        EmailJob::dispatch($c->seeker->user->name, $c->seeker->user->email, "Application for ".$post->title." Succesfull", $caption, $contents);
+        EmailJob::dispatch($c->seeker->user->name, $c->seeker->user->email, "Application for ".$post->title." Successfull", $caption, $contents);
 
         $caption = "The position ".$post->title." has been closed, ".$c->seeker->user->name." selected";
         $contents = $c->seeker->user->name." has been selected by <a href='".url('/companies/'.$post->company->id)."'> for the <b>".$post->title."</b> position, and has been offered a  <b>monthly salary of ".$post->location->country->currency.$c->monthly_salary."</b>. <br>
@@ -873,7 +873,7 @@ class EmployerController extends Controller
         Phone: ".$c->seeker->phone_number." <br>.
         <br>
         ";
-        EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', "Candidate Selected for ".$post->title." Succesfull", $caption, $contents);
+        EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', "Candidate Selected for ".$post->title." Successfull", $caption, $contents);
         if($post->positions == count($post->candidates))
         {
             $post->status = 'closed';

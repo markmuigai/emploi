@@ -48,7 +48,7 @@ class SuperAdminController extends Controller
 
         $c = Country::findOrFail($request->country);
 
-        die("Admin created succesfully. <br>
+        die("Admin created successfully. <br>
         	Name: ".$request->name." <br>
         	username: ".$request->username." <br>
         	E-mail: ".$request->email." <br>
