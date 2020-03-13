@@ -103,12 +103,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <!--RELATED BLOGS -->
             <?php
                 $relatedBlogs = $blog->alsoLike(3);
+                $classSeparator = '4';
+                if(count($relatedBlogs) == 2)
+                    $classSeparator = '6';
+                elseif(count($relatedBlogs) == 1)
+                    $classSeparator = '12';
             ?> 
             @if(count($relatedBlogs) > 0)
             <div>
                 <h2 class="orange" style="text-align: center;">You Might Also Like</h2>
+                <div class="row">
                 @foreach($relatedBlogs as $rblog)  
-                    <div class="main-blog-image mb-4 d-none d-md-block" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($rblog->imageUrl) }}')">
+                    <div class="main-blog-image mb-4 d-none d-md-block col-md-{{ $classSeparator }}" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($rblog->imageUrl) }}')">
                         <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-lg-5 px-4 heading">
                             <h2>{{ $rblog->title }}</h2>
                             <p>
@@ -117,7 +123,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <a href="/blog/{{ $rblog->category->slug }}"><span class="badge badge-orange">{{ $rblog->category->name }}</span></a>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
+                </div>
             </div>
             @endif
             <!--  END RELATED BLOGS -->   
