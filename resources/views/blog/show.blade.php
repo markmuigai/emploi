@@ -113,7 +113,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="container">
             <div class="col-md-12">
                 <div class="card-related" >
-                    <div class="card-body-related">
+                    <div class="card-body-related orange">
                         <h2 class="orange">You Might Also Like</h2>
                             @foreach($relatedBlogs as $rblog)   
                           <div class="blog-image lazy mb-2"><img src="{{ asset($rblog->imageUrl) }}"></div>                  
