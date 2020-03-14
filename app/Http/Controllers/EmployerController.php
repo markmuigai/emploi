@@ -428,7 +428,8 @@ class EmployerController extends Controller
         $j = JobApplication::create([
             'user_id' => $seeker->user->id,
             'post_id' => $post->id,
-            'cover' => 'Shortlisted from the dashboard'
+            'cover' => 'Shortlisted by employer',
+            'status' => 'shortlisted'
         ]);
         if(isset($j->id))
         {

@@ -79,7 +79,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @endif
                         </h4>
                         <p class="text-success text-capitalize">{{ $s->current_position ? $s->current_position : 'N/A' }}</p>
-                        <p>{{ $s->industry->name }}</p>
+                        <p>
+                            {{ $s->industry->name }}
+                        </p>
                         <p><i class="fas fa-map-marker-alt orange"></i>
                             @if(isset($s->location))
                             {{ $s->location->name.', '.$s->location->country->code }}
@@ -87,6 +89,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             {{ $s->country->name }}
                             @endif
                         </p>
+                        @if(count(Auth::user()->employer->activePosts) > 0)
+                        <form method="post" action="/employers/shortlist" class="row">
+                            @csrf
+                            <input type="hidden" name="seeker_id" value="{{ $s->id }}">
+                            <select name="post_id" class="col-md-4 form-control">
+                                @foreach(Auth::user()->employer->activePosts as $ap)
+                                <option value="{{ $ap->id }}">{{ $ap->title }}</option>
+                                @endforeach
+                            </select>
+                            <input type="submit" class="btn btn-orange-alt btn-sm" value="Apply for {{ $s->public_name }}">
+                        </form>
+                        @endif
                     </div>
                 </div>
                 <hr>
@@ -144,12 +158,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <!-- END OF CLOSED JOBS -->
 </div>
-<?php
-    $code = 'BROWSING-CANDIDATES';
-    $url = url()->current();
-    $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
-    $message = $code.' '.$user.' '.$url.' is browsing for candidates';
-    \App\Employer::first()->notify(new \App\Notifications\BrowsingCandidates($message));
-?>
 
 @endsection

@@ -200,6 +200,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @endif
                     </div>
                 </div>
+
+                <div>
+                    <br>
+                    @if(count(Auth::user()->employer->activePosts) > 0)
+                        <form method="post" action="/employers/shortlist" class="row">
+                            @csrf
+                            <input type="hidden" name="seeker_id" value="{{ $user->seeker->id }}">
+                            <select name="post_id" class=" form-control">
+                                @foreach(Auth::user()->employer->activePosts as $ap)
+                                <option value="{{ $ap->id }}">{{ $ap->title }}</option>
+                                @endforeach
+                            </select>
+                            <input type="submit" class="btn btn-orange-alt btn-sm" value="Apply for {{ $user->seeker->public_name }}">
+                        </form>
+                        @endif
+                </div>
             </div>
         </div>
     </div>
