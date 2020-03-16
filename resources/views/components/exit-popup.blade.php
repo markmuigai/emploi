@@ -85,6 +85,42 @@
 	</div>
 </div>
 
+<div id="coronaVirusUpdate" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #500095; color: white">
+				
+				<h4 class="modal-title">
+					Coronavirus Alert
+				</h4>
+				<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
+			</div>
+			<div class="modal-body">
+				<div class="card-deck">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">
+                            	<strong>COVID-19</strong><br>
+								COVID-19 is the disease caused by the new coronavirus that emerged in China in December 2019.<br>
+
+								COVID-19 symptoms include <a href="https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center" style="color: red; font-weight: bold;">cough, fever and shortness of breath</a>. COVID-19 can be severe, and some cases have caused death.<br>
+								The new coronavirus can be spread from person to person. It is diagnosed with a laboratory test.<br>
+								There is no coronavirus vaccine yet. Prevention involves <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters" style="color: green; text-decoration: underline;">frequent hand-washing, coughing into the bend of your elbow and staying home </a>when you are sick.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.worldometers.info/coronavirus/" class="btn btn-orange">View Outbreak</a>
+                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" class="btn btn-orange-alt" style="float: right;">WHO Updates</a>
+                        </div>
+                    </div>
+                    
+
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
     var exit_trials = 0;
     var role = 'guest';
@@ -193,6 +229,14 @@
 	    	}
 
 	    }
+
+	    var coronaVirusUpdate = localStorage.getItem("coronaVirusUpdate");
+	    if(coronaVirusUpdate == null)
+	    {
+	    	localStorage.setItem("coronaVirusUpdate", new Date());
+	    	$('#coronaVirusUpdate').modal();
+	    }
+	    
     });
     
 </script>
