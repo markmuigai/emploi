@@ -104,13 +104,13 @@
                             	<strong>COVID-19</strong><br>
 								COVID-19 is the disease caused by the new coronavirus that emerged in China in December 2019.<br>
 
-								COVID-19 symptoms include <a href="https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center" style="color: red; font-weight: bold;">cough, fever and shortness of breath</a>. COVID-19 can be severe, and some cases have caused death.<br>
+								COVID-19 symptoms include <a href="https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center" target="_blank" style="color: red; font-weight: bold;">cough, fever and shortness of breath</a>. COVID-19 can be severe, and some cases have caused death.<br>
 								The new coronavirus can be spread from person to person. It is diagnosed with a laboratory test.<br>
-								There is no coronavirus vaccine yet. Prevention involves <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters" style="color: green; text-decoration: underline;">frequent hand-washing, coughing into the bend of your elbow and staying home </a>when you are sick.</p>
+								There is no coronavirus vaccine yet. Prevention involves <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters" target="_blank" style="color: green; text-decoration: underline;">frequent hand-washing, coughing into the bend of your elbow and staying home </a>when you are sick.</p>
                         </div>
                         <div class="card-footer">
-                            <a href="https://www.worldometers.info/coronavirus/" class="btn btn-orange">View Outbreak</a>
-                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" class="btn btn-orange-alt" style="float: right;">WHO Updates</a>
+                            <a href="https://www.worldometers.info/coronavirus/" target="_blank" class="btn btn-orange">View Outbreak</a>
+                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" class="btn btn-orange-alt" style="float: right;">WHO Updates</a>
                         </div>
                     </div>
                     
