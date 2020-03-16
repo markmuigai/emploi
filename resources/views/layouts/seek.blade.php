@@ -123,7 +123,7 @@
 							<li><a href="/blog">Career Centre</a></li>
 							@guest
 
-							<li><a href="/blog">Register Profile</a></li>
+							<li><a href="/blog">Career Centre</a></li>
 							@else
 							@endguest
 						</ul>
@@ -147,8 +147,8 @@
 						</ul>
 					</li>
 					@else
-					<li><a href="/login">Login</a></li>
-					<li><a href="/join" style="color: #ff5e00; font-weight: bold">Register</a></li>
+					<li><a href="/login">{{ __('auth.login') }}</a></li>
+					<li><a href="/join" style="color: #ff5e00; font-weight: bold">{{ __('auth.register') }}</a></li>
 					@endif
 				</ul>
 			</div>
@@ -225,7 +225,7 @@
 					<ul class="f_list2">
 						<li><a href="/about">About Us</a></li>
 						<li><a href="/blog">Career Centre</a></li>
-						<li><a href="/join">Register</a></li>
+						<li><a href="/join">{{ __('auth.register') }}</a></li>
 						<li><a href="/employers/publish">Advertise</a></li>
 						<li><a href="/vacancies">Vacancies</a></li>
 						<li><a href="/contact">Contact Us</a></li>

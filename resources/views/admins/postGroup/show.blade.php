@@ -129,7 +129,7 @@
 
                         @guest
                         <p>
-                            <a href="/login?redirectToPost={{ $pg->slug }}" class="btn btn-orange-alt">Login</a> or <a href="/register?redirectToPost={{ $pg->slug }}" class="btn btn-orange">Create Free Account</a> to apply for this position.
+                            <a href="/login?redirectToPost={{ $pg->slug }}" class="btn btn-orange-alt">{{ __('auth.login') }}</a> or <a href="/register?redirectToPost={{ $pg->slug }}" class="btn btn-orange">Create Free Account</a> to apply for this position.
                         </p>
                         @else
 

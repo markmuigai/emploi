@@ -11,6 +11,7 @@
         "php": "^7.2",
         "barryvdh/laravel-dompdf": "^0.8.6",
         "berkayk/onesignal-laravel": "^1.0",
+        "caouecs/laravel-lang": "~4.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.5",

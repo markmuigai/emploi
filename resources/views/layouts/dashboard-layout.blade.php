@@ -139,9 +139,9 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 
-                                <a href="/join" class="btn btn-orange">Register</a>
+                                <a href="/join" class="btn btn-orange">{{ __('auth.register') }}</a>
                                 <h6 class="mt-3">- Have An Account -</h6>
-                                <a href="/login" class="btn btn-orange-alt">Login</a>
+                                <a href="/login" class="btn btn-orange-alt">{{ __('auth.login') }}</a>
 
                                 
                             </div>

@@ -157,10 +157,10 @@
                 </li> -->
                 @else
                 <li class="nav-item">
-                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-white px-3">Login</a>
+                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-white px-3">{{ __('auth.login') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange px-3">Register</a>
+                    <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange px-3">{{ __('auth.register') }}</a>
                 </li>
                 @endif
                 <li class="nav-item">
@@ -174,7 +174,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-left" aria-labelledby="navbarDropdown">
                         @guest
-                            <a class="dropdown-item" href="/login">Login</a>
+                            <a class="dropdown-item" href="/login">{{ __('auth.login') }}</a>
                             <a class="dropdown-item" href="/join">Create Profile</a>
                             <a class="dropdown-item" href="/contact">Contact Us</a>
                         @else

@@ -145,12 +145,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
          </div>
         <div class="d-flex justify-content-between">
             <button class="show-details btn btn-orange"><i class="fas fa-chevron-left"></i> Back</button>
-            <button type="submit" name="button" class="btn btn-orange-alt">Register</button>
+            <button type="submit" name="button" class="btn btn-orange-alt">{{ __('auth.register') }}</button>
         </div>
     </div>
 </form>
 <h5 class="mt-4">Have an account?
-    <a href="/login" class="btn btn-orange px-5">Login</a>
+    <a href="/login" class="btn btn-orange px-5">{{ __('auth.login') }}</a>
 </h5>
 <script type="text/javascript">
     $().ready(function() {

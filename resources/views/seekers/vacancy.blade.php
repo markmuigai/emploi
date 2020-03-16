@@ -71,7 +71,7 @@
                                         @if(isset(Auth::user()->id))
                                         {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
                                         @else
-                                        <a href="/login" class="orange">Login </a>
+                                        <a href="/login" class="orange">{{ __('auth.login') }} </a>
                                         to view salary
                                         @endif
                                     </strong>
@@ -126,7 +126,7 @@
 
                         @guest
                             <p>
-                                <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">Login</a> or <a href="/register?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to apply for this position.
+                                <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">{{ __('auth.login') }}</a> or <a href="/register?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to apply for this position.
                             </p>
                             @if($post->how_to_apply == null || $post->externalSimpleApply())
                                 <br>

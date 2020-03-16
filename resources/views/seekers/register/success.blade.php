@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>Check your e-mail inbox for your username and password to log in.</p>
 
     <div class="mt-4">
-        <a href="/login" class="btn btn-orange">Log in</a>
+        <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
         <a href="/vacancies" class="btn btn-orange-alt">Vacancies</a>
     </div>
 </div>

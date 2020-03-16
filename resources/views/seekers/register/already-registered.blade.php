@@ -15,8 +15,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>Please use a different e-mail address or log in to your account</p>
 
     <div class="mt-4">
-        <a href="/login" class="btn btn-orange">Log in</a>
-        <a href="/join" class="btn btn-orange-alt">Register</a>
+        <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
+        <a href="/join" class="btn btn-orange-alt">{{ __('auth.register') }}</a>
     </div>
 </div>
 

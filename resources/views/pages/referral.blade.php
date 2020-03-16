@@ -33,8 +33,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	       	<br>
 	       	@guest
 	       	<br>
-	       	<a href="/join" class="btn btn-sm btn-orange">Register</a>
-	       	<a href="/login" class="btn btn-sm btn-primary">Login</a>
+	       	<a href="/join" class="btn btn-sm btn-orange">{{ __('auth.register') }}</a>
+	       	<a href="/login" class="btn btn-sm btn-primary">{{ __('auth.login') }}</a>
 	       	@else
 	       	You have {{ Auth::user()->totalCredits }} credits.
 	       	<br>

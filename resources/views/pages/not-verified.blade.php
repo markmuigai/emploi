@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>
         A confirmation e-mail has been re-sent to your e-mail address.
     </p>
-    <a href="/login" class="btn btn-orange">Login</a>
+    <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
 </div>
 
 

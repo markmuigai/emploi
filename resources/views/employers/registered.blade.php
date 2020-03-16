@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </p>
 
     <div class="mt-4">
-        <a href="/login" class="btn btn-sm btn-orange">Login</a>
+        <a href="/login" class="btn btn-sm btn-orange">{{ __('auth.login') }}</a>
   </div>
 </div>
 

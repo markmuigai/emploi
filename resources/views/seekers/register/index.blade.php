@@ -88,7 +88,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </label>
         </div>
         <div class="d-flex justify-content-between">
-            <button type="submit" name="button" class="btn btn-orange">Register <i class="fas fa-chevron-right"></i></button>
+            <button type="submit" name="button" class="btn btn-orange">{{ __('auth.register') }} <i class="fas fa-chevron-right"></i></button>
         </div>
         
 
@@ -97,7 +97,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <hr>
 <h5 class="mt-4">
     Have an account?
-    <a href="/login" class="btn btn-sm btn-orange-alt px-5">Login</a>
+    <a href="/login" class="btn btn-sm btn-orange-alt px-5">{{ __('auth.login') }}</a>
     or 
     <a href="/employers/register" class="btn btn-sm btn-orange-alt px-5">Company Registration</a>
 </h5>
