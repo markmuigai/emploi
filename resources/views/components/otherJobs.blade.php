@@ -1,31 +1,31 @@
 <?php
 if(isset($post))
-    $relatedPosts = $post->related(6);
+    $otherJobs = $post->otherJobs(6);
 else
-    $relatedPosts = [];
+    $otherJobs = [];
 ?>
 
-@if(count($relatedPosts) > 0)
-<!-- RELATED JOBS -->
+@if(count($otherJobs) > 0)
+<!-- OTHER JOBS -->
 <div class="container mt-5 text-center">
-    <h2 class="orange">Related Jobs</h2>
+    <h2 class="orange">Other Jobs</h2>
     
-    <div class="featured-carousel">
-        @forelse($relatedPosts as $p)
+    <div class="otherjobs-carousel">
+        @forelse($otherJobs as $o)
         <div class="card mx-4 m-md-2 m-lg-4" >
             <div class="card-body">
-                <a href="/vacancies/{{ $p->slug }}">
+                <a href="/vacancies/{{ $o->slug }}">
                     <div class="d-flex justify-content-center mb-3">
-                        <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
+                        <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($o->imageUrl) }}" class="lazy"  alt="{{ $o->title }}" style="width: 100%" />
                     </div>
                 </a>
-                <p class="badge badge-secondary">{{ $p->positions }} Position{{ $p->positions == 1 ? '' : 's' }}</p>
-                <a href="/vacancies/{{ $p->slug }}">
-                    <h5>{{ $p->getTitle(true) }}</h5>
+                <p class="badge badge-secondary">{{ $o->positions }} Position{{ $o->positions == 1 ? '' : 's' }} </p>
+                <a href="/vacancies/{{ $o->slug }}">
+                    <h5>{{ $o->getTitle(true) }}</h5>
                 </a>
                 <p>
-                    <a href="/vacancies/{{ $p->location->name }}" title="View Vacancies in {{ $p->location->name }}">
-                        <i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}
+                    <a href="/vacancies/{{ $o->location->name }}" title="View Vacancies in {{ $o->location->name }}">
+                        <i class="fas fa-map-marker-alt orange"></i> {{ $o->location->name }}
                     </a>
                 </p>
                 <p>
@@ -33,8 +33,8 @@ else
                 </p>
                 <p>
                     
-                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $p->id }}"><i class="fas fa-share-alt"></i> </button>
-                    <a href="/vacancies/{{ $p->slug }}" class="btn btn-orange">View</a>
+                    <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $o->id }}"><i class="fas fa-share-alt"></i> </button>
+                    <a href="/vacancies/{{ $o->slug }}" class="btn btn-orange">View</a>
                 </p>
             </div>
         </div>
@@ -45,7 +45,7 @@ else
         <div class="card mx-4 m-md-2 m-lg-4" >
             <div class="card-body">
                 <div class="d-flex justify-content-center mb-3">
-                    <img src="{{ asset('images/500g.png') }}" class="lazy"  alt="View More Vacancies" />
+                    <img src="{{ asset('images/500g.png') }}" class="lazy"  alt="View More Vacancies" style="width: 100%" />
                 </div>
                 <p class="badge badge-secondary">{{ count($post->industry->activePosts()) }} Vacancies</p>
                 <h5> Vacancies in {{ $post->industry->name }}</h5>
@@ -56,7 +56,7 @@ else
     </div>
     <script type="text/javascript">
         $().ready(function(){
-            $('.featured-carousel').slick({
+            $('.otherjobs-carousel').slick({
                 infinite: true,
                 slidesToShow: 3,
                 slidesToScroll: 2,
@@ -89,8 +89,7 @@ else
         });
     </script>
 </div>
-<!-- END OF RELATED JOBS -->
+<!-- END OF OTHER JOBS -->
 
 
 @endif
-
