@@ -233,8 +233,9 @@
 	    var coronaVirusUpdate = localStorage.getItem("coronaVirusUpdate");
 	    if(coronaVirusUpdate == null)
 	    {
-	    	localStorage.setItem("coronaVirusUpdate", new Date());
+	    	
 	    	$('#coronaVirusUpdate').modal();
+	    	localStorage.setItem("coronaVirusUpdate", new Date());
 	    }
 	    
     });
