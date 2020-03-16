@@ -140,9 +140,7 @@ class EmployerController extends Controller
 
     	$country2 = Country::findOrFail($request->company_prefix);
 
-        //return $request->co_name;
-
-    	$emp = Employer::create([
+       	$emp = Employer::create([
     		'user_id' => $user->id,
     		'name' => $request->name,
     		'industry_id' => $request->industry,

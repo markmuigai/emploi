@@ -11,14 +11,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body text-center">
-        <h4>Application Success!</h4>
+        <h4 style="color: green">Application Success!</h4>
         @include('components.ads.responsive')
         <p>
-            Application for {{ $post->title }} was completed succesfull.
+            Application for {{ $post->title }} was completed successful.
         </p>
         <p>
             You will be notified on your application progress in due time. Keep track of your application by logging into your account. For further assistance, please do not hesitate to <a class="orange" href="/contact">contact us</a>.
         </p>
+        <p> @include('components.otherJobs')</p>
         <br>
     	@if($created)
     	<p>
