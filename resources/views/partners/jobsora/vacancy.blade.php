@@ -1,6 +1,6 @@
 <job id="{{ $vacancy->id }}">
 	<link><![CDATA[{{ url('/vacancies/'.$vacancy->slug) }}]]></link>
-	<name><![CDATA[{{ $vacancy->slug }}]]></name>
+	<name><![CDATA[{{ $vacancy->title }}]]></name>
 	<region><![CDATA[{{ $vacancy->location->name }}, {{ $vacancy->location->country->name }}]]></region>
 	@if($vacancy->plainMonthlySalary() != 'Salary is not disclosed') 
 	<salary><![CDATA[{{ $vacancy->plainMonthlySalary() }}]]></salary>
