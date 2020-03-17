@@ -50,7 +50,7 @@ class SitemapController extends Controller
 
 	public function vacanciesXML()
 	{
-        $vacancies=Post::recent(300); 
+        $vacancies=Post::recent(200); 
 	    return response()->view('partners.jobsora.vacancies', [
 	        'vacancies' => $vacancies,
 	    ])->header('Content-Type', 'text/xml');
