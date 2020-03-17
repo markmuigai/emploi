@@ -47,4 +47,12 @@ class SitemapController extends Controller
 	        'companies' => $companies,
 	    ])->header('Content-Type', 'text/xml');
 	}
+
+	public function vacanciesXML()
+	{
+        $vacancies=Post::recent(300); 
+	    return response()->view('partners.jobsora.vacancies', [
+	        'vacancies' => $vacancies,
+	    ])->header('Content-Type', 'text/xml');
+    }
 }
