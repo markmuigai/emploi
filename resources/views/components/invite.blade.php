@@ -8,8 +8,11 @@
                     Structure CSV for Import
 
                 </h4>
-                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
+                <!-- <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button> -->
             </div>
+             <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerRegisterModal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
             <div class="modal-body">
                 <img src="{{ asset('images/csv-instructions.png') }}" style="width: 100%">
                 <p>
