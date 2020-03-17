@@ -3,7 +3,7 @@
     <div class="container pt-3 pb-1">
         <div class="row justify-content-between">
             <div class="col-md-4 col-sm-4 col-5">
-                <h4>MENU</h4>
+                <h4>{{ __('other.menu') }}</h4>
                 <ul class="footer-menu">
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <div class="col-md-4 col-sm-5 col-7 location">
-                <h4>FIND US</h4>
+                <h4>{{ __('other.find_us') }}</h4>
                 <div class="row align-items-center">
                     <div class="col-1">
                         <i class="fas fa-map-marker-alt"></i>
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="col-md-2 offset-md-2 d-none d-md-block social ">
-                <h4>SOCIAL</h4>
+                <h4>{{ __('other.social') }}</h4>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer">
                         <span style="display: none">Follow us on Facebook</span>

@@ -101,12 +101,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div class="card pb-5">
             <div class="card-body text-center">
-                <h2 class="orange">Who Are We?</h2>
-                <p>Emploi is a job matching platform that does it right and does it fast. Job matching platform that combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker
-                    matching.
+                <h2 class="orange">{{ __('other.who_r_we') }}?</h2>
+                <p>{{ __('other.who_r_we_txt') }}
                 </p>
-                <a href="/about" class="btn btn-orange">More About Us</a>
-                <a href="/employers/publish" class="btn btn-orange-alt px-4">Advertise Here</a>
+                <a href="/about" class="btn btn-orange">{{ __('other.m_abt_us') }}</a>
+                <a href="/employers/publish" class="btn btn-orange-alt px-4">{{ __('jobs.advert_jobs') }}</a>
             </div>
         </div>
     </div>
@@ -120,23 +119,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-briefcase"></i>
-                        <h5>Total Jobs</h5>
+                        <h5>{{ __('jobs.t_jobs') }}</h5>
                         <h1 class="counter">{{ count(\App\Post::all()) }}</h1>
-                        <p>Find your next job effortlessly.</p>
+                        <p>{{ __('jobs.find_nxt_job') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-clipboard-check"></i>
-                        <h5>Total Candidates</h5>
+                        <h5>{{ __('jobs.t_cand') }}</h5>
                         <h1 class="counter">{{ count(\App\Seeker::all()) * 2 }}</h1>
-                        <p>Get hired with minimal effort.</p>
+                        <p>{{ __('jobs.gt_hired') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fas fa-building"></i>
-                        <h5>Total Companies</h5>
+                        <h5>{{ __('jobs.t_comp') }}</h5>
                         <h1 class="counter">{{ count(\App\Company::all()) * 3 }}</h1>
-                        <p>{{ count(\App\Company::getHiringCompanies2(0)) * 3 }} companies are hiring.</p>
+                        <p>{{ count(\App\Company::getHiringCompanies2(0)) * 3 }} {{ __('jobs.comp_hirin') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                 </div>
@@ -150,8 +149,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div class="card">
             <div class="card-body text-center">
-                <h2 class="orange" id="our-services-section">Our Services</h2>
-                <p>We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vaccancies through job boards.</p>
+                <h2 class="orange" id="our-services-section">{{ __('other.o_serv') }}</h2>
+                <p>{{ __('other.o_serv_txt') }}</p>
                 <div class="row pt-2 service-cards">
                     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist" style="width: 100%">
                         <?php
@@ -170,10 +169,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         ?>
                         
                         <li class="nav-item">
-                            <a class="nav-link {{ $seekerServices }}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">For Job Seekers</a>
+                            <a class="nav-link {{ $seekerServices }}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ __('jobs.for_js') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ $employerServices }}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">For Employers</a>
+                            <a class="nav-link {{ $employerServices }}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{ __('jobs.for_emp') }}</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -183,29 +182,29 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="card">
                                     <img class="card-img-top" src="/images/logo.png" alt="Professional CV Editing">
                                     <div class="card-body">
-                                        <h5 class="card-title">CV Editing</h5>
-                                        <p class="card-text">A recruiter may spend as little as 20 seconds looking at each CV. You need to maximize on your 20 seconds to deliver maximum impression to the recruiter.</p>
+                                        <h5 class="card-title">{{ __('jobs.cv_edit') }}</h5>
+                                        <p class="card-text">{{ __('jobs.cv_edit_txt') }}</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/job-seekers/cv-editing" class="btn btn-orange-alt">Request Service</a>
+                                        <a href="/job-seekers/cv-editing" class="btn btn-orange-alt">{{ __('other.r_serv') }}</a>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
                                     <div class="card-body">
-                                        <h5 class="card-title">Featured Jobseeker</h5>
-                                        <p class="card-text">Have your profile rank first in applications and searches. Includes Application updates</p>
+                                        <h5 class="card-title">{{ __('jobs.f_seeker') }}</h5>
+                                        <p class="card-text">{{ __('jobs.f_seeker_txt') }}</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/job-seekers/services" class="btn btn-orange">Learn More</a>
+                                        <a href="/job-seekers/services" class="btn btn-orange">{{ __('other.l_more') }}</a>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <img class="card-img-top" src="/images/logo.png" alt="Latest Vacancies">
                                     <div class="card-body">
-                                        <h5 class="card-title">Job Vacancies</h5>
+                                        <h5 class="card-title">{{ __('jobs.j_vacays') }}</h5>
                                         <p class="card-text">
-                                        We aggregate top vacancies from companies and job boards, ensuring your career progresses upwards steadily </p>
+                                        {{ __('jobs.j_vacays_txt') }} </p>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted">
@@ -280,7 +279,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <!-- FEATURED JOBS -->
 <div class="container mt-5 text-center">
-    <h2 class="orange">Featured Jobs</h2>
+    <h2 class="orange">{{ __('jobs.f_jobs') }}</h2>
     @if(is_null($posts))
     <div class="text-center">
         <p>No jobs posted yet. Please check back later.</p>
@@ -317,7 +316,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </a>
                     @else
                     <a href="/vacancies/{{ $post->slug }}" class="btn btn-orange">
-                        Apply
+                        {{ __('other.apply') }}
                     </a>
                     @endif
 
@@ -327,8 +326,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @empty
         @endforelse
     </div>
-    <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
-    <a href="/vacancies/featured" class="btn btn-orange-alt mt-3 mb-5">Featured Vacancies</a>
+    <a href="/vacancies" class="btn btn-orange mt-3 mb-5">{{ __('jobs.v_a_jobs') }}</a>
+    <a href="/vacancies/featured" class="btn btn-orange-alt mt-3 mb-5">{{ __('jobs.f_jobs') }}</a>
     @endif
 </div>
 @forelse($posts as $post)
@@ -350,7 +349,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="testimonials">
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">Testimonials</h2>
+                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
@@ -366,7 +365,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">Testimonials</h2>
+                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/avatar.png" data-src="{{asset('images/testimonials/kizito.webp')}}" alt="Kipkemoi Kizito" class="w-100 lazy">
@@ -382,7 +381,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">Testimonials</h2>
+                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/avatar.png" data-src="{{asset('images/testimonials/fay.webp')}}" alt="Faith Chepkemoi" class="w-100 lazy">
@@ -398,7 +397,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">Testimonials</h2>
+                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/avatar.png" data-src="{{asset('images/testimonials/sandra.webp')}}" alt="Sandra Eshitemi" class="w-100 lazy">
@@ -419,7 +418,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- BLOGS -->
 <div class="blogs mt-3 py-5">
     <div class="container">
-        <h2 class="text-center">Blogs And News</h2>
+        <h2 class="text-center">{{ __('other.b_n_news') }}</h2>
         <div class="row">
             <div class="col-lg-5">
                 <div class="card mb-lg-3 my-2">
@@ -470,7 +469,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
         <div class="text-center">
-            <a href="/blog" class="btn btn-orange">View All Blogs</a>
+            <a href="/blog" class="btn btn-orange">{{ __('other.v_a_blogs') }}</a>
         </div>
     </div>
 </div>
@@ -491,14 +490,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <div class="content">
             @guest
-                <h1>Find the Right Job for you.</h1>
-                <p>Looking for a job? Looking to hire? The first thing you need to do is create a profile.</p>
-                <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
+                <h1>{{ __('other.find_right_job') }}</h1>
+                <p>{{ __('other.looking_') }}</p>
+                <h4>{{ __('other.more_than') }} <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> {{ __('other.proffesionals_path') }}</h4>
                 <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
                 <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
             @else
                 @if(Auth::user()->role == 'seeker')
-                    <h1>Find the Right Job for you.</h1>
+                    <h1>{{ __('other.find_right_job') }}</h1>
                     <p>Looking for a job? Maybe your CV doesn't stand out! Let us catapult your career and land you a job with our professional CV Editing.</p>
                     <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
                     <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange">Explore Vacancies</a>
