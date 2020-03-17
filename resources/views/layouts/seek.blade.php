@@ -56,7 +56,7 @@
 					@if (Route::getCurrentRoute() != null && Route::getCurrentRoute()->uri() != '/')
 					<li><a href="/">Home</a></li>
 					@else
-					<li><a href="/blog">Career Centre</a></li>
+					<li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
 					@endif
 					<li class="dropdown" style="display: none">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">About<strong class="caret"></strong></a>
@@ -73,7 +73,7 @@
 								<div class="col-sm-4">
 									<ul class="multi-column-dropdown">
 										<li><a href="/employers/publish" style="font-weight: bold">Advertise a Job</a></li>
-										<li><a href="/blog">Career Centre</a></li>
+										<li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
 
 									</ul>
 								</div>
@@ -95,7 +95,7 @@
 							@if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
 							<li><a href="/employers/dashboard">Dashboard</a></li>
 							@endif
-							<li><a href="/employers/services">All Services</a></li>
+							<li><a href="/employers/services">{{ __('other.a_services') }}</a></li>
 							<li><a href="/employers/browse">Browse CVs</a></li>
 							<li><a href="/employers/publish" style="font-weight: bold;">Advertise Jobs</a></li>
 							<li><a href="/employers/premium-recruitment">Premium Recruitment</a></li>
@@ -112,7 +112,7 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seekers<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li><a href="/job-seekers/services">All Services</a></li>
+							<li><a href="/job-seekers/services">{{ __('other.a_services') }}</a></li>
 							<li><a href="/register" style="font-weight: bold;">Upload CV</a></li>
 
 							<li><a href="/job-seekers/cv-editing">CV Editing</a></li>
@@ -120,10 +120,10 @@
 
 							<li><a href="/job-seekers/premium-placement">Premium Placement</a></li>
 							<li><a href="/vacancies">Vacancies</a></li>
-							<li><a href="/blog">Career Centre</a></li>
+							<li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
 							@guest
 
-							<li><a href="/blog">Career Centre</a></li>
+							<li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
 							@else
 							@endguest
 						</ul>
@@ -224,7 +224,7 @@
 					<h4>MENU</h4>
 					<ul class="f_list2">
 						<li><a href="/about">About Us</a></li>
-						<li><a href="/blog">Career Centre</a></li>
+						<li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
 						<li><a href="/join">{{ __('auth.register') }}</a></li>
 						<li><a href="/employers/publish">Advertise</a></li>
 						<li><a href="/vacancies">Vacancies</a></li>

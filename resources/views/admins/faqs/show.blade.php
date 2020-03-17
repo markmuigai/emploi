@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
         <div class="row" style="text-align: right; ">
             <a href="/admin/faqs" class="btn btn-default">
-                <i class="fa fa-arrow-left"></i> All Faqs
+                <i class="fa fa-arrow-left"></i> {{ __('other.faqs') }}
             </a>
             
              <br><hr>

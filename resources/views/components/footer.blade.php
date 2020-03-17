@@ -6,7 +6,7 @@
                 <h4>MENU</h4>
                 <ul class="footer-menu">
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="/blog">Career Centre</a></li>
+                    <li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
                     <li><a href="/join">{{ __('auth.register') }}</a></li>
                     <li><a href="/employers/publish">Advertise</a></li>
                     <li><a href="/vacancies">Vacancies</a></li>

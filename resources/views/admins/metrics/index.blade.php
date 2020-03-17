@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         Companies: {{ $companies_count }} <br>
                         Referees: {{ $referees_count }} <br>
                         Cv Editors: {{ $cv_editors }} <br>
-                        Faqs: {{ $faqs }} <br>
+                        {{ __('other.faqs') }}: {{ $faqs }} <br>
                     </div>
                     <div class="col-md-6">
                         Adverts: {{ $adverts_count }} <br>

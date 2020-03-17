@@ -5,13 +5,13 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
-                <h4 class="orange">Search</h4>
+                <h4 class="orange">{{ __('other.search') }}</h4>
                 <form class="form-row" action="/vacancies/search" method="get">
                     <div class="col-9">
-                        <input type="text" class="form-control" name="q" placeholder="Search" required="" maxlength="50">
+                        <input type="text" class="form-control" name="q" placeholder="{{ __('other.search') }}" required="" maxlength="50">
                     </div>
                     <div class="col-3">
-                        <button type="submit" name="button" class="btn btn-orange">Search</button>
+                        <button type="submit" name="button" class="btn btn-orange">{{ __('other.search') }}</button>
                     </div>
                 </form>
             </div>
