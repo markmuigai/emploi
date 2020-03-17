@@ -14,7 +14,7 @@
 		]]>
 		</description>
 	<apply_url><![CDATA[{{ url('/vacancies/'.$vacancy->slug) }}]]></apply_url>
-	<email><![CDATA[{{ $vacancy->company->phone_number ? $vacancy->company->email : $vacancy->company->getEmail()  }}]]></email>
+	<email><![CDATA[{{ $vacancy->company->email ? $vacancy->company->email : $vacancy->company->getEmail()  }}]]></email>
 	@if( $vacancy->company->phone_number )
 	<phone><![CDATA[{{ $vacancy->company->phone_number }}]]></phone>
 	@endif
