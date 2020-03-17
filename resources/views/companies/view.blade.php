@@ -119,7 +119,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				@if(isset(Auth::user()->id))
 				{{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
 				@else
-				<p><a href="/login" class="orange">Login</a> to view salary</p>
+				<p><a href="/login" class="orange">{{ __('auth.login') }}</a> to view salary</p>
 				@endif
 			</p>
 		</div>

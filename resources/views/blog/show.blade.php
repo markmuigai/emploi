@@ -56,7 +56,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </p>
                 <br><br>
                 <p style="text-align: center;">
-                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">Login</a> or <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to view the full blog.
+                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">{{ __('auth.login') }}</a> or <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to view the full blog.
                 </p>
 
             @endif

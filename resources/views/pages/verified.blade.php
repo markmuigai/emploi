@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     @include('components.ads.responsive')
     <p>
         @guest
-        Click <a href="/login">here</a> to log into your account. 
+        Click <a href="/login">here</a> to {{ __('auth.login') }} to your account. 
         @else
         Click <a href="/home">here</a> to view your dashboard.
         @endguest

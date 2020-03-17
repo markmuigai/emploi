@@ -1,13 +1,13 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Employer FAQs')
+@section('title','Emploi :: Employer '. __('other.faqs') )
 
 @section('description')
 Do you have questions? Here are frequently asked questions by Job Seekers.
 @endsection
 
 @section('content')
-@section('page_title', 'Employer FAQs')
+@section('page_title', 'Employer '. __('other.faqs') )
 
 <div class="card">
     <div class="card-body">

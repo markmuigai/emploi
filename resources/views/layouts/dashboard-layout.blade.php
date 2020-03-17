@@ -19,6 +19,9 @@
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
     <link  rel="preload, stylesheet" as="style" href="{{asset('css/bootstrap.min.css')}}">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap" rel="stylesheet">
+
     <!--Font Awesome-->
     <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- ChartJS -->
@@ -136,9 +139,9 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 
-                                <a href="/join" class="btn btn-orange">Register</a>
+                                <a href="/join" class="btn btn-orange">{{ __('auth.register') }}</a>
                                 <h6 class="mt-3">- Have An Account -</h6>
-                                <a href="/login" class="btn btn-orange-alt">Login</a>
+                                <a href="/login" class="btn btn-orange-alt">{{ __('auth.login') }}</a>
 
                                 
                             </div>

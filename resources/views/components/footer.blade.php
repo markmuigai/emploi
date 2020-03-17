@@ -6,13 +6,25 @@
                 <h4>MENU</h4>
                 <ul class="footer-menu">
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="/blog">Career Centre</a></li>
-                    <li><a href="/join">Register</a></li>
+                    <li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
+                    <li><a href="/join">{{ __('auth.register') }}</a></li>
                     <li><a href="/employers/publish">Advertise</a></li>
                     <li><a href="/vacancies">Vacancies</a></li>
                     <li><a href="/contact">Contact Us</a></li>
                     <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li>
+                        <div class="lang_list">
+                            <form method="post" action="/language" id="localization-form" style="display: inline;"> 
+                            @csrf
+                            <select tabindex="4"  name="language" class="dropdown1" onchange="$('#localization-form').submit()">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                    <option value="{{ $lang }}" {{ $lang == App::getLocale() ? 'selected=""' : '' }}>{{$language}}</option>
+                                @endforeach
+                            </select>
+                            </form>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-5 col-7 location">

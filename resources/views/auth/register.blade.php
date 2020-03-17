@@ -122,11 +122,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 
     <div class="text-center">
-        <button type="submit" name="button" class="btn btn-orange-alt">Register</button>
+        <button type="submit" name="button" class="btn btn-orange-alt">{{ __('auth.register') }}</button>
     </div>
 </form>
 <h5 class="mt-4">Have an account?
-    <a href="/login" class="btn btn-orange px-5">Login</a>
+    <a href="/login" class="btn btn-orange px-5">{{ __('auth.login') }}</a>
 </h5>
 
 @include('components.ads.responsive')

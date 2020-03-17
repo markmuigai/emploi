@@ -87,7 +87,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/unregistered-users" class="btn btn-sm btn-primary">Unregistered Users</a>
                 
                 
-                <a href="/admin/faqs" class="btn btn-sm btn-danger">FAQs</a>
+                <a href="/admin/faqs" class="btn btn-sm btn-danger">{{ __('other.faqs') }}</a>
                 
 
 

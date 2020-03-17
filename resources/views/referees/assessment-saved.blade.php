@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @include('components.ads.responsive')
 
             <a href="/" class="btn btn-orange">Home</a>
-            <a href="/join" class="btn btn-purple">Register</a>
+            <a href="/join" class="btn btn-purple">{{ __('auth.register') }}</a>
         </p>
     </div>
 </div>

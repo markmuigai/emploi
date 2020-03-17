@@ -78,7 +78,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                     @guest
                         <p>
-                            <a href="/login?redirectToPost={{ $post->slug }}" class="btn btn-link">Login</a> or <a href="/register?redirectToPost={{ $post->slug }}" class="btn btn-success">create free account</a> to apply for this position.
+                            <a href="/login?redirectToPost={{ $post->slug }}" class="btn btn-link">{{ __('auth.login') }}</a> or <a href="/register?redirectToPost={{ $post->slug }}" class="btn btn-success">create free account</a> to apply for this position.
                         </p>
                     @else
 

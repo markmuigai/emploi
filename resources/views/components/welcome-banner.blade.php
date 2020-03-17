@@ -1,5 +1,5 @@
 
-<h1>Blast Off Your Career</h1>
+<h1>{{ __('other.blast_off') }}</h1>
 <p>{{ $line }}</p>
 <?php
 $subcat = '';
@@ -13,7 +13,7 @@ if(isset(Auth::user()->id))
 
 ?>
 <p>
-    <a href="/vacancies/{{ $subcat }}" class="btn btn-orange px-4">Latest Vacancies</a>
+    <a href="/vacancies/{{ $subcat }}" class="btn btn-orange px-4">{{ __('jobs.l_vacancies') }}</a>
     <br class="for-mobile"><br class="for-mobile">
-    <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-white px-4">Request CV Editing</a>
+    <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-white px-4">{{ __('jobs.r_cv_edit') }}</a>
 </p>

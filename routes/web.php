@@ -1,4 +1,6 @@
 <?php
+Route::get('/language', 'LangController@index');
+Route::post('/language', 'LangController@index');
 Route::get('/robots.txt', 'ContactController@robotsFile');
 Route::get('/ads.txt', 'ContactController@googleAdsFile');
 

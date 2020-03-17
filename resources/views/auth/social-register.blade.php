@@ -106,7 +106,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <input type="password" required="" value="" name="password_confirmation" id="password" class="form-control" maxlength="50" />
     </div>
     <div class="text-center">
-        <button type="submit" name="button" class="btn btn-orange-alt">Register</button>
+        <button type="submit" name="button" class="btn btn-orange-alt">{{ __('auth.register') }}</button>
     </div>
 </form>
 <div class="login-bottom">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta name="description" content="@yield('description')" />
@@ -10,6 +10,9 @@
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
     <link rel="preload, stylesheet" as="style" href="{{asset('css/bootstrap.min.css')}}">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700&display=swap" rel="stylesheet">
+
     <!--Font Awesome-->
     <!-- <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet"> -->
     <!-- Custom CSS -->

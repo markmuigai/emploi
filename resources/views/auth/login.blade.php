@@ -1,13 +1,13 @@
 @extends('layouts.sign')
 
-@section('title','Emploi :: Login')
+@section('title','Emploi :: '.__('auth.login') )
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('user_title','Login')
+@section('user_title',__('auth.login') )
 
 @include('components.social-auth')
 
@@ -56,7 +56,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="text-center">
-        <button type="submit" name="button" class="btn btn-orange-alt px-5">Log In</button>
+        <button type="submit" name="button" class="btn btn-orange-alt px-5">{{ __('auth.login') }}</button>
     </div>
 </form>
 

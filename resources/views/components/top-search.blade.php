@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                <h5>Top Industries</h5>
+                <h5>{{ __('jobs.top_industries') }}</h5>
                 <ul>
                     
                     <li><a href="/vacancies/ngo">NGO, Community & Social Devt</a></li>
@@ -24,7 +24,7 @@
                     // $featured = \App\Post::featured(10);
                     // $missing = 10 - count($featured);
                 ?>
-                <h5>Featured Jobs</h5>
+                <h5>{{ __('jobs.f_jobs') }}</h5>
                 <ul>
                     @forelse($posts as $f)
                     <li><a href="/vacancies/{{ $f->slug }}">{{ $f->getTitle(true) }}</a></li>
@@ -33,13 +33,13 @@
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                <h5>Jobs by Category</h5>
+                <h5>{{ __('jobs.j_by_cat') }}</h5>
                 <ul>
                     <li>
-                        <a href="/vacancies/featured">Featured Jobs</a>
+                        <a href="/vacancies/featured">{{ __('jobs.f_jobs') }}</a>
                     </li>
                     <li>
-                        <a href="/vacancies/full-time">Full Time Jobs</a>
+                        <a href="/vacancies/full-time">{{ __('other.full_time_js') }}</a>
                     </li>
                     <li>
                         <a href="/vacancies/part-time">Part-time Jobs</a>
@@ -66,7 +66,7 @@
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                <h5> <a href="/blog">Blogs</a></h5>
+                <h5> <a href="/blog">{{ __('other.blogs') }}</a></h5>
                 <ul>
                     @forelse(\App\Blog::recent(8) as $v)
                     <li class="mb-1">
