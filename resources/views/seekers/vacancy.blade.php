@@ -104,6 +104,9 @@
                         <h5 class="pt-3 pb-2">Job Description</h5>
                         <div>
                             <?php echo $post->responsibilities; ?>
+
+                            <button class="nav-item">
+                            <a class="nav-link" id="apply-tab" data-toggle="tab" href="#apply" role="tab" aria-controls="apply" aria-selected="false">How to Apply</a></button>
                         </div>
                         <div style="width: 100%">
                             @include('components.ads.responsive')
