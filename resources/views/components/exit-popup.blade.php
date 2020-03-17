@@ -7,8 +7,11 @@
 				<h4 class="modal-title">
 					Get Your Dream Job Today
 				</h4>
-				<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
+				
 			</div>
+			 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerRegisterModal">
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
 			<div class="modal-body">
 				<br>
 				<form method="POST" id="seeker-register-modal" action="/create-account">
@@ -46,8 +49,11 @@
 				<h4 class="modal-title">
 					Get the Most out of Emploi
 				</h4>
-				<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
+		
 			</div>
+			 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerPackages">
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
 			<div class="modal-body">
 				<div class="card-deck">
                     <div class="card">
@@ -94,8 +100,12 @@
 				<h4 class="modal-title">
 					Coronavirus Alert
 				</h4>
-				<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>
+			  <!--   <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>	 -->
 			</div>
+			 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeCoronaVirusUpdate">
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
+
 			<div class="modal-body">
 				<div class="card-deck">
                     <div class="card">
@@ -107,7 +117,7 @@
 								Prevention of spread involves <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters" target="_blank" style="color: green; text-decoration: underline;">frequent hand-washing, coughing into the bend of your elbow and staying home </a>when you are sick.</p>
                         </div>
                         <div class="card-footer">
-                            <a href="https://www.worldometers.info/coronavirus/" target="_blank" class="btn btn-orange">View Outbreak</a>
+                            <a href="https://www.worldometers.info/coronavirus/" target="_blank" class="btn btn-orange-alt">View Outbreak</a>
                             <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" class="btn btn-orange-alt" style="float: right;">WHO Updates</a>
                         </div>
                     </div>
