@@ -58,7 +58,7 @@ class PostsController extends Controller
 
     public function index(Request $request)
     {
-        $title = 'Latest Vacancies';
+        $title = "Latest Vacancies in \t" .date("M,\t Y");
         $query = isset($request->q) ? $request->q : "";
         $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
             ->where('status','!=','inactive')
