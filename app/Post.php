@@ -153,7 +153,7 @@ class Post extends Model
 
     }
 
-     public function otherJobs($counter = 3){
+    public function otherJobs($counter = 3){
         $counter = $counter < 1 ? 1 : $counter;
         $indId = $this->industry_id;
         $id = $this->id;
@@ -245,6 +245,23 @@ class Post extends Model
                 return true;
         }
         return false;
+    }
+
+    public function plainMonthlySalary()
+    {
+        if(!isset($this->monthly_salary) || $this->monthly_salary == 0)
+            return 'Salary is not disclosed';
+        else
+        {
+            if(isset($this->max_salary))
+            {
+                $min = round($this->monthly_salary / 1000);
+                $max = round($this->max_salary / 1000);
+
+                return $this->location->country->currency.' '.$min.' - '.$max;
+            }
+            return $this->location->country->currency.' '.round($this->monthly_salary/1000);
+        }
     }
 
     public function monthlySalary(){
