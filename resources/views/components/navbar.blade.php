@@ -139,7 +139,7 @@
                         <a class="dropdown-item" href="/desk/admins">Manage Admins</a>
                     </div>
                 </li>
-                @else
+                 @else
                 @endif
 
                 @if(isset(Auth::user()->id))
@@ -147,18 +147,6 @@
                     <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
                 </li> -->
                 @else
-                <li class="nav-item">
-                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-white px-3">{{ __('auth.login') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange px-3">{{ __('auth.register') }}</a>
-                </li>
-                @endif
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>
-                </li>
-
-                @if(isset(Auth::user()->id))
                 <li class="nav-item">
                     <a href="/login" class="btn btn-white px-3">Login</a>
                 </li>
