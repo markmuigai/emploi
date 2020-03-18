@@ -304,8 +304,8 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user->role != 'seeker')
             abort(403);
-        if(!$user->seeker->hasCompletedProfile())
-            return view('seekers.update-profile');
+        // if(!$user->seeker->hasCompletedProfile())
+        //     return view('seekers.update-profile');
         return view('seekers.addReferee')
                 ->with('seeker',$user->seeker);
     }
