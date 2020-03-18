@@ -1,5 +1,7 @@
+
 <div id="importCSVModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
+         <div class="modal-dialog modal-dialog-centered" role="document">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header" style="background-color: #500095; color: white">
@@ -25,12 +27,12 @@
                     <br>
                     <a type="submit" class="btn btn-sm btn-orange" id="attachCSVButton" style="color: white">Attach CSV File</a>
                     
-                </p>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="prompts" data-toggle="tooltip" data-placement="top" title="Invite your friends, Let's reward you">
     <button type="button" name="button" class="invite" data-toggle="modal" data-target="#inviteFriends"><i class="fas fa-user-plus"></i></button>
 </div>
