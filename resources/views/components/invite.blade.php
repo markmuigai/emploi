@@ -27,7 +27,7 @@
                     <br>
                     <a type="submit" class="btn btn-sm btn-orange" id="attachCSVButton" style="color: white">Attach CSV File</a>
                     
-                    </p>
+                </p>
                 </div>
             </div>
         </div>

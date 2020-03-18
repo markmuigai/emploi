@@ -21,4 +21,5 @@ class JobApplicationReferee extends Model
     public function seekerApplications(){
     	return $this->hasMany(SeekerApplication::class);
     }
+     
 }

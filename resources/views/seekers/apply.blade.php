@@ -61,8 +61,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <button type="submit" name="button" class="btn btn-orange">Submit Application</button>
 
                <p>Your profile and resume will be made available to {{ $post->company->name }}. <a href="/profile/edit" class="orange">Edit my profile</a></p>                         
-                @endif          
+                         
         </form>
+         @endif
         <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
             setTimeout(function() {
@@ -88,3 +89,4 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 @endsection
+Job Seeker Profile Incomplete

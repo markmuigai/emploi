@@ -13,20 +13,23 @@
                     <li><a href="/contact">Contact Us</a></li>
                     <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
-                    <li>
+                  <li>
                         <div class="lang_list">
                             <form method="post" action="/language" id="localization-form" style="display: inline;"> 
                             @csrf
-                            <select tabindex="4"  name="language" class="dropdown1" onchange="$('#localization-form').submit()">
+                            <select tabindex="4"  name="language" class="dropdown1" onchange="$('#localization-form').submit()"> 
+                                @if(!empty($language))
                                 @foreach (Config::get('languages') as $lang => $language)
                                     <option value="{{ $lang }}" {{ $lang == App::getLocale() ? 'selected=""' : '' }}>{{$language}}</option>
                                 @endforeach
+                                @endif
                             </select>
                             </form>
                         </div>
                     </li>
                 </ul>
             </div>
+
             <div class="col-md-4 col-sm-5 col-7 location">
                 <h4>{{ __('other.find_us') }}</h4>
                 <div class="row align-items-center">

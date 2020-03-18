@@ -191,14 +191,17 @@ g) Setup supervisor to manage queues
 All Done
 
 h) Setup E-mailer /admin/emails
+
 Import files below into /storage/app directory using scp
 unique-emails.csv
 employers-list.csv
 
 i) Products Creation
+
   Products can be created by tapping on products link and then create link. It should have a title, description, price and validity period.
 
 j) Crontab
+
   This file contains task scheduler daemom, each related to a specific task. Cron jobs are composed of two parts,the cron expression, and a shell command to be run.
 
 

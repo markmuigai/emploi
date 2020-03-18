@@ -26,6 +26,7 @@ use App\Referee;
 use App\Seeker;
 use App\UnregisteredUser;
 use App\User;
+use App\JobApplicationReferee;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -333,6 +334,18 @@ class AdminController extends Controller
                     ->with('seekers',Seeker::orderBy('id','DESC')->paginate(10));
         //show all seekers
     }
+
+    
+     public function getReport($seeker_id, Request $request){
+        $refereeReport=JobApplicationReferee::where('seeker_id',$seeker_id)
+                    ->get();
+             
+        return view('admins.seekers.refereeReport')->with('refereeReport',$refereeReport);
+              
+
+     }
+                        
+
 
     public function cvRequests(Request $request, $id=false){
         if($id == false)
