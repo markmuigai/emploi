@@ -105,11 +105,14 @@
                         <div>
                             <?php echo $post->responsibilities; ?>
 
-                            <button class="nav-item">
-                            <a class="nav-link" id="apply-tab" data-toggle="tab" href="#apply" role="tab" aria-controls="apply" aria-selected="false">How to Apply</a></button>
+                            
                         </div>
                         <div style="width: 100%">
                             @include('components.ads.responsive')
+                        </div>
+                        <div style="text-align: center; font-weight: bold">
+                            
+                            <a class="orange" id="apply-tab-button" href="#apply-tab">View Application Instructions</a>
                         </div>
                     </div>
                 </div>
@@ -203,5 +206,14 @@
     
     @include('components.featuredEmployers')
 </div>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('#apply-tab-button').click(function(){
+            $('#apply-tab').click();
+            window.scrollTo(0, 0);
+        });
+    });
+</script>
 
 @endsection
