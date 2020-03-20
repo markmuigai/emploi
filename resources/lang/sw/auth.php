@@ -15,5 +15,6 @@ return [
     'failed'   => 'Hii hati tambulishi hailingani na rekodi zetu.',
     'throttle' => 'Majaribio mengi sana ya kuingia. Tafadhali jaribu tena katika :sekunde sekunde.',
     'login' => 'Ingia',
-    'register' => 'Jiandikishe'
+    'register' => 'Jiandikishe',
+    'logout' => 'Toka'
 ];

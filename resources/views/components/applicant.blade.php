@@ -80,9 +80,9 @@
                     var message = prompt("Why are you rejecting this application?", "Candidate doesn't meet the minimum qualifications");
                     if(message == null || message == '')
                         return notify("Kindly specify why you are rejecting {{ $a->user->name }}'s application");
-                    return window.location = '/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}?message='+message;
+                    return window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?message='+message;
                 }
-                window.location = '/employers/reject-toggle/{{ $post->slug }}/{{ $a->user->username }}';
+                window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}';
             }
         });
         $('#shortlist-user-{{ $a->user->id }}').click(function(){

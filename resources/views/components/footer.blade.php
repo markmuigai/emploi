@@ -18,11 +18,9 @@
                             <form method="post" action="/language" id="localization-form" style="display: inline;"> 
                             @csrf
                             <select tabindex="4"  name="language" class="dropdown1" onchange="$('#localization-form').submit()"> 
-                                @if(!empty($language))
                                 @foreach (Config::get('languages') as $lang => $language)
                                     <option value="{{ $lang }}" {{ $lang == App::getLocale() ? 'selected=""' : '' }}>{{$language}}</option>
                                 @endforeach
-                                @endif
                             </select>
                             </form>
                         </div>
