@@ -96,6 +96,8 @@ class User extends Authenticatable
 
     public function getRoleAttribute(){
         //dd($this->userPermission->permission->role);
+        if($this->userPermission == null)
+            return 'guest';
         $perm = $this->userPermission;
         return $perm->permission->role;
         if($perm->status == 'active')
@@ -184,40 +186,13 @@ class User extends Authenticatable
 
         if($this->role == 'seeker')
         {
-            $caption = "Glad to have you on board, Employers are searching on our platform";
-            $contents = "
-
-            Welcome to Emploi, we're excited to have you on board. <br>
-
-            We have solutions tailored for your career, including Professional CV Editing, Premium Placement and much more. 
-            <br>
-            Have a look around and <a href='".url('/contact')."'>contact us</a> for support should you need it.
-            <br><br>
-            Update your profile and start applying for jobs. Employers are always recruiting on our platform, ensure you upload your updated resume.
-            "; 
-            EmailJob::dispatch($this->name, $this->email, 'Warm Welcome to Emploi', $caption, $contents);
+            $this->seeker->sendWelcomeEmail();
 
         }
 
         if($this->role == 'employer')
         {
-            $caption = "Welcome to Emploi";
-            $contents = "
-
-            First of let me introduce myself – My name is Margaret Ongachi, I will be your main point of contact moving forward.
-            <br>
-            I see you have started the registration process on our website as an employer. Here at Emploi, we make your recruitment journey Fast and Efficient.  
-
-            <br>
-            If you have any questions or would like some help then please feel free to reach me via email or phone as highlighted below.
-            <br><br>
-            <b>Margaret Ongachi</b>
-            Email: <a href='mailto:margaret@emploi.co'>margaret@emploi.co</a>
-            Phone: +254 702 068 282 <br><br>
-            Glad to have you on board
-            <b></b>
-            ";
-            EmailJob::dispatch($this->name, $this->email, 'Welcome to Emploi', $caption, $contents);
+            $this->employer->sendWelcomeEmail();
         }
         return true;
     }

@@ -64,6 +64,12 @@ class LoginController extends Controller
             $seeker->save();
         }
 
+        if($user->role == 'guest' && $user->email_verified_at == null)
+        {
+            $user->email_verified_at = now();
+            $user->save();
+        }
+
         if(!$user->email_verified_at)
         {
             // $user->email_verification = User::generateRandomString();

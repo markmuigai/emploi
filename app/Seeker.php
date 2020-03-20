@@ -35,6 +35,23 @@ class Seeker extends Model
         return 'https://hooks.slack.com/services/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';
     }
 
+    public function sendWelcomeEmail(){
+        $caption = "Emploi Team are glad to have you on board";
+        $contents = "
+
+        Welcome to Emploi, we're excited to have you on board. <br>
+        Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace. With your account, you have access to vacancies from all across Africa. 
+        <br>
+        Our <a href='".url('/checkout?product=featured_seeker')."'>Featured Job Seeker Package</a> will ensure your profile stand out and employers get to see you. You'll also <a href='".url('/checkout?product=seeker_basic')."'>Get Notifications</a> on applications status change on shortlisting and reasons for rejection if it comes to that. <br>
+        We have solutions tailored for your career. Our HR team is dedicated to your growth and, with our <a href='".url('/job-seekers/cv-editing')."'>CV Editing Package</a> opens your Career coaching doors and your profile is featured for 1 year, amongs't other benefits.
+        <br>
+        Have a look around and <a href='".url('/contact')."'>contact us</a> for support should you need it.
+        <br><br>
+        Update your profile and start applying for jobs. Employers are always recruiting on our platform, ensure you upload your updated resume.
+        "; 
+        EmailJob::dispatch($this->user->name, $this->user->email, 'Warm Welcome to Emploi', $caption, $contents);
+    }
+
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }

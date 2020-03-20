@@ -201,6 +201,14 @@ Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
     Route::get('feed', 'SeekerController@feed');
 });
 
+Route::group(['prefix' => 'guests',  'middleware' => 'auth'], function(){
+    Route::get('i-am-a-job-seeker', 'HomeController@makeSeeker');    
+    Route::post('i-am-a-job-seeker', 'HomeController@saveSeeker');
+
+    Route::get('i-am-an-employer', 'HomeController@makeEmployer');
+    Route::post('i-am-an-employer', 'HomeController@saveEmployer');
+});
+
 Route::get('/jobsikaz', 'RegisterSimpleController@seeker');
 Route::get('/jobseekers', 'RegisterSimpleController@seeker');
 Route::get('/jobseeker', 'RegisterSimpleController@seeker');

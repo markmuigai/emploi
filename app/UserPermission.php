@@ -8,7 +8,7 @@ use Watson\Rememberable\Rememberable;
 class UserPermission extends Model
 {
 	use Rememberable;
-    public $rememberFor = 300;
+    public $rememberFor = 30;
 
     protected $fillable = [
         'user_id', 'permission_id','status'

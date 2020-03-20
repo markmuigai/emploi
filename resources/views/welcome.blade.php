@@ -75,6 +75,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/home" class="btn btn-orange px-4">Super-Admin Dashboard</a>
             <a href="/logout" class="btn btn-white px-4">Logout</a>
 
+            @elseif(isset(Auth::user()->id) && Auth::user()->role == 'guest')
+            <h1>the Leading Platform for Recruitment and Placement Solutions for SMEs</h1>
+            <p>
+                <a href="/guests/i-am-a-job-seeker" class="btn btn-orange px-4">I'm a Job Seeker</a>
+                <br class="for-mobile"><br class="for-mobile">
+                <a href="/guests/i-am-an-employer" class="btn btn-white px-4">I'm an Employer</a>
+            </p>
             @else
                 @include('components.welcome-banner')
                 

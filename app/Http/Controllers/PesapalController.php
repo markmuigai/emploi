@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 use App\Contact;
+use App\InviteLink;
 use App\Invoice;
 use App\Order;
 use App\Product;
 use App\ProductOrder;
+use App\Referral;
 use App\User;
 
 
 use Auth;
+use Session;
+use App\Jobs\EmailJob;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\PaymentMade;
 
@@ -46,16 +51,67 @@ class PesapalController extends Controller
             if(!isset($user->id))
             {
                 $request->session()->put('returnToUrl', url('/checkout'));
-                Contact::create([
-                    'code' => User::generateRandomString(20),
-                    'name'  => $request->first_name .' '. $request->last_name,
-                    'phone_number' => isset($request->phone_number) ? $request->prefix.$request->phone_number : null , 
+
+
+                $full_name = $request->first_name.' '.$request->last_name;
+                $username = explode(" ", $full_name);
+                $username = strtolower(implode("", $username).rand(1000,30000));
+                $username = explode(".", $username);
+                $username = implode('',$username);
+
+                $password = User::generateRandomString(10);
+
+                $user = User::create([
+                    'name' => $full_name,
                     'email' => $request->email,
-                    'message' => 'SYSTEM_GENERATED_CONTACT: '.$request->name." wants to purchase ".$product->name
+                    'username' => $username,
+                    'email_verification' => User::generateRandomString(10),
+                    'password' => Hash::make($password),
                 ]);
-                return view('pesapal.error')
-                    ->with('title','Account not registered')
-                    ->with('message','The e-mail address provided was not linked to a registered account. Kindly create an account as a job seeker or employer. <br> <a href="/join?returnToUrl='.url('/checkout').'" class="btn orange">Create Account</a>.');
+
+
+
+                $credited = Referral::creditFor($request->email,20);
+
+                if(!$credited && Session::has('invite_id'))
+                {
+                    $invite_id = Session::get('invite_id');
+                    $link = InviteLink::find($invite_id);
+                    if(isset($link->id))
+                    {
+                        Referral::create([
+                            'user_id' => $link->user_id, 
+                            'name' => $user->name, 
+                            'email' => $user->email
+                        ]);
+
+                        Referral::creditFor($user->email,20);
+                    }
+
+                    //Session::forget('invite_id');
+                }
+
+                $caption = "Thank you for registering your profile.";
+                $contents = "Here are your login credentials for Emploi: <br>
+                username: $username <br>
+                password: $password
+
+                <br><br>
+                Log in to finish setting up your account to get the most our of Emploi.
+                ";
+                EmailJob::dispatch($user->name, $user->email, 'Emploi Login Credentials', $caption, $contents);
+
+
+                // Contact::create([
+                //     'code' => User::generateRandomString(20),
+                //     'name'  => $request->first_name .' '. $request->last_name,
+                //     'phone_number' => isset($request->phone_number) ? $request->prefix.$request->phone_number : null , 
+                //     'email' => $request->email,
+                //     'message' => 'SYSTEM_GENERATED_CONTACT: '.$request->name." wants to purchase ".$product->name
+                // ]);
+                // return view('pesapal.error')
+                //     ->with('title','Account not registered')
+                //     ->with('message','The e-mail address provided was not linked to a registered account. Kindly create an account as a job seeker or employer. <br> <a href="/join?returnToUrl='.url('/checkout').'" class="btn orange">Create Account</a>.');
             }
 
             $product = Product::where('slug',session('product'))->firstOrFail();

@@ -9,19 +9,23 @@ use Storage;
 use Image;
 
 use App\Blog;
+use App\Company;
 use App\Country;
 use App\Course;
 use App\EducationLevel;
+use App\Employer;
 use App\Industry;
 use App\IndustrySkill;
 use App\Like;
 use App\Location;
 use App\Parser;
 use App\Referee;
+use App\Seeker;
 use App\SeekerJob;
 use App\SeekerSkill;
 use App\Skill;
 use App\User;
+use App\UserPermission;
 
 use App\Jobs\EmailJob;
 
@@ -79,8 +83,10 @@ class HomeController extends Controller
             case 'seeker':
                 return redirect('/job-seekers/dashboard');
                 break;
+            case 'guest':
+                return view('guests.choose');
             default:
-                return abort(403);
+                return redirect('/');
         }
 
     }
@@ -100,6 +106,105 @@ class HomeController extends Controller
     public function getCourse($id)
     {
         return Course::findOrFail($id);
+    }
+
+    public function makeSeeker()
+    {
+        return view('guests.seeker')
+                ->with('locations',Location::orderBy('name')->get())
+                ->with('countries',Country::orderBy('name')->get())
+                ->with('industries',Industry::orderBy('name')->get());
+    }
+
+    public function saveSeeker(Request $request)
+    {
+        $request->validate([
+            'resume'  =>  ['mimes:doc,pdf,docx','max:51200']
+        ]);
+
+        $user = Auth::user();
+        $location = Location::findOrFail($request->location);
+
+        $phonePrefix = Country::findOrFail($request->prefix);
+
+        $storage_path = '/public/resumes';
+        $resume_url = basename(Storage::put($storage_path, $request->resume));
+
+        $parser = new Parser($resume_url);
+
+        $seeker = Seeker::create([
+            'user_id' => $user->id,
+            'public_name' => $user->username,
+            'gender' => $request->gender,
+            'phone_number' => $phonePrefix->prefix.$request->phone_number,
+            'country_id' => $location->country_id,
+            'location_id' => $location->id,
+            'industry_id' => $request->industry,
+            'resume' => $resume_url,
+            'resume_contents' => $parser->convertToText()
+        ]);
+
+        $perm = UserPermission::create([
+            'user_id' => $user->id, 
+            'permission_id' => 4
+        ]);
+
+        $user->seeker->sendWelcomeEmail();
+
+        Auth::logout();
+
+        return view('guests.updated');
+    }
+
+    public function saveEmployer(Request $request)
+    {
+        $user = Auth::user();
+
+        $countryPhone = Country::findOrFail($request->phone_prefix);
+        $country2 = Country::findOrFail($request->company_prefix);
+
+        $emp = Employer::create([
+            'user_id' => $user->id,
+            'name' => $user->name,
+            'industry_id' => $request->industry,
+            'company_name' => $request->co_name,
+            'contact_phone' => $countryPhone->prefix.$request->phone_number,
+            'company_phone' => $country2->prefix.$request->co_phone_number,
+            'company_email' => $request->co_email,
+            'country_id' => $request->country,
+            'address' => $request->address
+        ]);
+
+        $perm = UserPermission::create([
+            'user_id' => $user->id,
+            'permission_id' => 3
+        ]);
+
+        $ec = Company::where('name',$request->co_name)->first();
+        $co_name = isset($ec->id) ? $request->co_name.'-'.User::generateRandomString(4) : $request->co_name;
+
+        $c = Company::create([
+            'name' => $co_name,
+            'user_id' => $user->id,
+            'about' => "$co_name on Emploi",
+            'website' => "http://emploi.co/companies/".$co_name,
+            'industry_id' => $request->industry,
+            'location_id' => 1,
+            'company_size_id' => 1
+        ]);
+
+        $emp->sendWelcomeEmail();
+
+        Auth::logout();
+
+        return view('guests.updated');
+    }
+
+    public function makeEmployer()
+    {
+        return view('guests.employer')
+                ->with('countries',Country::orderBy('name')->get())
+                ->with('industries',Industry::orderBy('name')->get());
     }
 
     // public function test(Request $request){

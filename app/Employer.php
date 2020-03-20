@@ -28,6 +28,26 @@ class Employer extends Model
         return 'https://hooks.slack.com/services/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';
     }
 
+    public function sendWelcomeEmail(){
+        $caption = "Welcome to Emploi";
+        $contents = "
+
+        First of let me introduce myself – My name is Margaret Ongachi, I will be your main point of contact moving forward.
+        <br>
+        I see you have started the registration process on our website as an employer. Here at Emploi, we make your recruitment journey Fast and Efficient.  
+
+        <br>
+        If you have any questions or would like some help then please feel free to reach me via email or phone as highlighted below.
+        <br><br>
+        <b>Margaret Ongachi</b>
+        Email: <a href='mailto:margaret@emploi.co'>margaret@emploi.co</a>
+        Phone: +254 702 068 282 <br><br>
+        Glad to have you on board
+        <b></b>
+        ";
+        EmailJob::dispatch($this->user->name, $this->user->email, 'Welcome to Emploi', $caption, $contents);
+    }
+
     public function isOnStawiPackage(){
         if($this->user->email == 'jobs@emploi.co')
             return true;
