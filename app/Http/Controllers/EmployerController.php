@@ -768,8 +768,8 @@ class EmployerController extends Controller
     //         ->with('message','An error occurred while processing your request. Please try again later');
     // }
 
-    public function toggleReject(Request $request, $slug, $username){
-        $user = User::where('username',$username)->firstOrFail();
+    public function toggleRejectById(Request $request, $slug, $user_id){
+        $user = User::findOrFail($user_id);
         $post = Post::where('slug',$slug)->firstOrFail();
         $message = isset($request->message) ? $request->message : '';
         if($user->seeker->hasApplied($post))
