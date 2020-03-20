@@ -122,7 +122,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @endforelse
         @endif
         <hr>
-        <button class="btn btn-primary"><a href="{{ $seeker->id }}/report">View Referee Report</a></button>
         <h4>Featured Job Seekers</h4>
         <form method="POST" action="/admin/toggle-seeker-featured">
             @csrf
