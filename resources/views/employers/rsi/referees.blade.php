@@ -58,7 +58,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
                         Add{{ $app->usesReferee($ref->id) ? 'ed' : ' to RSI' }}
-                        <a href="/employers/referees/{{ $ref->slug }}" class="btn btn-sm btn-purple" style="float: right;" target="_blank">
+                        <a href="/employers/referee/{{ $ref->slug }}" class="btn btn-sm btn-purple" style="float: right;" target="_blank">
                             
                             <i class="fa fa-file"></i> Report
                         </a>

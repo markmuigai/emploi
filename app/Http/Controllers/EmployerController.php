@@ -35,6 +35,7 @@ use App\Post;
 use App\PsychometricTest;
 use App\Referee;
 use App\Referral;
+use App\JobApplicationReferee;
 use App\RsiWeight;
 use App\Seeker;
 use App\SeekerPreviousCompanySize;
@@ -49,6 +50,22 @@ use App\Notifications\EmployerRegistered;
 
 class EmployerController extends Controller
 {
+    
+     public function viewReport($slug, Request $request){     
+
+        $user = Auth::user();
+
+        if($user->employer->isOnStawiPackage())
+        {
+            $referee=Referee::where('slug',$slug)->firstOrFail();  
+            return view('referees.report')->with('referee',$referee);
+        }
+        else
+            return redirect('/checkout?product=stawi');
+       
+      
+     }
+
     public function register(Request $request){
         $email= $request->email ? $request->email : '';
         $name=$request->name ? $request->name : '';

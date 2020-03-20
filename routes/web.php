@@ -84,6 +84,7 @@ Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('jobs/active', 'EmployerController@activeJobs');
     Route::get('jobs/other', 'EmployerController@otherJobs');
     Route::get('jobs/shortlisting', 'EmployerController@shortlistingJobs');
+    Route::get('referee/{slug}','EmployerController@viewReport');
 
 });
 Route::get('/employers/register', 'EmployerController@register');
@@ -153,8 +154,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
     Route::get('blog','AdminController@blog');
     Route::resource('bloggers','BloggersController');
-    Route::get('seekers/{username?}','AdminController@seekers');
-    Route::get('seekers/{seeker_id}/report','AdminController@getReport')->name('refereeReport');
+    Route::get('seekers/{username?}','AdminController@seekers');  
     Route::get('cv-requests/{id?}','AdminController@cvRequests');
     Route::get('vacancy-emails', 'AdminController@vacancyEmails');
     Route::get('emails', 'AdminController@emails');

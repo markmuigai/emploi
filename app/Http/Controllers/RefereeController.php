@@ -198,4 +198,5 @@ class RefereeController extends Controller
         else
             return view('referees.view');
     }
+         
 }

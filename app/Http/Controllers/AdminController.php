@@ -334,17 +334,7 @@ class AdminController extends Controller
                     ->with('seekers',Seeker::orderBy('id','DESC')->paginate(10));
         //show all seekers
     }
-
-    
-     public function getReport($seeker_id, Request $request){
-        $refereeReport=JobApplicationReferee::where('seeker_id',$seeker_id)
-                    ->get();
-             
-        return view('admins.seekers.refereeReport')->with('refereeReport',$refereeReport);
-              
-
-     }
-                        
+          
 
 
     public function cvRequests(Request $request, $id=false){

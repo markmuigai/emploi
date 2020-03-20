@@ -32,21 +32,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Number of Openings: </strong>{{ $post->positions }}</p>
             </div>
         </div>
-        <hr>         
-         @if(!$user->seeker->resume)
-         ''
-         @else
+        <hr>       
+         
         <div class="text-center pt-3">
             <h3 class="orange">Application for {{ $post->getTitle() }}</h3>
-        </div>
-        @endif
+        </div>      
       
          @include('components.ads.responsive')
         @if(!Auth::user()->seeker->hasApplied($post))
 
-        @if(!$user->seeker->resume)
-        <h4>You are required to have a CV for your application to be accepted by {{ $post->company->name }}. Click <a href="/profile/edit" class="orange">here</a> to upload and update your profile.</h4>
-        @else
         <form method="post" action="/vacancies/{{ $post->slug }}/apply">
             @csrf
             <div class="form-group">
@@ -63,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                <p>Your profile and resume will be made available to {{ $post->company->name }}. <a href="/profile/edit" class="orange">Edit my profile</a></p>                         
                          
         </form>
-         @endif
+        
         <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
             setTimeout(function() {
