@@ -39,7 +39,7 @@
                         <a href="/vacancies/featured">{{ __('jobs.f_jobs') }}</a>
                     </li>
                     <li>
-                        <a href="/vacancies/full-time">{{ __('other.full_time_js') }}</a>
+                        <a href="/vacancies/full-time">Full-time Jobs</a>
                     </li>
                     <li>
                         <a href="/vacancies/part-time">Part-time Jobs</a>
