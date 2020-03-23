@@ -414,18 +414,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @include('components.share-modal')
 @empty
 @endforelse
-<div class="blogs mt-3 py-5">
-    <div style="text-align: center; color: white; padding: 2em"><h2>Blog & News</h2></div>
-    <div class="container">
+<div class="blogs mt-3" style=" padding: 0 0 1em 0">
+    <div style="text-align: center; color: white; padding: 0.5em; margin: 0">
+        <h2 style="padding: 0; margin: 0">Blog & News</h2>
+    </div>
+    <div class="container" style="">
         <div class="blogs-slider" style="color: black; ">
             @forelse($blogs as $blog)
 
-            <div class="card mx-4 mx-md-5 mx-lg-2 my-3" style="background: white; overflow: hidden; padding: 1em">
+            <div class="card mx-4 mx-md-5 mx-lg-2 my-3" style="background: white; overflow: hidden; padding: 1em; ">
                 <div class="row">
                     <div class="col-md-3" style="overflow: hidden; float: left;">
                         <img src="{{ asset($blog->imageUrl) }}"   alt="{{ $blog->title }}" style="width: 100%; border-radius: 5%" />
                     </div>
-                    <div class="col-md-7" style=" float: left;">
+                    <div class="col-md-9" style=" float: left;">
                         <a href="{{ url('blog/'.$blog->slug) }}" class="">
                             <h4 class="orange" style="">{{ $blog->getTitle() }}</h4>
                         </a>
@@ -443,7 +445,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <p class="badge badge-secondary">{{ $blog->category->name }}</p>
                         <p>
-                             {!!html_entity_decode($blog->longPreview(250))!!}
+                             {!!html_entity_decode($blog->preview)!!}
                         </p>
                        
                         <p>
@@ -591,7 +593,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     autoplay: true,
-                    speed: 4000,
+                    speed: 1000,
                     arrows: true,
                     prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
                     nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
