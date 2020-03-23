@@ -42,12 +42,11 @@ class Blog extends Model
     } 
 
     public function longPreview($max = 160){
-        $contents = $this->contents;
-        $max_length = strlen($contents);
+        $max_length = strlen($this->contents);
         if($max > $max_length)
             $max = $max_length;
 
-        return substr($contents, 0,$max).' ...';
+        return strip_tags(substr($this->contents, 0,$max).'...');
 
         if($max_length > 250)
             return strip_tags(substr($this->contents, 0,$max).'...');
