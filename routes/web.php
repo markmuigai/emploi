@@ -155,7 +155,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('posts/{slug}/update', 'AdminController@updatePost');
     Route::get('blog','AdminController@blog');
     Route::resource('bloggers','BloggersController');
-    Route::get('seekers/{username?}','AdminController@seekers');  
+    Route::get('seekers/{username?}','AdminController@seekers');
+    Route::get('seekers/{username}/referees','AdminController@referees'); 
+    Route::get('seekers/{username}/referee/{slug}','AdminController@viewReport');  
     Route::get('cv-requests/{id?}','AdminController@cvRequests');
     Route::get('vacancy-emails', 'AdminController@vacancyEmails');
     Route::get('emails', 'AdminController@emails');
