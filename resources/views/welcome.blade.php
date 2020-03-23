@@ -445,7 +445,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <p class="badge badge-secondary">{{ $blog->category->name }}</p>
                         <p>
-                             {!!html_entity_decode($blog->preview)!!}
+                             {!!html_entity_decode($blog->longPreview())!!}
                         </p>
                        
                         <p>
