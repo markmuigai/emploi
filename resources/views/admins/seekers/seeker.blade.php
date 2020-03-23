@@ -118,9 +118,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @empty
         <p class="text-center">
             No experience records have been highlighted
-        </p>
+        </p>       
         @endforelse
         @endif
+         <h4>Referees</h4>
+        <a class="btn btn-edit btn-orange-alt" href="{{ $seeker->user->username }}/referees">View Referees</a>
         <hr>
         <h4>Featured Job Seekers</h4>
         <form method="POST" action="/admin/toggle-seeker-featured">

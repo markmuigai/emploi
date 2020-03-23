@@ -26,7 +26,6 @@ use App\Referee;
 use App\Seeker;
 use App\UnregisteredUser;
 use App\User;
-use App\JobApplicationReferee;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -39,7 +38,23 @@ class AdminController extends Controller
     {
         $this->middleware('admin');
     }
+    
+     public function referees(Request $request, $username)
+    {
+        $user = User::where('username',$username)->firstOrFail();       
+        $referees = Referee::all();
+        return view('admins.seekers.referees')
+                    ->with('referees',$user->seeker->referees);
+      
+    }
+       
+        public function viewReport(Request $request, $username, $slug)
 
+    {
+       $referee=Referee::where('slug',$slug)->firstOrFail();
+        return view('referees.report')->with('referee',$referee);
+    }
+   
     public function adminFaqs()
     {
         return view('employers.faqs')
