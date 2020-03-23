@@ -37,7 +37,7 @@ class Blog extends Model
         $max_length = strlen($this->contents);
         if($max_length > 250)
             return strip_tags(substr($this->contents, 0,160).'...');
-        return strip_tags(strip_tags($this->contents));
+        return strip_tags($this->contents);
         return $this->contents;
     } 
 
