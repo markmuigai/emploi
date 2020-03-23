@@ -333,7 +333,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            @include('components.ads.flat_728x90')
+            @if($agent->isMobile())
+                @include('components.ads.mobile_400x350')
+            @else            
+                @include('components.ads.flat_728x90')
+            @endif
         </div>        
     </div>
 </div>
