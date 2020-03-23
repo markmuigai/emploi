@@ -31,6 +31,7 @@ use App\Notifications\ContactReceived;
 use App\Notifications\JobApplied;
 use PDF;
 use Image;
+use Jenssegers\Agent\Agent;
 
 class ContactController extends Controller
 {
@@ -414,10 +415,12 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
 
     public function index(Request $request)
     {
+        $agent = new Agent();
         return view('welcome')
                 ->with('posts',Post::featured(20))
                 ->with('blogs',Blog::recent(5))
-                ->with('locations',Location::top());
+                ->with('locations',Location::top())
+                ->with('agent',new Agent());
     }
 
     public function join(Request $request){
