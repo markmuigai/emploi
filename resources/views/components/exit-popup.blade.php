@@ -245,7 +245,7 @@
 	    }
 
 	    var coronaVirusUpdate = localStorage.getItem("coronaVirusUpdate");
-	    // if(coronaVirusUpdate == null)
+	    if(coronaVirusUpdate == null)
 	    {
 	    	
 	    	$('#coronaVirusUpdate').modal();
