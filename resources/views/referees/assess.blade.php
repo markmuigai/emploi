@@ -204,14 +204,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                     <div id="personalities-pool" class="row" style="padding: 1em"></div>
                 </div>
-
-                <div class="text-right">
-                    <a href="#" id="page2" class="btn btn-orange">Next</a>
-                </div>
             </div>
         </div>
     </div>
-    <div class="section2 d-none">
+    <div class="section2">
         <div class="card">
             <div class="card-body p-5">
                 <div class="form-group">
@@ -235,7 +231,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
-                    <span id="page1" class="btn btn-purple">Go to Previous page</span>
 
                     <input type="submit" class="btn btn-orange" value="Save Assessment">
 
@@ -361,16 +356,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             //alert(sk + ' - '+sw);
 
-        });
-
-        $('#page2').click(function(){
-            $('.section1').addClass('d-none');
-            $('.section2').removeClass('d-none');
-        });
-
-        $('#page1').click(function(){
-            $('.section2').addClass('d-none');
-            $('.section1').removeClass('d-none');
         });
 
     });
