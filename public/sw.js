@@ -6,7 +6,10 @@ if (workbox) {
 
   	workbox.routing.registerRoute(
 	  /\.js$/,
-	  new workbox.strategies.NetworkFirst()
+	  new workbox.strategies.StaleWhileRevalidate({
+	    // Use a custom cache name.
+	      cacheName: 'js-cache',
+	  })
 	);
 
 	workbox.routing.registerRoute(
@@ -30,15 +33,18 @@ if (workbox) {
 	      new workbox.expiration.Plugin({
 	        // Cache only 20 images.
 	        maxEntries: 20,
-	        // Cache for a maximum of 4 days.
-	        maxAgeSeconds: 4 * 24 * 60 * 60,
+	        // Cache for a maximum of 30 days.
+	        maxAgeSeconds: 30 * 24 * 60 * 60,
 	      })
 	    ],
 	  })
 	);
 	workbox.routing.registerRoute(
 	  new RegExp('/'),
-	  new workbox.strategies.NetworkFirst()
+	  new workbox.strategies.StaleWhileRevalidate({
+	    // Use a custom cache name.
+	    cacheName: 'url-cache',
+	  })
 	);
 
 
