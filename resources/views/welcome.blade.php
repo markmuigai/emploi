@@ -333,7 +333,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            @include('components.ads.flat_728x90')
+            @if($agent->isMobile())
+                @include('components.ads.mobile_400x350')
+            @else            
+                @include('components.ads.flat_728x90')
+            @endif
         </div>        
     </div>
 </div>
@@ -410,63 +414,72 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- END OF TESTIMONIALS -->
 
 <!-- BLOGS -->
-<div class="blogs mt-3 py-5">
-    <div class="container">
-        <h2 class="text-center">{{ __('other.b_n_news') }}</h2>
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="card mb-lg-3 my-2">
-                    @include('components.ads.inarticle')
-                </div>
-                @forelse($blogs->slice(0,1) as $blog)
-                <div class="card">
-                    <div class="card-body">
-                        <div class="latest-blog-image lazy mb-2" data-bg="url({{ asset($blog->imageUrl) }})"></div>
-                        <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
-                        <div class="d-flex">
-                            <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
+@forelse($blogs as $blog)
+@include('components.share-modal')
+@empty
+@endforelse
+<div class="blogs mt-3" style=" padding: 0 0 1em 0">
+    <div style="text-align: center; color: white; padding: 0.5em; margin: 0">
+        <h2 style="padding: 0; margin: 0">Blog & News</h2>
+    </div>
+    <div class="container" style="">
+        <div class="blogs-slider" style="color: black; ">
+            @forelse($blogs as $blog)
+
+            <div class="card mx-4 mx-md-5 mx-lg-2 my-3" style="background: white; overflow: hidden; padding: 1em; ">
+                <div class="row">
+                    <div class="col-md-3" style="overflow: hidden; float: left;">
+                        <img src="{{ asset($blog->imageUrl) }}"   alt="{{ $blog->title }}" style="width: 100%; border-radius: 5%" />
+                    </div>
+                    <div class="col-md-9" style=" float: left;">
+                        <a href="{{ url('blog/'.$blog->slug) }}" class="">
+                            <h4 class="orange" style="">{{ $blog->getTitle() }}</h4>
+                        </a>
+                        <div class="d-flex" style="">
+                            <p style=" width: 100%">
+                                <i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->created_at->diffForHumans() }} | 
+
+                                <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
+                                @if($likes == 1)
+                                    1 Like
+                                @else
+                                    {{ $likes }} Likes
+                                @endif
+                            </p>
                         </div>
                         <p class="badge badge-secondary">{{ $blog->category->name }}</p>
-                        <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
-                        <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
-                        <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}" style="float: right"><i class="fas fa-share-alt"></i> Share</button>
-                        @include('components.share-modal')
+                        <p>
+                             {!!html_entity_decode($blog->longPreview(250))!!}
+                        </p>
+                       
+                        <p>
+                            <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                            <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}" style="float: right;"><i class="fas fa-share-alt"></i> Share</button>
+                            
+                        </p>
+                        
                     </div>
+
                 </div>
-                @empty
-                @endforelse
+                
+                
             </div>
-            <div class="col-lg-7">
-                @forelse ($blogs->slice(1, 3) as $blog)
-                <div class="card mb-lg-3 my-2">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg">
-                                <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($blog->imageUrl) }}" alt="{{ $blog->title }}" class="w-100 lazy">
-                            </div>
-                            <div class="col-lg">
-                                <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
-                                <div class="d-flex">
-                                    <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
-                                </div>
-                                <p class="badge badge-secondary">{{ $blog->category->name }}</p>
-                            </div>
-                        </div>
-                        <p class="">{!!html_entity_decode($blog->longPreview(250))!!}</p>
-                        <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
-                        <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}" style="float: right"><i class="fas fa-share-alt"></i> Share</button>
-                        @include('components.share-modal')
-                    </div>
-                </div>
-                @empty
-                @endforelse
-            </div>
+
+
+            @empty
+            <div style="text-align: center;" class="col-md-12">No blogs found<br><br></div>
+            @endforelse
+            
+            
         </div>
-        <div class="text-center">
-            <a href="/blog" class="btn btn-orange">{{ __('other.v_a_blogs') }}</a>
-        </div>
+        
+    </div>
+    <div class="text-center">
+        <a href="/blog" class="btn btn-orange">{{ __('other.v_a_blogs') }}</a>
     </div>
 </div>
+
+
 <!-- END OF BLOGS -->
 
 @include('components.featuredEmployers')
@@ -566,7 +579,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             autoplay: true,
             speed: 2000,
         });
-        
+
+
         
         
 
@@ -575,5 +589,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         // });
     });
 </script>
+    @if(count($blogs) > 1)
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.blogs-slider').slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    speed: 1000,
+                    arrows: true,
+                    prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+                    nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+                });
+            });
+        </script>
+    @endif
 
 @endsection
