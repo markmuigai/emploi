@@ -180,7 +180,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <br>
                             <div class="card-deck">
                                 <div class="card">
-                                    <img class="card-img-top" src="/images/logo.png" alt="Professional CV Editing">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ __('jobs.cv_edit') }}</h5>
                                         <p class="card-text">{{ __('jobs.cv_edit_txt') }}</p>
@@ -190,7 +189,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ __('jobs.f_seeker') }}</h5>
                                         <p class="card-text">{{ __('jobs.f_seeker_txt') }}</p>
@@ -200,7 +198,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <img class="card-img-top" src="/images/logo.png" alt="Latest Vacancies">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ __('jobs.j_vacays') }}</h5>
                                         <p class="card-text">
@@ -220,7 +217,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <br>
                             <div class="card-deck">
                                 <div class="card">
-                                    <img class="card-img-top" src="/images/logo.png" alt="Professional CV Editing">
                                     <div class="card-body">
                                         <h5 class="card-title">Talent Database</h5>
                                         <p class="card-text">Search tens of thousands of qulaified CVs for quick shortlisting, direct contact and hire</p>
@@ -230,7 +226,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <img class="card-img-top" src="/images/logo.png" alt="Advertise on Emploi">
                                     <div class="card-body">
                                         <h5 class="card-title">Advertise Jobs</h5>
                                         <p class="card-text">Reach an Audience of 100k+ subscribers, Utilize Advanced Recruitment tools and Candidate Ranking Algorithm.</p>
@@ -240,7 +235,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <img class="card-img-top" src="/images/logo.png" alt="Latest Vacancies">
                                     <div class="card-body">
                                         <h5 class="card-title">Recruitment Process Outsourcing</h5>
                                         <p class="card-text">
