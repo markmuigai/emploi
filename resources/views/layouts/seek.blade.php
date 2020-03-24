@@ -16,7 +16,7 @@
 	</script>
 	<link href="{{ asset('css/bootstrap-3.1.1.min.css') }}" rel='stylesheet' type='text/css'  rel="preload"/>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="{{ asset('js/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 	
 	<script src="{{ asset('js/custom.js') }}"></script>

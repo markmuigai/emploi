@@ -20,11 +20,11 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Popper -->
     <script src="{{asset('js/popper.min.js')}}" charset="utf-8"></script>
     <!-- Bootstrap -->
-    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"></script>
     <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
