@@ -415,7 +415,6 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
 
     public function index(Request $request)
     {
-        $agent = new Agent();
         return view('welcome')
                 ->with('posts',Post::featured(20))
                 ->with('blogs',Blog::recent(5))

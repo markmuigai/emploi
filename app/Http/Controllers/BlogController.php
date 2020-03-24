@@ -11,6 +11,7 @@ use App\Comment;
 use Auth;
 use Storage;
 use Image;
+use Jenssegers\Agent\Agent;
 
 class BlogController extends Controller
 {
@@ -129,6 +130,7 @@ class BlogController extends Controller
         }
         $blog = Blog::where('slug',$id)->where('status','active')->firstOrFail();
         return view('blog.show')
+                ->with('agent',new Agent())
                 ->with('blog',$blog);
     }
 

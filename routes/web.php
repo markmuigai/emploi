@@ -6,6 +6,8 @@ Route::get('/robots.txt', 'ContactController@robotsFile');
 Route::get('/ads.txt', 'ContactController@googleAdsFile');
 
 Route::get('/browser-sessions/{endpoint}', 'SessionController@browserSessions');
+Route::get('/read-cv-contents', 'CvParserController@uploadCv');
+Route::post('/read-cv-contents', 'CvParserController@parseCv');
 
 Route::get('/join', 'ContactController@join');
 Route::get('/invites/{slug}', 'ContactController@invited');
