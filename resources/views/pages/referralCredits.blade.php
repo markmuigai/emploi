@@ -20,7 +20,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			</p>
 			@include('components.ads.responsive')
 			<p>
-				To get started, click "Invite Friends" button at the bottom right. Your invitees will be sent an e-mail invite. <br>
+				To get started, click <b>"Invite Friends" button</b> at the bottom right. Your invitees will be sent an e-mail invite. Once they verify their account, your referral credits will be credited to your account.<br>
+				<br>
 				@guest
 				<a href="/login?redirectToUrl={{ url('/profile/invites/create') }}" class="orange">{{ __('auth.login') }}</a> to your account to create Referral Links.
 				@else
