@@ -151,7 +151,9 @@ class Parser extends Model
 
         $ret = "[{".$ret[1];
 
-        $ret = str_replace("\\n", '', $ret);
+        //$ret = str_replace("\\n", '', $ret);
+
+
 
         $keys = [];
         $values = [];
@@ -161,7 +163,6 @@ class Parser extends Model
         
         $ret = explode("':", $ret);
 
-        dd($ret);
         
 
         $key = explode("[{'", $ret[0]);
@@ -169,24 +170,38 @@ class Parser extends Model
 
         for($g=1; $g<count($ret)-1; $g++)
         {
+
             $pair = $ret[$g];
-            $pair = explode("\n", $pair);
+            $pair = explode(",  '", $pair);
+
+            $value = $pair[0];
+
+            $keys[] = $pair[1];
+
+            $value = explode("',", $value);
+            if(count($value) > 1)
+                $values[] = $value;
+            else
+                $values[] = $value[0];
 
 
 
-            $key = explode("'", $pair[count($pair)-1]);
 
-            $contents = [];
+            // $key = explode("'", $pair[count($pair)-1]);
 
-            for($h=0; $h<count($pair)-1; $h++)
-            {
-                $contents[] = $pair[$h];
-            }
+            // $contents = [];
 
-            $values[] = $contents;
+            // for($h=0; $h<count($pair)-1; $h++)
+            // {
+            //     $contents[] = $pair[$h];
+            // }
+
+            // $values[] = $contents;
             
 
-            $keys[] = $key[1];
+
+
+            // $keys[] = $key[1];
         }
 
         $value = explode("}]",$ret[count($ret)-1]);
@@ -228,6 +243,49 @@ class Parser extends Model
 
             if($key == 'total_experience')
                 $val = (int) trim($val);
+
+            if($key == 'experience')
+            {
+                if(is_array($val))
+                {
+                    $finalVals = [];
+                    for($a=0; $a<count($val); $a++)
+                    {
+                        $thisVal = $val[$a];
+                        if($a == 0)
+                        {
+                            $thisVal = explode("['", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("',", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("']", $thisVal);
+                            $thisVal = trim(implode('', $thisVal));
+
+                        }
+                        else
+                        {
+                            $thisVal = explode("             '", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("',", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("['", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("']", $thisVal);
+                            $thisVal = trim(implode('', $thisVal));
+
+                        }
+
+                        $finalVals[] = $thisVal;
+                        
+                    }
+
+                    $val = $finalVals;
+                }
+                else
+                {
+                    $val = str_replace("'", "", $val);
+                }
+            }
 
             if($key == 'no_of_pages')
                 continue;

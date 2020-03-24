@@ -5,7 +5,6 @@
 </head>
 <body>
 
-
 <div class="container">
 	<form method="post" action="/read-cv-contents">
 		@csrf

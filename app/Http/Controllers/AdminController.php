@@ -772,6 +772,24 @@ class AdminController extends Controller
                         $url
                     )
                 );
+
+                Mail::to('kevin@emploi.co')
+                ->send(
+                    new CustomVacancyEmail(
+                        'Kevin',
+                        $subject,
+                        $caption,
+                        $contents,
+                        'kevin@emploi.co',
+                        $banner,
+                        $template,
+                        $attachment1,
+                        $attachment2,
+                        $attachment3,
+                        'emailer-test@emploi.co',
+                        $url
+                    )
+                );
                 
                 // Mail::to('sophy@emploi.co')
                 // ->send(
