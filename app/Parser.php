@@ -112,7 +112,7 @@ class Parser extends Model
         $ret = shell_exec($script);
 
         if(!strpos($ret, "[{"))
-            die("Invalid response received");
+            die("Invalid response received: ".print_r($ret));
 
         $ret = explode("[{", $ret);
 
