@@ -107,18 +107,44 @@ class Parser extends Model
         }
 
 
-        $script = "pyresparser $com $path";
+        $script = "pyresparser $com $path  2>&1";
 
-        $ret = shell_exec($script);
+        exec($script,$output,$return_var);
 
-        if(!strpos($ret, "[{"))
-            die("Invalid response received: ".print_r($ret));
+        if($return_var !== 0)
+        {
+            die("An error occurred while parsing cv");
+        }
+
+        if(count($output) > 10)
+        {
+            $ret = "";
+            for($t=10; $t<count($output); $t++)
+            {
+                $ret .= $output[$t];
+            }
+        }
+        else
+        {
+            die("Parsing output err");
+        }
+
+
+
+        if(!strpos($ret, "[{") == false)
+        {
+            die("Invalid response received after parsing! ");
+        }
+
+
 
         $ret = explode("[{", $ret);
 
         if(count($ret) == 0)
             die("Parse Failed");
 
+
+        //dd(array($keys,$values));
 
 
 
@@ -130,9 +156,12 @@ class Parser extends Model
         $keys = [];
         $values = [];
 
+
+
         
         $ret = explode("':", $ret);
 
+        dd($ret);
         
 
         $key = explode("[{'", $ret[0]);
@@ -164,6 +193,8 @@ class Parser extends Model
         $value = $value[0];
 
         $values[] = $value;
+
+
 
         $final = array();
 
@@ -241,6 +272,7 @@ class Parser extends Model
 
             if($key == 'degree')
             {
+
                 if(is_array($val) && count($val) > 0)
                 {
                     $newDegrees = [];
@@ -266,7 +298,7 @@ class Parser extends Model
                     }
                     $val = $newDegrees;
                 }
-                else
+                elseif(!is_array($val))
                 {
                     $val = explode(" ['", $val);
                     $val = implode("", $val);
