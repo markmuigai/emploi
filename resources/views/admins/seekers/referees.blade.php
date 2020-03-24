@@ -28,8 +28,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>           
             </div>
             @empty
-            <p>No Referee Indicated</p>
-          @endforelse         
+            <div class="col-md-6 col-xs-6 text-left row">
+                <div class="col-md-8 offset-md-2">
+                <p style="color: red">No Referee Indicated</p>
+                </div>
+            </div>
+            @endforelse         
         </div>
  </div>     
 @endsection
