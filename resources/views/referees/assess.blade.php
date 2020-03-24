@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="form-group">
                             <label>Relationship with {{ $referee->seeker->public_name }}</label>
                             <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="relationship" class="form-control input-sm" maxlength="50"
-                              value="{{ $referee->ready? $referee->jobApplicationReferee->relationship : $referee->relationship }}" />
+                              value="{{ $referee->relationship }}" />
                         </div>
                     </div>
                 </div>
@@ -129,12 +129,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
 
-                <div id="industry-skills-pool" class="row col"></div>
-
+                <div id="industry-skills-pool" class="row col"> 
+                    @forelse($referee->seekerIndustrySkills as $skill)     
+                    <div class="col-md-6 col-xs-6 industry-skill hover-bottom">                        
+                        {{ $skill->industrySkill->name }} [{{ $skill->weight }}/10 ]
+                        <input type="hidden" name="industry_skill_id[]" value="" >
+                        <input type="hidden" name="industry_skill_weight[]" value="">
+                        <span class="btn-sm btn btn-danger remove-industry-skill pull-right" style="border-radius: 50%">X</span>  
+                    </div>
+                    @empty
+                    @endforelse   
+                </div>
                 <hr>
 
-                <div class="form-group col row">
-                    
+                <div class="form-group col row">                    
 
                     <div class="col-md-7  offset-md-1" style="text-align: center;">
                         <label>Other Skills</label>
@@ -148,7 +156,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                     
 
-                    <div id="skill-pool" class="col-md-10 offset-md-1 row" style=""></div>
+                    <div id="skill-pool" class="col-md-10 offset-md-1 row" style="">
+                        @foreach($referee->otherSeekerSkills as $otherSkill)
+                        <div class="col-md-6 col-xs-6 hover-bottom">
+                            {{ $otherSkill->name }}
+                            <span class="btn btn-sm btn-danger pull-right remove-skill" style="border-radius: 50%">X</span>
+                            <input type="hidden" value="" name="skillName[]" >                            
+                         </div>
+                         @endforeach
+                    </div>
                 </div>
                 <hr>
                 <div class="form-group">
@@ -202,7 +218,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-md-2">
                         <span class="btn btn-success btn-sm" id="add-personality">Add</span>
                     </div>
-                    <div id="personalities-pool" class="row" style="padding: 1em"></div>
+                    <div id="personalities-pool" class="row" style="padding: 1em">
+                         @foreach($referee->seekerPersonalityTraits as $trait) 
+                        <div class="col-md-6 col-xs-6 listed-personality hover-bottom" personality_id="">
+                         {{ $trait->personalityTrait->name }} [{{ $trait->weight }}/10 ]        
+                        <input type="hidden" name="personality_id[]" value="" >
+                        <input type="hidden" name="personality_weight[]" value="">
+                        <span class="btn-sm btn btn-danger remove-personality pull-right" style="border-radius: 50%">X</span>  
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -262,6 +287,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     ?>
     //console.log(personalities);
     $().ready(function(){
+
+        $('.remove-industry-skill').click(function(){
+            $(this).parent().remove();
+        });
+        $('.remove-skill').click(function(){
+                $(this).parent().remove();
+        });
+        $('.remove-personality').click(function(){
+                $(this).parent().remove();
+        });
+
 
         $('#add-skill').click(function(){
             var skillName = $('#skill-name').val();
