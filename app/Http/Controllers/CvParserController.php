@@ -43,6 +43,9 @@ class CvParserController extends Controller
 
             $final = $parser->readContents();
 
+            if(file_exists($path))
+                unlink($path);
+
             
 
             return view('read_cv.parsed')
