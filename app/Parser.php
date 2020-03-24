@@ -95,4 +95,207 @@ class Parser extends Model
             return file_get_contents($this->filename);
         }
     }
+
+    public function readContents(){
+
+        $path = $this->filename;
+
+        $com = "-f";
+        if(filter_var($path, FILTER_VALIDATE_URL) !== FALSE)
+        {
+            $com = "-r";
+        }
+
+
+        $script = "pyresparser $com $path";
+
+        $ret = shell_exec($script);
+
+        $ret = explode("[{", $ret);
+
+        if(count($ret) == 0)
+            die("Parse Failed");
+
+
+
+        $ret = "[{".$ret[1];
+
+        $ret = str_replace("\\n", '', $ret);
+
+        $keys = [];
+        $values = [];
+
+        
+        $ret = explode("':", $ret);
+
+        
+
+        $key = explode("[{'", $ret[0]);
+        $keys[] = $key[1];
+
+        for($g=1; $g<count($ret)-1; $g++)
+        {
+            $pair = $ret[$g];
+            $pair = explode("\n", $pair);
+
+
+
+            $key = explode("'", $pair[count($pair)-1]);
+
+            $contents = [];
+
+            for($h=0; $h<count($pair)-1; $h++)
+            {
+                $contents[] = $pair[$h];
+            }
+
+            $values[] = $contents;
+            
+
+            $keys[] = $key[1];
+        }
+
+        $value = explode("}]",$ret[count($ret)-1]);
+        $value = $value[0];
+
+        $values[] = $value;
+
+        $final = array();
+
+        for($k=0; $k<count($keys); $k++)
+        {
+            $key = $keys[$k];
+            $val = $values[$k];
+
+            if(is_array($values[$k]) && count($values[$k]) == 1)
+            {
+                $val = explode(",", $values[$k][0]);
+                if(count($val)>2)
+                {
+                    $newVal = "";
+                    for($y=0; $y<count($val)-1; $y++)
+                    {
+                        $newVal.=$val[$y];
+                    }
+                    $val = $newVal;
+                }
+                else
+                {
+                    $val = trim($val[0]);
+                    
+                }
+                
+            }
+
+            if($key == 'email' || $key == 'mobile_number' || $key == 'name')
+                $val = str_replace("'", '', $val);
+
+            if($key == 'total_experience')
+                $val = (int) trim($val);
+
+            if($key == 'no_of_pages')
+                continue;
+
+            if($key == 'skills')
+            {
+                if(!is_array($val))
+                {
+                    continue;
+                }
+                if(is_array($val) && count($val) > 1)
+                {
+                    $finalVals = [];
+                    for($a=0; $a<count($val); $a++)
+                    {
+                        $thisVal = $val[$a];
+                        if($a == 0)
+                        {
+                            $thisVal = explode("['", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("',", $thisVal);
+                            $thisVal = trim(implode('', $thisVal));
+
+                        }
+                        else
+                        {
+                            $thisVal = explode("             '", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("',", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("'],", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                        }
+
+                        $finalVals[] = $thisVal;
+                        
+                    }
+
+                    $val = $finalVals;
+                }
+            }
+
+            if($key == 'degree')
+            {
+                if(is_array($val) && count($val) > 0)
+                {
+                    $newDegrees = [];
+                    for($r=0; $r<count($val); $r++)
+                    {
+                        $thisDeg = explode(" ['",$val[$r]);
+                        $thisDeg = implode("", $thisDeg);
+
+                        if($r == 0)
+                        {
+                            $thisDeg = explode("'", $thisDeg);
+                            $thisDeg = implode("", $thisDeg);
+                            $newDegrees[] = $thisDeg;
+                        }
+                        elseif(strpos($thisDeg, "',") != false)
+                        {
+                            $thisDeg = explode("',", $thisDeg);
+                            $thisDeg = implode("", $thisDeg);
+                            $thisDeg = explode("             '", $thisDeg);
+                            $thisDeg = implode("", $thisDeg);
+                            $newDegrees[] = $thisDeg;
+                        }
+                    }
+                    $val = $newDegrees;
+                }
+                else
+                {
+                    $val = explode(" ['", $val);
+                    $val = implode("", $val);
+                }
+            }
+
+            if($key == 'designation')
+            {
+                if(is_array($val))
+                {
+                    $designations = [];
+                    for($t=0; $t<count($val); $t++)
+                    {
+                        $des = explode("['", $val[$t]);
+                        $des = implode("", $des);
+                        $des = explode("']", $des);
+                        $des = implode("", $des);
+                        $designations[] = $des;
+                    }
+                    $val = $designations;
+                }
+                else
+                {
+                    $val = explode("['", $val);
+                    $val = implode("", $val);
+                    $val = explode("']", $val);
+                    $val = implode("", $val);
+                }
+            }
+
+            $final[$key] = $val;
+        }
+
+        return $final;
+
+    }
 }
