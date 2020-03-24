@@ -113,22 +113,16 @@
 
 				<div class="modal-body">
 					<div class="card-deck">
-	                    <div class="card">
-	                    	<img class="card-img-top" src="/images/coronavirus_popup_banner.jpeg" style="height: 200px" alt="COVID-19">
+	                    <div class="card">	                    	
 	                        <div class="card-body">	                        	
 	                            <p class="card-text">
-	                            	<strong>COVID-19</strong> is the disease caused by the new coronavirus that emerged in China in December 2019.<br>
-
-									It's symptoms include <a href="https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center" target="_blank" style="color: green; text-decoration: underline;">cough, fever and shortness of breath</a>. 
+	                            	<strong>COVID-19</strong> is the disease caused by the new coronavirus that emerged in China in December 2019. It's symptoms include <a href="https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center" target="_blank" style="color: green; text-decoration: underline;">cough, fever and shortness of breath</a>.
+	                            	<img class="card-img-top" src="/images/coronavirus_popup_banner.jpeg" alt="COVID-19">  
+	                            <p><a href="https://www.worldometers.info/coronavirus/" target="_blank" class="btn btn-orange-alt">View Outbreak</a>
+	                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" class="btn btn-orange-alt" style="float: right;">WHO Updates</a></p>
 	                        </div>
-	                        <div class="card-footer">
-	                            <a href="https://www.worldometers.info/coronavirus/" target="_blank" class="btn btn-orange-alt">View Outbreak</a>
-	                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" class="btn btn-orange-alt" style="float: right;">WHO Updates</a>
-	                        </div>
-	                    </div>
-	                    
-
-	                </div>
+	                    </div>                    
+                    </div>
 				</div>
 			</div>
 		</div>
