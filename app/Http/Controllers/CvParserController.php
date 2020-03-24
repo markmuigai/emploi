@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 
+use App\Parser;
+
 class CvParserController extends Controller
 {
     public function uploadCv()
@@ -14,88 +16,43 @@ class CvParserController extends Controller
 
     public function parseCv(Request $request)
     {
-    	$request->validate([
-            'resume'  =>  ['mimes:pdf,docx','max:51200']
-        ]);
-
-        $storage_path = '/public/parser';
-        $resume_url = Storage::put($storage_path, $request->resume);
-
-        $path = Storage::path($resume_url);
-
-        $script = "pyresparser -f $path";
-
-        $ret = shell_exec($script);
-
-        $ret = explode("[{", $ret);
-
-        if(count($ret) == 0)
-            die("Parse Failed");
-
-
-
-        $ret = "[{".$ret[1];
-
-        //$ret = json_encode($ret);
-
-        //$ret = json_encode($ret, JSON_PRETTY_PRINT);
-
-        $ret = str_replace("\\n", '', $ret);
-
-        $keys = [];
-        $values = [];
-
-        
-        $ret = explode("':", $ret);
-
-        
-
-        $key = explode("[{'", $ret[0]);
-        $keys[] = $key[1];
-
-        for($g=1; $g<count($ret)-1; $g++)
+        if(isset($request->url))
         {
-            $pair = $ret[$g];
-            $pair = explode("\n", $pair);
+            $request->validate([
+                'url'  =>  ['url']
+            ]);
 
+            $parser = new Parser($request->url);
+            $final = $parser->readContents();
 
+            return view('read_cv.parsed')
+                ->with('resume',$final);
+        }
+        else
+        {
+            $request->validate([
+                'resume'  =>  ['mimes:pdf,docx','max:51200']
+            ]);
 
-            $key = explode("'", $pair[count($pair)-1]);
+            $storage_path = '/public/parser';
+            $resume_url = Storage::put($storage_path, $request->resume);
 
-            for($h=0; $h<count($pair)-1; $h++)
-            {
-                $contents = implode("\n", $pair[$h]);
-            }
+            $path = Storage::path($resume_url);
+
+            $parser = new Parser($path);
+
+            $final = $parser->readContents();
+
+            if(file_exists($path))
+                unlink($path);
 
             
 
-            $keys[] = $key[1];
+            return view('read_cv.parsed')
+                    ->with('resume',$final);
         }
 
-        //dd($keys);
-
-        dd(array($keys,$ret));
-
-        //json_encode($ret);
-        foreach (json_decode($ret, true) as $item) {
-            dd($item);
-        }
-        json_decode($ret);
-
-        dd($ret["college_name"]);
-
-        dd($ret);
-
-        dd($ret);
-
-        dd($ret->total_experience);
-
-        dd(isset($ret->total_experience));
-
-        dd(array_key_exists('total_experience', $ret));
-
-        return view('read_cv.parsed')
-                ->with('resume',$ret);
+    	
 
     }
 }
