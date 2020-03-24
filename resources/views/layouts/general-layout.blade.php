@@ -21,7 +21,8 @@
     <link  rel="preload, stylesheet" as="style" href="{{asset('css/main.css')}}">
 
     <!-- JQuery -->
-    <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script>
+<!--     <script src="{{asset('js/jquery-3.4.1.min.js')}}" charset="utf-8"></script> -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -111,12 +112,13 @@
     <!-- Popper -->
     <script src="{{asset('js/popper.min.js')}}" charset="utf-8" ></script>
     <!-- Bootstrap -->
-    <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"  async defer></script>
+<!--     <script src="{{asset('js/bootstrap4.min.js')}}" charset="utf-8"  async defer></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/011a16deb1.js" crossorigin="anonymous"  async defer></script>
     <!-- <script src="{{asset('js/jquery.fontawesome.js')}}"></script> -->
     <!-- CountUp JS -->
-    <script src="{{asset('js/jquery.countup.js')}}" ></script>
+    <script src="{{asset('js/jquery.countup.js')}}" ></script> 
     <!-- Succinct JS -->
     <script src="{{asset('js/jQuery.succinct.min.js')}}" ></script>
     <!-- <script type="application/x-javascript">

@@ -12,22 +12,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <h4>All Referees</h4>
         <div class="row">
-           @foreach($referees as $ref)
+           @forelse($referees as $ref)
             <div class="col-md-6 col-xs-6 text-left row">
                 <div class="col-md-8 offset-md-2">
                     <strong>{{ $ref->name }}</strong><br>
-                    {{ $ref->relationship.' at '.$ref->organization }}<br>                                
-                     @if($ref->ready)                                                      
+                    <span style="font-style: italic;">{{ $ref->relationship }}</span> at {{ $ref->organization }}  <br> 
+                     <p>Updated at:  {{ $ref->updated_at->diffForHumans() }} </p>      @if($ref->ready)                                                      
                     <a href="referee/{{ $ref->slug }}">
-                    <i class="fa fa-file"></i>View Report
+                    <i class="btn btn-primary">View Report</i>
                     </a>
                     @else
-                    <p>* Referee has not provided assesment</p>
+                    <p style="color: red"> Referee has not provided assesment</p>
                     <br>
                     @endif
                 </div>           
             </div>
-          @endforeach
+            @empty
+            <div class="col-md-6 col-xs-6 text-left row">
+                <div class="col-md-8 offset-md-2">
+                <p style="color: red">No Referee Indicated</p>
+                </div>
+            </div>
+            @endforelse         
         </div>
  </div>     
 @endsection
