@@ -116,6 +116,9 @@ class Parser extends Model
         if(count($ret) == 0)
             die("Parse Failed");
 
+        if(!strpos($ret, "[{"))
+            die("Invalid response received");
+
 
 
         $ret = "[{".$ret[1];
