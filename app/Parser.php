@@ -107,7 +107,7 @@ class Parser extends Model
         }
 
 
-        $script = "pyresparser $com $path";
+        $script = "pyresparser $com '".$path."'";
 
         $ret = shell_exec($script);
 
