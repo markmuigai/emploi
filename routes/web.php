@@ -5,6 +5,8 @@ Route::post('/language', 'LangController@index');
 Route::get('/robots.txt', 'ContactController@robotsFile');
 Route::get('/ads.txt', 'ContactController@googleAdsFile');
 
+Route::get('/refer', 'ReferralController@refer');
+
 Route::get('/browser-sessions/{endpoint}', 'SessionController@browserSessions');
 Route::get('/read-cv-contents', 'CvParserController@uploadCv');
 Route::post('/read-cv-contents', 'CvParserController@parseCv');
