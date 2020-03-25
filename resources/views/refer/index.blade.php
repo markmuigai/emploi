@@ -1,9 +1,9 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi')
+@section('title','Refer your Friends')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Emploi offers a transparent referral and rewards program. Job seekers who refer more than 5 friends are Featured for Free on Emploi for 1 month. Other prices include Free Airtime and Free Internet Bundles.
 @endsection
 
 @section('content')
