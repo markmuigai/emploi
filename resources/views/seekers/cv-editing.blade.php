@@ -66,7 +66,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	<div class="card-deck text-center coloured-card row">
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 2,000</h1>
+				<?php
+					$price = 2000;
+					$p = \App\Product::where('slug','entry_level_cv_edit')->first();
+					if(isset($p->id))
+						$price = round($p->price);
+				?>
+				<h1>Kshs {{ $price }}</h1>
 				   <p>Entry Level</p>
 				    <br><br><br>
 				    <form method="POST" action="/checkout" >
@@ -80,7 +86,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 4,000</h1>
+				<?php
+					$price = 4000;
+					$p = \App\Product::where('slug','mid_level_cv_edit')->first();
+					if(isset($p->id))
+						$price = round($p->price);
+				?>
+				<h1>Kshs {{ $price }}</h1>
 					<p>Mid Level</p>
 					<br><br><br>
 					<form method="POST" action="/checkout">
@@ -94,6 +106,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
+				<?php
+					$price = 6000;
+					$p = \App\Product::where('slug','c_change_cv_edit')->first();
+					if(isset($p->id))
+						$price = round($p->price);
+				?>
 				<h1>Kshs 6,000</h1>
 					<p>Career Change / Promotion Seeking CV</p>
 					<br>
@@ -108,7 +126,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 6,000</h1>
+				<?php
+					$price = 6000;
+					$p = \App\Product::where('slug','mgnt_cv_edit')->first();
+					if(isset($p->id))
+						$price = round($p->price);
+				?>
+				<h1>Kshs {{ $price }}</h1>
 				<p>Management Level</p>
 				<br><br>
 				<form method="POST" action="/checkout">
@@ -122,7 +146,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
-				<h1>Kshs 10,000</h1>
+				<?php
+					$price = 10000;
+					$p = \App\Product::where('slug','s_mgnt_cv_edit')->first();
+					if(isset($p->id))
+						$price = round($p->price);
+				?>
+				<h1>Kshs {{ $price }}</h1>
 					<p>Senior Management Level</p>
 					<br>
 					<form method="POST" action="/checkout">
