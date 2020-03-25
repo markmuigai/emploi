@@ -315,10 +315,17 @@ class Post extends Model
     }
 
     public function getShortlistedAttribute(){
-        return JobApplication::where('post_id',$this->id)
+        $applications = JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','shortlisted')
                     ->get();
+        $applications = $applications->sortBy(function($application){
+            return !$application->user->seeker->featured;
+        });
+        $applications = $applications->sortBy(function($application){
+            return $application->user->seeker->getRsi($application->user->seeker);
+        });
+        return $applications;
     }
 
     public function getSelectedAttribute(){

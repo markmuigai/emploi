@@ -1,4 +1,10 @@
-<div class="card mb-4">
+<div class="card mb-2" 
+    @if($a->user->seeker->featured > 0)
+
+        style="border: 0.1em solid #e88725"
+
+    @endif
+    >
     <div class="card-body">
         <div class="row align-items-center">
             <div class="col-lg-2 col-4">

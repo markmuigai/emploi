@@ -557,8 +557,10 @@ class EmployerController extends Controller
                 break;
             
             default:
+                $applications = JobApplication::where('post_id',$post->id)->paginate(20);
+                
                 return view('employers.applications.index')
-                    ->with('pool',JobApplication::where('post_id',$post->id)->paginate(20))
+                    ->with('pool',$applications)
                     ->with('post',$post);
                 break;
         }
