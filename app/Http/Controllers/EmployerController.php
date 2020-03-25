@@ -127,7 +127,7 @@ class EmployerController extends Controller
             if( strpos($item, '$') !== false)
                 $spam = true;
             if($spam)
-                die('Unauthorised words found in your submission. Kindly <a href="/join">try again</a>!');
+                die('Unauthorised words found in your submission. Kindly <a href="/employers/register">try again</a>!');
         }
 
     	$user = User::where('email',$request->email)
