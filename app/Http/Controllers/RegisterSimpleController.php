@@ -18,6 +18,7 @@ use App\UserPermission;
 class RegisterSimpleController extends Controller
 {
     public function create(Request $request){
+        return redirect('/register');
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'email'  =>  ['required', 'string', 'email','max:50','unique:users'],
