@@ -17,6 +17,11 @@ class ReferralController extends Controller
         return redirect('/');
     }
 
+    public function refer(Request $request)
+    {
+        return view('refer.index');
+    }
+
     public function processCSV(Request $request)
     {
         $file = $request->file('csv');

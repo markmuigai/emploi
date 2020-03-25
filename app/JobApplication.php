@@ -49,35 +49,37 @@ class JobApplication extends Model
         if($this->status != 'rejected')
         {
             $this->status = 'rejected';
-            $this->save();
-
-            if($message == '')
+            if($this->save())
             {
-                $message = 'You may be offered another position if the recruiter feels you meet requirements.';
+                if($message == '')
+                {
+                    $message = 'The recruiter left no message for you regarding this application. You may be offered another position if the recruiter feels you meet requirements. If you have queries, kindly contact us.';
+                }
+                else
+                {
+                    $message = '<br><b>Message from Recruiter</b>:<br> '.$message.'<br>';
+                }
+
+                if($this->user->seeker->canGetNotifications())
+                {
+                    $caption = "Application ".$this->id." for ".$this->post->title." was Rejected";
+                    $contents = "Your application for the <b>".$this->post->title."</b> position, as advertised by ".$this->post->company->name." was rejected. This application will no longer be considered.  $message
+
+                    <br>
+                    Your RSI score for this application was ".$this->user->seeker->getRsi($this->post)."%
+                    <br>
+
+                    For additional information, feel free to call our office or write to us. <a href='".url('/vacancies')."'>See Latest Vacancies</a>
+                    <br>
+                    Thank you for choosing Emploi.
+                    <br>
+                    ";
+                    EmailJob::dispatch($this->user->name, $this->user->email, "Application Rejected", $caption, $contents);
+                }
+                return true;
+
             }
-            else
-            {
-                $message = '<br><b>Message from Recruiter</b>:<br> '.$message.'<br>';
-            }
 
-            //$message = $message != '' ? $message : 'You may be offered another position if the recruiter feels you meet requirements.';
-
-            if($this->user->seeker->canGetNotifications())
-            {
-                $caption = "Application ".$this->id." for ".$this->post->title." was Rejected";
-                $contents = "Your application for the <b>".$this->post->title."</b> position, as advertised by ".$this->post->company->name." was rejected. This application will no longer be considered.  $message
-
-                <br>
-                Your RSI score for this application was ".$this->user->seeker->getRsi($this->post)."%
-                <br>
-
-                For additional information, feel free to call our office or write to us. <a href='".url('/vacancies')."'>See Latest Vacancies</a>
-                <br>
-                Thank you for choosing Emploi.
-                <br>
-                ";
-                EmailJob::dispatch($this->user->name, $this->user->email, "Application Rejected", $caption, $contents);
-            }
         }
         return false;
     }

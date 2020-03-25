@@ -38,7 +38,7 @@
                         $('.employers-carousel').slick({
                             infinite: true,
                             rows: 2,
-                            slidesToShow: 4,
+                            slidesToShow: 3,
                             slidesToScroll: 2,
                             arrows: true,
                             prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',

@@ -254,10 +254,37 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
             <p>
                 <input type="submit" value="Build CV" class="btn btn-sm btn-orange">
+                <i>
+                @guest
+
+                    <a href="/login?redirectToUrl={{ url('/job-seekers/cv-builder') }}" class="orange">Log in</a> or <a href="/register?redirectToUrl={{ url('/job-seekers/cv-builder') }}" class="orange">Register</a> to add referees
+
+                @else
+
+                    @if(Auth::user()->role == 'seeker')
+                        @if(count(Auth::user()->seeker->referees) == 0)
+                            Add your referees <a href="/profile/add-referee" class="orange">here</a>.
+                        @else
+                            Your referees will be added automatically 
+
+                        @endif
+
+                    @else
+                       Job Seekers referees will be added automatically
+
+                    @endif
+
+
+
+                @endguest
+                </i>
                 <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;">Get Professional Help</a>
             </p>
 
         </form>
+        <div>
+            @include('components.featuredJobs')
+        </div>
     </div>
 </div>
 

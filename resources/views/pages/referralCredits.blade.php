@@ -15,7 +15,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		</div>
 		<div class="col-md-8">
 			<p>
-				Emploi offers a transparent referral and rewards program. When you refer your friends and they sign up, you are awarded 10 points for every job seeker and 20 points for employer sign up. <br>
+				Emploi offers a transparent referral and rewards program. When you refer your friends and they sign up, you are awarded 10 points for every job seeker and 20 points for employer sign up. <br> 
+				Job seekers who refer more than 5 friends are <b>Featured for Free</b> on Emploi for 1 month. Other prices include <b>Free Airtime</b> and <b>Free Internet Bundles</b>.
 				Redeem referrals can be redeemed on Emploi credits or airtime. Credits are only available to registered users.
 			</p>
 			@include('components.ads.responsive')

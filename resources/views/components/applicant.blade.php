@@ -75,14 +75,48 @@
         $('#reject-Application-{{ $a->id }}').click(function(){
             if(confirm('Confirm application rejection'))
             {
+                var continueReject = true;
+                var basicSeeker = true;
+                var message = null;
+
                 if(notificationsEnabledFor{{ $a->id }})
                 {
-                    var message = prompt("Why are you rejecting this application?", "Candidate doesn't meet the minimum qualifications");
+                    message = prompt("Why are you rejecting this application?", "Candidate doesn't meet the minimum qualifications");
                     if(message == null || message == '')
+                    {
                         return notify("Kindly specify why you are rejecting {{ $a->user->name }}'s application");
-                    return window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?message='+message;
+                    }
+                    basicSeeker = false;
+                    //return window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?message='+message;
                 }
-                window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}';
+                var $scope = $(this).parent();
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?csrf-token='+$('#csrf_token').attr('content')+'&message='+message,
+                    success: function(response) {
+
+                        //$parent.children().remove();
+
+                        if(response=='rejected')
+                        {
+                            notify("Application was Rejected");
+                            $scope.empty();
+                            $scope.append('<strong style="color: red"  data-toggle="tooltip" data-placement="right" title="NO ACTIONS AVAILABLE">REJECTED</strong>');
+                        }
+                        else
+                        {
+                            notify("An Error occurred while rejecting application. Try again later","error");
+                        }
+                        
+                    },
+                    error: function(e) {
+
+                        notify('Shortlisting Error occurred', 'error');
+                    },
+                });
+                //return window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?message='+message;
+                //window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}';
             }
         });
         $('#shortlist-user-{{ $a->user->id }}').click(function(){

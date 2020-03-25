@@ -170,8 +170,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     {{ $posts->links() }}
     @endif
 </div>
-<img src="images/friends_refer_lg.png">
+
 @include('components.featuredEmployers')
+
+<a href="/refer">
+    <img src="images/friends_refer_lg.png" style="width: 100%" alt="Refer your Friends for Rewards">
+</a>
 
 
 @endsection
