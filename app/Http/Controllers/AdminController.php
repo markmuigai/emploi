@@ -18,11 +18,13 @@ use App\CvRequest;
 use App\Employer;
 use App\Faq;
 use App\Industry;
+use App\InviteLink;
 use App\JobApplication;
 use App\Location;
 use App\ModelSeeker;
 use App\Post;
 use App\Referee;
+use App\Referral;
 use App\Seeker;
 use App\UnregisteredUser;
 use App\User;
@@ -39,7 +41,7 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
     
-      public function referees(Request $request)
+    public function referees(Request $request)
     {
               
         $referees = Referee::orderBy('seeker_id','DESC')->paginate(12);
@@ -47,8 +49,18 @@ class AdminController extends Controller
                     ->with('referees',$referees);
                    
     }
+
+    public function referrals(Request $request){
+        return view('admins.referrals.index')
+            ->with('referrals',Referral::orderBy('status')->paginate(30));
+    }
+
+    public function inviteLinks(Request $request){
+        return view('admins.inviteLinks.index')
+            ->with('inviteLinks',InviteLink::orderBy('clicks_count','DESC')->paginate(30));
+    }
        
-        public function viewReport(Request $request, $slug)
+    public function viewReport(Request $request, $slug)
     {
        $referee=Referee::where('slug',$slug)->firstOrFail();
         return view('referees.report')->with('referee',$referee);

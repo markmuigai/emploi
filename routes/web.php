@@ -179,6 +179,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('log-in-as', 'AdminController@loginas');
     Route::get('username/{username}', 'AdminController@loginWithUsername');
 
+    Route::get('referrals', 'AdminController@referrals');
+    Route::get('invite-links', 'AdminController@inviteLinks');
+
     Route::resource('job-post-groups', 'PostGroupController');
     Route::resource('countries', 'CountryController');
     Route::resource('locations', 'LocationController');

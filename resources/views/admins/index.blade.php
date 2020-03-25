@@ -88,6 +88,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 
                 
                 <a href="/admin/faqs" class="btn btn-sm btn-danger">{{ __('other.faqs') }}</a>
+                <a href="/admin/referrals" class="btn btn-sm btn-info">Referrals</a>
+                <a href="/admin/invite-links" class="btn btn-sm btn-success">Invite Links</a>
                 
 
 
