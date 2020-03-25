@@ -67,31 +67,71 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
 				<h1>Kshs 2,000</h1>
-				<p>Entry Level</p>
+				   <p>Entry Level</p>
+				    <br><br><br>
+				    <form method="POST" action="/checkout" >
+					@csrf
+					<input type="hidden" name="product" value="entry_level_cv_edit">
+					<p>
+					<input type="submit" name="" value="Request" class="btn btn-orange-alt">
+					</p>
+					</form>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
 				<h1>Kshs 4,000</h1>
-				<p>Mid Level</p>
+					<p>Mid Level</p>
+					<br><br><br>
+					<form method="POST" action="/checkout">
+					@csrf
+					<input type="hidden" name="product" value="mid_level_cv_edit">
+					<p>
+					<input type="submit" name="" value="Request" class="btn btn-orange-alt">
+					</p>
+					</form>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
 				<h1>Kshs 6,000</h1>
-				<p>Career Change / Promotion Seeking CV</p>
+					<p>Career Change / Promotion Seeking CV</p>
+					<br>
+					<form method="POST" action="/checkout">
+					@csrf
+					<input type="hidden" name="product" value="c_change_cv_edit">
+					<p>
+					<input type="submit" name="" value="Request" class="btn btn-orange-alt">
+					</p>
+					</form>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
 				<h1>Kshs 6,000</h1>
 				<p>Management Level</p>
+				<br><br>
+				<form method="POST" action="/checkout">
+				@csrf
+				<input type="hidden" name="product" value="mgnt_cv_edit">
+				<p>
+				<input type="submit" name="" value="Request" class="btn btn-orange-alt">
+				</p>
+				</form>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
 				<h1>Kshs 10,000</h1>
-				<p>Senior Management Level</p>
+					<p>Senior Management Level</p>
+					<br>
+					<form method="POST" action="/checkout">
+					@csrf
+					<input type="hidden" name="product" value="s_mgnt_cv_edit">
+					<p>
+					<input type="submit" name="" value="Request" class="btn btn-orange-alt">
+					</p>
+					</form>
 			</div>
 		</div>
 	</div>

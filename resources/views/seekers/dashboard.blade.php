@@ -75,6 +75,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 		<a href="/blog" class="btn btn-orange">Read more blogs</a>
 	</div>
 </div>
+<hr>
+<div style="text-align: center;">
+	
+	<img src="/images/friends_refer_thin-flat.png">
+</div>
 @include('components.ads.responsive')
 <?php
 $user = Auth::user();

@@ -147,14 +147,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <?php $adsCounter++; ?>
-@if($adsCounter % 3 == 0 || $adsCounter == 1)
+@if($adsCounter % 4 == 0 || $adsCounter == 1)
 <div class="card mb-4">
     <div class="card-body">
         @include('components.ads.responsive')
     </div>
-</div>
+</div>  
 @endif
 @empty
+
 <div class="card">
     <div class="card-body text-center">
         <p>No job posts found</p>
@@ -169,7 +170,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     {{ $posts->links() }}
     @endif
 </div>
-
+<img src="images/friends_refer_lg.png">
 @include('components.featuredEmployers')
 
 
