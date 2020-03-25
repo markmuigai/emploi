@@ -104,7 +104,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <hr>
                 <a href="/admin/products" class="btn btn-sm btn-success">Products ({{ count(\App\Product::all()) }})</a>
-                <a href="/admin/invoices" class="btn btn-sm btn-primary">Invoices ({{ count(\App\Invoice::where('alternative_payment_slug',null)->where('pesapal_transaction_tracking_id',null)->get()) }})</a>
+                <a href="/admin/invoices" class="btn btn-sm btn-primary">Invoices ({{ count(\App\Invoice::where('alternative_payment_slug',null)->where('pesapal_transaction_tracking_id',null)->get()) }})</a>                
+                <a href="/admin/referees" class="btn btn-sm btn-info">Referees({{ count(\App\Referee::where('status','ready')->get()) }})</a>
+
                 <a href="/admin/orders" class="btn btn-sm btn-success" style="display: none">Orders</a>
                 <a href="/admin/product-orders" class="btn btn-sm btn-info" style="display: none">Product Orders</a>
 
