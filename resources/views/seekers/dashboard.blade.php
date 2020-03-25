@@ -76,9 +76,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 </div>
 <hr>
-<div style="text-align: center;">
+<div style="text-align: center;" class="row">
+	<div class="col-md-8 offset-md-2">
+		<a href="/refer">
+			<img src="/images/friends_refer_thin-flat.png" style="width: 80%" alt="Refer your Friends and Win">
+		</a>
+	</div>
 	
-	<img src="/images/friends_refer_thin-flat.png">
 </div>
 @include('components.ads.responsive')
 <?php
