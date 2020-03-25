@@ -112,7 +112,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 					if(isset($p->id))
 						$price = round($p->price);
 				?>
-				<h1>Kshs 6,000</h1>
+				<h1>Kshs {{ $price }}</h1>
 					<p>Career Change / Promotion Seeking CV</p>
 					<br>
 					<form method="POST" action="/checkout">
