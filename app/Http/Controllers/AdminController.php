@@ -577,7 +577,7 @@ class AdminController extends Controller
                 }
                 elseif($industry == 'incomplete')
                 {
-                    $filter = " WHERE LENGTH(education) < 10 OR LENGTH(experience) < 10";
+                    $filter = " WHERE LENGTH(education) < 10 OR LENGTH(experience) < 10 OR resume IS NULL";
                 }
                 elseif($industry == 'incomplete-edu')
                 {

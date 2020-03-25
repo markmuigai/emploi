@@ -37,6 +37,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @foreach($industries as $industry)
                         <option value="{{ $industry->id }}">{{ $industry->name }}</option>
                         @endforeach
+                        <option value="incomplete">
+                            Job Seekers with Incomplete Profiles
+                            ({{ 
+                                count(
+                                    \App\Seeker::whereRaw('LENGTH(education) < 10')
+                                            ->orWhereRaw('LENGTH(experience) < 10')
+                                            ->orWhere('resume',null)
+                                            ->get()
+                                    ) 
+                            }})
+                        </option>
                     </select>
                 </div>
             </div>
