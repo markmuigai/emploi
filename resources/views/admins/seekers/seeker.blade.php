@@ -121,8 +121,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </p>       
         @endforelse
         @endif
-         <h4>Referees</h4>
-        <a class="btn btn-edit btn-orange-alt" href="{{ $seeker->user->username }}/referees">View Referees</a>
+
+        <div class="row" style="">
+            <div class="col-md-12">
+                <h4>Referees</h4>                
+            </div>
+            @forelse($seeker->referees as $ref)
+            <div class="col-md-6 card">
+                <strong> {{ $ref->name }}</strong>
+                Relationship: {{ $ref->relationship }} <span style="font-style: italic;">  at {{ $ref->organization }}</span>
+                <p>Updated at:  {{ $ref->updated_at->diffForHumans() }} </p>
+                @if($ref->ready)                                                      
+                <a href="/admin/referee/{{ $ref->slug }}">
+                <i class="btn btn-primary">View Report</i>
+                </a>
+                @else
+                <p style="color: red"> Referee has not provided assesment</p>
+                <br>
+                @endif              
+            </div>                     
+                @empty            
+                <p style="text-align: center">No Referee Found</p>
+            @endforelse                       
+        </div>          
+        
         <hr>
         <h4>Featured Job Seekers</h4>
         <form method="POST" action="/admin/toggle-seeker-featured">

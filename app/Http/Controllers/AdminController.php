@@ -39,17 +39,16 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
     
-     public function referees(Request $request, $username)
+      public function referees(Request $request)
     {
-        $user = User::where('username',$username)->firstOrFail();       
-        $referees = Referee::all();
-        return view('admins.seekers.referees')
-                    ->with('referees',$user->seeker->referees);
-      
+              
+        $referees = Referee::orderBy('seeker_id','DESC')->paginate(12);
+        return view('admins.referees')
+                    ->with('referees',$referees);
+                   
     }
        
-        public function viewReport(Request $request, $username, $slug)
-
+        public function viewReport(Request $request, $slug)
     {
        $referee=Referee::where('slug',$slug)->firstOrFail();
         return view('referees.report')->with('referee',$referee);
