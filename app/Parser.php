@@ -107,12 +107,36 @@ class Parser extends Model
         }
 
 
-        $script = "pyresparser $com '".$path."'";
+        $script = "pyresparser $com $path  2>&1";
 
-        $ret = shell_exec($script);
+        exec($script,$output,$return_var);
 
-        if(!strpos($ret, "[{"))
-            die("Invalid response received: ".print_r($ret));
+        if($return_var !== 0)
+        {
+            die("An error occurred while parsing cv");
+        }
+
+        if(count($output) > 10)
+        {
+            $ret = "";
+            for($t=10; $t<count($output); $t++)
+            {
+                $ret .= $output[$t];
+            }
+        }
+        else
+        {
+            die("Parsing output err");
+        }
+
+
+
+        if(!strpos($ret, "[{") == false)
+        {
+            die("Invalid response received after parsing! ");
+        }
+
+
 
         $ret = explode("[{", $ret);
 
@@ -120,15 +144,21 @@ class Parser extends Model
             die("Parse Failed");
 
 
+        //dd(array($keys,$values));
+
 
 
 
         $ret = "[{".$ret[1];
 
-        $ret = str_replace("\\n", '', $ret);
+        //$ret = str_replace("\\n", '', $ret);
+
+
 
         $keys = [];
         $values = [];
+
+
 
         
         $ret = explode("':", $ret);
@@ -140,30 +170,46 @@ class Parser extends Model
 
         for($g=1; $g<count($ret)-1; $g++)
         {
+
             $pair = $ret[$g];
-            $pair = explode("\n", $pair);
+            $pair = explode(",  '", $pair);
+
+            $value = $pair[0];
+
+            $keys[] = $pair[1];
+
+            $value = explode("',", $value);
+            if(count($value) > 1)
+                $values[] = $value;
+            else
+                $values[] = $value[0];
 
 
 
-            $key = explode("'", $pair[count($pair)-1]);
 
-            $contents = [];
+            // $key = explode("'", $pair[count($pair)-1]);
 
-            for($h=0; $h<count($pair)-1; $h++)
-            {
-                $contents[] = $pair[$h];
-            }
+            // $contents = [];
 
-            $values[] = $contents;
+            // for($h=0; $h<count($pair)-1; $h++)
+            // {
+            //     $contents[] = $pair[$h];
+            // }
+
+            // $values[] = $contents;
             
 
-            $keys[] = $key[1];
+
+
+            // $keys[] = $key[1];
         }
 
         $value = explode("}]",$ret[count($ret)-1]);
         $value = $value[0];
 
         $values[] = $value;
+
+
 
         $final = array();
 
@@ -197,6 +243,49 @@ class Parser extends Model
 
             if($key == 'total_experience')
                 $val = (int) trim($val);
+
+            if($key == 'experience')
+            {
+                if(is_array($val))
+                {
+                    $finalVals = [];
+                    for($a=0; $a<count($val); $a++)
+                    {
+                        $thisVal = $val[$a];
+                        if($a == 0)
+                        {
+                            $thisVal = explode("['", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("',", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("']", $thisVal);
+                            $thisVal = trim(implode('', $thisVal));
+
+                        }
+                        else
+                        {
+                            $thisVal = explode("             '", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("',", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("['", $thisVal);
+                            $thisVal = implode('', $thisVal);
+                            $thisVal = explode("']", $thisVal);
+                            $thisVal = trim(implode('', $thisVal));
+
+                        }
+
+                        $finalVals[] = $thisVal;
+                        
+                    }
+
+                    $val = $finalVals;
+                }
+                else
+                {
+                    $val = str_replace("'", "", $val);
+                }
+            }
 
             if($key == 'no_of_pages')
                 continue;
@@ -241,6 +330,7 @@ class Parser extends Model
 
             if($key == 'degree')
             {
+
                 if(is_array($val) && count($val) > 0)
                 {
                     $newDegrees = [];
@@ -266,7 +356,7 @@ class Parser extends Model
                     }
                     $val = $newDegrees;
                 }
-                else
+                elseif(!is_array($val))
                 {
                     $val = explode(" ['", $val);
                     $val = implode("", $val);

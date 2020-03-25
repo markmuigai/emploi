@@ -179,12 +179,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      			<br>
 					<h4>
 						{{ $p2->title }}
-						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
 					</h4>
 
 					<?php echo $p2->description; ?>
 					<br>
-					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
 					<span style="float: right;">{{ $p2->getPrice() }}</span>
 				</div>
 
@@ -202,12 +202,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      			<br>
 					<h4>
 						{{ $p2->title }}
-						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
 					</h4>
 
 					<?php echo $p2->description; ?>
 					<br>
-					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
 					<span style="float: right;">{{ $p2->getPrice() }}</span>
 				</div>
 
@@ -225,12 +225,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      			<br>
 					<h4>
 						{{ $p2->title }}
-						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
 					</h4>
 
 					<?php echo $p2->description; ?>
 					<br>
-					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
 					<span style="float: right;">{{ $p2->getPrice() }}</span>
 				</div>
 
@@ -248,12 +248,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	      			<br>
 					<h4>
 						{{ $p2->title }}
-						<a href="/checkout?product=$pkg" class="btn btn-orange-alt" style="float: right;">Get</a>
+						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
 					</h4>
 
 					<?php echo $p2->description; ?>
 					<br>
-					<a href="/checkout?product=$pkg" class="btn btn-orange">Get Package</a>
+					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
 					<span style="float: right;">{{ $p2->getPrice() }}</span>
 				</div>
 
