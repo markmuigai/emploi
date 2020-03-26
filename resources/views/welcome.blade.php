@@ -204,6 +204,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         {{ __('jobs.j_vacays_txt') }} </p>
                                     </div>
                                     <div class="card-footer">
+                                        <span id="featured-vacancies"></span>
                                         <small class="text-muted">
                                             <a href="/vacancies" class="btn btn-orange-alt">View Vacancies</a>
                                         </small>
@@ -267,12 +268,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </script>
             </div>
         </div>
+
     </div>
 </div>
 <!-- END OF SERVICES -->
 
 <!-- FEATURED JOBS -->
-<div class="container mt-5 text-center">
+<div class="container mt-5 text-center" >
     <h2 class="orange">{{ __('jobs.f_jobs') }}</h2>
     @if(is_null($posts))
     <div class="text-center">
