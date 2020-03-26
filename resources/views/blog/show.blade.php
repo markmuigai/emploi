@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             
 
-            @if(isset(Auth::user()->id))
+            @if(isset(Auth::user()->id) || $blog->is_public !== 0)
 
                 <p><?php echo $blog->contents; ?></p>
                 @if($blog->image2)
