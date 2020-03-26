@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        @include('components.ads.responsive')
+        <h4>Emploi Bloggers <a href="/admin/bloggers/create" class="btn btn-orange" style="float: right;">Create Blogger</a></h4>
         @forelse($bloggers as $blogger)
         <div class="row align-items-center">
             <div class="col-lg-2 col-md-3">
@@ -35,7 +35,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @empty
         <div class="text-center">
             <p>No bloggers have been created</p>
-            <p><a href="/admin/bloggers/create" class="btn btn-orange">Create Blogger</a></p>
         </div>
         @endforelse
     </div>

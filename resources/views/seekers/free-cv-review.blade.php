@@ -3,7 +3,7 @@
 @section('title','Emploi :: Free CV Review')
 
 @section('description')
-Get a free CV review from our Experts and stand out from the croud.
+Get a free CV review from our Experts and stand out from the crowd.
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@ Get a free CV review from our Experts and stand out from the croud.
 	<div class="text-center">
 		<h2 class="orange text-center">Free CV Review</h2>
 		<p>
-			Get a free CV review from our Experts and stand out from the croud.
+			Get a free CV review from our Experts and stand out from the crowd.
 		</p>
 	</div>
 	
