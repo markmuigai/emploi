@@ -473,14 +473,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @guest
                 <h1>{{ __('other.find_right_job') }}</h1>
                 <p>{{ __('other.looking_') }}</p>
-                <h4>{{ __('other.more_than') }} <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> {{ __('other.proffesionals_path') }}</h4>
+                <h4>{{ __('other.more_than') }} <span class="seeker-stats"><span>2207</span></span> {{ __('other.proffesionals_path') }}</h4>
                 <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
                 <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
             @else
                 @if(Auth::user()->role == 'seeker')
                     <h1>{{ __('other.find_right_job') }}</h1>
                     <p>Looking for a job? Maybe your CV doesn't stand out! Let us catapult your career and land you a job with our professional CV Editing.</p>
-                    <h4>More than <span>{{ round(count(\App\Seeker::all())*0.1) }}</span> professional got their path to success.</h4>
+                    <h4>More than <span class="seeker-stats"><span>2207</span></span> professional got their path to success.</h4>
                     <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange">Explore Vacancies</a>
                     <a href="/job-seekers/cv-editing" class="btn btn-white px-4">Request CV Editing</a>
                 @endif
@@ -503,6 +503,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
             @endguest
         </div>
+        <script type="text/javascript">
+            $().ready(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/job-seekers-who-found-their-way?csrf-token='+$('#csrf_token').attr('content'),
+                    success: function(response) {
+                        
+                        $('.seeker-stats').empty();
+                        $('.seeker-stats').append('<span>'+response+'</span>');
+                        
+                    },
+                    error: function(e) {
+
+                        
+                    },
+                });
+            });
+        </script>
     </div>
 </div>
 @include('components.top-search')

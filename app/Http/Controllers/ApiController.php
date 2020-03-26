@@ -31,5 +31,10 @@ class ApiController extends Controller
     {
     	return count(Company::getHiringCompanies2(0)) * 3;
     }
+
+    public function getSeekersWhoFoundTheirWay(Request $request)
+    {
+        return round(count(Seeker::all())*0.1);
+    }
     
 }
