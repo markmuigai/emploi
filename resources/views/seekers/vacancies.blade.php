@@ -150,7 +150,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @if($adsCounter % 4 == 0 || $adsCounter == 1)
 <div class="card mb-4">
     <div class="card-body">
-        @include('components.ads.responsive')
+        @if($agent->isMobile())
+            @include('components.ads.mobile_400x350')
+        @else            
+            @include('components.ads.flat_728x90')
+        @endif
     </div>
 </div>  
 @endif

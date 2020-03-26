@@ -47,7 +47,7 @@ Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');
 Route::get('/pesapalNotifications','PesapalController@ipn');
 
 Auth::routes();
-Route::get('/', 'ContactController@index');
+Route::get('/', 'WelcomeController@index');
 Route::get('/registered', 'ContactController@registered');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');

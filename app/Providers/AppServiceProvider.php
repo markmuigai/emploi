@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Jenssegers\Agent\Agent;
 
 // use App\Country;
 // use App\Industry;
@@ -29,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function ($view) {
+
+            $view->with('agent',new Agent());
 
             // $view->with('all_countries', Country::active());
             // $view->with('all_locations', Location::active());
