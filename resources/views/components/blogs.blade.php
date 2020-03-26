@@ -65,39 +65,6 @@
                                 
                                 
                             '</div>';
-
-                            $blogs += ''+
-                            '<div class="card mx-4 mx-md-5 mx-lg-2 my-3" style="background: white; overflow: hidden; padding: 1em; ">'+
-                                '<div class="row">'+
-                                    '<div class="col-md-3" style="overflow: hidden; float: left;">'+
-                                        '<img src="'+blog['imageUrl']+'"   alt="'+blog['title']+'" style="width: 100%; border-radius: 5%" />'+
-                                    '</div>'+
-                                    '<div class="col-md-9" style=" float: left;">'+
-                                        '<a href="/blog/'+blog['slug']+'" class="">'+
-                                            '<h4 class="orange" style="">'+blog['title']+'</h4>'+
-                                        '</a>'+
-                                        '<div class="d-flex" style="">'+
-                                            '<p style=" width: 100%">'+
-                                                '<i class="fas fa-user"></i> '+ blog['user_name'] +' | <i class="fas fa-calendar-check"></i> '+ blog['created_at'] +' | '+ blog['likes'] +
-                                            '</p>'+
-                                        '</div>'+
-                                        '<p class="badge badge-secondary">'+ blog['category'] +'</p>'+
-                                        '<p>'+
-                                            blog['longPreview'] +
-                                        '</p>'+
-                                       
-                                        '<p>'+
-                                            '<a href="/blog/'+blog['slug']+'" class="orange">Read More</a>'+
-                                            '<button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal'+blog["id"]+'" style="float: right;"><i class="fas fa-share-alt"></i> Share</button>'+
-                                            
-                                        '</p>'+
-                                        
-                                    '</div>'+
-
-                                '</div>'+
-                                
-                                
-                            '</div>';
                             
 
                             
