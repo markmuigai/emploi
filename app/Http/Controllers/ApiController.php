@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Blog;
 use App\Company;
+use App\Like;
 use App\Post;
 use App\Seeker;
 
@@ -34,6 +36,45 @@ class ApiController extends Controller
 
     public function getSeekersWhoFoundTheirWay(Request $request)
     {
+        return round(count(Seeker::all())*0.1);
+    }
+
+    public function getLatestBlogs(Request $request)
+    {
+        $counter = 5;
+        if(isset($request->count))
+            $counter = $request->count;
+        $blogs =  Blog::orderBy('created_at', 'DESC')->limit($counter)->get();
+        $retVal = [];
+        for($i=0; $i<count($blogs); $i++)
+        {
+            $blog = $blogs[$i];
+
+            $likes = Like::getCount('blog',$blog->id);
+            $likes = $likes == 1 ? $likes.' Like' : $likes.' Likes';
+
+            $b = [];
+            $b['id'] = $blog->id;
+            $b['title'] = $blog->title;
+            $b['slug'] = $blog->slug;
+            $b['imageUrl'] = $blog->imageUrl;
+            $b['category'] = $blog->category->name;
+            $b['user_name'] = $blog->user->name;
+            $b['created_at'] = $blog->created_at->diffForHumans();
+            $b['likes'] = $likes;
+            $b['longPreview'] = html_entity_decode($blog->longPreview(250));
+
+
+            array_push($retVal, $b);
+        }
+        return $retVal;
+        //name
+        //slug
+        //author
+        //diffForHumans
+        //likes
+        //preview
+
         return round(count(Seeker::all())*0.1);
     }
     

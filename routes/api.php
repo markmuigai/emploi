@@ -22,4 +22,6 @@ Route::get('/total-candidates', 'ApiController@getTotalCandidates');
 Route::get('/total-companies', 'ApiController@getTotalCompanies');
 Route::get('/total-hiring-companies', 'ApiController@getTotalHiringCompanies');
 Route::get('/job-seekers-who-found-their-way', 'ApiController@getSeekersWhoFoundTheirWay');
+Route::get('/latest-blogs', 'ApiController@getLatestBlogs');
+
 
