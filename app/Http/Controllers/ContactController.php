@@ -38,6 +38,10 @@ class ContactController extends Controller
         return view('seekers.cv-builder.index');
     }
 
+    public function freeCvReview(){
+        return view('seekers.free-cv-review');
+    }
+
     public function referralCredits(){
         return view('pages.referralCredits');
     }
