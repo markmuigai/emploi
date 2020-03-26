@@ -10,11 +10,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', $company->name )
 
 <div class="row">
-	@if(!$company->isFeatured())
-		@if(!$agent->isMobile())      
-            @include('components.ads.flat_728x90')
-        @endif
-	@endif
+	<div class="col-md-12">
+		@if(!$company->isFeatured())
+			@if(!$agent->isMobile())      
+	            @include('components.ads.flat_728x90')
+	        @endif
+		@endif
+	</div>
+	
 	<div class="col-md-12 col-lg-9">
 		<div class="card">
 			
