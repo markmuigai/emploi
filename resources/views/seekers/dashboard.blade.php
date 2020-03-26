@@ -14,8 +14,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <h4>Recent Blogs</h4>
 
 <div class="row">
-	<?php $blogsTransparent = true; ?>
-	@include('components.blogs')
+	<div class="col-md-12">
+		<?php $blogsTransparent = true; ?>
+		@include('components.blogs')
+	</div>
+	
 </div>
 <hr>
 <div style="text-align: center;" class="row">
