@@ -179,9 +179,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <a href="/refer">
     @if($agent->isMobile())
-        <img src="images/friends_refer_thin-flat.png" style="width: 100%" alt="Refer your Friends for Rewards">
+        <img src="/images/friends_refer_thin-flat.png" style="width: 100%" alt="Refer your Friends for Rewards">
     @else            
-        <img src="images/friends_refer_lg.png" style="width: 100%" alt="Refer your Friends for Rewards">
+        <img src="/images/friends_refer_lg.png" style="width: 100%" alt="Refer your Friends for Rewards">
     @endif
     
 </a>

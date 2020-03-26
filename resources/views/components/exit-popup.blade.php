@@ -187,23 +187,23 @@
 
 	            	if(role == 'guest')
 	            	{
-	            		$('#seekerRegisterModal').modal();
+	            		// $('#seekerRegisterModal').modal();
 
-	            		localStorage.setItem("disable-seeker-register-popup", "true");
-	            		localStorage.setItem("register-popup-last-shown", new Date());
+	            		// localStorage.setItem("disable-seeker-register-popup", "true");
+	            		// localStorage.setItem("register-popup-last-shown", new Date());
 
-	            		$.ajax({
-				            type: 'GET',
-				            url: '/browser-sessions/disable-seeker-register-popup?csrf-token='+$('#csrf_token').attr('content'),
-				            success: function(response) {
+	           //  		$.ajax({
+				        //     type: 'GET',
+				        //     url: '/browser-sessions/disable-seeker-register-popup?csrf-token='+$('#csrf_token').attr('content'),
+				        //     success: function(response) {
 
-				            	console.log('Seeker Signup Notifications disabled for this session');
-				            },
-				            error: function(e) {
+				        //     	console.log('Seeker Signup Notifications disabled for this session');
+				        //     },
+				        //     error: function(e) {
 
-				                //notify('Failed to add course', 'error');
-				            },
-				        });
+				        //         //notify('Failed to add course', 'error');
+				        //     },
+				        // });
 	            	}
 	            }
 	            // if(exit_trials == 1)
