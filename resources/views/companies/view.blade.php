@@ -107,16 +107,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 </div>
 
+@if($agent->isMobile())
+<div>
+	      
+	@include('components.ads.mobile_400x350')
+    
+</div>
+@endif
+
 
 @if(count($company->activePosts) > 0)
 <div class="featured-carousel" id="company-vacancies">
-	@if($agent->isMobile())      
-	<div class="card my-4 mx-md-0 mr-md-5 mr-md-2 mx-4">
-		<div class="card-body text-center">
-			@include('components.ads.mobile_400x350')
-		</div>
-	</div>
-    @endif
 	@foreach($company->activePosts as $post)
 	<div class="card my-4 mx-md-0 mr-md-5 mr-md-2 mx-4">
 		<div class="card-body text-center">
@@ -146,6 +147,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 	</div>
 </div>
 @endif
+
+
 
 <script type="text/javascript">
 	$(document).ready(function() {
