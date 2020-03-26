@@ -78,24 +78,25 @@
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main class="sign-page mt-3 pb-5">
         <div class="row justify-content-center">
-            <div class="col-lg-6 offset-lg-1">
-                <div class="sign-left text-center">
-                    <h1 class="orange">@yield('user_title')</h1>
-                    @if(is_null(\Route::current()->getName()))
-                    <!-- <h5>- Continue With -</h5>
-                    <a href="/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
-                    <a href="/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a> -->
-                    @endif
+            @if($agent->isMobile())
+
+            <div class="col-md-12">
+                @yield('content')
+            </div>
+                
+            @else            
+                <div class="col-md-3">
+                    @include('components.ads.vertical_responsive')
                 </div>
-                <div class="container pt-3">
+
+                <div class="col-md-6">
                     @yield('content')
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <br><br>
-                @include('components.ads.responsive')
-            </div>
+
+                <div class="col-md-3">
+                    @include('components.ads.vertical_responsive')
+                </div>
+            @endif
         </div>
     </main>
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
