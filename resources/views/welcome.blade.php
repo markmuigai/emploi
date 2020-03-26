@@ -188,7 +188,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Talent Database</h5>
-                                        <p class="card-text">Search tens of thousands of qulaified CVs for quick shortlisting, direct contact and hire</p>
+                                        <p class="card-text">Search tens of thousands of qualified CVs for quick shortlisting, direct contact and hire</p>
                                     </div>
                                     <div class="card-footer">
                                         <a href="/employers/browse" class="btn btn-orange-alt">Browse</a>
