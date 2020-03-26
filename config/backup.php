@@ -8,7 +8,7 @@ return [
          * The name of this application. You can use this name to monitor
          * the backups.
          */
-        'name' => env('APP_NAME', 'emploi'),
+        'name' => 'google',
 
         'source' => [
 
@@ -90,13 +90,13 @@ return [
             /*
              * The filename prefix used for the backup zip file.
              */
-            'filename_prefix' => '',
+            'filename_prefix' => 'bkp-',
 
             /*
              * The disk names on which the backups will be stored.
              */
             'disks' => [
-                'local',
+                'google'
             ],
         ],
 
@@ -131,11 +131,11 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'jobapplication389@gmail.com',
+            'to' => env('ADMIN_EMAIL', 'brian@emploi.co'),
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'info@emploi.co'),
-                'name' => env('MAIL_FROM_NAME', 'Emploi Team'),
+                'address' => env('MAIL_FROM_ADDRESS', 'site-backups@emploi.co'),
+                'name' => env('MAIL_FROM_NAME', 'Emploi System Backup'),
             ],
         ],
 
@@ -161,11 +161,11 @@ return [
      */
     'monitor_backups' => [
         [
-            'name' => env('APP_NAME', 'emploi'),
-            'disks' => ['local'],
+            'name' => 'google',
+            'disks' => ['google'],
             'health_checks' => [
                 \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class => 1,
-                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumStorageInMegabytes::class => 5000,
+                \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumStorageInMegabytes::class => 10000,
             ],
         ],
 

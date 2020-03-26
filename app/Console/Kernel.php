@@ -27,8 +27,20 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        // $schedule->command('backup:clean')->daily()->at('01:00');
-        // $schedule->command('backup:run')->daily()->at('02:00');
+        // $schedule->command('backup:clean')->daily()->at('01:00')->onFailure(function () {
+
+        //     $code = 'Backup:clean Error';
+        //     $message = "$code: An error occurred while cleaning out old backups!";
+        //     if (app()->environment() === 'production')
+        //         \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
+            
+        // });
+        // $schedule->command('backup:run')->daily()->at('02:00')->onFailure(function () {
+        //     $code = 'Critical Error -> Backup:run Failed!';
+        //     $message = "$code: An error occurred while cleaning out old backups!";
+        //     if (app()->environment() === 'production')
+        //         \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
+        // });
         $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('info@emploi.co');
         $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('info@emploi.co');
     }
