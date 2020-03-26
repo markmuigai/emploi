@@ -170,14 +170,14 @@
                             <a class="dropdown-item" href="/contact">{{ __('other.c_us') }}</a>
                         @else
                             @if(Auth::user()->canHandleCvEdits())
-                            <a class="dropdown-item" href="/cv-editing">{{ __('other.e_cvs') }} (
+                            <a class="dropdown-item" href="/cv-editing">CV Edit Requests (
                                 {{ count(App\CvEditRequest::where('cv_editor_id',Auth::user()->cvEditor->id)->where('submitted_on',null)->get()) }})</a>
                             @endif
                             @if(Auth::user()->role == 'admin')
                             <a class="dropdown-item" href="/admin/how-to">Admin {{ __('other.faqs') }}</a>
                             @endif
                             @if(Auth::user()->canUseBloggingPanel())
-                            <a class="dropdown-item" href="/my-blogs">{{ __('other.b_panel') }}</a>
+                            <a class="dropdown-item" href="/my-blogs">Blogging Panel</a>
                             @endif
 
                             <?php
