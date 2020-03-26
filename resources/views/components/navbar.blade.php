@@ -164,32 +164,27 @@
                         <img src="{{ Auth::user()->getPublicAvatarUrl() }}" class="profile-avatar" alt="Profile">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-left" aria-labelledby="navbarDropdown">
-                        @guest
-                            <a class="dropdown-item" href="/login">{{ __('auth.login') }}</a>
-                            <a class="dropdown-item" href="/join">{{ __('other.create_profile') }}</a>
-                            <a class="dropdown-item" href="/contact">{{ __('other.c_us') }}</a>
-                        @else
-                            @if(Auth::user()->canHandleCvEdits())
-                            <a class="dropdown-item" href="/cv-editing">CV Edit Requests (
-                                {{ count(App\CvEditRequest::where('cv_editor_id',Auth::user()->cvEditor->id)->where('submitted_on',null)->get()) }})</a>
-                            @endif
-                            @if(Auth::user()->role == 'admin')
-                            <a class="dropdown-item" href="/admin/how-to">Admin {{ __('other.faqs') }}</a>
-                            @endif
-                            @if(Auth::user()->canUseBloggingPanel())
-                            <a class="dropdown-item" href="/my-blogs">Blogging Panel</a>
-                            @endif
+                        
+                        @if(Auth::user()->canHandleCvEdits())
+                        <a class="dropdown-item" href="/cv-editing">CV Edit Requests (
+                            {{ count(App\CvEditRequest::where('cv_editor_id',Auth::user()->cvEditor->id)->where('submitted_on',null)->get()) }})</a>
+                        @endif
+                        @if(Auth::user()->role == 'admin')
+                        <a class="dropdown-item" href="/admin/how-to">Admin {{ __('other.faqs') }}</a>
+                        @endif
+                        @if(Auth::user()->canUseBloggingPanel())
+                        <a class="dropdown-item" href="/my-blogs">Blogging Panel</a>
+                        @endif
 
-                            <?php
-                                $product = session('product');
-                                if(isset($product))
-                                    print '<a class="dropdown-item" href="/checkout">Checkout (1)</a>';
-                            ?>
+                        <?php
+                            $product = session('product');
+                            if(isset($product))
+                                print '<a class="dropdown-item" href="/checkout">Checkout (1)</a>';
+                        ?>
 
-                            <a class="dropdown-item" href="/home"><strong>{{ __('other.dashboard') }}</strong></a>
-                            <a class="dropdown-item" href="/profile">{{ __('other.profile') }}</a>
-                            <a class="dropdown-item" href="/logout">{{ __('auth.logout') }}</a>
-                        @endguest
+                        <a class="dropdown-item" href="/home"><strong>{{ __('other.dashboard') }}</strong></a>
+                        <a class="dropdown-item" href="/profile">{{ __('other.profile') }}</a>
+                        <a class="dropdown-item" href="/logout">{{ __('auth.logout') }}</a>
                     </div>
                 </li>
                 @endif

@@ -111,39 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <!-- END OF ABOUT SESSION -->
-<!-- STATISTICS -->
-<div class="statistics">
-    <div class="container">
-        <div class="card mx-5">
-            <div class="card-body text-center py-3 py-lg-4">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fas fa-briefcase"></i>
-                        <h5>{{ __('jobs.t_jobs') }}</h5>
-                        <h1 class="counter">{{ count(\App\Post::all()) }}</h1>
-                        <p>{{ __('jobs.find_nxt_job') }}</p>
-                        <hr class="d-block d-md-none">
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fas fa-clipboard-check"></i>
-                        <h5>{{ __('jobs.t_cand') }}</h5>
-                        <h1 class="counter">{{ count(\App\Seeker::all()) * 2 }}</h1>
-                        <p>{{ __('jobs.gt_hired') }}</p>
-                        <hr class="d-block d-md-none">
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fas fa-building"></i>
-                        <h5>{{ __('jobs.t_comp') }}</h5>
-                        <h1 class="counter">{{ count(\App\Company::all()) * 3 }}</h1>
-                        <p>{{ count(\App\Company::getHiringCompanies2(0)) * 3 }} {{ __('jobs.comp_hirin') }}</p>
-                        <hr class="d-block d-md-none">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END OF STATISTICS -->
+@include('components.stats')
 <!-- SERVICES -->
 <div class="services my-3">
     <div class="container">

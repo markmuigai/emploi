@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::get('/total-jobs', 'ApiController@getTotalJobs');
+Route::get('/total-candidates', 'ApiController@getTotalCandidates');
+Route::get('/total-companies', 'ApiController@getTotalCompanies');
+Route::get('/total-hiring-companies', 'ApiController@getTotalHiringCompanies');
