@@ -1,7 +1,7 @@
 <!-- BLOGS -->
 
 
-<div class="blogs mt-3" style=" padding: 0 0 1em 0">
+<div class="blogs mt-3" style=" padding: 0 0 1em 0; {{ isset($blogsTransparent) ? 'background: linear-gradient(140deg, #ffffff 0, #ffffff 60%)' : ''  }}">
     <div style="text-align: center; color: white; padding: 0.5em; margin: 0">
         <h2 style="padding: 0; margin: 0">Blog & News</h2>
     </div>
