@@ -104,6 +104,23 @@ class EmployerController extends Controller
 
     public function create(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:50'],
+            'contact_prefix' => ['required','integer'],
+            'phone_number' => ['required', 'string', 'max:15'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'password' => ['required', 'string', 'min:5', 'confirmed','max:50'],
+            'co_name' => ['required', 'string', 'max:50'],
+            'co_email' => ['required', 'string', 'email', 'max:50'],
+            'co_phone_number' => ['required', 'string', 'max:15'],
+            'country' => ['required','integer'],
+            'industry' => ['required','integer'],
+            'address' => ['required', 'string']
+        ]);
+
+        //name, email, password, contact_prefix, company_prefix, industry, co_name, phone_number, co_phone_number, co_email, country
+
+
         $checkForSpam = [$request->co_name,$request->name];
         $spam = false;
 
