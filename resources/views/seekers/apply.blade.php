@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Apply as '.$post->getTitle())
+@section('page_title', 'Apply for '.$post->getTitle())
 
 <div class="card">
     <div class="card-body">
