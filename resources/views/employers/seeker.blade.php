@@ -16,13 +16,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', $user->name)
 <!-- NAV-TABS -->
 <ul class="nav nav-tabs" id="jobDetails" role="tablist">
-    <li class="nav-item" title="Go Back">
-        <a class="nav-link" id="back-tab" data-toggle="tab" href="#" onclick="window.history.back()" role="tab" aria-controls="" aria-selected="false">
-            <i class="fa fa-arrow-left"></i>
-        </a>
-    </li>
     <li class="nav-item">
-        <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About {{ $user->name }}</a>
+        <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education</a>
@@ -44,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <!-- INFO CARD -->
                 <div class="card py-2 mb-4">
                     <div class="card-body">
-                        <h4>About {{ $user->name }}</h4>
+                        <h4 title="Current Position">{{ $user->seeker->current_position }}</h4>
                         <div class="row mb-2 text-center about-icons">
                             <div class="col-md-4 col-6 my-3">
                                 <i class="orange fas fa-map-marker-alt"></i>
@@ -293,22 +288,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         $('#education_records').append($p);
         $p = '';
 
+        var cc = '';
+
         if(experience_obj)
         {
             for(var g=0; g<experience.length; g++)
             {
                 cexp = experience[g];
+                if(cexp[5] && cexp[5] == 'true')
+                    cc = "<br><b>*Current*</b>";
                 $p += ''+
                 '<div class="row no-gutters justify-content-between edu pb-5">'+
                     '<div class="circle"></div>'+
                     '<div class="col-lg-3 col-12 ml-3">'+
-                        '<p>'+cexp[0]+'</p>'+
+                        '<p>'+cexp[0]+'</p>'+cc+
 
                     '</div>'+
                     '<div class="col-lg-8 col-12 ml-lg-0 ml-md-3">'+
                         '<h6>'+cexp[1]+'</h6>'+
-                        '<p class="orange">'+cexp[2]+'</p>'+
-                        '<p></p>'+
+                        '<p class="orange">'+cexp[2]+' - '+cexp[3]+' </p>'+
+                        '<p>'+cexp[4]+'</p>'+
                     '</div>'+
                 '</div>';
             }

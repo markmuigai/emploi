@@ -301,10 +301,22 @@ class HomeController extends Controller
                 }
                 $seeker->education  = json_encode($education);
 
+                //return $request->all();
+
                 $experience = array();
                 if (isset($request->organization_name)) {
                     foreach ($request->organization_name as $key => $value) {
-                        array_push($experience, array($value, $request->job_title[$key], $request->job_start[$key], $request->job_end[$key], $request->responsibilities[$key]));
+                        $arr = [];
+                        $arr[] = $value;
+                        $arr[] = $request->job_title[$key];
+                        $arr[] = $request->job_start[$key];
+                        $arr[] = $request->job_end[$key];
+                        $arr[] = $request->responsibilities[$key];
+
+                        if(isset($request->is_current[$key]))
+                            $arr[] = $request->is_current[$key];
+
+                        array_push($experience, $arr);
                     }
                 }
                 $seeker->experience  = json_encode($experience);
