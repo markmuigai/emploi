@@ -147,7 +147,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <?php $adsCounter++; ?>
-@if($adsCounter % 4 == 0 || $adsCounter == 1)
+@if($adsCounter % 4 == 0 || $adsCounter == 1 && $adsCounter != 12)
 <div class="card mb-4">
     <div class="card-body">
         @if($agent->isMobile())
@@ -157,6 +157,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @endif
     </div>
 </div>  
+@endif
+@if($adsCounter == 12)
+<div style="width: 100%">
+    <a href="/refer">
+        <img src="/images/promotions/refer-friends-win-huawei-y9.jpg" style="width: 100%" alt="Refer your Friends and Win Huawei Y9">
+    </a>
+    
+</div>
 @endif
 @empty
 
