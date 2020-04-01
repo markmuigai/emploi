@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use DB;
@@ -557,7 +557,13 @@ class EmployerController extends Controller
                 break;
             
             default:
-                $applications = JobApplication::where('post_id',$post->id)->paginate(20);
+                $paginated_applications = JobApplication::with('user')->where('post_id',$post->id)->distinct('user_id')->paginate(20);
+
+                $applications = $paginated_applications->sortBy(function($app) {
+                    return $app->user->seeker->featured;
+                });
+
+                $applications = new LengthAwarePaginator($applications, $paginated_applications->total(), $paginated_applications->perPage());
                 
                 return view('employers.applications.index')
                     ->with('pool',$applications)
