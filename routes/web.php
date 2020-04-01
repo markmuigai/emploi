@@ -152,6 +152,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
+    Route::resource('industry-skills', 'IndustrySkillsController');
     Route::get('/', 'AdminController@panel')->name('adminpanel');
     Route::get('panel', 'AdminController@panel');
     Route::get('posts', 'AdminController@posts');
