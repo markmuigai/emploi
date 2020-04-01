@@ -356,7 +356,7 @@ class PostsController extends Controller
                 //$params .= $str;
                 //
                 $search_query = $request->q;
-                $params .= " AND title like \"%".$request->q."%\"";
+                $params .= " AND (title like '%".$request->q."%'  OR responsibilities like '%".$request->q."%')";
             }
             $searchedKey->save();
             //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
