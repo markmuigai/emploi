@@ -560,7 +560,7 @@ class EmployerController extends Controller
                 $paginated_applications = JobApplication::with('user')->where('post_id',$post->id)->distinct('user_id')->paginate(20);
 
                 $applications = $paginated_applications->sortBy(function($app) {
-                    return $app->user->seeker->featured;
+                    return !$app->user->seeker->featured;
                 });
 
                 $applications = new LengthAwarePaginator($applications, $paginated_applications->total(), $paginated_applications->perPage());
