@@ -340,6 +340,7 @@ class Post extends Model
         $applications = JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','shortlisted')
+                    ->orderBy('id','DESC')
                     ->get();
         $applications = $applications->sortBy(function($application){
             return !$application->user->seeker->featured;
@@ -354,6 +355,7 @@ class Post extends Model
         return JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','selected')
+                    ->orderBy('id','DESC')
                     ->get();
     }
 
@@ -361,6 +363,7 @@ class Post extends Model
         return JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','rejected')
+                    ->orderBy('id','DESC')
                     ->get();
     }
 
@@ -368,6 +371,7 @@ class Post extends Model
         return JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','active')
+                    ->orderBy('id','DESC')
                     ->get();
     }
 

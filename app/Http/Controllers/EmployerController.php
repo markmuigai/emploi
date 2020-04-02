@@ -540,6 +540,7 @@ class EmployerController extends Controller
                 $rejects = JobApplication::where('post_id',$post->id)
                     ->distinct('user_id')
                     ->where('status','rejected')
+                    ->orderBy('id','DESC')
                     ->paginate(20);
                 return view('employers.applications.rejected')
                     ->with('pool',$rejects)
@@ -550,6 +551,7 @@ class EmployerController extends Controller
                 $unrejected = JobApplication::where('post_id',$post->id)
                     ->distinct('user_id')
                     ->where('status','active')
+                    ->orderBy('id','DESC')
                     ->paginate(20);
                 return view('employers.applications.unrejected')
                     ->with('pool',$unrejected)
@@ -557,7 +559,7 @@ class EmployerController extends Controller
                 break;
             
             default:
-                $applications = JobApplication::where('post_id',$post->id)->paginate(20);
+                $applications = JobApplication::where('post_id',$post->id)->orderBy('id','DESC')->paginate(20);
                 
                 return view('employers.applications.index')
                     ->with('pool',$applications)
