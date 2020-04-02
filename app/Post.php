@@ -36,7 +36,7 @@ class Post extends Model
         $applications = $this->applications;
         for($i=0; $i<count($applications); $i++)
         {
-            if($applications[$i]->user->seeker->featured != 0)
+            if($applications[$i]->user->seeker->featured > 0)
                 $ret[] = $applications[$i];
         }
         return $ret;
@@ -47,7 +47,7 @@ class Post extends Model
         $applications = $this->applications;
         for($i=0; $i<count($applications); $i++)
         {
-            if($applications[$i]->user->seeker->featured != 0 && $applications[$i]->status == 'rejected')
+            if($applications[$i]->user->seeker->featured > 0 && $applications[$i]->status == 'rejected')
                 $ret[] = $applications[$i];
         }
         return $ret;
