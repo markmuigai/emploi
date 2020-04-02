@@ -17,6 +17,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         display: none;
     }
 
+    .content2 {
+        float: none;
+        position: absolute;
+        top: 70vh;
+        background-color: #500095;
+        color: white;
+        border-radius: 1.5%;
+        padding: 0.4em 1em;
+        box-shadow: 0.5em 0.8em #888888;
+    }
+
     @media only screen and (min-width: 997px) {
         .navbar {
             background: transparent;
@@ -44,6 +55,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- LANDING PAGE -->
 <div class="landing">
     <div class="container">
+        <div class="content2">
+            <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19">See how we are supporting companies and individuals in the fight against COVID-19</a>
+        </div>
         <div class="content">
 
             <?php $line= "Welcome to Emploi, where deserving talent meets deserving opportunities"; ?>
@@ -87,6 +101,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 
             @endif
         </div>
+        
     </div>
 </div>
 <!-- END OF LANDING PAGE -->
