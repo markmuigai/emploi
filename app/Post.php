@@ -31,6 +31,28 @@ class Post extends Model
         return $total;
     }
 
+    public function getFeaturedApplicationsAttribute(){
+        $ret = [];
+        $applications = $this->applications;
+        for($i=0; $i<count($applications); $i++)
+        {
+            if($applications[$i]->user->seeker->featured != 0)
+                $ret[] = $applications[$i];
+        }
+        return $ret;
+    }
+
+    public function getFeaturedRejectedApplicationsAttribute(){
+        $ret = [];
+        $applications = $this->applications;
+        for($i=0; $i<count($applications); $i++)
+        {
+            if($applications[$i]->user->seeker->featured != 0 && $applications[$i]->status == 'rejected')
+                $ret[] = $applications[$i];
+        }
+        return $ret;
+    }
+
     public static function composeVacancyEmail()
     {
         $blogs = Blog::orderBy('id','DESC')->limit(2)->get();

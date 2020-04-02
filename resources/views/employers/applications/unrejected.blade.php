@@ -38,12 +38,22 @@ $last_rsi = [];
         <div class="tab-content pt-2" id="allCandidatesContent">
             <!-- ALL CANDIDATES -->
             <div class="tab-pane fade show active" id="all-candidates" role="tabpanel" aria-labelledby="all-candidates-tab">
-                <?php  $kk=0; ?>
+                <?php  $kk=0; $shown = []; ?>
 
                 <!-- JOB CARD -->
+
+                @forelse($post->featuredApplications as $a)
+                    @if(array_search($a->id, $shown) === false)
+                        @include('components.applicant')
+                    @endif
+                    <?php $shown[] = $a->id; ?>
+                @empty
+                @endforelse
                 
                 @forelse($pool as $a)
-                    @include('components.applicant')
+                    @if(array_search($a->id, $shown) === false)
+                        @include('components.applicant')
+                    @endif
                     <?php $kk++; ?>
                     @if($kk%3==0)
                         @include('components.ads.responsive')
