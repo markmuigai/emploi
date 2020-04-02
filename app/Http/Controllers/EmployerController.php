@@ -743,16 +743,12 @@ class EmployerController extends Controller
         if($user->seeker->hasApplied($post))
         {
             $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
-            if($j->status == 'active')
+            if($j->status === 'active' && $j->shortlistToggle())
             {
-                $j->status = 'shortlisted';
-                $j->save();
                 return 'shortlisted';
             }
-            elseif($j->status == 'shortlisted')
+            elseif($j->status === 'shortlisted' && $j->shortlistToggle())
             {
-                $j->status = 'active';
-                $j->save();
                 return 'remove-from-shortlist';
             }
         }

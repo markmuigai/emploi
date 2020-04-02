@@ -147,7 +147,7 @@
                         notify(username + ' was shortlisted','success');
                         
                     }
-                    else
+                    if(response == 'remove-from-shortlist')
                     {
                         $element.text('Shortlist');
                         $element.attr('title','Add ' + user_name + ' to shortlist');
