@@ -89,6 +89,9 @@
                   </button>
                 <div class="modal-body">
                     <div>
+                        <p>
+                            95% of job seekers we have surveyed have stated their biggest job search frustration is lack of feedback. Please take a minute to inform {{$a->user->name}} why they didn't qualify for this position so that they can improve on the said areas.
+                        </p>
                         <select class="form-control" id="rejectionSwitch{{$a->id}}">
                             <option value="Candidate doesn't meet the minimum qualifications">Candidate doesn't meet the minimum qualifications</option>
                             <option value="Candidate's profile is incomplete">Candidate's profile is incomplete</option>
