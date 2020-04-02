@@ -284,12 +284,12 @@ class AdminController extends Controller
                 $f = $request->featured == 'yes' ? 1 : 0;
                 if($first)
                 {
-                    $phone_number = "featured = $f";
+                    $featured = "featured > 0";
                     $first = false;
                 }
                 else
                 {
-                    $phone_number = "AND featured = $f";
+                    $featured = "AND featured > 0";
                 }
                 
             }
