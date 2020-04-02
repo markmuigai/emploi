@@ -357,7 +357,7 @@ class AdminController extends Controller
         return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
                     ->with('locations',Location::orderBy('name')->get())
-                    ->with('seekers',Seeker::orderBy('id','DESC')->paginate(10));
+                    ->with('seekers',Seeker::orderBy('featured','DESC')->orderBy('id','DESC')->paginate(30));
         //show all seekers
     }
           
