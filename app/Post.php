@@ -346,7 +346,7 @@ class Post extends Model
             return !$application->user->seeker->featured;
         });
         $applications = $applications->sortBy(function($application){
-            return $application->user->seeker->getRsi($application->post);
+            return !$application->user->seeker->getRsi($application->post);
         });
         return $applications;
     }
