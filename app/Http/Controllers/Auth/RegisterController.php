@@ -99,9 +99,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $credited = Referral::creditFor($data['email']);
+        //$credited = Referral::creditFor($data['email']);
 
-        if(!$credited && Session::has('invite_id'))
+        $r = Referral::where('email',$data['email'])->first();
+
+        if(!isset($r->id) && Session::has('invite_id'))
+
+        //if(!$credited && Session::has('invite_id'))
         {
             $invite_id = Session::get('invite_id');
             $link = InviteLink::find($invite_id);
@@ -113,7 +117,7 @@ class RegisterController extends Controller
                     'email' => $user->email
                 ]);
 
-                Referral::creditFor($user->email,10);
+                //Referral::creditFor($user->email,10);
             }
 
             //Session::forget('invite_id');

@@ -156,9 +156,12 @@ class EmployerController extends Controller
 
 
 
-        $credited = Referral::creditFor($request->email,20);
+        //$credited = Referral::creditFor($request->email,20);
 
-        if(!$credited && Session::has('invite_id'))
+        //if(!$credited && Session::has('invite_id'))
+        $r = Referral::where('email',$request->email)->first();
+
+        if(!isset($r->id) && Session::has('invite_id'))
         {
             $invite_id = Session::get('invite_id');
             $link = InviteLink::find($invite_id);
@@ -170,7 +173,7 @@ class EmployerController extends Controller
                     'email' => $user->email
                 ]);
 
-                Referral::creditFor($user->email,20);
+                //Referral::creditFor($user->email,20);
             }
 
             //Session::forget('invite_id');

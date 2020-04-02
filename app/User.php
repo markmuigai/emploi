@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 
 use App\Jurisdiction;
+use App\Referral;
 use App\Seeker;
 use App\UserPermission;
 
@@ -183,6 +184,11 @@ class User extends Authenticatable
     public function verifyAccount(){
         $this->email_verified_at = now();
         $this->save();
+
+        $credit = 10;
+        if($this->role == 'employer')
+            $credit = 20;
+        Referral::creditFor($this->email,$credit);
 
         if($this->role == 'seeker')
         {
