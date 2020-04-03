@@ -3,7 +3,7 @@
 @section('title','Advertise on Emploi')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Advertise on Emploi and reach an audience of 100k+, get access to premium shortlisting tools and Candidate Ranking algorithim
 @endsection
 
 @section('content')
@@ -30,9 +30,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     }
 </style>
 <div class="top-bg"></div>
-<div class="container pb-0 pb-lg-4 ">
-    <div class="row">
-        <div class=" col-md-12 row" >
+<div class="container">
+        <div class="row" >
             <div class="col-md-5 advert-details mt-1" style="background-color: white; color: #000000; border-radius: 5%; border-bottom: 0.1em solid black; border-top: 0.1em solid black; overflow: hidden;">
                 <h2 class="orange ">
                     Advertise on Emploi
@@ -49,11 +48,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 
             </div>
 
-            <div class="col-md-12 row ">
-                <div class="col-md-12">
+            <div class="col-md-12" style=" padding: 0.3em">
+                <div class="">
                     <br>
                     <iframe class="col-md-12" style="border: none; margin-bottom: none; height: 55vh;" 
-                        src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=1">
+                        src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=0">
                     </iframe>
                     <br>
                 </div>
@@ -83,9 +82,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
             </div>
 
-            <div class="row" style="width: 100%">
-                <div class="col-md-7 offset-md-3" style="">
-                    <a href="#advertise-form">
+            <div class="col-md-12">
+                <div class="row">
+                    <a href="#advertise-form" class="col-md-8 offset-md-2 mt-1">
                     <img src="/images/promotions/free-job-posting.jpg" alt="Free Job Posting for Companies involved in the fight against Covid-19" style="width: 100%">
                     </a>
                 </div>
@@ -179,11 +178,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
             
         </div>
-
-
-        
-        
-    </div>
     <br id="advertise-form"><br>
     <div class="row">
         <div class="card col-md-8 offset-md-2">
