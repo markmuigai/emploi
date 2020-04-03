@@ -148,10 +148,10 @@
                 </li> -->
                 @else
                 <li class="nav-item">
-                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-white px-3">{{ __('auth.login') }}</a>
+                    <a href="/login" class="btn btn-white px-3">{{ __('auth.login') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange px-3">{{ __('auth.register') }}</a>
+                    <a href="/join" class="btn btn-orange px-3">{{ __('auth.register') }}</a>
                 </li>
                 @endif
                 <li class="nav-item">

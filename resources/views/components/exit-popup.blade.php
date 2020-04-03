@@ -95,39 +95,6 @@
 	</div>
 </div>
 
-<div id="coronaVirusUpdate" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #500095; color: white">
-					
-					<h4 class="modal-title">
-						Coronavirus Alert
-					</h4>
-				  <!--   <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>	 -->
-				</div>
-				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeCoronaVirusUpdate">
-	                <i class="fas fa-times" aria-hidden="true"></i>
-	              </button>
-
-				<div class="modal-body">
-					<div class="card-deck">
-	                    <div class="card">	                    	
-	                        <div class="card-body">	                        	
-	                            <p class="card-text">
-	                            	<strong>COVID-19</strong> is the disease caused by the new coronavirus that emerged in China in December 2019. It's symptoms include <a href="https://www.health.harvard.edu/diseases-and-conditions/coronavirus-resource-center" target="_blank" style="color: green; text-decoration: underline;">cough, fever and shortness of breath</a>.
-	                            	<img class="card-img-top" src="/images/coronavirus_popup_banner.jpeg" alt="COVID-19">  
-	                            <p><a href="https://www.worldometers.info/coronavirus/" target="_blank" class="btn btn-orange-alt">View Outbreak</a>
-	                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" class="btn btn-orange-alt" style="float: right;">WHO Updates</a></p>
-	                        </div>
-	                    </div>                    
-                    </div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <script type="text/javascript">
     var exit_trials = 0;
@@ -238,13 +205,13 @@
 
 	    }
 
-	    var coronaVirusUpdate = localStorage.getItem("coronaVirusUpdate");
-	    if(coronaVirusUpdate == null)
-	    {
+	    // var coronaVirusUpdate = localStorage.getItem("coronaVirusUpdate");
+	    // if(coronaVirusUpdate == null)
+	    // {
 	    	
-	    	$('#coronaVirusUpdate').modal();
-	    	localStorage.setItem("coronaVirusUpdate", new Date());
-	    }
+	    // 	$('#coronaVirusUpdate').modal();
+	    // 	localStorage.setItem("coronaVirusUpdate", new Date());
+	    // }
 	    
     });
     

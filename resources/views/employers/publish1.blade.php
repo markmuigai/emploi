@@ -44,7 +44,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </ul>
                 <div>
                     <a href="#advertise-form" class="btn btn-sm orange">Post Job</a>
-                    <a href="tel:0702068282" class="btn btn-sm btn-orange">Call 0702 068 282</a>
+                    <a href="tel:+254702068282" class="btn btn-sm btn-orange">Call 0702 068 282</a>
                 </div>
                 
             </div>
@@ -76,10 +76,20 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             <li>Shortlist and schedule interviews with job seekers</li>
                             <li>Request premium recruitment</li>
                             <li>Request Candidate Vetting</li>
-                            <li>Advertise jobs</li>
+                            <li>Advertise & Shortlist jobs</li>
+                            <li>Create Talent Pools</li>
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="row" style="width: 100%">
+                <div class="col-md-7 offset-md-3" style="">
+                    <a href="#advertise-form">
+                    <img src="/images/promotions/free-job-posting.jpg" alt="Free Job Posting for Companies involved in the fight against Covid-19" style="width: 100%">
+                    </a>
+                </div>
+                
             </div>
 
             <div class="card-deck text-center coloured-card row">
@@ -179,7 +189,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="card col-md-8 offset-md-2">
             <div class="card-body">
                 
-                <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here</h4>
+                <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here or <a class="orange" href="tel:+254702068282">  Call Us <i class="fa fa-phone"></i> </a></h4>
                 <form action="/employers/publish" method="POST">
                     @csrf
                     <div class="form-group">
@@ -205,6 +215,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     <div class="text-center">
                         <input type="submit" class="btn btn-orange" value="Submit">
                         @if(!$user || $user->role != 'employer')
+                        <br><hr>
                         <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
                             <a href="/employers/register" class="orange">Employer Registration</a></p>
                         @endif
