@@ -51,6 +51,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             display: inline
         }
     }
+
+    @media only screen and (max-width:425px) {
+        .landing {
+            background-image: url(../images/bg-small.jpg);
+            
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: right;
+            height: 80vh
+        }
+    }
 </style>
 
 <!-- LANDING PAGE -->
