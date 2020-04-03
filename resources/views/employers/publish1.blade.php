@@ -62,6 +62,35 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             
             
         </div>
+        <div class="row">
+            <div class="col-md-12" style=" padding: 0.3em">
+                    
+                    
+                <div class="col-md-12  row">
+                    <div class="col-md-5" style="width: 49%; float: right;">
+                        <h5>Advertising Features</h5>
+                        <ul class="feature_list">
+                            <li>Reach over 100,000 job seekers through our partner networks</li>
+                            <li>Shortlisting dashboard</li>
+                            <li>Easily Schedule Interviews with candidates</li>
+                            <li>Job post sent as featured to job seekers</li>
+                            <li>Job post shared on Facebook, Twitter and LinkedIn Pages</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 offset-md-2" style="width: 49%; float: right;">
+                        <h5>Employer Benefits</h5>
+                        <ul class="feature_list">
+                            <li>Browse our database of job seekers</li>
+                            <li>Shortlist and schedule interviews with job seekers</li>
+                            <li>Request premium recruitment</li>
+                            <li>Request Candidate Vetting</li>
+                            <li>Advertise & Shortlist jobs</li>
+                            <li>Create Talent Pools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     <br id="advertise-form"><br>
     <div class="row">
         <div class="card col-md-8 offset-md-2">
@@ -102,35 +131,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12" style=" padding: 0.3em">
-                
-                
-            <div class="col-md-12  row">
-                <div class="col-md-5" style="width: 49%; float: right;">
-                    <h5>Advertising Features</h5>
-                    <ul class="feature_list">
-                        <li>Reach over 100,000 job seekers through our partner networks</li>
-                        <li>Shortlisting dashboard</li>
-                        <li>Easily Schedule Interviews with candidates</li>
-                        <li>Job post sent as featured to job seekers</li>
-                        <li>Job post shared on Facebook, Twitter and LinkedIn Pages</li>
-                    </ul>
-                </div>
-                <div class="col-md-5 offset-md-2" style="width: 49%; float: right;">
-                    <h5>Employer Benefits</h5>
-                    <ul class="feature_list">
-                        <li>Browse our database of job seekers</li>
-                        <li>Shortlist and schedule interviews with job seekers</li>
-                        <li>Request premium recruitment</li>
-                        <li>Request Candidate Vetting</li>
-                        <li>Advertise & Shortlist jobs</li>
-                        <li>Create Talent Pools</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="row">
         <br>
         <iframe class="col-md-8 offset-md-2" style="border: none; margin-bottom: none; height: 70vh;" 
