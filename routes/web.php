@@ -16,6 +16,8 @@ Route::get('/invites/{slug}', 'ContactController@invited');
 Route::get('/checkout', 'PesapalController@checkout');
 Route::post('/checkout', 'PesapalController@checkout');
 
+Route::post('/covid-advert', 'AdvertController@isCovid19');
+
 Route::get('/careers', 'ContactController@careers');
 Route::get('/contact', 'ContactController@contact');
 Route::get('/about', 'ContactController@about');
