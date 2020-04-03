@@ -816,6 +816,12 @@ main.sign-page p {
     height: 100%
 }
 
+@media only screen and (min-width:1500px) {
+    .sidebar {
+        width: 10%
+    }
+}
+
 @media only screen and (max-width:1024px) {
     .landing {
         background-position: right
@@ -949,6 +955,20 @@ main.sign-page p {
     }
 }
 
+
+
+@media only screen and (min-device-width:414px) and (max-device-width:736px) and (orientation:landscape) {
+    .landing {
+        background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpg);
+        height: 100vh !important
+    }
+
+    .landing .container .content {
+        width: 80%
+    }
+}
+
+
 @media only screen and (max-width:425px) {
     li, p {
         font-size: .9rem
@@ -983,7 +1003,8 @@ main.sign-page p {
     }
 
     .landing {
-        background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpg);
+        background-image: url(../images/bg-small.jpg);
+        
         background-repeat: no-repeat;
         background-size: cover;
         background-position: right;
@@ -1035,22 +1056,5 @@ main.sign-page p {
 
     .error-page .content {
         width: 90%
-    }
-}
-
-@media only screen and (min-device-width:414px) and (max-device-width:736px) and (orientation:landscape) {
-    .landing {
-        background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpg);
-        height: 100vh !important
-    }
-
-    .landing .container .content {
-        width: 80%
-    }
-}
-
-@media only screen and (min-width:1500px) {
-    .sidebar {
-        width: 10%
     }
 }

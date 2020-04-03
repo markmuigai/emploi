@@ -18,10 +18,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     }
 
     .content2 {
-        display: none;
         float: none;
         position: absolute;
-        top: 70vh;
+        top: 68vh;
         background-color: #500095;
         color: white;
         border-radius: 1.5%;
