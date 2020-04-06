@@ -497,7 +497,7 @@ class AdminController extends Controller
         $caption = $request->caption;
         $url = $request->featured_url;
         $banner = '/images/email-banner.jpg';
-        $template = 'custom';
+        $template = isset($request->template) ? $request->template : 'custom';
 
         $attachment1 = false;
         $attachment2 = false;

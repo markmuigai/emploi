@@ -64,9 +64,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="form-group">
                 <label for="template">{{ __('Template') }}</label>
-                <select class="form-control" name="template" disabled="">
+                <select class="form-control" name="template" id="template">
                     <option value="custom" selected="selected">Default</option>
-                    <option value="newsletter">Newsletter</option>
+                    <option value="wanda">Emploi Weekly</option>
                 </select>
             </div>
 
@@ -111,6 +111,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <input type="hidden" name="contents" id="previewContents" value="">
         <input type="hidden" name="subject" id="previewSubject" value="">
         <input type="hidden" name="caption" id="previewCaption" value="">
+        <input type="hidden" name="template" id="previewTemplate" value="custom">
         <input type="hidden" name="featured_url" id="previewFeaturedUrl" value="">
     </form>
 </div>
@@ -132,6 +133,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         $('#previewCaption').val($('#caption').val());
         $('#previewFeaturedUrl').val($('#featured_url').val());
         $('#previewContents').val(CKEDITOR.instances['message'].getData());
+        $('#previewTemplate').val($('#template').val());
         
         setTimeout(function(){
             $('#previewForm').submit();
