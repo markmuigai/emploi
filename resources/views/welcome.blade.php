@@ -350,6 +350,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="text-center orange">{{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
+                        <img src="/images/avatar.png" data-src="{{asset('images/testimonials/paul.jpeg')}}" alt="Paul - Workpay" class="w-100 lazy">
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <p>“It took seven days from the time we signed up with Emploi looking to hire a key account manager to the time the candidate reported for work. We were very time constrained as we had already spent a lot of time trying to hire through other platforms with no success. From the other platforms I received a lot of irrelevant CVs that honestly I didn’t even know what to do with. I would rate Emploi higher than the other platforms, because I believe the human touch from their team was critical in fast tracking the process for us.”</p>
+                        <hr class="short">
+                        <h5>Paul</h5>
+                        <p>Workpay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
+            <div class="card-body">
+                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
