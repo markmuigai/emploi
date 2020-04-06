@@ -530,7 +530,7 @@ class AdminController extends Controller
         $banner = '/images/email-banner.jpg';
 
         $template = $request->template;
-        $template = 'custom';
+        $template = isset($request->template) ? $request->template : 'custom';
 
         if ($request->hasFile('featured_image')) {
             $image = $request->file('featured_image');
