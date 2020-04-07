@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card-body text-center">
             <h2 class="orange">About Us</h2>
             <h5>Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.</h5>
-            @include('components.ads.responsive')
+        
             <p>At the core of our systems is a vacancy – job seeker matching engine powered by algorithms for job seeker assessment and ranking together with advanced recruitment process management tools.</p>
             <p>
                 One of the most interesting puzzles about the East African job market is the time it takes for an employer to fill a position, given the high unemployment rates in the region. In a mission to understand the puzzle and go beyond
@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <br>
         </div>
     </div>
-    @include('components.ads.responsive')
+    @include('components.employers.covid19')
     <div class="card">
         <div class="card-body px-5">
             <h2 class="text-center orange">Our Services</h2>
@@ -115,6 +115,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 
+    @include('components.ads.responsive')
+
     <h3 class="mt-5 orange text-center" style="display: none">Our Team</h3>
     <div class="card-group" style="display: none">
         <div class="card">
@@ -129,43 +131,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <div class="card">
             <div class="card-body team-member text-center">
-                <img src="images/team/sally.png" alt="" />
-                <h5>Sally Muya</h5>
-                <h6>Human Resource Manager</h6>
-                <a href="mailto:sally.muya@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://linkedin.com/in/sally-muya-326795123/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body team-member text-center">
-                <img src="images/team/maureen.png" alt="" />
-                <h5>Maureen Kaunda</h5>
-                <h6>Snr Director, New Business</h6>
-                <a href="mailto:maureen.kaunda@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.linkedin.com/in/maureen-mukhanyi-kaunda-277680a7/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body team-member text-center">
                 <img src="images/team/brian.png" alt="" />
                 <h5>Obare C. Brian</h5>
                 <h6>Chief Technology Officer</h6>
-                <a href="mailto:brian.obare@emploi.co"><i class="fas fa-envelope"> </i></a>
+                <a href="mailto:brian@emploi.co"><i class="fas fa-envelope"> </i></a>
                 <a href="https://www.twitter.com/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-twitter"> </i></a>
                 <a href="https://www.linkedin.com/in/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
     </div>
     <div class="card-group" style="display: none">
-        <div class="card">
-            <div class="card-body team-member text-center">
-                <img src="images/avatar.png" alt="" />
-                <h5>Millicent Kevore</h5>
-                <h6>Lead Recruitment Consultant</h6>
-                <a href="mailto:millicent.kevore@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.linkedin.com/in/millicent-kevore-056512ab/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
         <div class="card">
             <div class="card-body team-member text-center">
                 <img src="images/avatar.png" alt="" />
@@ -184,16 +159,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="https://twitter.com/ernestwanyonyi9" target="_blank" rel="noreferrer"><i class="fab fa-twitter"> </i></a>
                 <a href="https://www.linkedin.com/in/ernest-wanyonyi-042590194/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
 
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body team-member text-center">
-                <img src="images/avatar.png" alt="" />
-                <h5>Felicity </h5>
-                <h6>Lead Recruitment Consultant</h6>
-                <a href="mailto:brian.obare@emploi.co"><i class="fas fa-envelope"> </i></a>
-                <a href="https://www.twitter.com/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-twitter"> </i></a>
-                <a href="https://www.linkedin.com/in/chiefbrob/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"> </i></a>
             </div>
         </div>
     </div>

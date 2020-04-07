@@ -34,12 +34,12 @@
 						<a href="/job-seekers/free-cv-review" class="btn btn-orange">Get 50% Off CV Editing</a>
 					</p>
 				</div>
-				<img src="/images/email-banner-4.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">
+				<img src="/images/promotions/get-free-cv-review.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/premium-placement.png" alt="A Review of Government Measures to Combat Covid-19" class="col-md-4">
+				<img src="/images/about.jpg" alt="A Review of Government Measures to Combat Covid-19" class="col-md-4">
 				<div class="col-md-8">
 					<br><br>
 					<p>
