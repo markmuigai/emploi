@@ -22,13 +22,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Your Position at {{ $referee->organization }}</label> <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="position" class="form-control input-sm" maxlength="50"
+                            <label>Your Position at {{ $referee->organization }}  <b style="color: red" title="Required">*</b></label> <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="position" class="form-control input-sm" maxlength="50"
                               value="{{ $referee->position_held }}" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Relationship with {{ $referee->seeker->public_name }}</label>
+                            <label>Relationship with {{ $referee->seeker->public_name }}  <b style="color: red" title="Required">*</b></label>
                             <input type="text" required="" placeholder="e.g. direct-supervisor, lecturer, colleague" name="relationship" class="form-control input-sm" maxlength="50"
                               value="{{ $referee->relationship }}" />
                         </div>
@@ -44,13 +44,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="fullName">Job Title {{ count($referee->seekerJobs) > 1 ? $k : '' }}</label>
+                                    <label for="fullName">Job Title {{ count($referee->seekerJobs) > 1 ? $k : '' }}  <b style="color: red" title="Required">*</b></label>
                                     <input type="text" required="" name="job_title[]" class="form-control input-sm" maxlength="50" value="{{ $rs->job_title }}" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="fullName">Ability to meet Targets</label>
+                                    <label for="fullName">Ability to meet Targets  <b style="color: red" title="Required">*</b></label>
                                     <select required="" name="targets[]" class="form-control">
                                         <option value="100">Excellent</option>
                                         <option value="80">Above Average</option>
@@ -74,7 +74,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <div class="form-row">
                             <div class="col-md-6 form-group"> 
-                                <label for="">Performance</label>
+                                <label for="">Performance  <b style="color: red" title="Required">*</b></label>
                                 <select required="" name="performance[]" class="form-control">
                                     <option value="100">Excellent</option>
                                     <option value="80">Above Average</option>
@@ -84,7 +84,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 </select>
                             </div>
                             <div class="col-md-6 form-group"> 
-                                <label for="">Work Quality</label>
+                                <label for="">Work Quality  <b style="color: red" title="Required">*</b></label>
                                 <select required="" name="work_quality[]" class="form-control">
                                     <option value="100">Excellent</option>
                                     <option value="80">Above Average</option>
@@ -104,7 +104,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="form-row">
                     <div class="form-group col-md-8 offset-md-1 row">
                         <div class="col-md-8">
-                            <label>Industry Skill</label>
+                            <label>Industry Skill  <b style="color: red" title="Required">*</b></label>
                             <select class="custom-select" id="industry-skill">
                                 @forelse($skills as $skill)
                                 <option value="{{ $skill->id }}">{{ $skill->name }}</option>
@@ -113,7 +113,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label>Rating</label>
+                            <label>Rating  <b style="color: red" title="Required">*</b></label>
                             <select class="custom-select" id="industry-skill-weight">
                                 @foreach([10,9,8,7,6,5,4,3,2,1] as $w)
                                 <option value="{{ $w }}">{{$w}}/10</option>
@@ -168,7 +168,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label>Discplinary Cases</label>
+                    <label>Discplinary Cases  <b style="color: red" title="Required">*</b></label>
                     <select class="custom-select" name="discplinary_cases">
                         <option value="none" <?php if($referee->ready){ print $referee->jobApplicationReferee->discplinary_cases == 'none' ? 'selected="selected"' : ''; } ?>>None</option>
                         <option value="minor" <?php if($referee->ready){ print $referee->jobApplicationReferee->discplinary_cases == 'minor' ? 'selected="selected"' : ''; } ?>>Minor</option>
@@ -178,7 +178,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>Would you re-hire {{ $referee->seeker->public_name }}</label>
+                        <label>Would you re-hire {{ $referee->seeker->public_name }}  <b style="color: red" title="Required">*</b></label>
                         <select class="custom-select" name="rehire">
                             <option value="yes" <?php if($referee->ready){ print $referee->jobApplicationReferee->rehire == 'yes' ? 'selected="selected"' : ''; } ?>>Yes</option>
                             <option value="maybe" <?php if($referee->ready){ print $referee->jobApplicationReferee->rehire == 'maybe' ? 'selected="selected"' : ''; } ?>>Maybe</option>
@@ -186,7 +186,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Rate Professionalism</label>
+                        <label>Rate Professionalism  <b style="color: red" title="Required">*</b></label>
                         <select name="professionalism" class="form-control">
                             <option value="100">Very Professional</option>
                             <option value="50">Professional</option>
@@ -236,7 +236,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card">
             <div class="card-body p-5">
                 <div class="form-group">
-                    <label>Reason for leaving</label>
+                    <label>Reason for leaving  <b style="color: red" title="Required">*</b></label>
                     <textarea class="form-control" rows="2" name="reason_for_leaving" required="" placeholder="">{{ $referee->ready? $referee->jobApplicationReferee->reason_for_leaving : '' }}</textarea>
                 </div>
                 <div class="form-group">

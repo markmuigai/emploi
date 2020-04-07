@@ -177,7 +177,7 @@ $().ready(function(){
 			</div>
 			<hr>
 			<div class="form-group">
-				<label>Desired Highest Education Level</label>
+				<label>Desired Highest Education Level <b style="color: red" title="Required">*</b></label>
 				<select name="education_level_id" class="custom-select">
 			    	@forelse($educationLevels as $l)
 					<option value="{{ $l->id }}"
@@ -194,7 +194,7 @@ $().ready(function(){
 
 			@if($post->hasModelSeeker())
 			<div class="form-group">
-				<label class="orange">Accepted Courses</label>
+				<label class="orange">Accepted Courses <b style="color: red" title="Required">*</b></label>
 				<div class="row accepted-courses">
 
 					@forelse($post->modelSeeker->modelSeekerCourses as $course)
@@ -352,7 +352,7 @@ $().ready(function(){
 
 			@if($post->hasModelSeeker())
 			<hr>
-			<h4 class="orange">Industry Skills</h4>
+			<h4 class="orange">Industry Skills <b style="color: red" title="Required">*</b></h4>
 				<div class="row selected-skills">
 					@forelse($post->modelSeeker->modelSeekerSkills as $mskill)
 					<div class="col-md-6 ms-skill" skill_id="{{ $mskill->industrySkill->id }}">
@@ -391,7 +391,7 @@ $().ready(function(){
 
 			<hr>
 
-			<h4 class="orange">Other Skills</h4>
+			<h4 class="orange">Other Skills <b style="color: red" title="Required">*</b></h4>
 			<div class="row other-skills-pool mb-3">
 			</div>
 
@@ -416,7 +416,7 @@ $().ready(function(){
 
 			@if($post->hasModelSeeker())
 			<hr>
-			<h4 class="orange">Personal Traits</h4>
+			<h4 class="orange">Personal Traits <b style="color: red" title="Required">*</b></h4>
 			<div class="row selected-traits">
 
 				@forelse($post->modelSeeker->modelSeekerPersonalityTraits as $trait)

@@ -117,7 +117,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required="">
         <label class="form-check-label" for="defaultCheck1">
-            I agree to the <a href="/terms-and-conditions" class="orange">Terms And Conditions</a>
+            I agree to the <a href="/terms-and-conditions" class="orange">Terms And Conditions</a>  <b style="color: red" title="Required">*</b>
         </label>
     </div>
 

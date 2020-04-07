@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <input type="hidden" name="token" value="{{ $token }}">
 
     <div class="form-group">
-        <label for="email">{{ __('E-Mail Address') }}</label>
+        <label for="email">{{ __('E-Mail Address') }}  <b style="color: red" title="Required">*</b></label>
         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
         @error('email')
         <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 
     <div class="form-group">
-        <label for="password">{{ __('Password') }}</label>
+        <label for="password">{{ __('Password') }}  <b style="color: red" title="Required">*</b></label>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
         @error('password')
@@ -38,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 
     <div class="form-group">
-        <label for="password-confirm">{{ __('Confirm Password') }}</label>
+        <label for="password-confirm">{{ __('Confirm Password') }}  <b style="color: red" title="Required">*</b></label>
         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
     </div>
 

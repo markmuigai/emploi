@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="form-group">
         <label for="username">
         <i class="fa fa-user" aria-hidden="true">
-            Username or E-mail
+            Username or E-mail <b style="color: red" title="Required">*</b>
         </i>
         </label>
         <input type="text" name="username" required="required" value="{{ old('username') }}" class="form-control" placeholder="">
@@ -37,7 +37,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="form-group">
         <label for="password">
         <i class="fa fa-key" aria-hidden="true">
-            Password
+            Password  <b style="color: red" title="Required">*</b>
         </i>
         </label>
         <input type="password" name="password" required="required" class="form-control" id="pass" placeholder="">

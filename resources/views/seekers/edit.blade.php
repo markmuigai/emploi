@@ -23,19 +23,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @enderror
                 <h3 class="text-center">Step 1 of 3 : Personal Details</h3>
                 <div class="form-group">
-                    <label for="fullName">Full Name *</label>
+                    <label for="fullName">Full Name  <b style="color: red" title="Required">*</b></label>
                     <input type="text" required="" path="fullName" name="name" id="fullName" class="form-control input-sm" maxlength="50" value="{{ $user->name }}" />
                 </div>
                 <div class="form-group">
-                    <label for="public_name">Public Name *</label>
+                    <label for="public_name">Public Name  <b style="color: red" title="Required">*</b></label>
                     <input type="text" required="" value="{{ $user->seeker->public_name }}" name="public_name" id="public_name" class="form-control input-sm" maxlength="50" />
                 </div>
                 <div class="form-group">
-                    <label for="username">Username *</label>
+                    <label for="username">Username  <b style="color: red" title="Required">*</b></label>
                     <input type="text" required="" value="{{ $user->username }}" name="username" id="username" class="form-control input-sm" maxlength="50" />
                 </div>
                 <div class="form-group">
-                    <label for="phone_number">Phone Number *</label>
+                    <label for="phone_number">Phone Number  <b style="color: red" title="Required">*</b></label>
                     <input type="number" required="" path="phone_number" value="{{ $user->seeker->phone_number }}" name="phone_number" id="phone_number" class="form-control input-sm" placeholder="254712312313"
                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" />
                 </div>
@@ -55,11 +55,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email *</label>
+                    <label for="email">Email  <b style="color: red" title="Required">*</b></label>
                     <input type="email" required="" value="{{ $user->email }}" disabled="" path="email" id="email" class="form-control input-sm" maxlength="50" />
                 </div>
                 <div class="form-group">
-                    <label for="country">Country *</label>
+                    <label for="country">Country  <b style="color: red" title="Required">*</b></label>
                     <select path="country" id="country" name="country" class="form-control input-sm">
                         @foreach($countries as $c)
                         <option value="{{ $c->id }}" @if($c->id == $user->seeker->country_id)
@@ -81,11 +81,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="date_of_birth">Date of Birth *</label>
+                    <label for="date_of_birth">Date of Birth  <b style="color: red" title="Required">*</b></label>
                     <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" value="{{ $user->seeker->date_of_birth }}">
                 </div>
                 <div class="form-group">
-                    <label for="post_address">Address *</label>
+                    <label for="post_address">Address  <b style="color: red" title="Required">*</b></label>
                     <textarea class="form-control" name="post_address" id="address" rows="2">{{ $user->seeker->post_address }}</textarea>
                 </div>
                 <div class="form-group">
@@ -107,7 +107,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body p-5">
               <h3 class="text-center">Step 2 of 3 : Education and Skills</h3>
               <div class="form-group">
-                  <label for="education_level_id">Highest Education *</label>
+                  <label for="education_level_id">Highest Education  <b style="color: red" title="Required">*</b></label>
                   <select id="education_level_id" name="education_level_id" class="form-control input-sm">
                       @foreach($educationLevels as $e)
                       <option value="{{ $e->id }}" @if($e->id == $user->seeker->education_level_id)
@@ -118,7 +118,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                   </select>
               </div>
               <div class="form-group">
-                  <label for="education_records">Education Records *</label>
+                  <label for="education_records">Education Records  <b style="color: red" title="Required">*</b></label>
                   <div id="education_records">
                       <?php $edu_counter = 100; ?>
                       @if($user->seeker->education() != null)
@@ -168,7 +168,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
                 <div class="form-group">
-                    <label for="industry">Industry *</label>
+                    <label for="industry">Industry  <b style="color: red" title="Required">*</b></label>
                     <select path="industry" id="industry" name="industry" class="form-control input-sm">
                         @foreach($industries as $c)
                         <option value="{{ $c->id }}" @if($c->id == $user->seeker->industry_id)
@@ -180,7 +180,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
 
                 <div class="form-group">
-                    <label for="education_level_id">My Skills *</label>
+                    <label for="education_level_id">My Skills  <b style="color: red" title="Required">*</b></label>
                       <div id="skills-pool" class="row mb-3">
                           @forelse($user->seeker->skills as $s)
                           <div class="col-lg-4 col-md-6 user-skill" skill_id="{{ $s->skill->id }}">
@@ -219,18 +219,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body p-5">
                 <h3 class="text-center">Step 3 of 3 : Employment</h3>
                 <div class="form-group">
-                    <label for="searching">Actively Searching *</label>
+                    <label for="searching">Actively Searching  <b style="color: red" title="Required">*</b></label>
                     <select path="searching" id="searching" name="searching" class="form-control input-sm">
                         <option value="true" {{ $user->seeker->searching ? 'selected=""' : '' }}>I'm actively Looking for a job</option>
                         <option value="false" {{ $user->seeker->searching ?  '' : 'selected=""' }}>NOT Looking for a job</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="resume">Industry Experience (in years) *</label>
+                    <label for="resume">Industry Experience (in years)  <b style="color: red" title="Required">*</b></label>
                     <input type="number" name="years_experience" value="{{ $user->seeker->years_experience }}" required="" class="form-control" />
                 </div>
                   <div class="form-group">
-                      <label for="resume">{{ isset($user->seeker->resume) ? 'Update Resume' : 'Attach Resume *'  }}</label>
+                      <label for="resume">{{ isset($user->seeker->resume) ? 'Update Resume' : 'Attach Resume '  }} <b style="color: red" title="Required">*</b></label>
                       <input type="file" path="resume" name="resume" {{ isset($user->seeker->resume) ? '' : 'required=""'  }} id="resume" class="" accept=".doc, .docx,.pdf" />
                   </div>
 
@@ -245,7 +245,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                 <hr>
                   <div class="form-group">
-                      <label for="">Work Experience *</label>
+                      <label for="">Work Experience  <b style="color: red" title="Required">*</b></label>
                       <div id="employment_records">
                           <?php $exp=100;?>
                           @if($user->seeker->experience() != null)
