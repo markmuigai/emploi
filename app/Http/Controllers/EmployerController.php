@@ -688,14 +688,7 @@ class EmployerController extends Controller
             ]);
         }
 
-        $m->other_skills = '[]';
-        $m->other_skills_weight = '[]';
-
-        if(isset($request->other_skill_name))
-        {
-            $m->other_skills = $request->other_skill_name;
-            $m->other_skills_weight = $request->other_skill_weight;
-        }
+        
 
         if(isset($request->skill_id) && count($request->skill_id) > 0 )
         {

@@ -21,6 +21,13 @@ class Post extends Model
         'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions','max_salary'
     ];
 
+    public function getIndustrySkillsAttribute(){
+        if(isset($this->modelSeeker->id))
+            return $this->modelSeeker->modelSeekerSkills;
+        return [];
+        //model seeker skills
+    }
+
     public function getSkillsWeightAttribute(){
         $total = 0;
         if(count($this->industry->industrySkills) == 0)

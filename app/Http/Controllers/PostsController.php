@@ -14,7 +14,10 @@ use App\Country;
 use App\EducationLevel;
 use App\Employer;
 use App\Industry;
+use App\IndustrySkill;
 use App\Location;
+use App\ModelSeeker;
+use App\ModelSeekerSkill;
 use App\PostGroup;
 use App\Post;
 use App\SearchedKey;
@@ -80,7 +83,7 @@ class PostsController extends Controller
         {
             return redirect('/companies/create');
         }
-
+        $skills =  IndustrySkill::all();
         return view('jobs.create')
                 ->with('companies',$user->companies)
                 ->with('locations',Location::active())
@@ -88,6 +91,7 @@ class PostsController extends Controller
                 ->with('industries',Industry::active())
                 ->with('educationLevels',EducationLevel::all())
                 ->with('vacancyTypes',VacancyType::all())
+                ->with('skills',$skills)
                 ->with('user',$user);
     }
 
@@ -148,32 +152,80 @@ class PostsController extends Controller
 
         if(isset($p->id))
         {
-            $caption = $p->title." Job Post Request Placed";
-            $contents = "
-            The job post <b>".$p->title."</b> has been created successfully on Emploi.
-            <br> Here is your tracking code: <b>".$p->slug."</b>. <br><br>
-            The listing will be made available after verification by our administrators.
-            <br>
-            <a class='btn btn-sm btn-primary' href='".url('/vacancies/create')."'>Create Advert</a>.
-            ";
+            $m = ModelSeeker::create([
+                'post_id' => $p->id,
+                'education_level_id' => 4,
+                'education_level_importance' => 50,
+                'personality_test_id' => 3,
+                'experience_duration' => 2,
+                'experience_level_importance' => 50,
+                'iq_test' => false,
+                'iq_score' => 70,
+                'interview' => true,
+                'interview_result_score' => 70,
+                'psychometric' =>  false,
+                'psychometric_test_score' => 50,
+                'company_size_id' => 2
 
-            // $email = $p->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
+            ]);
 
-            // $email = $email = null ? $p->company->user->email : $email;
+            $m->other_skills = '[]';
+            $m->other_skills_weight = '[]';
 
-            $email = $p->company->user->email;
-            if($email != 'jobs@emploi.co')
-                EmailJob::dispatch($p->company->user->name, $email, $p->title.' Post on Emploi', $caption, $contents);
+            if(isset($request->other_skill_name))
+            {
+                $m->other_skills = $request->other_skill_name;
+                $m->other_skills_weight = $request->other_skill_weight;
+            }
 
-            Notification::send(Employer::first(),new PostCreated('NEW JOB POST: '.$p->title.' created under Company '.$p->company->name.' by '.$p->company->user->name));
+            $m->save();
 
-            $caption = $p->title." Job Post Request Placed";
-            $contents = "
-            The job post <b>".$p->title."</b> has been created on Emploi and approval is required.
-            <br><br>
-            Click <a href='".url('/admin/posts')."'>here </a> to review job post.
-            ";
-            EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', $p->title.' on Emploi', $caption, $contents);
+            if(isset($request->skill_id) && count($request->skill_id) > 0 )
+            {
+                $counter = 0;
+                foreach ($request->skill_id as $e) {
+                    ModelSeekerSkill::create([
+                        'model_seeker_id' => $m->id,
+                        'industrySkill_id' => $e,
+                        'weight' => $request->skill_weight[$counter]
+                    ]);
+                    $counter ++;
+                }
+            }
+
+
+            if (app()->environment() === 'production')
+            {
+                $caption = $p->title." Job Post Request Placed";
+                $contents = "
+                The job post <b>".$p->title."</b> has been created successfully on Emploi.
+                <br> Here is your tracking code: <b>".$p->slug."</b>. <br><br>
+                The listing will be made available after verification by our administrators.
+                <br>
+                <a class='btn btn-sm btn-primary' href='".url('/vacancies/create')."'>Create Advert</a>.
+                ";
+
+                // $email = $p->company->user->email == 'jobs@emploi.co' ? 'jobapplication389@gmail.com' : $p->company->email;
+
+                // $email = $email = null ? $p->company->user->email : $email;
+
+                $email = $p->company->user->email;
+                if($email != 'jobs@emploi.co')
+                    EmailJob::dispatch($p->company->user->name, $email, $p->title.' Post on Emploi', $caption, $contents);
+
+                Notification::send(Employer::first(),new PostCreated('NEW JOB POST: '.$p->title.' created under Company '.$p->company->name.' by '.$p->company->user->name));
+
+                $caption = $p->title." Job Post Request Placed";
+                $contents = "
+                The job post <b>".$p->title."</b> has been created on Emploi and approval is required.
+                <br><br>
+                Click <a href='".url('/admin/posts')."'>here </a> to review job post.
+                ";
+                EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', $p->title.' on Emploi', $caption, $contents);
+            }
+
+
+            
 
             return view('jobs.saved')
                 ->with('title','Job Advert Created Successfully')

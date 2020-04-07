@@ -62,6 +62,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </select>
                 </div>
 
+                <div>
+                    <a href="/employers/applications/{{ $post->slug }}/rsi#skills-link" class="btn btn-default" style="float: right;">Edit Job Post Skills</a>
+                </div>
+
 
                 <div class="form-group">
                     <label>Vacancy Type *</label>

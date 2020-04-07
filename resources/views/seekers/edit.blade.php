@@ -351,8 +351,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $().ready(function(){
         $('#industry').change(function(){
             var new_ing = $(this).val();
-            console.log(new_ing);
-            console.log(allSkills);
             
             var $skills = '';
             for(var k=0; k<allSkills.length;k++)
@@ -363,7 +361,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 }
             }
-            console.log($skills);
             $('#skill-select').children().remove();
             $('#skill-select').append($skills);
             notify('Industry updated','info');

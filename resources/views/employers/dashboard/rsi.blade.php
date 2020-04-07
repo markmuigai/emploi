@@ -349,7 +349,7 @@ $().ready(function(){
 				<label>Min Psychometric Score (0-100)</label>
 				<input type="number" name="psychometric_test_score" class="form-control" value="{{ isset($post->modelSeeker->id) ? $post->modelSeeker->psychometric_test_score : 50 }}" step="0" min="0" max="100" required="required">
 			</div>
-
+			<br id="skills-link">
 			@if($post->hasModelSeeker())
 			<hr>
 			<h4 class="orange">Industry Skills <b style="color: red" title="Required">*</b></h4>
