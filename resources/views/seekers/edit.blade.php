@@ -166,6 +166,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <hr>
 
+
+                <div class="form-group">
+                    <label for="industry">Industry *</label>
+                    <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                        @foreach($industries as $c)
+                        <option value="{{ $c->id }}" @if($c->id == $user->seeker->industry_id)
+                            selected=""
+                            @endif
+                            >{{ $c->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label for="education_level_id">My Skills *</label>
                       <div id="skills-pool" class="row mb-3">
@@ -183,9 +196,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="col-11">
                           <select class="form-control" id="skill-select">
                               <option value="-1">Select a Skill</option>
-                              @foreach($skills as $s)
-                              <option value="{{ $s->id }}">{{ $s->name }}</option>
-                              @endforeach
+                              @forelse($skills as $s)
+                                  @if(isset($user->seeker->industry_id) && $user->seeker->industry_id == $s->industry_id )
+                                      <option value="{{ $s->id }}">{{ $s->name }}</option>
+                                  @endif
+                              @empty
+                              @endforelse
                           </select>  </div>
                         <div class="col-1 text-center">
                           <span class="btn btn-sm btn-purple" id="add-new-skill">Add</span>
@@ -207,17 +223,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <select path="searching" id="searching" name="searching" class="form-control input-sm">
                         <option value="true" {{ $user->seeker->searching ? 'selected=""' : '' }}>I'm actively Looking for a job</option>
                         <option value="false" {{ $user->seeker->searching ?  '' : 'selected=""' }}>NOT Looking for a job</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="industry">Industry *</label>
-                    <select path="industry" id="industry" name="industry" class="form-control input-sm">
-                        @foreach($industries as $c)
-                        <option value="{{ $c->id }}" @if($c->id == $user->seeker->industry_id)
-                            selected=""
-                            @endif
-                            >{{ $c->name }}</option>
-                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">
@@ -334,7 +339,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <?php
     $sk = '';
     foreach($skills as $s) {
-        $sk .= "[".$s->id.", '".$s->name."'],";
+        $sk .= "[".$s->id.", '".$s->name."', ".$s->industry_id."],";
     }
     $sk = '['.$sk.']';
     echo 'var allSkills='.$sk.
@@ -342,4 +347,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     ?>
 </script>
 <script type="text/javascript" src="{{ asset('js/edit-seeker.js') }}"></script>
+<script type="text/javascript">
+    $().ready(function(){
+        $('#industry').change(function(){
+            var new_ing = $(this).val();
+            console.log(new_ing);
+            console.log(allSkills);
+            
+            var $skills = '';
+            for(var k=0; k<allSkills.length;k++)
+            {
+                if(allSkills[k][2] == new_ing)
+                {
+                    $skills +=  '<option value="'+allSkills[k][0]+'">'+allSkills[k][1]+'</option>';
+
+                }
+            }
+            console.log($skills);
+            $('#skill-select').children().remove();
+            $('#skill-select').append($skills);
+            notify('Industry updated','info');
+          
+      });
+    });
+</script>
 @endsection
