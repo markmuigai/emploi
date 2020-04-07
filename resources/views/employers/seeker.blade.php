@@ -198,12 +198,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div>
                     <br>
-                    @if(count(Auth::user()->employer->activePosts) > 0)
+                    @if(count(Auth::user()->employer->shortlistingPosts) > 0)
                         <form method="post" action="/employers/shortlist" class="row">
                             @csrf
                             <input type="hidden" name="seeker_id" value="{{ $user->seeker->id }}">
                             <select name="post_id" class=" form-control">
-                                @foreach(Auth::user()->employer->activePosts as $ap)
+                                @foreach(Auth::user()->employer->shortlistingPosts as $ap)
                                 <option value="{{ $ap->id }}">{{ $ap->title }}</option>
                                 @endforeach
                             </select>

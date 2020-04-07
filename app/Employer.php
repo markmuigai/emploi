@@ -246,6 +246,31 @@ class Employer extends Model
         // return $posts;
     }
 
+    public function getShortlistingPostsAttribute(){
+
+        $companies = $this->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->where('how_to_apply',null)->orderBy('id','DESC')->get();
+
+        return $posts;
+
+        // $companies = $this->user->companies;
+        // $posts = array();
+        // for($i=0; $i<count($companies); $i++)
+        // {
+        //     for($k=count($companies[$i]->posts)-1; $k>0; $k--)
+        //     {
+        //         if($companies[$i]->posts[$k]->status == 'active')
+        //             array_push($posts, $companies[$i]->posts[$k]);
+        //     }
+        // }
+        // return $posts;
+    }
+
     public function getClosedPostsAttribute(){
         $companies = $this->user->companies;
         $company_ids = array();
