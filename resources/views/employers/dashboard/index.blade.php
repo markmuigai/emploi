@@ -38,7 +38,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <div class="card mt-4">
-    @include('components.ads.responsive')
+    <?php $seekers = \App\Seeker::where('featured','>',0)->get(); ?>
+    @if(count($seekers) > 0)
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="orange" style="text-align: center;">Featured Job Seekers</h4>
+        </div>
+        @foreach($seekers as $seeker)
+            <div class="col-md-3" style="text-align: center;">
+                <a href="/employers/browse/{{$seeker->user->username}}">{{ $seeker->user->name }}</a>
+                    <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" style="width: 100%" alt="{{ $seeker->user->username }}">
+                <i>{{ $seeker->industry->name }}</i> <br>
+                <a href="/employers/browse/{{$seeker->user->username}}" class="btn btn-orange btn-sm" target="_blank">View Profile</a>
+                <br>
+            </div>
+        @endforeach
+    </div>
+    @else
+        @include('components.ads.responsive')
+    @endif
 </div>
 <div class="card mt-4" id="graph">
     <div class="card-body">

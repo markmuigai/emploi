@@ -311,7 +311,7 @@ class EmployerController extends Controller
         }
         //$results = DB::select($arr);
 
-        $seekers = Seeker::whereIn('id',$arr)->paginate(10)->appends(request()->query());
+        $seekers = Seeker::whereIn('id',$arr)->orderBy('featured','DESC')->paginate(10)->appends(request()->query());
         //dd($seekers);
 
         return view('employers.browse')
