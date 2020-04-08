@@ -416,6 +416,22 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return redirect('http://54.36.168.64:2082/');
     }
 
+    public function testEmail($email = 'brian@emploi.co')
+    {
+        $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
+        $contents = "Here are your login credentials for Emploi: <br>
+        username: username <br>
+        Password: password <br>
+        <br>
+
+        Verify your account <a href='".url('/verify-account/ajdskjd')."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+        <br>
+
+        <br>
+                ";
+        EmailJob::dispatch("Brian Obare", $email, 'Email test message', $caption, $contents);
+    }
+
     
 
     public function join(Request $request){
