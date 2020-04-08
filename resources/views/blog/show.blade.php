@@ -18,6 +18,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
+@include('components.employers.covid19')
+
+
 <div class="container">
     <div class="card my-5">
         <div class="card-body px-lg-5 px-4">

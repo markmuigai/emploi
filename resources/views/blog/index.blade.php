@@ -30,6 +30,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 
+    @include('components.employers.covid19')
+
+
     <div class="row pt-3">
         <?php $adsCounter=0; ?>
         <div class="col-lg-4 col-md-6">
