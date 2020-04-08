@@ -66,7 +66,7 @@ class JobApplication extends Model
                     $contents = "Your application for the <b>".$this->post->title."</b> position, as advertised by ".$this->post->company->name." was rejected. This application will no longer be considered.  $message
 
                     <br>
-                    Your RSI score for this application was ".$this->user->seeker->getRsi($this->post)."%
+                    Your Role Suitability Index Score (RSI) for this application was ".$this->user->seeker->getRsi($this->post)."%. The RSI indicates to what extent you  fit the position by checking your Education, Experience, Skills, Position, and Referee assessment amongs't other factors. To get a higher score, ensure your profile is complete and follow up with your referees for a good assessment. 
                     <br>
 
                     For additional information, feel free to call our office or write to us. <a href='".url('/vacancies')."'>See Latest Vacancies</a>
