@@ -1,6 +1,12 @@
 <?php
 
 $url = isset($url) && $url != false ? $url : url('/');
+if(!isset($banner) || $banner == '/images/email-banner.jpg')
+{
+    $banner = rand(0,5);
+    $banner = 0 ? 'email-banner.jpg' : 'email-banner-'.$banner.'.jpg';
+    $banner = '/images/'.$banner;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,6 +28,7 @@ Hi <b>$name</b>, <br><br>
 <h4>$subject</h4>
 
 $caption
+<img src='".asset($banner)."' style='width: 70%; position: relative; left: 15%'>
 $contents
 
 <br><br><br><br><br>
