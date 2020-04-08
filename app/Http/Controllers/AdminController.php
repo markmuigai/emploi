@@ -1027,6 +1027,8 @@ class AdminController extends Controller
     }
 
     public function toggleSeekerFeatured(Request $request){
+
+        die("This feature has been disabled by admin");
         $seeker = Seeker::findOrFail($request->seeker_id);
         $seeker->featured = $seeker->featured == 1 ? 0 : 1;
         $seeker->save();
