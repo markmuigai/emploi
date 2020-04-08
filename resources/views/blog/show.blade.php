@@ -120,7 +120,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="row">
                 @foreach($relatedBlogs as $rblog)  
                 <div class="card col-md-{{ $classSeparator }}">
-                    <div class="card-body">
+                    <div class="card-body" style="font-size: 85%">
                         <div class="main-blog-image mb-4 d-md-block" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($rblog->imageUrl) }}')">
                             <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-lg-5 px-4 heading">
                                 <a href="{{ url('/blog/'.$rblog->slug) }}">
