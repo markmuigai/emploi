@@ -28,6 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <option value="cv-edit-request-list">CV Edit Request Users</option>
                         <option value="employers-advertise">Advertising Request Users</option>
                         <option value="referees">Referees</option>
+                        <option value="hot_leads_emails">Hot Leads Emails</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">

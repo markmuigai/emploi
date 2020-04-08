@@ -909,6 +909,34 @@ class AdminController extends Controller
                 }
                 break;
 
+            case 'hot_leads_emails':
+                $storage_path = storage_path();
+                $file = $storage_path.'/app/hot_leads_emails.csv';
+                //$file = $storage_path.'/app/emails.csv';
+                if(file_exists($file)){
+                    
+                    $handle = fopen($file, "r");
+                    for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+
+                        $email = User::cleanEmail($row[0]);
+                        $name = $row[1];
+                        
+                        if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
+                        {
+                            VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            //print "<br> ".$row[0];
+                        }
+                        
+                    }
+                    fclose($handle);
+                    
+                }
+                else
+                {
+                    die("File $file not found");
+                }
+                break;
+
                 
             default:
                 die("No category has been selected. Invalid Parameters");
