@@ -7,6 +7,7 @@ Get a free CV review from our Experts and stand out from the crowd.
 @endsection
 
 @section('content')
+@include('components.employers.covid19')
 <div class="container py-5">
 	<div class="text-center">
 		<h2 class="orange text-center">Free CV Review</h2>

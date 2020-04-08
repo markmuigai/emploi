@@ -71,7 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="landing">
     <div class="container">
         <div class="content2">
-            <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19">See how we are supporting companies and individuals in the fight against COVID-19</a>
+            <a href="/employers/publish">See how we are supporting companies and individuals in the fight against COVID-19</a>
         </div>
         <div class="content">
 
@@ -125,6 +125,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <!-- SEARCH BAR -->
 @include('components.search-form')
 <!-- END OF SEARCH BAR -->
+
+@include('components.employers.covid19')
 
 <!-- ABOUT SECTION -->
 <div class="about">

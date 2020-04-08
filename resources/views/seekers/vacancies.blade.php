@@ -55,6 +55,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
     </div>
 </form>
+@include('components.employers.covid19')
 <!-- JOB CARD -->
 <?php $adsCounter = 0; ?>
 @forelse($posts as $post)

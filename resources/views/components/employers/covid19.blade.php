@@ -39,8 +39,8 @@
 		</div>
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/about.jpg" alt="A Review of Government Measures to Combat Covid-19" class="col-md-4">
-				<div class="col-md-8">
+				<img src="/images/about.jpg" alt="A Review of Government Measures to Combat Covid-19" class="col-md-3">
+				<div class="col-md-9">
 					<br><br>
 					<p>
 						<b>Emploi </b> reviews Government Measures to Combat Covid-19<br>

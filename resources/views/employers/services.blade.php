@@ -7,6 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+@include('components.employers.covid19')
 <div class="container pb-5">
     <div class="card about">
         <div class="card-body text-center">
@@ -18,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/employers/register" class="btn btn-orange">Create Company Profile</a>
                 <a href="/employers/publish" class="btn btn-orange-alt">Advertise on Emploi</a>
             </p>
-            @include('components.ads.responsive')
+            
             <div class="row pt-5">
                 <div class="col-md-6">
                     <h4>

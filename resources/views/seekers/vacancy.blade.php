@@ -206,6 +206,7 @@
     
     @include('components.featuredEmployers')
 </div>
+@include('components.employers.covid19')
 
 <script type="text/javascript">
     $().ready(function(){
