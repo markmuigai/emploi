@@ -281,15 +281,21 @@ class AdminController extends Controller
             $featured ="";
             if(isset($request->featured) && $request->featured != 'all')
             {
-                $f = $request->featured == 'yes' ? 1 : 0;
+                $f = $request->featured == 'yes' ? true : false;
                 if($first)
                 {
-                    $featured = "featured > 0";
+                    if($f)
+                        $featured = "featured > 0";
+                    else
+                        $featured = "featured <= 0";
                     $first = false;
                 }
                 else
                 {
-                    $featured = "AND featured > 0";
+                    if($f)
+                        $featured = "AND featured > 0";
+                    else
+                        $featured = "AND featured <= 0";
                 }
                 
             }
