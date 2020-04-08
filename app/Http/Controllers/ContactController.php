@@ -432,6 +432,10 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         EmailJob::dispatch("Brian Obare", $email, 'Email test message', $caption, $contents);
     }
 
+    public function testEmail2(){
+        return view('emails.custom_txt');
+    }
+
     
 
     public function join(Request $request){

@@ -266,7 +266,7 @@
                             <?php
                             $arr = array();
                             $arr[] = "Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.";
-                            $arr[] = "Emploi is an online placement platform that does it right and does it fast.";
+                            $arr[] = "Emploi, Where Deserving Talent Meets Deserving Opportunities";
 
                             print $arr[rand(0,1)];
 

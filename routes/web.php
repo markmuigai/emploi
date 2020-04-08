@@ -6,6 +6,7 @@ Route::get('/robots.txt', 'ContactController@robotsFile');
 Route::get('/ads.txt', 'ContactController@googleAdsFile');
 
 Route::get('/test/{email?}', 'ContactController@testEmail')->middleware('admin');
+Route::get('/test2', 'ContactController@testEmail2')->middleware('admin');
 
 Route::get('/refer', 'ReferralController@refer');
 
