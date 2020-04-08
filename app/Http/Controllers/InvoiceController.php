@@ -55,8 +55,25 @@ class InvoiceController extends Controller
 
     public function show($slug)
     {
-        return view('admins.invoices.show')
-                ->with('invoice',Invoice::where('slug',$slug)->firstOrFail());
+        switch ($slug) {
+            case 'completed':
+                return view('admins.invoices.index')
+                    ->with('title','Completed Invoices')
+                    ->with('invoices',Invoice::where('pesapal_transaction_tracking_id','!=',null)->orderBy('id','DESC')->paginate(20));
+                break;
+
+            case 'pending':
+                return view('admins.invoices.index')
+                    ->with('title','Pending Invoices')
+                    ->with('invoices',Invoice::where('pesapal_transaction_tracking_id','=',null)->orderBy('id','DESC')->paginate(20));
+                break;
+            
+            default:
+                return view('admins.invoices.show')
+                    ->with('invoice',Invoice::where('slug',$slug)->firstOrFail());
+                break;
+        }
+        
     }
 
     public function remindViaEmail($slug)

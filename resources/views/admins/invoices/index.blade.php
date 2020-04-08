@@ -8,15 +8,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 @section('page_title', 'Invoices')
+<?php
+$title=isset($title) ? $title : 'Emploi Invoices';
+?>
 
 <div class="card">
     <div class="card-body">
         <h4>
             <a href="/admin"><i class="fa fa-arrow-left"></i></a>
-            Emploi Invoices
-            @if(count($invoices) > 0)
-                <a href="/admin/invoices/create" style="float: right;" class="btn btn-link ">New Invoice</a>
+            {{ $title }}
+                <a href="/admin/invoices/create" style="float: right;" class="btn btn-default ">New</a>
+
+
+            @if($title == 'Pending Invoices')
+
+                <a href="/admin/invoices" class="btn btn-orange" style="float: right;">View All</a>
+                <a href="/admin/invoices/completed" class="btn btn-orange-alt" style="float: right;">View Completed</a>
+
+            @elseif($title == 'Completed Invoices')
+                <a href="/admin/invoices" class="btn btn-orange" style="float: right;">View All</a>
+                <a href="/admin/invoices/pending" class="btn btn-orange-alt" style="float: right;">View Pending</a>
+
+            @else
+                <a href="/admin/invoices/completed" class="btn btn-orange" style="float: right;">View Completed</a>
+                <a href="/admin/invoices/pending" class="btn btn-orange-alt" style="float: right;">View Pending</a>
             @endif
+            
         </h4>
         <hr>
         <div>
