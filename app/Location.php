@@ -22,6 +22,10 @@ class Location extends Model
     	return $this->hasMany(Seeker::class);
     }
 
+    public function meetups(){
+        return $this->hasMany(Meetup::class);
+    }
+
     public function companies(){
         return $this->hasMany(Company::class);
     }

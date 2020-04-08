@@ -55,6 +55,10 @@ class User extends Authenticatable
         return $this->hasMany(InviteLink::class);
     }
 
+    public function meetups(){
+        return $this->hasMany(Meetup::class);
+    }
+
     public function cvEditor(){
         return $this->hasOne(CvEditor::class);
     }

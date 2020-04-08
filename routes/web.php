@@ -66,6 +66,7 @@ Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
+Route::resource('/events', 'MeetupController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::get('companies-featured', 'CompanyController@companiesFeatured');
 Route::resource('/referrals', 'ReferralController');
@@ -206,6 +207,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('invoices/{slug}/remindViaEmail', 'InvoiceController@remindViaEmail');
     Route::get('invoices/{slug}/remindViaEmail', 'InvoiceController@show');
     Route::get('/how-to', 'AdminController@adminFaqs');
+
+    Route::get('events/{endpoint?}','MeetupController@adminMeetups');
 });
 
 
