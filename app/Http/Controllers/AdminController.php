@@ -305,41 +305,16 @@ class AdminController extends Controller
 
 
             $newseekers = [];
-            for($i=count($results)-1; $i >0; $i--)
+            for($i=0; $i<count($results); $i++)
             {
                 //$s = Seeker::find($results[$i]->id);
-                array_push($newseekers,$results[$i-1]->user_id);
+                array_push($newseekers,$results[$i]->user_id);
             }
 
             $seekers = Seeker::whereIn('user_id',$newseekers)
                     ->orderBy('id','DESC')
                     ->paginate(20)
                     ->appends(request()->query());
-
-
-            // for($i=0; $i<count($results); $i++)
-            // {
-            //     array_push($seekers, Seeker::find($results[$i]->id));
-            // }
-
-            // if(isset($request->email))
-            // {
-            //     $user = User::where('email',$request->email)->first();
-            //     if(isset($user->id))
-            //     {
-            //         $placed = false;
-            //         for($i=0; $i<count($seekers);$i++)
-            //         {
-            //             if($seekers[$i]->id == $user->seeker->id)
-            //             {
-            //                 $placed = true;
-            //                 break;
-            //             }
-            //         }
-            //         if(!$placed && $user->role == 'seeker')
-            //             array_push($seekers,$user->seeker);
-            //     }
-            // }
 
             return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
