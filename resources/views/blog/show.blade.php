@@ -119,17 +119,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="orange" style="text-align: center;">You Might Also Like</h2>
                 <div class="row">
                 @foreach($relatedBlogs as $rblog)  
-                    <div class="main-blog-image mb-4 d-none d-md-block col-md-{{ $classSeparator }}" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($rblog->imageUrl) }}')">
-                        <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-lg-5 px-4 heading">
-                            <a href="{{ url('/blog/'.$rblog->slug) }}">
-                                <h2>{{ $rblog->title }}</h2>
-                            </a>
-                            <p>
-                                <i class="fas fa-user"></i> {{ $rblog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $rblog->postedOn }}
-                            </p>
-                            <a href="/blog/{{ $rblog->category->slug }}"><span class="badge badge-orange">{{ $rblog->category->name }}</span></a>
+                <div class="card col-md-{{ $classSeparator }}">
+                    <div class="card-body">
+                        <div class="main-blog-image mb-4 d-md-block" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($rblog->imageUrl) }}')">
+                            <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-lg-5 px-4 heading">
+                                <a href="{{ url('/blog/'.$rblog->slug) }}">
+                                    <h2>{{ $rblog->title }}</h2>
+                                </a>
+                                <p>
+                                    <i class="fas fa-user"></i> {{ $rblog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $rblog->postedOn }}
+                                </p>
+                                <a href="/blog/{{ $rblog->category->slug }}"><span class="badge badge-orange">{{ $rblog->category->name }}</span></a>
+                            </div>
                         </div>
                     </div>
+                </div>
                 @endforeach
                 </div>
             </div>
