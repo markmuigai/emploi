@@ -6,6 +6,16 @@
 {{ $meetup->caption ? $meetup->caption : 'Emploi Events is the place to find career transformational Conferences, Seminars and Webinars for a successful career.' }}
 @endsection
 
+@section('meta-include')
+<meta property="og:url"           content="{{ url('/events/'.$meetup->slug) }}/" />
+<meta property="og:title"         content="{{ $meetup->name }}" />
+<meta property="og:description"   content=" {{ $meetup->caption }}" />
+
+<meta property="og:image" content="{{ asset($meetup->imageUrl) }}">
+<meta property="og:image:width"   content="900" />
+<meta property="og:image:height"  content="600" />
+@endsection
+
 @section('content')
 @section('page_title', $meetup->name )
 <?php
