@@ -55,7 +55,7 @@ $event = $meetup;
             </div>
             <div class="form-group row">
                 <div class="form-group col-md-6">
-                    <label for="address">Address <b style="color: red">*</b></label>
+                    <label for="address">Address  <b style="color: red">*</b></label>
                     @error('address')
                     <p class="text-danger">
                         {{ $message }}
