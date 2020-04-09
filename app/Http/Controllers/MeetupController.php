@@ -20,8 +20,11 @@ class MeetupController extends Controller
 
     public function index()
     {
+        //request name search
+        $meetups = Meetup::where('ended_at','!=',NULL)->where('cancelled_at','!=',NULL)->paginate(20);
+        $meetups = Meetup::paginate(2);
         return view('meetups.index')
-                ->with('meetups',Meetup::where('ended_at','!=',NULL)->where('cancelled_at','!=',NULL)->paginate(20));
+                ->with('meetups',$meetups);
     }
 
     public function create()
@@ -39,11 +42,11 @@ class MeetupController extends Controller
             'address'         =>  ['required','max:500' ,'string'],
             'caption'         =>  ['max:500' ,'string'],
             'description'         =>  ['string'],
-            'country'         =>  ['integer'],
+            'location'         =>  ['integer'],
             'industry'         =>  ['integer'],
             'image'          => ['required','mimes:png,jpg,jpeg','max:51200'],
             'start_time'         => ['required'],
-            'end_time'         => ['required'],
+            'end_time'         => ['required']
         ]);
 
         $image_url = null;
@@ -64,7 +67,7 @@ class MeetupController extends Controller
             'address'         =>  $request->address,
             'caption'         =>  $request->caption,
             'description'         =>  $request->description,
-            'country'         =>  $request->country,
+            'location_id'         =>  $request->location,
             'industry'         =>  $request->industry,
             'user_id'           => $user->id,
             'image'          => $image_url,
@@ -82,15 +85,66 @@ class MeetupController extends Controller
                 ->with('meetup',$meetup);
     }
 
-    public function edit(Meetup $meetup)
+    public function edit($slug)
     {
+        $meetup = Meetup::where('slug',$slug)->firstOrFail();
         return view('meetups.edit')
                 ->with('meetup',$meetup);
     }
 
-    public function update(Request $request, Meetup $meetup)
+    public function update(Request $request, $slug)
     {
-        //
+        $meetup = Meetup::where('slug',$slug)->firstOrFail();
+        $user = Auth::user();
+
+        $request->validate([
+            'name'          =>  ['required','min:5','max:200','string'],
+            'email'         =>  ['required','email' ,'string'],
+            'address'         =>  ['required','max:500' ,'string'],
+            'caption'         =>  ['max:500' ,'string'],
+            'description'         =>  ['string'],
+            'location'         =>  ['integer'],
+            'industry'         =>  ['integer'],
+            'image'          => ['mimes:png,jpg,jpeg','max:51200'],
+            'start_time'         => ['required'],
+            'end_time'         => ['required']
+        ]);
+
+        if($request->file('image') !== null)
+        {
+
+
+
+            $image_url = null;
+
+
+            $image = $request->file('image');
+            $image_url = time() . '.' . $image->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/images/events/'.$image_url;
+            $watermark = Image::make(public_path('/images/logo.png'));   
+            // $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
+
+            Image::make($image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
+
+            if(isset($meetup->image) && file_exists(storage_path()."/app/public/images/events/".$meetup->image))
+                unlink(storage_path()."/app/public/images/events/".$meetup->image);
+
+            $meetup->image = $image_url;
+        }
+
+        $meetup->name = $request->name;
+        $meetup->email = $request->email;
+        $meetup->address = $request->address;
+        $meetup->caption = $request->caption;
+        $meetup->description = $request->description;
+        $meetup->location_id = $request->location;
+        $meetup->industry_id = $request->industry;
+        $meetup->start_time = $request->start_time;
+        $meetup->end_time = $request->end_time;
+        $meetup->save();
+        return redirect('/events/'.$meetup->slug);
+
+        
     }
 
     public function destroy(Meetup $meetup)

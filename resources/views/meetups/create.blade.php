@@ -80,12 +80,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="form-group row">
                 <div class="form-group col-md-6">
-                    <label for="country">Country <b style="color: red">*</b></label>
-                    <select path="country" id="country" name="country" class="custom-select">
+                    <label for="location">Location <b style="color: red">*</b></label>
+                    <select path="location" id="location" name="location" class="custom-select">
                         <option value="-1">Online</option>
-                        @foreach(\App\Country::all() as $c)
+                        @foreach(\App\Location::all() as $c)
                         
-                        <option value="{{ $c->id }}" @if(old('country') && old('country')==$c->id)
+                        <option value="{{ $c->id }}" @if(old('location') && old('location')==$c->id)
                             selected=""
                             @endif
                             >{{ $c->name }}</option>
@@ -120,7 +120,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <input type="file" required="" path="image" name="image" id="image" accept=".png, .jpg,.jpeg" />
                     </div>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6" style="display: none">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="public">
                         <label class="form-check-label" for="public">
