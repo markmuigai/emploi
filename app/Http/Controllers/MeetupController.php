@@ -61,8 +61,16 @@ class MeetupController extends Controller
 
         Image::make($image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
 
+        $slug = User::generateRandomString(23);
+
+        $slug = strtolower($request->name);
+        $slug = explode(" ", $slug);
+        $slug = implode("-", $slug);
+        $slug = preg_replace('/[^A-Za-z0-9\-]/', '', strtolower($slug));
+        $slug .= rand(1,900000);
+
         $m = Meetup::create([
-            'slug'        => User::generateRandomString(23),
+            'slug'        => $slug,
             'name'          =>  $request->name,
             'email'         =>  $request->email,
             'address'         =>  $request->address,
