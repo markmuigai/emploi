@@ -21,31 +21,38 @@ $event = $meetup;
 						<a href="/events/{{ $event->slug }}" class="col-md-12">
 							<img src="{{ $event->imageUrl }}" class="col-md-12">
 						</a>
-						<div class="col-md-8" style="text-align: center;">
-							<a href="/events/{{ $event->slug }}" class="orange" style="font-weight: bold;">{{ $event->name }}</a><br>
-							<b>{{ $event->startsAt() }}</b> <hr>
-							
-						</div>
 					</div>
 					
 				</div>
         		<div class="col-md-5" style="text-align: center;">
         			<p>
-        				@if(!true)
-							<span class="btn btn-sm btn-orange-alt">SUBSCRIBED</span>
-        				@else
-							<span class="btn btn-sm btn-orange">SUBSCRIBE TO EVENT</span>
-        				@endif
-        				<br><br>
+                        <button class="btn btn-orange-alt" data-toggle="modal" data-target="#shareEvent{{ $meetup->id }}"><i class="fas fa-share-alt"></i> Share</button>
+
+                        <br>
+
+                        <b>{{ $event->startsAt() }}</b>  <br>
+        				
         				{{ $meetup->user->name }} <br>
         				Price: {{ $meetup->getPrice() }} <br>
+                        Subscribers: ({{ count($meetup->subscriptions) }})
         				@guest
 
-        					<p><a href="/login?redirectToUrl={{url('/events/'.$meetup->slug)}}">Log in</a> to view organizer's contacts</p>
+        					<p><a href="/login?redirectToUrl={{url('/events/'.$meetup->slug)}}" class="orange">Log in</a> to subscribe and view organizer's contacts</p>
 
 	        				
 
 	        			@else
+
+                            @if(Auth::user()->hasEnrolledMeetup($meetup))
+                                <p class="orange">Subscribed</p>
+                            @else
+                                <form method="POST" action="/events-subscriptions">
+                                    @csrf
+                                    <input type="hidden" name="slug" value="{{ $meetup->slug }}">
+                                    <input type="submit" value="SUBSCRIBE TO EVENT" title="Express Interest"  class="btn btn-sm btn-orange-alt">
+                                </form>
+                            @endif
+                            <br>
 
 	        				Location: {{ $meetup->locationName }} <br>
 	        				Address: <i>{{ $meetup->address }}</i><br>
@@ -56,7 +63,10 @@ $event = $meetup;
 							Tel: <a href="tel:{{ $meetup->phone_number }}">{{ $meetup->phone_number }}</a>
 	        				@endif
 
-	        				<hr>
+                            @if(Auth::user()->role == 'admin')
+                                <a href="/events/{{ $event->slug }}/subscribers" class="orange">View Subscribers ({{ count($meetup->subscriptions) }})</a>
+                            @endif
+
 							
         				@endguest
         			</p>
@@ -77,6 +87,7 @@ $event = $meetup;
         
     </div>
 </div>
+@include('components.share-event')
 @include('components.ads.responsive')
 
 

@@ -67,6 +67,8 @@ Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
 Route::resource('/events', 'MeetupController');
+Route::get('/events/{slug}/subscribers', 'MeetupController@subscribers');
+Route::resource('/events-subscriptions', 'MeetupSubscriptionController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::get('companies-featured', 'CompanyController@companiesFeatured');
 Route::resource('/referrals', 'ReferralController');

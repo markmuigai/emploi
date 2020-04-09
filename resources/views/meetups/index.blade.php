@@ -18,6 +18,8 @@ Emploi Events is the place to find career transformational Conferences, Seminars
         		</form>
         		<br><br>
         		@forelse($meetups as $event)
+                <?php $meetup = $event; ?>
+                @include('components.share-event')
 
         		<div class="col-md-12 card" >
         			<div class="card-body row">
@@ -29,7 +31,9 @@ Emploi Events is the place to find career transformational Conferences, Seminars
 	        				<b>{{ $event->startsAt() }}</b> <hr>
 	        				{{ $event->caption }}
 	        				<br>
+                             <button class="btn btn-orange-alt" data-toggle="modal" data-target="#shareEvent{{ $meetup->id }}"><i class="fas fa-share-alt"></i> Share</button>
 	        				@guest
+
 
 								<a href="/login?redirectToUrl={{url('/events/'.$event->slug)}}" class="btn btn-orange">Log in</a> to Subscribe
 	        				@else

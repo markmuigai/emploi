@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Meetup;
+use App\MeetupSubscription;
 use App\User;
 
 
@@ -200,5 +201,12 @@ class MeetupController extends Controller
         return view('admins.meetups.index')
                 ->with('title',$title)
                 ->with('meetups',$meetups);
+    }
+
+    public function subscribers(Request $request, $slug){
+        $meetup = Meetup::where('slug',$slug)->firstOrFail();
+        return view('admins.meetups.subscribers')
+                ->with('meetup',$meetup)
+                ->with('subscribers',MeetupSubscription::where('meetup_id',$meetup->id)->paginate(20));
     }
 }

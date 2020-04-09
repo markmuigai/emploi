@@ -19,6 +19,10 @@ class Meetup extends Model
     	return $this->belongsTo(Location::class);
     }
 
+    public function subscriptions(){
+        return $this->hasMany(MeetupSubscription::class);
+    }
+
     public function startsAt(){
     	if(!$this->start_time)
     		return false;
@@ -40,5 +44,21 @@ class Meetup extends Model
 
     public function getPrice(){
     	return $this->price == 0 ? 'Free' : 'Ksh '.round($this->price);
+    }
+
+    public function getShareFacebookLinkAttribute(){
+        return 'https://www.facebook.com/sharer.php?u='.url('/events/'.$this->slug);
+    }
+
+    public function getShareTwitterLinkAttribute(){
+        return 'https://twitter.com/share?url='.url('/events/'.$this->slug).'&text='.$this->shareText.'&hashtags=EmploiCareerCentre';
+    }
+
+    public function getShareLinkedinLinkAttribute(){
+        return 'http://www.linkedin.com/shareArticle?mini=true&url='.url('/events/'.$this->slug);
+    }
+
+    public function getShareWhatsappLinkAttribute(){
+       return "whatsapp://send?text=Emploi Event:  ".$this->name.'. '.url('/events/'.$this->slug);
     }
 }
