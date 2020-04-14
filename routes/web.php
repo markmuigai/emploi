@@ -263,6 +263,7 @@ Route::get('/employers/faqs', 'ContactController@employerFaqs');
 
 Route::resource('/vacancies', 'PostsController');
 Route::get('/employers/publish', 'ContactController@epublish');
+Route::get('/employers/advertise/{industry_name?}', 'ContactController@advertise');
 Route::post('/employers/publish', 'AdvertController@store');
 Route::get('/vacancies/{slug}/apply','PostsController@apply')->middleware('seeker');
 Route::post('/vacancies/{slug}/apply','JobApplicationController@accept')->middleware('seeker');
