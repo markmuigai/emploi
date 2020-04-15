@@ -1,4 +1,4 @@
-@extends('layouts.general-layout')
+@extends('layouts.zip')
 
 @section('title','Emploi :: Covid 19 Advert Created')
 

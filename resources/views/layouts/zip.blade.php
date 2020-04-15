@@ -17,12 +17,12 @@
   </head>
   <body>
 <div class="w3l-bootstrap-header fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-light p-2" style="background-color: #500095">
+  <nav class="navbar navbar-expand-lg navbar-light p-2" style="background-color: #500095; border: #500095">
     <div class="container">
       {{-- <a class="navbar-brand" href="/">
         <img src="/images/logo-alt.png" style="width: 5em">
       </a> --}} 
-    <a class="navbar-brand" href="#index.html">
+    <a class="navbar-brand" href="/">
         <img src="/images/logo-alt.png" alt="Emploi" title="Emploi logo" style="height:35px;" />
     </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -32,25 +32,67 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="background-color: #500095; border: none">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/vacancies" style="color: white">Vacancies</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="/about" style="color: white">About Us</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/employers/publish" style="color: white">Advertise</a>
+          </li>
+          @guest
           <li class="nav-item">
             <a class="nav-link" href="/job-seekers/services" style="color: white;">For Job Seekers</a>
           </li>
+          @else
+              <li class="nav-item">
+                <a class="nav-link" href="/home" style="color: white;">Profile</a>
+              </li>
+
+          @endguest
         </ul>
         <div class="form-inline">
-          <a href="/login" class="login mr-4"  style="color: white">Log in</a>
-            <a href="/employers/register" class="btn btn-primary btn-theme" style="background-color: #E15419">Create Account</a>
+          @guest
+          <a href="/login?redirectToUrl={{ url('/employers/publish') }}" class="login mr-4"  style="color: white">Log in</a>
+          <a href="/employers/register?redirectToUrl={{ url('/employers/publish') }}" class="btn btn-primary btn-theme" style="background-color: #E15419">Create Account</a>
+          @else
+              <a href="/logout" class="login mr-4"  style="color: white">Log out</a>
+              <a href="/home" class="btn btn-primary btn-theme" style="background-color: #E15419">Dashboard</a>
+          @endguest
         </div>
       </div>
     </div>
   </nav>
 </div>
 @yield('content')
+<section class="w3l-index-block10">
+  <div class="new-block top-bottom">
+    <div class="container">
+      <div class="middle-section">
+        <!-- <h5>Tagline</h5> -->
+        <div class="section-width">
+          <h2>Emploi Covid-19 Response</h2>
+        </div>
+        <div class="link-list-menu">
+            <p class="mb-5">See how we are supporting companies and individuals in the fight against COVID-19</p>
+            <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="btn btn-outline-light btn-more">Read More <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+<!-- index-block8 -->
+<section class="w3l-index-block8 py-5">
+  <div class="container py-md-3 text-center">
+    <div class="heading text-center mx-auto">
+      <h3 class="head">Have questions? We're here to help. </h3>
+    </div>
+    <div class="buttons mt-4">
+      <a href="/post-a-job" class="btn btn-outline-primary ml-2 btn-demo">Post a Job</a>
+      <a href="/contact" class="btn btn-primary btn-demo ">Contact Us</a>
+      <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> 0702 068 282</a>
+    </div>
+  </div>
+</section>
 <!-- / index-block8 -->
       <!-- footer-28 block -->
       <section class="w3l-market-footer">
@@ -118,7 +160,7 @@
                     <div class="col-md-4 footer-list-28 mt-5">
                       <h6 class="footer-title-28">Product</h6>
                       <ul>
-                        <li><a href="/employers/advertise">Advertise</a></li>
+                        <li><a href="/employers/publish">Advertise</a></li>
                         <li><a href="/employers/browse">Browse Candidates</a></li>
                         <li><a href="/employers/premium-recruitment">Premium Recruitment</a></li>
                         <li><a href="/checkout?product=featured_company">Get Featured</a></li>

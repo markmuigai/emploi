@@ -99,6 +99,12 @@ Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('referee/{slug}','EmployerController@viewReport');
 
 });
+
+Route::get('/post-a-job', 'PostAJobController@postJob');
+Route::get('/employers/publish', 'PostAJobController@advertise');
+//Route::get('/employers/advertise/{industry_name?}', 'ContactController@advertise');
+Route::post('/employers/publish', 'AdvertController@store');
+
 Route::get('/employers/register', 'EmployerController@register');
 Route::post('/employers/registered', 'EmployerController@create');
 Route::get('/employers/registered', 'EmployerController@register');
@@ -262,9 +268,7 @@ Route::get('/employers/faqs', 'ContactController@employerFaqs');
 
 
 Route::resource('/vacancies', 'PostsController');
-Route::get('/employers/publish', 'ContactController@epublish');
-Route::get('/employers/advertise/{industry_name?}', 'ContactController@advertise');
-Route::post('/employers/publish', 'AdvertController@store');
+
 Route::get('/vacancies/{slug}/apply','PostsController@apply')->middleware('seeker');
 Route::post('/vacancies/{slug}/apply','JobApplicationController@accept')->middleware('seeker');
 Route::get('/profile/applications/{id?}','SeekerController@applications')->middleware('seeker');

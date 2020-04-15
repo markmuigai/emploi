@@ -3,7 +3,7 @@
 @section('title','Advertise on Emploi')
 
 @section('description')
-Advertise on Emploi and reach an audience of 100k+, get access to premium shortlisting tools and Candidate Ranking algorithim
+Advertise on Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Post a job in two minutes.
 @endsection
 
 @section('content')
@@ -18,7 +18,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-5 content-left pt-md-0 pt-5">
           <h1>Post Your First Job in Minutes</h1>
           <p class="mt-3 mb-md-5 mb-4">Advertise your job to all of Africa and shortlist with advanced shortlisting tools.</p>
-          <a href="#" class="btn btn-primary btn-theme">Get Started</a>
+          <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Get Started</a>
+          		<a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us</a>
+          
         </div>
         <div class="col-md-7 content-photo mt-md-0 mt-5">
           <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
@@ -201,7 +203,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       <div class="col-md-6 cwp17-text">
         <h2>Great features app
             that everyone Love</h2>
-        <p>We enhance communication between employers and job seekers by configuring and automating responses giving your organization a professional outlook and giving job seekers appropriate feedback to advance their careers. Founded in 2015 as Jobsikaz and later rebranding to Emploi in 2019, we our goal is to impact 5 million job seekers in Africa by 2025. </p>
+        <p>We enhance communication between employers and job seekers by configuring and automating responses giving your organization a professional outlook and giving job seekers appropriate feedback to advance their careers. Founded in 2017 as Jobsikaz and later rebranding to Emploi in 2019, we our goal is to impact 5 million job seekers in Africa by 2025. </p>
         <a href="/about">Read more about us &raquo;</a>
       </div>
       <div class="col-md-6 cwp17-image">
@@ -264,87 +266,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
   <!-- /main-slider -->
 </section>
-<section class="w3l-index-block10">
-  <div class="new-block top-bottom">
-    <div class="container">
-      <div class="middle-section">
-        <!-- <h5>Tagline</h5> -->
-        <div class="section-width">
-          <h2>Emploi Covid-19 Response</h2>
-        </div>
-        <div class="link-list-menu">
-            <p class="mb-5">See how we are supporting companies and individuals in the fight against COVID-19</p>
-            <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="btn btn-outline-light btn-more">Read More <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-<!-- index-block8 -->
-<section class="w3l-index-block8 py-5">
-  <div class="container py-md-3 text-center">
-    <div class="heading text-center mx-auto">
-      <h3 class="head">Have questions? We're here to help. </h3>
-    </div>
-    <div class="buttons mt-4">
-      <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> 0702 068 282</a>
-      <a href="/contact" class="btn btn-primary btn-demo ml-2">Contact Us</a>
-    </div>
-  </div>
-</section>
-<div id="employers-reg-apply" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		    <!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #500095; color: white">
-					
-					<h4 class="modal-title">
-						<span>
-							Get Quality Candidates Today 
-						</span>
-						
-						<i class="fa fa-times" style="color: #E15419; float: right; cursor: pointer;" data-dismiss="modal" aria-label="Close" aria-hidden="true"></i>
-		                
-		              
-					</h4>
-					
-				</div>
-				 
-				<div class="modal-body">
-					<br>
-					<form method="POST" id="seeker-register-modal" action="/employers">
-						@csrf
-						<p>
-							<label>Company Name:</label>
-							<input type="text" name="co_name" class="form-control" required="" maxlength="50">
-						</p>
 
-						<p>
-							<label>Your Name:</label>
-							<input type="text" name="name" class="form-control" required="" maxlength="50">
-						</p>
-						<p>
-							<label>Business Email:</label>
-							<input type="text" name="email" class="form-control" required="" maxlength="50">
-						</p>
-						<p style="text-align: center;">
-							<br>
-							<input type="submit" value="Create a employer account" class="btn btn-primary btn-demo ml-2">
-							
-						</p>
-					</form>
-				</div>
-				<div class="modal-footer" style="">
-					<a href="{{ url('/login?redirectToUrl='.url('/employers/advertise')) }}" class="btn btn-outline-primary mr-2 btn-demo">Login</a>
-				</div>
-			</div>
-	    </div>
-	</div>
-</div>
-<script type="text/javascript">
-	$().ready(function(){
-		//$('#employers-reg-apply').modal();
-	});
-</script>
+
+
 @endsection

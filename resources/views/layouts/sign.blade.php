@@ -64,7 +64,7 @@
                             <a class="nav-link" href="/blog">Career Center</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/companies">See Who's Hiring</a>
+                            <a class="nav-link" href="/employers/publish">Advertise</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i></a>

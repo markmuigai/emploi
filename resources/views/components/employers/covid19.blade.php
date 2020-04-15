@@ -31,7 +31,7 @@
 					</p>
 					<p>
 						<a href="/job-seekers/free-cv-review" class="btn btn-orange-alt">Get Free CV Review</a>
-						<a href="/job-seekers/free-cv-review" class="btn btn-orange">Get 50% Off CV Editing</a>
+						<a href="/job-seekers/cv-editing" class="btn btn-orange">Get 50% Off CV Editing</a>
 					</p>
 				</div>
 				<img src="/images/promotions/get-free-cv-review.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">

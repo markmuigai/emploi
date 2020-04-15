@@ -131,41 +131,46 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<br id="similar-products">
 
 			@if($product->slug == 'seeker_basic')
+				<?php $p2 = \App\Product::where('slug','featured_seeker')->first(); ?>
+				@if(isset($p2->id))
 
+					<div class="col-md-10 offset-md-1">
+						<hr>
+						<?php $p2 = \App\Product::where('slug','featured_seeker')->first(); ?>
+		      			<br>
+						<h4>
+							{{ $p2->title }}
+							<a href="/checkout?product=featured_seeker" class="btn btn-orange-alt" style="float: right;">Get</a>
+						</h4>
 
-				<div class="col-md-10 offset-md-1">
-					<hr>
-					<?php $p2 = \App\Product::where('slug','featured_seeker')->first(); ?>
-	      			<br>
-					<h4>
-						{{ $p2->title }}
-						<a href="/checkout?product=featured_seeker" class="btn btn-orange-alt" style="float: right;">Get</a>
-					</h4>
+						<?php echo $p2->description; ?>
+						<br>
+						<a href="/checkout?product=featured_seeker" class="btn btn-orange">Get Package</a>
+					</div>
 
-					<?php echo $p2->description; ?>
-					<br>
-					<a href="/checkout?product=featured_seeker" class="btn btn-orange">Get Package</a>
-				</div>
-
+				@endif
 			@endif
 
 			@if($product->slug == 'featured_seeker')
 
+				<?php $p2 = \App\Product::where('slug','seeker_basic')->first(); ?>
+				@if(isset($p2->id))
 
-				<div class="col-md-10 offset-md-1">
-					<hr>
-					<?php $p2 = \App\Product::where('slug','seeker_basic')->first(); ?>
-	      			<br>
-					<h4>
-						{{ $p2->title }}
-						<a href="/checkout?product=seeker_basic" class="btn btn-orange-alt" style="float: right;">Get</a>
-					</h4>
+					<div class="col-md-10 offset-md-1">
+						<hr>
+						<?php $p2 = \App\Product::where('slug','seeker_basic')->first(); ?>
+		      			<br>
+						<h4>
+							{{ $p2->title }}
+							<a href="/checkout?product=seeker_basic" class="btn btn-orange-alt" style="float: right;">Get</a>
+						</h4>
 
-					<?php echo $p2->description; ?>
-					<br>
-					<a href="/checkout?product=seeker_basic" class="btn btn-orange">Get Package</a>
-					<span style="float: right;">{{ $p2->getPrice() }}</span>
-				</div>
+						<?php echo $p2->description; ?>
+						<br>
+						<a href="/checkout?product=seeker_basic" class="btn btn-orange">Get Package</a>
+					</div>
+
+				@endif
 
 			@endif
 
@@ -173,20 +178,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 				@foreach(['solo_plus','infinity','stawi'] as $pkg)
 
-				<div class="col-md-10 offset-md-1">
-					<hr>
 					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
-	      			<br>
-					<h4>
-						{{ $p2->title }}
-						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
-					</h4>
 
-					<?php echo $p2->description; ?>
-					<br>
-					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
-					<span style="float: right;">{{ $p2->getPrice() }}</span>
-				</div>
+					@if(isset($p2->id))
+
+						<div class="col-md-10 offset-md-1">
+							<hr>
+			      			<br>
+							<h4>
+								{{ $p2->title }}
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+							</h4>
+
+							<?php echo $p2->description; ?>
+							<br>
+							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
+							<span style="float: right;">{{ $p2->getPrice() }}</span>
+						</div>
+
+					@endif
 
 				@endforeach
 
@@ -196,20 +206,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 				@foreach(['solo','infinity','stawi'] as $pkg)
 
-				<div class="col-md-10 offset-md-1">
-					<hr>
-					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
-	      			<br>
-					<h4>
-						{{ $p2->title }}
-						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
-					</h4>
+				<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
 
-					<?php echo $p2->description; ?>
-					<br>
-					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
-					<span style="float: right;">{{ $p2->getPrice() }}</span>
-				</div>
+					@if(isset($p2->id))
+
+						<div class="col-md-10 offset-md-1">
+							<hr>
+			      			<br>
+							<h4>
+								{{ $p2->title }}
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+							</h4>
+
+							<?php echo $p2->description; ?>
+							<br>
+							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
+							<span style="float: right;">{{ $p2->getPrice() }}</span>
+						</div>
+
+					@endif
 
 				@endforeach
 
@@ -219,20 +234,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 				@foreach(['solo','solo_plus','stawi'] as $pkg)
 
-				<div class="col-md-10 offset-md-1">
-					<hr>
-					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
-	      			<br>
-					<h4>
-						{{ $p2->title }}
-						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
-					</h4>
+				<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
 
-					<?php echo $p2->description; ?>
-					<br>
-					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
-					<span style="float: right;">{{ $p2->getPrice() }}</span>
-				</div>
+					@if(isset($p2->id))
+
+						<div class="col-md-10 offset-md-1">
+							<hr>
+			      			<br>
+							<h4>
+								{{ $p2->title }}
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+							</h4>
+
+							<?php echo $p2->description; ?>
+							<br>
+							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
+							<span style="float: right;">{{ $p2->getPrice() }}</span>
+						</div>
+
+					@endif
 
 				@endforeach
 
@@ -242,20 +262,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 				@foreach(['solo','solo_plus','infinity'] as $pkg)
 
-				<div class="col-md-10 offset-md-1">
-					<hr>
-					<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
-	      			<br>
-					<h4>
-						{{ $p2->title }}
-						<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
-					</h4>
+				<?php $p2 = \App\Product::where('slug',$pkg )->first(); ?>
 
-					<?php echo $p2->description; ?>
-					<br>
-					<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
-					<span style="float: right;">{{ $p2->getPrice() }}</span>
-				</div>
+					@if(isset($p2->id))
+
+						<div class="col-md-10 offset-md-1">
+							<hr>
+			      			<br>
+							<h4>
+								{{ $p2->title }}
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+							</h4>
+
+							<?php echo $p2->description; ?>
+							<br>
+							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
+							<span style="float: right;">{{ $p2->getPrice() }}</span>
+						</div>
+
+					@endif
 
 				@endforeach
 
