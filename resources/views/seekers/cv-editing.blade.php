@@ -26,7 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 			<p>We leverage on our expertise to provide you with a clear, concise CV that matches your professional level and will stand out before recruiters.</p>
 			<p>
 				<a href="#request-cv-edit-form" class="btn orange">Request Cv Editing</a>
-				<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" class="btn btn-orange">CV Editing Masterclass</a>
+				<a href="https://emploi.co/events/cv-writing-webinar" class="btn btn-orange">CV Editing Masterclass</a>
 				<a href="#testimonialsView" class="btn orange">Testimonials</a>
 			</p>
 		</div>

@@ -79,6 +79,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @enderror
                 <textarea  class="form-control" rows="2" placeholder="" name="description" id="description">{{ old('description') }}</textarea>
             </div>
+            <div class="form-group">
+                <label for="instructions">Instructions <b style="color: red">*</b></label>
+                @error('instructions')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
+                <textarea  class="form-control" rows="2" placeholder="" name="instructions" id="instructions" maxlength="1000">{{ old('instructions') }}</textarea>
+            </div>
             <div class="form-group row">
                 <div class="form-group col-md-6">
                     <label for="location">Location <b style="color: red">*</b></label>

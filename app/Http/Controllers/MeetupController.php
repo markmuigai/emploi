@@ -43,6 +43,7 @@ class MeetupController extends Controller
             'address'         =>  ['required','max:500' ,'string'],
             'caption'         =>  ['max:500' ,'string'],
             'description'         =>  ['string'],
+            'instructions'         =>  ['string'],
             'location'         =>  ['integer'],
             'industry'         =>  ['integer'],
             'image'          => ['required','mimes:png,jpg,jpeg','max:51200'],
@@ -76,6 +77,7 @@ class MeetupController extends Controller
             'address'         =>  $request->address,
             'caption'         =>  $request->caption,
             'description'         =>  $request->description,
+            'instructions'         =>  $request->instructions,
             'location_id'         =>  $request->location,
             'industry'         =>  $request->industry,
             'user_id'           => $user->id,
@@ -112,6 +114,7 @@ class MeetupController extends Controller
             'address'         =>  ['required','max:500' ,'string'],
             'caption'         =>  ['max:500' ,'string'],
             'description'         =>  ['string'],
+            'instructions'         =>  ['string'],
             'location'         =>  ['integer'],
             'industry'         =>  ['integer'],
             'image'          => ['mimes:png,jpg,jpeg','max:51200'],
@@ -146,6 +149,7 @@ class MeetupController extends Controller
         $meetup->address = $request->address;
         $meetup->caption = $request->caption;
         $meetup->description = $request->description;
+        $meetup->instructions = $request->instructions;
         $meetup->location_id = $request->location;
         $meetup->industry_id = $request->industry;
         $meetup->start_time = $request->start_time;

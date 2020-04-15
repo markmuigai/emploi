@@ -87,23 +87,31 @@ $event = $meetup;
 
         		</div>
         		<div class="col-md-12 card">
-        			<?php
-        				print $event->description;
-        			?>
+                    <div class="card-body">
+                        <h4 style="text-align: center;" class="orange">Description</h4>
+                        <?php
+                            print $event->description;
+                        ?>
+                    </div>
+        			
         		</div>
 
                 <div class="col-md-12 card">
                     <div class="card-body " style="text-align: center;">
+                        <h4 class="orange">Instructions</h4>
                         @guest
+                        <p><a href="/login?redirectToUrl={{url('/events/'.$meetup->slug)}}" class="orange">Log in</a> and subscribe to view event attendance instructions.</p>
 
                         @else
                             @if(Auth::user()->hasEnrolledMeetup($meetup))
-                                <p class="orange">Subscribed</p>
+                                <?php
+                                    print $event->instructions;
+                                ?>
                             @else
                                 <form method="POST" action="/events-subscriptions">
                                     @csrf
                                     <input type="hidden" name="slug" value="{{ $meetup->slug }}">
-                                    <input type="submit" value="SUBSCRIBE TO EVENT" title="Express Interest"  class="btn btn-sm btn-orange-alt">
+                                    <input type="submit" value="SUBSCRIBE TO EVENT TO VIEW" title="Express Interest"  class="btn btn-sm btn-orange-alt">
                                 </form>
                             @endif
                         @endguest
