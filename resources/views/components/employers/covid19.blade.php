@@ -84,10 +84,11 @@
 					</p>
 					<p>
 						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" class="btn btn-orange-alt">Read More</a>
+						<a href="https://emploi.co/events/cv-writing-webinar" class="btn btn-orange-alt">View Event</a>
 						<a href="/blog" class="btn btn-orange">Emploi Career Centre</a>
 					</p>
 				</div>
-				<img src="/images/promotions/get-free-cv-review.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-5">
+				<img src="https://emploi.co/storage/blogs/1586331368.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-5">
 			</div>
 		</div>
 	</div>	
