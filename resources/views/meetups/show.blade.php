@@ -81,14 +81,12 @@ $event = $meetup;
         				@endguest
         			</p>
 
-        			<p>
-        				
-        			</p>
 
         		</div>
         		<div class="col-md-12 card">
                     <div class="card-body">
                         <h4 style="text-align: center;" class="orange">Description</h4>
+                        <
                         <?php
                             print $event->description;
                         ?>
@@ -97,8 +95,8 @@ $event = $meetup;
         		</div>
 
                 <div class="col-md-12 card">
-                    <div class="card-body " style="text-align: center;">
-                        <h4 class="orange">Instructions</h4>
+                    <div class="card-body " >
+                        <h4 class="orange" style="text-align: center;">Instructions</h4>
                         @guest
                         <p><a href="/login?redirectToUrl={{url('/events/'.$meetup->slug)}}" class="orange">Log in</a> and subscribe to view event attendance instructions.</p>
 
