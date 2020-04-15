@@ -5,8 +5,8 @@
 	<div class="col-md-10 offset-md-1 responseSlider">
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/promotions/free-job-posting.jpg" alt="Free job posting for companies involved in the fight against Covid-19" class="col-md-4">
-				<div class="col-md-8">
+				<img src="/images/promotions/free-job-posting.jpg" alt="Free job posting for companies involved in the fight against Covid-19" class="col-md-5">
+				<div class="col-md-7">
 					<p>
 						<b>Emploi is posting vacancies for Free</b>, for companies involved in the fight against Covid-19 <br>
 					</p>
@@ -39,8 +39,8 @@
 		</div>
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/about.jpg" alt="A Review of Government Measures to Combat Covid-19" class="col-md-3">
-				<div class="col-md-9">
+				<img src="/images/about.jpg" alt="A Review of Government Measures to Combat Covid-19" class="col-md-4">
+				<div class="col-md-8">
 					<br><br>
 					<p>
 						<b>Emploi </b> reviews Government Measures to Combat Covid-19<br>
@@ -52,6 +52,42 @@
 						<a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="btn btn-orange">Read More</a>
 					</p>
 				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body row">
+				
+				<div class="col-md-8">
+					<h4>
+						<a href="https://emploi.co/blog/the-challenges-of-working-from-home-and-how-to-overcome-them" style="font-weight: bold">The Challenges of Working from Home and How to Overcome Them</a>
+					</h4>
+					<p>
+						We talk about the new challenges businesses and individuals face while working from home, with expert advise on how to overcome.
+					</p>
+					<p>
+						<a href="https://emploi.co/blog/the-challenges-of-working-from-home-and-how-to-overcome-them" class="btn btn-orange-alt">Read More</a>
+						<a href="/blog" class="btn btn-orange">Emploi Career Centre</a>
+					</p>
+				</div>
+				<img src="https://emploi.co/storage/blogs/1586929099.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body row">
+				
+				<div class="col-md-7">
+					<h4>
+						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" style="font-weight: bold">Emploi’s annual CV writing masterclass- and this time it’s online!</a>
+					</h4>
+					<p>
+						Agenda includes Addressing simple CV Mistakes, CV that transcends Borders and continents, Cover letters, productive job search during the Covid-19 pandemic, and using the EMPLOI #informationseries to solidify your economic and mental status during and even after this pandemic.
+					</p>
+					<p>
+						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" class="btn btn-orange-alt">Read More</a>
+						<a href="/blog" class="btn btn-orange">Emploi Career Centre</a>
+					</p>
+				</div>
+				<img src="/images/promotions/get-free-cv-review.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-5">
 			</div>
 		</div>
 	</div>	
