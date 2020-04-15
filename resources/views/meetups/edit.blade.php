@@ -201,6 +201,7 @@ $event = $meetup;
 <script>
     setTimeout(function() {
         CKEDITOR.replace('description');
+        CKEDITOR.replace('instructions');
     }, 3000);
 </script>
 
