@@ -39,8 +39,7 @@
 		</div>
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/about.jpg" alt="A Review of Government Measures to Combat Covid-19" class="col-md-4">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<br><br>
 					<p>
 						<b>Emploi </b> reviews Government Measures to Combat Covid-19<br>
@@ -75,7 +74,7 @@
 		<div class="card">
 			<div class="card-body row">
 				
-				<div class="col-md-7">
+				<div class="col-md-12">
 					<h4>
 						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" style="font-weight: bold">Emploi’s annual CV writing masterclass- and this time it’s online!</a>
 					</h4>
@@ -88,7 +87,6 @@
 						<a href="/blog" class="btn btn-orange">Emploi Career Centre</a>
 					</p>
 				</div>
-				<img src="https://emploi.co/storage/blogs/1586331368.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-5">
 			</div>
 		</div>
 	</div>	
