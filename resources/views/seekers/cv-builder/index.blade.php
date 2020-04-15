@@ -51,7 +51,10 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 <div class="card">
     <div class="card-body">
 
-
+        <p style="text-align: right;">
+          Emploi CV-editing masterclass: <a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" class="btn btn-orange-alt">Learn more</a>
+          <hr>
+        </p>
         
         <form method="POST" action="/job-seekers/cv-builder/download" enctype="multipart/form-data">
             @csrf

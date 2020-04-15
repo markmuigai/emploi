@@ -92,6 +92,25 @@ $event = $meetup;
         			?>
         		</div>
 
+                <div class="col-md-12 card">
+                    <div class="card-body " style="text-align: center;">
+                        @guest
+
+                        @else
+                            @if(Auth::user()->hasEnrolledMeetup($meetup))
+                                <p class="orange">Subscribed</p>
+                            @else
+                                <form method="POST" action="/events-subscriptions">
+                                    @csrf
+                                    <input type="hidden" name="slug" value="{{ $meetup->slug }}">
+                                    <input type="submit" value="SUBSCRIBE TO EVENT" title="Express Interest"  class="btn btn-sm btn-orange-alt">
+                                </form>
+                            @endif
+                        @endguest
+                    </div>
+                    
+                </div>
+
         	</div>
         </div>
         
