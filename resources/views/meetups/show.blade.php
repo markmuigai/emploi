@@ -98,6 +98,7 @@ $event = $meetup;
     </div>
 </div>
 @include('components.share-event')
+@include('components.employers.covid19')
 @include('components.ads.responsive')
 
 
