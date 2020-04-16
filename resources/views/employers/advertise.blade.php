@@ -43,7 +43,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="s-block">
           <a href="#blog-single.html" class="d-block p-lg-4 p-3">
             <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Reach 100k+ Job Seekers</h3>
+            <h3 class="my-3">Audience of 100k+</h3>
             <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
           </a>
         </div>
