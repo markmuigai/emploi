@@ -6,6 +6,7 @@
                 <h4>{{ __('other.menu') }}</h4>
                 <ul class="footer-menu">
                     <li><a href="/about">About Us</a></li>
+                    <li><a href="/events">Events</a></li>
                     <li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
                     <li><a href="/join">{{ __('auth.register') }}</a></li>
                     <li><a href="/employers/publish">Advertise</a></li>

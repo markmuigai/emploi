@@ -74,7 +74,6 @@ Emploi Events is the place to find career transformational Conferences, Seminars
 <div>
 	{{ $meetups->links() }}
 </div>
-@include('components.employers.covid19')
 @include('components.ads.responsive')
 
 

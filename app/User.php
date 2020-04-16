@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 
+use App\Invoice;
+use App\InvoiceCreditRedemption;
 use App\Jurisdiction;
 use App\Referral;
 use App\Seeker;
@@ -80,24 +82,8 @@ class User extends Authenticatable
         return $this->hasMany(Blog::class);
     }
 
-    public function credits(){
-        return $this->hasMany(Credit::class);
-    }
-
     public function referrals(){
         return $this->hasMany(Referral::class);
-    }
-
-    public function getTotalCreditsAttribute(){
-        $total = 0;
-        if(count($this->credits) == 0)
-            return 0;
-        foreach($this->credits as $c)
-        {
-            if(!isset($c->invoiceCreditRedemption->id))
-                $total += $c->value;
-        }
-        return $total;
     }
 
     public function getRoleAttribute(){
@@ -261,5 +247,75 @@ class User extends Authenticatable
         $string = str_replace(' ', '', $string);
 
         return preg_replace('/[^A-Za-z0-9\-.@]/', '', $string);
+    }
+
+    public function credits(){
+        return $this->hasMany(Credit::class);
+    }
+
+    public function getTotalCreditsAttribute(){
+        $total = 0;
+        if(count($this->credits) == 0)
+            return 0;
+        foreach($this->credits as $c)
+        {
+            if(!isset($c->invoiceCreditRedemption->id))
+                $total += $c->value;
+        }
+        return $total;
+    }
+
+    public function getApplicableDiscount(int $price)
+    {
+        $max_credits_discount = round($price * 0.3);
+        $discount = 0;
+        if($this->totalCredits * 0.1 <= $max_credits_discount)
+            return $this->totalCredits * 0.1;
+        return $max_credits_discount;
+    }
+
+    public function redeemCredits(Invoice $invoice)
+    {
+        $price = $invoice->total == 0 ? $invoice->total : $invoice->sub_total;
+
+        $discount = 0;
+        $max_credits_discount = round($price * 0.3);
+        $redeemedCredits = 0;
+
+        if(count($this->credits) == 0)
+            return 0;
+        foreach($this->credits as $c)
+        {
+            if(!isset($c->invoiceCreditRedemption->id))
+            {
+                $newDiscount = $discount + $c->value * 0.1;
+                if($newDiscount >= $max_credits_discount)
+                    break;
+
+                $icr = InvoiceCreditRedemption::create([
+                    'credit_id' => $c->id,
+                    'invoice_id' => $invoice->id
+                ]);
+                $redeemedCredits += $c->value;
+                $discount += round($c->value * 0.1);
+
+
+            }
+        }
+
+        if($redeemedCredits > 0)
+        {
+            $caption = "You have redeemed referrals credit on Emploi";
+            $contents = "
+            Emploi offers a transparent <a href='".url('/refer')."'>Referral Scheme</a> which you used to invite your friends. <br>
+            $redeemedCredits Credits have been redeemed and your checkout price was reduced.
+            <br><br>
+            Thank you for chosing Emploi. <a href='".url('/refer')."'>Refer more friends</a>
+            ";
+            EmailJob::dispatch($this->name, $this->email, 'Emploi Referral Credits Redeemed', $caption, $contents);
+        }
+
+
+        return $discount;
     }
 }

@@ -81,8 +81,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </p>
 
         @endif
-
-        @include('components.employers.covid19')
         @include('components.ads.responsive')
 
 

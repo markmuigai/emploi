@@ -1,5 +1,6 @@
 <div class="top-search py-4">
     <div class="container">
+        @include('components.employers.covid19')
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>{{ __('jobs.top_industries') }}</h5>

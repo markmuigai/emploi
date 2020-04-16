@@ -37,22 +37,6 @@ class Invoice extends Model
 
         return $total;
 
-    	$total_credits = 0;
-    	if(count($this->invoiceCreditRedemptions) > 0)
-    	{
-    		for($i=0; $i<count($this->invoiceCreditRedemptions); $i++)
-    			$total_credits += $this->invoiceCreditRedemptions[$i]->credit->value;
-    	}
-
-    	$discount = round($total_credits * 0.1);
-
-    	$max_price_discount = $total * 0.3;
-
-    	if($discount > $max_price_discount)
-    		$discount = $max_price_discount;
-
-    	return $total - $discount;
-
     }
 
     public static function generateUniqueSlug($length = 11) {

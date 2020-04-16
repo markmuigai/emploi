@@ -13,8 +13,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 $event = $meetup;
 ?>
 
-@include('components.employers.covid19')
-
 <form method="POST" action="/events/{{ $event->slug }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')

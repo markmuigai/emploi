@@ -61,7 +61,6 @@ if(isset($name))
         </p>
     </div>
     @endif
-    @include('components.employers.covid19')
     @include('components.ads.responsive')
 </div>
 

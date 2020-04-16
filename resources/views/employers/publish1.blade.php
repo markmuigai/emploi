@@ -140,7 +140,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <br>
     </div>
 
-    @include('components.employers.covid19')
 </div>
 
 <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>

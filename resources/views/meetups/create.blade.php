@@ -9,8 +9,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title','Create an Event')
 @section('content')
 
-
-@include('components.employers.covid19')
 <form method="POST" action="/events" enctype="multipart/form-data">
     @csrf
     <div class="card">

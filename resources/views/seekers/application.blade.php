@@ -56,6 +56,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p><i>Resume was attached from your profile</i></p>
     </div>
 </div>
-@include('components.employers.covid19')
 
 @endsection

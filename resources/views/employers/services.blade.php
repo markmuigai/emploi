@@ -7,7 +7,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@include('components.employers.covid19')
 <div class="container pb-5">
     <div class="card about">
         <div class="card-body text-center">

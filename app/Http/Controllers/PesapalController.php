@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Contact;
 use App\InviteLink;
 use App\Invoice;
+use App\InvoiceCreditRedemption;
 use App\Order;
 use App\Product;
 use App\ProductOrder;
@@ -25,13 +26,31 @@ class PesapalController extends Controller
 {
     public function checkout(Request $request)
     {
+        //Auth::user()->redeemCredits(1000);
 
         if(isset($request->product))
+        {
+            $request->session()->forget('checkout_days_duration');
+            $request->session()->forget('checkout_price');
             $request->session()->put('product', $request->product);
+        }
     	
     	if($request->session()->has('product') && !isset($request->createInvoice))
     	{
     		$product = Product::where('slug',session('product'))->firstOrFail();
+            if(isset($request->days_duration))
+            {
+                if($product->days_duration == 30)
+                {
+                    $finalPrice = round($request->days_duration / $product->days_duration * $product->price);
+                    if($request->days_duration == 365)
+                        $finalPrice = $product->price * 11;
+                }
+                
+
+                $request->session()->put('checkout_days_duration', $request->days_duration);
+                $request->session()->put('checkout_price', $finalPrice);
+            }
     		return view('pesapal.checkout')
     				->with('product',$product);
     	}
@@ -109,11 +128,24 @@ class PesapalController extends Controller
                 'slug' => Order::generateUniqueSlug(19)
             ]);
 
-            ProductOrder::create([
+            $duration = $product->days_duration;
+            $price = $product->price;
+
+            if(session('checkout_days_duration') && session('checkout_price'))
+            {
+                $duration = session('checkout_days_duration');
+                $price = session('checkout_price');
+            }
+
+            
+
+            
+
+            $productOrder = ProductOrder::create([
                 'order_id' => $order->id, 
                 'product_id' => $product->id,
-                'days_duration' => $product->days_duration,
-                'price' => $product->price
+                'days_duration' => $duration,
+                'price' => $price
             ]);
 
             $invoice = Invoice::create([
@@ -123,8 +155,12 @@ class PesapalController extends Controller
                 'last_name' => $request->last_name,
                 'phone_number' => isset($request->phone_number) ? $request->prefix.$request->phone_number : null,
                 'email' => $request->email,
-                'description' => $product->description
+                'description' => $product->description,
+                'sub_total' => $price
             ]);
+
+            $productOrder->price -= $user->redeemCredits($invoice);
+            $productOrder->save();
 
             $request->session()->forget('product');
 

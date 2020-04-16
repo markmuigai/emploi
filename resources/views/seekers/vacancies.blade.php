@@ -50,12 +50,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @if(isset($search_vtype) || isset($search_ind) || isset($search_location) || isset($search_query))
         <button type="reset" name="button" class="btn btn-sm btn-danger ml-3"><a href="/vacancies">Reset</a></button>
         @endif
-        <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-orange-alt">Request CV Editing</a>
+        <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-orange-alt">CV Editing</a>
         <a href="/employers/publish" class="btn btn-orange">Advertise here</a>
+        <a href="/events" class="btn btn-orange-alt">Events</a>
         <hr>
     </div>
 </form>
-@include('components.employers.covid19')
 <!-- JOB CARD -->
 <?php $adsCounter = 0; ?>
 @forelse($posts as $post)

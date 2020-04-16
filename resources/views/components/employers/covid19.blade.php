@@ -5,13 +5,13 @@
 	<div class="col-md-10 offset-md-1 responseSlider">
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/promotions/free-job-posting.jpg" alt="Free job posting for companies involved in the fight against Covid-19" class="col-md-5">
-				<div class="col-md-7">
+				<img src="/images/promotions/united-against-covid-19.png" alt="Free job posting for companies involved in the fight against Covid-19" class="col-md-4">
+				<div class="col-md-8">
 					<p>
 						<b>Emploi is posting vacancies for Free</b>, for companies involved in the fight against Covid-19 <br>
 					</p>
 					<p>
-						Employers can <a class="orange" href="/employers/publish#advertise-form">fill this form</a>, write to us at <a class="orange" href="mailto:freepostings@emploi.co">freepostings@emploi.co</a> or call us on <a class="orange" href="tel:+254702068282">0702 068 282</a> to have their vacancy posted. 
+						Employers can <a class="orange" href="/post-a-job">fill this form</a>, write to us at <a class="orange" href="mailto:freepostings@emploi.co">freepostings@emploi.co</a> or call us on <a class="orange" href="tel:+254702068282">0702 068 282</a> to have their vacancy posted. 
 					</p>
 					<p>
 						<a href="/employers" class="btn btn-orange-alt">Learn More</a>
@@ -34,7 +34,7 @@
 						<a href="/job-seekers/cv-editing" class="btn btn-orange">Get 50% Off CV Editing</a>
 					</p>
 				</div>
-				<img src="/images/promotions/get-free-cv-review.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">
+				<img src="/images/promotions/slashed-prices-on-cv-editing.png" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">
 			</div>
 		</div>
 		<div class="card">

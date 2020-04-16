@@ -125,11 +125,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @include('components.search-form')
 <!-- END OF SEARCH BAR -->
 
-@include('components.employers.covid19')
+
 
 <!-- ABOUT SECTION -->
 <div class="about">
     <div class="container">
+
         <div class="card pb-5">
             <div class="card-body text-center">
                 <h2 class="orange">{{ __('other.who_r_we') }}?</h2>
@@ -139,10 +140,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/employers/publish" class="btn btn-orange-alt px-4">{{ __('jobs.advert_jobs') }}</a>
             </div>
         </div>
+
     </div>
 </div>
-<!-- END OF ABOUT SESSION -->
 @include('components.stats')
+<!-- END OF ABOUT SESSION -->
+
 <!-- SERVICES -->
 <div class="services my-3">
     <div class="container">

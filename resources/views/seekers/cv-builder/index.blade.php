@@ -286,7 +286,6 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
         </form>
         <div>
-            @include('components.employers.covid19')
             @include('components.featuredJobs')
         </div>
     </div>

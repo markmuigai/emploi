@@ -262,6 +262,7 @@
       <!-- disable body scroll which navbar is in active -->
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+      @include('components.tawk')
       <script>
         $(document).ready(function () {
           $('.popup-with-zoom-anim').magnificPopup({

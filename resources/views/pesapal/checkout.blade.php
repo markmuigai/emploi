@@ -25,29 +25,61 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 						</div>
 						<span class="text-muted">{{ $product->getPrice() }}</span>
 					</li>
+					@if($product->days_duration == 30)
+					<form class="list-group-item d-flex justify-content-between" method="POST" action="/checkout" id="days_duration_form">
+						@csrf
+						<input type="hidden" name="product" value="{{ $product->slug }}">
+						<span>Duration </span>
+						<select class="btn btn-sm btn-orange" id="days_duration" name="days_duration">
+							<option value="30" {{ session('checkout_days_duration') && session('checkout_days_duration') == 30 ? 'selected=""' : '' }}>1 Month</option>
+							<option value="365" {{ session('checkout_days_duration') && session('checkout_days_duration') == 365 ? 'selected=""' : '' }}>1 Year</option>
+							@if(session('checkout_days_duration'))
+								@if(session('checkout_days_duration') != 30 && session('checkout_days_duration') != 365)
+								<option value="{{ session('checkout_days_duration') }}" selected="">Custom {{ session('checkout_days_duration') }} day(s)</option>
+								@endif
+							@endif
+						</select>
+					</form>
+					<script type="text/javascript">
+						$().ready(function(){
+							$('#days_duration').change(function(){
+								$('#days_duration_form').submit();
+							});
+						});
+					</script>
+						
+					@endif
 					@guest
-					<li class="list-group-item d-flex justify-content-between">
-						<span>Total </span>
-						<strong>Ksh {{ $product->price }}</strong>
-					</li>
+						<li class="list-group-item d-flex justify-content-between">
+							<span>Total </span>
+							<strong>Ksh {{ session('checkout_price') ?? $product->price }}</strong>
+						</li>
 					@else
-					<li class="list-group-item d-flex justify-content-between bg-light">
-						<div class="text-success">
-							<h6 class="my-0">Discount</h6>
-							<small>Referral Credits</small>
-						</div>
-						<span class="text-success">-Ksh {{ $product->applicableDiscountFor(Auth::user()) }}</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between">
-						<span>Total </span>
-						<strong>Ksh {{ $product->price - $product->applicableDiscountFor(Auth::user()) }}</strong>
-					</li>
+						<li class="list-group-item d-flex justify-content-between bg-light">
+							<div class="text-success">
+								<h6 class="my-0">Referral Credits</h6>
+								<small>Discount</small>
+							</div>
+							<span class="text-success">-Ksh {{ Auth::user()->getApplicableDiscount(session('checkout_price') ?? $product->price) }}</span>
+						</li>
+						<li class="list-group-item d-flex justify-content-between">
+							<span>Total </span>
+							<strong>
+								Ksh 
+								@if(session('checkout_price'))
+									{{ session('checkout_price') - Auth::user()->getApplicableDiscount(session('checkout_price') ?? $product->price) }}
+								@else
+									{{ $product->price - Auth::user()->getApplicableDiscount(session('checkout_price') ?? $product->price) }}
+								@endif
+								
+							</strong>
+						</li>
 					@endguest
 					
 				</ul>
 				<hr>
 				<p style="text-align: center;">
-					<a href="#similar-products" class="btn btn-orange-alt">View Other Packages</a>
+					<a href="#similar-products" class="btn btn-orange-alt">View Other Products</a>
 				</p>
 				
 			</div>

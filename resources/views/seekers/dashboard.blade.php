@@ -97,8 +97,6 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 
 @else
 
-@include('components.employers.covid19')
-
 @include('components.ads.responsive')
 
 @endif
