@@ -29,6 +29,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <option value="employers-advertise">Advertising Request Users</option>
                         <option value="referees">Referees</option>
                         <option value="hot_leads_emails">Hot Leads Emails</option>
+                        <option value="referred_but_pending">Referred but Pending</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">

@@ -818,8 +818,7 @@ class AdminController extends Controller
                 $team = [
                     ['brian@emploi.co','Obare C. Brian'],
                     ['sophy@emploi.co','Sophy Mwale'],
-                    ['phinney@emploi.co','Phinney Asca'],
-                    ['john@emploi.co','John'],
+                    ['derrick@emploi.co','Derrick Brian'],
                     ['simon@emploi.co','Simon'],
                     ['silvia@emploi.co','Silvia Kamau'],
                     ['david@emploi.co','David'],
@@ -935,6 +934,21 @@ class AdminController extends Controller
                 {
                     die("File $file not found");
                 }
+                break;
+            case 'referred_but_pending':
+                $users = Referral::where('status','pending')->get();
+                for($i=0; $i<count($users); $i++)
+                {
+                    $user = User::where('email',$users[$i]->email)->first();
+                    if(!isset($user->id) && User::subscriptionStatus($users[$i]->email))
+                    {
+                        $email = $users[$i]->email;
+                        $name = $users[$i]->name ? $users[$i]->name : 'there';
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'team@emploi.co',$url);
+                    }
+                }
+                break;
+
                 break;
 
                 
