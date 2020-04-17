@@ -3,7 +3,7 @@
 @section('title','Emploi :: '.$blog->title)
 
 @section('description')
-{!!html_entity_decode($blog->longPreview(500))!!}
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('meta-include')
