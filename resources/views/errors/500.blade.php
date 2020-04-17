@@ -22,6 +22,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $().ready(function(){
+        window.location = '/home';
+    });
+</script>
 <?php
     $code = '500: Internal Server Error';
     $url = url()->current();
