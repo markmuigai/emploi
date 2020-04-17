@@ -8,8 +8,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @section('meta-include')
 <meta property="og:url"           content="{{ url('/blog/'.$blog->slug) }}/" />
-<meta property="og:title"         content="{{ $blog->title }}" />
-<meta property="og:description"   content="Career Centre Blog on {{ $blog->category->name }}" />
+<meta property="og:title"         content="Welcome to Emploi - The Premier Online Job Placement Platform in Africa" />
+<meta property="og:description"   content="{{ $blog->category->name }} - {{ $blog->title }}" />
 
 <meta property="og:image" content="{{ asset($blog->imageUrl) }}">
 <meta property="og:image:width"   content="900" />
