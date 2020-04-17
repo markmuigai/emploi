@@ -16,6 +16,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="row mb-4">
     <?php $adsCounter=0; ?>
     @forelse($companies as $c)
+    @if(!$c->name)
+        @continue
+    @endif
     <div class="col-lg-4 col-md-6 col-12">
         <div class="card">
             <div class="card-body text-center">
