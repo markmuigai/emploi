@@ -1,9 +1,9 @@
 @extends('layouts.general-layout')
 
-@section('title','Welcome to Emploi - Online Placement Platform for Africa')
+@section('title','Welcome to Emploi - The Premier Online Job Placement Platform in Africa')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace. 
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('content')
@@ -70,7 +70,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="landing">
     <div class="container">
         <div class="content2">
-            <a href="/employers/publish">See how we are supporting companies and individuals in the fight against COVID-19</a>
+            <a href="/covid19-information-series">See how we are supporting companies and individuals in the fight against COVID-19</a>
         </div>
         <div class="content">
 

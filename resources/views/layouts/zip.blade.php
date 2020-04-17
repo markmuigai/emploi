@@ -64,6 +64,7 @@
   </nav>
 </div>
 @yield('content')
+@if(!isset($disableZipFooter))
 <section class="w3l-index-block10">
   <div class="new-block top-bottom">
     <div class="container">
@@ -80,6 +81,7 @@
     </div>
     </div>
   </section>
+@endif
 <!-- index-block8 -->
 <section class="w3l-index-block8 py-5">
   <div class="container py-md-3 text-center">

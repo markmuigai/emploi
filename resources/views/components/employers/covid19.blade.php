@@ -76,7 +76,7 @@
 				
 				<div class="col-md-12">
 					<h4>
-						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" style="font-weight: bold">Emploi’s annual CV writing masterclass- and this time it’s online!</a>
+						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" style="font-weight: bold">Emploi’s Annual CV Writing Masterclass- and this time it’s online!</a>
 					</h4>
 					<p>
 						Agenda includes Addressing simple CV Mistakes, CV that transcends Borders and continents, Cover letters, productive job search during the Covid-19 pandemic, and using the EMPLOI #informationseries to solidify your economic and mental status during and even after this pandemic.
