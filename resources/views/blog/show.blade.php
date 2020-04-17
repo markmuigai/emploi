@@ -3,7 +3,7 @@
 @section('title','Emploi :: '.$blog->title)
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+{!!html_entity_decode($blog->longPreview(500))!!}
 @endsection
 
 @section('meta-include')
@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
             @else
                 <p>
-                    {!!html_entity_decode($blog->longPreview(500))!!}
+                    {!!html_entity_decode($blog->longPreview(1000))!!}
                 </p>
                 <br><br>
                 <p style="text-align: center;">

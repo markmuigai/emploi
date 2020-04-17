@@ -92,7 +92,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <option value="{{ $ap->id }}">{{ $ap->title }}</option>
                                 @endforeach
                             </select>
-                            <input type="submit" class="btn btn-orange-alt btn-sm" value="Apply for {{ $s->public_name }}">
+                            <input type="submit" class="btn btn-orange-alt btn-sm" value="Shortlist {{ $s->public_name }}">
                         </form>
                         @endif
                     </div>

@@ -3,7 +3,7 @@
 @section('title','Events' )
 
 @section('description')
-Emploi Events is the place to find career transformational Conferences, Seminars and Webinars for a successful career.
+Emploi Events is the place to find Career Transformational Conferences, Seminars and Webinars for a successful career.
 @endsection
 
 @section('content')
