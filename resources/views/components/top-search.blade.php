@@ -17,6 +17,11 @@
                     <li><a href="/vacancies/customer-service">Customer Service Jobs</a></li>
                     <li><a href="/vacancies/project-management">Project Management</a></li>
                     <li><a href="/vacancies/graduate-jobs">Graduate Jobs</a></li>
+                    <li><a href="/vacancies/healthcare">Healthcare & Pharmaceutical</a></li>
+                    <li><a href="/vacancies/farming">Farming & Agribusiness</a></li>
+                    <li><a href="/vacancies/banking">Banking & Financial Services</a></li>
+                    <li><a href="/vacancies/management">CEO & General Management</a></li>
+                    <li><a href="/vacancies/creative-design">Creative & Design</a></li>
                 </ul>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
@@ -69,7 +74,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5> <a href="/blog">{{ __('other.blogs') }}</a></h5>
                 <ul>
-                    @forelse(\App\Blog::recent(8) as $v)
+                    @forelse(\App\Blog::recent(6) as $v)
                     <li class="mb-1">
                         <a href="/blog/{{ $v->slug }}">{{ $v->title }}</a>
                     </li>

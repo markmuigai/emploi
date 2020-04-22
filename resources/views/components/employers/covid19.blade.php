@@ -83,7 +83,7 @@
 					</p>
 					<p>
 						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" class="btn btn-orange-alt">Read More</a>
-						<a href="https://emploi.co/events/cv-writing-webinar" class="btn btn-orange-alt">View Event</a>
+						<a href="https://emploi.co/events/cv-writing-webinar" class="btn btn-orange-alt" style="float: right;">View Event</a>
 						<a href="/blog" class="btn btn-orange">Emploi Career Centre</a>
 					</p>
 				</div>
