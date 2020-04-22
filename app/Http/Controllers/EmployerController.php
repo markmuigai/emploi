@@ -494,10 +494,12 @@ class EmployerController extends Controller
         $counter = [];
         $labels = [];
 
-        for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
+        $weekApplicationsCounter = Auth::user()->employer->weekApplicationsCounter;
+
+        for($i=0; $i<count($weekApplicationsCounter); $i++)
         {
-            $counter[] = Auth::user()->employer->weekApplicationsCounter[$i][0];
-            $labels[] = Auth::user()->employer->weekApplicationsCounter[$i][1];
+            $counter[] = $weekApplicationsCounter[$i][0];
+            $labels[] = $weekApplicationsCounter[$i][1];
         }
 
         return array($counter,$labels);

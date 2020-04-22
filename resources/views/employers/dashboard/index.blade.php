@@ -14,18 +14,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-7">
             <h6>Recent Applications </h6>
             <ul>
-                @if(count($recentApplications) > 0)
-                    @for($i=0; $i < count($recentApplications); $i++)
+                @forelse($recentApplications as $application)
+
                     <li>
-                        <a href="/employers/browse/{{ $recentApplications[$i]->user->username }}">
-                            {{ $recentApplications[$i]->user->name }}
+                        <a href="/employers/browse/{{ $application->username }}">
+                            {{ $application->name }}
+                            <?php $c = \Carbon\Carbon::createFromDate($application->created_at); ?>
                         </a> applied for 
-                        <a href="/employers/applications/{{ $recentApplications[$i]->post->slug }}">{{ $recentApplications[$i]->post->title }}</a> job, {{ $recentApplications[$i]->created_at->diffForHumans() }}
+                        <a href="/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job, {{ $c->diffForHumans() }}
                     </li>
-                    @endfor
-                @else
-                <li>No Applications have been received</li>
-                @endif
+
+                @empty
+
+                    <li>No Applications have been received</li>
+                @endforelse
             </ul>
         </div>
         <div class="col-md-5" id="stats-field">

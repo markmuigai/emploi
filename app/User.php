@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Watson\Rememberable\Rememberable;
 
 use App\Invoice;
 use App\InvoiceCreditRedemption;
@@ -23,7 +24,8 @@ use App\Traits\CanMeetup;
 
 class User extends Authenticatable
 {
-    use Notifiable, CanLike, CanEditCv, CanBlog, CanMeetup;
+    use Notifiable, CanLike, CanEditCv, CanBlog, CanMeetup, Rememberable;
+    public $rememberFor = 3;
     
     protected $fillable = [
         'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password','created_at'

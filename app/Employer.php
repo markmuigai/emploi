@@ -17,7 +17,8 @@ use App\Jobs\EmailJob;
 
 class Employer extends Model
 {
-    use Notifiable; 
+    use Notifiable, Rememberable; 
+    public $rememberFor = 3;
     
     protected $fillable = [
         'user_id', 'name', 'industry_id','company_name', 'contact_phone','company_phone','company_email','country_id','address','credits','created_at'
@@ -314,13 +315,28 @@ class Employer extends Model
         $p = "SELECT id FROM posts WHERE company_id IN $companies";
         $p = DB::select($p);
 
-        $posts = [];
+        // $posts = [];
+        // for($i=0; $i<count($p); $i++)
+        //     $posts[] = $p[$i]->id;
+
+        // $applications = JobApplication::whereIn('post_id',$posts)->get();
+
+        $posts = '(';
         for($i=0; $i<count($p); $i++)
-            $posts[] = $p[$i]->id;
+        {
+            $posts .= $p[$i]->id;
+            if($i < count($p)-1)
+                $posts .= ',';
+        }
+        $posts .= ')';
 
-        $applications = JobApplication::whereIn('post_id',$posts)->get();
+        if($posts == '()')
+            return array();
 
-        
+        $sql = "SELECT users.username, users.name, posts.slug, posts.title, job_applications.id, job_applications.user_id, job_applications.post_id, job_applications.created_at FROM job_applications LEFT JOIN users ON users.id = job_applications.user_id LEFT JOIN posts ON posts.id = job_applications.post_id WHERE job_applications.post_id IN  $posts ORDER BY job_applications.created_at DESC LIMIT $counter ";
+
+        $applications = DB::select($sql);
+
         return $applications;
 
         dd($a);

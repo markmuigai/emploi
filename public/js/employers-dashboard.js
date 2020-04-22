@@ -1,1 +1,184 @@
-!function(t){var e={};function r(n){if(e[n])return e[n].exports;var o=e[n]={i:n,l:!1,exports:{}};return t[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=t,r.c=e,r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},r.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},r.t=function(t,e){if(1&e&&(t=r(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)r.d(n,o,function(e){return t[e]}.bind(null,o));return n},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p="/",r(r.s=40)}({40:function(t,e,r){t.exports=r(41)},41:function(t,e){var r=[],n=[],o=document.getElementById("myChart");$().ready((function(){function t(){$.ajax({type:"GET",url:"/employers/dashboard-data?csrf-token="+$("#csrf_token").attr("content"),success:function(t){for(var e=t[0],a=t[1],i=0;i<e.length;i++)r[r.length]=e[i],n[n.length]=a[i];new Chart(o,{type:"line",data:{labels:n,datasets:[{label:"Number of Applications",data:r,borderColor:"rgb(232, 135, 37)",backgroundColor:"rgba(0,0,0,0)"}]},options:{scales:{yAxes:[{ticks:{beginAtZero:!0}}]},title:{display:!0,text:"Total Applications over the Past Week"},legend:{boxWidth:20}},maintainAspectRatio:!1})},error:function(t){notify("Failed to Statistics","error")}})}function e(){$.ajax({type:"GET",url:"/employers/dashboard-stats?csrf-token="+$("#csrf_token").attr("content"),success:function(t){$("#stats-field").children().remove(),$("#stats-field").append(t)},error:function(t){notify("Failed to Statistics","error")}})}t(),e(),setInterval(e,6e4),setInterval(t,6e4)}))}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./resources/js/employers-dashboard.js":
+/*!*********************************************!*\
+  !*** ./resources/js/employers-dashboard.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var graph_data = [];
+var graph_labels = [];
+var ctx = document.getElementById('myChart');
+var myChart = false;
+$().ready(function () {
+  function loadJobApplications() {
+    $.ajax({
+      type: 'GET',
+      url: '/employers/dashboard-data?csrf-token=' + $('#csrf_token').attr('content'),
+      success: function success(response) {
+        var g_data = response[0];
+        var g_labels = response[1];
+
+        for (var i = 0; i < g_data.length; i++) {
+          graph_data[graph_data.length] = g_data[i];
+          graph_labels[graph_labels.length] = g_labels[i];
+        }
+
+        myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: graph_labels,
+            datasets: [{
+              label: 'Number of Applications',
+              data: graph_data,
+              borderColor: 'rgb(232, 135, 37)',
+              // backgroundColor: 'rgba(253, 242, 232, 0.5)',
+              backgroundColor: 'rgba(0,0,0,0)'
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            },
+            title: {
+              display: true,
+              text: "Total Applications over the Past Week"
+            },
+            legend: {
+              boxWidth: 20
+            }
+          },
+          maintainAspectRatio: false
+        });
+      },
+      error: function error(e) {
+        notify('Failed to Statistics', 'error');
+      }
+    });
+  }
+
+  function loadStats() {
+    $.ajax({
+      type: 'GET',
+      url: '/employers/dashboard-stats?csrf-token=' + $('#csrf_token').attr('content'),
+      success: function success(response) {
+        $('#stats-field').children().remove();
+        $('#stats-field').append(response);
+      },
+      error: function error(e) {
+        notify('Failed to Statistics', 'error');
+      }
+    });
+  }
+
+  loadJobApplications();
+  loadStats();
+  setInterval(loadStats, 60000);
+});
+
+/***/ }),
+
+/***/ 1:
+/*!***************************************************!*\
+  !*** multi ./resources/js/employers-dashboard.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /home/jackgreenly/laravel7/emploi/resources/js/employers-dashboard.js */"./resources/js/employers-dashboard.js");
+
+
+/***/ })
+
+/******/ });
