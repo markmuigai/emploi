@@ -106,7 +106,9 @@ class BlogController extends Controller
         if($id == 'search')
         {
             $q = isset($request->q) ? $request->q : ' ';
-            $blogs = Blog::where('status','active')->where('title','like','%'.$q.'%')
+            $blogs = Blog::where('status','active')
+                    ->where('title','like','%'.$q.'%')
+                    ->orWhere('contents','like','%'.$q.'%')
                     ->where('status','active')
                     ->orderBy('id','DESC')
                     ->paginate(13);
