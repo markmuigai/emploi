@@ -297,6 +297,34 @@ class Employer extends Model
 
     public function recentApplications($counter = 5){
         $posts = array();
+        $c = "SELECT id FROM companies WHERE user_id = ".$this->user->id;
+        $c = DB::select($c);
+        $companies = '(';
+        for($i=0; $i<count($c); $i++)
+        {
+            $companies .= $c[$i]->id;
+            if($i < count($c)-1)
+                $companies .= ',';
+        }
+        $companies .= ')';
+
+        if($companies == '()')
+            return array();
+
+        $p = "SELECT id FROM posts WHERE company_id IN $companies";
+        $p = DB::select($p);
+
+        $posts = [];
+        for($i=0; $i<count($p); $i++)
+            $posts[] = $p[$i]->id;
+
+        $applications = JobApplication::whereIn('post_id',$posts)->get();
+
+        
+        return $applications;
+
+        dd($a);
+
         for($i=0; $i<count($this->companies); $i++)
         {
             for($k=0; $k<count($this->companies[$i]->posts); $k++)
