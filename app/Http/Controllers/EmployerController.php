@@ -484,45 +484,21 @@ class EmployerController extends Controller
         $featuredSeekers = Seeker::where('featured','>',0)->get();
         $recentApplications = Auth::user()->employer->recentApplications();
 
-        $counter = '[';
-        $labels = '[';
-        $weekelyCount = Auth::user()->employer->weekApplicationsCounter;
-        for($i=0; $i<count($weekelyCount); $i++)
-        {
-            $counter .= $weekelyCount[$i][0];
-            $labels .= '"'.$weekelyCount[$i][1].'"';
-            if(count($weekelyCount) != $i-1)
-            {
-                $counter.=',';
-                $labels.=',';
-            }
-        }
-        $counter .= ']';
-        $labels .= ']';
-
         return view('employers.dashboard.index')
                 ->with('featuredSeekers',$featuredSeekers)
                 ->with('recentApplications',$recentApplications)
-                ->with('graph_counter',$counter)
-                ->with('graph_labels',$labels)
                 ->with('industries',Industry::active());
     }
 
     public function dashboardData(){
-        $counter = '[';
-        $labels = '[';
+        $counter = [];
+        $labels = [];
+
         for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
         {
-            $counter .= Auth::user()->employer->weekApplicationsCounter[$i][0];
-            $labels .= '"'.Auth::user()->employer->weekApplicationsCounter[$i][1].'"';
-            if(count(Auth::user()->employer->weekApplicationsCounter) != $i-1)
-            {
-                $counter.=',';
-                $labels.=',';
-            }
+            $counter[] = Auth::user()->employer->weekApplicationsCounter[$i][0];
+            $labels[] = Auth::user()->employer->weekApplicationsCounter[$i][1];
         }
-        $counter .= ']';
-        $labels .= ']';
 
         return array($counter,$labels);
     }
