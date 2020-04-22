@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <section class="w3l-index-block2 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
+      <br>
       <h3 class="head">Advertisement Created</h3>
       <p class="my-3 head"> 
         Hello {{ $advert->name }},<br>
