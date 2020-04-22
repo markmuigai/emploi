@@ -162,9 +162,7 @@ $().ready(function () {
     });
   }
 
-  loadJobApplications();
-  loadStats();
-  setInterval(loadStats, 60000);
+  loadJobApplications(); //loadStats();
 });
 
 /***/ }),

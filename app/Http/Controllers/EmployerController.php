@@ -506,6 +506,7 @@ class EmployerController extends Controller
     }
 
     public function dashboardStats(){
+        return '<h6>My Statistics</h6>';
         $user = Auth::user();
 
         return '<h6>My Statistics</h6>
