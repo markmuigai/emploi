@@ -8,24 +8,27 @@ use App\Referee;
 use App\SeekerApplication;
 
 use App\Jobs\EmailJob;
+use Watson\Rememberable\Rememberable;
 
 class JobApplication extends Model
 {
+    use Rememberable;
+    public $rememberFor = 10;
 
     protected $fillable = [
         'user_id','post_id','cover','status'
     ];
 
     public function post(){
-    	return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class);
     }
 
     public function user(){
-    	return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function interviewResults(){
-    	return $this->hasMany(InterviewResult::class);
+        return $this->hasMany(InterviewResult::class);
     }
 
     public function seekerPreviousCompanySizes(){
