@@ -14,16 +14,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-7">
             <h6>Recent Applications </h6>
             <ul>
-                @if(count(Auth::user()->employer->recentApplications()) > 0)
-                    <?php
-                        $recent = Auth::user()->employer->recentApplications();
-                    ?>
-                    @for($i=0; $i < count($recent); $i++)
+                @if(count($recentApplications) > 0)
+                    @for($i=0; $i < count($recentApplications); $i++)
                     <li>
-                        <a href="/employers/browse/{{ $recent[$i]->user->username }}">
-                            {{ $recent[$i]->user->name }}
+                        <a href="/employers/browse/{{ $recentApplications[$i]->user->username }}">
+                            {{ $recentApplications[$i]->user->name }}
                         </a> applied for 
-                        <a href="/employers/applications/{{ $recent[$i]->post->slug }}">{{ $recent[$i]->post->title }}</a> job, {{ $recent[$i]->created_at->diffForHumans() }}
+                        <a href="/employers/applications/{{ $recentApplications[$i]->post->slug }}">{{ $recentApplications[$i]->post->title }}</a> job, {{ $recentApplications[$i]->created_at->diffForHumans() }}
                     </li>
                     @endfor
                 @else
@@ -38,13 +35,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <div class="card mt-4">
-    <?php $seekers = \App\Seeker::where('featured','>',0)->get(); ?>
-    @if(count($seekers) > 0)
+    @if(count($featuredSeekers) > 0)
     <div class="row">
         <div class="col-md-12">
             <h4 class="orange" style="text-align: center;">Featured Job Seekers</h4>
         </div>
-        @foreach($seekers as $seeker)
+        @foreach($featuredSeekers as $seeker)
             <div class="col-md-3" style="text-align: center;">
                 <a href="/employers/browse/{{$seeker->user->username}}">{{ $seeker->user->name }}</a>
                     <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" style="width: 100%" alt="{{ $seeker->user->username }}">
@@ -67,25 +63,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script>
     <?php
-
-    $counter = '[';
-    $labels = '[';
-    $weekelyCount = Auth::user()->employer->weekApplicationsCounter;
-    for($i=0; $i<count($weekelyCount); $i++)
-    {
-        $counter .= $weekelyCount[$i][0];
-        $labels .= '"'.$weekelyCount[$i][1].'"';
-        if(count($weekelyCount) != $i-1)
-        {
-            $counter.=',';
-            $labels.=',';
-        }
-    }
-    $counter .= ']';
-    $labels .= ']';
     
-    echo "var graph_data = $counter;";
-    echo "var graph_labels = $labels;";
+    echo "var graph_data = $graph_counter;";
+    echo "var graph_labels = $graph_labels;";
 
 
     ?>

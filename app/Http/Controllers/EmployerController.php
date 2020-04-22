@@ -481,7 +481,30 @@ class EmployerController extends Controller
 
     public function dashboard(Request $request)
     {
+        $featuredSeekers = Seeker::where('featured','>',0)->get();
+        $recentApplications = Auth::user()->employer->recentApplications();
+
+        $counter = '[';
+        $labels = '[';
+        $weekelyCount = Auth::user()->employer->weekApplicationsCounter;
+        for($i=0; $i<count($weekelyCount); $i++)
+        {
+            $counter .= $weekelyCount[$i][0];
+            $labels .= '"'.$weekelyCount[$i][1].'"';
+            if(count($weekelyCount) != $i-1)
+            {
+                $counter.=',';
+                $labels.=',';
+            }
+        }
+        $counter .= ']';
+        $labels .= ']';
+
         return view('employers.dashboard.index')
+                ->with('featuredSeekers',$featuredSeekers)
+                ->with('recentApplications',$recentApplications)
+                ->with('graph_counter',$counter)
+                ->with('graph_labels',$labels)
                 ->with('industries',Industry::active());
     }
 
