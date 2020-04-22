@@ -321,4 +321,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </div>
 </div>
 
+<script language="JavaScript">
+    window.onbeforeunload = confirmExit;
+    function confirmExit() {
+        return "{{ $product->title }} is ready for checkout. Are you sure?";
+    }
+</script>
+
 @endsection
