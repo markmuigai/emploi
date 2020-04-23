@@ -40,13 +40,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 							@endif
 						</select>
 					</form>
-					<script type="text/javascript">
-						$().ready(function(){
-							$('#days_duration').change(function(){
-								$('#days_duration_form').submit();
-							});
-						});
-					</script>
 						
 					@endif
 					@guest
@@ -321,9 +314,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </div>
 </div>
 
-<script language="JavaScript">
+
+<script>
 	$().ready(function(){
 		var submit_clicked = false;
+
+		$('#days_duration').change(function(){
+			submit_clicked = true;
+			$('#days_duration_form').submit();
+		});
 
 		$('#submitButton').click(function(){
 		    submit_clicked = true;
