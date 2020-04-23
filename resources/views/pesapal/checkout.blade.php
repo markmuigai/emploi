@@ -146,7 +146,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 
 					<hr class="mb-4">
-					<button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+					<button class="btn btn-primary btn-lg btn-block" id="submitButton" type="submit">Continue to checkout</button>
 				</form>
 
 				
@@ -322,10 +322,21 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </div>
 
 <script language="JavaScript">
-    window.onbeforeunload = confirmExit;
-    function confirmExit() {
-        return "{{ $product->title }} is ready for checkout. Are you sure?";
-    }
+	$().ready(function(){
+		var submit_clicked = false;
+
+		$('#submitButton').click(function(){
+		    submit_clicked = true;
+		});
+
+	    window.onbeforeunload = confirmExit;
+
+	    function confirmExit() {
+	    	if (submit_clicked === false) {
+	    		return "{{ $product->title }} is ready for checkout. Are you sure?";
+	    	}
+	    }
+	});
 </script>
 
 @endsection
