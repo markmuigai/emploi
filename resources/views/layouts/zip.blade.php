@@ -75,7 +75,7 @@
         </div>
         <div class="link-list-menu">
             <p class="mb-5">See how we are supporting companies and individuals in the fight against COVID-19</p>
-            <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="btn btn-outline-light btn-more">Read More <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
+            <a href="/covid19-information-series" class="btn btn-outline-light btn-more">Read More <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
         </div>
       </div>
     </div>
