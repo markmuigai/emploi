@@ -80,8 +80,8 @@ class Seeker extends Model
         // 
     }
 
-    public function makePublicName() {
-        $name = $this->user->name;
+    public function makePublicName($name = false) {
+        $name = $name ? $name : $this->user->name;
         $name = explode(" ", $name);
         switch (count($name)) {
             case 0:
