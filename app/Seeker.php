@@ -80,24 +80,6 @@ class Seeker extends Model
         // 
     }
 
-    public function makePublicName($name = false) {
-        $name = $name ? $name : $this->user->name;
-        $name = explode(" ", $name);
-        switch (count($name)) {
-            case 0:
-                return implode(" ", $name);
-                break;
-
-            case 1:
-                return ucwords(implode(" ", $name));
-                break;
-            
-            default:
-                return ucwords(substr($name[0], 0,1).". ".$name[1]);
-                break;
-        }
-    }
-
     public function isBeingViewedBy(User $user){
         if($this->canGetNotifications())
         {

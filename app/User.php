@@ -47,6 +47,23 @@ class User extends Authenticatable
         return strtolower($this->email);
     }
 
+    public static function makePublicName($name) {
+        $name = explode(" ", $name);
+        switch (count($name)) {
+            case 0:
+                return implode(" ", $name);
+                break;
+
+            case 1:
+                return ucwords(implode(" ", $name));
+                break;
+            
+            default:
+                return ucwords(substr($name[0], 0,1).". ".$name[1]);
+                break;
+        }
+    }
+
     public function routeNotificationForSlack($notification)
     {
         return 'https://hooks.slack.com/services/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';
