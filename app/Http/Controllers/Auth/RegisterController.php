@@ -130,7 +130,7 @@ class RegisterController extends Controller
 
         $seeker = Seeker::create([
             'user_id' => $user->id,
-            'public_name' => $username,
+            'public_name' => User::makePublicName($data['name']),
             'gender' => $data['gender'],
             'phone_number' => $country->prefix.$data['phone_number'],
             'country_id' => $data['country'],
