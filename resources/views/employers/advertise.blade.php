@@ -17,7 +17,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       <div class="row align-items-center py-md-5 py-3">
         <div class="col-md-5 content-left pt-md-0 pt-5">
           <h1>Post Your First Job in Minutes</h1>
-          <p class="mt-3 mb-md-5 mb-4">Advertise your job to all of Africa and shortlist with advanced shortlisting tools.</p>
+          <p class="mt-3 mb-md-5 mb-4">Advertise & shortlist your job here and take advantage of our with superieor shortlisting tools, <b>free for 30 days</b>.</p>
           <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Get Started</a>
           		<a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us</a>
           

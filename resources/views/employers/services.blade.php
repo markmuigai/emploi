@@ -13,7 +13,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h1 class="orange">Employer Services</h1>
             <p>
                 Use our Talent database and powerful Search-Sort-Assess-Score engine to cut down your recruitment workload by Up to 70% and your costs By Up to 65%. Get End-to-End powerful Recruitment tools; Process Quality Checks; 90 Day
-                candidate Guarantee.
+                candidate Guarantee. <br>
+                Create an account and shortlist 1 position for free.
                 <br>
                 <a href="/employers/register" class="btn btn-orange">Create Company Profile</a>
                 <a href="/employers/publish" class="btn btn-orange-alt">Advertise on Emploi</a>

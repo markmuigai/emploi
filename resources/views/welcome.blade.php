@@ -231,7 +231,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Advertise Jobs</h5>
-                                        <p class="card-text">Reach an Audience of 100k+ subscribers, Utilize Advanced Recruitment tools and Candidate Ranking Algorithm.</p>
+                                        <p class="card-text">Reach an Audience of 100k+ subscribers, Utilize Advanced Recruitment tools and Candidate Ranking Algorithm. <br><b>Free 30 day trial</b></p>
                                     </div>
                                     <div class="card-footer">
                                         <a href="/employers/publish" class="btn btn-orange">Advertise Here</a>
@@ -374,6 +374,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <h4>{{ __('other.more_than') }} <span class="seeker-stats"><span>2207</span></span> {{ __('other.proffesionals_path') }}</h4>
                 <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
                 <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
+                <a href="/post-a-job" class="btn btn-white px-4">Post a Job</a>
             @else
                 @if(Auth::user()->role == 'seeker')
                     <h1>{{ __('other.find_right_job') }}</h1>
