@@ -67,7 +67,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
         <div class="s-block">
           <a href="/employers" class="d-block p-lg-4 p-3">
             <h3 class="my-3">Free Job Posting</h3>
-            <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus and new employers</p>
+            <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus. <b>New employers get 30 day free trial</b></p>
           </a>
         </div>
       </div>
@@ -94,8 +94,38 @@ See how we are supporting companies and individuals in the fight against COVID-1
       <div class="col-lg-4 mt-5">
         <div class="s-block">
           <a href="https://emploi.co/blog/defining-unemployment-in-kenya-post-covid-19" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">Defining Unemployment In Kenya Post Covid-19</h3>
+            <h3 class="my-3">Defining Unemployment Post Covid-19</h3>
             <p class="">It has come to that time of our lives when you might hear that dreaded “we have to let you go" speech from your boss and you suddenly realize that you have to start searching for a new job...</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row bottom_grids pt-md-3">
+      <div class="col-lg-4 mt-5">
+        <div class="s-block">
+          <a href="https://emploi.co/events/cv-writing-webinar" class="d-block p-lg-4 p-3">
+            <h3 class="my-3"> Professional CV writing masterclass Webinar</h3>
+            <p class="">
+            Agenda: Addressing simple CV Mistakes, CV that transcends Borders and continents, Cover letters, productive job search during the Covid-19 pandemic, and solidifying your economic and mental status during and even after this pandemic.
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+          <a href="https://emploi.co/blog/skills-jobseekers-can-learn-while-locked-down-to-make-them-more-employable" class="d-block p-lg-4 p-3">
+            <h3 class="my-3">what will I have to show for myself once this is over?</h3>
+            <p class="">We discuss the skills Job Seekers can learn while locked down to make them more employable </p>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+          <a href="https://emploi.co/blog/how-employers-should-handle-their-staff-during-the-covid-19-pandemic" class="d-block p-lg-4 p-3">
+            <h3 class="my-3">How Employers Should Handle Their Staff during the COVID-19 Pandemic</h3>
+            <p class="">
+              We discuss in depth the employers perspective of covid-19 and how it affects businesses, a must read for business owners.
+            </p>
           </a>
         </div>
       </div>
