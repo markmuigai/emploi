@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Image;
 use Notification;
 
+use App\Company;
 use App\Country;
 use App\EducationLevel;
 use App\Employer;
@@ -78,14 +79,15 @@ class PostsController extends Controller
     public function create()
     {
         $user = Auth::user();
+        $companies = Company::where('user_id',$user->id)->orderBy('name')->get();
 
-        if(count($user->companies) == 0)
+        if(count($companies) == 0)
         {
             return redirect('/companies/create');
         }
         $skills =  IndustrySkill::all();
         return view('jobs.create')
-                ->with('companies',$user->companies)
+                ->with('companies',$companies)
                 ->with('locations',Location::active())
                 ->with('countries',Country::active())
                 ->with('industries',Industry::active())

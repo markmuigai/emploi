@@ -31,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label>Company *</label>
                     <a href="/companies/create" class="btn btn-sm btn-primary">Create New</a>
                   </div>
-                    <select name="company" class="form-control">
+                    <select name="company" class="form-control selectpicker" data-live-search="true">
                         @foreach($companies as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
@@ -45,7 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>Job Industry *</label>
-                    <select name="industry" class="form-control" id="industry">
+                    <select name="industry" class="form-control selectpicker" data-live-search="true" id="industry">
                         @foreach($industries as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
