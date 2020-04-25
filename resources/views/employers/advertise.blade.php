@@ -18,8 +18,27 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-5 content-left pt-md-0 pt-5">
           <h1>Post Your First Job in Minutes</h1>
           <p class="mt-3 mb-md-5 mb-4">Advertise & shortlist your job here and take advantage of our superieor shortlisting tools, <b>free for 30 days</b>.</p>
-          <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Get Started</a>
-          		<a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us</a>
+
+
+            @guest
+                <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
+                <a href="/employers/register?redirectToUrl={{ url('/employers/publish') }}" class="btn btn-outline-primary mr-2 btn-demo">  Create Account</a>
+            @else
+
+              @if(Auth::user()->role == 'employer')
+
+                  <a href="/vacancies/create" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
+                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us </a>
+
+              @else
+
+                  <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
+                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> Call Us </a>
+
+              @endif
+
+            @endif
+              
           
         </div>
         <div class="col-md-7 content-photo mt-md-0 mt-5">
@@ -41,7 +60,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="#blog-single.html" class="d-block p-lg-4 p-3">
+          <a href="/contact" class="d-block p-lg-4 p-3">
             <img src="/images/zip/s1.png" alt="" class="img-fluid" />
             <h3 class="my-3">Audience of 100k+</h3>
             <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
@@ -50,7 +69,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="#blog-single.html" class="d-block p-lg-4 p-3">
+          <a href="/employers/browse" class="d-block p-lg-4 p-3">
             <img src="/images/zip/s2.png" alt="" class="img-fluid" />
             <h3 class="my-3">Browse Talent Pool</h3>
             <p class="">
@@ -61,7 +80,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
       <div class="col-lg-4 mt-5">
         <div class="s-block">
-          <a href="#blog-single.html" class="d-block p-lg-4 p-3">
+          <a href="/employers/services" class="d-block p-lg-4 p-3">
             <img src="/images/zip/s3.png" alt="" class="img-fluid" />
             <h3 class="my-3">Best Recruitment Tools</h3>
             <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
