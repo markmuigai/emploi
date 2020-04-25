@@ -37,7 +37,7 @@ class BlogController extends Controller
     {
         return view('blog.index')
                 ->with('pageTitle','Emploi Career Center')
-                ->with('blogs',Blog::where('status','active')->orderBy('id','desc')->paginate(12));
+                ->with('blogs',Blog::where('status','active')->orderBy('id','desc')->paginate(13));
     }
 
     public function create()
@@ -106,10 +106,12 @@ class BlogController extends Controller
         if($id == 'search')
         {
             $q = isset($request->q) ? $request->q : ' ';
-            $blogs = Blog::where('status','active')->where('title','like','%'.$q.'%')
+            $blogs = Blog::where('status','active')
+                    ->where('title','like','%'.$q.'%')
+                    ->orWhere('contents','like','%'.$q.'%')
                     ->where('status','active')
                     ->orderBy('id','DESC')
-                    ->paginate(12);
+                    ->paginate(13);
             return view('blog.index')
                     ->with('pageTitle',"Blog Search Results \"$q\"")
                     ->with('q',$q)
@@ -121,7 +123,7 @@ class BlogController extends Controller
             $blogs = Blog::where('status','active')->where('blog_category_id',$c->id)
                     ->where('status','active')
                     ->orderBy('id','DESC')
-                    ->paginate(12);
+                    ->paginate(13);
             return view('blog.index')
                     ->with('blogCategory',$c->id)
                     ->with('pageTitle','Emploi '.$c->name.' Blog')

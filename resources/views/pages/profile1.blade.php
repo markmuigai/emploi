@@ -3,7 +3,7 @@
 @section('title','Emploi :: @'.$user->username)
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('content')
@@ -170,7 +170,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="row no-gutters justify-content-between edu pb-5">
                             <div class="circle"></div>
                             <div class="col-lg-3 col-12 ml-3">
-                                <p>{{ $emp[0] }}</p>
+                                <p>{{ $emp[0] }} <?php print isset($emp[5]) && $emp[5] == 'true' ? "<br><b style='color: #500095'>*Current*</b>" : ""; ?></p>
 
                             </div>
                             <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">

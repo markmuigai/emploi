@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/industries/{{ $ind->slug }}/edit" class="btn btn-sm btn-link" style="float: right;">edit</a>
             </h4>
             <p>
-                {{ $ind->slug }} || {{ count($ind->seekers) }} Job Seekers || {{ count($ind->employers) }} Employers || {{ count($ind->cvEditors) }} CV Editors
+                {{ $ind->slug }} || {{ count($ind->seekers) }} Job Seekers || {{ count($ind->employers) }} Employers || {{ count($ind->cvEditors) }} CV Editors || <a href="/admin/industry-skills/{{ $ind->id }}">{{ count($ind->industrySkills) }} Skills </a>
             </p>
             <hr>
         </div>

@@ -3,7 +3,7 @@
 @section('title','Advertise on Emploi')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Advertise on Emploi and reach an audience of 100k+, get access to premium shortlisting tools and Candidate Ranking algorithim
 @endsection
 
 @section('content')
@@ -30,9 +30,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     }
 </style>
 <div class="top-bg"></div>
-<div class="container pb-0 pb-lg-4 ">
-    <div class="row">
-        <div class=" col-md-12 row" >
+<div class="container">
+        <div class="row" >
             <div class="col-md-5 advert-details mt-1" style="background-color: white; color: #000000; border-radius: 5%; border-bottom: 0.1em solid black; border-top: 0.1em solid black; overflow: hidden;">
                 <h2 class="orange ">
                     Advertise on Emploi
@@ -44,20 +43,29 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </ul>
                 <div>
                     <a href="#advertise-form" class="btn btn-sm orange">Post Job</a>
-                    <a href="tel:0702068282" class="btn btn-sm btn-orange">Call 0702 068 282</a>
+                    <a href="tel:+254702068282" class="btn btn-sm btn-orange">Call 0702 068 282</a>
                 </div>
                 
             </div>
 
-            <div class="col-md-12 row ">
-                <div class="col-md-12">
-                    <br>
-                    <iframe class="col-md-12" style="border: none; margin-bottom: none; height: 55vh;" 
-                        src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=1">
-                    </iframe>
-                    <br>
+            <div class="col-md-12">
+                <div class="row">
+                    <a href="#advertise-form" class="col-md-8 offset-md-2 mt-1">
+                    <img src="/images/promotions/free-job-posting.jpg" alt="Free Job Posting for Companies involved in the fight against Covid-19" style="width: 100%">
+                    </a>
                 </div>
                 
+            </div>
+
+            
+
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12" style=" padding: 0.3em">
+                    
+                    
                 <div class="col-md-12  row">
                     <div class="col-md-5" style="width: 49%; float: right;">
                         <h5>Advertising Features</h5>
@@ -76,110 +84,19 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                             <li>Shortlist and schedule interviews with job seekers</li>
                             <li>Request premium recruitment</li>
                             <li>Request Candidate Vetting</li>
-                            <li>Advertise jobs</li>
+                            <li>Advertise & Shortlist jobs</li>
+                            <li>Create Talent Pools</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="card-deck text-center coloured-card row">
-                <div class="col-md-12">
-                    <h3 class="orange pt-2 text-center" id="charges">Our Charges</h3>
-                </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        
-                        <h1>Kshs <br>2,500</h1>
-                        <p>SOLO</p>
-                        <ul class="tick">
-                            <li>1 Job Advert posted for 30 days</li><br>
-                            <li>Shared to social media pages</li><br>
-                            <li>Job AD sent out to our entire database</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="solo">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs <BR>4,750</h1>
-                        <p>SOLO PLUS</p>
-                        <ul class="tick">
-                            <li>2-4 job Adverts posted for 30 days</li><br>
-                            <li>Shared to Social media pages</li><br>
-                            <li>Job AD sent out to our entire database</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="solo_plus">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs 9,025</h1>
-                        <p>INFINITY</p>
-                        <ul class="tick">
-                            <li>More than 4 job Adverts posted for 30 days</li><br>
-                            <li>Shared to Social media pages</li><br>
-                            <li>Job AD sent out to entire database</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="infinity">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs 7,000</h1>
-                        <p>STAWI</p>
-                        <ul class="tick">
-                            <li>All   in Solo</li><br>
-                            <li>Search talent database</li><br>
-                            <li>Unlimited searches in 1 job category</li><br>
-                            <li>Get up to 50 CVs</li><br>
-                            <li>Referee reports</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="stawi">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            
         </div>
-
-
-        
-        
-    </div>
     <br id="advertise-form"><br>
     <div class="row">
         <div class="card col-md-8 offset-md-2">
             <div class="card-body">
                 
-                <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here</h4>
+                <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here or <a class="orange" href="tel:+254702068282">  Call Us <i class="fa fa-phone"></i> </a></h4>
                 <form action="/employers/publish" method="POST">
                     @csrf
                     <div class="form-group">
@@ -205,6 +122,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     <div class="text-center">
                         <input type="submit" class="btn btn-orange" value="Submit">
                         @if(!$user || $user->role != 'employer')
+                        <br><hr>
                         <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
                             <a href="/employers/register" class="orange">Employer Registration</a></p>
                         @endif
@@ -213,13 +131,22 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             </div>
         </div>
     </div>
+    
+    <div class="row">
+        <br>
+        <iframe class="col-md-8 offset-md-2" style="border: none; margin-bottom: none; height: 70vh;" 
+            src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=0">
+        </iframe>
+        <br>
+    </div>
+
 </div>
 
 <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
     setTimeout(function() {
         CKEDITOR.replace('description');
-    }, 3000);
+    }, 1000);
 </script>
 
 

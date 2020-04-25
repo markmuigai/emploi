@@ -3,7 +3,7 @@
 @section('title','Emploi :: Companies')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('content')
@@ -16,6 +16,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="row mb-4">
     <?php $adsCounter=0; ?>
     @forelse($companies as $c)
+    @if(!isset($c->id) || !isset($c->industry_id))
+        @continue
+    @endif
     <div class="col-lg-4 col-md-6 col-12">
         <div class="card">
             <div class="card-body text-center">

@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Apply as '.$post->getTitle())
+@section('page_title', 'Apply for '.$post->getTitle())
 
 <div class="card">
     <div class="card-body">
@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Apply by: </strong>{{ $post->deadline }}</p>
                 <p><strong>Education Requirements: </strong>{{ $post->education_requirements }}, {{ $post->industry->name }}</p>
                 <p><strong>Experience: </strong>{{ $post->experience_requirements }}</p>
-                <p><strong>Salary: </strong>{{ isset(Auth::user()->id) ? '~ '.$post->location->country->currency.' '.$post->monthly_salary.' p.m.' : 'Login to view' }}</p>
+                <p><strong>Salary: </strong>{{ $post->monthlySalary() }}</p>
                 <p><strong>Number of Openings: </strong>{{ $post->positions }}</p>
             </div>
         </div>
@@ -38,7 +38,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h3 class="orange">Application for {{ $post->getTitle() }}</h3>
         </div>      
       
-         @include('components.ads.responsive')
         @if(!Auth::user()->seeker->hasApplied($post))
 
         <form method="post" action="/vacancies/{{ $post->slug }}/apply">
@@ -54,7 +53,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <button type="submit" name="button" class="btn btn-orange">Submit Application</button>
 
-               <p>Your profile and resume will be made available to {{ $post->company->name }}. <a href="/profile/edit" class="orange">Edit my profile</a></p>                         
+            <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;" title="STAND OUT FROM THE CROUD">Get Professional CV Editing</a>
+
+                <p style="text-align: center;">
+                    <hr>
+                    Your profile and resume will be made available to <a href="/companies/{{ $post->company->name }}" class="orange">{{ $post->company->name }}</a>. <br>
+
+                    <a href="/profile/edit" class="orange">Edit my profile</a>
+                </p>                         
                          
         </form>
         
@@ -64,7 +70,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 CKEDITOR.replace('cover');
 
-            }, 3000);
+            }, 1019);
         </script>
         @else
 
@@ -75,12 +81,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </p>
 
         @endif
-
-
+        @include('components.ads.responsive')
 
 
 
     </div>
 </div>
 @endsection
-Job Seeker Profile Incomplete

@@ -3,7 +3,7 @@
 @section('title','Emploi :: '.$company->name)
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+{{ $company->name }} hires on Emploi, the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('content')

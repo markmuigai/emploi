@@ -145,7 +145,7 @@ class CvEditController extends Controller
     {
         $request->validate([
             'final_cv' => ['required','mimes:pdf,docx,doc','max:51200'],
-            'message' => ['required','max:500']
+            'message' => ['required']
         ]);
         $user = Auth::user();
         $r = CvEditRequest::where('slug',$slug)->firstOrFail();

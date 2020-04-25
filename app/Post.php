@@ -21,6 +21,13 @@ class Post extends Model
         'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions','max_salary'
     ];
 
+    public function getIndustrySkillsAttribute(){
+        if(isset($this->modelSeeker->id))
+            return $this->modelSeeker->modelSeekerSkills;
+        return [];
+        //model seeker skills
+    }
+
     public function getSkillsWeightAttribute(){
         $total = 0;
         if(count($this->industry->industrySkills) == 0)
@@ -29,6 +36,28 @@ class Post extends Model
             $total += 1;
 
         return $total;
+    }
+
+    public function getFeaturedApplicationsAttribute(){
+        $ret = [];
+        $applications = $this->applications;
+        for($i=0; $i<count($applications); $i++)
+        {
+            if($applications[$i]->user->seeker->featured > 0)
+                $ret[] = $applications[$i];
+        }
+        return $ret;
+    }
+
+    public function getFeaturedRejectedApplicationsAttribute(){
+        $ret = [];
+        $applications = $this->applications;
+        for($i=0; $i<count($applications); $i++)
+        {
+            if($applications[$i]->user->seeker->featured > 0 && $applications[$i]->status == 'rejected')
+                $ret[] = $applications[$i];
+        }
+        return $ret;
     }
 
     public static function composeVacancyEmail()
@@ -318,12 +347,13 @@ class Post extends Model
         $applications = JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','shortlisted')
+                    ->orderBy('id','DESC')
                     ->get();
         $applications = $applications->sortBy(function($application){
             return !$application->user->seeker->featured;
         });
         $applications = $applications->sortBy(function($application){
-            return $application->user->seeker->getRsi($application->post);
+            return !$application->user->seeker->getRsi($application->post);
         });
         return $applications;
     }
@@ -332,6 +362,7 @@ class Post extends Model
         return JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','selected')
+                    ->orderBy('id','DESC')
                     ->get();
     }
 
@@ -339,6 +370,7 @@ class Post extends Model
         return JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','rejected')
+                    ->orderBy('id','DESC')
                     ->get();
     }
 
@@ -346,6 +378,7 @@ class Post extends Model
         return JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')
                     ->where('status','active')
+                    ->orderBy('id','DESC')
                     ->get();
     }
 

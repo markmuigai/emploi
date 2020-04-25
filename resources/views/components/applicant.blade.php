@@ -69,6 +69,102 @@
         </div>
     </div>
 </div>
+@if($a->user->seeker->canGetNotifications())
+<div id="jobApplication{{ $a->id }}" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #500095; color: white">
+                    
+                    <h4 class="modal-title">
+                        Give Reason for rejecting Application
+                    </h4>
+
+
+                    
+                </div>
+                 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerRegisterModal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                  </button>
+                <div class="modal-body">
+                    <div>
+                        <p>
+                            95% of job seekers we have surveyed have stated their biggest job search frustration is lack of feedback. Please take a minute to inform {{$a->user->name}} why they didn't qualify for this position so that they can improve on the said areas.
+                        </p>
+                        <select class="form-control" id="rejectionSwitch{{$a->id}}">
+                            <option value="Candidate doesn't meet the minimum qualifications">Candidate doesn't meet the minimum qualifications</option>
+                            <option value="Candidate's profile is incomplete">Candidate's profile is incomplete</option>
+                            <option value="Crucial information is missing from the candidates resume and profile">Crucial information is missing from the candidates resume and profile</option>
+                            <option value="Write Reason:">Write Reason:</option>
+                        </select>
+                        <br>
+                        <textarea class="form-control " id="rejectionMessage{{$a->id}}" rows="5" placeholder="Why is {{ $a->user->name }} not a great fit for this position?"></textarea>
+                    </div>
+                    <script type="text/javascript">
+                        $().ready(function(){
+                            var mes;
+                            mes = $('select#rejectionSwitch{{$a->id}}').val();
+                            $('textarea#rejectionMessage{{$a->id}}').val(mes);
+
+                            $('#rejectionSwitch{{$a->id}}').change(function(e){
+                                mes = $('select#rejectionSwitch{{$a->id}}').val();
+                                if(mes != 'Write Reason:')
+                                {
+                                    $('textarea#rejectionMessage{{$a->id}}').val(mes);
+                                }
+                            });
+
+                            $('.sendRejectionMessage{{ $a->id }}').click(function(){
+                                mes = $('textarea#rejectionMessage{{$a->id}}').val();
+                                if(mes.length < 1)
+                                    return notify("Kindly specify why you are rejecting {{ $a->user->name }}'s application");
+                                    
+                                if(mes.length < 10)
+                                    return notify("Rejection reason too brief","error");
+                                var $scope = $('#reject-Application-{{ $a->id }}').parent();
+
+                                $.ajax({
+                                    type: 'GET',
+                                    url: '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?csrf-token='+$('#csrf_token').attr('content')+'&message='+mes,
+                                    success: function(response) {
+
+                                        //$parent.children().remove();
+
+                                        if(response=='rejected')
+                                        {
+                                            notify("{{ $a->user->name }}'s Application was Rejected");
+                                            $scope.empty();
+                                            $scope.append('<strong style="color: red"  data-toggle="tooltip" data-placement="right" title="NO ACTIONS AVAILABLE">REJECTED</strong>');
+
+                                            $('#jobApplication{{ $a->id }}').modal('hide');
+                                        }
+                                        else
+                                        {
+                                            notify("An Error occurred while rejecting application. Try again later","error");
+                                        }
+                                        
+                                    },
+                                    error: function(e) {
+
+                                        notify('Shortlisting Error occurred', 'error');
+                                    },
+                                });
+
+                            });
+                        });
+                        
+                    </script>
+                    
+                </div>
+                <div class="modal-footer" style="text-align: center;">
+                    <span class="btn btn-sm btn-orange-alt sendRejectionMessage{{ $a->id }}">Send Rejection Message</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 <script type="text/javascript">
     <?php 
     if($a->user->seeker->canGetNotifications())
@@ -87,12 +183,13 @@
 
                 if(notificationsEnabledFor{{ $a->id }})
                 {
-                    message = prompt("Why are you rejecting this application?", "Candidate doesn't meet the minimum qualifications");
-                    if(message == null || message == '')
-                    {
-                        return notify("Kindly specify why you are rejecting {{ $a->user->name }}'s application");
-                    }
-                    basicSeeker = false;
+                    return $('#jobApplication{{ $a->id }}').modal();
+                    // message = prompt("Why are you rejecting this application?", "Candidate doesn't meet the minimum qualifications");
+                    // if(message == null || message == '')
+                    // {
+                    //     return notify("Kindly specify why you are rejecting {{ $a->user->name }}'s application");
+                    // }
+                    // basicSeeker = false;
                     //return window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?message='+message;
                 }
                 var $scope = $(this).parent();
@@ -121,8 +218,6 @@
                         notify('Shortlisting Error occurred', 'error');
                     },
                 });
-                //return window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}?message='+message;
-                //window.location = '/employers/reject-toggle-id/{{ $post->slug }}/{{ $a->user->id }}';
             }
         });
         $('#shortlist-user-{{ $a->user->id }}').click(function(){
@@ -147,7 +242,7 @@
                         notify(username + ' was shortlisted','success');
                         
                     }
-                    else
+                    if(response == 'remove-from-shortlist')
                     {
                         $element.text('Shortlist');
                         $element.attr('title','Add ' + user_name + ' to shortlist');
@@ -162,5 +257,6 @@
             });
             
         });
+
     });
 </script>

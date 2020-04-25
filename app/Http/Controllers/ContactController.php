@@ -10,6 +10,7 @@ use App\Contact;
 use App\Country;
 use App\CvRequest;
 use App\Faq;
+use App\Industry;
 use App\InviteLink;
 use App\JobApplication;
 use App\Location;
@@ -416,6 +417,26 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return redirect('http://54.36.168.64:2082/');
     }
 
+    public function testEmail($email = 'brian@emploi.co')
+    {
+        $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
+        $contents = "Here are your login credentials for Emploi: <br>
+        username: username <br>
+        Password: password <br>
+        <br>
+
+        Verify your account <a href='".url('/verify-account/ajdskjd')."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+        <br>
+
+        <br>
+                ";
+        EmailJob::dispatch("Brian Obare", $email, 'Email test message', $caption, $contents);
+    }
+
+    public function testEmail2(){
+        return view('emails.custom_txt');
+    }
+
     
 
     public function join(Request $request){
@@ -508,9 +529,9 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function jservices(){
         return view('seekers.services');
     }
-    public function epublish(){
-        return view('employers.publish1'); 
-    }
+    
+
+    
 
 
 }

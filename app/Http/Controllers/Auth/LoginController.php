@@ -10,10 +10,12 @@ use Auth;
 use Notification;
 
 use App\Employer;
+use App\Jurisdiction;
 use App\User;
 
 use App\Notifications\VerifyAccount;
 use App\Jobs\EmailJob;
+use App\Notifications\AdminAction;
 use App\Notifications\EmployerLoggedIn;
 
 class LoginController extends Controller
@@ -90,6 +92,17 @@ class LoginController extends Controller
         if($user->role == 'employer')
         {
             Notification::send(Employer::first(),new EmployerLoggedIn('EMPLOYER LOGIN: '.$user->name.' logged in. Company name: '.$user->companies[0]->name));
+        }
+
+        if($user->role == 'admin' && app()->environment() === 'production')
+        {
+            Notification::send(Jurisdiction::first(),new AdminAction('ADMIN '.$user->name.' ('.$user->username.') logged in at '.now().'.'));
+        }
+
+        if($user->userPermission->status != 'active')
+        {
+            Auth::logout();
+            die("Your account was disabled. Kindly <a href='/contact'>Contact Us</a>");
         }
     }
 }

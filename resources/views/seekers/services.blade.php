@@ -3,7 +3,7 @@
 @section('title','Emploi :: Job Seeker Services')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('content')
@@ -68,8 +68,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </p>
         </div>
     </div>
-
-    @include('components.ads.responsive')
 
     <div class="row justify-content-center">
         <div class="col-lg-6">

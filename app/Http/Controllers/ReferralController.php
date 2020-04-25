@@ -12,6 +12,11 @@ use App\Jobs\EmailJob;
 
 class ReferralController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(Request $request)
     {
         return redirect('/');

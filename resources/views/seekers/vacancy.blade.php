@@ -207,6 +207,7 @@
     @include('components.featuredEmployers')
 </div>
 
+
 <script type="text/javascript">
     $().ready(function(){
         $('#apply-tab-button').click(function(){

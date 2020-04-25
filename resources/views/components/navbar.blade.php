@@ -123,6 +123,7 @@
                         <a class="dropdown-item" href="/job-seekers/cv-editing">{{ __('jobs.cv_edit') }}</a>
                         <a class="dropdown-item" href="/job-seekers/cv-templates">{{ __('jobs.cv_temp') }}</a>
                         <a class="dropdown-item" href="/job-seekers/premium-placement">{{ __('jobs.p_place') }}</a>
+                        <a class="dropdown-item" href="https://emploi.co/events/cv-writing-webinar">CV Writing Masterclass</a>
                         <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
                 </li>
@@ -148,10 +149,10 @@
                 </li> -->
                 @else
                 <li class="nav-item">
-                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-white px-3">{{ __('auth.login') }}</a>
+                    <a href="/login" class="btn btn-white px-3">{{ __('auth.login') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange px-3">{{ __('auth.register') }}</a>
+                    <a href="/join" class="btn btn-orange px-3">{{ __('auth.register') }}</a>
                 </li>
                 @endif
                 <li class="nav-item">

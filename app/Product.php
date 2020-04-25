@@ -28,12 +28,4 @@ class Product extends Model
         }
         return 'product_'.$randomString;
     }
-
-    public function applicableDiscountFor(User $user){
-        $max_credits_discount = round($this->price * 0.3);
-        $discount = 0;
-        if($user->totalCredits * 0.1 <= $max_credits_discount)
-            return $user->totalCredits * 0.1;
-        return $max_credits_discount;
-    }
 }

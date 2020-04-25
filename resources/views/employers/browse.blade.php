@@ -52,12 +52,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="tab-pane fade show active" id="job-description" role="tabpanel" aria-labelledby="job-description-tab">
         <!-- JOB CARD -->
 
-        <div class="card py-2 mb-4">
-            <div class="card-body">
-                @include('components.ads.responsive')
-            </div>
-        </div>
-
         <?php $adsCounter = 0; ?>
 
         @forelse($seekers as $s)
@@ -89,16 +83,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             {{ $s->country->name }}
                             @endif
                         </p>
-                        @if(count(Auth::user()->employer->activePosts) > 0)
+                        @if(count(Auth::user()->employer->shortlistingPosts) > 0)
                         <form method="post" action="/employers/shortlist" class="row">
                             @csrf
                             <input type="hidden" name="seeker_id" value="{{ $s->id }}">
                             <select name="post_id" class="col-md-4 form-control">
-                                @foreach(Auth::user()->employer->activePosts as $ap)
+                                @foreach(Auth::user()->employer->shortlistingPosts as $ap)
                                 <option value="{{ $ap->id }}">{{ $ap->title }}</option>
                                 @endforeach
                             </select>
-                            <input type="submit" class="btn btn-orange-alt btn-sm" value="Apply for {{ $s->public_name }}">
+                            <input type="submit" class="btn btn-orange-alt btn-sm" value="Shortlist {{ $s->public_name }}">
                         </form>
                         @endif
                     </div>

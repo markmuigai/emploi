@@ -52,7 +52,7 @@ class AdminController extends Controller
 
     public function referrals(Request $request){
         return view('admins.referrals.index')
-            ->with('referrals',Referral::orderBy('status')->paginate(30));
+            ->with('referrals',Referral::orderBy('status')->orderBy('id','ASC')->paginate(50));
     }
 
     public function inviteLinks(Request $request){
@@ -281,15 +281,21 @@ class AdminController extends Controller
             $featured ="";
             if(isset($request->featured) && $request->featured != 'all')
             {
-                $f = $request->featured == 'yes' ? 1 : 0;
+                $f = $request->featured == 'yes' ? true : false;
                 if($first)
                 {
-                    $phone_number = "featured = $f";
+                    if($f)
+                        $featured = "featured > 0";
+                    else
+                        $featured = "featured <= 0";
                     $first = false;
                 }
                 else
                 {
-                    $phone_number = "AND featured = $f";
+                    if($f)
+                        $featured = "AND featured > 0";
+                    else
+                        $featured = "AND featured <= 0";
                 }
                 
             }
@@ -305,41 +311,16 @@ class AdminController extends Controller
 
 
             $newseekers = [];
-            for($i=count($results)-1; $i >0; $i--)
+            for($i=0; $i<count($results); $i++)
             {
                 //$s = Seeker::find($results[$i]->id);
-                array_push($newseekers,$results[$i-1]->user_id);
+                array_push($newseekers,$results[$i]->user_id);
             }
 
             $seekers = Seeker::whereIn('user_id',$newseekers)
                     ->orderBy('id','DESC')
                     ->paginate(20)
                     ->appends(request()->query());
-
-
-            // for($i=0; $i<count($results); $i++)
-            // {
-            //     array_push($seekers, Seeker::find($results[$i]->id));
-            // }
-
-            // if(isset($request->email))
-            // {
-            //     $user = User::where('email',$request->email)->first();
-            //     if(isset($user->id))
-            //     {
-            //         $placed = false;
-            //         for($i=0; $i<count($seekers);$i++)
-            //         {
-            //             if($seekers[$i]->id == $user->seeker->id)
-            //             {
-            //                 $placed = true;
-            //                 break;
-            //             }
-            //         }
-            //         if(!$placed && $user->role == 'seeker')
-            //             array_push($seekers,$user->seeker);
-            //     }
-            // }
 
             return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
@@ -357,7 +338,7 @@ class AdminController extends Controller
         return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
                     ->with('locations',Location::orderBy('name')->get())
-                    ->with('seekers',Seeker::orderBy('id','DESC')->paginate(10));
+                    ->with('seekers',Seeker::orderBy('featured','DESC')->orderBy('id','DESC')->paginate(30));
         //show all seekers
     }
           
@@ -497,7 +478,7 @@ class AdminController extends Controller
         $caption = $request->caption;
         $url = $request->featured_url;
         $banner = '/images/email-banner.jpg';
-        $template = 'custom';
+        $template = isset($request->template) ? $request->template : 'custom';
 
         $attachment1 = false;
         $attachment2 = false;
@@ -530,7 +511,7 @@ class AdminController extends Controller
         $banner = '/images/email-banner.jpg';
 
         $template = $request->template;
-        $template = 'custom';
+        $template = isset($request->template) ? $request->template : 'custom';
 
         if ($request->hasFile('featured_image')) {
             $image = $request->file('featured_image');
@@ -837,8 +818,7 @@ class AdminController extends Controller
                 $team = [
                     ['brian@emploi.co','Obare C. Brian'],
                     ['sophy@emploi.co','Sophy Mwale'],
-                    ['phinney@emploi.co','Phinney Asca'],
-                    ['john@emploi.co','John'],
+                    ['derrick@emploi.co','Derrick Brian'],
                     ['simon@emploi.co','Simon'],
                     ['silvia@emploi.co','Silvia Kamau'],
                     ['david@emploi.co','David'],
@@ -926,6 +906,49 @@ class AdminController extends Controller
                     $contact = $contacts[$i];
                     VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
                 }
+                break;
+
+            case 'hot_leads_emails':
+                $storage_path = storage_path();
+                $file = $storage_path.'/app/hot_leads_emails.csv';
+                //$file = $storage_path.'/app/emails.csv';
+                if(file_exists($file)){
+                    
+                    $handle = fopen($file, "r");
+                    for ($i = 0; $row = fgetcsv($handle ); ++$i) {
+
+                        $email = User::cleanEmail($row[0]);
+                        $name = $row[1];
+                        
+                        if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
+                        {
+                            VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            //print "<br> ".$row[0];
+                        }
+                        
+                    }
+                    fclose($handle);
+                    
+                }
+                else
+                {
+                    die("File $file not found");
+                }
+                break;
+            case 'referred_but_pending':
+                $users = Referral::where('status','pending')->get();
+                for($i=0; $i<count($users); $i++)
+                {
+                    $user = User::where('email',$users[$i]->email)->first();
+                    if(!isset($user->id) && User::subscriptionStatus($users[$i]->email))
+                    {
+                        $email = $users[$i]->email;
+                        $name = $users[$i]->name ? $users[$i]->name : 'there';
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'team@emploi.co',$url);
+                    }
+                }
+                break;
+
                 break;
 
                 
@@ -1046,6 +1069,8 @@ class AdminController extends Controller
     }
 
     public function toggleSeekerFeatured(Request $request){
+
+        die("This feature has been disabled by admin");
         $seeker = Seeker::findOrFail($request->seeker_id);
         $seeker->featured = $seeker->featured == 1 ? 0 : 1;
         $seeker->save();

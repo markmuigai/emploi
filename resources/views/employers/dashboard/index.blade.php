@@ -14,21 +14,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-7">
             <h6>Recent Applications </h6>
             <ul>
-                @if(count(Auth::user()->employer->recentApplications()) > 0)
-                    <?php
-                        $recent = Auth::user()->employer->recentApplications();
-                    ?>
-                    @for($i=0; $i < count($recent); $i++)
+                @forelse($recentApplications as $application)
+
                     <li>
-                        <a href="/employers/browse/{{ $recent[$i]->user->username }}">
-                            {{ $recent[$i]->user->name }}
+                        <a href="/employers/browse/{{ $application->username }}">
+                            {{ $application->name }}
+                            <?php $c = \Carbon\Carbon::createFromDate($application->created_at); ?>
                         </a> applied for 
-                        <a href="/employers/applications/{{ $recent[$i]->post->slug }}">{{ $recent[$i]->post->title }}</a> job, {{ $recent[$i]->created_at->diffForHumans() }}
+                        <a href="/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job, {{ $c->diffForHumans() }}
                     </li>
-                    @endfor
-                @else
-                <li>No Applications have been received</li>
-                @endif
+
+                @empty
+
+                    <li>No Applications have been received</li>
+                @endforelse
             </ul>
         </div>
         <div class="col-md-5" id="stats-field">
@@ -38,7 +37,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 <div class="card mt-4">
-    @include('components.ads.responsive')
+    @if(count($featuredSeekers) > 0)
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="orange" style="text-align: center;">Featured Job Seekers</h4>
+        </div>
+        @foreach($featuredSeekers as $seeker)
+            <div class="col-md-3" style="text-align: center;">
+                <a href="/employers/browse/{{$seeker->user->username}}">{{ $seeker->user->name }}</a>
+                    <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" style="width: 100%" alt="{{ $seeker->user->username }}">
+                <i>{{ $seeker->industry->name }}</i> <br>
+                <a href="/employers/browse/{{$seeker->user->username}}" class="btn btn-orange btn-sm" target="_blank">View Profile</a>
+                <br>
+            </div>
+        @endforeach
+    </div>
+    @else
+        @include('components.ads.responsive')
+    @endif
 </div>
 <div class="card mt-4" id="graph">
     <div class="card-body">
@@ -47,86 +63,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script>
-    <?php
-
-    $counter = '[';
-    $labels = '[';
-    $weekelyCount = Auth::user()->employer->weekApplicationsCounter;
-    for($i=0; $i<count($weekelyCount); $i++)
-    {
-        $counter .= $weekelyCount[$i][0];
-        $labels .= '"'.$weekelyCount[$i][1].'"';
-        if(count($weekelyCount) != $i-1)
-        {
-            $counter.=',';
-            $labels.=',';
-        }
-    }
-    $counter .= ']';
-    $labels .= ']';
-    
-    echo "var graph_data = $counter;";
-    echo "var graph_labels = $labels;";
-
-
-    ?>
-
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: graph_labels,
-            datasets: [{
-                label: 'Number of Applications',
-                data: graph_data,
-                borderColor: 'rgb(232, 135, 37)',
-                // backgroundColor: 'rgba(253, 242, 232, 0.5)',
-                backgroundColor: 'rgba(0,0,0,0)',
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            },
-            title: {
-                display: true,
-                text: "Total Applications over the Past Week"
-            },
-            legend: {
-              boxWidth: 20,
-            },
-        },
-        maintainAspectRatio: false,
-    });
-    
-</script>
-
-<script type="text/javascript">
-    $().ready(function(){
-        function loadStats(){
-            console.log('Loading stats');
-            $.ajax({
-                type: 'GET',
-                url: '/employers/dashboard-stats?csrf-token='+$('#csrf_token').attr('content'),
-                success: function(response) {
-                    $('#stats-field').children().remove();
-                    $('#stats-field').append(response);
-
-                },
-                error: function(e) {
-
-                    notify('Failed to Statistics', 'error');
-                },
-            });
-        }
-        loadStats();
-        setInterval(loadStats,60000);
-    });
-</script>
+<script type="text/javascript" src="/js/employers-dashboard.js" defer></script>
 
 @endsection

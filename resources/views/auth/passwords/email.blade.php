@@ -20,7 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     @csrf
 
     <div class="form-group">
-        <label for="email">{{ __('E-Mail Address') }}</label>
+        <label for="email">{{ __('E-Mail Address') }}  <b style="color: red" title="Required">*</b></label>
         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
         @error('email')

@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div id="company-sizes-pool">
                 @forelse($application->seekerPreviousCompanySizes as $i)
                 <div class="form-group">
-                    <label>Company Name</label>
+                    <label>Company Name <b style="color: red" title="Required">*</b></label>
                     <span class="pull-right rm-company-size"><i class="fas fa-times text-danger"></i></span>
                     <input type="text" name="company_name[]" required="" value="{{ $i->name }}" class="form-control mb-3">
                     <select required="" name="company_size[]" class="custom-select">
@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 @empty
                 <div class="form-group">
-                    <label>Company Name</label>
+                    <label>Company Name <b style="color: red" title="Required">*</b></label>
                     <span class="pull-right rm-company-size"><i class="fas fa-times text-danger"></i></span>
                     <input type="text" name="company_name[]" required="" class="form-control mb-3">
                     <select required="" name="company_size[]" class="custom-select">
@@ -55,32 +55,29 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endforelse
             </div>
 
-            <button type="submit" name="button" class="btn btn-orange pull-right">Submit</button>
-            <button id="add-company" class="btn btn-orange-alt mr-2 pull-right">Add Interview</button>
+            <input type="submit" name="button" class="btn btn-orange pull-right" value="Submit">
+            <a id="add-company" class="btn btn-orange-alt mr-2 pull-right">Add Company</a>
         </form>
     </div>
 </div>
 
 
 <script type="text/javascript">
-    < ? php
+    <?php
     $sz = '';
     foreach($sizes as $s) {
-        $sz. = "[".$s - > id.
-        ", $s->lower_limit, $s->upper_limit],";
+        $sz .= "[".$s->id.", $s->lower_limit, $s->upper_limit],";
     }
-    $sz = '['.$sz.
-    ']';
-    echo 'var sizes='.$sz.
-    ';'; ?
-    >
+    $sz = '['.$sz.']';
+    echo 'var sizes='.$sz.';'; 
+    ?>
     //console.log(sizes);
     $().ready(function() {
         $('#add-company').click(function() {
             var $i = '' +
                 '<div class="form-group">' +
-                '<label>Company Name</label>' +
-                '<span class="pull-right rm-interview-score"><i class="fas fa-times text-danger"></i></span>' +
+                '<label>Company Name <b style="color: red" title="Required">*</b></label>' +
+                '<span class="rm-interview-score" style="float: right"><i class="fas fa-times text-danger"></i></span>' +
                 '<input type="text" name="company_name[]" required="" class="form-control">' +
                 '<select required="" name="company_size[]" class="custom-select">' +
                 '<option value="">- Select -</option>';

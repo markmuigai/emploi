@@ -1,9 +1,9 @@
 @extends('layouts.sign')
 
-@section('title','Register a Company')
+@section('title','Register and Hire on Emploi')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('content')

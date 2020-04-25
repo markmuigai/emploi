@@ -8,24 +8,27 @@ use App\Referee;
 use App\SeekerApplication;
 
 use App\Jobs\EmailJob;
+use Watson\Rememberable\Rememberable;
 
 class JobApplication extends Model
 {
+    use Rememberable;
+    public $rememberFor = 10;
 
     protected $fillable = [
         'user_id','post_id','cover','status'
     ];
 
     public function post(){
-    	return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class);
     }
 
     public function user(){
-    	return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function interviewResults(){
-    	return $this->hasMany(InterviewResult::class);
+        return $this->hasMany(InterviewResult::class);
     }
 
     public function seekerPreviousCompanySizes(){
@@ -66,7 +69,7 @@ class JobApplication extends Model
                     $contents = "Your application for the <b>".$this->post->title."</b> position, as advertised by ".$this->post->company->name." was rejected. This application will no longer be considered.  $message
 
                     <br>
-                    Your RSI score for this application was ".$this->user->seeker->getRsi($this->post)."%
+                    Your Role Suitability Index Score (RSI) for this application was ".$this->user->seeker->getRsi($this->post)."%. The RSI indicates to what extent you  fit the position by checking your Education, Experience, Skills, Position, and Referee assessment amongs't other factors. To get a higher score, ensure your profile is complete and follow up with your referees for a good assessment. 
                     <br>
 
                     For additional information, feel free to call our office or write to us. <a href='".url('/vacancies')."'>See Latest Vacancies</a>
@@ -165,6 +168,32 @@ class JobApplication extends Model
         }
         return true;
 
+    }
+
+    public function shortlistToggle(){
+        if($this->status == 'active')
+        {
+            $this->status = 'shortlisted';
+            if($this->user->seeker->featured > 0)
+            {
+                $caption = "You have been shortlisted for the ".$this->post->title." Position";
+                $contents = $this->post->company->name."'s HR has viewed your profile and is interested. The recuiter may call you or someone in their organization will reach out to you on this position. To increase your chances further, ensure your profile has been completed and your resume up to date with no errors. <br>
+
+                <br>
+                Emploi Team Wishes you the best.
+                <br><br>
+                ";
+
+                EmailJob::dispatch($this->user->name, $this->user->email, "Shortlisted for ".$this->post->title, $caption, $contents);
+            }
+            return $this->save();
+        }
+        if($this->status == 'shortlisted')
+        {
+            $this->status = 'active';
+            return $this->save();
+        }
+        return false;
     }
     
 

@@ -8,7 +8,9 @@ use Watson\Rememberable\Rememberable;
 use Illuminate\Notifications\Notifiable;
 
 use App\CvRequest;
+use App\Invoice;
 use App\JobApplication;
+use App\Order;
 use App\ProductOrder;
 use App\SavedProfile;
 
@@ -17,7 +19,8 @@ use App\Jobs\EmailJob;
 
 class Employer extends Model
 {
-    use Notifiable; 
+    use Notifiable, Rememberable; 
+    public $rememberFor = 3;
     
     protected $fillable = [
         'user_id', 'name', 'industry_id','company_name', 'contact_phone','company_phone','company_email','country_id','address','credits','created_at'
@@ -46,6 +49,43 @@ class Employer extends Model
         <b></b>
         ";
         EmailJob::dispatch($this->user->name, $this->user->email, 'Welcome to Emploi', $caption, $contents);
+    }
+
+    public function activateFreeStawi($days = 30){
+        $product = Product::where('slug','stawi')->first();
+        if(isset($product->id))
+        {
+            $order = Order::create([
+                'user_id' => $this->user->id,
+                'slug' => Order::generateUniqueSlug(10)
+            ]);
+            $productOrder = ProductOrder::create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'days_duration' => $days,
+                'price' => 0
+            ]);
+            $invoice = Invoice::create([
+                'order_id' => $order->id,
+                'slug' => Invoice::generateUniqueSlug(11),
+                'first_name' => $this->company_name,
+                'email' => $this->user->email,
+                'description' => $product->description,
+                'sub_total' => 0,
+                'alternative_payment_slug' => 'Free Stawi Package'
+            ]);
+            if(app()->environment() === 'production')
+            {
+                $message = $this->name." activated free stawi package. Email: ".$this->user->email;
+                $this->notify(new \App\Notifications\SystemError($message));
+            }
+            ProductOrder::enablePending();
+
+        }
+        //create order
+        //create product order
+        //send slack notification
+
     }
 
     public function isOnStawiPackage(){
@@ -246,6 +286,31 @@ class Employer extends Model
         // return $posts;
     }
 
+    public function getShortlistingPostsAttribute(){
+
+        $companies = $this->user->companies;
+        $company_ids = array();
+        for($i=0; $i<count($companies); $i++)
+        {
+            array_push($company_ids, $companies[$i]->id);
+        }
+        $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->where('how_to_apply',null)->orderBy('id','DESC')->get();
+
+        return $posts;
+
+        // $companies = $this->user->companies;
+        // $posts = array();
+        // for($i=0; $i<count($companies); $i++)
+        // {
+        //     for($k=count($companies[$i]->posts)-1; $k>0; $k--)
+        //     {
+        //         if($companies[$i]->posts[$k]->status == 'active')
+        //             array_push($posts, $companies[$i]->posts[$k]);
+        //     }
+        // }
+        // return $posts;
+    }
+
     public function getClosedPostsAttribute(){
         $companies = $this->user->companies;
         $company_ids = array();
@@ -272,6 +337,49 @@ class Employer extends Model
 
     public function recentApplications($counter = 5){
         $posts = array();
+        $c = "SELECT id FROM companies WHERE user_id = ".$this->user->id;
+        $c = DB::select($c);
+        $companies = '(';
+        for($i=0; $i<count($c); $i++)
+        {
+            $companies .= $c[$i]->id;
+            if($i < count($c)-1)
+                $companies .= ',';
+        }
+        $companies .= ')';
+
+        if($companies == '()')
+            return array();
+
+        $p = "SELECT id FROM posts WHERE company_id IN $companies";
+        $p = DB::select($p);
+
+        // $posts = [];
+        // for($i=0; $i<count($p); $i++)
+        //     $posts[] = $p[$i]->id;
+
+        // $applications = JobApplication::whereIn('post_id',$posts)->get();
+
+        $posts = '(';
+        for($i=0; $i<count($p); $i++)
+        {
+            $posts .= $p[$i]->id;
+            if($i < count($p)-1)
+                $posts .= ',';
+        }
+        $posts .= ')';
+
+        if($posts == '()')
+            return array();
+
+        $sql = "SELECT users.username, users.name, posts.slug, posts.title, job_applications.id, job_applications.user_id, job_applications.post_id, job_applications.created_at FROM job_applications LEFT JOIN users ON users.id = job_applications.user_id LEFT JOIN posts ON posts.id = job_applications.post_id WHERE job_applications.post_id IN  $posts ORDER BY job_applications.created_at DESC LIMIT $counter ";
+
+        $applications = DB::select($sql);
+
+        return $applications;
+
+        dd($a);
+
         for($i=0; $i<count($this->companies); $i++)
         {
             for($k=0; $k<count($this->companies[$i]->posts); $k++)

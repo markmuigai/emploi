@@ -27,13 +27,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div id="interview-pool">
                 @forelse($application->interviewResults as $i)
                 <div class="form-group">
-                    <label>Edit Interview Score (0-100) </label>
+                    <label>Edit Interview Score (0-100) <b style="color: red" title="Required">*</b></label>
                     <input type="number" name="score[]" class="form-control" value="{{ $i->score }}" step="0" min="0" max="100" required="required">
                     <span class="pull-right rm-interview-score"><i class="fas fa-times text-danger"></i></span>
                 </div>
                 @empty
                 <div class="form-group">
-                    <label>Interview Score (0-100) </label>
+                    <label>Interview Score (0-100) <b style="color: red" title="Required">*</b></label>
                     <span class="pull-right rm-interview-score"><i class="fas fa-times text-danger"></i></span>
                     <input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">
                 </div>
@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         $('#add-interview').click(function() {
             var $i = '' +
                 '<p>' +
-                '<label>Interview Score (0-100)</label>' +
+                '<label>Interview Score (0-100) <b style="color: red" title="Required">*</b></label>' +
                 '<span class="pull-right rm-interview-score"><i class="fas fa-times text-danger"></i></span>' +
                 '<input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">' +
                 '</p>';

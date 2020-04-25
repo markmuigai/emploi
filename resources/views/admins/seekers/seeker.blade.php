@@ -146,16 +146,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>          
         
         <hr>
-        <h4>Featured Job Seekers</h4>
-        <form method="POST" action="/admin/toggle-seeker-featured">
-            @csrf
-            <input type="hidden" name="seeker_id" value="{{ $seeker->id }}">
-            <select class="btn">
-                <option value="1" {{ $seeker->featured == 1 ? 'selected=""' : '' }} >Featured</option>
-                <option value="0" {{ $seeker->featured == 0 ? 'selected=""' : '' }} >Not Featured</option>
-            </select>
-            <input type="submit" value="Apply" class="btn btn-sm btn-primary">
-        </form>
     </div>
 </div>
 

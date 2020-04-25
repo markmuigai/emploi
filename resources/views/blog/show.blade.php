@@ -3,13 +3,13 @@
 @section('title','Emploi :: '.$blog->title)
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('meta-include')
 <meta property="og:url"           content="{{ url('/blog/'.$blog->slug) }}/" />
-<meta property="og:title"         content="{{ $blog->title }}" />
-<meta property="og:description"   content="Career Centre Blog on {{ $blog->category->name }}" />
+<meta property="og:title"         content="{{ $blog->title }} - Emploi" />
+<meta property="og:description"   content="{{ $blog->category->name }} - {{ $blog->title }}" />
 
 <meta property="og:image" content="{{ asset($blog->imageUrl) }}">
 <meta property="og:image:width"   content="900" />
@@ -17,6 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
+
 
 <div class="container">
     <div class="card my-5">
@@ -50,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
             @else
                 <p>
-                    {!!html_entity_decode($blog->longPreview(500))!!}
+                    {!!html_entity_decode($blog->longPreview(1000))!!}
                 </p>
                 <br><br>
                 <p style="text-align: center;">
@@ -119,17 +120,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h2 class="orange" style="text-align: center;">You Might Also Like</h2>
                 <div class="row">
                 @foreach($relatedBlogs as $rblog)  
-                    <div class="main-blog-image mb-4 d-none d-md-block col-md-{{ $classSeparator }}" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($rblog->imageUrl) }}')">
-                        <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-lg-5 px-4 heading">
-                            <a href="{{ url('/blog/'.$rblog->slug) }}">
-                                <h2>{{ $rblog->title }}</h2>
-                            </a>
-                            <p>
-                                <i class="fas fa-user"></i> {{ $rblog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $rblog->postedOn }}
-                            </p>
-                            <a href="/blog/{{ $rblog->category->slug }}"><span class="badge badge-orange">{{ $rblog->category->name }}</span></a>
+                <div class="card col-md-{{ $classSeparator }}">
+                    <div class="card-body" style="font-size: 85%">
+                        <div class="main-blog-image mb-4 d-md-block" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset($rblog->imageUrl) }}')">
+                            <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 px-lg-5 px-4 heading">
+                                <a href="{{ url('/blog/'.$rblog->slug) }}">
+                                    <h2>{{ $rblog->title }}</h2>
+                                </a>
+                                <p>
+                                    <i class="fas fa-user"></i> {{ $rblog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $rblog->postedOn }}
+                                </p>
+                                <a href="/blog/{{ $rblog->category->slug }}"><span class="badge badge-orange">{{ $rblog->category->name }}</span></a>
+                            </div>
                         </div>
                     </div>
+                </div>
                 @endforeach
                 </div>
             </div>

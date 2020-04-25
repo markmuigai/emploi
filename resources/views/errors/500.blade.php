@@ -22,12 +22,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $().ready(function(){
+        window.location = '/home';
+    });
+</script>
 <?php
     $code = '500: Internal Server Error';
     $url = url()->current();
     $user = isset(Auth::user()->id) ? '['.Auth::user()->name.' - '.Auth::user()->email.']' : '[Unauthenticated user]';
     $message = $code.' '.$user.' '.$url;
-    if (app()->environment() === 'production')
-        \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
+    //if (app()->environment() === 'production')
+    //    \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
 ?>
 @endsection

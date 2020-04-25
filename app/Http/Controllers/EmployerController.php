@@ -173,9 +173,12 @@ class EmployerController extends Controller
 
 
 
-        $credited = Referral::creditFor($request->email,20);
+        //$credited = Referral::creditFor($request->email,20);
 
-        if(!$credited && Session::has('invite_id'))
+        //if(!$credited && Session::has('invite_id'))
+        $r = Referral::where('email',$request->email)->first();
+
+        if(!isset($r->id) && Session::has('invite_id'))
         {
             $invite_id = Session::get('invite_id');
             $link = InviteLink::find($invite_id);
@@ -187,7 +190,7 @@ class EmployerController extends Controller
                     'email' => $user->email
                 ]);
 
-                Referral::creditFor($user->email,20);
+                //Referral::creditFor($user->email,20);
             }
 
             //Session::forget('invite_id');
@@ -325,7 +328,7 @@ class EmployerController extends Controller
         }
         //$results = DB::select($arr);
 
-        $seekers = Seeker::whereIn('id',$arr)->paginate(10)->appends(request()->query());
+        $seekers = Seeker::whereIn('id',$arr)->orderBy('featured','DESC')->paginate(10)->appends(request()->query());
         //dd($seekers);
 
         return view('employers.browse')
@@ -495,30 +498,32 @@ class EmployerController extends Controller
 
     public function dashboard(Request $request)
     {
+        $featuredSeekers = Seeker::where('featured','>',0)->get();
+        $recentApplications = Auth::user()->employer->recentApplications();
+
         return view('employers.dashboard.index')
+                ->with('featuredSeekers',$featuredSeekers)
+                ->with('recentApplications',$recentApplications)
                 ->with('industries',Industry::active());
     }
 
     public function dashboardData(){
-        $counter = '[';
-        $labels = '[';
-        for($i=0; $i<count(Auth::user()->employer->weekApplicationsCounter); $i++)
+        $counter = [];
+        $labels = [];
+
+        $weekApplicationsCounter = Auth::user()->employer->weekApplicationsCounter;
+
+        for($i=0; $i<count($weekApplicationsCounter); $i++)
         {
-            $counter .= Auth::user()->employer->weekApplicationsCounter[$i][0];
-            $labels .= '"'.Auth::user()->employer->weekApplicationsCounter[$i][1].'"';
-            if(count(Auth::user()->employer->weekApplicationsCounter) != $i-1)
-            {
-                $counter.=',';
-                $labels.=',';
-            }
+            $counter[] = $weekApplicationsCounter[$i][0];
+            $labels[] = $weekApplicationsCounter[$i][1];
         }
-        $counter .= ']';
-        $labels .= ']';
 
         return array($counter,$labels);
     }
 
     public function dashboardStats(){
+        return '<h6>My Statistics</h6>';
         $user = Auth::user();
 
         return '<h6>My Statistics</h6>
@@ -557,6 +562,7 @@ class EmployerController extends Controller
                 $rejects = JobApplication::where('post_id',$post->id)
                     ->distinct('user_id')
                     ->where('status','rejected')
+                    ->orderBy('id','DESC')
                     ->paginate(20);
                 return view('employers.applications.rejected')
                     ->with('pool',$rejects)
@@ -567,6 +573,7 @@ class EmployerController extends Controller
                 $unrejected = JobApplication::where('post_id',$post->id)
                     ->distinct('user_id')
                     ->where('status','active')
+                    ->orderBy('id','DESC')
                     ->paginate(20);
                 return view('employers.applications.unrejected')
                     ->with('pool',$unrejected)
@@ -574,7 +581,7 @@ class EmployerController extends Controller
                 break;
             
             default:
-                $applications = JobApplication::where('post_id',$post->id)->paginate(20);
+                $applications = JobApplication::where('post_id',$post->id)->orderBy('id','DESC')->paginate(20);
                 
                 return view('employers.applications.index')
                     ->with('pool',$applications)
@@ -700,14 +707,7 @@ class EmployerController extends Controller
             ]);
         }
 
-        $m->other_skills = '[]';
-        $m->other_skills_weight = '[]';
-
-        if(isset($request->other_skill_name))
-        {
-            $m->other_skills = $request->other_skill_name;
-            $m->other_skills_weight = $request->other_skill_weight;
-        }
+        
 
         if(isset($request->skill_id) && count($request->skill_id) > 0 )
         {
@@ -758,16 +758,12 @@ class EmployerController extends Controller
         if($user->seeker->hasApplied($post))
         {
             $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
-            if($j->status == 'active')
+            if($j->status === 'active' && $j->shortlistToggle())
             {
-                $j->status = 'shortlisted';
-                $j->save();
                 return 'shortlisted';
             }
-            elseif($j->status == 'shortlisted')
+            elseif($j->status === 'shortlisted' && $j->shortlistToggle())
             {
-                $j->status = 'active';
-                $j->save();
                 return 'remove-from-shortlist';
             }
         }

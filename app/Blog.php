@@ -84,7 +84,7 @@ class Blog extends Model
                     ->get();
     }
 
-     public function alsoLike($counter = 3){
+    public function alsoLike($counter = 3){
         $counter = $counter < 1 ? 1 : $counter;
         $blogCat = $this->blog_category_id;
         $blogId = $this->id;

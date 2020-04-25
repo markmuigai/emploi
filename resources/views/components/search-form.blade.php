@@ -5,7 +5,7 @@
             <div class="row no-gutters">
                 <div class="col-12 col-sm-6 col-md-6">
                     <label for="" style="display: none">Query</label>
-                    <input type="text" name="q" required="" class="form-control" placeholder="{{ __('other.e_keywords') }}" value="" onfocus="" onblur="">
+                    <input type="text" name="q" class="form-control" placeholder="{{ __('other.e_keywords') }}" value="" onfocus="" onblur="">
                 </div>
                 <div class="col-12 col-sm-6 col-md-4">
                     <label for="" style="display: none">Locations</label>

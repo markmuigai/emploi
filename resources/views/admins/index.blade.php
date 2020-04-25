@@ -112,6 +112,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/orders" class="btn btn-sm btn-success" style="display: none">Orders</a>
                 <a href="/admin/product-orders" class="btn btn-sm btn-info" style="display: none">Product Orders</a>
 
+                <hr>
+                <a href="/admin/events" class="btn btn-sm btn-orange">Events ({{ count(\App\Meetup::where('started_at',NULL)->get()) }})</a>
+
         </div>
         <div class="clearfix"> </div>
     </div>

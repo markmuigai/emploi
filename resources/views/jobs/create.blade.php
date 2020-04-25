@@ -11,7 +11,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <form method="post" action="/vacancies" enctype="multipart/form-data" id="create-post-form">
     @csrf
-    @include('components.ads.responsive')
 
     <div id="section1" class="section-view ">
         <div class="card">
@@ -32,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <label>Company *</label>
                     <a href="/companies/create" class="btn btn-sm btn-primary">Create New</a>
                   </div>
-                    <select name="company" class="form-control">
+                    <select name="company" class="form-control selectpicker" data-live-search="true">
                         @foreach($companies as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
@@ -46,12 +45,68 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>Job Industry *</label>
-                    <select name="industry" class="form-control">
+                    <select name="industry" class="form-control selectpicker" data-live-search="true" id="industry">
                         @foreach($industries as $i)
                         <option value="{{ $i->id }}">{{ $i->name }}</option>
                         @endforeach
                     </select>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Required Skills</label>
+                        <div class="row selected-skills">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">
+                        
+                        <div class="col-md-7">
+                            <select class="form-control" id="skill-select">
+                                <option value="-1">Select Skill</option>
+                                @forelse($skills as $s)
+                                    @if($industries[0]->id == $s->industry_id )
+                                        <option value="{{ $s->id }}">{{ $s->name }}</option>
+                                    @endif
+                                @empty
+                                @endforelse
+                            </select>  
+                        </div>
+                        <div class="col-md-3 col-12">
+                            <select id="skill-weight" class="custom-select">
+                                <option value="3">Necessary</option>
+                                <option value="2">Desired</option>
+                                <option value="1">Bonus</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <span class="btn btn-sm btn-purple" id="add-skill">Add</span>
+                        </div>
+                        
+                    </div>
+
+                    
+                    <div class="col-md-12">
+                        <label>Other Skills</label>
+                        <div class="row other-skills-pool mb-3">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" name="" id="other-skill-name" class="form-control" placeholder="Enter Skill Name">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="custom-select" id="other-skill-weight">
+                            <option value="3">Very Important</option>
+                            <option value="2">Important</option>
+                            <option value="1">Bonus</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 text-right mt-md-auto mt-3">
+                        <span id="add-other-skill" class="btn btn-success btn-sm">Add</span>
+                    </div>
+                </div>
+
+                
 
                 <div class="form-group">
                     <label>Vacancy Type *</label>
@@ -166,6 +221,136 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </form>
+
+<script type="text/javascript">
+    <?php
+    $sk = '';
+    foreach($skills as $s) {
+        $sk .= "[".$s->id.", '".$s->name."', ".$s->industry_id."],";
+    }
+    $sk = '['.$sk.']';
+    echo 'var allSkills='.$sk.
+    ';';
+    ?>
+    $().ready(function(){
+        $('#industry').change(function(){
+            var new_ing = $(this).val();
+            
+            var $skills = '';
+            for(var k=0; k<allSkills.length;k++)
+            {
+                if(allSkills[k][2] == new_ing)
+                {
+                    $skills +=  '<option value="'+allSkills[k][0]+'">'+allSkills[k][1]+'</option>';
+
+                }
+            }
+            $('#skill-select').children().remove();
+            $('#skill-select').append($skills);
+            notify('Industry updated','info');
+          
+        });
+        $('#add-skill').click(function() {
+            var s = $('#skill-select').val();
+            if (s == -1)
+                return;
+            var added = false;
+
+            $('.ms-skill').each(function() {
+                if ($(this).attr('skill_id') == s)
+                    added = true;
+
+            });
+            if (!added) {
+                var t = 'Skill Name';
+                for (var i = 0; i < allSkills.length; i++) {
+                    if (allSkills[i][0] == s) {
+                        t = allSkills[i][1];
+                        break;
+                    }
+                }
+                var w = $('#skill-weight').val();
+                var wn = 'Bonus';
+                var top5SkillsCounter = 0;
+                $('.skill-weight').each(function() {
+                    if ($(this).val() == 3)
+                        top5SkillsCounter++;
+                });
+                if (top5SkillsCounter > 4 && w == 3)
+                    w = 2;
+                if (w == 3)
+                    wn = 'Necessary';
+                if (w == 2)
+                    wn = 'Desired';
+
+
+                var $s = '' +
+                    '<div class="col-md-6 ms-skill" skill_id="' + s + '">' +
+                    '<p class="d-flex justify-content-between"><span><strong>' +
+                    t + '</strong> || ' + wn +
+                    '<input type="hidden" name="skill_id[]" value="' + s + '">' +
+                    '<input type="hidden"  class="skill-weight" name="skill_weight[]" value="' + w + '"></span>' +
+                    '<span class="pull-right text-danger remove-new-skill" skill_id="' + s + '"><i class="fas fa-times"></i></span>' +
+                    '</p>' +
+                    '</div>';
+                $('.selected-skills').append($s);
+                $('.remove-new-skill').click(function() {
+                    //var s = $(this).attr('skill_id');
+                    $(this).parent().parent().remove();
+                });
+            }
+            else
+            {
+                $('#add-skill').notify("Skill already added");
+            }
+        });
+        $('#add-other-skill').click(function() {
+            var name = $('#other-skill-name').val();
+            if (name.length < 3)
+                return;
+            var weight = $('#other-skill-weight').val();
+            addOtherSkill(name, weight);
+        });
+
+        function addOtherSkill(name, weight) {
+            var added = false;
+            $('.other-skill').each(function() {
+                if ($(this).attr('skill_name') == name)
+                    added = true;
+            });
+            if (added)
+                return;
+
+
+            var weightName = 'Bonus';
+            if (weight == 2)
+                weightName = 'Important';
+            if (weight == 3)
+                weightName = 'Very Important';
+            $o = '' +
+                '<div class="col-md-4 col-6 other-skill d-flex justify-content-between" skill_name="' + name + '">' +
+                '<p><input type="hidden" name="other_skill_name[]" class="other-skill" value="' + name + '">' +
+                '<input type="hidden" name="other_skill_weight[]" value="' + weight + '">' +
+                name + ' || ' + weightName +
+                '</p><span class="text-danger pull-right remove-other-skill"><i class="fas fa-times"></i></span>' +
+                '</div>';
+            $('.other-skills-pool').append($o);
+            $('.remove-other-skill').click(function() {
+                $(this).parent().remove();
+            });
+            $('#other-skill-name').val('');
+        }
+
+        $('.remove-skill').click(function() {
+            //var s = $(this).attr('skill_id');
+            $(this).parent().parent().remove();
+        });
+
+        $('.remove-other-skill').click(function() {
+            $(this).parent().remove();
+        });
+    });
+</script>
 
 
 <script type="text/javascript">

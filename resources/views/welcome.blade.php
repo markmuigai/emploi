@@ -1,9 +1,9 @@
 @extends('layouts.general-layout')
 
-@section('title','Welcome to Emploi - Online Placement Platform for Africa')
+@section('title','Welcome to Emploi - The Premier Online Job Placement Platform in Africa')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace. 
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 @section('content')
@@ -15,6 +15,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     }
     .for-mobile {
         display: none;
+    }
+
+    .content2 {
+        float: none;
+        position: absolute;
+        top: 68vh;
+        background-color: white;
+        color: #500095;
+        border-radius: 1.5%;
+        padding: 0.4em 1em;
+        border-radius: 1.5em
     }
 
     @media only screen and (min-width: 997px) {
@@ -39,11 +50,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             display: inline
         }
     }
+
+    @media only screen and (max-width:425px) {
+        .landing {
+            background-image: url(../images/bg-small.jpg);
+            
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: right;
+            height: 80vh
+        }
+        .content2 {
+            font-size: 95%
+        }
+    }
 </style>
 
 <!-- LANDING PAGE -->
 <div class="landing">
     <div class="container">
+        <div class="content2">
+            <a href="/covid19-information-series">See how we are supporting companies and individuals in the fight against COVID-19</a>
+        </div>
         <div class="content">
 
             <?php $line= "Welcome to Emploi, where deserving talent meets deserving opportunities"; ?>
@@ -87,6 +115,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 
             @endif
         </div>
+        
     </div>
 </div>
 <!-- END OF LANDING PAGE -->
@@ -96,9 +125,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @include('components.search-form')
 <!-- END OF SEARCH BAR -->
 
+
+
 <!-- ABOUT SECTION -->
 <div class="about">
     <div class="container">
+
         <div class="card pb-5">
             <div class="card-body text-center">
                 <h2 class="orange">{{ __('other.who_r_we') }}?</h2>
@@ -108,10 +140,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/employers/publish" class="btn btn-orange-alt px-4">{{ __('jobs.advert_jobs') }}</a>
             </div>
         </div>
+
     </div>
 </div>
-<!-- END OF ABOUT SESSION -->
 @include('components.stats')
+<!-- END OF ABOUT SESSION -->
+
 <!-- SERVICES -->
 <div class="services my-3">
     <div class="container">
@@ -197,7 +231,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Advertise Jobs</h5>
-                                        <p class="card-text">Reach an Audience of 100k+ subscribers, Utilize Advanced Recruitment tools and Candidate Ranking Algorithm.</p>
+                                        <p class="card-text">Reach an Audience of 100k+ subscribers, Utilize Advanced Recruitment tools and Candidate Ranking Algorithm. <br><b>Free 30 day trial</b></p>
                                     </div>
                                     <div class="card-footer">
                                         <a href="/employers/publish" class="btn btn-orange">Advertise Here</a>
@@ -312,76 +346,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
-<!-- TESTIMONALS -->
-<div class="container">
-    <div class="testimonials">
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>Emploi is the most efficient digital sourcing platform. They are fast and are good at what they do.</p>
-                        <hr class="short">
-                        <h5>Anthony Ochieng</h5>
-                        <p>Employer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/testimonials/kizito.webp')}}" alt="Kipkemoi Kizito" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me an opportunity of getting there.</p>
-                        <hr class="short">
-                        <h5>Kipkemoi Kizito</h5>
-                        <p>Job Seeker</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/testimonials/fay.webp')}}" alt="Faith Chepkemoi" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>The Emploi Team creates a great rapport with their candidates and is an invaluable asset to anyone looking for a job.</p>
-                        <hr class="short">
-                        <h5>Faith Chepkemoi</h5>
-                        <p>Job Seeker</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">{{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/testimonials/sandra.webp')}}" alt="Sandra Eshitemi" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.</p>
-                        <hr class="short">
-                        <h5>Sandra Eshitemi</h5>
-                        <p>Employer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END OF TESTIMONIALS -->
+@include('components.testimonials.general')
 
 @include('components.blogs')
 
@@ -409,6 +374,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <h4>{{ __('other.more_than') }} <span class="seeker-stats"><span>2207</span></span> {{ __('other.proffesionals_path') }}</h4>
                 <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
                 <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
+                <a href="/post-a-job" class="btn btn-white px-4">Post a Job</a>
             @else
                 @if(Auth::user()->role == 'seeker')
                     <h1>{{ __('other.find_right_job') }}</h1>
@@ -490,24 +456,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 },
             ]
         });
-        $('.testimonials').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: true,
-            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-            autoplay: true,
-            speed: 2000,
-        });
-
-
-        
-        
-
-        // $(function() {
-        //     $('.counter').countUp();
-        // });
     });
 </script>
     

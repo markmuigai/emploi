@@ -34,7 +34,11 @@
     </div>
 </div>
 <div class="prompts" data-toggle="tooltip" data-placement="top" title="Invite your friends, Let's reward you">
+    @guest
+    <a href="/profile/invites" class="invite"><i class="fas fa-user-plus"></i></a>
+    @else
     <button type="button" name="button" class="invite" data-toggle="modal" data-target="#inviteFriends"><i class="fas fa-user-plus"></i></button>
+    @endguest
 </div>
 
 

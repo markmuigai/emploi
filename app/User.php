@@ -6,8 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
+use Watson\Rememberable\Rememberable;
 
+use App\Invoice;
+use App\InvoiceCreditRedemption;
 use App\Jurisdiction;
+use App\Referral;
 use App\Seeker;
 use App\UserPermission;
 
@@ -16,10 +20,12 @@ use App\Jobs\EmailJob;
 use App\Traits\CanLike;
 use App\Traits\CanEditCv;
 use App\Traits\CanBlog;
+use App\Traits\CanMeetup;
 
 class User extends Authenticatable
 {
-    use Notifiable, CanLike, CanEditCv, CanBlog;
+    use Notifiable, CanLike, CanEditCv, CanBlog, CanMeetup, Rememberable;
+    public $rememberFor = 3;
     
     protected $fillable = [
         'name', 'username', 'email', 'password','avatar','email_verification','email_verified_at','password','created_at'
@@ -41,6 +47,23 @@ class User extends Authenticatable
         return strtolower($this->email);
     }
 
+    public static function makePublicName($name) {
+        $name = explode(" ", $name);
+        switch (count($name)) {
+            case 0:
+                return implode(" ", $name);
+                break;
+
+            case 1:
+                return ucwords(implode(" ", $name));
+                break;
+            
+            default:
+                return ucwords(substr($name[0], 0,1).". ".$name[1]);
+                break;
+        }
+    }
+
     public function routeNotificationForSlack($notification)
     {
         return 'https://hooks.slack.com/services/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';
@@ -52,6 +75,10 @@ class User extends Authenticatable
 
     public function inviteLinks(){
         return $this->hasMany(InviteLink::class);
+    }
+
+    public function meetups(){
+        return $this->hasMany(Meetup::class);
     }
 
     public function cvEditor(){
@@ -74,24 +101,8 @@ class User extends Authenticatable
         return $this->hasMany(Blog::class);
     }
 
-    public function credits(){
-        return $this->hasMany(Credit::class);
-    }
-
     public function referrals(){
         return $this->hasMany(Referral::class);
-    }
-
-    public function getTotalCreditsAttribute(){
-        $total = 0;
-        if(count($this->credits) == 0)
-            return 0;
-        foreach($this->credits as $c)
-        {
-            if(!isset($c->invoiceCreditRedemption->id))
-                $total += $c->value;
-        }
-        return $total;
     }
 
     public function getRoleAttribute(){
@@ -184,6 +195,11 @@ class User extends Authenticatable
         $this->email_verified_at = now();
         $this->save();
 
+        $credit = 10;
+        if($this->role == 'employer')
+            $credit = 20;
+        Referral::creditFor($this->email,$credit);
+
         if($this->role == 'seeker')
         {
             $this->seeker->sendWelcomeEmail();
@@ -193,6 +209,7 @@ class User extends Authenticatable
         if($this->role == 'employer')
         {
             $this->employer->sendWelcomeEmail();
+            $this->employer->activateFreeStawi(30);
         }
         return true;
     }
@@ -250,5 +267,75 @@ class User extends Authenticatable
         $string = str_replace(' ', '', $string);
 
         return preg_replace('/[^A-Za-z0-9\-.@]/', '', $string);
+    }
+
+    public function credits(){
+        return $this->hasMany(Credit::class);
+    }
+
+    public function getTotalCreditsAttribute(){
+        $total = 0;
+        if(count($this->credits) == 0)
+            return 0;
+        foreach($this->credits as $c)
+        {
+            if(!isset($c->invoiceCreditRedemption->id))
+                $total += $c->value;
+        }
+        return $total;
+    }
+
+    public function getApplicableDiscount(int $price)
+    {
+        $max_credits_discount = round($price * 0.3);
+        $discount = 0;
+        if($this->totalCredits * 0.1 <= $max_credits_discount)
+            return $this->totalCredits * 0.1;
+        return $max_credits_discount;
+    }
+
+    public function redeemCredits(Invoice $invoice)
+    {
+        $price = $invoice->total == 0 ? $invoice->total : $invoice->sub_total;
+
+        $discount = 0;
+        $max_credits_discount = round($price * 0.3);
+        $redeemedCredits = 0;
+
+        if(count($this->credits) == 0)
+            return 0;
+        foreach($this->credits as $c)
+        {
+            if(!isset($c->invoiceCreditRedemption->id))
+            {
+                $newDiscount = $discount + $c->value * 0.1;
+                if($newDiscount >= $max_credits_discount)
+                    break;
+
+                $icr = InvoiceCreditRedemption::create([
+                    'credit_id' => $c->id,
+                    'invoice_id' => $invoice->id
+                ]);
+                $redeemedCredits += $c->value;
+                $discount += round($c->value * 0.1);
+
+
+            }
+        }
+
+        if($redeemedCredits > 0)
+        {
+            $caption = "You have redeemed referrals credit on Emploi";
+            $contents = "
+            Emploi offers a transparent <a href='".url('/refer')."'>Referral Scheme</a> which you used to invite your friends. <br>
+            $redeemedCredits Credits have been redeemed and your checkout price was reduced.
+            <br><br>
+            Thank you for chosing Emploi. <a href='".url('/refer')."'>Refer more friends</a>
+            ";
+            EmailJob::dispatch($this->name, $this->email, 'Emploi Referral Credits Redeemed', $caption, $contents);
+        }
+
+
+        return $discount;
     }
 }

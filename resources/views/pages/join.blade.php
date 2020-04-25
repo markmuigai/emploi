@@ -3,7 +3,7 @@
 @section('title','Emploi :: Create an Account')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
 <?php  
@@ -61,7 +61,6 @@ if(isset($name))
         </p>
     </div>
     @endif
-
     @include('components.ads.responsive')
 </div>
 

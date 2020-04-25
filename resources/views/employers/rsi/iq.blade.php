@@ -29,12 +29,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div id="interview-pool">
                 @forelse($application->iqTests as $i)
                 <div class="form-group">
-                    <label>Edit IQ Score (0-100) </label><span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>
+                    <label>Edit IQ Score (0-100)  <b style="color: red" title="Required">*</b></label><span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>
                     <input type="number" name="score[]" class="form-control" value="{{ $i->score }}" step="0" min="0" max="100" required="required">
                 </div>
                 @empty
                 <div class="form-group">
-                    <label>IQ Score (0-100) </label>
+                    <label>IQ Score (0-100)  <b style="color: red" title="Required">*</b></label>
                     <span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>
                     <input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">
                 </div>
@@ -52,7 +52,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         $('#add-interview').click(function() {
             var $i = '' +
                 '<p>' +
-                '<label>IQ Score (0-100)</label>' +
+                '<label>IQ Score (0-100) <b style="color: red" title="Required">*</b></label>' +
                 '<span class="btn btn-sm btn-danger pull-right rm-interview-score">x</span>' +
                 '<input type="number" name="score[]" class="form-control" value="" step="0" min="0" max="100" required="required">' +
                 '</p>';

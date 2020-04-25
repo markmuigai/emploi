@@ -5,6 +5,9 @@ Route::post('/language', 'LangController@index');
 Route::get('/robots.txt', 'ContactController@robotsFile');
 Route::get('/ads.txt', 'ContactController@googleAdsFile');
 
+Route::get('/test/{email?}', 'ContactController@testEmail')->middleware('admin');
+Route::get('/test2', 'ContactController@testEmail2')->middleware('admin');
+
 Route::get('/refer', 'ReferralController@refer');
 
 Route::get('/browser-sessions/{endpoint}', 'SessionController@browserSessions');
@@ -16,6 +19,8 @@ Route::get('/invites/{slug}', 'ContactController@invited');
 Route::get('/checkout', 'PesapalController@checkout');
 Route::post('/checkout', 'PesapalController@checkout');
 
+Route::post('/covid-advert', 'AdvertController@isCovid19');
+Route::get('/covid19-information-series', 'Covid19Controller@index');
 Route::get('/careers', 'ContactController@careers');
 Route::get('/contact', 'ContactController@contact');
 Route::get('/about', 'ContactController@about');
@@ -61,6 +66,9 @@ Route::get('likes/{target}/{slug}', 'HomeController@toggleLike');
 
 Route::resource('/blog', 'BlogController');
 Route::resource('companies', 'CompanyController');
+Route::resource('/events', 'MeetupController');
+Route::get('/events/{slug}/subscribers', 'MeetupController@subscribers');
+Route::resource('/events-subscriptions', 'MeetupSubscriptionController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::get('companies-featured', 'CompanyController@companiesFeatured');
 Route::resource('/referrals', 'ReferralController');
@@ -91,6 +99,12 @@ Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('referee/{slug}','EmployerController@viewReport');
 
 });
+
+Route::get('/post-a-job', 'PostAJobController@postJob');
+Route::get('/employers/publish', 'PostAJobController@advertise');
+//Route::get('/employers/advertise/{industry_name?}', 'ContactController@advertise');
+Route::post('/employers/publish', 'AdvertController@store');
+
 Route::get('/employers/register', 'EmployerController@register');
 Route::post('/employers/registered', 'EmployerController@create');
 Route::get('/employers/registered', 'EmployerController@register');
@@ -152,6 +166,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
+    Route::resource('industry-skills', 'IndustrySkillsController');
     Route::get('/', 'AdminController@panel')->name('adminpanel');
     Route::get('panel', 'AdminController@panel');
     Route::get('posts', 'AdminController@posts');
@@ -200,6 +215,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('invoices/{slug}/remindViaEmail', 'InvoiceController@remindViaEmail');
     Route::get('invoices/{slug}/remindViaEmail', 'InvoiceController@show');
     Route::get('/how-to', 'AdminController@adminFaqs');
+
+    Route::get('events/{endpoint?}','MeetupController@adminMeetups');
 });
 
 
@@ -251,8 +268,7 @@ Route::get('/employers/faqs', 'ContactController@employerFaqs');
 
 
 Route::resource('/vacancies', 'PostsController');
-Route::get('/employers/publish', 'ContactController@epublish');
-Route::post('/employers/publish', 'AdvertController@store');
+
 Route::get('/vacancies/{slug}/apply','PostsController@apply')->middleware('seeker');
 Route::post('/vacancies/{slug}/apply','JobApplicationController@accept')->middleware('seeker');
 Route::get('/profile/applications/{id?}','SeekerController@applications')->middleware('seeker');

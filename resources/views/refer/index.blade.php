@@ -11,7 +11,8 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
 <div class="text-center my-5">
     <h2>Refer your Friends</h2>
     <p>
-        When you refer your friends and they sign up, you are awarded <a href="/referral-credits" class="orange" >Referral Credits</a> which you can redeem on Emploi.
+        Emploi offers a transparent referral and rewards program. Job seekers who refer more than 5 friends are Featured for Free on Emploi for 1 month. Other prices include Free Airtime and Free Internet Bundles.
+        
     </p>
     <br>
     <div class="row">
@@ -54,6 +55,11 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
     		</p>
     	</div>
     </div>
+    <div>
+        <br>
+        <img src="/images/promotions/refer-friends-win-huawei-y9.jpg" alt="Refer your Friends and Win a Huawei Y9" style="width: 90%; margin-left: 5%">
+    </div>
+    
     <div>
     	@include('components.featuredJobs')
     </div>
