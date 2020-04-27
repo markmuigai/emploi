@@ -12,28 +12,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        @include('components.ads.responsive')
         <div class="row align-items-center">
             <div class=" col-lg-7 col-md-8 offset-md-2">
                 <form method="POST" action="/admin/bloggers">
                     @csrf
                     <p>
-                        <label>Email:</label>
+                        <label>Full Name: <b style="color: red" title="Required">*</b></label>
+                        <input type="text" name="name" class="form-control" required="">
+                    </p>
+                    <p>
+                        <label>Email: <b style="color: red" title="Required">*</b></label>
                         <input type="email" name="email" class="form-control" required="">
                     </p>
                     <p>
-                        <label>Status: </label>
+                        <label>Status: <b style="color: red" title="Required">*</b></label>
                         <select name="status" class="form-control">
                             <option value="active">Active</option>
                             <option value="inactive">Not Active</option>
                         </select>
                     </p>
                     <p>
-                        <input type="submit" value="Save Blogger" class="btn btn-primary btn-sm">
+                        <input type="submit" value="Save Blogger" class="btn btn-orange btn-sm">
                     </p>
                 </form>
             </div>
         </div>
+        @include('components.ads.responsive')
         <hr>
     </div>
 </div>

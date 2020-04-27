@@ -12,6 +12,7 @@ use Notification;
 use App\Employer;
 use App\Jurisdiction;
 use App\User;
+use App\UserPermission;
 
 use App\Notifications\VerifyAccount;
 use App\Jobs\EmailJob;
@@ -99,10 +100,12 @@ class LoginController extends Controller
             Notification::send(Jurisdiction::first(),new AdminAction('ADMIN '.$user->name.' ('.$user->username.') logged in at '.now().'.'));
         }
 
-        if($user->userPermission->status != 'active')
+        $perm = UserPermission::where('user_id',$user->id)->first();
+
+        if(isset($perm->id) && $perm->status != 'active')
         {
             Auth::logout();
-            die("Your account was disabled. Kindly <a href='/contact'>Contact Us</a>");
+            die("Your account was disabled by our administrators. Kindly <a href='/contact'>Contact Us</a>");
         }
     }
 }

@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 use App\Blog;
 use App\Blogger;
+use App\Referral;
 use App\User;
+
+use App\Jobs\EmailJob;
 
 class BloggersController extends Controller
 {
@@ -28,7 +32,41 @@ class BloggersController extends Controller
 
     public function store(Request $request)
     {
-        $user = User::where('email',$request->email)->firstOrFail();
+        $user = User::where('email',$request->email)->first();
+        if(!isset($user->id))
+        {
+            //$full_name = $request->first_name.' '.$request->last_name;
+            $name = $request->name;
+            $username = explode(" ", $name);
+            $username = strtolower(implode("", $username).rand(1000,30000));
+            $username = explode(".", $username);
+            $username = implode('',$username);
+
+            $password = User::generateRandomString(10);
+
+            $user = User::create([
+                'name' => $name,
+                'email' => $request->email,
+                'username' => $username,
+                'email_verification' => User::generateRandomString(10),
+                'password' => Hash::make($password),
+            ]);
+
+
+
+            $credited = Referral::creditFor($request->email,20);
+
+            $caption = "Blogging account created on Emploi";
+            $contents = "Here are your login credentials for Emploi: <br>
+            username: $username <br>
+            password: $password
+
+            <br><br>
+            <a href='".url('/veify-account/'.$user->email_verification)."'>Verify Account</a> and Log in to finish setting up your account and start writing blogs.
+            ";
+            EmailJob::dispatch($user->name, $user->email, 'Emploi Login Credentials', $caption, $contents);
+
+        }
         $blogger = Blogger::where('user_id',$user->id)->first();
 
         if(isset($blogger->id))

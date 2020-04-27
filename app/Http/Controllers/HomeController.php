@@ -84,6 +84,8 @@ class HomeController extends Controller
                 return redirect('/job-seekers/dashboard');
                 break;
             case 'guest':
+                if($user->canUseBloggingPanel())
+                    return redirect('/my-blogs');
                 return view('guests.choose');
             default:
                 return redirect('/');
