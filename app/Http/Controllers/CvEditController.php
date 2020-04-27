@@ -60,15 +60,24 @@ class CvEditController extends Controller
             'message' => ['max:500']
         ]);
 
+        $free_review = isset($request->free_review) ? true : false;
+
         $storage_path = '/public/resume-edits';
         $resume_url = basename(Storage::put($storage_path, $request->resume));
+
+        $review_message = $request->message ? $request->message : 'No custom message';
+
+        if($free_review)
+        {
+            $review_message = '[FREE CV REVIEW]: '.$review_message;
+        }
 
         $r = CvEditRequest::create([
             'email' => $request->email,
             'industry_id' => $request->industry, 
             'name' => $request->name,
             'phone_number' => $request->phone_number,
-            'message' => $request->message ? $request->message : 'No custom message',
+            'message' => $review_message,
             'slug' => strtolower(User::generateRandomString(30)),
             'original_url' => $resume_url
         ]);
@@ -88,8 +97,10 @@ class CvEditController extends Controller
 
             EmailJob::dispatch($r->name, $r->email, 'Professional CV Editing Requested', $caption, $contents);
 
-            
-            Seeker::first()->notify(new EditingRequest($r->name.' requested for CV Editing'));
+            if (app()->environment() === 'production') {
+                $sm = $free_review ?  $r->name.' requested for CV Editing' : $r->name.' requested for Free CV Review';
+                Seeker::first()->notify(new EditingRequest($sm));
+            }
         }
         else
             $message = "An error occurred while processing your request. Kindly try again after a while or contact us if the error persists";

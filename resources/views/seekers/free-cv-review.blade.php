@@ -23,6 +23,7 @@ Get a free CV review from our Experts and stand out from the crowd.
 		
 		
 		<form method="POST"  enctype="multipart/form-data" action="/cv-editing" class="col-md-8 offset-md-2">
+			<input type="hidden" name="free_review" value="true">
 			@csrf
 			<p>
 				<label>Name: <b style="color: red">*</b></label>
