@@ -13,7 +13,9 @@
                     <a href="{{ $meetup->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
                     <a href="{{ $meetup->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
                     <a href="{{ $meetup->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
-                    <a href="{{ $meetup->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-whatsapp"></i></a>
+                    <a href="{{ $meetup->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em">
+                        <img src="/images/whatsapp.png" style="width: 3em">
+                    </a>
                 </div>
             </div>
         </div>
