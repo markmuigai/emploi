@@ -25,7 +25,7 @@ class Post extends Model implements Feedable
 
     public static function getFeedItems()
     {
-        return Post::where('status','active')->limit(100)->get();
+        return Post::where('status','active')->orderBy('id','DESC')->limit(100)->get();
     }
 
     public function toFeedItem()
