@@ -24,7 +24,7 @@ use App\Jobs\EmailJob;
 class Seeker extends Model
 {
     use Rememberable, Notifiable;
-    public $rememberFor = 20;
+    public $rememberFor = 2;
     
     protected $fillable = [
         'user_id','public_name', 'gender', 'date_of_birth', 'phone_number','current_position','post_address','years_experience','industry_id','country_id','location_id','education_level_id','objective','resume','featured','education','experience','resume_contents','searching','created_at'
