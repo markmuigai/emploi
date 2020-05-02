@@ -34,7 +34,7 @@ class Post extends Model implements Feedable
             'link' => url('/vacancies/'.$this->slug),
             'id' => $this->id,
             'title' => $this->title,
-            'summary' => $this->brief,
+            'summary' => $this->company->name.' is recruiting '.$this->positions.' position(s) in '.$this->title,
             'company' => $this->company->name,
             'category' => $this->industry->name,
             'deadline' => $this->deadline,
