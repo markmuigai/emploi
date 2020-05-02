@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @include('feed::links')
     <meta name="description" content="@yield('description')" />
     <!-- Page Title -->
     <title>@yield('title')</title>

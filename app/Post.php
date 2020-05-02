@@ -12,14 +12,37 @@ use App\Like;
 use App\User;
 
 use Watson\Rememberable\Rememberable;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Post extends Model
+class Post extends Model implements Feedable
 {
     use Rememberable;
     public $rememberFor = 20;
     protected $fillable = [
         'slug', 'company_id', 'title', 'industry_id','education_requirements', 'experience_requirements','responsibilities','deadline','cover_required','portfolio_required','status','location_id','vacancy_type_id','image','how_to_apply','monthly_salary','verified_by','featured','positions','max_salary'
     ];
+
+    public static function getFeedItems()
+    {
+        return Post::all();
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create([
+            'link' => url('/vacancies/'.$this->slug),
+            'id' => $this->id,
+            'title' => $this->title,
+            'summary' => $this->brief,
+            'company' => $this->company->name,
+            'category' => $this->industry->name,
+            'deadline' => $this->deadline,
+            'vacancies' => $this->positions,
+            'updated' => $this->updated_at,
+            'author' => $this->company->user->name
+        ]);
+    }
 
     public function getIndustrySkillsAttribute(){
         if(isset($this->modelSeeker->id))

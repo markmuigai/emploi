@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @include('feed::links')
     <title>@yield('title')</title>
     @include('components.meta')
     <!-- STYLESHEETS -->

@@ -1,4 +1,5 @@
 <?php
+Route::feeds();
 Route::get('/vacancies-xml', 'SitemapController@vacanciesXML');
 Route::get('/language', 'LangController@index');
 Route::post('/language', 'LangController@index');

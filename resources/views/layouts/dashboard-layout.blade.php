@@ -4,6 +4,7 @@
 <head>
 
     @include('components.meta')
+    @include('feed::links')
     <!-- Page Title -->
     <title>@yield('title')</title>
     <!-- Favicon -->
