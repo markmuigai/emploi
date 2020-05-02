@@ -14,13 +14,13 @@
     @endforeach
     @forelse($items as $item)
         <url>
-            <loc>{!! $item->link !!}</loc>
-            <id>{!! $item->id !!}</id>
-            <title>{!! $item->title !!}</title>
-            <company>{!! $item->company !!}</company>
-            <category>{!! $item->category !!}</category>
-            <deadline>{!! $item->deadline !!}</deadline>
-            <vacancies>{!! $item->vacancies !!}</vacancies>
+            <loc>{{ $item->link }}</loc>
+            <id>{{ $item->id }}</id>
+            <title>{{ $item->title }}</title>
+            <company>{{ $item->company }}</company>
+            <category>{{ $item->category }}</category>
+            <deadline>{{ $item->deadline }}</deadline>
+            <vacancies>{{ $item->vacancies }}</vacancies>
             <updated>{{ $item->updated->toRssString() }}</updated>
         </url>
     @empty
