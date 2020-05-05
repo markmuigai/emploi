@@ -86,7 +86,7 @@ $event = $meetup;
         		<div class="col-md-12 card">
                     <div class="card-body">
                         <h4 style="text-align: center;" class="orange">Description</h4>
-                        <
+                        
                         <?php
                             print $event->description;
                         ?>
