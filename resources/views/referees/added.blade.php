@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="card">
     <div class="card-body text-center">
         <p>
-            Thank you for saving <strong>{{ $referee->name }}</strong> as your referee to your profile. An e-mail has been sent for {{ $referee->name }} provide your assessment, which will be used to boost your rank as employers do their
+            Thank you for saving <strong>{{ $referee->name }}</strong> as your referee to your profile. An e-mail has been sent for {{ $referee->name }} to provide your assessment, which will be used to boost your rank as employers do their
             shortlisting.
         </p>
         @include('components.ads.responsive')

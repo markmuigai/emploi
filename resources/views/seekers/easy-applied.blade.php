@@ -17,14 +17,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Application for {{ $post->title }} was completed successful.
         </p>
       <p>
-            You will be notified on your application progress in due time. Keep track of your application by logging into your account. For further assistance, please do not hesitate to <a class="orange" href="/contact">contact us.</a><br>
-            Click <a href="/profile/edit" class="btn btn-orange">here</a>To Update Your Profile
+            You will be notified on your application progress in due time. Keep track of your application by logging into your account. For further assistance, please do not hesitate to <a class="orange" href="/contact">contact us.</a>
         </p>
         <p> @include('components.otherJobs')</p>
         <br>
     	@if($created)
     	<p>
-    		We have created a job seeker profile for you. Check your e-mail address for a verification link. <br>
+    		We have created a job seeker profile for you. Check your e-mail address for a verification link then login and update your profile. <br>
     		<a href="/login" class="btn btn-orange btn-sm">{{ __('auth.login') }}</a>
             <a href="/vacancies" class="btn btn-primary btn-sm">Vacancies</a>
     	</p>
