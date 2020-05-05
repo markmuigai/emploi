@@ -16,8 +16,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p>
             Application for {{ $post->title }} was completed successful.
         </p>
-        <p>
-            You will be notified on your application progress in due time. Keep track of your application by logging into your account. For further assistance, please do not hesitate to <a class="orange" href="/contact">contact us</a>.
+      <p>
+            You will be notified on your application progress in due time. Keep track of your application by logging into your account. For further assistance, please do not hesitate to <a class="orange" href="/contact">contact us.</a><br>
+            Click <a href="/profile/edit" class="btn btn-orange">here</a>To Update Your Profile
         </p>
         <p> @include('components.otherJobs')</p>
         <br>
