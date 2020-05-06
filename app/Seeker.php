@@ -689,14 +689,14 @@ class Seeker extends Model
     }
 
     public function hasCompletedProfile(){
-        if( is_null($this->date_of_birth) )
-            return false;
-        if( is_null($this->years_experience) )
-            return false;
-        if( is_null($this->location_id) )
-            return false;
-        if( is_null($this->education_level_id) )
-            return false;
+        // if( is_null($this->date_of_birth) )
+        //     return false;
+        // if( is_null($this->years_experience) )
+        //     return false;
+        // if( is_null($this->location_id) )
+        //     return false;
+        // if( is_null($this->education_level_id) )
+        //     return false;
         if( is_null($this->resume) )
             return false;
         // if( is_null($this->education) )
