@@ -39,6 +39,7 @@ class Post extends Model implements Feedable
             'category' => $this->industry->name,
             'deadline' => $this->deadline,
             'vacancies' => $this->positions,
+            'country' =>$this->country,
             'updated' => $this->updated_at,
             'author' => $this->company->user->name
         ]);
