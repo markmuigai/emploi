@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             {{ $s->user->name }}
                         </b>
                          [ <a href="mailto:{{ $s->user->email }}">{{ $s->user->email }}</a> ]
-                         [ <a href="tel:{{ $s->user->phone_number }}">{{ $s->user->phone_number }}</a> ]
+                         [ <a href="tel:{{ $s->user->meetup->phone_number }}">{{ $s->user->meetup->phone_number }}</a> ]
                         <span style="text-align: right;">
                             {{ $s->created_at->diffForHumans() }}
                         </span>
