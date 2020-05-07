@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Meetup;
 use App\MeetupSubscription;
 use App\User;
-use App\Seeker;
 
 
 use Auth;
