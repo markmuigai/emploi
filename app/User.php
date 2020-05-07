@@ -73,6 +73,10 @@ class User extends Authenticatable
         return $this->hasOne(UserPermission::class);
     }
 
+    public function seeker(){
+        return $this->belongsTo(Seeker::class);
+    }
+
     public function inviteLinks(){
         return $this->hasMany(InviteLink::class);
     }

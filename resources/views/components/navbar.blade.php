@@ -88,6 +88,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/blog">{{ __('blog.c_centre') }}</a>
                 </li>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/events">Events</a>
+                </li>
                 <!-- END OF ADMIN SIDEBAR -->
 
                 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
@@ -123,7 +128,7 @@
                         <a class="dropdown-item" href="/job-seekers/cv-editing">{{ __('jobs.cv_edit') }}</a>
                         <a class="dropdown-item" href="/job-seekers/cv-templates">{{ __('jobs.cv_temp') }}</a>
                         <a class="dropdown-item" href="/job-seekers/premium-placement">{{ __('jobs.p_place') }}</a>
-                        <a class="dropdown-item" href="https://emploi.co/events">Events</a>
+                        <a class="dropdown-item" href="/events">Events</a>
                         <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
                 </li>
