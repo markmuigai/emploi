@@ -64,12 +64,16 @@ Emploi Events is the place to find Career Transformational Conferences, Seminars
         			</p>
         		</div>
 
-        		@endforelse
+        		@endforelse                
         	</div>
         	
         </div>
         
     </div>
+        <p><center>Sample Videos</center></p>
+        <br/>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/l_UYqvX6gsA" frameborder="0" allowfullscreen></iframe>
+        </iframe>
 </div>
 <div>
 	{{ $meetups->links() }}
