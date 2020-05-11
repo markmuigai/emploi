@@ -71,7 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <select name="location" class="form-control input-sm">
+                    <select name="location" id="location" class="form-control input-sm">
                         @foreach($locations as $c)
                         <option value="{{ $c->id }}" @if($c->id == $user->seeker->location_id)
                             selected=""
@@ -335,16 +335,44 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
-<script type="text/javascript">
+ <script type="text/javascript">
     <?php
-    $sk = '';
-    foreach($skills as $s) {
-        $sk .= "[".$s->id.", '".$s->name."', ".$s->industry_id."],";
+    $loc = '';
+    foreach($locations as $c) {
+        $loc .= "[".$c->id.", '".$c->name."', ".$c->country_id."],";
     }
-    $sk = '['.$sk.']';
-    echo 'var allSkills='.$sk.
+    $loc = '['.$loc.']';
+    echo 'var allLocations='.$loc.
     ';';
     ?>
+</script>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('#country').change(function(){
+            var new_ctry = $(this).val();
+            
+            var $locations = '';
+            for(var j=0; j<allLocations.length;j++)
+            {
+                if(allLocations[j][2] == new_ctry)
+                {
+                    $locations +=  '<option value="'+allLocations[j][0]+'">'+allLocations[j][1]+'</option>';
+
+                }
+            }
+            $('#location').children().remove();
+            $('#location').append($locations);
+                        
+             notify('Country updated','info');          
+         });
+        $('#location').change(function(){
+        var new_loc = $(this).val();
+        if (new_loc == -1)
+            return ($(this).attr('location_id') == new_loc);
+                
+        });
+   });
 </script>
 <script type="text/javascript" src="{{ asset('js/edit-seeker.js') }}"></script>
 <script type="text/javascript">

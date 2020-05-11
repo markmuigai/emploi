@@ -980,10 +980,20 @@ class AdminController extends Controller
 
     public function seekerMetrics(Request $request){
 
-        
-
+        $countries = Country::Where('status','active')->get();
+     
+        if(isset($request->country))
+            {
+                $country = Country::find($request->country);
+                if(isset($country->id))
+                {
+                    $focus_country = $country; 
+                }
+                
+            }
         if(isset($request->month) && isset($request->year))
-        {
+        {                       
+                 
             $period = Carbon::createFromFormat('Y-m', $request->year.'-'.$request->month);
             $focus_month = $request->month;
             $focus_year = $request->year;
