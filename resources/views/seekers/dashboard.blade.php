@@ -10,9 +10,39 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Dashboard')
 
 
-
+<?php
+$user = Auth::user();
+?>
+@if($user->seeker->featured == 1)
+<h4 align="center">My Summary</h4>
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body text-center">
+            <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
+            <p>Applications</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body text-center">
+            <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
+            <p>Shortlisted</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body text-center">
+            <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
+            <p>Rejected</p>
+        </div>
+    </div>
+     <div class="card">
+        <div class="card-body text-center">
+            <h1 class="orange">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
+            <p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
+        </div>
+    </div>
+</div>
+ @endif
 <h4>Recent Blogs</h4>
-
 <div class="row">
 	<div class="col-md-12">
 		<?php $blogsTransparent = true; ?>
