@@ -106,6 +106,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <br style="clear: both;">
             <div class="fb-comments" data-href="{{ url('/blog/'.$blog->slug) }}" data-numposts="6" >
             </div>
+
+             @if(Auth::user()->role == 'admin')
+            <b>{{ $p->views }} views</b>
+            @endif
+        </div>
             <!--RELATED BLOGS -->
             <?php
                 $relatedBlogs = $blog->alsoLike(3);

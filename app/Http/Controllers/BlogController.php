@@ -102,7 +102,8 @@ class BlogController extends Controller
     }
 
     public function show($id, Request $request)
-    {
+    {   
+       
         if($id == 'search')
         {
             $q = isset($request->q) ? $request->q : ' ';
@@ -120,6 +121,7 @@ class BlogController extends Controller
         $c = BlogCategory::where('slug',$id)->where('status','active')->first();
         if(isset($c->id))
         {
+             
             $blogs = Blog::where('status','active')->where('blog_category_id',$c->id)
                     ->where('status','active')
                     ->orderBy('id','DESC')
@@ -129,9 +131,13 @@ class BlogController extends Controller
                     ->with('pageTitle','Emploi '.$c->name.' Blog')
                 ->with('blogs',$blogs);
         }
+        $p = Blog::Where('slug',$id)->firstOrFail(); 
+        $p->increment('views',1); 
+
         $blog = Blog::where('slug',$id)->where('status','active')->firstOrFail();
         return view('blog.show')
-                ->with('blog',$blog);
+                ->with('blog',$blog)
+                ->with('p',$p);
     }
 
     public function edit($id)
