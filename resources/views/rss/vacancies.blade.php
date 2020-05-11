@@ -21,6 +21,7 @@
             <category>{{ $item->category }}</category>
             <deadline>{{ $item->deadline }}</deadline>
             <vacancies>{{ $item->vacancies }}</vacancies>
+            <country>{{ $item->country }}</country>
             <updated>{{ $item->updated->toRssString() }}</updated>
         </url>
     @empty

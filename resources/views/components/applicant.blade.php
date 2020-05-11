@@ -95,7 +95,7 @@
                         <select class="form-control" id="rejectionSwitch{{$a->id}}">
                             <option value="Candidate doesn't meet the minimum qualifications">Candidate doesn't meet the minimum qualifications</option>
                             <option value="Candidate's profile is incomplete">Candidate's profile is incomplete</option>
-                            <option value="Crucial information is missing from the candidates resume and profile">Crucial information is missing from the candidates resume and profile</option>
+                            <option value="Crucial information is missing from the candidates resume and profile">Crucial information is missing from the candidate's resume and profile</option>
                             <option value="Write Reason:">Write Reason:</option>
                         </select>
                         <br>

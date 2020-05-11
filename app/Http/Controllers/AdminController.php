@@ -20,6 +20,7 @@ use App\Faq;
 use App\Industry;
 use App\InviteLink;
 use App\JobApplication;
+use App\Country;
 use App\Location;
 use App\ModelSeeker;
 use App\Post;
@@ -91,19 +92,19 @@ class AdminController extends Controller
     }
 
     public function panel($panel = false, Request $request){
-    	return view('admins.index')
-    			->with('admin',Auth::user());
+        return view('admins.index')
+                ->with('admin',Auth::user());
     }
 
     public function posts(Request $request){
-    	$query = isset($request->q) ? $request->q : "";
-    	//dd($request->q);
-    	$posts = Post::where('title','like',"%".$query."%")
-    				->orderBy('created_at','DESC')
-    				->paginate(5);
-    	return view('admins.posts.index')
-    			->with('posts',$posts)
-    			->with('admin',Auth::user());
+        $query = isset($request->q) ? $request->q : "";
+        //dd($request->q);
+        $posts = Post::where('title','like',"%".$query."%")
+                    ->orderBy('created_at','DESC')
+                    ->paginate(5);
+        return view('admins.posts.index')
+                ->with('posts',$posts)
+                ->with('admin',Auth::user());
     }
 
     public function viewPost($slug){
@@ -131,9 +132,9 @@ class AdminController extends Controller
 
     public function updatePost($slug, Request $request)
     {
-    	$post = Post::where('slug',$slug)->first();
-    	if(!isset($post->id))
-    		abort(404);
+        $post = Post::where('slug',$slug)->first();
+        if(!isset($post->id))
+            abort(404);
 
         if($post->company->user->employer->canPostJob())
         {
@@ -157,10 +158,10 @@ class AdminController extends Controller
             }
 
         }
-    	
         
-    	return redirect()->back(); 
-    	return $request->all();
+        
+        return redirect()->back(); 
+        return $request->all();
     }
 
     public function seekers($username=null, Request $request)
@@ -1073,6 +1074,7 @@ class AdminController extends Controller
             ->with('faqs',$faqs)
             ->with('cv_editors',$cv_editors)
             ->with('cv_edit_requests',$cv_edit_requests)
+            ->with('countries',$countries)
             ->with('focus_year',$focus_year)
             ->with('focus_month',$focus_month)
             ;

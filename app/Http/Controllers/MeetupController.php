@@ -58,7 +58,7 @@ class MeetupController extends Controller
         $image_url = time() . '.' . $image->getClientOriginalExtension();
         $storage_path = storage_path().'/app/public/images/events/'.$image_url;
         $watermark = Image::make(public_path('/images/logo.png'));   
-        // $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
+        $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
 
         Image::make($image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
 
@@ -134,7 +134,7 @@ class MeetupController extends Controller
             $image_url = time() . '.' . $image->getClientOriginalExtension();
             $storage_path = storage_path().'/app/public/images/events/'.$image_url;
             $watermark = Image::make(public_path('/images/logo.png'));   
-            // $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
+            $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
 
             Image::make($image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
 
@@ -216,7 +216,7 @@ class MeetupController extends Controller
     }
 
     public function subscribers(Request $request, $slug){
-        $meetup = Meetup::where('slug',$slug)->firstOrFail();
+        $meetup = Meetup::where('slug',$slug)->firstOrFail(); 
         return view('admins.meetups.subscribers')
                 ->with('meetup',$meetup)
                 ->with('subscribers',MeetupSubscription::where('meetup_id',$meetup->id)->paginate(20));
