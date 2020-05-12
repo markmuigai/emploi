@@ -371,7 +371,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <div>
             {{ $companies->links() }}
         </div>
+         
     </div>
+        <br><h4><center><b>Video Demo</b></center></h4>
+            <iframe width="70" height="70" src="https://www.youtube.com/embed/DKojcDYgJ5w" frameborder="0" allowfullscreen></iframe>
+            </iframe>
 </div>
 @elseif($user->role == 'admin')
 Admin Account Management. <br>

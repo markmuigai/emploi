@@ -108,7 +108,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             </div>
 
              @if(Auth::user()->role == 'admin')
-            <b>{{ $p->views }} views</b>
+            <b>Views: {{ $p->views }}</b>
             @endif
         </div>
             <!--RELATED BLOGS -->

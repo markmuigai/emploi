@@ -18,7 +18,6 @@ class CreateBlogsTable extends Migration
             $table->text('contents');
             $table->string('image1',500)->nullable();
             $table->string('image2',500)->nullable();
-            $table->integer('views');
             $table->string('status',20)->default('active');
             $table->timestamps();
         });
