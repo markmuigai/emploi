@@ -982,16 +982,8 @@ class AdminController extends Controller
     public function seekerMetrics(Request $request){
 
         $countries = Country::Where('status','active')->get();
-     
-        if(isset($request->country))
-            {
-                $country = Country::find($request->country);
-                if(isset($country->id))
-                {
-                    $focus_country = $country; 
-                }
-                
-            }
+       
+          
         if(isset($request->month) && isset($request->year))
         {                       
                  
@@ -1006,7 +998,10 @@ class AdminController extends Controller
             $focus_month = $period->month;
             $focus_year = $period->year;
         }
-
+         
+        $country = $request->country;     
+        if(isset($request->country) ? $request->country : "");
+        $focus_country = $country; 
         
         
         $seekers_count = 0;
@@ -1023,10 +1018,11 @@ class AdminController extends Controller
         $referees_count = 0;
         $cv_editors = 0;
         $cv_edit_requests = 0;
+            
 
-        $seekers_count = Seeker::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $seekers_count = Seeker::where('country_id',$focus_country)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
-        $employers_count = Employer::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $employers_count = Employer::where('country_id',$focus_country)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
         $contacts_count = Contact::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $adverts_count = Advert::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
@@ -1075,6 +1071,7 @@ class AdminController extends Controller
             ->with('cv_editors',$cv_editors)
             ->with('cv_edit_requests',$cv_edit_requests)
             ->with('countries',$countries)
+            ->with('focus_country',$focus_country)
             ->with('focus_year',$focus_year)
             ->with('focus_month',$focus_month)
             ;
