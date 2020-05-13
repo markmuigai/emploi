@@ -87,7 +87,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-lg-2 col-md-6 col-12">
                         <?php 
                             $showSubmit = false; 
-                            // $comment = 'Unpaid Job';
+                           
 
                             if($p->status == 'inactive')
                             {
@@ -102,8 +102,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                         @if($showSubmit)
                         <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
-                        
-                      <!--   <span class="badge badge-danger"></span> -->
+                        @else
+                      <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
                         @endif
                     </div>
                 </form>
