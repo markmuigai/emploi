@@ -87,7 +87,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-lg-2 col-md-6 col-12">
                         <?php 
                             $showSubmit = false; 
-                            $comment = 'Unpaid Job';
+                            // $comment = 'Unpaid Job';
 
                             if($p->status == 'inactive')
                             {
