@@ -102,8 +102,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                         @if($showSubmit)
                         <button type="submit" name="button" class="btn btn-sm btn-orange-alt">Update</button>
-                        @else
-                        <span class="badge badge-danger">{{ $comment }}</span>
+                        
+                      <!--   <span class="badge badge-danger"></span> -->
                         @endif
                     </div>
                 </form>
