@@ -123,7 +123,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				                </option>
 				                @endforeach
 				            </select>
-				            <input type="number"  path="phone_number" value="{{ old('phone_number') ? old('phone_number') : $phone }}" name="phone_number" id="phone_number" class="form-control col-8 ml-3" placeholder="7123123123"
+				            <input type="number"  path="phone_number" value="{{ old('phone_number') ? old('phone_number') : $phone }}" name="phone_number" id="phone_number" class="form-control col-8 ml-3" placeholder="712312312"
 				              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" />
 
 						</div>

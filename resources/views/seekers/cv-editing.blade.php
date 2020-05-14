@@ -9,6 +9,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('content')
 <div class="container py-5">
 	<div class="text-center">
+		<h4 class="orange"><marquee>"Competition is always a good thing. It forces us to do our best. A monopoly renders people complacent and satisfied with mediocrity. We at Emploi give you 50% OFF CV EDITING DURING THIS COMPETITIVE PERIOD to equip you with a good CV so that you stand out from the rest."</marquee></h4>
 		<h2 class="orange text-center">Does your CV stand out?</h2>
 		<p>The job market has become very competitive, and a single vacancy today may attract hundreds of applications.</p>
 	</div>
@@ -243,6 +244,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				<a href="#charges" style="float: right;" class="btn btn-orange-alt">View Pricing</a>
 			</p>
 		</form>
+	</div><br>
+	<div class="col-md-12" >
+			<div class="col-md-8 offset-md-2"style="background-color: rgba(81, 81, 81, .3)">
+			<div class="card" >
+				<div class="card-body">
+				<p class="orange">Have you been called to an interview urgently? Do not worry here at Emploi we can assist you with emergency CV EDITING ready within 24 Hours. So the next time you get this kind of emergency, know that we have got you covered.</p>
+			</div>
+			</div>
+		</div>
 	</div>
 
 	<br id="testimonialsView">

@@ -479,7 +479,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return redirect('/join');
     }
     public function rateCard(){
-        return view('employers.rate-card');
+        return view('components.employers.ratecard');
     }
     public function applicants(){
         return view('employers.rate-card');

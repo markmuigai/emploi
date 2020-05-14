@@ -9,6 +9,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Dashboard')
 
+<a href="/employers/rate-card" class="btn btn-orange-alt"  data-placement="left">Our Packages</a>
 <div class="card my-2 recents">
     <div class="card-body row">
         <div class="col-md-7">

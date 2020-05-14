@@ -70,7 +70,7 @@ Emploi Events is the place to find Career Transformational Conferences, Seminars
         </div>
         
     </div>
-        <h3><center>Sample Videos</center></h3>
+        <h3><center>Past Events</center></h3>
         <br/>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/l_UYqvX6gsA" frameborder="0" allowfullscreen></iframe>
         </iframe>
@@ -79,7 +79,4 @@ Emploi Events is the place to find Career Transformational Conferences, Seminars
 	{{ $meetups->links() }}
 </div>
 @include('components.ads.responsive')
-
-
-
 @endsection
