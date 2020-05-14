@@ -50,6 +50,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 					<label class="contact-textfield-label" for="description">Job Description</label>
 					<textarea name="description" class="form-control" id="description" required="" placeholder="Jot down the job description or desired qualities & skills - our team will rework it to your advantage"></textarea>
 				</div>
+        <p style="display: none;" ><input type="text" name="check" id="check" autocomplete="off" ></p>
 				<button type="submit" class="btn btn-primary btn-contact">Post Advert</button>
 				<a href="/contact" class="btn btn-link" style="float: right;">Contact Us</a>
 			</form>

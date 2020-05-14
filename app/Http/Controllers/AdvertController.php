@@ -54,6 +54,13 @@ class AdvertController extends Controller
 
     public function store(Request $request)
     {
+        
+            if(!empty($request->input('check'))){
+            die('Unauthorised submission. Kindly <a href="/employers/register">try again</a>!');
+        }
+        
+        else
+        {
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'email'  =>  ['required', 'string', 'email','max:50'],
@@ -61,6 +68,7 @@ class AdvertController extends Controller
             'title'    =>  ['string'],
             'description' => ['string']
         ]);
+       }
 
         $a = Advert::create([
             'name' => $request->name,
@@ -69,7 +77,6 @@ class AdvertController extends Controller
             'title' => $request->title,
             'description' => $request->description
         ]);
-
         $user = User::where('email',$request->email)->first();
         if(!isset($user->id))
         {
