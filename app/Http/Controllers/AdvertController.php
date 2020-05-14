@@ -54,9 +54,13 @@ class AdvertController extends Controller
 
     public function store(Request $request)
     {
+
+        if($request->input('name') =='Abermotvaw'){
+        die('Unauthorised submission. Kindly <a href="/employers/register">try again</a>!');
         
-            if(!empty($request->input('check'))){
-            die('Unauthorised submission. Kindly <a href="/employers/register">try again</a>!');
+        }
+        if(!empty($request->input('check'))){
+        die('Unauthorised submission. Kindly <a href="/employers/register">try again</a>!');
         }
         
         else
