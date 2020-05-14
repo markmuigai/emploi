@@ -107,7 +107,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="fb-comments" data-href="{{ url('/blog/'.$blog->slug) }}" data-numposts="6" >
             </div>
 
-             @if(Auth::user()->role == 'admin')
+           @if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
             <b>Views: {{ $p->views }}</b>
             @endif
         </div>
