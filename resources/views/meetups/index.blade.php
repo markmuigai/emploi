@@ -78,5 +78,13 @@ Emploi Events is the place to find Career Transformational Conferences, Seminars
 <div>
 	{{ $meetups->links() }}
 </div>
-@include('components.ads.responsive')
+<div class="card mb-4">
+    <div class="card-body">
+        @if($agent->isMobile())
+            @include('components.ads.mobile_400x350')
+        @else            
+            @include('components.ads.flat_728x90')
+        @endif
+    </div>
+</div>  
 @endsection

@@ -123,11 +123,15 @@ $event = $meetup;
     </div>
 </div>
 @include('components.share-event')
-@if($agent->isMobile())
-    @include('components.ads.mobile_400x350')
-@else            
-    @include('components.ads.flat_728x90')
-@endif
+<div class="card mb-4">
+    <div class="card-body">
+        @if($agent->isMobile())
+            @include('components.ads.mobile_400x350')
+        @else            
+            @include('components.ads.flat_728x90')
+        @endif
+    </div>
+</div>
 
 @endsection
 
