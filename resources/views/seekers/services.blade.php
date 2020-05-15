@@ -7,42 +7,62 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @endsection
 
 @section('content')
-<div class="container pb-5">
-    <span id="seeker_basic"></span><span id="featured_seeker"></span>
-    <div class="row">
-        <?php
-        $products = \App\Product::whereIn('slug',['featured_seeker','seeker_basic'])->get();
-        ?>
-        @forelse($products as $product)
-            <div class="col-lg-6">
-                <div class="card my-2">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-md-4 col-12 pb-2 pb-md-0">
-                                <img src="/images/{{ $product->slug == 'featured_seeker' ? 'featured-seeker' : '500g' }}.png" class="w-100 d-xs-none" alt="Job Seeker Basic Package" style="border-radius: 5%">
-                            </div>
-                            <div class="col-md-8 col-12">
-                                <h5>{{ $product->title }}</h5>
-                                <p>
-                                    Have your profile rank first in applications and searches. Includes Application updates. Get detailed reasons why the application was rejected, or not shortlisted.
-                                </p>
-                                <form method="POST" action="/checkout">
-                                    @csrf
-                                    <input type="hidden" name="product" value="featured_seeker">
-                                    <input type="submit" class="btn btn-link" value="Request">
-                                    <span style="float: right;">{{ $product->getPrice() }}</span>
-                                </form>
-                            </div>
-                        </div>
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">            
+                        <h1>Kshs <br>49</h1>
+                        <p class="orange">APPLICATION UPDATES</p>
+                        <ul class="tick">
+                            <li>Get real-time notifications when;</li>
+                            <ul class="dot">
+                                <li>you're shortlisted,</li>
+                                <li>your profile is viewed,</li>
+                                <li>your CV is requested and free tips to help you stand.</li>
+                            </ul>
+                        </ul>
+                        <form method="POST" action="/checkout">
+                            @csrf
+                            <input type="hidden" name="product" value="seeker_basic">
+                            <br><br><br><p>
+                            <input type="submit" name="" value="Request" class="btn btn-orange-alt">
+                            </p>
+                        </form>
                     </div>
                 </div>
             </div>
-        @empty
-        @endforelse
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h1>Kshs <br>159</h1>
+                            <p class="orange">FEATURED JOB SEEKER</p>
+                        <ul class="tick">
+                            <li>Get real-time notifications when;</li>
+                            <ul class="dot">
+                            <li>you're shortlisted,</li>
+                            <li>your profile is viewed,</li>
+                            <li>your CV is Requested.</li>
+                        </ul>             
+                             <li>Have your profile rank first in applications and searches.</li>
+                        </ul>
 
-        
+                        </ul>
+                        <form method="POST" action="/checkout">
+                            @csrf
+                            <input type="hidden" name="product" value="featured_seeker">
+                            <br><p>
+                            <input type="submit" name="" value="Request" class="btn btn-orange-alt">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
+     
     <div class="card about">
         <div class="card-body text-center">
             <h1 class="orange">Job Seeker Services</h1>
@@ -141,7 +161,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             <p>
                                 We post job openings from employers and partners in Africa for you to easily apply and advance your career. <a href="/job-seekers/get-featured" class="orange">Get Featured</a> to stand out, get updates and much more.
                             </p>
-                            <a href="/vacancies/features" class="orange">View Vacancies</a>
+                            <a href="/vacancies/featured" class="orange">View Vacancies</a>
                         </div>
                         
                     </div>
@@ -169,7 +189,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
         
         
-    </div>
+</div>
 
     <div class="row">
         @include('components.featuredJobs')
