@@ -123,9 +123,11 @@ $event = $meetup;
     </div>
 </div>
 @include('components.share-event')
-@include('components.ads.responsive')
-
-
+@if($agent->isMobile())
+    @include('components.ads.mobile_400x350')
+@else            
+    @include('components.ads.flat_728x90')
+@endif
 
 @endsection
 
