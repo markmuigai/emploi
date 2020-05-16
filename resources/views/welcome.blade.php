@@ -70,7 +70,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="landing">
     <div class="container">
         <div class="content2">
-            <a href="/covid19-information-series">See how we are supporting companies and individuals in the fight against COVID-19</a>
+            <a href="/covid19-information-series">COVID-19 Information Series</a>
         </div>
         <div class="content">
 
