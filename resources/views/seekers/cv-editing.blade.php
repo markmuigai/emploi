@@ -71,7 +71,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 2000;
 					$p = \App\Product::where('slug','entry_level_cv_edit')->first();
 					if(isset($p->id))
-						$price = round($p->price);
+						// $price = round($p->price);
 				?>
 				<h1>Kshs {{ $price }}</h1>
 				   <p>Entry Level</p>
@@ -91,7 +91,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 4000;
 					$p = \App\Product::where('slug','mid_level_cv_edit')->first();
 					if(isset($p->id))
-						$price = round($p->price);
+						// $price = round($p->price);
 				?>
 				<h1>Kshs {{ $price }}</h1>
 					<p>Mid Level</p>
@@ -111,7 +111,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 6000;
 					$p = \App\Product::where('slug','c_change_cv_edit')->first();
 					if(isset($p->id))
-						$price = round($p->price);
+						// $price = round($p->price);
 				?>
 				<h1>Kshs {{ $price }}</h1>
 					<p>Career Change / Promotion Seeking CV</p>
@@ -131,7 +131,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 6000;
 					$p = \App\Product::where('slug','mgnt_cv_edit')->first();
 					if(isset($p->id))
-						$price = round($p->price);
+						// $price = round($p->price);
 				?>
 				<h1>Kshs {{ $price }}</h1>
 				<p>Management Level</p>
@@ -151,7 +151,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 10000;
 					$p = \App\Product::where('slug','s_mgnt_cv_edit')->first();
 					if(isset($p->id))
-						$price = round($p->price);
+						// $price = round($p->price);
 				?>
 				<h1>Kshs {{ $price }}</h1>
 					<p>Senior Management Level</p>
