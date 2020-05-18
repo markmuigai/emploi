@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-md-6">
                 <label>Country</label>
                     <select class="form-control" name="country">
-                    <option value="">All Countries</option>
+                    <option value="">Select a Country</option>
                     @foreach($countries as $c)
                     <option  value="{{ $c->id }}" {{ isset($focus_country) && $focus_country == $c->id ? 'selected=""' : '' }}>
                     {{ $c->name }}
