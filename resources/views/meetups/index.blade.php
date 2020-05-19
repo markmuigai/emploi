@@ -70,10 +70,15 @@ Emploi Events is the place to find Career Transformational Conferences, Seminars
         </div>
         
     </div>
-        <h3><center>Past Events</center></h3>
+        <h3 class="orange"><center>Past Events</center></h3>
         <br/>
+        <div style="text-align: center"><h4>CV Writing Masterclass</h4></div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/l_UYqvX6gsA" frameborder="0" allowfullscreen></iframe>
         </iframe>
+        <br/><br>
+        <div style="text-align: center"><h4>Employment to Entrepreneurship</h4></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/CbyM1B_pagM" frameborder="0" allowfullscreen></iframe>
+        </iframe>        
 </div>
 <div>
 	{{ $meetups->links() }}
