@@ -57,7 +57,7 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
     </div>
     <div>
         <br>
-        <img src="/images/promotions/refer-friends-win-huawei-y9.jpg" alt="Refer your Friends and Win a Huawei Y9" style="width: 90%; margin-left: 5%">
+        <img src="/images/promotions/refer-friends-to-cv-editing-win-500shs.png" alt="Refer your Friends and Win up to Ksh 500" style="width: 90%; margin-left: 5%">
     </div>
     
     <div>
