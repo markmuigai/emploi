@@ -256,7 +256,9 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
 
             <p>
+              <div id="cvbuilder">
                 <input type="submit" value="Build CV" class="btn btn-sm btn-orange">
+              </div>
                 <i>
                 @guest
 
@@ -290,6 +292,24 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
         </div>
     </div>
 </div>
+<script type="text/javascript">
+   $('#cvbuilder').click(function(){
+ var x = location.hostname;
+
+if (x === "emploi.co" || x ==="emploi.co.ke" || x =="emploi.co.rw")
+   var url = "https://hooks.slack.com/services/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";
+   var text = "A Job Seeker has just used CV Builder";
+   $.ajax({
+    data: 'payload=' + JSON.stringify({
+        "text": text
+    }),
+    dataType: 'json',
+    processData: false,
+    type: 'POST',
+    url: url
+    });
+ });   
+</script>
 
 <script type="text/javascript">
     <?php
