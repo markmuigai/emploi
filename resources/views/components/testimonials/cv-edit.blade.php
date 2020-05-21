@@ -6,6 +6,23 @@
                 <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
+                        <img src="/images/testimonials/angela.jpeg" data-src="{{asset('images/testimonials/angela.jpeg')}}" alt="Angela Amondi" class="w-100 lazy">
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <p>This is exciting! I have no edits to make. The resume is professionally done and brings out the strong competencies gained over the years. Thank you for your effort on this. </p>
+                        <hr class="short">
+                        <h5>Hired Job Seeker</h5>
+                        <p>Emploi CV-Editing Success Stories</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
+            <div class="card-body">
+                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
@@ -61,23 +78,6 @@
                     </div>
                     <div class="col-12 col-md-10">
                         <p>Wow, this is just amazing ... Total transformation. Emploi team you are talented, I'm more than grateful. I have shared your contacts with a client who requires assistance with his CV. </p>
-                        <hr class="short">
-                        <h5>Hired Job Seeker</h5>
-                        <p>Emploi CV-Editing Success Stories</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>This is great, Looking forward to working with you in future.</p>
                         <hr class="short">
                         <h5>Hired Job Seeker</h5>
                         <p>Emploi CV-Editing Success Stories</p>
