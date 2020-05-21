@@ -44,6 +44,32 @@ See how we are supporting companies and individuals in the fight against COVID-1
             Emploi is constantly updating this page with the latest information regarding Covid-19
           </p>
     </div>
+        <div class="row bottom_grids pt-md-3">
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+          <a href="https://emploi.co/blog/emotional-intelligence--a-key-ingredient-in-covid-19-leadership" class="d-block p-lg-4 p-3">
+            <h3 class="my-3">Emotional Intelligence- A Key Ingredient in COVID-19 Leadership</h3>
+            <p class="">What those who are in leadership positions need in handling this COVID-19 crisis.</p>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+         <div class="s-block">
+          <a href="/job-seekers/cv-editing" class="d-block p-lg-4 p-3">
+            <h3 class="my-3">50% off CV Editing</h3>
+            <p class="">We've slashed our Professional CV Editing service fee by 50% as we work to get you an interview.</p>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-5">
+        <div class="s-block">
+          <a href="https://emploi.co/blog/how-the-corona-virus-is-changing-the-world-of-work" class="d-block p-lg-4 p-3">
+            <h3 class="my-3">How the corona virus is changing the world of work.</h3>
+            <p class="">We talk on how the corona virus has triggered indelible shifts in the way the world works.</b></p>
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
@@ -75,9 +101,9 @@ See how we are supporting companies and individuals in the fight against COVID-1
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="/job-seekers/cv-editing" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">50% off CV Editing</h3>
-            <p class="">We've slashed our Professional CV Editing service fee by 50% as we work to get you an interview </p>
+          <a href="https://emploi.co/blog/after-covid-19-what-next-in-the-labour-environment" class="d-block p-lg-4 p-3">
+            <h3 class="my-3">After COVID-19, What Next in the Labour Environment?</h3>
+            <p class="">Here we talk of possible shift in the employment pattern after COVID-19. </p>
           </a>
         </div>
       </div>
@@ -99,8 +125,12 @@ See how we are supporting companies and individuals in the fight against COVID-1
           </a>
         </div>
       </div>
+          <div style="width: 100%">
+             <img src="/images/banners/cvediting_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
+          </div>
+        </div>
     </div>
-    <div class="row bottom_grids pt-md-3">
+   <!--  <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 mt-5">
         <div class="s-block">
           <a href="https://emploi.co/events/cv-writing-webinar" class="d-block p-lg-4 p-3">
@@ -129,7 +159,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 <!-- /index-block2 -->
