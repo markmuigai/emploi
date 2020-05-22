@@ -168,16 +168,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 	</div>
 </div>
     
-   <div class="col-md-10 offset-md-1">
+   <div class="col-md-6 offset-md-3">
 	   	<div style="border: 2px solid #500095; padding: 10px; border-radius: 50px;">
 	        <p class="orange"><i>"Competition is always a good thing. It forces us to do our best. A monopoly renders people complacent and satisfied with mediocrity. We at Emploi give you 50% OFF CV EDITING DURING THIS COMPETITIVE PERIOD to equip you with a good CV so that you stand out from the rest."</i>
 	        </p>
-	    </div><br>
+	    </div><br>	     
 	    <div style="width: 100%">
-            <img src="/images/banners/cvediting_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">    
+            <img src="/images/banners/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">   
         </div>
    </div>
-
 	<br id="request-cv-edit-form">
 	<br>
 	<br>

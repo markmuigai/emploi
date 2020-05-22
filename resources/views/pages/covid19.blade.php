@@ -125,11 +125,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
           </a>
         </div>
       </div>
-          <div style="width: 100%">
-             <img src="/images/banners/cvediting_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
-          </div>
-        </div>
-    </div>
+         
    <!--  <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 mt-5">
         <div class="s-block">
