@@ -10,7 +10,7 @@ class SendInvoiceReminder extends Command
 {
     protected $signature = 'command:SendInvoiceReminder';
 
-    protected $description = 'Sends an e-mail reminder for all unpaid incoices';
+    protected $description = 'Sends an e-mail reminder for all unpaid invoices';
 
     public function __construct()
     {

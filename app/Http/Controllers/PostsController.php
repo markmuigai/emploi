@@ -543,7 +543,10 @@ class PostsController extends Controller
         $post->max_salary = $request->max_salary;
         $post->how_to_apply = $request->how_to_apply;
         $post->save();
+
+        if (app()->environment() === 'production'){
         Notification::send(Employer::first(),new PostEdited('JOB POST EDITED: '.$post->title.' was edited by '.$post->company->user->name.' for Company '.$post->company->name));
+        }
         if($post->status == 'active')
             return redirect('/vacancies/'.$post->slug);
         return redirect('/employers/applications/'.$post->slug);

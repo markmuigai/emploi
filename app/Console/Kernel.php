@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         'App\Console\Commands\DisableProducts',
         'App\Console\Commands\EnableProducts',
+        'App\Console\Commands\SendVacancyEmails'
+
     ];
 
     /**
@@ -44,6 +46,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('info@emploi.co');
         $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('info@emploi.co');
         $schedule->command('command:SendInvoiceReminder')->weeklyOn(1, '7:20');
+        $schedule->command('command:SendVacancyEmails')->dailyAt('19:30');
     }
 
     /**
