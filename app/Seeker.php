@@ -746,7 +746,7 @@ class Seeker extends Model
                                   
                                   foreach ($vacancies as $v) {
                       $contents .= "<li>".$v->title."<li>
-                                     </ul>"
+                                     </ul>";
                                }
 
                              foreach ($vacancies as $v) {
@@ -756,7 +756,7 @@ class Seeker extends Model
                 $contents .= "<p>Posted:".$v->since."<p><br>";
                 $contents .= "<p>Job Description</p>".$v->responsibilities;
                 $contents .= "Click <a href='".url('/vacancies/'.$v->slug)."'>$v->slug</a> for more details and how to apply.<br>";         
-                }             
+                             
                             
                 $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br>";                                                                     
                      
@@ -766,6 +766,7 @@ class Seeker extends Model
                 }
            }
        }
+    }
         
          
           
