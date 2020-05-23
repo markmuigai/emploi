@@ -105,7 +105,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <input type="file" required="" path="resume" name="resume" id="resume" accept=".doc, .docx,.pdf" />
     </div>
     <div class="form-group">
-        <label for="password">Password <b style="color: red">*</b><small> Min 6 Characters</small> <b> </b></label>
+        <label for="password">Password <b style="color: red">*</b><small> (Min 6 Characters)</small> <b> </b></label>
         <input type="password" required="" value="" name="password" id="password" class="form-control" maxlength="50" />
 
     </div>

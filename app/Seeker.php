@@ -760,7 +760,7 @@ class Seeker extends Model
                             
                 $contents .= "<a href='".url('/job-seeker/cv-editing')."'>Request CV Editing</a><br>";                                                                     
                        
-                EmailJob::dispatch($this->user->email,$this->user->name, 'Latest Vacancies', $caption, $contents);
+                EmailJob::dispatch($this->user->name,$this->user->email, 'Latest Vacancies', $caption, $contents);
                 return true;
            
                 }
