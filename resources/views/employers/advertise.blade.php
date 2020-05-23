@@ -263,7 +263,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             <div class="item">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
-                  <img src="/images/avatar.png" class="img-fluid rounded" alt="Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes">
+                  <img src="{{asset('images/testimonials/elijah.jpeg')}}" class="img-fluid rounded" alt="Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes">
                 </div>
                 <div class="message">“I contacted Emploi for support in recruiting sales agents and they recommended the best qualified candidates and their rankings. What we liked [about Emploi] is the speed and affordable cost which is unlike any other service we’ve seen in the market”</div>
                 <div class="name">- Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes</div>
