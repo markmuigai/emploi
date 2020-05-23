@@ -69,7 +69,7 @@
                         <span style="display: none">Follow us on Facebook</span>
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://twitter.com/emploike" target="_blank" rel="noreferrer">
+                    <a href="https://twitter.com/emploiafrica" target="_blank" rel="noreferrer">
                         <span style="display: none">Follow us on Twitter</span>
                         <i class="fab fa-twitter"></i>
                     </a>

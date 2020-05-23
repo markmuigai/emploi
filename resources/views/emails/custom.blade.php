@@ -236,7 +236,7 @@
 
                                     <!-- ICON 3 -->
                                     <td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 5px; padding-right: 5px; border-collapse: collapse; border-spacing: 0;">
-                                        <a target="_blank" href="https://twitter.com/emploike" style="text-decoration: none;">
+                                        <a target="_blank" href="https://twitter.com/emploiafrica" style="text-decoration: none;">
                                             <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: inline-block;                 color: #000000;" alt="F"
                                               title="Twitter" width="44" height="44" src="{{ asset('images/twitter.png') }}">
                                         </a>

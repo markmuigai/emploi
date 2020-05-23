@@ -132,7 +132,7 @@
                         </a>
                       </li>
                       <li class="twitter">
-                        <a href="https://twitter.com/emploike" title="Twitter">
+                        <a href="https://twitter.com/emploiafrica" title="Twitter">
                           <span class="fa fa-twitter" aria-hidden="true"></span>
                         </a>
                       </li>

@@ -262,7 +262,7 @@
 					</div>
 					<div class="hidden-social">
 						<a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer"><i class="fa fa-facebook"></i></a>
-						<a href="https://twitter.com/emploike" target="_blank" rel="noreferrer"><i class="fa fa-twitter"></i></a>
+						<a href="https://twitter.com/emploiafrica" target="_blank" rel="noreferrer"><i class="fa fa-twitter"></i></a>
 						<a href="https://ke.linkedin.com/company/emploike" target="_blank" rel="noreferrer"><i class="fa fa-linkedin"></i></a>
 						<a href="https://instagram.com/emploi.co" target="_blank" rel="noreferrer"><i class="fa fa-instagram"></i></a>
 					</div>
@@ -270,7 +270,7 @@
 				<div class="col-md-3 col-sm-4 social">
 					<h4>SOCIAL</h4>
 					<a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer"><i class="fa fa-facebook"></i></a>
-					<a href="https://twitter.com/emploike" target="_blank" rel="noreferrer"><i class="fa fa-twitter"></i></a>
+					<a href="https://twitter.com/emploiafrica" target="_blank" rel="noreferrer"><i class="fa fa-twitter"></i></a>
 					<a href="https://ke.linkedin.com/company/emploike" target="_blank" rel="noreferrer"><i class="fa fa-linkedin"></i></a>
 					<a href="https://instagram.com/emploi.co" target="_blank" rel="noreferrer"><i class="fa fa-instagram"></i></a>
 				</div>
