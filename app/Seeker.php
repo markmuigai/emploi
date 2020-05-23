@@ -733,7 +733,7 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(5))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->get();
@@ -749,7 +749,7 @@ class Seeker extends Model
                         }
 
                              foreach ($vacancies as $v) {
-                $contents .= "<b>".$v->title."<b><br>";
+                $contents .= "<b>".$v->title."</b><br>";
                 $contents .= "<h4>".$v->company->name."</h4>";
                 $contents .= "<p>Location:".$v->location->name."<p>";
                 $contents .= "<p>Posted:".$v->since."<p><br>";
