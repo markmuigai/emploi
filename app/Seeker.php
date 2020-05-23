@@ -733,16 +733,15 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->get();
                 {
     
 
-                $caption = "Trending Job Vacancies";
-                $contents = "Hello <b>".$this->user->name." </b><br> 
-                            <b>Latest Vacancies in ".$this->user->seeker->industry->name.", Apply Now</b><br>";
+                $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
+                $contents ="<b>Latest Vacancies in ".$this->user->seeker->industry->name.", Apply Now</b><br>";
                                   
                                   foreach ($vacancies as $v) {
                       $contents .= "<li>".$v->title."<li>";
@@ -754,13 +753,13 @@ class Seeker extends Model
                 $contents .= "<h4>".$v->company->name."</h4>";
                 $contents .= "<p>Location:".$v->location->name."<p>";
                 $contents .= "<p>Posted:".$v->since."<p><br>";
-                $contents .= "<b>Job Description</b>".$v->responsibilities;
+                $contents .= "<p>Job Description</p>".$v->responsibilities;
                 $contents .= "Click <a href='".url('/vacancies/'.$v->slug)."'>$v->slug</a> for more details and how to apply.<br>";         
                 }             
                             
-                $contents .= "<a href='".url('/job-seeker/cv-editing')."'>Request CV Editing</a><br>";                                                                     
+                $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br>";                                                                     
                        
-                EmailJob::dispatch($this->user->name,$this->user->email, 'Latest Vacancies', $caption, $contents);
+                EmailJob::dispatch($this->user->name,$this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;
            
                 }
