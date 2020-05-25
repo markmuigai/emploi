@@ -22,7 +22,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
           <div class="link-list-menu">
             <p>
               <a href="https://www.undp.org/content/undp/en/home/coronavirus.html" target="_blank" style="font-weight: bold; color: white">Humanity needs leadership and solidarity to defeat the coronavirus</a>
-            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" style="font-weight: bold; color: white">Coronavirus disease (COVID-19)</a> is an infectious disease caused by a newly discovered coronavirus. Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment. Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
+              <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank" style="font-weight: bold; color: white">Coronavirus disease (COVID-19)</a> is an infectious disease caused by a newly discovered coronavirus. Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment. Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
 <section class="w3l-index-block2 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
-      <h3 class="head">Latest Updates</h3>
+      <h3 class="head" style="color: orange">Latest Updates</h3>
       <p class="my-3 head">
             Emploi is constantly updating this page with the latest information regarding Covid-19
           </p>
@@ -47,82 +47,100 @@ See how we are supporting companies and individuals in the fight against COVID-1
         <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="https://emploi.co/blog/emotional-intelligence--a-key-ingredient-in-covid-19-leadership" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">Emotional Intelligence- A Key Ingredient in COVID-19 Leadership</h3>
-            <p class="">What those who are in leadership positions need in handling this COVID-19 crisis.</p>
-          </a>
+            <div style="border: 2px solid #500095; padding: 10px;">
+                <a href="https://emploi.co/blog/emotional-intelligence--a-key-ingredient-in-covid-19-leadership" class="d-block p-lg-4 p-3">
+                <h3 class="my-3">Emotional Intelligence- A Key Ingredient in COVID-19 Leadership</h3>
+                <p class="">What those who are in leadership positions need in handling this COVID-19 crisis.</p>
+              </a>
+          </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mt-5">
          <div class="s-block">
-          <a href="/job-seekers/cv-editing" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">50% off CV Editing</h3>
-            <p class="">We've slashed our Professional CV Editing service fee by 50% as we work to get you an interview.</p>
-          </a>
+            <div style="border: 2px solid #500095; padding: 10px;">
+              <a href="/job-seekers/cv-editing" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">50% off CV Editing</h3>
+              <p class="">We've slashed our Professional CV Editing service fee by 50% as we work to get you an interview.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-5">
+          <div class="s-block">
+            <div style="border: 2px solid #500095; padding: 10px;">
+              <a href="https://emploi.co/blog/how-the-corona-virus-is-changing-the-world-of-work" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">How the corona virus is changing the world of work.</h3>
+              <p class="">We talk on how the corona virus has triggered indelible shifts in the way the world works.</b></p>
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row bottom_grids pt-md-3">
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+          <div style="border: 2px solid #500095; padding: 10px;">
+            <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">A Look at Government Measures</h3>
+              <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+          <div style="border: 2px solid #500095; padding: 10px;">
+            <a href="/job-seekers/free-cv-review" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">Free CV Review </h3>
+              <p class="">
+                Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.
+              </p>
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-lg-4 mt-5">
         <div class="s-block">
-          <a href="https://emploi.co/blog/how-the-corona-virus-is-changing-the-world-of-work" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">How the corona virus is changing the world of work.</h3>
-            <p class="">We talk on how the corona virus has triggered indelible shifts in the way the world works.</b></p>
-          </a>
+            <div style="border: 2px solid #500095; padding: 10px;">
+              <a href="/employers" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">Free Job Posting</h3>
+              <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus. <b>New employers get 30 day free trial</b></p>
+              </a>
+            </div>
         </div>
       </div>
     </div>
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">A Look at Government Measures</h3>
-            <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
-          </a>
+          <div style="border: 2px solid #500095; padding: 10px;">
+            <a href="https://emploi.co/blog/after-covid-19-what-next-in-the-labour-environment" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">After COVID-19, What Next in the Labour Environment?</h3>
+              <p class="">Here we talk of possible shift in the employment pattern after COVID-19. </p>
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="/job-seekers/free-cv-review" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">Free CV Review </h3>
-            <p class="">
-              Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.
-            </p>
-          </a>
+          <div style="border: 2px solid #500095; padding: 10px;">
+            <a href="https://emploi.co/blog/the-challenges-of-working-from-home-and-how-to-overcome-them" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">Challenges of Working from Home</h3>
+              <p class="">
+                We talk about the new challenges businesses and individuals face while working from home, with expert advise on how to overcome.
+              </p>
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-lg-4 mt-5">
         <div class="s-block">
-          <a href="/employers" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">Free Job Posting</h3>
-            <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus. <b>New employers get 30 day free trial</b></p>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="row bottom_grids pt-md-3">
-      <div class="col-lg-4 col-md-6 mt-5">
-        <div class="s-block">
-          <a href="https://emploi.co/blog/after-covid-19-what-next-in-the-labour-environment" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">After COVID-19, What Next in the Labour Environment?</h3>
-            <p class="">Here we talk of possible shift in the employment pattern after COVID-19. </p>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mt-5">
-        <div class="s-block">
-          <a href="https://emploi.co/blog/the-challenges-of-working-from-home-and-how-to-overcome-them" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">Challenges of Working from Home</h3>
-            <p class="">
-              We talk about the new challenges businesses and individuals face while working from home, with expert advise on how to overcome.
-            </p>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 mt-5">
-        <div class="s-block">
-          <a href="https://emploi.co/blog/defining-unemployment-in-kenya-post-covid-19" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">Defining Unemployment Post Covid-19</h3>
-            <p class="">It has come to that time of our lives when you might hear that dreaded “we have to let you go" speech from your boss and you suddenly realize that you have to start searching for a new job...</p>
-          </a>
+          <div style="border: 2px solid #500095; padding: 10px;">
+            <a href="https://emploi.co/blog/defining-unemployment-in-kenya-post-covid-19" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">Defining Unemployment Post Covid-19</h3>
+              <p class="">It has come to that time of our lives when you might hear that dreaded “we have to let you go" speech from your boss and you suddenly realize that you have to start searching for a new job...</p>
+            </a>
+          </div>
         </div>
       </div>
          

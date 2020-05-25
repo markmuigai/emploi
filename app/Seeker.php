@@ -733,7 +733,7 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(7))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -745,8 +745,7 @@ class Seeker extends Model
                 $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now<br>";
                                   
                                   foreach ($vacancies as $v) {
-                      $contents .= "<li>".$v->title."<li>
-                                     </ul>";
+                      $contents .= ".$v->title.";
                                }
 
                              foreach ($vacancies as $v) {
