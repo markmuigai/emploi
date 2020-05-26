@@ -65,21 +65,38 @@ Emploi Events is the place to find Career Transformational Conferences, Seminars
         		</div>
 
         		@endforelse                
-        	</div>
-        	
+        	</div>        	
+    
+    
+    
+               <br> <div class="col-md-12 card" >
+                    <h3 class="orange"><center>Past Events</center></h3>
+                    <div class="card-body row">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/l_UYqvX6gsA" class="col-md-8" frameborder="0" allowfullscreen></iframe>       
+                        <div class="col-md-4" style="text-align: center;">
+                        <h4>CV Writing Masterclass</h4>
+                            <p>Catch our C.E.O talk and give insights from our Grand CV Review Drive and advice on cutting edge CV and Job hunting techniques during and post Covid-19.
+                            </p>                           
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="col-md-12 card" >
+                    <div class="card-body row">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/CbyM1B_pagM" class="col-md-8" frameborder="0" allowfullscreen></iframe>                    
+                        <div class="col-md-4" style="text-align: center;">
+                            <h4>Employment to Entrepreneurship</h4>
+                            <p>We were able to host successful entrepreneurs who were able to shed more light on how and what starting a business entails.
+                            </p>                           
+                        </div>
+                    </div>                    
+                </div>
+            </div>
         </div>
-        
     </div>
-        <h3 class="orange"><center>Past Events</center></h3>
-        <br/>
-        <div style="text-align: center"><h4>CV Writing Masterclass</h4></div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/l_UYqvX6gsA" frameborder="0" allowfullscreen></iframe>
-        </iframe>
-        <br/><br>
-        <div style="text-align: center"><h4>Employment to Entrepreneurship</h4></div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/CbyM1B_pagM" frameborder="0" allowfullscreen></iframe>
-        </iframe>        
-</div>
+
+
+
 <div>
 	{{ $meetups->links() }}
 </div>
