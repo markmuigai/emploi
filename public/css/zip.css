@@ -13,11 +13,9 @@
   font-weight: normal;
   font-style: normal; }
 
-  * {
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif
-}
+* {
+    
+    font-family: 'Raleway', sans-serif;}
 
 .fa {
   display: inline-block;
@@ -2354,8 +2352,7 @@
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-   }
+  --breakpoint-xl: 1200px; }
 
 *,
 *::before,
@@ -6649,7 +6646,8 @@ a.close.disabled {
   position: absolute;
   z-index: 1070;
   display: block;
-  margin: 0;  
+  margin: 0;
+ 
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6734,6 +6732,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -9321,7 +9320,7 @@ button.bg-dark:focus {
   .mx-xl-auto {
     margin-left: auto !important; } }
 
-.text-monospace {
+
 .text-justify {
   text-align: justify !important; }
 
@@ -9569,8 +9568,7 @@ html {
 body,
 html {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .clear {
   clear: both; }
@@ -9607,7 +9605,7 @@ ul {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  padding: 0;}
+  padding: 0; }
 
 p {
   margin: 0;
