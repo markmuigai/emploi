@@ -745,7 +745,8 @@ class Seeker extends Model
                 $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
                                   
                                   foreach ($vacancies as $v) {
-                      $contents .= "<a href='".url('/vacancies/'.$v->slug)."'>$v->slug.<br></a>";    
+                      $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.<br></a><li>";
+                      $contents .= "<ul>";    
                                }
 
                              foreach ($vacancies as $v) {

@@ -13,6 +13,12 @@
   font-weight: normal;
   font-style: normal; }
 
+  * {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif
+}
+
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -2349,8 +2355,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+   }
 
 *,
 *::before,
@@ -2358,7 +2363,6 @@
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -2368,7 +2372,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -2468,7 +2471,6 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em; }
 
 pre {
@@ -2517,7 +2519,6 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
   font-size: inherit;
   line-height: inherit; }
 
@@ -6648,8 +6649,7 @@ a.close.disabled {
   position: absolute;
   z-index: 1070;
   display: block;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: 0;  
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6734,7 +6734,6 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -9323,8 +9322,6 @@ button.bg-dark:focus {
     margin-left: auto !important; } }
 
 .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
-
 .text-justify {
   text-align: justify !important; }
 
@@ -9573,7 +9570,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: 'Nunito', sans-serif; }
+}
 
 .clear {
   clear: both; }
@@ -9589,14 +9586,12 @@ button,
 input,
 select {
   -webkit-appearance: none;
-  outline: none;
-  font-family: 'Nunito', sans-serif; }
+  outline: none; }
 
 button,
 .btn,
 select {
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif; }
+  cursor: pointer; }
 
 a,
 a:hover {
@@ -9612,8 +9607,7 @@ ul {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif; }
+  padding: 0;}
 
 p {
   margin: 0;
@@ -11177,7 +11171,6 @@ button::-moz-focus-inner {
   color: #FFF;
   font-style: normal;
   font-size: 28px;
-  font-family: Arial, Baskerville, monospace;
   background: #fff; }
 
 .mfp-close-btn-in .mfp-close {
