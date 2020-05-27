@@ -57,9 +57,9 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
     </div>
     <div>
         <br>
-        <img src="/images/promotions/refer-friends-to-cv-editing-win-500shs.png" alt="Refer your Friends and Win up to Ksh 500" style="width: 90%; margin-left: 5%">
+        <img src="/images/banners/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend" style="width: 90%; margin-left: 5%">
     </div>
-    
+       
     <div>
     	@include('components.featuredJobs')
     </div>

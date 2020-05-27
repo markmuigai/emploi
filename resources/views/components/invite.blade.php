@@ -33,7 +33,7 @@
         </div>
     </div>
 </div>
-<div class="prompts" data-toggle="tooltip" data-placement="top" title="Invite your friends, Let's reward you">
+<div class="prompts" data-toggle="tooltip" data-placement="top" title="Earn Money By Referring Someone">
     @guest
     <a href="/profile/invites" class="invite"><i class="fas fa-user-plus"></i></a>
     @else

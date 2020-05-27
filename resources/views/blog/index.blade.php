@@ -117,7 +117,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <div class=" col-md-10 offset-md-1">
                     <div class="card my-2">
                         <a href="/refer">
-                            <img src="/images/promotions/refer-friends-to-cv-editing-win-500shs.png" style="width: 100%" alt="Refer your Friends and Win up to Ksh 500">
+                            <img src="/images/banners/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
                         </a>
                     </div>
                 </div>
