@@ -9827,6 +9827,10 @@ h4.sub-title {
   font-size: 26px;
   line-height: 35px; }
 
+.w3l-index-block2 .s-block:hover h3 {
+  transition: 0.3s ease-in-out;
+  color: var(--secondary-color); }
+
 .w3l-index-block2 .s-block p {
   color: var(--text-color);
   margin-top: 15px;
@@ -9973,14 +9977,13 @@ h4.sub-title {
   font-size: 20px;
   line-height: 32px;
   color: var(--title-color);
-  font-weight: 600;
+  font-weight: 20;
   margin-top: 20px; }
 
 .w3l-index-block5 .name {
   font-size: 20px;
   margin-top: 1rem;
-  color: var(--text-color);
-  font-style: italic; }
+  color: var(--text-color); }
 
 @media (max-width: 1024px) {
   .w3l-index-block5 .slider-info {
@@ -10364,7 +10367,7 @@ button.owl-next {
 /* //partners */
 .w3l-index-block10 .new-block {
   background-size: cover;
-  background-image: linear-gradient(to right, #500095, rgba(0, 0, 0, 0.08)), url(../images/hire-without-bias.png);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.33)), url(../images/pages/coronavirus_structure.jpg);
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: center;
   background-attachment: fixed;

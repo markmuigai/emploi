@@ -733,7 +733,7 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(6))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -742,11 +742,12 @@ class Seeker extends Model
     
                if ( !empty($vacancies)) {  
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
-                $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
+                $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br><br>";
                                   
                                   foreach ($vacancies as $v) {
+                      $contents .="<ul";              
                       $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.<br></a><li>";
-                      $contents .= "<ul>";    
+                      $contents .="</ul>";
                                }
 
                              foreach ($vacancies as $v) {
