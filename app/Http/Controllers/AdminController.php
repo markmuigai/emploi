@@ -1092,7 +1092,9 @@ class AdminController extends Controller
         if(!$id)
         {
             return view('admins.cvediting.index')
-                ->with('edits',CvEditRequest::orderBy('created_at','DESC')->paginate(10));
+                ->with('edits',CvEditRequest::Where('name','like','%'.$request->q.'%')
+                                            ->orWhere('email','like','%'.$request->q.'%')     
+                                            ->orderBy('created_at','DESC')->paginate(10));
         }
         $e = CvEditRequest::findOrFail($id);
         $editors = CvEditor::where('industry_id',$e->industry_id)
