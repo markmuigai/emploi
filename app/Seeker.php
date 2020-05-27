@@ -757,7 +757,7 @@ class Seeker extends Model
                 $contents .= "<p>Posted:".$v->since."<p><br>";
                 $contents .= "<p>Job Description</p>".$v->responsibilities."<br>";         
                              
-                $contents .= "Click <a href='".url('/vacancies')."'>Vacancies</a> for more and how to apply.<br>";         
+                $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";         
                 $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br>";                                                                     
                      
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
