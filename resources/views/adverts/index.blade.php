@@ -12,6 +12,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 <div class="card">
     <div class="card-body">
+        <form>
+            <input type="text" placeholder="Search here" name="q" required="" class="form-control">
+        </form>
+        <br>
         @forelse($adverts as $ad)
         <div class="row">
             <div class="col-md-8">

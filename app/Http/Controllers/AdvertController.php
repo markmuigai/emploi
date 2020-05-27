@@ -40,14 +40,18 @@ class AdvertController extends Controller
         return redirect('/employers');
     }
 
-    public function index($id = false){
+    public function index(Request $request, $id = false){
         if($id)
         {
             $ad = Advert::findOrFail($id);
             return view('adverts.show')
                 ->with('advert',$ad);
         }
-        $ads = Advert::orderBy('status','DESC')->orderBy('id','DESC')->paginate(10);
+        $ads = Advert::Where('name','like','%'.$request->q.'%')
+                        ->orWhere('email','like','%'.$request->q.'%') 
+                        ->orWhere('title','like','%'.$request->q.'%') 
+                        ->orderBy('status','DESC')
+                        ->orderBy('id','DESC')->paginate(10);
         return view('adverts.index')
                 ->with('adverts',$ads);
     }
