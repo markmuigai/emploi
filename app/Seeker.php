@@ -746,7 +746,7 @@ class Seeker extends Model
                                   
                                   foreach ($vacancies as $v) {
                       $contents .="<ul";              
-                      $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.<br></a><li>";
+                      $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><li>";
                       $contents .="</ul>";
                                }
 
@@ -755,10 +755,9 @@ class Seeker extends Model
                 $contents .= "<h4>".$v->company->name."</h4>";
                 $contents .= "<p>Location:".$v->location->name."<p>";
                 $contents .= "<p>Posted:".$v->since."<p><br>";
-                $contents .= "<p>Job Description</p>".$v->responsibilities;
-                $contents .= "Click <a href='".url('/vacancies/'.$v->slug)."'>$v->slug</a> for more details and how to apply.<br>";         
+                $contents .= "<p>Job Description</p>".$v->responsibilities."<br>";         
                              
-                            
+                $contents .= "Click <a href='".url('/vacancies')."'>Vacancies</a> for more and how to apply.";         
                 $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br>";                                                                     
                      
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
