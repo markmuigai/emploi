@@ -733,7 +733,7 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(0))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
