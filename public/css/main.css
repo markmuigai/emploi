@@ -480,9 +480,8 @@ main {
     margin-bottom: .5rem
 }
 
-.service-cards .card:nth-child(odd) {
-    background: var(--primary);
-    color: #fff
+.service-cards .card{
+    color: #000
 }
 
 .service-cards .card:hover {

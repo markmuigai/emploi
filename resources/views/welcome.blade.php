@@ -187,7 +187,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         <p class="card-text">{{ __('jobs.cv_edit_txt') }}</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/job-seekers/cv-editing" class="btn btn-orange-alt">{{ __('other.r_serv') }}</a>
+                                        <a href="/job-seekers/cv-editing" class="btn btn-orange">{{ __('other.r_serv') }}</a>
                                     </div>
                                 </div>
                                 <div class="card">
@@ -208,7 +208,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     <div class="card-footer">
                                         <span id="featured-vacancies"></span>
                                         <small class="text-muted">
-                                            <a href="/vacancies" class="btn btn-orange-alt">View Vacancies</a>
+                                            <a href="/vacancies" class="btn btn-orange">View Vacancies</a>
                                         </small>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         <p class="card-text">Search tens of thousands of qualified CVs for quick shortlisting, direct contact and hire</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/employers/browse" class="btn btn-orange-alt">Browse</a>
+                                        <a href="/employers/browse" class="btn btn-orange">Browse</a>
                                     </div>
                                 </div>
                                 <div class="card">
@@ -245,7 +245,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted">
-                                            <a href="/employers/services" class="btn btn-orange-alt">View Services</a>
+                                            <a href="/employers/services" class="btn btn-orange">View Services</a>
                                         </small>
                                     </div>
                                 </div>
