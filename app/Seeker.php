@@ -733,7 +733,7 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(0))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -746,7 +746,7 @@ class Seeker extends Model
                                   
                                   foreach ($vacancies as $v) {
                       $contents .="<ul";              
-                      $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><li>";
+                      $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><li><br>";
                       $contents .="</ul>";
                                }
 
@@ -757,7 +757,7 @@ class Seeker extends Model
                 $contents .= "<p>Posted:".$v->since."<p><br>";
                 $contents .= "<p>Job Description</p>".$v->responsibilities."<br>";         
                              
-                $contents .= "Click <a href='".url('/vacancies')."'>Vacancies</a> for more and how to apply.";         
+                $contents .= "Click <a href='".url('/vacancies')."'>Vacancies</a> for more and how to apply.<br>";         
                 $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br>";                                                                     
                      
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
