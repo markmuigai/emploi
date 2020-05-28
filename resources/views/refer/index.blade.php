@@ -29,7 +29,7 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
                     </div>
                 </div>
                 
-                <button class="btn btn-sm btn-orange">Send Email Invite</button>
+                <button class="btn btn-sm btn-orange">Send Invite</button>
                
             </form>
     	</div>
