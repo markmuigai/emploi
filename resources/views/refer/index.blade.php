@@ -15,10 +15,10 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
         
     </p>
     <br>
-    <div class="row">
-    	<div class="col-md-4">
-    		<h5 class="orange">Refer by Email</h5>
-    		<form class="form-group" method="post" action="/referrals" style="text-align: center;">
+    <div class="row">   
+    	<div class="col-md-3">
+    		<h5 class="orange">Refer for CV Editing</h5>
+    		<form class="form-group" method="post" action="/cvreferrals" style="text-align: center;">
                 @csrf
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
@@ -33,7 +33,22 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
                
             </form>
     	</div>
-    	<div class="col-md-4">
+
+             <div class="col-md-3">
+            <h5 class="orange">Refer by Email</h5>
+                <p>
+                Invite your friends by their email addresses. We'll send them a link to register.
+                @guest
+                <a href="/join" class="orange">Create an Account</a> or <a href="/login" class="orange">Login</a> to be rewarded for your referrals
+                @else
+                You will be awarded once your referrals verify their accounts.
+                @endguest
+                <br>
+                <a href="#" class="btn btn-orange-alt" id="showModalForInvite" data-toggle="modal" data-target="">Get Started</a>
+            </p>
+        </div>
+
+    	<div class="col-md-3">
     		<h5 class="orange">Upload CSV Emails</h5>
     		<p>
     			Attach a CSV file containing your referrals. We'll send them a link to register.
@@ -46,7 +61,7 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
     			<a href="#" class="btn btn-orange-alt" id="showCsvModalForInvite" data-toggle="modal" data-target="">Get Started</a>
     		</p>
     	</div>
-    	<div class="col-md-4">
+    	<div class="col-md-3">
     		<h5 class="orange">Create Invite Link</h5>
     		<p>
     			Create an easy-to-share invite link and share it for easy referrals on click.
@@ -70,9 +85,13 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
 
 <script type="text/javascript">
 	$().ready(function(){
-		$('#showCsvModalForInvite').click(function(){
-            $('#importCSVModal').modal();
+		$('#showModalForInvite').click(function(){
+            $('#inviteFriends').modal();
         });
+
+        $('#showCsvModalForInvite').click(function(){
+            $('#importCSVModal').modal();
+        });        
 	});
 </script>
 

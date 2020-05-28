@@ -73,6 +73,7 @@ Route::resource('/events-subscriptions', 'MeetupSubscriptionController');
 Route::get('companies/{name}/make-featured', 'CompanyController@makeFeatured');
 Route::get('companies-featured', 'CompanyController@companiesFeatured');
 Route::resource('/referrals', 'ReferralController');
+Route::resource('/cvreferrals', 'CvReferralController');
 Route::post('/referrals/processCSV','ReferralController@processCSV');
 Route::get('/referrals/processCSV','ReferralController@processCSVRedirect');
 Route::resource('/cv-editing', 'CvEditController');
