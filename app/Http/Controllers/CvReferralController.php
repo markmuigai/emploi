@@ -73,13 +73,11 @@ class cvreferralcontroller extends Controller
             $caption = Auth::user()->name." has invited you to request CV Editing services on Emploi, a Job seeker - Employer matching Platform";
             $title = $user->name.' Invited you For CV Editing on Emploi';
 
-            $line = "<b>".$user->name."</b> has invited you to request CV Editing services on our platform, so you too can have access to our professional services to equip you with a good CV so that you stand out from the rest";
         }
         else
         {
             $caption = "You have been invited to request CV Editing on Emploi, where deserving talent meets deserving opportunities";
             $title = "You've been invited to request CV Editing on Emploi";
-            $line = "You have been invited to request CV Editing services we offer on Emploi at a 50% discount.";
         }
 
         CvReferral::create([
@@ -89,8 +87,8 @@ class cvreferralcontroller extends Controller
         ]);
 
 
-        $contents = " ".$request->name." ,<br> Click the button below to request.<br>
-        <a href='".url('/job-seekers/cv-editing')."'>Get started</a> <br><br>
+        $contents = "You have been invited to request CV Editing services we offer on Emploi at a 50% discount,so you too can have access to our professional services to equip you with a good CV so that you stand out from the rest.<br>Click <a href='".url('/job-seekers/cv-editing')."'>here</a> to request.<br>
+         <br><br>
 
         Thank you for your time. Looking forward to serving you.";
         EmailJob::dispatch($request->name, $request->email, $title, $caption, $contents);
