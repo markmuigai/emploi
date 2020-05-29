@@ -114,13 +114,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             @endif
             @if($adsCounter == 4)
-                <div class=" col-md-10 offset-md-1">
+            <!--     <div class=" col-md-10 offset-md-1">
                     <div class="card my-2">
                         <a href="/refer">
                             <img src="/images/banners/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
                         </a>
                     </div>
-                </div>
+                </div> -->
             @endif
         @empty
             <div class="col-12">

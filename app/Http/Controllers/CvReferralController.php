@@ -49,6 +49,14 @@ class cvreferralcontroller extends Controller
                     ->with('message','You provided either an invalid e-mail or name when inviting them. Kindy try again making sure both are correct.');
             return 'invalid';
         }
+        $user = Auth::user();
+        if($request->email === $user->email) 
+        {
+            return view('pages.referral')
+                    ->with('title','Referral Failed')
+                    ->with('message','You cannot invite yourself. Kindy invite your friend.');
+            return 'invalid';
+        }
          
         $r = CvReferral::where('email',$request->email)->first();
         if(isset($r->id))
@@ -87,10 +95,10 @@ class cvreferralcontroller extends Controller
         Thank you for your time. Looking forward to serving you.";
         EmailJob::dispatch($request->name, $request->email, $title, $caption, $contents);
 
-        return view('pages.referral')
+        return view('pages.cv-referral')
                     ->with('title','Referral Success')
                     ->with('message','An invitation to request CV Editing has been sent to '.$request->name.'. Thank you for your referral.');
-        return 'success';
+  
 
     }
 

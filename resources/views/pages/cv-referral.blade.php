@@ -36,13 +36,16 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 	       	<a href="/join" class="btn btn-sm btn-orange">{{ __('auth.register') }}</a>
 	       	<a href="/login" class="btn btn-sm btn-primary">{{ __('auth.login') }}</a>
 	       	@else
-	       	You have {{ Auth::user()->totalCredits }} credits.
-	       	<br>
+	       	 	You will be able to earn when your friend requests and pay for CV Editing.
+	       	<br><br>
 	       	<a href="/profile" class="btn btn-sm btn-orange">My Profile</a>
 	       	<a href="/home" class="btn btn-sm btn-primary">Dashboard</a>
 	       	@endguest
 	      	
 	      </div>
+
+
+
 
 	   </div>
 	   <div class="clearfix"> </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 
 use App\Invoice;
+use App\CvReferral;
 use App\Jobs\EmailJob;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\InvoicePaid;
@@ -106,9 +107,13 @@ class InvoiceController extends Controller
         //     $invoice->save();
         //     $invoice->hasBeenPaid();
         // }
+        $credit = 15;
+        CvReferral::cVcreditFor($invoice->email,$credit);
+        
         return view('pesapal.paid')
                 ->with('invoice',$invoice);
         return $request->all();
+        
     }
 
     public function update(Request $request, $slug)
@@ -119,6 +124,10 @@ class InvoiceController extends Controller
         $invoice->alternative_payment_slug = Auth::user()->id.'_'.$request->alternative_payment_slug;
         $invoice->updated_at = now();
         $invoice->save();
+        
+         $credit = 15;
+         CvReferral::cVcreditFor($invoice->email,$credit);
+
         $invoice->hasBeenPaid();
         $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' was marked paid by '.Auth::user()->name.'. Payment Reference: '.$invoice->alternative_payment_slug;
         if(app()->environment('production'))

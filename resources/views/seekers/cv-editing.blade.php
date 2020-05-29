@@ -168,10 +168,17 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 	</div>
 </div>
     
-   <div class="col-md-6 offset-md-3">
+   <div class="col-md-8 offset-md-2">
 	    <p>"Competition is always a good thing. It forces us to do our best. A monopoly renders people complacent and satisfied with mediocrity. We at Emploi give you 50% OFF CV EDITING DURING THIS COMPETITIVE PERIOD to equip you with a good CV so that you stand out from the rest."</p>
-	    <br>	     
-	<a href="/refer" class="btn btn-orange">Refer a Friend</a>    
+	    <p>This will however,</p>
+	    <ul>
+	    	<li>Streamline your job search process thus Increases chances of landing to your dream job.</li>
+	    	<li>Boost your chance of getting a face-to-face interview.</li>
+	    	<li>Helps employers sum up your skills and achievements with ease as well as allows you to understand your achievements and shortcomings.</li>
+	    	<li>This creates a good mindset and reduces legwork in your job search.</li>
+	    </ul>
+  <br>	     
+   <a href="/refer" class="btn btn-orange">Refer a Friend</a>    
    </div>
 	<br id="request-cv-edit-form">
 	<br>
