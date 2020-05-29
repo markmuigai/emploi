@@ -11,7 +11,7 @@
                     <div class="col-12 col-md-10">
                         <p>This is exciting! I have no edits to make. The resume is professionally done and brings out the strong competencies gained over the years. Thank you for your effort on this. </p>
                         <hr class="short">
-                        <h5>Hired Job Seeker</h5>
+                        <h5>Angela Amondi</h5>
                         <p>Emploi CV-Editing Success Stories</p>
                     </div>
                 </div>
@@ -23,12 +23,13 @@
                 <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
+                        <img src="/images/testimonials/jeannete.jpeg" data-src="{{asset('images/testimonials/jeannete.jpeg')}}" alt="Jeanette Induswe" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>I the first job, I've been interviewed for the second one and it looks promising as well. They have confirmed that I'm the succesful candidate, via phone and email. They have asked me to update them with my referee details and I'll be given an offer as soon as the referees submit feedback. </p>
+                        <p>I have never met such a dedicated recruitment team, as they’ve always kept in contact. They’ve been highly professional, proficient, helpful and always very friendly throughout the process!
+                        I cannot thank you enough for the full support, quick to understand the kind of CV I wanted for my new career change and the specific role. I am very confident in your team, as we move into the next phase of placement service and interview coaching. Thank you for editing my CV!</p>
                         <hr class="short">
-                        <h5>Hired Job Seeker</h5>
+                        <h5>Jeanette Induswe</h5>
                         <p>Emploi CV-Editing Success Stories</p>
                     </div>
                 </div>
