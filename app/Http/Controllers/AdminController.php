@@ -53,7 +53,7 @@ class AdminController extends Controller
 
     public function referrals(Request $request){
         return view('admins.referrals.index')
-            ->with('referrals',Referral::orderBy('status')->orderBy('id','ASC')->paginate(50));
+            ->with('referrals',Referral::orderBy('status')->orderBy('id','DESC')->paginate(50));
     }
 
     public function inviteLinks(Request $request){
