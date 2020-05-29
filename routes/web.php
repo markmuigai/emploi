@@ -197,6 +197,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('username/{username}', 'AdminController@loginWithUsername');
 
     Route::get('referrals', 'AdminController@referrals');
+    Route::get('cv-referrals', 'AdminController@cvReferrals');
     Route::get('invite-links', 'AdminController@inviteLinks');
 
     Route::resource('job-post-groups', 'PostGroupController');
