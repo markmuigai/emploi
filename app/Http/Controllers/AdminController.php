@@ -26,6 +26,7 @@ use App\ModelSeeker;
 use App\Post;
 use App\Referee;
 use App\Referral;
+use App\CvReferral;
 use App\Seeker;
 use App\UnregisteredUser;
 use App\User;
@@ -60,6 +61,13 @@ class AdminController extends Controller
         return view('admins.inviteLinks.index')
             ->with('inviteLinks',InviteLink::orderBy('clicks_count','DESC')->paginate(30));
     }
+
+
+    public function cvReferrals(Request $request){
+        return view('admins.referrals.cvindex')
+            ->with('cvreferrals',CvReferral::orderBy('status')->orderBy('id','DESC')->paginate(50));
+    }
+
        
     public function viewReport(Request $request, $slug)
     {
