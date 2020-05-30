@@ -160,11 +160,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </div>  
 @endif
 @if($adsCounter == 12)
-<!-- <div style="width: 100%">
+<div style="width: 100%">
     <a href="/refer">
-        <img src="/images/banners/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend"> 
+        <img src="/images/promotions/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend"> 
     </a>    
-</div> -->
+</div>
 @endif
 @empty
 
