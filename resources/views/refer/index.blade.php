@@ -29,9 +29,10 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
                     </div>
                 </div>
                 
-                <button class="btn btn-sm btn-orange">Send Invite</button>
+                <button class="btn btn-sm btn-orange">Send Invite</button>              
                
             </form>
+             You have <b>{{ Auth::user()->totalCvCredits }}</b> credits
     	</div>
 
              <div class="col-md-3">
@@ -46,6 +47,7 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
                 <br>
                 <a href="#" class="btn btn-orange-alt" id="showModalForInvite" data-toggle="modal" data-target="">Get Started</a>
             </p>
+                You have <b>{{ Auth::user()->totalCredits }}</b> credits.
         </div>
 
     	<div class="col-md-3">

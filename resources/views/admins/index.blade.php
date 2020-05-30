@@ -70,6 +70,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
                 
+                <a href="/admin/metrics" class="btn btn-sm btn-danger">View Metrics</a>
                 <a href="/admin/emails" class="btn btn-sm btn-info">Send Emails</a>
                 
                 <a href="/admin/contacts" class="btn btn-sm btn-success">Contacts {{ $co > 0 ? '('.$co.')' : '' }}</a>
@@ -81,9 +82,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 
                 
 
-                <br><br>
-                
-                <a href="/admin/metrics" class="btn btn-sm btn-danger">View Metrics</a>
+                <br><br>                
+        
                 <a href="/admin/unregistered-users" class="btn btn-sm btn-primary">Unregistered Users</a>
                 
                 
@@ -114,6 +114,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <hr>
                 <a href="/admin/events" class="btn btn-sm btn-orange">Events ({{ count(\App\Meetup::where('started_at',NULL)->get()) }})</a>
+                 <a href="/admin/cv-referrals" class="btn btn-sm btn-info">CV-Edit Referrals</a>
 
         </div>
         <div class="clearfix"> </div>

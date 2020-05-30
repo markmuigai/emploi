@@ -338,4 +338,21 @@ class User extends Authenticatable
 
         return $discount;
     }
+
+
+    public function cvcredits(){
+        return $this->hasMany(CvCredit::class);
+    }
+
+      public function getTotalCvCreditsAttribute(){
+        $total = 0;
+        if(count($this->cvcredits) == 0)
+            return 0;
+        foreach($this->cvcredits as $c)
+        {
+            // if(!isset($c->invoiceCreditRedemption->id))
+                $total = $c->value; 
+        }
+        return $total;
+    }
 }
