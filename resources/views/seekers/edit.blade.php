@@ -335,7 +335,41 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
- <script type="text/javascript">
+<script type="text/javascript">
+    <?php
+    $sk = '';
+    foreach($skills as $s) {
+        $sk .= "[".$s->id.", '".$s->name."', ".$s->industry_id."],";
+    }
+    $sk = '['.$sk.']';
+    echo 'var allSkills='.$sk.
+    ';';
+    ?>
+</script>
+<script type="text/javascript" src="{{ asset('js/edit-seeker.js') }}"></script>
+<script type="text/javascript">
+    $().ready(function(){
+        $('#industry').change(function(){
+            var new_ing = $(this).val();
+            
+            var $skills = '';
+            for(var k=0; k<allSkills.length;k++)
+            {
+                if(allSkills[k][2] == new_ing)
+                {
+                    $skills +=  '<option value="'+allSkills[k][0]+'">'+allSkills[k][1]+'</option>';
+
+                }
+            }
+            $('#skill-select').children().remove();
+            $('#skill-select').append($skills);
+            notify('Industry updated','info');
+          
+      });
+    });
+</script>
+
+<script type="text/javascript">
     <?php
     $loc = '';
     foreach($locations as $c) {
@@ -373,27 +407,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 
         });
    });
-</script>
-<script type="text/javascript" src="{{ asset('js/edit-seeker.js') }}"></script>
-<script type="text/javascript">
-    $().ready(function(){
-        $('#industry').change(function(){
-            var new_ing = $(this).val();
-            
-            var $skills = '';
-            for(var k=0; k<allSkills.length;k++)
-            {
-                if(allSkills[k][2] == new_ing)
-                {
-                    $skills +=  '<option value="'+allSkills[k][0]+'">'+allSkills[k][1]+'</option>';
-
-                }
-            }
-            $('#skill-select').children().remove();
-            $('#skill-select').append($skills);
-            notify('Industry updated','info');
-          
-      });
-    });
 </script>
 @endsection
