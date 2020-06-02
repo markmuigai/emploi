@@ -64,18 +64,20 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 	<h3 class="orange pt-2 text-center" id="charges">Our Charges</h3>
 
-	<div class="card-deck text-center coloured-card row">
+		<div class="card-deck text-center coloured-card row">
 		<div class="card">
 			<div class="card-body d-flex flex-column justify-content-center">
 				<?php
 					$price = 2000;
 					$p = \App\Product::where('slug','entry_level_cv_edit')->first();
 					if(isset($p->id))
-						// $price = round($p->price);
+					
 				?>
-				<h1>Kshs {{ $price }}</h1>
+				<h1><del>Kshs {{ $price }}</del></h1>
 				   <p>Entry Level</p>
-				    <br><br><br>
+				    <br><br>
+				    <div class="orange">Now</div>
+				    <h1>Kshs 1000</h1>
 				    <form method="POST" action="/checkout" >
 					@csrf
 					<input type="hidden" name="product" value="entry_level_cv_edit">
@@ -91,11 +93,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 4000;
 					$p = \App\Product::where('slug','mid_level_cv_edit')->first();
 					if(isset($p->id))
-						// $price = round($p->price);
+					
 				?>
-				<h1>Kshs {{ $price }}</h1>
+				<h1><del>Kshs {{ $price }}</del></h1>
 					<p>Mid Level</p>
-					<br><br><br>
+					<br><br>
+					<div class="orange">Now</div>
+				    <h1>Kshs 2000</h1>
 					<form method="POST" action="/checkout">
 					@csrf
 					<input type="hidden" name="product" value="mid_level_cv_edit">
@@ -111,11 +115,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 6000;
 					$p = \App\Product::where('slug','c_change_cv_edit')->first();
 					if(isset($p->id))
-						// $price = round($p->price);
+						
 				?>
-				<h1>Kshs {{ $price }}</h1>
+				<h1><del>Kshs {{ $price }}</del></h1>
 					<p>Career Change / Promotion Seeking CV</p>
-					<br>
+					<div class="orange">Now</div>
+				    <h1>Kshs 3000</h1>
 					<form method="POST" action="/checkout">
 					@csrf
 					<input type="hidden" name="product" value="c_change_cv_edit">
@@ -131,11 +136,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 6000;
 					$p = \App\Product::where('slug','mgnt_cv_edit')->first();
 					if(isset($p->id))
-						// $price = round($p->price);
+						
 				?>
-				<h1>Kshs {{ $price }}</h1>
+				<h1><del>Kshs {{ $price }}</del></h1>
 				<p>Management Level</p>
-				<br><br>
+				<br>
+				<div class="orange">Now</div>
+			    <h1>Kshs 3000</h1>
 				<form method="POST" action="/checkout">
 				@csrf
 				<input type="hidden" name="product" value="mgnt_cv_edit">
@@ -151,11 +158,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					$price = 10000;
 					$p = \App\Product::where('slug','s_mgnt_cv_edit')->first();
 					if(isset($p->id))
-						// $price = round($p->price);
+						
 				?>
-				<h1>Kshs {{ $price }}</h1>
+				<h1><del>Kshs {{ $price }}</del></h1>
 					<p>Senior Management Level</p>
-					<br>
+					<div class="orange">Now</div>
+				    <h1>Kshs 5000</h1>
 					<form method="POST" action="/checkout">
 					@csrf
 					<input type="hidden" name="product" value="s_mgnt_cv_edit">
@@ -167,7 +175,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 		</div>
 	</div>
 </div>
-    
+
    <div class="col-md-8 offset-md-2">
 	    <p>"Competition is always a good thing. It forces us to do our best. A monopoly renders people complacent and satisfied with mediocrity. We at Emploi give you 50% OFF CV EDITING DURING THIS COMPETITIVE PERIOD to equip you with a good CV so that you stand out from the rest."</p>
 	    <p>This will however,</p>
