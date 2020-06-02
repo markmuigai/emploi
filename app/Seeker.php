@@ -748,14 +748,14 @@ class Seeker extends Model
     
                if ( !empty($vacancies || $featured)) {  
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
-                $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br><br>";
+                $contents = "Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br><br>";
                                   
                                   foreach ($vacancies as $v) {
-                      $contents .="<ul";              
+                      $contents .= "<ul";              
                       $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><li><br>";
-                      $contents .="</ul>";
+                      $contents .= "</ul>";
                                }
-                $content ="<b>Featured Vacancies</b><br>";
+                $content = "<br>Featured Vacancies<br>";
                              foreach ($featured as $f) {
                 $content .= "<br><a href='".url('/vacancies/'.$f->slug)."'>$v->slug.</a><br>";
                 $content .= "<h4>".$f->company->name."</h4>";
