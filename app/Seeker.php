@@ -736,30 +736,21 @@ class Seeker extends Model
         $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
+                    ->orWhere('featured','true')
                     ->orderBy('created_at','DESC')
                     ->get();
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
-                    ->where('featured','true')
-                    ->where('status','active')
-                    ->orderBy('created_at','DESC')
-                    ->get();
-
+       {
         
+            if ( !empty($vacancies)) {  
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
-                $contents = "Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br><br>";
+                $contents ="Here are the Latest Vacancies for you, Apply Now.<br><br>";
                                   
                                   foreach ($vacancies as $v) {
-                      $contents .= "<ul";              
-                      $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><li><br>";
-                      $contents .= "</ul>";
-                               }
-                $contents .= "<br><h3>Featured Vacancies</h3><br>";
-                             foreach ($featured as $f) {
-                $contents .= "<br><a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a><br>";
-                $contents .= "<h4>".$f->company->name."</h4>";
-                $contents .= "<p>Location:".$f->location->name."<p>";
-                $contents .= "<p>Posted:".$f->since."<p><br>";
-                 }
+                $contents .= "<br><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";
+                $contents .= "<h4>".$v->company->name."</h4>";
+                $contents .= "<p>Location:".$v->location->name."<p>";
+                $contents .= "<p>Posted:".$v->since."<p><br>";
+                        }
                        
                              
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";         
@@ -767,8 +758,8 @@ class Seeker extends Model
                      
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;
-                        
-                
+            }
+        }       
     }
         
          
