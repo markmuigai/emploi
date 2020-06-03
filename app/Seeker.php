@@ -744,9 +744,9 @@ class Seeker extends Model
                     ->orderBy('created_at','DESC')
                     ->get();
 
-                {
+        
     
-               
+               if ( !empty($vacancies) || !empty($featured) ) {  
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
                 $contents = "Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br><br>";
                                   
@@ -769,9 +769,9 @@ class Seeker extends Model
                      
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;
-           
-           
-       }
+                         
+           }
+       
     }
         
          
