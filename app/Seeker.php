@@ -746,7 +746,7 @@ class Seeker extends Model
 
                 {
     
-               if ( !empty($vacancies || $featured)) {  
+               if ( !empty($vacancies) || !empty($featured)) {  
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
                 $contents = "Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br><br>";
                                   
