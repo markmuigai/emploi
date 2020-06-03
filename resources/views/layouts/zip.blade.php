@@ -33,7 +33,9 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="background-color: #500095; border: none">
         <ul class="navbar-nav mr-auto">
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/" style="color: white">Home</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/about" style="color: white">About Us</a>
           </li>
