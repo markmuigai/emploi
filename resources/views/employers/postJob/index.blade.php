@@ -1,227 +1,106 @@
-@extends('layouts.general-layout')
+@extends('layouts.zip')
 
-@section('title','Advertise on Emploi')
+@section('title','Post a Job on Emploi')
 
 @section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+Advertise on Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Create a job post and share to top job boards in minutes.
 @endsection
 
 @section('content')
 <?php
 $user = isset(Auth::user()->id) ? Auth::user() : false;
 ?>
-<style type="text/css">
-    .purpleBkg {
-        background-color: #500095;
-        color: white;
-        font-size: 80%;
+
+<!-- contacts -->
+<section class="w3l-contact mt-5">
+  <div class="contacts-9 py-5 mt-5">
+    <div class="container py-lg-3">
+      <div class="row top-map">
         
-
-    }
-    .purpleBkg h4,p {
-        text-align: center;
-    }
-    ul.tick {
-      font-size: 0;
-    }
-    ul.tick li {
-       font-size:1.0rem;
-      display: inline;
-    }
-</style>
-<div class="top-bg"></div>
-<div class="container pb-0 pb-lg-4 ">
-    <div class="row">
-        <div class=" col-md-12 row" >
-            <div class="col-md-5 advert-details mt-1" style="background-color: white; color: #000000; border-radius: 5%; border-bottom: 0.1em solid black; border-top: 0.1em solid black; overflow: hidden;">
-                <h2 class="orange ">
-                    Advertise on Emploi
-                </h2>
-                <ul>
-                    <li>Audience of 100k+ subscribers</li>
-                    <li>Advanced Recruitment tools</li>
-                    <li>Candidate Ranking Algorithm</li>
-                </ul>
-                <div>
-                    <a href="#advertise-form" class="btn btn-sm orange">Post Job</a>
-                    <a href="tel:0702068282" class="btn btn-sm btn-orange">Call 0702 068 282</a>
-                </div>
-                
-            </div>
-
-            <div class="col-md-12 row ">
-                <div class="col-md-12">
-                    <br>
-                    <iframe class="col-md-12" style="border: none; margin-bottom: none; height: 55vh;" 
-                        src="https://www.youtube.com/embed/DKojcDYgJ5w?autoplay=1">
-                    </iframe>
-                    <br>
-                </div>
-                
-                <div class="col-md-12  row">
-                    <div class="col-md-5" style="width: 49%; float: right;">
-                        <h5>Advertising Features</h5>
-                        <ul class="feature_list">
-                            <li>Reach over 100,000 job seekers through our partner networks</li>
-                            <li>Shortlisting dashboard</li>
-                            <li>Easily Schedule Interviews with candidates</li>
-                            <li>Job post sent as featured to job seekers</li>
-                            <li>Job post shared on Facebook, Twitter and LinkedIn Pages</li>
-                        </ul>
+        <div class="map-content-9 col-md-7 mt-5 mt-md-0">
+            <form action="/employers/publish" method="post" id="postForm">
+                @csrf
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="contact-textfield-label" for="name">Full Name <i style="color: red">*</i></label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="" required="">
                     </div>
-                    <div class="col-md-5 offset-md-2" style="width: 49%; float: right;">
-                        <h5>Employer Benefits</h5>
-                        <ul class="feature_list">
-                            <li>Browse our database of job seekers</li>
-                            <li>Shortlist and schedule interviews with job seekers</li>
-                            <li>Request premium recruitment</li>
-                            <li>Request Candidate Vetting</li>
-                            <li>Advertise jobs</li>
-                        </ul>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label class="contact-textfield-label" for="phone_number">Phone Number <i style="color: red">*</i></label>
+                        <input type="tel" class="form-control" name="phone_number" id="phone_number" placeholder="" required="">
+                    </div>
+                    
+                </div>
+                <div class="form-group row">
+                    
+                    <div class="col-md-6 ">
+                        <label class="contact-textfield-label" for="co_name">Company Name <i style="color: red">*</i></label>
+                        <input type="tel" class="form-control" name="co_name" id="co_name" placeholder="" required="">
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label class="contact-textfield-label" for="email">Business Email <i style="color: red">*</i></label>
+                        <input type="email" class="form-control" name="email" placeholder="" required="">
                     </div>
                 </div>
-            </div>
-
-            <div class="card-deck text-center coloured-card row">
-                <div class="col-md-12">
-                    <h3 class="orange pt-2 text-center" id="charges">Our Charges</h3>
+                <div class="form-group">
+                    <label class="contact-textfield-label" for="title">Job Title <i style="color: red">*</i></label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="" required="">
                 </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        
-                        <h1>Kshs <br>2,500</h1>
-                        <p>SOLO</p>
-                        <ul class="tick">
-                            <li>1 Job Advert posted for 30 days</li><br>
-                            <li>Shared to social media pages</li><br>
-                            <li>Job AD sent out to our entire database</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="solo">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
+                <div class="form-group">
+                    <label class="contact-textfield-label" for="description">Job Description</label>
+                    <textarea name="description" class="form-control" id="description" required="" placeholder="Jot down the job description or desired qualities & skills - our team will rework it to your advantage"></textarea>
                 </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs <BR>4,750</h1>
-                        <p>SOLO PLUS</p>
-                        <ul class="tick">
-                            <li>2-4 job Adverts posted for 30 days</li><br>
-                            <li>Shared to Social media pages</li><br>
-                            <li>Job AD sent out to our entire database</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="solo_plus">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs 9,025</h1>
-                        <p>INFINITY</p>
-                        <ul class="tick">
-                            <li>More than 4 job Adverts posted for 30 days</li><br>
-                            <li>Shared to Social media pages</li><br>
-                            <li>Job AD sent out to entire database</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="infinity">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs 7,000</h1>
-                        <p>STAWI</p>
-                        <ul class="tick">
-                            <li>All   in Solo</li><br>
-                            <li>Search talent database</li><br>
-                            <li>Unlimited searches in 1 job category</li><br>
-                            <li>Get up to 50 CVs</li><br>
-                            <li>Referee reports</li>
-                        </ul>
-                        <br>
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="stawi">
-                            <p>
-                                <input type="submit" name="" value="Get Started" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            
+        <p style="display: none;" ><input type="text" name="check" id="check" autocomplete="off" ></p>
+                <button type="submit" class="btn btn-primary btn-contact">Post Advert</button>
+                <a href="/contact" class="btn btn-link" style="float: right;">Contact Us</a>
+            </form>
         </div>
-
-
-        
-        
-    </div>
-    <br id="advertise-form"><br>
-    <div class="row">
-        <div class="card col-md-8 offset-md-2">
-            <div class="card-body">
-                
-                <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here</h4>
-                <form action="/employers/publish" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="">Your Name</label>
-                        <input type="text" name="name" value="{{ $user ? $user->name : '' }}" required="" class="form-control" placeholder="" maxlength="50">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Phone Number</label>
-                        <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Email Address</label>
-                        <input type="email" name="email" value="{{ $user ? $user->email : '' }}" required="" class="form-control" placeholder="" maxlength="50">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Job Title</label>
-                        <input type="text" name="title" maxlength="100" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Job Description</label>
-                        <textarea name="description" id="description" rows="5" class="form-control"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <input type="submit" class="btn btn-orange" value="Submit">
-                        @if(!$user || $user->role != 'employer')
-                        <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
-                            <a href="/employers/register" class="orange">Employer Registration</a></p>
-                        @endif
-                    </div>
-                </form>
+        <div class="cont-details col-md-5">
+            <div class="heading mb-lg-4 mb-4">
+              <h3 class="head">Post a Job on Emploi</h3>
+              <p>9 out of 10 Employers who Advertise on <a href="{{ url('/') }}" title="Emploi - Africa's Premier Recruitment Platform">Emploi</a> receive qualified applications <a href="/employers/publish" style="font-weight: bold;">from the first day</a></p>
             </div>
-        </div>
+            <div class="cont-top">
+              <div class="cont-left">
+                <span class="fa fa-phone"></span>
+              </div>
+              <div class="cont-right">
+                  <p>
+                    <a href="tel:+254702068282">0702 068 282</a>|
+                          <a href="tel:+254774569001">0774 569 001</a> |
+                          <a href="tel:+254772795017">0772 795 017</a>
+                  </p>
+
+              </div>
+            </div>
+            <div class="cont-top mt-4">
+              <div class="cont-left">
+                <span class="fa fa-envelope-o"></span>
+              </div>
+              <div class="cont-right">
+                <p><a href="mailto:info@emploi.co" class="mail">info@emploi.co</a></p>
+              </div>
+            </div>
+            <div class="cont-top mt-4">
+              <div class="cont-left">
+                <span class="fa fa-map-marker"></span>
+              </div>
+              <div class="cont-right">
+                <p>Even Business Park, Airport North Rd, Nairobi </p>
+              </div>
+            </div>
+
+              <div>
+                <br><br>
+                <a href="/employers/publish">
+                  <img src="/images/promotions/free-job-posting.jpg" style="width: 100%" style="border-radius: 5%">
+                </a>              
+              </div>
+          </div>
+      </div>
     </div>
-</div>
-
-<script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-<script>
-    setTimeout(function() {
-        CKEDITOR.replace('description');
-    }, 3000);
-</script>
-
-
+  </div>
+</section>
+<!-- //contacts -->
 
 @endsection
