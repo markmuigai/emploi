@@ -755,7 +755,7 @@ class Seeker extends Model
                       $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><li><br>";
                       $contents .= "</ul>";
                                }
-                $contents .= "<br><h3>Featured Vacancies</h3><br>";
+                $contents .= "<br><b>Featured Vacancies</b><br>";
                              foreach ($featured as $f) {
                 $contents .= "<br><a href='".url('/vacancies/'.$f->slug)."'>$v->slug.</a><br>";
                 $contents .= "<h4>".$f->company->name."</h4>";

@@ -38,7 +38,7 @@ class SendVacancyEmails extends Command
     public function handle()
     {
 
-        $vacancies = Seeker::where('searching',1)->get();
+        $vacancies = Seeker::where('gender','M')->get();
         $this->info('Sending vacancy email to all subcribed job seekers:  '.count($vacancies));
 
         $success = 0;
