@@ -733,7 +733,7 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orWhere('featured','true')
