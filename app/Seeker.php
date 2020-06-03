@@ -732,7 +732,8 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        if(User::subscriptionStatus($this->user->email))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -743,7 +744,9 @@ class Seeker extends Model
                     ->orderBy('created_at','DESC')
                     ->get();
 
-                {  
+                {
+    
+               if ( !empty($vacancies || !empty($featured)) {  
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
                 $contents = "Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br><br>";
                                   
@@ -752,7 +755,7 @@ class Seeker extends Model
                       $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><li><br>";
                       $contents .= "</ul>";
                                }
-                $contents .= "<br><b>Featured Vacancies</b><br>";
+                $contents .= "<br><h3>Featured Vacancies</h3><br>";
                              foreach ($featured as $f) {
                 $contents .= "<br><a href='".url('/vacancies/'.$f->slug)."'>$v->slug.</a><br>";
                 $contents .= "<h4>".$f->company->name."</h4>";
@@ -767,6 +770,8 @@ class Seeker extends Model
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;
            
+                
+           }
        }
     }
         
