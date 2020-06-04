@@ -355,11 +355,6 @@ class PostsController extends Controller
         }
 
         if($param == 'search')
-           $featured=Post::where('featured','true')
-                           ->where('status','active')
-                           ->orderBy('id', 'desc')
-                           ->limit(5)
-                           ->get();
         {
             $title = 'Search Vacancies';
             $params = "";
@@ -441,8 +436,7 @@ class PostsController extends Controller
                     ->with('search_location',$search_location)
                     ->with('search_vtype',$search_vtype)
                     ->with('search_ind',$search_ind)
-                    ->with('search_query',$search_query)
-                    ->with('featured',$featured);
+                    ->with('search_query',$search_query);
         }
 
         if($match)
