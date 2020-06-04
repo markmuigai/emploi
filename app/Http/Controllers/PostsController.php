@@ -441,7 +441,8 @@ class PostsController extends Controller
                     ->with('search_location',$search_location)
                     ->with('search_vtype',$search_vtype)
                     ->with('search_ind',$search_ind)
-                    ->with('search_query',$search_query);
+                    ->with('search_query',$search_query)
+                    ->with('featured',$featured);
         }
 
         if($match)
