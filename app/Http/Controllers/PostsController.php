@@ -358,7 +358,7 @@ class PostsController extends Controller
            $featured=Post::where('featured','true')
                            ->where('status','active')
                            ->orderBy('id', 'desc')
-                           ->take(5)
+                           ->limit(5)
                            ->get();
         {
             $title = 'Search Vacancies';
@@ -420,7 +420,7 @@ class PostsController extends Controller
             $searchedKey->save();
             //$params .= " AND deadline > ".Carbon::now()->format('Y-m-d');
             //sort
-            $sql = "SELECT * FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' OR featured ='true' ORDER BY created_at DESC Limit 30";
+            $sql = "SELECT * FROM posts WHERE id > 0 $params AND UPPER('title') != 'HOW TO APPLY' AND status != 'inactive' ORDER BY created_at DESC Limit 30";
             //dd($sql);
             //$result = DB::select($sql);
 
