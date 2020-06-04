@@ -14,7 +14,7 @@ class Blog extends Model
     public $rememberFor = 30;
 
     protected $fillable = [
-        'user_id', 'blog_category_id', 'title','slug','contents', 'image1','image2','status'
+        'user_id', 'blog_category_id', 'title','slug','contents', 'image1','image2','status','views'
     ];
 
     public function likes(){

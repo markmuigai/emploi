@@ -50,7 +50,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <hr>
                 <form method="post" action="/admin/posts/{{$p->slug}}/update" id="" class="form-row align-items-center">
                     @csrf
-                    <div class="col-lg-3 col-md-6 col-12">
+                    <div class="col-lg-2 col-md-6 col-12">
                         <select name="status" class="custom-select" onchange="">
                             @foreach(['inactive','active','closed'] as $s)
                             <option value="{{ $s }}" {{ $p->status == $s ? 'selected="" ': "" }}>
@@ -59,7 +59,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
+                    <div class="col-lg-2 col-md-6 col-12">
                         <select name="featured" class="custom-select" onchange="">
                             <option value="true" {{ $p->featured == 'true' ? 'selected="" ': "" }}>
                                 Featured
@@ -69,8 +69,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </option>
                         </select>
                     </div>
+                       <div class="col-lg-3 col-md-6 col-12">
+                        <select name="easyapply" class="custom-select" onchange="">
+                            <option value="true" {{ $p->easy_apply == 'true' ? 'selected="" ': "" }}>
+                                Allow Easy Apply
+                            </option>
+                            <option value="false" {{ $p->easy_apply == 'false' ? 'selected="" ': "" }}>
+                                Don't Allow Easy Apply
+                            </option>
+                        </select>
+                    </div>
+                 
                     @if(Request::server ("SERVER_NAME") == 'emploi.co')
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <select name="notification" class="custom-select" onchange="">
                             <option value="false">
                                 Don't send Notification

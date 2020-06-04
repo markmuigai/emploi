@@ -155,6 +155,7 @@ class AdminController extends Controller
 
             $post->status = $request->status;
             $post->featured = $request->featured;
+            $post->easy_apply = $request->easyapply;
             $post->save();
 
             if($request->notification == 'true')
