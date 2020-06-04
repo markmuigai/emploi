@@ -56,11 +56,16 @@ $event = $meetup;
                             @if(Auth::user()->hasEnrolledMeetup($meetup))
                                 <p class="orange">Subscribed</p>
                             @else
-                                <form method="POST" action="/events-subscriptions">
-                                    @csrf
-                                    <input type="hidden" name="slug" value="{{ $meetup->slug }}">
-                                    <input type="submit" value="SUBSCRIBE TO EVENT" title="Express Interest"  class="btn btn-sm btn-orange-alt">
-                                </form>
+                                @php($end_time = \Carbon\Carbon::parse($meetup->end_time))
+                                @if($end_time->isPast()) 
+                                    <h6 class="orange">This Event has expired. Kindly check on our <strong>past events</strong></h6>
+                                    @else
+                                    <form method="POST" action="/events-subscriptions">
+                                        @csrf
+                                        <input type="hidden" name="slug" value="{{ $meetup->slug }}">
+                                        <input type="submit" value="SUBSCRIBE TO EVENT" title="Express Interest"  class="btn btn-sm btn-orange-alt">
+                                    </form>
+                                @endif   
                             @endif
                             <br>
 
@@ -106,12 +111,17 @@ $event = $meetup;
                                     print $event->instructions;
                                 ?>
                             @else
-                                <form method="POST" action="/events-subscriptions">
-                                    @csrf
-                                    <input type="hidden" name="slug" value="{{ $meetup->slug }}">
-                                    <input type="submit" value="SUBSCRIBE TO EVENT TO VIEW" title="Express Interest"  class="btn btn-sm btn-orange-alt">
-                                </form>
-                            @endif
+                                @php($end_time = \Carbon\Carbon::parse($meetup->end_time))
+                                @if($end_time->isPast())                              
+                                    <h6 class="orange">This Event has expired. Kindly check on our <strong>past events</strong></h6>  
+                                    @else
+                                     <form method="POST" action="/events-subscriptions">
+                                        @csrf
+                                        <input type="hidden" name="slug" value="{{ $meetup->slug }}">
+                                        <input type="submit" value="SUBSCRIBE TO EVENT TO VIEW" title="Express Interest"  class="btn btn-sm btn-orange-alt">
+                                    </form>
+                                @endif
+                           @endif
                         @endguest
                     </div>
                     
