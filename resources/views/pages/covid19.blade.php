@@ -44,13 +44,13 @@ See how we are supporting companies and individuals in the fight against COVID-1
             Emploi is constantly updating this page with the latest information regarding Covid-19
           </p>
     </div>
-        <div class="row bottom_grids pt-md-3">
+    <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
             <div style="border: 2px solid #500095; padding: 10px;">
-                <a href="https://emploi.co/blog/emotional-intelligence--a-key-ingredient-in-covid-19-leadership" class="d-block p-lg-4 p-3">
-                <h3 class="my-3">Emotional Intelligence- A Key Ingredient in COVID-19 Leadership</h3>
-                <p class="">What those who are in leadership positions need in handling this COVID-19 crisis.</p>
+                <a href="https://emploi.co/blog/please-give-me-a-job-state-of-unemployment-in-kenya-before-covid-19" class="d-block p-lg-4 p-3">
+                <h3 class="my-3">Please Give Me a Job”: State of Unemployment in Kenya Before COVID-19</h3>
+                <p class=""></p>
               </a>
           </div>
         </div>
@@ -79,14 +79,14 @@ See how we are supporting companies and individuals in the fight against COVID-1
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <div style="border: 2px solid #500095; padding: 10px;">
-            <a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="d-block p-lg-4 p-3">
-              <h3 class="my-3">A Look at Government Measures</h3>
-              <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
-            </a>
+            <div style="border: 2px solid #500095; padding: 10px;">
+                <a href="https://emploi.co/blog/emotional-intelligence--a-key-ingredient-in-covid-19-leadership" class="d-block p-lg-4 p-3">
+                <h3 class="my-3">Emotional Intelligence- A Key Ingredient in COVID-19 Leadership</h3>
+                <p class="">What those who are in leadership positions need in handling this COVID-19 crisis.</p>
+              </a>
           </div>
         </div>
-      </div>
+      </div>  
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
           <div style="border: 2px solid #500095; padding: 10px;">
