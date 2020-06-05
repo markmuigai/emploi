@@ -40,13 +40,25 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
             </div>
 
+            
+
+            @if(isset(Auth::user()->id) || $blog->is_public !== 0)
 
                 <p><?php echo $blog->contents; ?></p>
                 @if($blog->image2)
                 <br>
                 <div class="blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
                 @endif
-          
+            @else
+                <p>
+                    {!!html_entity_decode($blog->longPreview(1000))!!}
+                </p>
+                <br><br>
+                <p style="text-align: center;">
+                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">{{ __('auth.login') }}</a> or <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to view the full blog.
+                </p>
+
+            @endif
             <hr>
             <p>
                 <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}" style="float: left;"><i class="fas fa-share-alt"></i> Share</button>
@@ -63,7 +75,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     |
                     
                     @guest
-                     <a href="/login" title="Login to Like">Login to Like</a>
                     @else
                         @if(Auth::user()->hasLiked('blog',$blog->id))
 
