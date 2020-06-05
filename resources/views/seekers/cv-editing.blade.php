@@ -185,8 +185,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 	    	<li>Helps employers sum up your skills and achievements with ease as well as allows you to understand your achievements and shortcomings.</li>
 	    	<li>This creates a good mindset and reduces legwork in your job search.</li>
 	    </ul>
-  <br>	     
-   <a href="/refer" class="btn btn-orange">Refer a Friend</a>    
+  <br>
+		<div style="width: 100%">
+			<a href="/refer">
+			<img src="/images/promotions/cv-editing_refer_banner.jpeg" alt="Earn up to Ksh.500 by referring a friend"> 
+			</a>    
+		</div>	<br>     
+        <a href="/refer" class="btn btn-orange">Refer a Friend</a>    
    </div>
 	<br id="request-cv-edit-form">
 	<br>
