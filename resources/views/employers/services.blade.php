@@ -8,62 +8,83 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 <div class="container pb-5">
-    <div class="card about">
-        <div class="card-body text-center">
+    <div class="about">
+        <div class="text-center">
             <h1 class="orange">Employer Services</h1>
-            <p>
-                Use our Talent database and powerful Search-Sort-Assess-Score engine to cut down your recruitment workload by Up to 70% and your costs By Up to 65%. Get End-to-End powerful Recruitment tools; Process Quality Checks; 90 Day
-                candidate Guarantee. <br>
-                Create an account and shortlist 1 position for free.
-                <br>
-                <a href="/employers/register" class="btn btn-orange">Create Company Profile</a>
-                <a href="/employers/publish" class="btn btn-orange-alt">Advertise on Emploi</a>
-            </p>
+        </div>
+            <ul>
+                <li>Use our Talent database and powerful Search-Sort-Assess-Score engine to cut down your recruitment workload by Up to 70% and your costs By Up to 65%.</li>
+                <li>Get End-to-End powerful Recruitment tools.</li>
+                <li>Process Quality Checks.</li><br>
+             </ul>
+            <div class="text-center"><br>
+                <p>Create an account and shortlist 1 position for free.</p>
+                <p>
+                    <a href="/employers/register" class="btn btn-orange">Create Company Profile</a>
+                    <a href="/employers/publish" class="btn btn-orange-alt">Advertise on Emploi</a>
+                    <a href="/employers/rate-card" class="btn btn-orange">View Our Packages</a>
+                </p>
+            </div>
             
             <div class="row pt-5">
                 <div class="col-md-6">
-                    <h4>
-                        <a class="orange" href="/employers/publish">
-                            Job Advertisement
-                        </a>
-                    </h4>
-                    <p>
-                        Get your advertisement viewed by tens of thousands through our Facebook, Website and LinkedIn
-                    </p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>
+                                <a class="orange" href="/employers/publish">
+                                    Job Advertisement
+                                </a>
+                            </h4>
+                            <p>
+                                Get your advertisement viewed by tens of thousands through our Facebook, Website and LinkedIn
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <h4>
-                        <a class="orange" href="/employers/rate-card#database-search">
-                            Database Search
-                        </a>
-                    </h4>
-                    <p>
-                        Employers on our platform can search tens of thousands of qualified CVs for quick shortlisting
-                    </p>
+                     <div class="card">
+                        <div class="card-body">
+                            <h4>
+                                <a class="orange" href="/employers/rate-card#database-search">
+                                    Database Search
+                                </a>
+                            </h4>
+                            <p>
+                                Employers on our platform can search tens of thousands of qualified CVs for quick shortlisting
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <h4>
-                        <a class="orange" href="#premium-services">
-                            Premium Services
-                        </a>
-                    </h4>
-                    <p>
-                        We assist employers in recruiting the best candidates to fill vacancies through our assited recruitment
-                    </p>
+                     <div class="card">
+                        <div class="card-body">
+                            <h4>
+                                <a class="orange" href="#premium-services">
+                                    Premium Services
+                                </a>
+                            </h4>
+                            <p>
+                                We assist employers in recruiting the best candidates to fill vacancies through our assited recruitment
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <h4>
-                        <a class="orange" href="/mass-recruitment">
-                            Mass Recruitment
-                        </a>
-                    </h4>
-                    <p>
-                        Our team is highly optimized to process mass recruitment requests with a turn-around-time of less than 1 week.
-                    </p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>
+                                <a class="orange" href="/mass-recruitment">
+                                    Mass Recruitment
+                                </a>
+                            </h4>
+                            <p>
+                                Our team is highly optimized to process mass recruitment requests with a turn-around-time of less than 1 week.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+    
     @include('components.ads.responsive')
     <h3 class="orange text-center" id="premium-services">Premium Services</h3>
     

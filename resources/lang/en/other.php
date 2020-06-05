@@ -22,7 +22,7 @@ return [
     'find_right_job' => 'Find the Right Job for you.',
     'looking_' => 'Looking for a job? Looking to hire? The first thing you need to do is create a profile.',
     'more_than' => 'More than ',
-    'proffesionals_path' => 'professional got their path to success.',
+    'proffesionals_path' => 'professionals got their path to success.',
     'blogs' => 'Blogs',
     'menu' => 'Menu',
     'find_us' => 'Find Us',

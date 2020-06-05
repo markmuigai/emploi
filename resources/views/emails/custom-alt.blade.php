@@ -820,7 +820,7 @@ Author URL: http://w3layouts.com
                                             <tr>
                                                 <td class="w3l-scale-center" style=" font-size: 13.5px; color: #1c1c1c; line-height: 24px;">
                                                     The first thing you need to do is create a profile.<br>
-                                                    More than 2165 professional got their path to success.</td>
+                                                    More than 2165 professionals got their path to success.</td>
                                             </tr>
                                             <tr>
                                                 <td height="30" style="font-size: 10px;">&nbsp;
