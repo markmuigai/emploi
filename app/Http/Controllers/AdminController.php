@@ -734,7 +734,7 @@ class AdminController extends Controller
                         $attachment1,
                         $attachment2,
                         $attachment3,
-                        'emailer-test@emploi.co',
+                        'Emploi Weeky Digest',
                         $url
                     )
                 );
@@ -752,7 +752,7 @@ class AdminController extends Controller
                         $attachment1,
                         $attachment2,
                         $attachment3,
-                        'emailer-test@emploi.co',
+                        'Emploi Weeky Digest',
                         $url
                     )
                 );
@@ -770,7 +770,7 @@ class AdminController extends Controller
                         $attachment1,
                         $attachment2,
                         $attachment3,
-                        'emailer-test@emploi.co',
+                        'Emploi Weeky Digest',
                         $url
                     )
                 );
@@ -788,7 +788,7 @@ class AdminController extends Controller
                         $attachment1,
                         $attachment2,
                         $attachment3,
-                        'emailer-test@emploi.co',
+                        'Emploi Weeky Digest',
                         $url
                     )
                 );
@@ -959,7 +959,7 @@ class AdminController extends Controller
                 }
                 break;
 
-                break;
+                break;ema
 
                 
             default:
