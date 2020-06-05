@@ -45,7 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h1><del>Kshs <br>2,500</del></h1>
             <p>SOLO</p>
             <div class="orange">20%  Discount</div>
-                    <h1>Kshs 2000</h1>
+                    <h1>Kshs 2,000</h1>
             <ul class="tick">
                 <li>1 Job Advert posted for 30 days</li>
                 <li>Shared to social media pages</li>
@@ -65,7 +65,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h1><del>Kshs <br>4,750</del></h1>
             <p>SOLO PLUS</p>
             <div class="orange">20%  Discount</div>
-                    <h1>Kshs 3800</h1>
+                    <h1>Kshs 3,800</h1>
             <ul class="tick">
                 <li>2-4 Job Adverts posted for 30 days</li>
                 <li>Shared to Social media pages</li>
@@ -85,7 +85,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h1><del>Kshs 9,025</del></h1>
             <p>INFINITY</p>
             <div class="orange">20%  Discount</div>
-                    <h1>Kshs 7220</h1>
+                    <h1>Kshs 7,220</h1>
             <ul class="tick">
                 <li>More than 4 job Adverts posted for 30 days</li>
                 <li>Shared to Social media pages</li>
@@ -105,7 +105,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h1><del>Kshs 7,000</del></h1>
             <p>STAWI</p>
             <div class="orange">20%  Discount</div>
-                    <h1>Kshs 5600</h1>
+                    <h1>Kshs 5,600</h1>
             <ul class="tick">
                 <li>All   in Solo</li>
                 <li>Search talent database</li>

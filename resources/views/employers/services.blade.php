@@ -38,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </a>
                     </h4>
                     <p>
-                        Employers on our platform can search tens of thousands of qulaified CVs for quick shortlisting
+                        Employers on our platform can search tens of thousands of qualified CVs for quick shortlisting
                     </p>
                 </div>
                 <div class="col-md-6">
