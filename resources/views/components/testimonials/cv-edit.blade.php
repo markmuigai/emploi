@@ -41,12 +41,13 @@
                 <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
+                        <img src="/images/testimonials/christine.png" data-src="{{asset('images/testimonials/christine.png')}}" alt="Christine Ndwiga" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>Wow, this is just amazing ... Total transformation! Emploi team you are talented, I'm more than grateful. I have shared your contacts with a client who requires assistance with his CV.  </p>
+                        <p>Thank you I received my well edited, short and precise CV and I must admit I loved it. Writing a CV to many and me included is a great challenge, we tend to mix experiences, skills all-together.
+                        Emploi Africa you have really nailed it from my gaps interval, my relieving work on short terms basis as this is where I gained so much of experience and responsibilities acquired.I take this opportunities to thank you once more. </p>
                         <hr class="short">
-                        <h5>Hired Job Seeker</h5>
+                        <h5>Christine Ndwiga</h5>
                         <p>Emploi CV-Editing Success Stories</p>
                     </div>
                 </div>
@@ -58,12 +59,13 @@
                 <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
+                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Linda Isuyi" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>[CHAT] Hey, just to inform you, i have been called for an interview next week on Thursday. Is there anything I should do/know before i meet the interview panel? </p>
+                        <p>I contacted Sophy back in August 2019 when I realized I needed a professional CV writer to revamp my CV since the one I previously used received very few call backs on job sites. Sophy immediately started working on it. She spent time above and beyond my expectation, going through my career history and prospective positions I envisaged, breaking down each role and key skills developed in each. Sophy does exactly what she says. She made sure I was informed every step of the way through constant communication via phone or email. She will keep you thinking. A questionnaire will be sent prior. Be very thorough!! It will be of great benefit to you. After a couple of drafts I was presented with the final copy which I was extremely happy with. Absolutely worth the money! This CV received many hits from prospective employers and I finally secured a PhD position in Germany. I highly recommend Sophy to anyone not making progress in their job search in the current market. She is to the point and I found my conversations with her highly motivating. I hope to work with her again in the future.
+                        </p>
                         <hr class="short">
-                        <h5>Hired Job Seeker</h5>
+                        <h5>Linda Isuyi</h5>
                         <p>Emploi CV-Editing Success Stories</p>
                     </div>
                 </div>
