@@ -67,9 +67,16 @@
                 </li>
                 @else
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="/vacancies">{{ __('jobs.vacancies') }}</a>
-                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/vacancies" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  {{ __('jobs.vacancies') }}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="/vacancies">All Countries</a><br>
+                        @forelse(\App\Country::active() as $c)
+                        <a href="/vacancies/{{ $c->name }}">Jobs in {{ $c->name }}</a><br>
+                        @empty
+                        @endforelse
+                    </div>
+                </li>                   
                 <li class="nav-item">
                     @guest
                     <a class="nav-link" href="/companies?hiring=true">{{ __('jobs.whos_hiring') }}</a>
