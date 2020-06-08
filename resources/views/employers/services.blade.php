@@ -9,6 +9,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 <div class="container pb-5">
     <div class="about">
+         <div class="card">
+                        <div class="card-body">
         <div class="text-center">
             <h1 class="orange">Employer Services</h1>
         </div>
@@ -25,6 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <a href="/employers/rate-card" class="btn btn-orange">View Our Packages</a>
                 </p>
             </div>
+        </div></div>
             
             <div class="row pt-5">
                 <div class="col-md-6">

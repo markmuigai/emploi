@@ -87,9 +87,16 @@ class cvreferralcontroller extends Controller
         ]);
 
 
-        $contents = "You have been invited to request CV Editing services we offer on Emploi at a 50% discount,so you too can have access to our professional services to equip you with a good CV so that you stand out from the rest.<br>Click <a href='".url('/job-seekers/cv-editing')."'>here</a> to request.<br>
-         <br><br>
-
+        $contents = "You have been invited to request CV Editing services we offer on Emploi at a 50% discount,so you too can have access to our professional services to equip you with a good CV so that you stand out from the rest.<br>Click <a href='".url('/job-seekers/cv-editing')."'>here</a> to request or Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a><br>
+         <br>
+          <b>Benefits of CV-Editing</b>
+        <ul>
+            <li>Streamline your job search process thus Increases chances of landing to your dream job.</li>
+            <li>Boost your chance of getting a face-to-face interview.</li>
+            <li>Helps employers sum up your skills and achievements with ease as well as allows you to understand your achievements and shortcomings.</li>
+            <li>This creates a good mindset and reduces legwork in your job search.</li>
+        </ul>
+         
         Thank you for your time. Looking forward to serving you.";
         EmailJob::dispatch($request->name, $request->email, $title, $caption, $contents);
 
