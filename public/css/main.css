@@ -429,7 +429,7 @@ main {
 .landing {
     height: calc(100vh);
     background: var(--primary);
-    background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg.jpeg);
+    background: linear-gradient(to right, #515151, rgba(81, 81, 81, .3)), url(../images/bg1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
