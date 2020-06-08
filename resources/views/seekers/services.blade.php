@@ -8,47 +8,80 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @section('content')
 <div class="container">
-    <div class="col-md-12">
-        <div class="row">
+    <div class="card about">
+        <div class="card-body text-center">
+            <h1 class="orange">Job Seeker Services</h1>
+        </div>
+               <ul>
+                    <li>We provide you with seamless job placement through superior candidate selection tools that allow employers to hire very fast, aggregated market vacancies through our Jobs board,</li>
+                    <li> Free and downloadable resume templates,</li>
+                    <li> Curated expert career advice,</li>
+                    <li> Professional coaching and CV services.</li>
+                </ul>
+                <div class="text-center"><br>
+                @guest
+                <a href="/register" class="btn btn-orange">Upload Your CV</a>                
+                @else
+                    @if(Auth::user()->role == 'seeker')
+                        <a href="/job-seekers/cv-templates" class="btn btn-orange-alt">CV Templates</a>
+                    @else
+                        <a href="/job-seekers/" class="btn btn-orange-alt">Create Account</a>
+                    @endif
+                @endguest                
+                <a href="/job-seekers/cv-editing" class="btn btn-orange">Professional CV Editing</a>
+                <a href="/job-seekers/cv-builder" class="btn btn-orange-alt">CV Builder</a><br>
+            </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-body text-center">            
-                        <h1>Kshs <br>49</h1>
+                    <div class="card-body text-center">    
                         <p class="orange">APPLICATION UPDATES</p>
                         <ul class="tick">
                             <li>Get real-time notifications when;</li>
-                            <ul class="dot">
+                        </ul>
+                            <ul class="text-left">
                                 <li>you're shortlisted,</li>
                                 <li>your profile is viewed,</li>
-                                <li>your CV is requested and free tips to help you stand.</li>
-                            </ul>
-                        </ul>
+                                <li>your CV is Requested.</li>
+                             </ul>                   
+                           <br><br><br><br>                              
+                        <h1>Kshs <br>49</h1>
+                        @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
                         <form method="POST" action="/checkout">
                             @csrf
                             <input type="hidden" name="product" value="seeker_basic">
-                            <br><br><br><p>
+                            <br><p>
                             <input type="submit" name="" value="Request" class="btn btn-orange-alt">
                             </p>
                         </form>
+                        @else
+                        <h5><a href="/login">Login</a> Or <a href="/join">Register</a> To Request</h5>
+                        @endif                 
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+       <div class="col-md-6">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h1>Kshs <br>159</h1>
                             <p class="orange">FEATURED JOB SEEKER</p>
                         <ul class="tick">
                             <li>Get real-time notifications when;</li>
-                            <ul class="dot">
-                            <li>you're shortlisted,</li>
-                            <li>your profile is viewed,</li>
-                            <li>your CV is Requested.</li>
-                        </ul>             
+                        </ul>
+                            <ul class="text-left">
+                                <li>you're shortlisted,</li>
+                                <li>your profile is viewed,</li>
+                                <li>your CV is Requested.</li>
+                             </ul> 
+                        <ul class="tick">            
                              <li>Have your profile rank first in applications and searches.</li>
+                             <li>Analytics</li>
                         </ul>
-
-                        </ul>
+                         <h1>Kshs <br>159</h1>
+                        @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
                         <form method="POST" action="/checkout">
                             @csrf
                             <input type="hidden" name="product" value="featured_seeker">
@@ -56,38 +89,14 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             <input type="submit" name="" value="Request" class="btn btn-orange-alt">
                             </p>
                         </form>
-                    </div>
+                        @else
+                        <h5><a href="/login">Login</a> Or <a href="/join">Register</a> To Request</h5>
+                        @endif                  
                 </div>
             </div>
         </div>
     </div>
-
-     
-    <div class="card about">
-        <div class="card-body text-center">
-            <h1 class="orange">Job Seeker Services</h1>
-            <p class="text-center">
-                We provide you with seamless job placement through superior candidate selection tools that allow employers to hire very fast, Aggregated market vacancies through our Jobs board, Free and downloadable resume templates, Curated
-                expert career advice, Professional coaching and CV services.
-                <br>
-                @guest
-                <a href="/register" class="btn btn-orange">Upload Your CV</a>
-                
-                @else
-                    @if(Auth::user()->role == 'seeker')
-                        <a href="/job-seekers/cv-templates" class="btn btn-orange-alt">CV Templates</a>
-                    @else
-                        <a href="/job-seekers/" class="btn btn-orange-alt">Create Account</a>
-
-                    @endif
-
-                @endguest
-                
-                <a href="/job-seekers/cv-editing" class="btn btn-orange">Professional CV Editing</a>
-                <a href="/job-seekers/cv-builder" class="btn btn-orange-alt">CV Builder</a>
-            </p>
-        </div>
-    </div>
+</div>   
 
     <div class="row justify-content-center">
         <div class="col-lg-6">

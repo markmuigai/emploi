@@ -11,7 +11,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}">
      <div class="col-lg-2 col-md-6 py-2">
         <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" data-toggle="dropdown">Countries</a>
+             <button class="btn btn-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Countries
+            </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a href="/vacancies">All Countries</a><br>
                 @forelse(\App\Country::active() as $c)

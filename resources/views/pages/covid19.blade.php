@@ -31,7 +31,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
   <section class="w3l-about5">
     <div class="py-5">
       <div class="container py-lg-3">
-        <iframe src="https://ourworldindata.org/grapher/covid-confirmed-cases-since-100th-case?time=2020-01-22..2020-04-16&country=DZA+BFA+EGY+COD+GHA+KEN+MDG+NGA+ZAF+TUN+RWA+MLI+MUS" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+        <iframe src="https://ourworldindata.org/grapher/covid-confirmed-cases-since-100th-case?time=2020-01-22..2020-04-16&country=DZA+BFA+EGY+COD+GHA+KEN+MDG+NGA+ZAF+TUN+RWA+MLI+MUS" style="width: 100%; height: 400px; border: 0px none;"></iframe>
       </div>
     </div>
   </section>
