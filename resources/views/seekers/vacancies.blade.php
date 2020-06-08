@@ -9,7 +9,19 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('content')
 @section('page_title', $title)
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}">
-    <div class="col-lg-3 col-md-6 py-2">
+     <div class="col-lg-2 col-md-6 py-2">
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" data-toggle="dropdown">Countries</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="/vacancies">All Countries</a><br>
+                @forelse(\App\Country::active() as $c)
+                <a href="/vacancies/{{ $c->name }}">Jobs in {{ $c->name }}</a><br>
+                @empty
+                @endforelse
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-6 py-2">
         <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50">
     </div>
     <div class="col-lg-3 col-md-6 py-2">
@@ -23,7 +35,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               @endforelse
         </select>
     </div>
-    <div class="col-lg-3 col-md-6 py-2">
+    <div class="col-lg-2 col-md-6 py-2">
         <select class="selectpicker" data-live-search="true" name="industry">
             <option value="">All Industries</option>
             @forelse($industries as $ind)
@@ -72,10 +84,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <div class="col-8">
                         <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->getTitle() }}</a> 
                             @if($post->featured == 'true')
-                                @if(now()->diffInDays($post->created_at) > 10)
-                                    <span class="badge badge-success">FEATURED</span>
+                                @if(now()->diffInDays($post->created_at) > 7)
+                                    <span class="badge badge-orange">FEATURED</span>
                                 @else
-                                    <span class="badge badge-primary">NEW</span>
+                                    <span class="badge badge-orange">NEW</span>
                                 @endif
                             @endif
                         </h4>
