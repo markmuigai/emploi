@@ -59,7 +59,7 @@
                 <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Linda Isuyi" class="w-100 lazy">
+                        <img src="/images/testimonials/linda.png" data-src="{{asset('/images/testimonials/linda.png')}}" alt="Linda Isuyi" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
                         <p>I contacted Sophy back in August 2019 when I realized I needed a professional CV writer to revamp my CV since the one I previously used received very few call backs on job sites. Sophy immediately started working on it. She spent time above and beyond my expectation, going through my career history and prospective positions I envisaged, breaking down each role and key skills developed in each. Sophy does exactly what she says. She made sure I was informed every step of the way through constant communication via phone or email. She will keep you thinking. A questionnaire will be sent prior. Be very thorough!! It will be of great benefit to you. After a couple of drafts I was presented with the final copy which I was extremely happy with. Absolutely worth the money! This CV received many hits from prospective employers and I finally secured a PhD position in Germany. I highly recommend Sophy to anyone not making progress in their job search in the current market. She is to the point and I found my conversations with her highly motivating. I hope to work with her again in the future.
