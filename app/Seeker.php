@@ -753,14 +753,14 @@ class Seeker extends Model
     
                if(count($featuredVacancies) > 0){
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";               
-                $content ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
+                $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
                 
-                $content .= '<div style= "text-align:left">';                  
+                $contents .= '<div style= "text-align:left">';                  
                                   foreach ($vacancies as $v) {
-                $content .= "<b>".$v->company->name."</b> <a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";                  
+                $contents .= "<b>".$v->company->name."</b> <a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";                  
                    }
 
-                $contents  = "<br><h4>FEATURED VACANCIES</h4>";
+                $contents  .= "<br><h4>FEATURED VACANCIES</h4>";
                             foreach ($featuredVacancies as $f) {
                  $contents .= "<b>".$f->company->name."</b> <a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a><br>";                       
                   }   
@@ -775,13 +775,13 @@ class Seeker extends Model
                                   <li>This creates a good mindset and reduces legwork in your job search.</li> 
                               </ul>";
 
-                $conclusion  = "<br><h4>BLOGS FROM OUR CAREER CENTRE</h4>";
+                $contents  .= "<br><h4>BLOGS FROM OUR CAREER CENTRE</h4>";
                             foreach ($blogs as $b) {                
-                $conclusion .= "<a href='".url('/blog/'.$b->slug)."'>$b->slug.</a><br>";
+                $contents .= "<a href='".url('/blog/'.$b->slug)."'>$b->slug.</a><br>";
                 }    
-                $conclusion .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";                                                                    
+                $contents .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";                                                                    
                      
-                EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $content, $contents,$conclusion);
+                EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;
                          
             }
