@@ -74,7 +74,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="card mb-4">
     <div class="card-body">
         <div class="col-12 col-lg-8">
-            <h4>Featured Vacancies</h4>
+            <h4>Top Trending Vacancies</h4>
             <ul>
                 @foreach($posts as $post)
                 @if($post->featured == 'true') 

@@ -734,7 +734,7 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
-            
+
         $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
@@ -762,7 +762,7 @@ class Seeker extends Model
                    }
                }
 
-                $contents .= "<br><h4>FEATURED VACANCIES</h4>";
+                $contents  = "<br><h4>FEATURED VACANCIES</h4>";
                             foreach ($featuredVacancies as $f) {
                  $contents .= "<b>".$f->company->name."</b> <a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a><br>";                       
                   }   
