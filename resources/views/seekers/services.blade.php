@@ -78,7 +78,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                              </ul> 
                         <ul class="tick">            
                              <li>Have your profile rank first in applications and searches.</li>
-                             <li>Analytics</li>
+                             <li>Analytics.</li>
                         </ul>
                          <h1>Kshs <br>159</h1>
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )

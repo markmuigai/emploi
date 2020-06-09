@@ -70,6 +70,21 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <hr>
     </div>
 </form>
+<!-- FEATURED VACANCIES -->
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="col-12 col-lg-8">
+            <h4>Featured Vacancies</h4>
+            <ul>
+                @foreach($posts as $post)
+                @if($post->featured == 'true') 
+                <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{ $post->slug }}</a><br></li>                               
+                @endif
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</div>
 <!-- JOB CARD -->
 <?php $adsCounter = 0; ?>
 @forelse($posts as $post)
@@ -86,7 +101,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <div class="col-8">
                         <h4><a href="/vacancies/{{$post->slug}}/">{{ $post->getTitle() }}</a> 
                             @if($post->featured == 'true')
-                                @if(now()->diffInDays($post->created_at) > 7)
+                                @if(now()->diffInDays($post->created_at) > 2)
                                     <span class="badge badge-orange">FEATURED</span>
                                 @else
                                     <span class="badge badge-orange">NEW</span>
