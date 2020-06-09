@@ -107,12 +107,13 @@
 
                             
                         </div>
-                        <div style="width: 100%">
-                            @include('components.ads.responsive')
-                        </div>
+                        
                         <div style="text-align: center; font-weight: bold">
                             
                             <a class="orange" id="apply-tab-button" href="#apply-tab">View Application Instructions</a>
+                        </div>
+                        <div style="width: 100%">
+                            @include('components.ads.responsive')
                         </div>
                     </div>
                 </div>

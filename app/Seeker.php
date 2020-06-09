@@ -732,10 +732,8 @@ class Seeker extends Model
 
     public function sendVacancyEmail($channel)     
 
-    {
-        if(User::subscriptionStatus($this->user->email))
-       
-        $featuredVacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+    {       
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(2))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
@@ -745,23 +743,22 @@ class Seeker extends Model
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
-                    ->get();
+                    ->get();        
 
          $blogs = Blog::All()
                        ->random(3);
+         $featuredVacancies = $featured; 
            
         {
     
                if(count($featuredVacancies) > 0){
-                $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
-                if(count($vacancies) > 0){
-                $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
+                $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";               
+                $content ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
                 
-                $contents .= '<div style= "text-align:left">';                  
+                $content .= '<div style= "text-align:left">';                  
                                   foreach ($vacancies as $v) {
-                $contents .= "<b>".$v->company->name."</b> <a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";                   
+                $content .= "<b>".$v->company->name."</b> <a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";                  
                    }
-               }
 
                 $contents  = "<br><h4>FEATURED VACANCIES</h4>";
                             foreach ($featuredVacancies as $f) {
@@ -778,13 +775,13 @@ class Seeker extends Model
                                   <li>This creates a good mindset and reduces legwork in your job search.</li> 
                               </ul>";
 
-                $contents .= "<br><h4>BLOGS FROM OUR CAREER CENTRE</h4>";
+                $conclusion  = "<br><h4>BLOGS FROM OUR CAREER CENTRE</h4>";
                             foreach ($blogs as $b) {                
-                $contents .= "<a href='".url('/blog/'.$b->slug)."'>$b->slug.</a><br>";
+                $conclusion .= "<a href='".url('/blog/'.$b->slug)."'>$b->slug.</a><br>";
                 }    
-                $contents .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";                                                                    
+                $conclusion .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";                                                                    
                      
-                EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
+                EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $content, $contents,$conclusion);
                 return true;
                          
             }
