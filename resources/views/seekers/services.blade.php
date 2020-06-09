@@ -59,7 +59,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             </p>
                         </form>
                         @else
-                        <h5><a href="/login">Login</a> Or <a href="/join">Register</a> To Request</h5>
+                        <h5><a href="/login">Login</a> Or <a href="/register">Register</a> To Request</h5>
                         @endif                 
                     </div>
                 </div>
@@ -90,7 +90,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             </p>
                         </form>
                         @else
-                        <h5><a href="/login">Login</a> Or <a href="/join">Register</a> To Request</h5>
+                        <h5><a href="/login">Login</a> Or <a href="/register">Register</a> To Request</h5>
                         @endif                  
                 </div>
             </div>
