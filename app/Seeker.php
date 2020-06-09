@@ -734,6 +734,12 @@ class Seeker extends Model
 
     {
         if(User::subscriptionStatus($this->user->email))
+       
+        $featuredVacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+                        ->where('status','active')
+                        ->where('featured','true')
+                        ->orderBy('id','DESC')
+                        ->get();
 
         $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
                     ->where('industry_id',$this->user->seeker->industry_id)
@@ -741,11 +747,6 @@ class Seeker extends Model
                     ->orderBy('created_at','DESC')
                     ->get();
 
-        $featuredVacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
-                        ->where('status','active')
-                        ->where('featured','true')
-                        ->orderBy('id','DESC')
-                        ->get();
          $blogs = Blog::All()
                        ->random(3);
            
