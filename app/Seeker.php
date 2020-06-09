@@ -750,7 +750,7 @@ class Seeker extends Model
            
         {
     
-               if(count($vacancies) > 0 || (count($featuredVacancies) > 0)){
+               if(count($featuredVacancies) > 0){
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
                 $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
                 
