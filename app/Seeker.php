@@ -16,6 +16,7 @@ use App\Post;
 use App\ProductOrder;
 use App\SeekerSkill;
 use App\User;
+use App\Blog;
 
 use Watson\Rememberable\Rememberable;
 use App\Jobs\EmailJob;
@@ -744,27 +745,40 @@ class Seeker extends Model
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
+         $blogs = Blog::All()
+                       ->random(3);
            
         {
     
                if(count($vacancies) > 0 || (count($featuredVacancies) > 0)){
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
                 $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
-                                  
+                
+                $contents .= '<div style= "text-align:left">';                  
                                   foreach ($vacancies as $v) {
-                $contents .= "<br><a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a>";
-                $contents .= "<h4>".$v->company->name."</h4>";
+                $contents .= "<b>".$v->company->name."</b> <a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";                   
                    }
 
-                $contents .= "<h4>FEATURED VACANCIES</h4>";
+                $contents .= "<br><h4>FEATURED VACANCIES</h4>";
                             foreach ($featuredVacancies as $f) {
-                $contents .= "<a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a>";
-                $contents .= "<h4>".$f->company->name."</h4>";                    
-                }   
-
+                 $contents .= "<b>".$f->company->name."</b> <a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a><br>";                       
+                  }   
+                $contents .= '</div>';
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
-                $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br><br>";
-                $contents .= "<a href='".url('/blog')."'>Read Our Blogs</a><br>";                                                                     
+                $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br><br>
+                              <h5>Benefits Of CV Editing</h5>
+                              <ul>
+                                  <li>Streamline your job search process thus Increases chances of landing to your dream job.</li>
+                                  <li>Boost your chance of getting a face-to-face interview.</li>
+                                  <li>Helps employers sum up your skills and achievements with ease as well as allows you to understand your achievements and shortcomings.</li>
+                                  <li>This creates a good mindset and reduces legwork in your job search.</li> 
+                              </ul>";
+
+                $contents .= "<br><h4>BLOGS FROM OUR CAREER CENTRE</h4>";
+                            foreach ($blogs as $b) {                
+                $contents .= "<a href='".url('/blog/'.$b->slug)."'>$b->slug.</a><br>";
+                }    
+                $contents .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";                                                                    
                      
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;
