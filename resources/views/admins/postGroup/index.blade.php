@@ -48,7 +48,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             @endforelse
         </div>
-        
+        {{ $postGroups->links() }}
     </div>
 </div>
 
