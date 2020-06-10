@@ -78,7 +78,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <ul>
                 @foreach($posts as $post)
                 @if($post->featured == 'true') 
-                <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{ $post->slug }}</a><br></li>                               
+                <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                               
                 @endif
                 @endforeach
             </ul>
