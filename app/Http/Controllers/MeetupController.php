@@ -23,7 +23,7 @@ class MeetupController extends Controller
     {
         //request name search
         $meetups = Meetup::where('ended_at','!=',NULL)->where('cancelled_at','!=',NULL)->paginate(20);
-        $meetups = Meetup::paginate(2);
+        $meetups = Meetup::orderBy('id','DESC')->paginate(4);
         return view('meetups.index')
                 ->with('meetups',$meetups);
     }
