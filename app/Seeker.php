@@ -733,13 +733,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -760,9 +760,12 @@ class Seeker extends Model
                 $contents .= "<b>".$v->company->name."</b> <a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";                  
                    }
 
-                $contents  .= "<br><h4>FEATURED VACANCIES</h4>";
+                $contents .= '<span style= "color:orange">'; 
+                $contents  .= "<br>FEATURED VACANCIES<br>";
+                $contents .= '</span>';
+
                             foreach ($featuredVacancies as $f) {
-                 $contents .= "<b>".$f->company->name."</b> <a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a><br>";                       
+                $contents .= "<b>".$f->company->name."</b> <a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a><br>";                       
                   }   
                 $contents .= '</div>';
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
