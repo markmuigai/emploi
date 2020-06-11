@@ -20,7 +20,7 @@ class RevertFeaturedJobs extends Command
      *
      * @var string
      */
-    protected $description = 'Make featured jobs that have been there for more than 3 days to be be not featured';
+    protected $description = 'Make featured jobs created  more than 2 days ago to be be not featured';
 
     /**
      * Create a new command instance.
@@ -40,7 +40,7 @@ class RevertFeaturedJobs extends Command
     public function handle()
     {
         $posts = Post::where('featured','true')
-                ->where('created_at', '<=', Carbon::now()->subDays(3)->toDateTimeString())
+                ->where('created_at', '<=', Carbon::now()->subDays(2)->toDateTimeString())
                 ->where('slug', '!=', 'full-stack-developer')
                 ->where('slug', '!=', 'full-stack-developer-intern')
                 ->where('slug', '!=', 'seo-specialist')
