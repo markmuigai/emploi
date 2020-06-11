@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\DisableProducts',
         'App\Console\Commands\EnableProducts',
         'App\Console\Commands\SendVacancyEmails',
-        'App\Console\Commands\RevertFeaturedJobs'
+        'App\Console\Commands\DeactivateExpiredJobs'
 
     ];
 
@@ -49,6 +49,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('command:SendInvoiceReminder')->weeklyOn(1, '7:20');
         $schedule->command('command:SendVacancyEmails')->dailyAt('01:00')->emailOutputOnFailure('info@emploi.co');
         $schedule->command('command:RevertFeaturedJobs')->dailyAt('20:00');
+        $schedule->command('command: DeactivateExpiredJobs')->dailyAt('08:00');
+
     }
 
     /**
