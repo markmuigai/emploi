@@ -141,7 +141,7 @@ class PostsController extends Controller
             'experience_requirements' => $request->experience,
             'responsibilities' => $request->responsibilities,
             'benefits' => $request->benefits,
-            'deadline' => Carbon::now()->add(3,'weeks'),
+            'deadline' => Carbon::now()->add(4,'weeks'),
             'status' => 'inactive',
             'positions' => $request->positions,
             'location_id' => $request->location,
