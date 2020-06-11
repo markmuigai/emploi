@@ -733,13 +733,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(100))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(100))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -752,35 +752,49 @@ class Seeker extends Model
         {
     
                if(count($featuredVacancies) > 0){
-                $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";               
-                $contents ="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
-                
+                $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
+                $contents  = '<span style= "background:orange; color:white">';               
+                $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
+                $contents .= '</span>';
+
+
                 $contents .= '<div style= "text-align:left">';                  
                                   foreach ($vacancies as $v) {
-                $contents .= "<b>".$v->company->name."</b> <a href='".url('/vacancies/'.$v->slug)."'>$v->slug.</a><br>";                  
+                $contents .= "<ul>";                      
+                $contents .= "<li><a href='".url('/vacancies/'.$v->slug)."'>$v->title,</a> ".$v->company->name."</li>";
+                $contents .= "</ul>";                  
                    }
 
-                $contents .= '<span style= "color:orange">'; 
-                $contents  .= "<br>FEATURED VACANCIES<br>";
+                $contents .= '<span style= "background:orange; color:white">';  
+                $contents .= "<br>FEATURED VACANCIES<br>";
                 $contents .= '</span>';
 
                             foreach ($featuredVacancies as $f) {
-                $contents .= "<b>".$f->company->name."</b> <a href='".url('/vacancies/'.$f->slug)."'>$f->slug.</a><br>";                       
+                $contents .= "<ul>"; 
+                $contents .= "<li> <a href='".url('/vacancies/'.$f->slug)."'>$f->title,</a> ".$f->company->name."</li>";
+                $contents .= "</ul>";                        
                   }   
                 $contents .= '</div>';
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
-                $contents .= "<a href='".url('/job-seekers/cv-editing')."'>Request CV Editing</a><br><br>
+                $contents .=  '<p style= "background:orange; color:white">Requesting for CV Editing?</p><p>Reach us via Call
+                              <a href="tel:+254702068282">+254 702 068 282</a>/<a href="tel:+254774569001">+254774569001</a> or 
+                              <a href="'.url('/job-seekers/cv-editing').'"> click here to request.
+                              </a></p><br><br>                             
                               <h5>Benefits Of CV Editing</h5>
                               <ul>
                                   <li>Streamline your job search process thus Increases chances of landing to your dream job.</li>
                                   <li>Boost your chance of getting a face-to-face interview.</li>
                                   <li>Helps employers sum up your skills and achievements with ease as well as allows you to understand your achievements and shortcomings.</li>
                                   <li>This creates a good mindset and reduces legwork in your job search.</li> 
-                              </ul>";
+                              </ul>';
 
-                $contents  .= "<br><h4>BLOGS FROM OUR CAREER CENTRE</h4>";
-                            foreach ($blogs as $b) {                
-                $contents .= "<a href='".url('/blog/'.$b->slug)."'>$b->slug.</a><br>";
+                $contents .= '<span style= "background:orange; color:white">'; 
+                $contents .= "<br>BLOGS FROM OUR CAREER CENTRE<br>";
+                $contents .= '</span>';
+                            foreach ($blogs as $b) {
+                $contents .= "<ul>";                             
+                $contents .= "<li><a href='".url('/blog/'.$b->slug)."'>$b->title.</a></li>";
+                $contents .= "</ul>";
                 }    
                 $contents .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";                                                                    
                      
