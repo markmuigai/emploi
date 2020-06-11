@@ -59,12 +59,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             </p>
                         </form>
                         @else
-                        <h5><a href="/login">Login</a> Or <a href="/register">Register</a> To Request</h5>
+                        <h5><a href="/login?redirectToUrl={{ url('/job-seekers/services') }}" class="orange" >Login</a> Or <a href="/register?redirectToUrl={{ url('/job-seekers/services') }}" class="orange">Register</a> To Request</h5>
                         @endif                 
                     </div>
                 </div>
             </div>
-       <div class="col-md-6">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body text-center">
                             <p class="orange">FEATURED JOB SEEKER</p>
@@ -90,13 +90,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             </p>
                         </form>
                         @else
-                        <h5><a href="/login">Login</a> Or <a href="/register">Register</a> To Request</h5>
-                        @endif                  
+                        <h5><a href="/login?redirectToUrl={{ url('/job-seekers/services') }}" class="orange" >Login</a> Or <a href="/register?redirectToUrl={{ url('/job-seekers/services') }}" class="orange">Register</a> To Request</h5>
+                        @endif                    
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+    </div>   
 
     <div class="row justify-content-center">
         <div class="col-lg-6">
