@@ -86,8 +86,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $newPosts = '['.$newPosts.']';
     print 'posts = '.$newPosts.';';
     ?>
-    $().ready(function(){
-        $('#save-job-post-group').click(function(){
+  $(document).ready(function() {
+        $(document).on("click", "#save-job-post-group", function() {
             var title = $('#job-post-groups-title').val();
             if (title.length < 5)
                 return notify('Job Post Group Title is too short', 'error');
