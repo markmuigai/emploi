@@ -41,6 +41,10 @@ class DeactivateExpiredJobs extends Command
     {
          $posts = Post::where('status','active')
                 ->where('deadline', '<=', Carbon::now())
+                 ->where('slug', '!=', 'full-stack-developer')
+                ->where('slug', '!=', 'full-stack-developer-intern')
+                ->where('slug', '!=', 'seo-specialist')
+                ->where('slug', '!=', 'front-end-developer-miiz')
                 ->get();
 
         
