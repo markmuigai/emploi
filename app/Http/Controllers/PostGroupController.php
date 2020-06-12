@@ -22,7 +22,7 @@ class PostGroupController extends Controller
     public function index(Request $request)
     {
         return view('admins.postGroup.index')
-                ->with('postGroups',PostGroup::orderBy('id','DESC')->paginate(10));
+                ->with('postGroups',PostGroup::Where('status','active')->orderBy('id','DESC')->paginate(10));
     }
 
     /**
