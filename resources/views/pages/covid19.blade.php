@@ -48,9 +48,9 @@ See how we are supporting companies and individuals in the fight against COVID-1
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
             <div style="border: 2px solid #500095; padding: 10px;">
-                <a href="https://emploi.co/blog/please-give-me-a-job-state-of-unemployment-in-kenya-before-covid-19" class="d-block p-lg-4 p-3">
-                <h3 class="my-3">Please Give Me a Job”: State of Unemployment in Kenya Before COVID-19</h3>
-                <p class=""></p>
+                <a href="https://emploi.co/blog/emerging-issues-in-covid-19-the-exaggerated-stigma-in-history" class="d-block p-lg-4 p-3">
+                <h3 class="my-3">Emerging issues in covid-19; the exaggerated stigma in history</h3>
+                <p class="">The writer here takes us through the emerging issues in covid-19.</p>
               </a>
           </div>
         </div>
@@ -70,7 +70,40 @@ See how we are supporting companies and individuals in the fight against COVID-1
             <div style="border: 2px solid #500095; padding: 10px;">
               <a href="/employers" class="d-block p-lg-4 p-3">
               <h3 class="my-3">Free Job Posting Plus 20% Off all Employer Services</h3>
-              <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus. <b>New employers get 30 day free trial</b></p>
+              <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus. <b>New employers get 30 day free trial.</b></p>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row bottom_grids pt-md-3">
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+            <div style="border: 2px solid #500095; padding: 10px;">
+                <a href="https://emploi.co/blog/please-give-me-a-job-state-of-unemployment-in-kenya-before-covid-19" class="d-block p-lg-4 p-3">
+                <h3 class="my-3">Please Give Me a Job”: State of Unemployment in Kenya Before COVID-19</h3>
+                <p class=""></p>
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+         <div class="s-block">
+            <div style="border: 2px solid #500095; padding: 10px;">
+              <a href="https://emploi.co/blog/staff-re-on-boarding-a-strategy-for-effective-return-to--work-in-the-midst-of-covid-19" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">Staff re-on-boarding; a strategy for effective return-to- work in the midst of covid-19</h3>
+              <p class=""> </p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-5">
+        <div class="s-block">
+            <div style="border: 2px solid #500095; padding: 10px;">
+              <a href="https://emploi.co/blog/positioning-for-an-interview-post-covid-19---the-time-of-great-tension" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">Positioning For an Interview Post-COVID-19 - The Time of Great Tension </h3>
+              <p class="">Here we give tips on how to prepare for an interview.</p>
               </a>
             </div>
         </div>
@@ -138,7 +171,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
           <div style="border: 2px solid #500095; padding: 10px;">
             <a href="https://emploi.co/blog/defining-unemployment-in-kenya-post-covid-19" class="d-block p-lg-4 p-3">
               <h3 class="my-3">Defining Unemployment Post Covid-19</h3>
-              <p class="">It has come to that time of our lives when you might hear that dreaded “we have to let you go" speech from your boss and you suddenly realize that you have to start searching for a new job...</p>
+              <p class=""> This is the time you might hear that dreaded “we have to let you go" speech from your boss and you suddenly have to start searching for a new job.</p>
             </a>
           </div>
         </div>
