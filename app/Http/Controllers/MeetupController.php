@@ -9,6 +9,7 @@ use App\User;
 
 use Auth;
 use Illuminate\Http\Request;
+use Storage;
 use Image;
 
 class MeetupController extends Controller
