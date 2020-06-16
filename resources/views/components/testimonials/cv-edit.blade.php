@@ -139,7 +139,7 @@
                 </div>
             </div>
         </div>
-
+    
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
                 <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
@@ -157,7 +157,25 @@
             </div>
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card-body row">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BVJ4punLoMc" class="col-md-8" frameborder="0" allowfullscreen></iframe>       
+                        <div class="col-md-4" style="text-align: center;">
+                        <h4>Resume Tips Make Yourself a Stronger Candidate Today!</h4>
+                            <p>Here is Maggie giving insight into Emploi's CV editing service. LISTEN, SIGN UP AND GET HIRED TODAY.
+                            </p>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>                    
+    </div>
 </div>
+
 <script type="text/javascript">
     $().ready(function(){
         $('.cvEditTestimonials').slick({
