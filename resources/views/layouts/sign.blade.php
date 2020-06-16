@@ -80,22 +80,13 @@
     <main class="sign-page mt-3 pb-5">
         <div class="row justify-content-center">
             @if($agent->isMobile())
-
             <div class="col-md-12">
                 @yield('content')
             </div>
                 
             @else            
-                <div class="col-md-3">
-                    @include('components.ads.vertical_responsive')
-                </div>
-
                 <div class="col-md-6">
                     @yield('content')
-                </div>
-
-                <div class="col-md-3">
-                    @include('components.ads.vertical_responsive')
                 </div>
             @endif
         </div>

@@ -69,7 +69,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
         <div class="s-block">
             <div style="border: 2px solid #500095; padding: 10px;">
               <a href="/employers" class="d-block p-lg-4 p-3">
-              <h3 class="my-3">Free Job Posting Plus 20% Off all Employer Services</h3>
+              <h3 class="my-3">Free Job Posting Plus 20% Off all Employer advertising packages</h3>
               <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus. <b>New employers get 30 day free trial.</b></p>
               </a>
             </div>
