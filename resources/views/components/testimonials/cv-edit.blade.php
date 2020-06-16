@@ -77,12 +77,12 @@
                 <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
+                         <img src="/images/testimonials/agnes.jpeg" data-src="{{asset('/images/testimonials/agnes.jpeg')}}" alt="Agnes Mutua"  class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>Wow, this is just amazing ... Total transformation. Emploi team you are talented, I'm more than grateful. I have shared your contacts with a client who requires assistance with his CV. </p>
+                        <p>Your CV editing service is top-notch. The CV is outstanding, doing a good job since I started using it at least I get responses and I'm just from an interview. I give you a 5 star in CV editing.</p>
                         <hr class="short">
-                        <h5>Hired Job Seeker</h5>
+                        <h5>Agnes Mutua</h5>
                         <p>Emploi CV-Editing Success Stories</p>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                         <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>I had an interview and, after submitting my security clearence, I flew out on 25th July to Dubai for medicals then started working on 27th july. I used the cv as it was and it worked immediately. Now I am busy making money, I cant complain </p>
+                        <p>I had an interview and, after submitting my security clearence, I flew out on 25th July to Dubai for medicals then started working on 27th july. I used the cv as it was and it worked immediately. Now I am busy making money, I can't complain </p>
                         <hr class="short">
                         <h5>Hired Job Seeker</h5>
                         <p>Emploi CV-Editing Success Stories</p>
