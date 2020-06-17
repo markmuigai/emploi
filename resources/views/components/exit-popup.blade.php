@@ -166,7 +166,7 @@
 	                </div>
 	                <div style="text-align: center;">
 	                	<br>
-	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank" >Get Professional CV Editing at <span class="blink_text">50% Off Discount</span></a>
+	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank" >Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
 	                </div>
 				</div>
 			</div>
@@ -182,7 +182,7 @@
 				<div class="modal-header" style="background-color: #fff; color: #000">
 					
 					<h4 class="modal-title" style="text-align: center">
-						Get a <span class="blink_text">20% Off Discount</span> on advertising
+						Get a <span class="blink_text">20% Discount</span> on advertising
 					</h4>
 			
 				</div>
@@ -250,7 +250,7 @@
 	                </div>
 	                <div style="text-align: center;">
 	                	<br>
-	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Off Discount</span></a>
+	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
 	                </div>
 				</div>
 			</div>
