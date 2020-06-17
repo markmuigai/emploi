@@ -73,13 +73,13 @@
                 </li>                
                 <li class="nav-item">
                     @guest
-                    <a class="nav-link" href="/companies?hiring=true">{{ __('jobs.whos_hiring') }}</a>
+                    <a class="nav-link" href="/companies">{{ __('jobs.whos_hiring') }}</a>
                     @else
 
                     @if(Auth::user()->role == 'employer')
                     <a class="nav-link" href="/employers/browse">{{ __('other.candidates') }}</a>
                     @else
-                    <a class="nav-link" href="/companies?hiring=true">{{ __('jobs.whos_hiring') }}</a>
+                    <a class="nav-link" href="/companies">{{ __('jobs.whos_hiring') }}</a>
                     @endif
 
                     @endguest
