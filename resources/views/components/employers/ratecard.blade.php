@@ -55,7 +55,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @csrf
                 <input type="hidden" name="product" value="solo">
                 <br><br><p>
-                    <input type="submit" name="" value="Get Package" class="btn btn-orange-alt">
+                    <input type="submit" name="" value="Request Now" class="btn btn-orange-alt">
                 </p>
             </form>
         </div>
@@ -75,7 +75,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @csrf
                 <input type="hidden" name="product" value="solo_plus">
                <br><br><p>
-                    <input type="submit" name="" value="Get Package" class="btn btn-orange-alt">
+                    <input type="submit" name="" value="Request Now" class="btn btn-orange-alt">
                 </p>
             </form>
         </div>
@@ -95,7 +95,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @csrf
                 <input type="hidden" name="product" value="infinity">
                 <br><p>
-                    <input type="submit" name="" value="Get Package" class="btn btn-orange-alt">
+                    <input type="submit" name="" value="Request Now" class="btn btn-orange-alt">
                 </p>
             </form>
         </div>
@@ -117,7 +117,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @csrf
                 <input type="hidden" name="product" value="stawi">
                 <p>
-                    <input type="submit" name="" value="Get Package" class="btn btn-orange-alt">
+                    <input type="submit" name="" value="Request Now" class="btn btn-orange-alt">
                 </p>
             </form>
         </div>
@@ -137,7 +137,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @csrf
                 <input type="hidden" name="product" value="featured_company">
                 <p>
-                    <input type="submit" name="" value="Get Package" class="btn btn-orange-alt">
+                    <input type="submit" name="" value="Request Now" class="btn btn-orange-alt">
                 </p>
             </form>
         </div>

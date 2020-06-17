@@ -76,7 +76,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				<h1><del>Kshs {{ $price }}</del></h1>
 				   <p>Entry Level</p>
 				    <br><br>
-				    <div class="orange">Now</div>
+				    <div class="orange">50% off</div>
 				    <h1>Kshs 1000</h1>
 				    <form method="POST" action="/checkout" >
 					@csrf
@@ -98,7 +98,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				<h1><del>Kshs {{ $price }}</del></h1>
 					<p>Mid Level</p>
 					<br><br>
-					<div class="orange">Now</div>
+					<div class="orange">50% off</div>
 				    <h1>Kshs 2000</h1>
 					<form method="POST" action="/checkout">
 					@csrf
@@ -119,7 +119,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				?>
 				<h1><del>Kshs {{ $price }}</del></h1>
 					<p>Career Change / Promotion Seeking CV</p>
-					<div class="orange">Now</div>
+					<div class="orange">50% off</div>
 				    <h1>Kshs 3000</h1>
 					<form method="POST" action="/checkout">
 					@csrf
@@ -141,7 +141,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				<h1><del>Kshs {{ $price }}</del></h1>
 				<p>Management Level</p>
 				<br>
-				<div class="orange">Now</div>
+				<div class="orange">50% off</div>
 			    <h1>Kshs 3000</h1>
 				<form method="POST" action="/checkout">
 				@csrf
@@ -162,7 +162,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				?>
 				<h1><del>Kshs {{ $price }}</del></h1>
 					<p>Senior Management Level</p>
-					<div class="orange">Now</div>
+					<div class="orange">50% off</div>
 				    <h1>Kshs 5000</h1>
 					<form method="POST" action="/checkout">
 					@csrf

@@ -91,7 +91,7 @@
 	                        <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
 	                        <div class="card-body">
 	                            <h5 class="card-title">Basic Package</h5>
-	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter </p>
+	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</p>
 	                        </div>
 	                        <div class="card-footer">
 	                            <a href="/checkout?product=seeker_basic" class="btn btn-orange">Get - Ksh 49 p.m.</a>
@@ -196,7 +196,7 @@
 	                            <p class="card-text">Your advertisement will be viewed by tens of thousands through our website and social media platforms.</p>
 	                        </div>
 	                        <div class="footer" style="text-align: center">
-	                            <a href="/employers/rate-card" class="btn btn-orange">Get Now</a>
+	                            <a href="/employers/rate-card" class="btn btn-orange">Request</a>
 	                        </div>
 	                    </div>                
 
