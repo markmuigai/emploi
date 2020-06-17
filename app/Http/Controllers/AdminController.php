@@ -1009,9 +1009,9 @@ class AdminController extends Controller
         }
          
         $country = $request->country;     
-        if(isset($request->country) ? $request->country : "");
         $focus_country = $country; 
         
+        if(isset($request->country)){
         
         $seekers_count = 0;
         $employers_count = 0;
@@ -1061,6 +1061,58 @@ class AdminController extends Controller
             'Nov',
             'Dec',
         ];
+    }
+        
+        if(!isset($request->country)){
+        $seekers_count = 0;
+        $employers_count = 0;
+
+        $contacts_count = 0;
+        $adverts_count = 0;
+        $blogs_count = 0;
+        $companies_count = 0;
+        $cv_requests_count = 0;
+        $job_applications_count = 0;
+        $model_seekers_count = 0;
+        $posts_count = 0;
+        $referees_count = 0;
+        $cv_editors = 0;
+        $cv_edit_requests = 0;
+            
+
+        $seekers_count = Seeker::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $employers_count = Employer::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $contacts_count = Contact::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $adverts_count = Advert::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $blogs_count = Blog::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $companies_count = Company::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $cv_requests_count = CvRequest::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $job_applications_count = JobApplication::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $model_seekers_count = ModelSeeker::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $posts_count = Post::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $referees_count = Referee::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $cv_editors = CvEditor::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $cv_edit_requests = CvEditRequest::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $faqs = Faq::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
+        $months = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
+        ];
+    }
 
 
         return view('admins.metrics.index')
