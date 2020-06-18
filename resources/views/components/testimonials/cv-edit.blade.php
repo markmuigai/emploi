@@ -62,7 +62,7 @@
                         <img src="/images/testimonials/linda.png" data-src="{{asset('/images/testimonials/linda.png')}}" alt="Linda Isuyi" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>I contacted Sophy back in August 2019 when I realized I needed a professional CV writer to revamp my CV since the one I previously used received very few call backs on job sites. Sophy immediately started working on it. She spent time above and beyond my expectation, going through my career history and prospective positions I envisaged, breaking down each role and key skills developed in each. Sophy does exactly what she says. She made sure I was informed every step of the way through constant communication via phone or email. She will keep you thinking. A questionnaire will be sent prior. Be very thorough!! It will be of great benefit to you. After a couple of drafts I was presented with the final copy which I was extremely happy with. Absolutely worth the money! This CV received many hits from prospective employers and I finally secured a PhD position in Germany. I highly recommend Sophy to anyone not making progress in their job search in the current market. She is to the point and I found my conversations with her highly motivating. I hope to work with her again in the future.
+                        <p>I contacted Sophy back in August 2019 when I realized I needed a professional CV writer to revamp my CV since the one I previously used received very few call backs on job sites. Sophy immediately started working on it. She spent time above and beyond my expectation, going through my career history and prospective positions I envisaged, breaking down each role and key skills developed in each. Sophy does exactly what she says. She made sure I was informed every step of the way through constant communication via phone or email. After a couple of drafts I was presented with the final copy which I was extremely happy with. Absolutely worth the money! This CV received many hits from prospective employers and I finally secured a PhD position in Germany. I highly recommend Sophy to anyone not making progress in their job search in the current market.
                         </p>
                         <hr class="short">
                         <h5>Linda Isuyi</h5>
@@ -83,74 +83,6 @@
                         <p>Your CV editing service is top-notch. The CV is outstanding, doing a good job since I started using it at least I get responses and I'm just from an interview. I give you a 5 star in CV editing.</p>
                         <hr class="short">
                         <h5>Agnes Mutua</h5>
-                        <p>Emploi CV-Editing Success Stories</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>Your cv editing services were a major contribution for getting shortlisted. Thank you.  </p>
-                        <hr class="short">
-                        <h5>Hired Job Seeker</h5>
-                        <p>Emploi CV-Editing Success Stories</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>The CV looks smart and professional, I have loved it. Please work on the cover letters too.</p>
-                        <hr class="short">
-                        <h5>Hired Job Seeker</h5>
-                        <p>Emploi CV-Editing Success Stories</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>I'm happy, I can't express my hapiness but action will speak. Thank you. </p>
-                        <hr class="short">
-                        <h5>Hired Job Seeker</h5>
-                        <p>Emploi CV-Editing Success Stories</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
-            <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-7 col-sm-5 col-md-2">
-                        <img src="/images/avatar.png" data-src="{{asset('images/avatar.png')}}" alt="Anthony Ochieng" class="w-100 lazy">
-                    </div>
-                    <div class="col-12 col-md-10">
-                        <p>I had an interview and, after submitting my security clearence, I flew out on 25th July to Dubai for medicals then started working on 27th july. I used the cv as it was and it worked immediately. Now I am busy making money, I can't complain </p>
-                        <hr class="short">
-                        <h5>Hired Job Seeker</h5>
                         <p>Emploi CV-Editing Success Stories</p>
                     </div>
                 </div>
