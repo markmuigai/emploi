@@ -40,8 +40,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
             </div>
 
-            
-
+    
             @if(isset(Auth::user()->id) || $blog->is_public !== 0)
 
                 <p><?php echo $blog->contents; ?></p>
@@ -53,7 +52,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <p>
                     {!!html_entity_decode($blog->longPreview(1000))!!}
                 </p>
-                <br><br>
+                <br>
+                <div id="show"><?php echo $blog->contents; ?></div>
+                <br>
                 <p style="text-align: center;">
                     <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">{{ __('auth.login') }}</a> or <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to view the full blog.
                 </p>
@@ -75,6 +76,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     |
                     
                     @guest
+                    <a href="/login" title="Login to Like">Login to Like</a>
                     @else
                         @if(Auth::user()->hasLiked('blog',$blog->id))
 
@@ -148,6 +150,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+    $(function() {
+    // setTimeout() function will be fired after page is loaded
+    // it will wait for 10 sec. and then will fire
+    // $("#show").hide() function
+    setTimeout(function() {
+  $('#show').fadeOut('slow');
+}, 10000);
+});
+</script>
           
 @endsection
