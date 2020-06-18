@@ -257,7 +257,38 @@
 		</div>
 	</div>
 </div>
+<div id="cvEditing" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header" style="background-color: #500095; color: white">
+					
+					<h4 class="modal-title">
+						CV EDITING OFFER!
+					</h4>
+				  <!--   <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>	 -->
+				</div>
+				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="cvEditing">
+	                <i class="fas fa-times" aria-hidden="true"></i>
+	              </button>
 
+				<div class="modal-body">
+					<div class="card-deck">
+	                    <div class="card">	                    	
+	                        <div class="card-body">	                        	
+	                            <p class="card-text">
+	                             <p>Have you updated your CV? How good is it?</p>	
+	                             <h6>At Emploi we give you a <span class="blink_text">50% Discount</span> on CV Editing Services.</h6>
+	                             <a href="{{ url('/job-seekers/cv-editing') }}" target="_blank" class="btn btn-orange">Request Now</a>
+	                        </div>
+	                    </div>                    
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script type="text/javascript">
     var exit_trials = 0;
@@ -398,7 +429,17 @@
 			    	localStorage.setItem("seekerService", new Date());
 			    }
 			}
+        if(role == 'seeker')
+      {
+		var cvEditing = localStorage.getItem("cvEditing");
+	    if(cvEditing == null)
+	    {
+	    	
+	    	$('#cvEditing').modal();
+	    	localStorage.setItem("cvEditing", new Date());
+	    }
+	 }
 
-    });
+});
     
 </script>

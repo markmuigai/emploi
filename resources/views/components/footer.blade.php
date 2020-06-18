@@ -36,7 +36,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="col-10">
-                            <a href="https://www.google.com/maps/place/Emploi/@-1.3276001,36.8930386,18z/data=!4m6!3m5!1s0x182f0d6ec6d30da5:0x72bc053be0875fba!4b1!8m2!3d-1.3283885!4d36.894192">
+                            <a href="https://www.google.com/maps/place/Emploi/@-1.3276001,36.8930386,18z/data=!4m6!3m5!1s0x182f0d6ec6d30da5:0x72bc053be0875fba!4b1!8m2!3d-1.3283885!4d36.894192" target="_blank"> 
                             <p>Even Business Park, Airport North Rd, Nairobi </p>
                             </a>
                         </div>
