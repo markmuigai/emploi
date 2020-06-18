@@ -173,7 +173,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					</form>
 			</div>
 		</div>
-	</div>
+	</div><br>
+	<h6 style="text-align: center">NOTE: "These prices may vary from 25% to 50% discount depending on the workload assessment"</h6>
 </div>
 
    <div class="col-md-8 offset-md-2">
