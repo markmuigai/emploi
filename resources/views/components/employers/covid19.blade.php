@@ -45,7 +45,7 @@
 						<b>Emploi </b> reviews Government Measures to Combat Covid-19<br>
 					</p>
 					<p>
-						We discuss different measures taken to cussion you from Covid-19 Effects from Tax reliefs to Lower interest rates and Temporary CRB Delisting.
+						We discuss different measures taken to cushion you from Covid-19 Effects from Tax reliefs to Lower interest rates and Temporary CRB Delisting.
 					</p>
 					<p>
 						<a href="https://emploi.co/blog/a-review-of-government-measures-to-combat-covid-19" class="btn btn-orange">Read More</a>
@@ -69,24 +69,6 @@
 					</p>
 				</div>
 				<img src="https://emploi.co/storage/blogs/1586929099.jpg" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-body row">
-				
-				<div class="col-md-12">
-					<h4>
-						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" style="font-weight: bold">Emploi’s Annual CV Writing Masterclass- and this time it’s online!</a>
-					</h4>
-					<p>
-						Agenda includes Addressing simple CV Mistakes, CV that transcends Borders and continents, Cover letters, productive job search during the Covid-19 pandemic, and using the EMPLOI #informationseries to solidify your economic and mental status during and even after this pandemic.
-					</p>
-					<p>
-						<a href="https://emploi.co/blog/emplois-annual-cv-writing-masterclass--and-this-time-its-online" class="btn btn-orange-alt">Read More</a>
-						<a href="https://emploi.co/events/cv-writing-webinar" class="btn btn-orange-alt" style="float: right;">View Event</a>
-						<a href="/blog" class="btn btn-orange">Emploi Career Centre</a>
-					</p>
-				</div>
 			</div>
 		</div>
 	</div>	
