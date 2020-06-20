@@ -25,6 +25,7 @@ class CvReferral extends Model
     public static function cVcreditFor($email, $points = 15)
     {
         $r = CvReferral::where('email',$email)->first();
+        if(isset($r->user_id)){
         $user = CvCredit::where('user_id',$r->user_id)->first();
 
         if($user)
@@ -43,6 +44,7 @@ class CvReferral extends Model
             $r->status = 'completed';
             return $r->save();
         }
+    }
         return false;
 
     }
