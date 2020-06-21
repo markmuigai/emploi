@@ -733,13 +733,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -780,13 +780,12 @@ class Seeker extends Model
                               <a href="tel:+254702068282">+254 702 068 282</a>/<a href="tel:+254774569001">+254774569001</a> or 
                               <a href="'.url('/job-seekers/cv-editing').'"> click here to request.
                               </a></p><br><br>                             
-                              <h5>Benefits Of CV Editing</h5>
+                             <h5>Featured Job Seeker Package</h5>
                               <ul>
-                                  <li>Streamline your job search process thus Increases chances of landing to your dream job.</li>
-                                  <li>Boost your chance of getting a face-to-face interview.</li>
-                                  <li>Helps employers sum up your skills and achievements with ease as well as allows you to understand your achievements and shortcomings.</li>
-                                  <li>This creates a good mindset and reduces legwork in your job search.</li> 
-                              </ul>';
+                                <li>Get real-time notifications when;you are shortlisted,your profile is viewed and when your CV is requested.
+                                <li>Have your profile rank first in applications and searches.</li>
+                              </ul>
+                              <a href="'.url('/job-seekers/services').'"> Get Featured Now. </a><br>';
 
                 $contents .= '<span style= "background:orange; color:white">'; 
                 $contents .= "<br>BLOGS FROM OUR CAREER CENTRE<br>";
