@@ -30,6 +30,7 @@ use App\CvReferral;
 use App\Seeker;
 use App\UnregisteredUser;
 use App\User;
+use App\ProductOrder;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1097,6 +1098,9 @@ class AdminController extends Controller
         $cv_editors = CvEditor::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $cv_edit_requests = CvEditRequest::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $faqs = Faq::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $featured_seeker = ProductOrder::where('product_id',1)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $seeker_basic = ProductOrder::where('product_id',7)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
 
         $months = [
             'Jan',
@@ -1135,6 +1139,8 @@ class AdminController extends Controller
             ->with('focus_country',$focus_country)
             ->with('focus_year',$focus_year)
             ->with('focus_month',$focus_month)
+            ->with('featured_seeker',$featured_seeker)
+            ->with('seeker_basic',$seeker_basic)
             ;
     }
 
