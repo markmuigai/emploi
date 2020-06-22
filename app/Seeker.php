@@ -83,6 +83,7 @@ class Seeker extends Model
     }
 
     public function isBeingViewedBy(User $user){
+        $seeker = Seeker::where('user_id',$this->user->seeker->user_id)->increment('view_count');
         if($this->canGetNotifications())
         {
             $jobs = [];
