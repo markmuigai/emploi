@@ -158,7 +158,7 @@ class Seeker extends Model
                 
             }
 
-            if(!$this->searching != 1)
+            if($this->searching == 0)
             {
                 $opportunities = true;
                 $messages[] = "Your <b>profile indicates you are not looking for a job</b>, change this setting to searching to be considered for positions."; 
