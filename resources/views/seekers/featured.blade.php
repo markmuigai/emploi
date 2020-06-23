@@ -12,10 +12,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       <div class="card-body text-center">
             <h3 class="orange">Featured Job Seeker</h3>
         </div>
-    <div class="row">         
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body text-center">
+           <div class="col-md-6 offset-md-3">
+                <div class="card my-2">
+                    <div class="card-body">
                             <p class="orange">FEATURED JOB SEEKER</p>
                         <ul class="tick">
                             <li>Get real-time notifications when;</li>
@@ -29,23 +28,24 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                              <li>Have your profile rank first in applications and searches.</li>
                              <li>Analytics.</li>
                         </ul>
-                         <h1>Kshs <br>159</h1>
-                        @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
-                        <form method="POST" action="/checkout">
-                            @csrf
-                            <input type="hidden" name="product" value="featured_seeker">
-                            <br><p>
-                            <input type="submit" name="" value="Request" class="btn btn-orange-alt">
-                            </p>
-                        </form>
-                        @else
-                        <h5><a href="/login?redirectToUrl={{ url('/job-seekers/services') }}" class="orange" >Login</a> Or <a href="/register?redirectToUrl={{ url('/job-seekers/services') }}" class="orange">Register</a> To Request</h5>
-                        @endif                    
+                        <div class="text-center">
+                             <h1>Kshs <br>159</h1>
+                            @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+                            <form method="POST" action="/checkout">
+                                @csrf
+                                <input type="hidden" name="product" value="featured_seeker">
+                                <br><p>
+                                <input type="submit" name="" value="Request" class="btn btn-orange-alt">
+                                </p>
+                            </form>
+                            @else
+                            <h5><a href="/login?redirectToUrl={{ url('/job-seekers/services') }}" class="orange" >Login</a> Or <a href="/register?redirectToUrl={{ url('/job-seekers/services') }}" class="orange">Register</a> To Request</h5>
+                            @endif
+                        </div>                    
                     </div>
                 </div>
             </div>
-        </div>
-    </div>   
+</div>   
 
 
 
