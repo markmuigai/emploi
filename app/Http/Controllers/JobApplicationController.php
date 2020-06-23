@@ -81,6 +81,21 @@ class JobApplicationController extends Controller
 
                 EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
                 //Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
+
+                                if($post->company->email != null){
+                $caption = "Application Received for ".$post->title;
+                $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position.
+                <a href='".url('/home')."'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
+                <br>
+                Thank you for choosing Emploi
+                <br><br>
+
+                <a href='".url('/home')."'>My Account</a>
+                ";
+                $email = $post->company->email;
+                EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+            }
+            
 	    		return view('seekers.applied')
 	    				->with('post',$post);
 	    	}
