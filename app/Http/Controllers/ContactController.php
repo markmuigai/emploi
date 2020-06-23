@@ -538,8 +538,8 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function cvtemplates(){
         return view('seekers.cv-templates'); 
     }
-    public function pplacement(){
-        return view('seekers.premium-placement');
+    public function eplacement(){
+        return view('seekers.exclusive-placement');
     }
     public function jservices(){
         return view('seekers.services');

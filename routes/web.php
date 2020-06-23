@@ -250,7 +250,7 @@ Route::get('/register', 'RegisterSimpleController@seeker');
 Route::get('/job-seekers/cv-editing', 'ContactController@cvediting');
 Route::get('/job-seekers/free-cv-review', 'ContactController@freeCvReview');
 Route::get('/job-seekers/cv-templates', 'ContactController@cvtemplates')->middleware('auth');
-Route::get('/job-seekers/premium-placement', 'ContactController@pplacement');
+Route::get('/job-seekers/exclusive-placement', 'ContactController@eplacement');
 Route::get('/job-seekers/services', 'ContactController@jservices');
 Route::get('/job-seekers/notifications', 'ContactController@notifications');
 Route::get('/job-seekers/featured', 'ContactController@featured');

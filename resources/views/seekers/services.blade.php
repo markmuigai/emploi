@@ -126,7 +126,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             <img src="/images/premium-placement.png" class="w-100" alt="Premium Placement">
                         </div>
                         <div class="col-md-8 col-12">
-                            <h5>Premium Placement</h5>
+                            <h5>Exclusive Placement</h5>
                             <p>
                                 Get seen by employers as we rank you on top of the employer search list. Get our professional CV Editing services for frequent shortlisting. We offer exclusive placement services matching your career and Interview
                                 coaching   to land your dream job.
@@ -161,26 +161,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <div class="col-lg-6">
             <div class="card my-2">
                 <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/vacancies.png" class="w-100" alt="Vacancies from Across Africa">
-                        </div>
-                        <div class="col-md-8 col-12">
-                            <h5>Latest Vacancies</h5>
-                            <p>
-                                We post job openings from employers and partners in Africa for you to easily apply and advance your career. <a href="/job-seekers/get-featured" class="orange">Get Featured</a> to stand out, get updates and much more.
-                            </p>
-                            <a href="/vacancies/featured" class="orange">View Vacancies</a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-8">
-            <div class="card my-2">
-                <div class="card-body">
-                    <div class="row align-items-center">
+                     <div class="row align-items-center">
                         <div class="col-md-4 col-12 pb-2 pb-md-0">
                             <img src="/images/cv-editing.png" class="w-100" alt="Experts on CV Editing">
                         </div>
@@ -190,14 +171,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 Recruiters are very busy people. On average, they read your CV in six seconds and thus having a well-designed professional CV is critical for your career growth.
                             </p>
                             <a href="/job-seekers/cv-editing" class="orange">Learn More</a>
-                            <a href="/checkout?product=seeker_basic" class="orange" style="float: right;">Application Updates</a>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
-        </div>
-        
-        
+        </div>              
 </div>
 
     <div class="row">
