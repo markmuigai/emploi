@@ -754,9 +754,9 @@ class Seeker extends Model
     
                if(count($featuredVacancies) > 0){
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
-                $contents  = '<span style= "background:orange; color:white">';               
+                $contents  = '<p style= "background:orange; color:white">';               
                 $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
-                $contents .= '</span>';
+                $contents .= '</p>';
 
 
                 $contents .= '<div style= "text-align:left">';                  
@@ -766,9 +766,9 @@ class Seeker extends Model
                 $contents .= "</ul>";                  
                    }
 
-                $contents .= '<span style= "background:orange; color:white">';  
-                $contents .= "<br>FEATURED VACANCIES<br>";
-                $contents .= '</span>';
+                $contents .= '<p style= "background:orange; color:white">';  
+                $contents .= "FEATURED VACANCIES";
+                $contents .= '</p>';
 
                             foreach ($featuredVacancies as $f) {
                 $contents .= "<ul>"; 
@@ -786,11 +786,11 @@ class Seeker extends Model
                                 <li>Get real-time notifications when;you are shortlisted,your profile is viewed and when your CV is requested.
                                 <li>Have your profile rank first in applications and searches.</li>
                               </ul>
-                              <a href="'.url('/job-seekers/services').'"> Get Featured Now. </a><br>';
+                              <a href="'.url('/job-seekers/featured').'"> Get Featured Now. </a><br>';
 
-                $contents .= '<span style= "background:orange; color:white">'; 
-                $contents .= "<br>BLOGS FROM OUR CAREER CENTRE<br>";
-                $contents .= '</span>';
+                $contents .= '<p style= "background:orange; color:white">'; 
+                $contents .= "BLOGS FROM OUR CAREER CENTRE";
+                $contents .= '</p>';
                             foreach ($blogs as $b) {
                 $contents .= "<ul>";                             
                 $contents .= "<li><a href='".url('/blog/'.$b->slug)."'>$b->title.</a></li>";
