@@ -56,7 +56,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <h5>
                                     
                                     @if($user->seeker->featured == 1)
-                                    <a class="" style="font-weight: bold" href="/job-seekers/services#featured_seeker"  data-toggle="tooltip" data-placement="left"  title="You are a featured Job Seeker on Emploi">
+                                    <a class="" style="font-weight: bold" href="/job-seekers/featured"  data-toggle="tooltip" data-placement="left"  title="You are a featured Job Seeker on Emploi">
                                     Featured
                                     </a>
                                     @endif
@@ -64,9 +64,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     Job Seeker
                                     
                                     @if($user->seeker->canGetNotifications())
-                                    <a class="fa fa-bell" href="/job-seekers/services#seeker_basic"  data-toggle="tooltip" data-placement="right" title="Shortlist Notifications Enabled" ></a>
+                                    <a class="fa fa-bell" href="/job-seekers/notifications"  data-toggle="tooltip" data-placement="right" title="Shortlist Notifications Enabled" ></a>
                                     @else
-                                    <a class="fa fa-bell-slash" href="/job-seekers/services#seeker_basic"  data-toggle="tooltip" data-placement="right"  title="Shortlist Notifications Disabled"></a>
+                                    <a class="fa fa-bell-slash" href="/job-seekers/notifications"  data-toggle="tooltip" data-placement="right"  title="Shortlist Notifications Disabled"></a>
                                     @endif
 
                                     
@@ -224,7 +224,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </p>
                 <p>
                     @if($user->seeker->featured != 1)
-                    <a class="btn btn-orange" href="/job-seekers/services#featured_seeker" title="Let employers find you easily">
+                    <a class="btn btn-orange" href="/job-seekers/featured" title="Let employers find you easily">
                         <i class="fa fa-star"></i>
                     Get Featured
                     </a>
@@ -244,7 +244,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
                 @if(!$user->seeker->canGetNotifications())
                 <p>
-                    <a href="/job-seekers/services#seeker_basic" class="btn btn-orange-alt">Enable Shortlist Notifications</a>
+                    <a href="/job-seekers/notifications" class="btn btn-orange-alt">Enable Shortlist Notifications</a>
                 </p>
                 @endif
                 
