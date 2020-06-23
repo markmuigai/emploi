@@ -127,9 +127,9 @@
                         <a class="dropdown-item" href="/job-seekers/services">{{ __('other.a_services') }}</a>
                         <a class="dropdown-item" href="/register">{{ __('jobs.u_cv') }}</a>
                         <a class="dropdown-item" href="/job-seekers/cv-editing">{{ __('jobs.cv_edit') }}</a>
-                        <a class="dropdown-item" href="/job-seekers/cv-templates">{{ __('jobs.cv_temp') }}</a>
                         <a class="dropdown-item" href="/job-seekers/premium-placement">{{ __('jobs.p_place') }}</a>
-                        <a class="dropdown-item" href="/events">Events</a>
+                        <a class="dropdown-item" href="/job-seekers/notifications">Application Updates</a>
+                        <a class="dropdown-item" href="/job-seekers/featured">Featured Job Seeker</a>
                         <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
                 </li>

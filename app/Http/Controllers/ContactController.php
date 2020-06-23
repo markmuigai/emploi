@@ -342,6 +342,21 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
                 
 
                 //EmailJob::dispatch($name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+
+                if($post->company->email != null){
+                $caption = "Application Received for ".$post->title;
+                $contents = $user->seeker->public_name." has submitted an application for the ".$post->title." position.
+                <a href='".url('/home')."'>Log in</a> to your account to review the application and compare ".$user->seeker->public_name."'s application to your Role Suitability Index.
+                <br>
+                Thank you for choosing Emploi
+                <br><br>
+
+                <a href='".url('/home')."'>My Account</a>
+                ";
+                $email = $post->company->email;
+                EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+            }
+
                 return view('seekers.easy-applied')
                         ->with('created',$created)
                         ->with('post',$post);
@@ -529,9 +544,12 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function jservices(){
         return view('seekers.services');
     }
-    
-
-    
+     public function notifications(){
+        return view('seekers.notifications');
+    }
+       public function featured(){
+        return view('seekers.featured');
+    }    
 
 
 }
