@@ -785,6 +785,7 @@ class Seeker extends Model
                               <ul>
                                 <li>Get real-time notifications when;you are shortlisted,your profile is viewed and when your CV is requested.
                                 <li>Have your profile rank first in applications and searches.</li>
+                                <li>Get real-time analytics of your applications,shortlist and vacancies on the dashboard.</li>
                               </ul>
                               <a href="'.url('/job-seekers/featured').'"> Get Featured Now. </a><br>';
 
