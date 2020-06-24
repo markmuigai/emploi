@@ -766,8 +766,8 @@ class Seeker extends Model
                 $contents .= "</ul>";                  
                    }
 
-                $contents .= '<p style= "background:orange; color:white">';  
-                $contents .= "FEATURED VACANCIES";
+                $contents .= '<p style= "background:orange; color:white; text-align:center">';  
+                $contents .= "Featured Vacancies";
                 $contents .= '</p>';
 
                             foreach ($featuredVacancies as $f) {
@@ -775,9 +775,9 @@ class Seeker extends Model
                 $contents .= "<li> <a href='".url('/vacancies/'.$f->slug)."'>$f->title,</a> ".$f->company->name."</li>";
                 $contents .= "</ul>";                        
                   }   
-                $contents .= '</div>';
+                
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
-                $contents .=  '<p style= "background:orange; color:white">Requesting for CV Editing?</p><p>Reach us via Call
+                $contents .=  '<p style= "background:orange; color:white; text-align:center">Requesting for CV Editing?</p><p>Reach us via Call
                               <a href="tel:+254702068282">+254 702 068 282</a>/<a href="tel:+254774569001">+254774569001</a> or 
                               <a href="'.url('/job-seekers/cv-editing').'"> click here to request.
                               </a></p><br><br>                             
@@ -788,15 +788,16 @@ class Seeker extends Model
                               </ul>
                               <a href="'.url('/job-seekers/featured').'"> Get Featured Now. </a><br>';
 
-                $contents .= '<p style= "background:orange; color:white">'; 
-                $contents .= "BLOGS FROM OUR CAREER CENTRE";
+                $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
+                $contents .= "Blogs From Our Career Centre";
                 $contents .= '</p>';
                             foreach ($blogs as $b) {
                 $contents .= "<ul>";                             
                 $contents .= "<li><a href='".url('/blog/'.$b->slug)."'>$b->title.</a></li>";
                 $contents .= "</ul>";
                 }    
-                $contents .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";                                                                    
+                $contents .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";
+                $contents .= '</div>';                                                                    
                      
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;

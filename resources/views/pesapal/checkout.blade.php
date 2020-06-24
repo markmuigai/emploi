@@ -151,7 +151,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       		 	<br>
 				<h4>Product Description</h4>
 
-				<?php echo $product->description; ?>
+				<?php echo $product->description; ?><br>
 			</div>
 			<br id="similar-products">
 
