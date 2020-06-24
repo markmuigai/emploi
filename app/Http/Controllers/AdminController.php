@@ -496,11 +496,11 @@ class AdminController extends Controller
         $attachment3 = false;
 
         return new CustomVacancyEmail(
-            'Recepient Name',
+            'Recipient Name',
             $subject,
             $caption,
             $contents,
-            'recepient@gmail.com',
+            'recipient@gmail.com',
             $banner,
             $template,
             $attachment1,

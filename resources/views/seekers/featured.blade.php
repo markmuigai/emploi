@@ -15,7 +15,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
            <div class="col-md-6 offset-md-3">
                 <div class="card my-2">
                     <div class="card-body">
-                            <p class="orange">FEATURED JOB SEEKER</p>
+                        <p class="orange">FEATURED JOB SEEKER</p>
+                        <ul class="tick">            
+                             <li>Have your profile rank first in applications and searches.</li>
+                             <li>Get real-time analytics of your applications,shortlist and vacancies on the dashboard.</li>
+                        </ul>
                         <ul class="tick">
                             <li>Get real-time notifications when;</li>
                         </ul>
@@ -24,10 +28,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <li>your profile is viewed,</li>
                                 <li>your CV is Requested.</li>
                              </ul> 
-                        <ul class="tick">            
-                             <li>Have your profile rank first in applications and searches.</li>
-                             <li>Analytics.</li>
-                        </ul>
                         <div class="text-center">
                              <h1>Kshs <br>159</h1>
                             @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )

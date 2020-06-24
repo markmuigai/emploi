@@ -21,7 +21,7 @@ if(!isset($post))
                     <a href="{{ $post->shareFacebookLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-facebook-f"></i></a>
                     <a href="{{ $post->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
                     <a href="{{ $post->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
-                    <a href="{{ $post->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><img src="/images/whatsapp.png" style="width: 3em"></a>
+                    <a href="{{ $post->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em"><img src="/images/bg1.jpeg" style="width: 3em"></a>
                 </div>
             </div>
         </div>
