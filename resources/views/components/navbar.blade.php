@@ -104,7 +104,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <!-- <a class="dropdown-item" href="/employers/dashboard">Dashboard</a> -->
+                        @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                         <a class="dropdown-item" href="/employers/browse">{{ __('jobs.browse_cvs') }}</a>
+                        @endif
                         <a class="dropdown-item" href="/employers/publish">{{ __('jobs.advert_jobs') }}</a>
                         <a class="dropdown-item" href="/employers/premium-recruitment">{{ __('jobs.p_recruit') }}</a>
                         <a class="dropdown-item" href="/employers/services">{{ __('other.a_services') }}</a>
