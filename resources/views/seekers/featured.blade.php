@@ -44,8 +44,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         </div>                    
                     </div>
                 </div>
-            </div>
-</div>   
+                <div class="text-center">                    
+                    <a href="/job-seekers/featured">
+                        <img src="/images/featured.png" width="100%" alt="get featured"> 
+                    </a>    
+        </div>
+    </div>   
 
 
 

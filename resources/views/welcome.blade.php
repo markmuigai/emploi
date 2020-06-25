@@ -149,6 +149,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <!-- SERVICES -->
 <div class="services my-3">
     <div class="container">
+        <div class="text-center">        
+            <a href="/job-seekers/featured">
+                <img src="/images/featured.png" alt="get featured"> 
+            </a>    
+        </div>               
+        <br>             
         <div class="card">
             <div class="card-body text-center">
                 <h2 class="orange" id="our-services-section">{{ __('other.o_serv') }}</h2>
@@ -349,7 +355,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @include('components.testimonials.general')
 
 @include('components.blogs')
-
+<br>
+    <div class="text-center">         
+        <a href="/refer"><img src="/images/friends_refer_thin-flat.png" alt="Refer your Friends for Rewards"></a>      
+    </div> 
+       
+    
 @include('components.featuredEmployers')
 
 <div class="container">
@@ -367,7 +378,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <!-- GET STARTED -->
 <div class="get-started">
     <div class="container">
-        <div class="content">
+        <div class="content">  
             @guest
                 <h1>{{ __('other.find_right_job') }}</h1>
                 <p>{{ __('other.looking_') }}</p>
