@@ -22,7 +22,8 @@ class InvoiceController extends Controller
     public function index(Request $request)
     {
         return view('admins.invoices.index')
-            ->with('invoices',Invoice::orderBy('id','DESC')->paginate(20));
+            ->with('invoices',Invoice::Where('email','like','%'.$request->q.'%')
+                                       ->orderBy('id','DESC')->paginate(20));
     }
 
     public function create()

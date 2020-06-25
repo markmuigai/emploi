@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <li> Curated expert career advice,</li>
                     <li> Professional coaching and CV services.</li>
                 </ul>
-                <div class="text-center"><br>
+            <div class="text-center"><br>
                 @guest
                 <a href="/register" class="btn btn-orange">Upload Your CV</a>                
                 @else
@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     @endif
                 @endguest                
                 <a href="/job-seekers/cv-editing" class="btn btn-orange">Professional CV Editing</a>
-                <a href="/job-seekers/cv-builder" class="btn btn-orange-alt">CV Builder</a><br>
+                <a href="/job-seekers/cv-builder" class="btn btn-orange-alt">CV Builder</a><br><br>
             </div>
     </div>
 </div>

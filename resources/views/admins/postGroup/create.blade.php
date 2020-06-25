@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="/admin/job-post-groups/" id="job-post-groups-compose">
+        <form method="POST" action="/admin/job-post-groups/" enctype="multipart/form-data" id="job-post-groups-compose">
             @csrf
             <div class="row">
                 <div class="col-md-12">

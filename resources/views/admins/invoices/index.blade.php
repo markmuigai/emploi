@@ -37,6 +37,11 @@ $title=isset($title) ? $title : 'Emploi Invoices';
         </h4>
         <hr>
         <div>
+        <br>
+        <form>
+            <input type="text" placeholder="Search here" name="q" required="" class="form-control">
+        </form>
+        <br>
             @forelse($invoices as $invoice)
                 <div class="row">
                     <div class="col-8">

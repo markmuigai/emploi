@@ -24,7 +24,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <li>your profile is viewed,</li>
                                 <li>your CV is Requested.</li>
                             </ul>                   
-                           <br><br><br><br> 
+                           <br>
                         <div class="text-center">                             
                             <h1>Kshs <br>49</h1>
                             @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
