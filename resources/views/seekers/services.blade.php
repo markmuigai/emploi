@@ -132,7 +132,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 Get seen by employers as we rank you on top of the employer search list. Get our professional CV Editing services for frequent shortlisting. We offer exclusive placement services matching your career and Interview
                                 coaching   to land your dream job.
                             </p>
-                            <a href="/job-seekers/premium-placement" class="orange">Learn More</a>
+                            <a href="/job-seekers/exclusive-placement" class="orange">Learn More</a>
                         </div>
                         
                     </div>
