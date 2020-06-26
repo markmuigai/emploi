@@ -498,7 +498,7 @@ class EmployerController extends Controller
 
     public function dashboard(Request $request)
     {
-        $featuredSeekers = Seeker::where('featured','>',0)->get();
+        $featuredSeekers = Seeker::where('featured','>',0)->paginate(12);
         $recentApplications = Auth::user()->employer->recentApplications();
 
         return view('employers.dashboard.index')

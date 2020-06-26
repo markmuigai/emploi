@@ -51,8 +51,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/employers/browse/{{$seeker->user->username}}" class="btn btn-orange btn-sm" target="_blank">View Profile</a>
                 <br>
             </div>
-        @endforeach
-    </div>
+        @endforeach      
+    </div><br>
+      {{ $featuredSeekers->links() }}
     @else
         @include('components.ads.responsive')
     @endif
