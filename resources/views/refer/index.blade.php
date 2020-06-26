@@ -11,7 +11,7 @@ Emploi offers a transparent referral and rewards program. Job seekers who refer 
 <div class="text-center my-5">
     <h2>Refer your Friends</h2>
     <p>
-        Emploi offers a transparent referral and rewards program. Job seekers who refer more than 5 friends are Featured for Free on Emploi for 1 month. Other prices include Free Airtime and Free Internet Bundles.
+        Emploi offers a transparent referral and rewards program. Job seekers who refer more than 3 friends are Featured for Free on Emploi for 1 month. Other prices include Free Airtime and Free Internet Bundles.
         
     </p>
     <br>
