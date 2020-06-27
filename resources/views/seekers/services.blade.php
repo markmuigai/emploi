@@ -137,6 +137,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="container"><br>
         <div class="text-center">
             <h1 class="orange">Job Seeker Services</h1>
+            <h5>Join the most legitimate career platform in Africa today.</h5>
         </div>
 <div class="card">
     <div class="card-body">         
