@@ -190,11 +190,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li><i class="ion-checkmark"> </i>Get real-time analytics of your applications,shortlist and vacancies on the dashboard.</li>
                     </ul><br>
                      <form method="POST" action="/checkout">
+                        <div class="plan-select">
                         @csrf
                         <input type="hidden" name="product" value="featured_seeker">
                         <p>
                         <input type="submit" name="" value="SELECT PLAN" class="btn btn-primary">
                         </p>
+                        </div>
                     </form>
                 </div>
 
@@ -212,11 +214,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li>Post Placement follow-up and support</li>   
                         </ul>
                 <div class="plan-select"><a href="#jservices-footer" class="btn btn-primary"> SELECT PLAN</a></div>
-            </div>
+             </div>
         </div>
     </div>
 </div><br><br>
-
 
 
 <h3 class="orange" style="text-align: center;">Summit Packages</h3>
@@ -260,6 +261,42 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>
         </div>               
+</div>
+
+<br id="testimonialsView">
+  <br>
+
+  @include('components.testimonials.cv-edit')<br>
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+          <h4 class="orange">Here are frequently asked questions by Job Seekers.</h4>
+          <div class="panel-group" id="faqAccordion">
+            @forelse($faqs as $faq)
+            <div class="panel panel-default " id="faq{{$faq->id}}">
+                <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question{{$faq->id}}">
+                     <h5 class="panel-title">
+                      <span class="ing" style="cursor: pointer">Q: {{ $faq->title }}</span>
+                   </h5>
+
+                </div>
+                <div id="question{{$faq->id}}" class="panel-collapse collapse" style="height: 0px;">
+                    <div class="panel-body">
+                         <h5><span class="label label-primary" style="color: #500095">Answer</span></h5>
+
+                        <p style="font-style: italic;">
+                          <?php echo $faq->description; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @empty
+            @endforelse
+        </div>
+      </div>
+    </div>
 </div>
 
     <div class="row">

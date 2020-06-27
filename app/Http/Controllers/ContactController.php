@@ -542,7 +542,8 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return view('seekers.exclusive-placement');
     }
     public function jservices(){
-        return view('seekers.services');
+        return view('seekers.services')
+               ->with('faqs',Faq::where('permission_id',4)->paginate(10));
     }
   
 
