@@ -643,6 +643,69 @@ class AdminController extends Controller
                 
                 
                 break;
+
+            case 'unregistered-employers':
+                $filter = '';
+                if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
+                {
+                    $filter = " WHERE industry = $industry";
+                }
+                elseif ($industry == 'test-users') {
+                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'david@emploi.co' ";
+                }
+                $sql = "SELECT * FROM companies $filter";
+
+                $result = DB::select($sql);
+                foreach($result as $company)
+                {
+                    $user = User::find($company->user_id);
+                    if(isset($company->email) && $company->user_id == 3)
+                    VacancyEmail::dispatch($company->email,$company->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
+                
+                
+                break;
+
+            case 'all-employers':
+                $filter = '';
+                if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
+                {
+                    $filter = " WHERE industry = $industry";
+                }
+                elseif ($industry == 'test-users') {
+                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'david@emploi.co' ";
+                }
+                $sql = "SELECT * FROM companies $filter";
+
+                $result = DB::select($sql);
+                foreach($result as $company)
+                {
+                    $user = User::find($company->user_id);
+                    if(isset($company->email) && $company->user_id == 3)
+                    VacancyEmail::dispatch($company->email,$company->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }    
+
+                $filter = '';
+                if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
+                {
+                    $filter = " WHERE industry = $industry";
+                }
+                elseif ($industry == 'test-users') {
+                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'sophy@jobsikaz.com' ";
+                }
+                $sql = "SELECT * FROM employers $filter";
+
+                $result = DB::select($sql);
+                foreach($result as $employer)
+                {
+                    $user = User::find($employer->user_id);
+                    if(!isset($user->id))
+                        continue;
+                    if(User::subscriptionStatus($user->email))
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
+
+                break;
                 
             case 'unregistered':
                 $users = UnregisteredUser::all();
