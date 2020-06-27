@@ -544,12 +544,6 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function jservices(){
         return view('seekers.services');
     }
-     public function notifications(){
-        return view('seekers.notifications');
-    }
-       public function featured(){
-        return view('seekers.featured');
-    }    
-
+  
 
 }

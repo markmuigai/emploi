@@ -130,8 +130,6 @@
                         <a class="dropdown-item" href="/register">{{ __('jobs.u_cv') }}</a>
                         <a class="dropdown-item" href="/job-seekers/cv-editing">{{ __('jobs.cv_edit') }}</a>
                         <a class="dropdown-item" href="/job-seekers/exclusive-placement">Exclusive Placement</a>
-                        <a class="dropdown-item" href="/job-seekers/notifications">Application Updates</a>
-                        <a class="dropdown-item" href="/job-seekers/featured">Featured Job Seeker</a>
                         <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
                 </li>
