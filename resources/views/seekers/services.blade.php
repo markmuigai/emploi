@@ -272,7 +272,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="card">
     <div class="card-body">
         <div class="container">
-          <h4 class="orange">Here are frequently asked questions by Job Seekers.</h4>
+          <h4 class="orange">Frequently asked questions by Job Seekers.</h4>
           <div class="panel-group" id="faqAccordion">
             @forelse($faqs as $faq)
             <div class="panel panel-default " id="faq{{$faq->id}}">
@@ -293,6 +293,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>
             @empty
+             <p>
+              Check back later or <a href="/contact" class="orange">Contact Us</a>
+            </p>
             @endforelse
         </div>
       </div>
