@@ -10,8 +10,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 <style type="text/css">
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:800);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
 .snip1214 {
   font-family: 'Raleway', sans-serif;
   color: #000000;
@@ -33,7 +33,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 .snip1214 .plan-title {
   position: relative;
   top: 0;
-  font-weight: 800;
+  font-weight: 500;
   padding: 5px 15px;
   margin: 0 auto;
   -webkit-transform: translateY(-50%);
@@ -97,9 +97,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
   color: #ffffff;
   text-decoration: none;
   padding: 0.5em 1em;
-  -webkit-transform: translateY(50%);
-  transform: translateY(50%);
-  font-weight: 800;
+  -webkit-transform: translateY(30%);
+  transform: translateY(30%);
+  font-weight: 500;
   text-transform: uppercase;
   display: inline-block;
   border-radius: 0;
@@ -146,7 +146,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <h5 class="plan-title">
                     Free
                 </h5>
-                    <div class="plan-cost"><span class="plan-price">Ksh 0</span><span class="plan-type"> / Monthly</span></div>
+                    <div class="plan-cost"><span class="plan-price">Ksh. 0</span><span class="plan-type"> / Monthly</span></div>
                     <ul class="plan-features">                        
                         <li><a href="/vacancies">View and apply vacancies</a></li>
                         <li><a href="/job-seekers/free-cv-review">Have your CV reviewed for free</a></li>
@@ -160,19 +160,20 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <h5 class="plan-title">
                        Pro
                     </h5>
-                    <div class="plan-cost"><span class="plan-price">Ksh 49</span><span class="plan-type">/ Monthly</span></div>
+                    <div class="plan-cost"><span class="plan-price">Ksh. 49</span><span class="plan-type">/ Monthly</span></div>
                     <ul class="plan-features">
                         <li>All free plan benefits plus notifications when;</li>
                         <li><i class="ion-checkmark"></i>You’re shorlisted</li>
                         <li><i class="ion-checkmark"></i>Your profile is viewed</li>
                         <li><i class="ion-checkmark"></i>Your CV is requested</li>
-                    </ul><br>
-                    <form method="POST" action="/checkout">
+                    </ul><br><br>
+                        <form method="POST" action="/checkout">
                         <div class="plan-select">
                         @csrf
                         <input type="hidden" name="product" value="seeker_basic">
-                        <br>
-                        <input type="submit" name="" id="checkout" value="SELECT PLAN" class="btn-primary">
+                        <p>
+                        <input type="submit" name="" value="SELECT PLAN" class="btn btn-primary">
+                        </p>
                         </div>
                     </form>
                 </div>
@@ -213,9 +214,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li>Vacancy Hunting.</li>
                         <li>Post Placement follow-up and support</li>   
                         </ul>
-                <div class="plan-select"><a href="#jservices-footer" class="btn btn-primary"> SELECT PLAN</a></div>
-             </div>
-        </div>
+                  <div class="plan-select"><a href="#jservices-footer" class="btn btn-primary"> SELECT PLAN</a></div>
+                </div>
+         </div>
     </div>
 </div><br><br>
 
