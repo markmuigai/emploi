@@ -154,7 +154,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li><i class="ion-checkmark"> </i><a href="/job-seekers/cv-templates">  Downloadable CV templates with advice</a></li>
                         <li><i class="ion-checkmark"> </i><i class="#"> </i><a href="/vacancies">Profile Accessible to 100’s of employers</a></li><br><br>
                     </ul><br>
-                    <div class="plan-select"><a href="register" class="btn btn-primary"> JOIN</a></div>
+                    <div class="plan-select"><a href="/join" class="btn btn-primary"> JOIN</a></div>
               </div>
 
               <div class="plan">
