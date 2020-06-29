@@ -1,10 +1,11 @@
 <!-- TESTIMONALS -->
-<div class="container">
+<div class="container">    
+        <h2 class="orange" style="text-align: center;">What Fellow Job Seekers Say...</h2>
     <div class="testimonials cvEditTestimonials">
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
+            <!--     <h2 class="text-center orange">Job Seeker Feedback</h2>
+ -->                <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/testimonials/angela.jpeg" data-src="{{asset('images/testimonials/angela.jpeg')}}" alt="Angela Amondi" class="w-100 lazy">
                     </div>
@@ -20,7 +21,7 @@
 
          <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
+                <!-- <h2 class="text-center orange">Job Seeker Feedback</h2> -->
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/testimonials/jeannete.jpeg" data-src="{{asset('images/testimonials/jeannete.jpeg')}}" alt="Jeanette Induswe" class="w-100 lazy">
@@ -38,7 +39,7 @@
 
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
+      <!--           <h2 class="text-center orange">Job Seeker Feedback</h2> -->
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/testimonials/christine.png" data-src="{{asset('images/testimonials/christine.png')}}" alt="Christine Ndwiga" class="w-100 lazy">
@@ -56,17 +57,17 @@
 
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
-                <div class="row align-items-center justify-content-center">
+          <!--       <h2 class="text-center orange">Job Seeker Feedback</h2>
+ -->                <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/testimonials/linda.png" data-src="{{asset('/images/testimonials/linda.png')}}" alt="Linda Isuyi" class="w-100 lazy">
                     </div>
                     <div class="col-12 col-md-10">
-                        <p>I contacted Sophy back in August 2019 when I realized I needed a professional CV writer to revamp my CV since the one I previously used received very few call backs on job sites. Sophy immediately started working on it. She spent time above and beyond my expectation, going through my career history and prospective positions I envisaged, breaking down each role and key skills developed in each. Sophy does exactly what she says. She made sure I was informed every step of the way through constant communication via phone or email. After a couple of drafts I was presented with the final copy which I was extremely happy with. Absolutely worth the money! This CV received many hits from prospective employers and I finally secured a PhD position in Germany. I highly recommend Sophy to anyone not making progress in their job search in the current market.
+                        <p>I contacted Emploi back in August 2019 when I realized I needed a professional CV writer to revamp my CV since I was receiving very few call backs on job sites. Emploi spent time above and beyond my expectation, going through my career history and prospective positions I envisaged, breaking down each role and key skills developed in each and keeping me informed every step of the way. I must say was extremely happy with the final product. Absolutely worth the money! This CV received many hits from prospective employers and I finally secured a PhD position in Germany. I highly recommend Emploi to anyone not making progress in their job search in the current market.
                         </p>
                         <hr class="short">
                         <h5>Linda Isuyi</h5>
-                        <p>Emploi CV-Editing Success Stories</p>
+                        <p>Job Seeker Feedback</p>
                     </div>
                 </div>
             </div>
@@ -74,7 +75,7 @@
 
         <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-                <h2 class="text-center orange">CV-Edit {{ __('other.testi') }}</h2>
+            <!--     <h2 class="text-center orange">Job Seeker Feedback</h2> -->
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                          <img src="/images/testimonials/agnes.jpeg" data-src="{{asset('/images/testimonials/agnes.jpeg')}}" alt="Agnes Mutua"  class="w-100 lazy">
@@ -90,22 +91,7 @@
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="card-body row">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BVJ4punLoMc" class="col-md-8" frameborder="0" allowfullscreen></iframe>       
-                        <div class="col-md-4" style="text-align: center;">
-                        <h4>Resume Tips Make Yourself a Stronger Candidate Today!</h4>
-                            <p>Here is Maggie giving insight into Emploi's CV editing service. LISTEN, SIGN UP AND GET HIRED TODAY.
-                            </p>                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>                    
-    </div>
+  @include('components.blogs')
 </div>
 
 <script type="text/javascript">
