@@ -734,13 +734,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(30))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(30))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -781,13 +781,9 @@ class Seeker extends Model
                               <a href="tel:+254702068282">+254 702 068 282</a>/<a href="tel:+254774569001">+254774569001</a> or 
                               <a href="'.url('/job-seekers/cv-editing').'"> click here to request.
                               </a></p><br><br>                             
-                             <h5>Featured Job Seeker Package</h5>
-                              <ul>
-                                <li>Get real-time notifications when;you are shortlisted,your profile is viewed and when your CV is requested.
-                                <li>Have your profile rank first in applications and searches.</li>
-                                <li>Get real-time analytics of your applications,shortlist and vacancies on the dashboard.</li>
-                              </ul>
-                              <a href="'.url('/job-seekers/featured').'"> Get Featured Now. </a><br>';
+                             <h5>PRO Job Seeker Plan</h5>
+                            <p>Get real-time notifications when; you are shortlisted,your profile is viewed and when your CV is Requested.</p>   
+                            <a href="'.url('/job-seekers/featured').'"> Get PRO Now. </a><br>';
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
                 $contents .= "Blogs From Our Career Centre";
