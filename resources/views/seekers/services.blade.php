@@ -146,7 +146,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <h5 class="plan-title">
                        Free
                     </h5>
-                  <div class="plan-cost"><span class="plan-price">Ksh. 0</span><span class="plan-type">/ <br>Monthly</span></div>
+                  <div class="plan-cost"><span class="plan-price">Ksh. 0</span><span class="plan-type">/ <br>Month</span></div>
                   <ul class="plan-features">               
                         <li><i class="ion-checkmark"> </i><a href="/vacancies">View and apply vacancies</a></li>
                         <li><i class="ion-checkmark"> </i><a href="/job-seekers/cv-builder">Free CV builder</a></li>
@@ -161,7 +161,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <h5 class="plan-title">
                        Pro
                     </h5>
-                    <div class="plan-cost"><span class="plan-price">Ksh. 49</span><span class="plan-type">/ Monthly</span></div>
+                    <div class="plan-cost"><span class="plan-price">Ksh. 49</span><span class="plan-type">/ <br>Month</span></div>
                     <ul class="plan-features">
                         <li>All free plan benefits</li>
                         <li>Notifications when;</li>
@@ -184,7 +184,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <h5 class="plan-title">
                      Spotlight
                     </h5>
-                    <div class="plan-cost"><span class="plan-price">Ksh. 159</span><span class="plan-type">/ Monthly</span></div>
+                    <div class="plan-cost"><span class="plan-price">Ksh. 159</span><span class="plan-type">/ Month</span></div>
                     <ul class="plan-features">
                         <li><i class="ion-checkmark"> </i>All PRO benefits</li>
                         <li><i class="ion-checkmark"> </i> Rank first in all search lists</li>
