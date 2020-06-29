@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <li>Through this service, we shall take you up as a special client and endeavor to get you employment within the shortest time possible, in an industry and location of your choice.</li>
     </ul>
 
-         @include('components.ads.responsive')
+       <!--   @include('components.ads.responsive') -->
 
      <h5 class="pt-2">THIS IS FOR YOU IF:</h5>
      <ul>
@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
          <li>Post placement follow-up and support</li>
      </ol>     
 
-             @include('components.ads.responsive')
+           <!--   @include('components.ads.responsive') -->
          
       
         <div class="row" style="text-align: center;">

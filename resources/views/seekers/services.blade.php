@@ -308,6 +308,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         @include('components.featuredJobs')
     </div>
 @include('components.search-form')
-@include('components.ads.responsive')
+<!-- @include('components.ads.responsive') -->
 
 @endsection
