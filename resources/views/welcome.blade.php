@@ -74,7 +74,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
         <div class="content">
 
-            <?php $line= "Welcome to Emploi, where deserving talent meets deserving opportunities"; ?>
+            <?php $line= "We aggregate all the jobs for you at one stop and we provide you with the best placement tools and support you need to land your dream job" ?>
 
             @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
             @include('components.welcome-banner')
