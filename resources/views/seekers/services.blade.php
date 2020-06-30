@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       background-repeat: no-repeat;
       background-size: cover;
       background-position: right
-</style><br>
+</style>
 
 <style type="text/css">
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
