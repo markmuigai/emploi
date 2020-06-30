@@ -785,14 +785,14 @@ class AdminController extends Controller
                 
             case 'test-users':
 
-                Mail::to('brian@emploi.co')
+                Mail::to('sophy@emploi.co')
                 ->send(
                     new CustomVacancyEmail(
-                        'Brian Obare',
+                        'Sophy Mwale',
                         $subject,
                         $caption,
                         $contents,
-                        'brian@emploi.co',
+                        'sophy@emploi.co',
                         $banner,
                         $template,
                         $attachment1,
@@ -839,14 +839,14 @@ class AdminController extends Controller
                     )
                 );
 
-                Mail::to('kevin@emploi.co')
+                Mail::to('derrick@emploi.co')
                 ->send(
                     new CustomVacancyEmail(
-                        'Kevin',
+                        'Derrick Omollo',
                         $subject,
                         $caption,
                         $contents,
-                        'kevin@emploi.co',
+                        'derrick@emploi.co',
                         $banner,
                         $template,
                         $attachment1,
