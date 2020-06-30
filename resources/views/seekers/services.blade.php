@@ -7,6 +7,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @endsection
 
 @section('content')
+<style type="text/css">
+   .jservices_header
+   {
+      background:  url(../images/seeker_services.jpg);
+      height: 50vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: right
+</style><br>
 
 <style type="text/css">
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
@@ -134,10 +143,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 }
 </style>
 
-<div class="container"><br>
-        <div class="text-center">
+<div class="container">
+        <div class="text-left jservices_header"><br><br><br>
             <h1 class="orange">Job Seeker Services</h1>
-            <h5>We aggregate all the jobs for you at one stop; We provide you with the best placement tools and support you need to land your dream job.</h5>
+            <h5>We aggregate all the jobs for you at one stop;<br> We provide you with the best placement tools and <br>support you need to land your dream job.</h5>
         </div>
 <div class="card">
     <div class="card-body">         
