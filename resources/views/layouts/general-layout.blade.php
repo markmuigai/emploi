@@ -45,6 +45,34 @@
     </header>
     <!-- MAIN CONTENT  -->
 
+
+
+
+<div class="sidebar">          
+    <div class="nav flex-column " aria-orientation="vertical">
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer">
+                <span style="display: none">Follow us on Facebook</span>
+                <i class="fa fa-facebook" style="color: #3b5998; font-size: 30px"></i>
+            </a>
+            <a href="https://twitter.com/emploiafrica" target="_blank" rel="noreferrer">
+                <span style="display: none">Follow us on Twitter</span>
+                <i class="fab fa-twitter" style="color:  #00acee; font-size: 30px"></i>
+            </a>
+            <a href="https://ke.linkedin.com/company/emploike" target="_blank" rel="noreferrer">
+                <span style="display: none">Follow us on LinkedIn</span>
+                <i class="fab fa-linkedin-in" style="color: #0e76a8; font-size: 30px"></i>
+            </a>
+            <a href="https://instagram.com/emploi.co" target="_blank" rel="noreferrer">
+                <span style="display: none">Follow us on Instagram</span>
+                <i class="fab fa-instagram" style="color:  #3f729b; font-size: 30px"></i>
+            </a>
+        </div>
+    </div>    
+</div>
+            
+  
     {{--@if(is_null(\Route::current()->getName()))--}}
     <main>
         @yield('content')
