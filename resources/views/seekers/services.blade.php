@@ -10,11 +10,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <style type="text/css">
    .jservices_header
    {
-      background:  url(../images/seeker_services.jpg);
+      background: linear-gradient(to right, #808080, rgba(81, 81, 81, .3)), url(../images/seeker_services.jpg);
       height: 50vh;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: right
+      margin-left: 0px ! important;   
+   }
 </style>
 
 <style type="text/css">
@@ -144,11 +143,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </style>
 
 <div class="container">
-         <div class="text-left jservices_header"><br><br><br>
-            <h1 class="orange">Job Seeker Services</h1>
-            <h6>A mix of Technology with personalized expert support to <br>fast track your career progress.<br><br>
-            <a href="/job-seekers/free-cv-review" class="btn btn-orange-alt"> Request Free CV Review</a>           
+         <div class="jservices_header"><br><br><br>
+            <div style="margin-left: 80px">
+                <h1 class="orange">Job Seeker Services</h1>
+                <h6 style="color: white">A mix of Technology with personalized expert support to <br>fast track your career progress.</h6><br>
+                <a href="/job-seekers/free-cv-review" class="btn btn-orange-alt"> Request Free CV Review</a>
+            </div>           
         </div>
+      </div>
+ <div class="container">
 <div class="card">
     <div class="card-body">         
         <div class="snip1214">
