@@ -144,7 +144,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 <div class="container">
          <div class="jservices_header"><br><br><br>
-            <div style="margin-left: 80px">
+            <div style="margin-left: 50px">
                 <h1 class="orange">Job Seeker Services</h1>
                 <h6 style="color: white">A mix of Technology with personalized expert support to <br>fast track your career progress.</h6><br>
                 <a href="/job-seekers/free-cv-review" class="btn btn-orange-alt"> Request Free CV Review</a>
