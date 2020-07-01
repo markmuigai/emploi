@@ -196,10 +196,13 @@
                     <!-- END OF ADD JOB AS AN EMPLOYER -->
                     @yield('content')
                 </div>
-                <div class="sidebar">          
-    <div class="nav flex-column " aria-orientation="vertical">
-        <br><br><br><br><br><br><br><br><br><br><br>
-        <div class="social-icons">
+
+            </div>
+        </div>
+
+    </main>
+                        
+        <div class="social-icons" aria-orientation="vertical">
             <a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer">
                 <span style="display: none">Follow us on Facebook</span>
                 <i class="fa fa-facebook" style="color: #3b5998; font-size: 30px"></i>
@@ -216,13 +219,8 @@
                 <span style="display: none">Follow us on Instagram</span>
                 <i class="fab fa-instagram" style="color:  #3f729b; font-size: 30px"></i>
             </a>
-        </div>
-    </div>    
+        </div>    
 </div>
-            </div>
-        </div>
-
-    </main>
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
     @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
     @include('components.search-form')
