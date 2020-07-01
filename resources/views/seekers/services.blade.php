@@ -8,11 +8,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @section('content')
 <style type="text/css">
+
    .jservices_header
    {
       background: linear-gradient(to right, #808080, rgba(81, 81, 81, .3)), url(../images/seeker_services.jpg);
       height: 50vh;
-      margin-left: 0px ! important;   
+      background-repeat: no-repeat;
+      background-position: center   
    }
 </style>
 
@@ -124,8 +126,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     transform: translateY(0);
   }
   .snip1214 .plan-cost,
-  .snip1214 .featured .plan-cost {
-    padding: 20px 10px 20px;
+  .snip1214 .featured .plan-cost
   }
   .snip1214 .plan-select,
   .snip1214 .featured .plan-select {
@@ -144,10 +145,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 <div class="container">
          <div class="jservices_header"><br><br><br>
-            <div style="margin-left: 50px">
-                <h1 class="orange">Job Seeker Services</h1>
-                <h6 style="color: white">A mix of Technology with personalized expert support to <br>fast track your career progress.</h6><br>
-                <a href="/job-seekers/free-cv-review" class="btn btn-orange-alt"> Request Free CV Review</a>
+            <div style="margin-left: 50px; color: white">
+                <h1 >Job Seeker Services</h1>
+                <h6>A mix of Technology with personalized expert support to <br>fast track your career progress.</h6><br>
+                <a href="/job-seekers/free-cv-review" class="btn btn-orange"> Request Free CV Review</a>
             </div>           
         </div>
       </div>
