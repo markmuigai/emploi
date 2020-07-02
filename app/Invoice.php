@@ -120,7 +120,29 @@ class Invoice extends Model
         }
     }
 
-     public function remindSpotlight($channel)
+    public function thankYou($channel)
+    {
+        switch ($channel) {
+            case 'email':
+             $caption = "Emploi Invoice ".$invoice->slug.' was paid.Thank you for your effort to complete this payment.';
+             $contents = "Emploi wishes to sincerely thank you for your payment of invoice <a href='".url('/invoice/'.$invoice->slug)."'>".$invoice->slug."</a> totalling to Ksh ".$invoice->total."<br><br>
+        
+
+            <br>
+            <p>If you have any query, do not hesitate to <a href='".url('/contact')."'>Contact Us</a>.</p>
+            Thank you for choosing Emploi.
+            ";
+            EmailJob::dispatch($invoice->first_name, $invoice->email, 'Thank You Note', $caption, $contents);
+                    return true;
+                    break;
+                
+                default:
+                    return false;
+                    break;
+        }
+    }
+
+    public function remindSpotlight($channel)
     {
         switch ($channel) {
             case 'email':
