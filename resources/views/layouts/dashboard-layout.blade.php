@@ -220,7 +220,7 @@
                 <i class="fab fa-instagram" style="color:  #3f729b; font-size: 30px"></i>
             </a>
         </div>    
-</div>
+
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
     @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
     @include('components.search-form')

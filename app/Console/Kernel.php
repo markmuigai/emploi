@@ -44,13 +44,14 @@ class Kernel extends ConsoleKernel
         //     if (app()->environment() === 'production')
         //         \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
         // });
-        $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('david@emploi.co');
-        $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('david@emploi.co');
-        $schedule->command('command:SendInvoiceReminder')->weeklyOn(1, '7:20');
+        $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
+        $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
         $schedule->command('command:SendVacancyEmails')->dailyAt('01:00')->emailOutputOnFailure('info@emploi.co');
         $schedule->command('command:RevertFeaturedJobs')->dailyAt('20:00');
-        $schedule->command('command: DeactivateExpiredJobs')->dailyAt('08:00');
-
+        $schedule->command('command:DeactivateExpiredJobs')->dailyAt('08:00');
+        $schedule->command('command:ProInvoiceReminder')->monthlyOn(3, '06:30');
+        $schedule->command('command:SpotlightInvoiceReminder')->monthlyOn(3, '07:30');
+        
     }
 
     /**
