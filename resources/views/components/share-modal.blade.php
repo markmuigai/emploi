@@ -14,7 +14,7 @@
                     <a href="{{ $blog->shareTwitterLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-twitter"></i></a>
                     <a href="{{ $blog->shareLinkedinLink }}" target="_blank" rel="noreferrer" style="margin-right: 1em"><i class="fab fa-linkedin"></i></a>
                     <a href="{{ $blog->shareWhatsappLink }}" data-action="share/whatsapp/share" target="_blank" rel="noreferrer" style="margin-right: 1em">
-                        <img src="/images/bg1.jpeg" style="width: 3em">
+                        <img src="/images/bg1.jpeg" alt="social share" style="width: 3em">
                     </a>
                 </div>
             </div>

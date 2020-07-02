@@ -16,7 +16,7 @@
                 <i class="fas fa-times" aria-hidden="true"></i>
               </button>
             <div class="modal-body">
-                <img src="{{ asset('images/csv-instructions.png') }}" style="width: 100%">
+                <img src="{{ asset('images/csv-instructions.png') }}" alt="csv-instructions" style="width: 100%">
                 <p>
                     <b>email </b> should be on the first column <br>
                     <b>names </b> can only be on the second column -OPTIONAL-<br>
