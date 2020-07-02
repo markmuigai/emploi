@@ -49,6 +49,8 @@ $title=isset($title) ? $title : 'Emploi Invoices';
                         <br>
                         {{ $invoice->email }} | {{ $invoice->phone_number }}
                         <br>
+                        {{ $invoice->created_at }}
+                        <br>
                         {{ $invoice->created_at->diffForHumans() }}
                     </div>
                     <div class="col-4 text-right">
