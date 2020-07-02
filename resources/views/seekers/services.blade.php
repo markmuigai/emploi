@@ -118,7 +118,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @media only screen and (max-width: 767px) {
   .snip1214 .plan {
-    width: 50%;
+    width: 100%;
   }
   .snip1214 .plan-title,
   .snip1214 .plan-select a {
