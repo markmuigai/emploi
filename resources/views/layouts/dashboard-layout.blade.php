@@ -65,7 +65,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script> -->
     <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
     <!-- Slick JS -->
-    <script src="{{asset('js/slick.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}"></script>
 </head>
