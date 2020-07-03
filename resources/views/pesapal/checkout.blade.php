@@ -155,44 +155,44 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			</div>
 			<br id="similar-products">
 
-			@if($product->slug == 'seeker_basic')
-				<?php $p2 = \App\Product::where('slug','featured_seeker')->first(); ?>
+			@if($product->slug == 'pro')
+				<?php $p2 = \App\Product::where('slug','spotlight')->first(); ?>
 				@if(isset($p2->id))
 
 					<div class="col-md-10 offset-md-1">
 						<hr>
-						<?php $p2 = \App\Product::where('slug','featured_seeker')->first(); ?>
+						<?php $p2 = \App\Product::where('slug','spotlight')->first(); ?>
 		      			<br>
 						<h4>
 							{{ $p2->title }}
-							<a href="/checkout?product=featured_seeker" class="btn btn-orange-alt" style="float: right;">Get</a>
+							<a href="/checkout?product=spotlight" class="btn btn-orange-alt" style="float: right;">Get</a>
 						</h4>
 
 						<?php echo $p2->description; ?>
 						<br>
-						<a href="/checkout?product=featured_seeker" class="btn btn-orange">Get Package</a>
+						<a href="/checkout?product=spotlight" class="btn btn-orange">Get Package</a>
 					</div>
 
 				@endif
 			@endif
 
-			@if($product->slug == 'featured_seeker')
+			@if($product->slug == 'spotlight')
 
-				<?php $p2 = \App\Product::where('slug','seeker_basic')->first(); ?>
+				<?php $p2 = \App\Product::where('slug','pro')->first(); ?>
 				@if(isset($p2->id))
 
 					<div class="col-md-10 offset-md-1">
 						<hr>
-						<?php $p2 = \App\Product::where('slug','seeker_basic')->first(); ?>
+						<?php $p2 = \App\Product::where('slug','pro')->first(); ?>
 		      			<br>
 						<h4>
 							{{ $p2->title }}
-							<a href="/checkout?product=seeker_basic" class="btn btn-orange-alt" style="float: right;">Get</a>
+							<a href="/checkout?product=pro" class="btn btn-orange-alt" style="float: right;">Get</a>
 						</h4>
 
 						<?php echo $p2->description; ?>
 						<br>
-						<a href="/checkout?product=seeker_basic" class="btn btn-orange">Get Package</a>
+						<a href="/checkout?product=pro" class="btn btn-orange">Get Package</a>
 					</div>
 
 				@endif

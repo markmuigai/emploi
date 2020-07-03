@@ -44,7 +44,7 @@ class Seeker extends Model
         Welcome to Emploi, we're excited to have you on board. <br>
         Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace. With your account, you have access to vacancies from all across Africa. 
         <br>
-        Our <a href='".url('/checkout?product=featured_seeker')."'>Featured Job Seeker Package</a> will ensure your profile stand out and employers get to see you. You'll also <a href='".url('/checkout?product=seeker_basic')."'>Get Notifications</a> on applications status change on shortlisting and reasons for rejection if it comes to that. <br>
+        Our <a href='".url('/checkout?product=spotlight')."'>Featured Job Seeker Package</a> will ensure your profile stand out and employers get to see you. You'll also <a href='".url('/checkout?product=pro')."'>Get Notifications</a> on applications status change on shortlisting and reasons for rejection if it comes to that. <br>
         We have solutions tailored for your career. Our HR team is dedicated to your growth and, with our <a href='".url('/job-seekers/cv-editing')."'>CV Editing Package</a> opens your Career coaching doors and your profile is featured for 1 year, amongs't other benefits.
         <br>
         Have a look around and <a href='".url('/contact')."'>contact us</a> for support should you need it.
@@ -195,7 +195,7 @@ class Seeker extends Model
             for($k=0; $k<count($orders[$i]->productOrders); $k++)
             {
                 $productOrder = $orders[$i]->productOrders[$k];
-                if($productOrder->product->slug == 'seeker_basic' && $productOrder->contents != null && $productOrder->contents != 'completed')
+                if($productOrder->product->slug == 'pro' && $productOrder->contents != null && $productOrder->contents != 'completed')
                     return true;
             }
         }
@@ -783,7 +783,7 @@ class Seeker extends Model
                               </a></p><br><br>                             
                              <h5>PRO Job Seeker Plan</h5>
                             <p>Get real-time notifications when; you are shortlisted,your profile is viewed and when your CV is Requested.</p>   
-                            <a href="'.url('/job-seekers/featured').'"> Get PRO Now. </a><br>';
+                            <a href="'.url('/job-seekers/services').'"> Get PRO Now. </a><br>';
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
                 $contents .= "Blogs From Our Career Centre";

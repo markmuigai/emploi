@@ -94,7 +94,7 @@
 	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</p>
 	                        </div>
 	                        <div class="card-footer">
-	                            <a href="/checkout?product=seeker_basic" class="btn btn-orange">Get - Ksh 49 p.m.</a>
+	                            <a href="/checkout?product=pro" class="btn btn-orange">Get - Ksh 49 p.m.</a>
 	                        </div>
 	                    </div>
 	                    <div class="card">
@@ -107,7 +107,7 @@
 	                        </div>
 	                        <div class="card-footer">
 	                            <small class="text-muted">
-	                                <a href="/checkout?product=featured_seeker" class="btn btn-orange">Get - Ksh 159 p.m.</a>
+	                                <a href="/checkout?product=spotlight" class="btn btn-orange">Get - Ksh 159 p.m.</a>
 	                            </small>
 	                        </div>
 	                    </div>
@@ -146,7 +146,7 @@
 	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter.</p>
 	                        </div>
 	                        <div class="card-footer">
-	                            <a href="/checkout?product=seeker_basic" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
+	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
 	                        </div>
 	                    </div>
 	                    <div class="card">
@@ -158,7 +158,7 @@
 	                        </div>
 	                        <div class="card-footer">
 	                            <small class="text-muted">
-	                                <a href="/checkout?product=featured_seeker" target="_blank" class="btn btn-orange-alt">Get - Ksh 159 p.m.</a>
+	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Get - Ksh 159 p.m.</a>
 	                            </small>
 	                        </div>
 	                    </div>
@@ -230,7 +230,7 @@
 	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter.</p>
 	                        </div>
 	                        <div class="card-footer">
-	                            <a href="/checkout?product=seeker_basic" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
+	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
 	                        </div>
 	                    </div>
 	                    <div class="card">
@@ -242,7 +242,7 @@
 	                        </div>
 	                        <div class="card-footer">
 	                            <small class="text-muted">
-	                                <a href="/checkout?product=featured_seeker" target="_blank" class="btn btn-orange-alt">Get - Ksh 159 p.m.</a>
+	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Get - Ksh 159 p.m.</a>
 	                            </small>
 	                        </div>
 	                    </div>

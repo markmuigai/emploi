@@ -419,12 +419,12 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
 
     public function getFeatured()
     {
-        return redirect(url('/checkout?product=featured_seeker'));
+        return redirect(url('/checkout?product=spotlight'));
     }
 
     public function getAlerts()
     {
-        return redirect(url('/checkout?product=seeker_basic'));
+        return redirect(url('/checkout?product=pro'));
     }
 
     public function cpanel()
