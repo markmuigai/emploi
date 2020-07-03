@@ -206,69 +206,93 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 		
 		<form method="POST"  enctype="multipart/form-data" action="/cv-editing" class="col-md-8 offset-md-2">
 			@csrf
+			<div class="row">
+				<div class="col-md-6">
+					<p>
+						<label>Name:</label>
+						@error('name')
+					    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+					        Invalid name
+					    </div>
+					    @enderror
+						<input type="text" name="name" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->name : old('name') }}">
+					</p>
+				</div>
+		        <div class="col-md-6">
+					<p>
+						<label>Phone Number:</label>
+						@error('phone_number')
+					    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+					        Invalid phone number
+					    </div>
+					    @enderror
+						<input type="number" name="phone_number" required="" maxlength="20" class="form-control" value="{{ old('phone_number') }}" placeholder="2547XXXXXXXX" required="">
+					</p>
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-md-6">
+				<p>
+					<label>Email:</label>
+					@error('email')
+				    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+				        Invalid e-mail address
+				    </div>
+				    @enderror
+					<input type="email" name="email" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->email : old('email') }}">
+				</p>
+			</div>
+			<div class="col-md-6">
+				<p>
+					<label>Current CV: <small>.doc, .docx and .pdf - Max 5MB</small></label>
+					@error('resume')
+				    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+				        Invalid resume uploaded
+				    </div>
+				    @enderror
+					<input type="file" name="resume" required="" accept=".pdf, .doc, .docx">
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<p>
+					<label>Industry:</label>
+					@error('industry')
+				    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+				        Invalid industry selected
+				    </div>
+				    @enderror
+					<select name="industry" class="form-control">
+						@forelse(\App\Industry::orderBy('name')->get() as $ind)
+						<option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
+						@empty
+						@endforelse
+					</select>
+				</p>
+			</div>
+			<div class="col-md-6">
+				<p>
+					<label>Message:</label>
+					@error('message')
+				    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
+				        Invalid message
+				    </div>
+				    @enderror
+					<textarea class="form-control" placeholder="Optional message " maxlength="500" name="message">{{ old('message') }}</textarea>
+				</p>
+			</div>
+		</div>
+	
+            <p>
+            	<input type="submit" style="float: right;" class="btn btn-success" value="Request Service">
+            </p>
 			<p>
-				<label>Name:</label>
-				@error('name')
-			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
-			        Invalid name
-			    </div>
-			    @enderror
-				<input type="text" name="name" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->name : old('name') }}">
+				
+				<a href="#charges" class="btn btn-orange-alt">View Pricing</a>
+				
 			</p>
-			<p>
-				<label>Phone Number:</label>
-				@error('phone_number')
-			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
-			        Invalid phone number
-			    </div>
-			    @enderror
-				<input type="number" name="phone_number" required="" maxlength="20" class="form-control" value="{{ old('phone_number') }}" placeholder="2547XXXXXXXX" required="">
-			</p>
-			<p>
-				<label>Email:</label>
-				@error('email')
-			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
-			        Invalid e-mail address
-			    </div>
-			    @enderror
-				<input type="email" name="email" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->email : old('email') }}">
-			</p>
-			<p>
-				<label>Current CV: <small>.doc, .docx and .pdf - Max 5MB</small></label>
-				@error('resume')
-			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
-			        Invalid resume uploaded
-			    </div>
-			    @enderror
-				<input type="file" name="resume" required="" accept=".pdf, .doc, .docx">
-			</p>
-			<p>
-				<label>Industry:</label>
-				@error('industry')
-			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
-			        Invalid industry selected
-			    </div>
-			    @enderror
-				<select name="industry" class="form-control">
-					@forelse(\App\Industry::orderBy('name')->get() as $ind)
-					<option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
-					@empty
-					@endforelse
-				</select>
-			</p>
-			<p>
-				<label>Message:</label>
-				@error('message')
-			    <div class="text-center my-2 py-1 alert alert-danger" role="alert">
-			        Invalid message
-			    </div>
-			    @enderror
-				<textarea class="form-control" placeholder="Optional message " maxlength="500" name="message">{{ old('message') }}</textarea>
-			</p>
-			<p>
-				<input type="submit" class="btn btn-success" value="Request Service">
-				<a href="#charges" style="float: right;" class="btn btn-orange-alt">View Pricing</a>
-			</p>
+				
 		</form>
 	</div><br>
 	<div class="col-md-12" >
