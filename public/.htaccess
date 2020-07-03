@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    RewriteCond %{HTTPS_HOST} !^www.emploi.co$ [NC]
+    RewriteRule ^(.*)$ https://www.emploi.co/$1 [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
