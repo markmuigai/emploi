@@ -186,7 +186,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <form method="POST" action="/checkout">
                         <div class="plan-select">
                         @csrf
-                        <input type="hidden" name="product" value="seeker_basic">
+                        <input type="hidden" name="product" value="pro">
                         <p>
                         <input type="submit" name="" value="SELECT PLAN" class="btn btn-primary">
                         </p>
@@ -208,7 +208,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                      <form method="POST" action="/checkout">
                         <div class="plan-select">
                         @csrf
-                        <input type="hidden" name="product" value="featured_seeker">
+                        <input type="hidden" name="product" value="spotlight">
                         <p>
                         <input type="submit" name="" value="SELECT PLAN" class="btn btn-primary">
                         </p>
