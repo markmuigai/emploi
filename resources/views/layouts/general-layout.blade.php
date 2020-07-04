@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
     @include('components.meta')
 
-    <link rel="canonical" href="http://emploi.co">
+    <link rel="canonical" href="https://www.emploi.co">
     <!-- STYLESHEETS -->
     <!-- Bootstrap -->
     <link  rel="preload, stylesheet" as="style" href="{{asset('css/bootstrap.min.css')}}">
