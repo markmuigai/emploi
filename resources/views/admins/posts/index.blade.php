@@ -69,7 +69,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </option>
                         </select>
                     </div>
-                       <div class="col-lg-3 col-md-6 col-12">
+                    <div class="col-lg-3 col-md-6 col-12">
                         <select name="easyapply" class="custom-select" onchange="">
                             <option value="true" {{ $p->easy_apply == 'true' ? 'selected="" ': "" }}>
                                 Allow Easy Apply
