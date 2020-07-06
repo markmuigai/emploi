@@ -47,7 +47,7 @@ class ProductOrder extends Model
     	$slug = $p->product->slug;
     	$today = now();
 
-    	if($slug == 'featured_seeker' || $slug == 'entry_level_cv_edit' || $slug == 'mid_level_cv_edit' || $slug == 'c_change_cv_edit' || $slug == 's_mgnt_cv_edit' || $slug == 'mgnt_cv_edit' )
+    	if($slug == 'spotlight' || $slug == 'entry_level_cv_edit' || $slug == 'mid_level_cv_edit' || $slug == 'c_change_cv_edit' || $slug == 's_mgnt_cv_edit' || $slug == 'mgnt_cv_edit' )
     	{
     		if($action == 'activate')
         	{
