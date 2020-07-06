@@ -80,6 +80,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				<form method="POST" action="/checkout">
 					@csrf
 					<input type="hidden" name="createInvoice" value="true">
+				        @if($product->days_duration == 30)            
+					    <h5 class="orange">Click <a href="" id="duration_yearly">here to get 1 month free on yearly payment.</a></h5>
+					    @endif
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="firstName">First name</label>
@@ -329,6 +332,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			submit_clicked = true;
 			$('#days_duration_form').submit();
 		});
+          
+		$('#duration_yearly').click(function(){
+			$('#days_duration').val('365');		
+		    	$('#days_duration_form').submit(); 
+		});
+
 
 		$('#submitButton').click(function(){
 		    submit_clicked = true;
