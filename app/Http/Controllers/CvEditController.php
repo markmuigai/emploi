@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 use Storage;
 
 use App\CvEditor;
 use App\CvEditRequest;
+use App\Referral;
+use App\Parser;
 use App\Seeker;
 use App\User;
+use App\UserPermission;
+
 
 use App\Jobs\EmailJob;
 use App\Notifications\EditingRequest;
@@ -70,9 +75,8 @@ class CvEditController extends Controller
         if($free_review)
         {
             $review_message = '[FREE CV REVIEW]: '.$review_message;
-        }
 
-        $r = CvEditRequest::create([
+                    $r = CvEditRequest::create([
             'email' => $request->email,
             'industry_id' => $request->industry, 
             'name' => $request->name,
@@ -81,6 +85,55 @@ class CvEditController extends Controller
             'slug' => strtolower(User::generateRandomString(30)),
             'original_url' => $resume_url
         ]);
+        $user = User::where('email',$request->email)->first();
+        $created = false;
+        if(!isset($user->id))
+        {
+            $username = explode(" ", strtolower($request->name));
+            $username = implode("-", $username).rand(1000,30000);
+            $password = User::generateRandomString(10);
+            $created = true;
+
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'username' => $username,
+                'email_verification' => User::generateRandomString(10),
+                'password' => Hash::make($password),
+            ]);
+
+            Referral::creditFor($request->email);         
+
+            $seeker = Seeker::create([
+                'user_id' => $user->id,
+                'public_name' => $username,
+                'country_id' => 1,
+                'industry_id' => $request->industry
+            ]);
+
+                $perm = UserPermission::create([
+                'user_id' => $user->id, 
+                'permission_id' => 4
+            ]);        
+                
+
+
+            $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
+            $contents = "Here are your login credentials for Emploi: <br>
+            username: $username <br>
+            Password: $password <br>
+            <br>
+
+            Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+            <br>
+
+            <br>
+                    ";
+            EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+            }
+        }
+
         if(isset($r->id))
         {
 
