@@ -130,7 +130,7 @@ class ProductOrder extends Model
         		
         	}
     	}
-    	if($slug == 'seeker_basic')
+    	if($slug == 'pro')
     	{
     		if($action == 'activate')
         	{
