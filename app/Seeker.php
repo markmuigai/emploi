@@ -780,10 +780,7 @@ class Seeker extends Model
                 $contents .=  '<p style= "background:orange; color:white; text-align:center">Requesting for CV Editing?</p><p>Reach us via Call
                               <a href="tel:+254702068282">+254 702 068 282</a>/<a href="tel:+254774569001">+254774569001</a> or 
                               <a href="'.url('/job-seekers/cv-editing').'"> click here to request.
-                              </a></p><br><br>                             
-                             <h5>PRO Job Seeker Plan</h5>
-                            <p>Get real-time notifications when; you are shortlisted,your profile is viewed and when your CV is Requested.</p>   
-                            <a href="'.url('/job-seekers/services').'"> Get PRO Now. </a><br>';
+                              </a></p><br><br>';
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
                 $contents .= "Blogs From Our Career Centre";
