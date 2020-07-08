@@ -149,11 +149,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <!-- SERVICES -->
 <div class="services my-3">
     <div class="container">
-        <div class="text-center">        
-            <a href="/job-seekers/featured">
-                <img src="/images/featured.png" alt="get featured"> 
-            </a>    
-        </div>               
+         <div class=" col-md-8 offset-md-2">
+            <div class="card my-2">
+                  <a href="/job-seekers/featured">
+                     <img src="/images/featured.png" alt="get featured" style="width: 100%"> 
+                  </a>
+            </div>
+        </div>            
         <br>             
         <div class="card">
             <div class="card-body text-center">

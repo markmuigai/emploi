@@ -81,7 +81,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					@csrf
 					<input type="hidden" name="createInvoice" value="true">
 				        @if($product->days_duration == 30)            
-					    <h5 class="orange">Click <a href="" id="duration_yearly">here to get 1 month free on yearly payment.</a></h5>
+					    <h5 class="orange"><a href="" id="duration_yearly">Click here to get 1 month free on yearly payment.</a></h5>
 					    @endif
 					<div class="row">
 						<div class="col-md-6 mb-3">
