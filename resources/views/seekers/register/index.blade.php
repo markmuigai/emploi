@@ -19,46 +19,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('content')
 @section('user_title','Job Seeker Registration')
 
-<!-- STATISTICS -->
 
-    <div class="container">      
-            <div class="text-center">
-                <div class="card">
-                    <h3>Job Seekers on Emploi;</h3>           
-                    <h3 class="counter" id="total-candidates-stats"><span>44138</span></h3>
-                </div>                        
-                <h3 class="orange">
-                    Join them and get hired today.       
-                </h3>                               
-            </div>   
-    <script type="text/javascript">
-        $().ready(function(){
-
-            function loadStatistics(){
-                $.ajax({
-                    type: 'GET',
-                    url: '/api/total-candidates?csrf-token='+$('#csrf_token').attr('content'),
-                    success: function(response) {
-                        
-                        $('#total-candidates-stats').empty();
-                        $('#total-candidates-stats').append('<span>'+response+'</span>');
-                        
-                    },
-                    error: function(e) {
-
-                        
-                    },
-                });
-            }
-            loadStatistics();
-            setInterval(loadStatistics,10000);
-            
-        });
-    </script>
-</div>
-<!-- END OF STATISTICS -->
-
-
+    <h5 class="orange">Ready to jumpstart,  change or advance your career path?  Sign up today and get started.
+    Join a pool of <span style="color: black">48,000+ job seekers.</span></h5><br>
 <form method="POST" action="/create-account">
     @csrf
     @honeypot
