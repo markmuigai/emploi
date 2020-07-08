@@ -21,9 +21,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <a href="/employers/browse/{{ $application->username }}">
                             {{ $application->name }}
                             <?php $c = \Carbon\Carbon::createFromDate($application->created_at); ?>
-                        </a> applied for 
+                        </a>   {{ $application->email }}   {{ $application->phone_number }} applied for 
                         <a href="/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job, {{ $c->diffForHumans() }}
-                    </li>
+                    </li><br>
 
                 @empty
 

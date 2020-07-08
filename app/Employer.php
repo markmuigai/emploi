@@ -298,7 +298,7 @@ class Employer extends Model
         // return $posts;
     }
 
-    public function recentApplications($counter = 5){
+    public function recentApplications($counter = 8){
         $posts = array();
         $c = "SELECT id FROM companies WHERE user_id = ".$this->user->id;
         $c = DB::select($c);
@@ -335,7 +335,7 @@ class Employer extends Model
         if($posts == '()')
             return array();
 
-        $sql = "SELECT users.username, users.name, posts.slug, posts.title, job_applications.id, job_applications.user_id, job_applications.post_id, job_applications.created_at FROM job_applications LEFT JOIN users ON users.id = job_applications.user_id LEFT JOIN posts ON posts.id = job_applications.post_id WHERE job_applications.post_id IN  $posts ORDER BY job_applications.created_at DESC LIMIT $counter ";
+        $sql = "SELECT users.username, users.name, users.email, seekers.phone_number, posts.slug, posts.title, job_applications.id, job_applications.user_id, job_applications.post_id, job_applications.created_at FROM job_applications LEFT JOIN users ON users.id = job_applications.user_id LEFT JOIN  seekers ON seekers.user_id = job_applications.user_id LEFT JOIN posts ON posts.id = job_applications.post_id WHERE job_applications.post_id IN  $posts ORDER BY job_applications.created_at DESC LIMIT $counter ";
 
         $applications = DB::select($sql);
 
