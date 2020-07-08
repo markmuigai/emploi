@@ -89,6 +89,22 @@
                 </div>
             </div>
         </div>
+
+        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
+            <div class="card-body">
+            <!--     <h2 class="text-center orange">Job Seeker Feedback</h2> -->
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-sm-5 col-md-2">
+                         <img src="/images/testimonials/wallace.jpg" data-src="{{asset('/images/testimonials/wallace.jpg')}}" alt="Agnes Mutua"  class="w-100 lazy">
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <p>Thank you for your services. I now feel like I ought to have been feeling all along - like a professional. Thanks for the good wishes. I also hope to get positive feedback on my job applications. I would definitely recommend Emploi to fellow professionals and job seekers. Thank you. Emploi is amazing.</p>
+                        <hr class="short">
+                        <h5>Wallace Gichungu Wangechi</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
   @include('components.blogs')
