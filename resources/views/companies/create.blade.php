@@ -31,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>
-                        Name: *
+                        Name: <b style="color: red">*</b>
                         @error('name')
                             <strong class="pull-right text-danger"> * A company with this name has been registered *</strong>
                         @enderror
@@ -71,12 +71,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <div class="form-group">
                     <label>
-                        Contact E-mail Address:
+                        Contact E-mail Address: <b style="color: red">*</b>
                         @error('email')
                             <strong class="pull-right text-danger"> * Invalid E-mail address *</strong>
                         @enderror
                     </label>
-                    <input type="email" name="email" placeholder="someone@yourcompany.com" class="form-control" maxlength="50" value="{{ old('email') }}">
+                    <input type="email" name="email" placeholder="someone@yourcompany.com" class="form-control" maxlength="50" value="{{ old('email') }}" required="required" >
                 </div>
 
                 <div class="form-group">

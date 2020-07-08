@@ -61,7 +61,6 @@ class CompanyController extends Controller
 
         $request->validate([
             'name'          =>  ['required','max:50', 'unique:companies','string'],
-            'about'         =>  ['required','max:2000' ,'string'],
             'logo'          => ['required','mimes:png,jpg,jpeg','max:51200'],
             'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
         ]);
@@ -160,11 +159,11 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name'          =>  ['required','max:50','string'],
-            'about'         =>  ['required' ,'string'],
+            'about'         =>  ['string'],
             'website'       =>  ['max:255' ,'string'],
             'phone_number'  =>  ['max:20' ,'string'],
-            'tagline'       =>  ['required' ,'max:2000' ,'string'],
-            'email'         =>  ['max:20' ,'email'],
+            'tagline'       =>  ['max:2000' ,'string'],
+            'email'         =>  ['required', 'max:20' ,'email'],
             'logo'          => ['mimes:png,jpg,jpeg','max:51200'],
             'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
         ]);
