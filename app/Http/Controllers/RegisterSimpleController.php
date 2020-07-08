@@ -119,6 +119,6 @@ class RegisterSimpleController extends Controller
     public function seeker(){
         return view('seekers.register.index')
                 ->with('industries',Industry::orderBy('name')->get())
-                ->with('countries',Country::orderBy('name')->get());
+                ->with('countries',Country::orderBy('created_at')->orderBy('name')->get());
     }
 }
