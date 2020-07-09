@@ -83,6 +83,10 @@
                             <span style="display: none">Follow us on Instagram</span>
                             <i class="fab fa-instagram"></i>
                         </a>
+                        <a href="https://www.youtube.com/channel/UC6pk7QBB_ezkJmLto-nk3yw" target="_blank" rel="noreferrer">
+                            <span style="display: none">Subscribe on Youtube</span>
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
             </div>
