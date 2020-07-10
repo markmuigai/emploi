@@ -20,8 +20,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('user_title','Job Seeker Registration')
 
 
-    <h5 class="orange">Ready to jumpstart,  change or advance your career path?  Sign up today and get started.
-    Join a pool of <span style="color: black">48,000+ job seekers.</span></h5><br>
+   <!--  <h5 class="orange">Ready to jumpstart,  change or advance your career path?  Sign up today and get started.
+    Join a pool of <span style="color: black">48,000+ job seekers.</span></h5><br> -->
 <form method="POST" action="/create-account">
     @csrf
     @honeypot
