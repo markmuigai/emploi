@@ -47,6 +47,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-md-3" style="text-align: center;">
                 <a href="/employers/browse/{{$seeker->user->username}}">{{ $seeker->user->name }}</a>
                     <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" style="width: 100%" alt="{{ $seeker->user->username }}">
+                    <div style="color: orange">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
                 <i>{{ $seeker->industry->name }}</i> <br>
                 <a href="/employers/browse/{{$seeker->user->username}}" class="btn btn-orange btn-sm" target="_blank">View Profile</a>
                 <br>
