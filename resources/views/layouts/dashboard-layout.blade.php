@@ -199,10 +199,12 @@
 
             </div>
         </div>
+    </main>                      
+        
 
-    </main>
-                        
-        <div class="social-icons" aria-orientation="vertical">
+    <!-- END OF MAIN CONTENT FOR EMPLOYER -->
+    <div style="text-align: right;">
+           <div class="" aria-orientation="horizontal">
             <a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer">
                 <span style="display: none">Follow us on Facebook</span>
                 <i class="fa fa-facebook" style="color: #3b5998; font-size: 30px"></i>
@@ -223,9 +225,8 @@
                 <span style="display: none">Subscribe on Youtube</span>
                 <i class="fab fa-youtube" style="color:  #c4302b; font-size: 30px"></i>
             </a>
-        </div>    
-
-    <!-- END OF MAIN CONTENT FOR EMPLOYER -->
+        </div> 
+    </div>
     @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
     @include('components.search-form')
     @endif
