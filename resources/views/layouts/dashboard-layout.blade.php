@@ -203,7 +203,7 @@
         
 
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
-    <div style="text-align: right;">
+<!--     <div style="text-align: right;">
            <div class="" aria-orientation="horizontal">
             <a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer">
                 <span style="display: none">Follow us on Facebook</span>
@@ -226,7 +226,7 @@
                 <i class="fab fa-youtube" style="color:  #c4302b; font-size: 30px"></i>
             </a>
         </div> 
-    </div>
+    </div> -->
     @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
     @include('components.search-form')
     @endif

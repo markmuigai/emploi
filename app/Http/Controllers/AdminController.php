@@ -645,45 +645,55 @@ class AdminController extends Controller
                 break;
 
             case 'unregistered-employers':
-                $filter = '';
-                if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
-                {
-                    $filter = " WHERE industry = $industry";
-                }
-                elseif ($industry == 'test-users') {
-                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'david@emploi.co' ";
-                }
-                $sql = "SELECT * FROM companies $filter";
+                $storage_path = storage_path();
+                $file = $storage_path.'/app/unregistered-employers.csv';
+                if(file_exists($file)){
+                    
+                    $handle = fopen($file, "r");
+                    for ($i = 0; $row = fgetcsv($handle ); ++$i) {
 
-                $result = DB::select($sql);
-                foreach($result as $company)
-                {
-                    $user = User::find($company->user_id);
-                    if(isset($company->email) && $company->user_id == 3)
-                    VacancyEmail::dispatch($company->email,$company->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                        $email = User::cleanEmail($row[0]);
+                        
+                        if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
+                        {
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            //print "<br> ".$row[0];
+                        }
+                        
+                    }
+                    fclose($handle);
+                    
                 }
-                
-                
+                else
+                {
+                    die("File $file not found");
+                }
                 break;
 
             case 'all-employers':
-                $filter = '';
-                if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
-                {
-                    $filter = " WHERE industry = $industry";
-                }
-                elseif ($industry == 'test-users') {
-                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'david@emploi.co' ";
-                }
-                $sql = "SELECT * FROM companies $filter";
+                $storage_path = storage_path();
+                $file = $storage_path.'/app/unregistered-employers.csv';
+                if(file_exists($file)){
+                    
+                    $handle = fopen($file, "r");
+                    for ($i = 0; $row = fgetcsv($handle ); ++$i) {
 
-                $result = DB::select($sql);
-                foreach($result as $company)
+                        $email = User::cleanEmail($row[0]);
+                        
+                        if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
+                        {
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            //print "<br> ".$row[0];
+                        }
+                        
+                    }
+                    fclose($handle);
+                    
+                }
+                else
                 {
-                    $user = User::find($company->user_id);
-                    if(isset($company->email) && $company->user_id == 3)
-                    VacancyEmail::dispatch($company->email,$company->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
-                }    
+                    die("File $file not found");
+                }  
 
                 $filter = '';
                 if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
@@ -706,7 +716,28 @@ class AdminController extends Controller
                 }
 
                 break;
+
+            case 'companies':
+                $filter = '';
+                if($industry != 'all' && $industry != 'incomplete' && $industry != 'corrupt' && $industry != 'incomplete-edu' && $industry != 'incomplete-exp')
+                {
+                    $filter = " WHERE industry = $industry";
+                }
+                elseif ($industry == 'test-users') {
+                    $filter = " WHERE email = 'brian@jobsikaz.com' OR email = 'david@emploi.co' ";
+                }
+                $sql = "SELECT * FROM companies $filter";
+
+                $result = DB::select($sql);
+                foreach($result as $company)
+                {
+                    $user = User::find($company->user_id);
+                    if(isset($company->email) && $company->user_id == 3)
+                    VacancyEmail::dispatch($company->email,$company->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
                 
+                
+                break;
             case 'unregistered':
                 $users = UnregisteredUser::all();
                 for($i=0; $i<count($users); $i++)
