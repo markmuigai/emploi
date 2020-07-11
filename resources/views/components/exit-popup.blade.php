@@ -88,21 +88,27 @@
 				<div class="modal-body">
 					<div class="card-deck">
 	                    <div class="card">
-	                        <img class="card-img-top" src="/images/logo.png" alt="Job Seeker Premium Placement">
 	                        <div class="card-body">
-	                            <h5 class="card-title">Basic Package</h5>
-	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</p>
+	                            <h5 class="card-title">Pro</h5>
+	                            <p class="card-text">
+                                	<ul class="tick">
+                                		<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
+                                	</ul>    
+	                            </p>
 	                        </div>
 	                        <div class="card-footer">
 	                            <a href="/checkout?product=pro" class="btn btn-orange">Get - Ksh 49 p.m.</a>
 	                        </div>
 	                    </div>
 	                    <div class="card">
-	                        <img class="card-img-top" src="/images/logo.png" alt="Latest Vacancies">
 	                        <div class="card-body">
-	                            <h5 class="card-title">Featured Package</h5>
+	                            <h5 class="card-title">Spotlight</h5>
 	                            <p class="card-text">
-	                            	Ensure your profile appears first on employer lists, including applications and in searches. 
+	                            		<ul class="tick">            
+									    <li>Have your profile rank first in applications and searches.</li>
+										<li>Get real-time analytics.</li>
+										<li>Get notifications when an employer shortlists you or when your profile is viewed.</li>
+									</ul>
 	                            </p>
 	                        </div>
 	                        <div class="card-footer">
@@ -115,7 +121,7 @@
 	                </div>
 	                <div style="text-align: center;">
 	                	<br>
-	                	<a href="{{ url('/job-seekers/cv-editing') }}" class="btn btn-sm btn-orange-alt">Get Professional CV Editing</span></a>
+	                	<a href="{{ url('/job-seekers/cv-editing') }}" class="btn btn-sm btn-orange-alt">Get Professional CV Editing</span></a> OR  <a class="btn btn-orange-alt" href="/job-seekers/free-cv-review">Free CV Review</a>
 	                </div>
 				</div>
 			</div>
@@ -142,8 +148,10 @@
 					<div class="card-deck">
 	                    <div class="card">
 	                        <div class="card-body">
-	                            <h5 class="card-title">Basic Package</h5>
-	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter.</p>
+	                            <h5 class="card-title">Pro</h5>
+	                            <p class="card-text">
+	                            	<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
+	                            </p>
 	                        </div>
 	                        <div class="card-footer">
 	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
@@ -151,9 +159,13 @@
 	                    </div>
 	                    <div class="card">
 	                        <div class="card-body">
-	                            <h5 class="card-title">Featured Package</h5>
+	                            <h5 class="card-title">Spotlight</h5>
 	                            <p class="card-text">
-	                            	Ensure your profile appears first on employer lists, including applications and searches in addition to notifications. 
+	                            	<ul class="tick">            
+										<li>Have your profile rank first in applications and searches.</li>
+										<li>Get real-time analytics.</li>
+										<li>Get notifications when an employer shortlists you or when your profile is viewed.</li>
+									</ul>
 	                            </p>
 	                        </div>
 	                        <div class="card-footer">
@@ -226,8 +238,12 @@
 					<div class="card-deck">
 	                    <div class="card">
 	                        <div class="card-body">
-	                            <h5 class="card-title">Basic Package</h5>
-	                            <p class="card-text">Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter.</p>
+	                            <h5 class="card-title">Pro</h5>
+	                            <p class="card-text">
+	                            <ul class="tick"> 
+	                            	<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
+	                            </ul>
+	                            </p>
 	                        </div>
 	                        <div class="card-footer">
 	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
@@ -235,9 +251,13 @@
 	                    </div>
 	                    <div class="card">
 	                        <div class="card-body">
-	                            <h5 class="card-title">Featured Package</h5>
+	                            <h5 class="card-title">Spotlight</h5>
 	                            <p class="card-text">
-	                            	Ensure your profile appears first on employer lists, including applications and searches in addition to notifications. 
+									<ul class="tick">            
+										<li>Have your profile rank first in applications and searches.</li>
+										<li>Get real-time analytics.</li>
+										<li>Get notifications when an employer shortlists you or when your profile is viewed.</li>
+									</ul> 
 	                            </p>
 	                        </div>
 	                        <div class="card-footer">

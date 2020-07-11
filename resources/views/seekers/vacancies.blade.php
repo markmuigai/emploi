@@ -8,7 +8,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @section('content')
 @section('page_title', $title)
-<h5 class="orange">Get all the latest jobs in one place and apply</h5>
+<h5 class="orange">Get all the latest jobs in one place and apply.</h5>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}"> 
      <div class="col-lg-2 col-md-6 py-2">         
         <div class="nav-item dropdown">
@@ -65,10 +65,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         @if(isset($search_vtype) || isset($search_ind) || isset($search_location) || isset($search_query))
         <button type="reset" name="button" class="btn btn-sm btn-danger ml-3"><a href="/vacancies">Reset</a></button>
         @endif
-        <a class="btn btn-orange-alt" href="/job-seekers/free-cv-review">Free CV Review</a>
-        <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-orange">CV Editing</a>
-        <a href="/employers/publish" class="btn btn-orange-alt">Advertise here</a>
-        <a href="/events" class="btn btn-orange">Events</a>
         <hr>
     </div>
 </form> 

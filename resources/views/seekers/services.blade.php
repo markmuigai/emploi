@@ -229,16 +229,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li><i class="ion-checkmark"> </i>Professionally Customized CV and Cover Letter</li>
                         <li><i class="ion-checkmark"> </i>Post Placement follow-up and support</li>   
                         </ul><br>
-                  <div class="plan-select"><a href="#jservices-footer" class="btn btn-primary"> SELECT PLAN</a></div>
+                  <div class="plan-select"><a href="#summit" class="btn btn-primary"> SELECT PLAN</a></div>
               </div>
          </div>
     </div>
-</div><br><br>
-
-
+</div>
+<br id="summit"><br><br>
 <h3 class="orange" style="text-align: center;">Summit Packages</h3>
 <h5 style="text-align: center;">Take your career to the Summit with Emploi.</h5>
-    <div class="row justify-content-center" id="jservices-footer">
+    <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="card my-2">
                 <div class="card-body">
@@ -279,7 +278,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>               
 </div>
 
-<br id="testimonialsView">
   <br>
 
   @include('components.testimonials.cv-edit')<br>
