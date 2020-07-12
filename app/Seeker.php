@@ -187,7 +187,7 @@ class Seeker extends Model
     }
 
     public function canGetNotifications(){
-        if($this->featured == 1)
+        if($this->featured >= 1)
             return true;
         $orders = $this->user->orders;
         for($i=0; $i<count($orders); $i++)
