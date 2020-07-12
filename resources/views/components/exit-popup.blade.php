@@ -78,7 +78,7 @@
 				<div class="modal-header" style="background-color: #500095; color: white">
 					
 					<h4 class="modal-title" style="text-align: center">
-						Get the Most out of Emploi
+						Get Noticed by Employers and Never Miss A Job Update!
 					</h4>
 			
 				</div>
@@ -137,7 +137,7 @@
 				<div class="modal-header" style="background-color: #500095; color: white">
 					
 					<h4 class="modal-title" style="text-align: center">
-						Get the Most out of Emploi
+						Get Noticed by Employers and Never Miss A Job Update!
 					</h4>
 			
 				</div>
@@ -227,7 +227,7 @@
 				<div class="modal-header" style="background-color: #500095; color: white">
 					
 					<h4 class="modal-title" style="text-align: center">
-						Get the Most out of Emploi
+						Get Noticed by Employers and Never Miss A Job Update!
 					</h4>
 			
 				</div>

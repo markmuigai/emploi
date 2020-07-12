@@ -176,37 +176,30 @@ See how we are supporting companies and individuals in the fight against COVID-1
           </div>
         </div>
       </div>
-         
-   <!--  <div class="row bottom_grids pt-md-3">
-      <div class="col-lg-4 mt-5">
-        <div class="s-block">
-          <a href="https://emploi.co/events/cv-writing-webinar" class="d-block p-lg-4 p-3">
-            <h3 class="my-3"> Professional CV writing masterclass Webinar</h3>
-            <p class="">
-            Agenda: Addressing simple CV Mistakes, CV that transcends Borders and continents, Cover letters, productive job search during the Covid-19 pandemic, and solidifying your economic and mental status during and even after this pandemic.
-            </p>
-          </a>
+  </div>
+  <div class="container py-5">
+       <div class="col-md-12 card" >
+            <div class="row">
+                <div class="col-md-4 card">
+                     <iframe src="https://www.youtube.com/embed/7pj-dCfYptc" frameborder="0" allowfullscreen></iframe>                    
+                            <h4>Technology and Employment: Our CEO's interview with Ndereva Hillary of Y254 TV</h4>
+                            <p>Conversations around the Future of Work. what is @emploi.co doing to help jobseekers cope during this transition.?
+                            </p>                       
+                  </div>
+                  <div class="col-md-4 card">
+                     <iframe src="https://www.youtube.com/embed/BVJ4punLoMc" frameborder="0" allowfullscreen></iframe>                    
+                            <h4>Resume Tips Make Yourself a Stronger Candidate Today!</h4>
+                            <p>Here is Maggie giving insight into Emploi's CV editing service. LISTEN, SIGN UP AND GET HIRED TODAY.
+                            </p>                       
+                  </div>
+                  <div class="col-md-4 card">
+                     <iframe src="https://www.youtube.com/embed/E6dTmonX6Vk" frameborder="0" allowfullscreen></iframe>                    
+                            <h4>Emploi Services-Land that dream job Today!</h4>
+                            <p>Is your job search prooving tough? Make it easier by signing up at Emploi.co Today! 
+                            </p>                       
+                </div>
+            </div>                       
         </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mt-5">
-        <div class="s-block">
-          <a href="https://emploi.co/blog/skills-jobseekers-can-learn-while-locked-down-to-make-them-more-employable" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">what will I have to show for myself once this is over?</h3>
-            <p class="">We discuss the skills Job Seekers can learn while locked down to make them more employable </p>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mt-5">
-        <div class="s-block">
-          <a href="https://emploi.co/blog/how-employers-should-handle-their-staff-during-the-covid-19-pandemic" class="d-block p-lg-4 p-3">
-            <h3 class="my-3">How Employers Should Handle Their Staff during the COVID-19 Pandemic</h3>
-            <p class="">
-              We discuss in depth the employers perspective of covid-19 and how it affects businesses, a must read for business owners.
-            </p>
-          </a>
-        </div>
-      </div>
-    </div> -->
   </div>
 </section>
 <!-- /index-block2 -->
