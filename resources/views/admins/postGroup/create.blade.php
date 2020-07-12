@@ -84,7 +84,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             $newPosts .= ',';
     }
     $newPosts = '['.$newPosts.']';
-    print 'posts = '.$newPosts.';';
+    print 'posts = ".$newPosts.";';
     ?>
     $().ready(function(){
         $('#save-job-post-group').click(function(){

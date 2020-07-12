@@ -193,13 +193,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </a>    
 </div>
 @endif
-@if($adsCounter == 7)
-<div style="width: 100%; text-align: center;">
-    <a href="https://bit.ly/2VJwsdE"  target="_blank">
-        <img src="/images/banners/kaziipo_banner.jpeg" alt="Kaziipo"> 
-    </a>    
-</div>
-@endif
 @empty
 
 <div class="card">
