@@ -17,6 +17,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					<span class="text-muted">Your cart</span>
 					<span class="badge badge-secondary badge-pill">1</span>
 				</h4>
+				   @if($product->days_duration == 30)            
+					    <h5 class="orange"><a href="" id="duration_yearly">Click here to get 1 month free on yearly payment.</a></h5>
+					@endif
 				<ul class="list-group mb-3">
 					<li class="list-group-item d-flex justify-content-between lh-condensed">
 						<div>
@@ -69,20 +72,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 						</li>
 					@endguest
 					
-				</ul>
-				<hr>
-				<p style="text-align: center;">
-					<a href="#similar-products" class="btn btn-orange-alt">View Other Products</a>
-				</p>
-				
+				</ul>		 
+						
 			</div>
 			<div class="col-md-7 order-md-1">
 				<form method="POST" action="/checkout">
 					@csrf
 					<input type="hidden" name="createInvoice" value="true">
-				        @if($product->days_duration == 30)            
-					    <h5 class="orange"><a href="" id="duration_yearly">Click here to get 1 month free on yearly payment.</a></h5>
-					    @endif
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="firstName">First name</label>
@@ -144,6 +140,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					<hr class="mb-4">
 					<button class="btn btn-primary btn-lg btn-block" id="submitButton" type="submit">Continue to checkout</button>
 				</form>
+				<hr>
+				<p style="text-align: center;">
+					<a href="#similar-products" class="btn btn-orange-alt">Go to other products</a>
+				</p>
+
 
 				
 			</div>
@@ -152,7 +153,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       	<div class="row">
       		<div class="col-md-10 offset-md-1">
       		 	<br>
-				<h4>Product Description</h4>
+				<h4>Benefits</h4>
 
 				<?php echo $product->description; ?><br>
 			</div>
