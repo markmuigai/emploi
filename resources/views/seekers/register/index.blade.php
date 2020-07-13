@@ -22,6 +22,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
    <!--  <h5 class="orange">Ready to jumpstart,  change or advance your career path?  Sign up today and get started.
     Join a pool of <span style="color: black">48,000+ job seekers.</span></h5><br> -->
+<div class="container text-center">
+    <div class="sign-left ">
+        <a href="https://emploi.co/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://emploi.co/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
+        <a href="https://emploi.co/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
+    </div><hr>
 <form method="POST" action="/create-account">
     @csrf
     @honeypot
@@ -101,6 +107,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     or 
     <a href="/employers/register" class="btn btn-sm btn-orange-alt px-5">Company Registration</a>
 </h5>
+</div>
 
 @include('components.ads.responsive')
 
