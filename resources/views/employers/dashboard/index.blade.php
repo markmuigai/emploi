@@ -46,7 +46,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @foreach($featuredSeekers as $seeker)
             <div class="col-md-3" style="text-align: center;">
                 <a href="/employers/browse/{{$seeker->user->username}}">{{ $seeker->user->name }}</a>
-                    <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" style="width: 100%" alt="{{ $seeker->user->username }}">
+                    <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" style="width: 100%; border-radius: 50" alt="{{ $seeker->user->username }}">
                     <div style="color: orange">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
