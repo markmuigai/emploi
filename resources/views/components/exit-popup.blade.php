@@ -150,7 +150,9 @@
 	                        <div class="card-body">
 	                            <h5 class="card-title">Pro</h5>
 	                            <p class="card-text">
-	                            	<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
+                                	<ul class="tick">
+                                		<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
+                                	</ul>    
 	                            </p>
 	                        </div>
 	                        <div class="card-footer">
