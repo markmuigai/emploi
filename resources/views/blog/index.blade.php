@@ -137,24 +137,25 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <div>
         {{ $blogs->links() }}
     </div>
-        <div class="col-md-12 card" >
+        <div class="col-md-12" >
+            <h4 class="orange" style="text-align: center;">Career Videos</h4>
             <div class="row">
-                <div class="col-md-4">
-                     <iframe width="560" height="315" src="https://www.youtube.com/embed/7pj-dCfYptc" frameborder="0" allowfullscreen></iframe>                    
+               <div class="col-md-4 card">
+                     <iframe src="https://www.youtube.com/embed/7pj-dCfYptc" frameborder="0" allowfullscreen></iframe>                    
                             <h4>Technology and Employment: Our CEO's interview with Ndereva Hillary of Y254 TV</h4>
-                            <p>Conversations around the Future of Work. what is @emploi.co doing to help jobseekers cope during this transition.?
+                            <p>Conversations around, the future of work, What is @emploi.co doing to help jobseekers cope during this transition.?
                             </p>                       
-                </div>
-                <div class="col-md-4">
-                     <iframe width="560" height="315" src="https://www.youtube.com/embed/BVJ4punLoMc" frameborder="0" allowfullscreen></iframe>                    
+                  </div>
+                  <div class="col-md-4 card">
+                     <iframe src="https://www.youtube.com/embed/BVJ4punLoMc" frameborder="0" allowfullscreen></iframe>                    
                             <h4>Resume Tips Make Yourself a Stronger Candidate Today!</h4>
                             <p>Here is Maggie giving insight into Emploi's CV editing service. LISTEN, SIGN UP AND GET HIRED TODAY.
                             </p>                       
-                </div>
-                <div class="col-md-4">
-                     <iframe width="560" height="315" src="https://www.youtube.com/embed/E6dTmonX6Vk" frameborder="0" allowfullscreen></iframe>                    
+                  </div>
+                  <div class="col-md-4 card">
+                     <iframe src="https://www.youtube.com/embed/E6dTmonX6Vk" frameborder="0" allowfullscreen></iframe>                    
                             <h4>Emploi Services-Land that dream job Today!</h4>
-                            <p>Is your job search prooving tough? Make it easier by signing up at Emploi.co Today! 
+                            <p>Is your job search proving tough? Make it easier by signing up at Emploi.co today! 
                             </p>                       
                 </div>
             </div>                       

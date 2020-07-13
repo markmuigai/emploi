@@ -178,12 +178,13 @@ See how we are supporting companies and individuals in the fight against COVID-1
       </div>
   </div>
   <div class="container py-5">
-       <div class="col-md-12 card" >
+       <div class="col-md-12" >
+              <h3 style="text-align: center; color: orange">Videos</h3><hr>
             <div class="row">
                 <div class="col-md-4 card">
                      <iframe src="https://www.youtube.com/embed/7pj-dCfYptc" frameborder="0" allowfullscreen></iframe>                    
                             <h4>Technology and Employment: Our CEO's interview with Ndereva Hillary of Y254 TV</h4>
-                            <p>Conversations around the Future of Work. what is @emploi.co doing to help jobseekers cope during this transition.?
+                            <p>Conversations around, the future of work, What is @emploi.co doing to help jobseekers cope during this transition.?
                             </p>                       
                   </div>
                   <div class="col-md-4 card">
@@ -195,7 +196,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
                   <div class="col-md-4 card">
                      <iframe src="https://www.youtube.com/embed/E6dTmonX6Vk" frameborder="0" allowfullscreen></iframe>                    
                             <h4>Emploi Services-Land that dream job Today!</h4>
-                            <p>Is your job search prooving tough? Make it easier by signing up at Emploi.co Today! 
+                            <p>Is your job search proving tough? Make it easier by signing up at Emploi.co today! 
                             </p>                       
                 </div>
             </div>                       
