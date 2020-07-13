@@ -135,7 +135,7 @@ class ContactController extends Controller
     public function jobSeekerFaqs(Request $request)
     {
         return view('seekers.faqs')
-                ->with('faqs',Faq::where('permission_id',4)->paginate(10));
+                ->with('faqs',Faq::where('permission_id',4)->orderBy('created_at', 'desc')->paginate(10));
     }
 
     public function employerFaqs(Request $request)
