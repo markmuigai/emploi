@@ -134,7 +134,7 @@
     <script src="{{asset('js/notify.min.js')}}" ></script>
     <script src="{{asset('js/emploi-notify.js')}}" ></script>
     <!-- Slick JS -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}" ></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>

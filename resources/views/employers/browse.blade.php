@@ -76,6 +76,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <p>
                             {{ $s->industry->name }}
                         </p>
+                        <p>
+                            @if(isset($s->educationLevel))
+                            Education Level: {{ $s->educationLevel->name }}
+                            @endif
+                        </p>
                         <p><i class="fas fa-map-marker-alt orange"></i>
                             @if(isset($s->location))
                             {{ $s->location->name.', '.$s->location->country->code }}
