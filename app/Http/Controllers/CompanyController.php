@@ -60,7 +60,7 @@ class CompanyController extends Controller
         //return $request->all();
 
         $request->validate([
-            'name'          =>  ['required','max:50', 'unique:companies','string'],
+            'name'          =>  ['required','max:80', 'unique:companies','string'],
             'logo'          => ['required','mimes:png,jpg,jpeg','max:51200'],
             'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
         ]);
@@ -158,7 +158,7 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name'          =>  ['required','max:50','string'],
+            'name'          =>  ['required','max:80','string'],
             'about'         =>  ['string'],
             'website'       =>  ['max:255' ,'string'],
             'phone_number'  =>  ['max:20' ,'string'],
