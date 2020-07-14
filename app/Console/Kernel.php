@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\DisableProducts',
         'App\Console\Commands\EnableProducts',
         'App\Console\Commands\SendVacancyEmails',
-        'App\Console\Commands\DeactivateExpiredJobs'
+        'App\Console\Commands\DeactivateExpiredJobs',
+        'App\Console\Commands\SendCompleteProfileEmails'
 
     ];
 
@@ -51,6 +52,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('command:DeactivateExpiredJobs')->dailyAt('08:00');
         $schedule->command('command:ProInvoiceReminder')->monthlyOn(3, '06:30');
         $schedule->command('command:SpotlightInvoiceReminder')->monthlyOn(3, '07:30');
+        $schedule->command('command:SendCompleteProfileEmails')->monthlyOn(14, '11:00');
         
     }
 

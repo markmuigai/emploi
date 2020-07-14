@@ -800,7 +800,32 @@ class Seeker extends Model
         }
              
     }
-        
+
+
+    public function completeProfileReminder($channel)
+    {
+        switch ($channel) {
+            case 'email':
+                $caption = "Compete your job-seeker profile on Emploi.";
+                $contents = "Employers are passing over your profile. Complete your profile to unlock the following benefits;
+                             <ul style= 'text-align:left'>
+                                 <li>Entice a recruiter with your complete work and education history</li>
+                                 <li>Stand a much higher chance of being shortlisted</li>
+                                 <li>Get recommended to an employer</li>
+                                 <li>Increase your Role Suitability Index (RSI)</li>
+                             </ul>
+
+                Click <a href='".url('/profile/edit')."'>here</a> to complete."
+                ;
+                EmailJob::dispatch($this->user->name, $this->user->email, 'Complete Profile', $caption, $contents);
+                return true;
+                break;
+            
+            default:
+                return false;
+                break;
+        }
+    }      
          
           
 
