@@ -22,7 +22,7 @@
         @empty
         @endforelse
     </div>
-    <a href="/companies" class="btn btn-orange">See Who Is Hiring</a>
+    <a href="/companies" class="btn btn-orange">See Who Is Hiring</a><br>
     @endif
     <script type="text/javascript">
         $().ready(function(){
