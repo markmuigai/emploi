@@ -196,7 +196,7 @@
 				<div class="modal-header" style="background-color: #fff; color: #000">
 					
 					<h4 class="modal-title" style="text-align: center">
-						Get a <span class="blink_text">20% Discount</span> on advertising
+						Get a <span class="blink_text">20% Discount</span> on your job advertisements.
 					</h4>
 			
 				</div>
