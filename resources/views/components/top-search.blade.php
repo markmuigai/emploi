@@ -41,9 +41,9 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <h5>{{ __('jobs.j_by_cat') }}</h5>
                 <ul>
-                    <li>
+<!--                     <li>
                         <a href="/vacancies/featured">{{ __('jobs.f_jobs') }}</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="/vacancies/full-time">Full-time Jobs</a>
                     </li>
