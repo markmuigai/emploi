@@ -17,13 +17,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <ul>
                 @forelse($recentApplications as $application)
 
-                    <li>
+                  <li>
                         <a href="/employers/browse/{{ $application->username }}">
                             {{ $application->name }}
                             <?php $c = \Carbon\Carbon::createFromDate($application->created_at); ?>
-                        </a>   {{ $application->email }}   {{ $application->phone_number }} applied for 
+                        </a> applied for 
                         <a href="/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job, {{ $c->diffForHumans() }}
-                    </li><br>
+                    </li>
 
                 @empty
 
