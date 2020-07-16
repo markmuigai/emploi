@@ -205,7 +205,13 @@
 					<div class="card-deck">
 	                    <div class="card">
 	                        <div class="card-body">
-	                            <p class="card-text">Your advertisement will be viewed by tens of thousands through our website and social media platforms.</p>
+	                            <h6  style="text-align: center;">Benefits</h6>
+	                            <ul>
+	                            	<li>Advertise cheaply with a 20% discount on all our advertisement packages</li>
+	                                <li>Get your job advertisement viewed by tens of thousands of job seekers</li>
+	                                <li>Receive qualified applications from the first day</li>
+	                                <li>Easily shortlist or reject applications with professional response templates</li>
+	                            </ul>
 	                        </div>
 	                        <div class="footer" style="text-align: center">
 	                            <a href="/employers/rate-card" class="btn btn-orange">Request</a>
