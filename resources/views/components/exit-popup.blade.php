@@ -26,19 +26,19 @@
      100% { opacity: 1.0; }
      }
 </style>
-<div id="seekerRegisterModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		    <!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #500095; color: white">
-					
-					<h4 class="modal-title">
+
+<div class="modal fade" id="seekerRegisterModal" role="dialog" aria-labelledby="seekerRegisterModal" aria-hidden="true">	
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	    <!-- Modal content-->
+		<div class="modal-content px-3 pt-3">
+			<div class="modal-body">
+				<div class="modal-header">					
+					<h4 class="orange">
 						Get Your Dream Job Today
 					</h4>
 					
 				</div>
-				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerRegisterModal">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerRegisterModal">
 	                <i class="fas fa-times" aria-hidden="true"></i>
 	              </button>
 				<div class="modal-body">
@@ -70,19 +70,18 @@
 	</div>
 </div>
 
-<div id="seekerPackages" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		    <!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #500095; color: white">
-					
-					<h4 class="modal-title" style="text-align: center">
+<div class="modal fade" id="seekerPackages" role="dialog"  aria-hidden="true">	
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	    <!-- Modal content-->
+		<div class="modal-content px-3 pt-3">
+			<div class="modal-body">
+				<div class="modal-header">					
+					<h5 class="orange" style="text-align: center">
 						Get Noticed by Employers and Never Miss A Job Update!
-					</h4>
+					</h5>
 			
 				</div>
-				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerPackages">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerPackages">
 	                <i class="fas fa-times" aria-hidden="true"></i>
 	              </button>
 				<div class="modal-body">
@@ -129,19 +128,18 @@
 	</div>
 </div>
 
-<div id="seekerServices" class="modal fade" role="dialog">
-	<div class="modal-dialog">
+<div class="modal fade" id="seekerServices" role="dialog" aria-labelledby="seekerService" aria-hidden="true">	
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		    <!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #500095; color: white">
-					
-					<h4 class="modal-title" style="text-align: center">
+			<div class="modal-content px-3 pt-3">
+				<div class="modal-body">
+				<div class="modal-header">					
+					<h5 class="orange" style="text-align: center">
 						Get Noticed by Employers and Never Miss A Job Update!
-					</h4>
+					</h5>
 			
 				</div>
-				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerServices">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerServices">
 	                <i class="fas fa-times" aria-hidden="true"></i>
 	              </button>
 				<div class="modal-body">
@@ -150,29 +148,29 @@
 	                        <div class="card-body">
 	                            <h5 class="card-title">Pro</h5>
 	                            <p class="card-text">
-                                	<ul class="tick">
-                                		<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
-                                	</ul>    
+	                            <ul class="tick"> 
+	                            	<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
+	                            </ul>
 	                            </p>
 	                        </div>
 	                        <div class="card-footer">
-	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
+	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Buy - Ksh 49 p.m.</a>
 	                        </div>
 	                    </div>
 	                    <div class="card">
 	                        <div class="card-body">
 	                            <h5 class="card-title">Spotlight</h5>
 	                            <p class="card-text">
-	                            	<ul class="tick">            
+									<ul class="tick">            
 										<li>Have your profile rank first in applications and searches.</li>
 										<li>Get real-time analytics.</li>
 										<li>Get notifications when an employer shortlists you or when your profile is viewed.</li>
-									</ul>
+									</ul> 
 	                            </p>
 	                        </div>
 	                        <div class="card-footer">
 	                            <small class="text-muted">
-	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Get - Ksh 159 p.m.</a>
+	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Buy - Ksh 159 p.m.</a>
 	                            </small>
 	                        </div>
 	                    </div>
@@ -180,7 +178,7 @@
 	                </div>
 	                <div style="text-align: center;">
 	                	<br>
-	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank" >Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
+	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
 	                </div>
 				</div>
 			</div>
@@ -188,19 +186,19 @@
 	</div>
 </div>
 
-<div id="employerServices" class="modal fade" role="dialog">
-	<div class="modal-dialog">
+
+<div class="modal fade" id="employerServices" role="dialog" aria-labelledby="employerService" aria-hidden="true">	
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		    <!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #fff; color: #000">
-					
-					<h4 class="modal-title" style="text-align: center">
+			<div class="modal-content px-3 pt-3">
+				<div class="modal-body">
+				<div class="modal-header">					
+					<h5 class="orange" style="text-align: center">
 						Get a <span class="blink_text">20% Discount</span> on your job advertisements.
-					</h4>
+					</h5>
 			
 				</div>
-				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeEmployerServices">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerServices">
 	                <i class="fas fa-times" aria-hidden="true"></i>
 	              </button>
 				<div class="modal-body">
@@ -221,19 +219,18 @@
 	</div>
 </div>
 
-<div id="seekerService" class="modal fade" role="dialog">
-	<div class="modal-dialog">
+<div class="modal fade" id="seekerService" role="dialog" aria-labelledby="seekerService" aria-hidden="true">	
 		<div class="modal-dialog modal-dialog-centered" role="document">
 		    <!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #500095; color: white">
-					
-					<h4 class="modal-title" style="text-align: center">
+			<div class="modal-content px-3 pt-3">
+				<div class="modal-body">
+				<div class="modal-header">					
+					<h5 class="orange" style="text-align: center">
 						Get Noticed by Employers and Never Miss A Job Update!
-					</h4>
+					</h5>
 			
 				</div>
-				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerService">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerService">
 	                <i class="fas fa-times" aria-hidden="true"></i>
 	              </button>
 				<div class="modal-body">
@@ -248,7 +245,7 @@
 	                            </p>
 	                        </div>
 	                        <div class="card-footer">
-	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Get - Ksh 49 p.m.</a>
+	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Buy - Ksh 49 p.m.</a>
 	                        </div>
 	                    </div>
 	                    <div class="card">
@@ -264,7 +261,7 @@
 	                        </div>
 	                        <div class="card-footer">
 	                            <small class="text-muted">
-	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Get - Ksh 159 p.m.</a>
+	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Buy - Ksh 159 p.m.</a>
 	                            </small>
 	                        </div>
 	                    </div>
@@ -279,22 +276,22 @@
 		</div>
 	</div>
 </div>
-<div id="cvEditing" class="modal fade" role="dialog">
-	<div class="modal-dialog">
+
+
+<div class="modal fade" id="cvEditing" role="dialog" aria-labelledby="cvEditing" aria-hidden="true">	
 		<div class="modal-dialog modal-dialog-centered" role="document">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header" style="background-color: #500095; color: white">
-					
-					<h4 class="modal-title">
+		    <!-- Modal content-->
+			<div class="modal-content px-3 pt-3">
+				<div class="modal-body">
+				<div class="modal-header">					
+					<h5 class="orange" style="text-align: center">
 						CV EDITING OFFER!
-					</h4>
-				  <!--   <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">x</button>	 -->
+					</h5>
+			
 				</div>
-				 <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal" aria-label="Close" id="cvEditing">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerService">
 	                <i class="fas fa-times" aria-hidden="true"></i>
 	              </button>
-
 				<div class="modal-body">
 					<div class="card-deck">
 	                    <div class="card">	                    	
