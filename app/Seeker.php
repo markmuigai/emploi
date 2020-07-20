@@ -734,13 +734,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(3))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(15))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -826,7 +826,31 @@ class Seeker extends Model
                 break;
         }
     }      
+    
+
+    public function sendProfileAnalytics($channel)
+        {     
+
+            $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";               
+            $contents ="Here is analysis for you;<br><br>
+
+            <p>Your profile has attracted  ".$this->user->seeker->view_count." views. <br></p> 
+            <br>
          
+            Applications: ".count(\App\JobApplication::Where('user_id',$this->user->id)->get())."<br>
+            Shortlisted: ".count(\App\JobApplication::Where('user_id',$this->user->id)->Where('status', 'shortlisted')->get())."<br>
+            Rejected: ".count(\App\JobApplication::Where('user_id',$this->user->id)->Where('status', 'rejected')->get())."<br>
+
+            
+            <a href='".url('/checkout?product=spotlight')."'>Subsribe to the yearly plan and get a one month free.</a>    
+            ";                                                                                
+               
+
+            EmailJob::dispatch($this->user->name, $this->user->email, 'Profile Views', $caption, $contents);
+            return true;
+        }
+             
+       
           
 
 
