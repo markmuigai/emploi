@@ -846,7 +846,7 @@ class Seeker extends Model
             ";                                                                                
                
 
-            EmailJob::dispatch($this->user->name, $this->user->email, 'Profile Views', $caption, $contents);
+            EmailJob::dispatch($this->user->name, $this->user->email, 'Get One Month Free On Spotlight Annual Plan', $caption, $contents);
             return true;
         }
              
