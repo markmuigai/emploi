@@ -675,6 +675,10 @@ class Seeker extends Model
 
         $completed = round($completed / $total * 100); 
 
+        if ($this->user->avatar == NULL) {
+            $completed = $completed - 8;
+        }
+
         return $completed;
     }
 
