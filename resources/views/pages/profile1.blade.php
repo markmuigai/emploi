@@ -79,11 +79,21 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     <span class="badge badge-success">Searching</span>
                                     @endif
                                 </h6>
-                                @if(!$user->seeker->hasCompletedProfile())
+
+                                <?php $completed =  $user->seeker->calculateProfileCompletion(); ?>
+                                @if($completed != 100)
+                                    <p class="text-center"><strong>{{ $completed }}%</strong>  <a href="/profile/edit" class="text-danger"> of your profile is complete. Update your profile to increase your chances of being shortlisted among other benefits.</a>
+                                    </p>.
+                                @else
+                                    <p class="text-center"><strong>{{ $completed }}%</strong> <span class="text-success">    Congratulations. You have completed your profile.</span>
+                                    </p> 
+                                @endif                        
+                            
+                              <!--   @if(!$user->seeker->hasCompletedProfile())
                                 <p class="text-center">
                                     <a href="/profile/edit" class="text-danger"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
                                 </p>
-                                @endif
+                                @endif -->
                             </div>
                         </div>
                         <div class="row mb-2 text-center about-icons">
