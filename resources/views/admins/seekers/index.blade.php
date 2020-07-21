@@ -95,6 +95,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Profile Views: <b>{{ $seeker->view_count }}</b></p>
             </div>
             <div class="col-md-4 col-12 text-md-right text-left">
+                <?php $completed =  $seeker->calculateProfileCompletion(); ?>
+                <p><strong>{{ $completed }}%</strong> completed</p>
                 <p><a href="mailto:{{ $seeker->user->email }}" class="orange">{{ $seeker->user->email }}</a></p>
                 <p>{{ $seeker->phone_number }}</p>
                 <p>{{ $seeker->sex }}</p>

@@ -664,6 +664,20 @@ class Seeker extends Model
         return round($perc,2);
     }
 
+    public function calculateProfileCompletion()
+    {
+        $completed = 0;
+        $profileElements = ['resume', 'education_level_id', 'education', 'date_of_birth', 'years_experience', 'location_id', 'experience', 'gender', 'phone_number', 'current_position', 'post_address', 'industry_id', 'country_id', 'objective', 'featured'];
+        $total = count($profileElements);
+        foreach($profileElements as $element) {
+            $completed += !empty($this->{$element}) ? 1 : 0;
+        }
+
+        $completed = round($completed / $total * 100); 
+
+        return $completed;
+    }
+
     public function hasPersonalityTrait($trait_id){
         $sql = "SELECT id FROM seeker_personality_traits WHERE seeker_id = ".$this->id." LIMIT 1";
         $result = DB::select($sql);
@@ -734,13 +748,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(3))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(16))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(15))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
