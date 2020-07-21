@@ -55,12 +55,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="form-group">
                 <label>
-                    Tagline: 
+                    Tagline: *
                     @error('tagline')
                         <strong class="text-danger"> * Invalid company Tagline *</strong>
                     @enderror
                 </label>
-                <input type="text" name="tagline" placeholder="" value="{{ $company->tagline }}" class="form-control" maxlength="255">
+                <input type="text" name="tagline" placeholder="" value="{{ $company->tagline }}" required="required" class="form-control" maxlength="255">
             </div>
 
             <div class="form-group">
