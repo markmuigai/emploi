@@ -163,7 +163,7 @@ class CompanyController extends Controller
             'website'       =>  ['max:255' ,'string'],
             'phone_number'  =>  ['max:20' ,'string'],
             'tagline'       =>  ['max:2000' ,'string'],
-            'email'         =>  ['required', 'max:20' ,'email'],
+            'email'         =>  ['max:20' ,'email'],
             'logo'          => ['mimes:png,jpg,jpeg','max:51200'],
             'cover'         => ['mimes:png,jpg,jpeg','max:51200'],
         ]);
