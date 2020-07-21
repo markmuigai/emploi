@@ -30,7 +30,7 @@
                     // $featured = \App\Post::featured(10);
                     // $missing = 10 - count($featured);
                 ?>
-                <h5>{{ __('jobs.f_jobs') }}</h5>
+                <h5><a href="/vacancies/featured">{{ __('jobs.f_jobs') }} </a></h5>
                 <ul>
                     @forelse($posts as $f)
                     <li><a href="/vacancies/{{ $f->slug }}">{{ $f->getTitle(true) }}</a></li>
