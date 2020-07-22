@@ -752,7 +752,7 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(16))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
