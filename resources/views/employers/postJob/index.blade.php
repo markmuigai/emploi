@@ -89,13 +89,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <p>Even Business Park, Airport North Rd, Nairobi </p>
               </div>
             </div>
-
-              <div>
-                <br><br>
-                <a href="/employers/publish">
-                  <img src="/images/promotions/free-job-posting.jpg" style="width: 100%" style="border-radius: 5%">
-                </a>              
-              </div>
           </div>
       </div>
     </div>
