@@ -164,6 +164,13 @@ class Seeker extends Model
                 $messages[] = "Your <b>profile indicates you are not looking for a job</b>, change this setting to searching to be considered for positions."; 
                 
             }
+
+            if($this->user->avatar == NULL)
+            {
+                $opportunities = true;
+                $messages[] = "Your have not added a photo to your profile, add a passport size photo of you today to increase your credibility"; 
+                
+            }
             
             if($opportunities)
             {
