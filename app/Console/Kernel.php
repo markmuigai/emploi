@@ -47,9 +47,9 @@ class Kernel extends ConsoleKernel
         // });
         $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
         $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
-        $schedule->command('command:SendVacancyEmails')->tuesdays()->emailOutputOnFailure('info@emploi.co');
-        $schedule->command('command:SendVacancyEmails')->thursdays()->emailOutputOnFailure('info@emploi.co');
-        $schedule->command('command:SendVacancyEmails')->saturdays()->emailOutputOnFailure('info@emploi.co');
+        // $schedule->command('command:SendVacancyEmails')->tuesdays()->emailOutputOnFailure('info@emploi.co');
+        // $schedule->command('command:SendVacancyEmails')->thursdays()->emailOutputOnFailure('info@emploi.co');
+        // $schedule->command('command:SendVacancyEmails')->saturdays()->emailOutputOnFailure('info@emploi.co');
         $schedule->command('command:RevertFeaturedJobs')->dailyAt('20:00');
         $schedule->command('command:DeactivateExpiredJobs')->dailyAt('08:00');
         $schedule->command('command:ProInvoiceReminder')->monthlyOn(3, '06:30');
