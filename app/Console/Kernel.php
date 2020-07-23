@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         'App\Console\Commands\DisableProducts',
         'App\Console\Commands\EnableProducts',
-        'App\Console\Commands\SendVacancyEmails',
+        // 'App\Console\Commands\SendVacancyEmails',
         'App\Console\Commands\DeactivateExpiredJobs',
         'App\Console\Commands\SendCompleteProfileEmails'
 
