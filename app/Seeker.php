@@ -674,16 +674,31 @@ class Seeker extends Model
     public function calculateProfileCompletion()
     {
         $completed = 0;
-        $profileElements = ['resume', 'education_level_id', 'education', 'date_of_birth', 'years_experience', 'location_id', 'experience', 'gender', 'phone_number', 'current_position', 'post_address', 'industry_id', 'country_id', 'objective', 'featured'];
+        $profileElements = ['resume', 'education_level_id', 'education', 'years_experience',  'experience', 'phone_number', 'current_position'];
         $total = count($profileElements);
         foreach($profileElements as $element) {
             $completed += !empty($this->{$element}) ? 1 : 0;
         }
 
-        $completed = round($completed / $total * 100); 
+        $completed = round($completed / $total * 70); 
 
-        if ($this->user->avatar == NULL) {
-            $completed = $completed - 8;
+        if ($this->user->seeker->featured > 0) 
+        {
+            $completed = $completed + 12;
+        }
+        
+        if ($this->user->seeker->location_id != NULL) {
+            $completed = $completed + 6;
+        }
+        
+        if ($this->user->seeker->objective != NULL)
+        {
+            $completed = $completed + 6;
+        }
+
+        if ($this->user->avatar != NULL) 
+        {
+            $completed = $completed + 6;
         }
 
         return $completed;
@@ -759,13 +774,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(2))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(1))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
