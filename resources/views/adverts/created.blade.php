@@ -49,7 +49,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @endif
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 mt-5">
+<!--       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
           <a href="#blog-single.html" class="d-block p-lg-4 p-3">
             <h3 class="my-3">Free Covid-19 Listing</h3>
@@ -65,7 +65,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </form>
           
         </div>
-      </div>
+      </div> -->
       <div class="col-lg-4 mt-5">
         <div class="s-block">
           <a href="#blog-single.html" class="d-block p-lg-4 p-3">

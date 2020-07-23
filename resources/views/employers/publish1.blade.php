@@ -47,7 +47,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
                 
             </div>
-
+<!-- 
             <div class="col-md-12">
                 <div class="row">
                     <a href="#advertise-form" class="col-md-8 offset-md-2 mt-1">
@@ -55,7 +55,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     </a>
                 </div>
                 
-            </div>
+            </div> -->
 
             
 
