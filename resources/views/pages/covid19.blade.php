@@ -58,7 +58,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
       <div class="col-lg-4 col-md-6 mt-5">
          <div class="s-block">
             <div style="border: 2px solid #500095; padding: 10px;">
-              <a href="/job-seekers/cv-editing" class="d-block p-lg-4 p-3">
+              <a href="/job-seekers/" class="d-block p-lg-4 p-3">
               <h3 class="my-3">50% off CV Editing</h3>
               <p class="">We've slashed our Professional CV Editing service fee by 50% as we work to get you an interview.</p>
             </a>
@@ -189,7 +189,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
                 </div>
                 <div class="col-md-4 card">
                      <iframe src="https://www.youtube.com/embed/BVJ4punLoMc" frameborder="0" allowfullscreen></iframe>                    
-                            <h4><a href="/job-seekers/cv-editing"> Resume Tips-Make Yourself a Stronger Candidate Today!</a></h4>
+                            <h4><a href="/job-seekers/summit"> Resume Tips-Make Yourself a Stronger Candidate Today!</a></h4>
                             <p>Here is Maggie giving insight into Emploi's CV editing service. LISTEN, SIGN UP AND GET HIRED TODAY.
                             </p>                       
                 </div>

@@ -45,7 +45,7 @@ class Seeker extends Model
         Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace. With your account, you have access to vacancies from all across Africa. 
         <br>
         Our <a href='".url('/checkout?product=spotlight')."'>Featured Job Seeker Package</a> will ensure your profile stand out and employers get to see you. You'll also <a href='".url('/checkout?product=pro')."'>Get Notifications</a> on applications status change on shortlisting and reasons for rejection if it comes to that. <br>
-        We have solutions tailored for your career. Our HR team is dedicated to your growth and, with our <a href='".url('/job-seekers/cv-editing')."'>CV Editing Package</a> opens your Career coaching doors and your profile is featured for 1 year, amongs't other benefits.
+        We have solutions tailored for your career. Our HR team is dedicated to your growth and, with our <a href='".url('/job-seekers/summit')."'>CV Editing Package</a> opens your Career coaching doors and your profile is featured for 1 year, amongs't other benefits.
         <br>
         Have a look around and <a href='".url('/contact')."'>contact us</a> for support should you need it.
         <br><br>
@@ -180,7 +180,7 @@ class Seeker extends Model
                 $contents .= "</ol>";
             }
 
-            $contents .= "<br> We offer <a href='".url('/job-seekers/cv-editing')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
+            $contents .= "<br> We offer <a href='".url('/job-seekers/summit')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
             
             //return $contents;
 
@@ -819,7 +819,7 @@ class Seeker extends Model
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
                 $contents .=  '<p style= "background:orange; color:white; text-align:center">Requesting for CV Editing?</p><p>Reach us via Call
                               <a href="tel:+254702068282">+254 702 068 282</a>/<a href="tel:+254774569001">+254774569001</a> or 
-                              <a href="'.url('/job-seekers/cv-editing').'"> click here to request.
+                              <a href="'.url('/job-seekers/summit').'"> click here to request.
                               </a></p><br><br>';
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 

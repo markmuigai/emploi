@@ -53,7 +53,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <button type="submit" name="button" class="btn btn-orange">Submit Application</button>
 
-            <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;" title="STAND OUT FROM THE CROUD">Get Professional CV Editing</a>
+            <a href="/job-seekers/summit" class="btn btn-orange-alt" style="float: right;" title="STAND OUT FROM THE CROUD">Get Professional CV Editing</a>
 
                 <p style="text-align: center;">
                     <hr>

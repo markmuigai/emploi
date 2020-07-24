@@ -127,9 +127,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/job-seekers/services">{{ __('other.a_services') }}</a>
+                        <a class="dropdown-item" href="/job-seekers/summit">Summit</a>
                         <a class="dropdown-item" href="/register">{{ __('jobs.u_cv') }}</a>
-                        <a class="dropdown-item" href="/job-seekers/cv-editing">{{ __('jobs.cv_edit') }}</a>
-                        <a class="dropdown-item" href="/job-seekers/exclusive-placement">Exclusive Placement</a>
                         <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
                 </li>

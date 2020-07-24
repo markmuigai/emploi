@@ -15,5 +15,5 @@ if(isset(Auth::user()->id))
 <p>
     <a href="#featured-vacancies" class="btn btn-orange px-4">{{ __('jobs.l_vacancies') }}</a>
     <br class="for-mobile"><br class="for-mobile">
-    <a href="/job-seekers/cv-editing#request-cv-edit-form" class="btn btn-white px-4">{{ __('jobs.r_cv_edit') }}</a>
+    <a href="/job-seekers/summit" class="btn btn-white px-4">{{ __('jobs.r_cv_edit') }}</a>
 </p>

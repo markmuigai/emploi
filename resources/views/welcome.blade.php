@@ -195,7 +195,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         <p class="card-text">{{ __('jobs.cv_edit_txt') }}</p>
                                     </div>
                                     <div class="card-footer">
-                                        <a href="/job-seekers/cv-editing" class="btn btn-orange">{{ __('other.r_serv') }}</a>
+                                        <a href="/job-seekers/summit" class="btn btn-orange">{{ __('other.r_serv') }}</a>
                                     </div>
                                 </div>
                                 <div class="card">
@@ -394,7 +394,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <p>Looking for a job? Maybe your CV doesn't stand out! Let us catapult your career and land you a job with our professional CV Editing.</p>
                     <h4>More than <span class="seeker-stats"><span>2207</span></span> professionals got their path to success.</h4>
                     <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange">Explore Vacancies</a>
-                    <a href="/job-seekers/cv-editing" class="btn btn-white px-4">Request CV Editing</a>
+                    <a href="/job-seekers/summit" class="btn btn-white px-4">Request CV Editing</a>
                 @endif
                 @if(Auth::user()->role == 'employer')
                     <h1>Let us recruit for you</h1>

@@ -116,7 +116,7 @@
 							<li><a href="/job-seekers/services">{{ __('other.a_services') }}</a></li>
 							<li><a href="/register" style="font-weight: bold;">Upload CV</a></li>
 
-							<li><a href="/job-seekers/cv-editing">CV Editing</a></li>
+							<li><a href="/job-seekers/summit">CV Editing</a></li>
 							<li><a href="/job-seekers/cv-templates">CV Templates</a></li>
 
 							<li><a href="/job-seekers/premium-placement">Premium Placement</a></li>
@@ -167,7 +167,7 @@
 					<h4>Services</h4>
 					<ul class="f_list f_list1">
 						<li><a href="/register">Upload CV</a></li>
-						<li><a href="/job-seekers/cv-editing">CV Editing</a></li>
+						<li><a href="/job-seekers/summit">CV Editing</a></li>
 						<li style="display: none;"><a href="/employers/publish">Advertise</a></li>
 						<li><a href="/contact">Contact</a></li>
 					</ul>

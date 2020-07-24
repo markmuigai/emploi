@@ -5,7 +5,7 @@
 	<div class="col-md-10 offset-md-1 responseSlider">
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/20%_advertising_disount.jpg" alt="20% discount on job advertising" class="col-md-4">
+				<img src="/images/advertising-20%-disount.jpg" alt="20% discount on job advertising" class="col-md-4">
 				<div class="col-md-8">
 					<p>
 						Emploi is posting vacancies at a 20% discount for all the companies.<br>
@@ -31,7 +31,7 @@
 					</p>
 					<p>
 						<a href="/job-seekers/free-cv-review" class="btn btn-orange-alt">Get Free CV Review</a>
-						<a href="/job-seekers/cv-editing" class="btn btn-orange">Get 50% Off CV Editing</a>
+						<a href="/job-seekers/summit" class="btn btn-orange">Get 50% Off CV Editing</a>
 					</p>
 				</div>
 				<img src="/images/promotions/slashed-prices-on-cv-editing.png" alt="Free CV Review During Covid-19 Pandemic" class="col-md-4">

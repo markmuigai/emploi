@@ -283,7 +283,7 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
                 @endguest
                 </i>
-                <a href="/job-seekers/cv-editing" class="btn btn-orange-alt" style="float: right;">Get Professional Help</a>
+                <a href="/job-seekers/summit" class="btn btn-orange-alt" style="float: right;">Get Professional Help</a>
             </p>
 
         </form>

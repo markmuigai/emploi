@@ -62,7 +62,7 @@
 				</div>
 				<div class="modal-footer" style="text-align: center;">
 					<a href="{{ url('/register') }}" class="btn btn-sm btn-orange-alt">Upload CV</a>
-					<a href="{{ url('/job-seekers/cv-editing') }}" class="btn btn-sm btn-orange-alt">CV Editing</a>
+					<a href="{{ url('/job-seekers/summit') }}" class="btn btn-sm btn-orange-alt">CV Editing</a>
 					<a href="{{ url('/employers/register') }}" class="btn btn-sm btn-orange-alt">Company Registration</a>
 				</div>
 			</div>
@@ -120,7 +120,7 @@
 	                </div>
 	                <div style="text-align: center;">
 	                	<br>
-	                	<a href="{{ url('/job-seekers/cv-editing') }}" class="btn btn-sm btn-orange-alt">Get Professional CV Editing</span></a> OR  <a class="btn btn-orange-alt" href="/job-seekers/free-cv-review">Free CV Review</a>
+	                	<a href="{{ url('/job-seekers/summit') }}" class="btn btn-sm btn-orange-alt">Get Professional CV Editing</span></a> OR  <a class="btn btn-orange-alt" href="/job-seekers/free-cv-review">Free CV Review</a>
 	                </div>
 				</div>
 			</div>
@@ -178,7 +178,7 @@
 	                </div>
 	                <div style="text-align: center;">
 	                	<br>
-	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
+	                	<a href="{{ url('/job-seekers/summit') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
 	                </div>
 				</div>
 			</div>
@@ -275,7 +275,7 @@
 	                </div>
 	                <div style="text-align: center;">
 	                	<br>
-	                	<a href="{{ url('/job-seekers/cv-editing') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
+	                	<a href="{{ url('/job-seekers/summit') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
 	                </div>
 				</div>
 			</div>
@@ -305,7 +305,7 @@
 	                            <p class="card-text">
 	                             <p>Have you updated your CV? How good is it?</p>	
 	                             <h6>At Emploi we give you a <span class="blink_text">50% Discount</span> on CV Editing Services.</h6>
-	                             <a href="{{ url('/job-seekers/cv-editing') }}" target="_blank" class="btn btn-orange">Request Now</a>
+	                             <a href="{{ url('/job-seekers/summit') }}" target="_blank" class="btn btn-orange">Request Now</a>
 	                        </div>
 	                    </div>                    
                     </div>

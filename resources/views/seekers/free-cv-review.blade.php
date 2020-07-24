@@ -11,7 +11,7 @@ Get a free CV review from our Experts and stand out from the crowd.
 	<div class="text-center">
 		<h2 class="orange text-center">Free CV Review</h2>
 		<p>
-			Get a Free CV Review plus <a href="/job-seekers/cv-editing">a 50% discount on Cv edit</a> from our experts and stand out from the crowd
+			Get a Free CV Review plus <a href="/job-seekers/summit">a 50% discount on Cv edit</a> from our experts and stand out from the crowd
 		</p>
 	</div>
 	

@@ -531,15 +531,11 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function eservices(){
         return view('employers.services');
     }
-
-    public function cvediting(){
-        return view('seekers.cv-editing');
-    }
     public function cvtemplates(){
         return view('seekers.cv-templates'); 
     }
-    public function eplacement(){
-        return view('seekers.exclusive-placement');
+    public function summit(){
+        return view('seekers.summit');
     }
     public function jservices(){
         return view('seekers.services')

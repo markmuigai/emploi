@@ -148,7 +148,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
                 <div class="col-md-4 card">
                      <iframe src="https://www.youtube.com/embed/BVJ4punLoMc" frameborder="0" allowfullscreen></iframe>                    
-                            <h4><a href="/job-seekers/cv-editing"> Resume Tips-Make Yourself a Stronger Candidate Today!</a></h4>
+                            <h4><a href="/job-seekers/summit"> Resume Tips-Make Yourself a Stronger Candidate Today!</a></h4>
                             <p>Here is Maggie giving insight into Emploi's CV editing service. LISTEN, SIGN UP AND GET HIRED TODAY.
                             </p>                       
                 </div>
