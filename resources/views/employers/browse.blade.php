@@ -88,6 +88,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             {{ $s->country->name }}
                             @endif
                         </p>
+                        <?php $completed =  $s->user->seeker->calculateProfileCompletion(); ?>
+                        <p>Profile Completion: <strong>{{ $completed }}%</strong></p>
                         @if(count(Auth::user()->employer->shortlistingPosts) > 0)
                         <form method="post" action="/employers/shortlist" class="row">
                             @csrf
