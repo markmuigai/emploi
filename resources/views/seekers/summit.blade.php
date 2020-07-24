@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <div class="text content-left summit-header"><br><br><br>
         <div style="margin-left: 50px; color: white">
             <h1 >Summit Plan</h1>
-             <p>Coaching and Support that gets you a job<br> in which you will thrive not survive</p>
+             <p>Coaching and support that gets you a job<br> in which you will thrive not survive</p>
         </div>          
     </div><br>
   
