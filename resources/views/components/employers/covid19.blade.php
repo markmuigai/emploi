@@ -5,7 +5,7 @@
 	<div class="col-md-10 offset-md-1 responseSlider">
 		<div class="card">
 			<div class="card-body row">
-				<img src="/images/advertising20%disount.jpg" alt="20% discount on job advertising" class="col-md-4">
+				<img src="/images/advertising_20%_disount.jpg" alt="20% discount on job advertising" class="col-md-4">
 				<div class="col-md-8">
 					<p>
 						Emploi is posting vacancies at a 20% discount for all the companies.<br>
