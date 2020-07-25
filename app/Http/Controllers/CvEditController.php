@@ -72,11 +72,12 @@ class CvEditController extends Controller
 
         $review_message = $request->message ? $request->message : 'No custom message';
 
-        if($free_review)
+         if($free_review)
         {
             $review_message = '[FREE CV REVIEW]: '.$review_message;
+        }
 
-                    $r = CvEditRequest::create([
+            $r = CvEditRequest::create([
             'email' => $request->email,
             'industry_id' => $request->industry, 
             'name' => $request->name,
@@ -132,7 +133,6 @@ class CvEditController extends Controller
             EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
             }
-        }
 
         if(isset($r->id))
         {
@@ -241,7 +241,6 @@ class CvEditController extends Controller
         }
         return redirect('/cv-editing/'.$slug);
     }
-
     public function destroy($id)
     {
         //

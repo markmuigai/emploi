@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <div class="text content-left summit-header"><br><br><br>
         <div style="margin-left: 50px; color: white">
             <h1 >Summit Plan</h1>
-             <p>Coaching and support that gets you a job<br> in which you will thrive not survive</p>
+             <p>Coaching and support that gets you a job<br> in which you will thrive not just survive</p>
         </div>          
     </div><br>
   
@@ -91,7 +91,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         
                                       ?>
                                       <h5><del>Kshs {{ $price }}</del></h5>
-                                         <p>Entry Level</p>
+                                         <p>Mid Level</p>
                                           <br><br>
                                           <div class="orange">50% off</div>
                                           <h5>Kshs 2000</h5>
@@ -201,12 +201,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     <a href="/refer">
                                     <img src="/images/promotions/cv-editing_refer_banner.jpeg" width="100%" alt="Earn up to Ksh.500 by referring a friend"> 
                                     </a>    
-                                  </div>  <br>     
+                                  </div>     
                                      
 
                                 <br id="request-cv-edit-form">
-                                <br>
-                                <br>
 
                                 <div class="row" id="request-cv-edit-form">
                                   <div class="col-md-8 offset-md-2">
