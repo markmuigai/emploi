@@ -95,6 +95,7 @@ Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard-stats', 'EmployerController@dashboardStats');
     Route::get('dashboard-chartData', 'EmployerController@dashboardChartData');
     Route::get('jobs', 'EmployerController@jobs');
+    Route::get('dashboard/top-candidates', 'EmployerController@topCandidates');
     Route::get('jobs/active', 'EmployerController@activeJobs');
     Route::get('jobs/other', 'EmployerController@otherJobs');
     Route::get('jobs/shortlisting', 'EmployerController@shortlistingJobs');

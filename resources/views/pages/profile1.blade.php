@@ -81,12 +81,19 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 </h6>
 
                                 <?php $completed =  $user->seeker->calculateProfileCompletion(); ?>
-                                @if($completed != 100)
-                                    <p class="text-center"><strong>{{ $completed }}%</strong>  <a href="/profile/edit" class="text-danger"> of your profile is complete. Update your profile to increase your chances of being shortlisted among other benefits.</a>
+                                <div class="progress" style="height: 5px">
+                                    <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width:{{ $completed }}%">
+                                    </div>
+                                </div>
+                                @if($completed == 100)
+                                  <p class="text-center"><strong>{{ $completed }}%</strong> <span class="text-success">    Congratulations. You have completed your profile.</span>
+                                    </p>
+                                @elseif($completed == 88 && $user->seeker->featured == 0)
+                                   <p class="text-center"><strong>{{ $completed }}%</strong>  <a href="/job-seekers/services" class="text-danger"> of your profile is complete. Update your profile to increase your chances of being shortlisted among other benefits.</a>
                                     </p>.
-                                @else
-                                    <p class="text-center"><strong>{{ $completed }}%</strong> <span class="text-success">    Congratulations. You have completed your profile.</span>
-                                    </p> 
+                                @else                                    
+                                    <p class="text-center"><strong>{{ $completed }}%</strong>  <a href="/profile/edit" class="text-danger"> of your profile is complete. Update your profile to increase your chances of being shortlisted among other benefits.</a>
+                                    </p>. 
                                 @endif                        
                             
                               <!--   @if(!$user->seeker->hasCompletedProfile())

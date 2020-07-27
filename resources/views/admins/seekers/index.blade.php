@@ -92,11 +92,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>{{ $seeker->industry->name }}</p>
                 <p>Registered: {{ $seeker->user->created_at }}</p>
                 <p>Last CV Update: {{ $seeker->user->updated_at }}</p>
-                <p>Profile Views: <b>{{ $seeker->view_count }}</b></p>
+                <div class="row">
+                        <div class="col-md-7 col-12">
+                              <?php $completed =  $seeker->calculateProfileCompletion(); ?>
+                            <div class="progress" style="height: 5px">
+                                <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width:{{ $completed }}%">
+                                </div>
+                            </div>
+                            <p>{{ $completed }}% completed</p>
+                        </div>
+                        <div class="col-md-3 col-12">
+                            <p><span class="fa fa-eye">: </span> {{ $seeker->view_count }}</p>
+                        </div>                       
+                </div>
             </div>
-            <div class="col-md-4 col-12 text-md-right text-left">
-                <?php $completed =  $seeker->calculateProfileCompletion(); ?>
-                <p><strong>{{ $completed }}%</strong> completed</p>
+            <div class="col-md-4 col-12 text-md-right text-left">              
                 <p><a href="mailto:{{ $seeker->user->email }}" class="orange">{{ $seeker->user->email }}</a></p>
                 <p>{{ $seeker->phone_number }}</p>
                 <p>{{ $seeker->sex }}</p>
