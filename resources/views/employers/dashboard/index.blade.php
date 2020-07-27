@@ -10,6 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Dashboard')
 
 <a href="/employers/rate-card" class="btn btn-orange-alt"  data-placement="left">Our Packages</a>
+<a href="/employers/dashboard/top-candidates" class="btn btn-orange"  data-placement="left">Hire Top Candidates</a>
 <div class="card my-2 recents">
     <div class="card-body row">
         <div class="col-md-7">
@@ -36,7 +37,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         
     </div>
-</div>
+</div><br>
+<!-- SEARCH CANDIDATES -->
+<form method="get" action="/employers/dashboard">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <select name="industry" class="custom-select">
+                <option value="">All Industries</option>
+                @forelse($industries as $i)
+                <option value="{{ $i->slug }}" @if(isset($industry->id) && $i->id == $industry->id)
+                    selected=""
+                    @endif
+                    >{{ $i->name }}</option>
+                @empty
+                @endforelse
+            </select>
+        </div>   
+        <div class="col-md-4">
+            <button type="submit" name="button" class="btn btn-orange">Search</button>
+        </div>
+    </div>
+</form>
+<!-- END OF SEARCH CANDIDATES -->
 <div class="card mt-4">
     @if(count($featuredSeekers) > 0)
     <div class="row">
@@ -62,6 +84,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div><br>
       {{ $featuredSeekers->links() }}
     @else
+        <div class="text-center">
+            <p>No Job Seekers found</p>
+        </div>
         @include('components.ads.responsive')
     @endif
 </div>

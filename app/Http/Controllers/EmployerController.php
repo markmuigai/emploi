@@ -498,13 +498,118 @@ class EmployerController extends Controller
 
     public function dashboard(Request $request)
     {
-        $featuredSeekers = Seeker::where('featured','>',0)->orderBy('featured','DESC')->paginate(12);
         $recentApplications = Auth::user()->employer->recentApplications();
 
-        return view('employers.dashboard.index')
-                ->with('featuredSeekers',$featuredSeekers)
+        $industry = isset($request->industry) ? Industry::where('slug',$request->industry)->firstOrFail() : '';
+        $q = $request->q ? '"%'.$request->q.'%"' : '';
+        $query = $q == '' ? '' : "WHERE experience like $q OR (education LIKE $q OR resume_contents LIKE $q)";
+
+        if($query == '')
+        {
+            if(isset($request->industry))
+            {
+                $query .= " WHERE industry_id = ".$industry->id;
+            }
+        }
+        else
+        {
+            if(isset($request->industry))
+            {
+                $query .= " AND industry_id = ".$industry->id;
+            }
+        }
+
+        //$query = $query == '' ? '' : "$query";
+
+        $sql = "SELECT id FROM seekers $query ORDER BY featured DESC";
+        //dd($sql);
+        $results = DB::select($sql);
+
+        //dd($sql);
+        $arr = [];
+        for($i=0;$i<count($results); $i++)
+        {
+            $arr[] = $results[$i]->id;
+        }
+        //$results = DB::select($arr);
+
+        $featuredSeekers = Seeker::whereIn('id',$arr)->where('featured','>',0)->orderBy('featured','DESC')->paginate(12)->appends(request()->query());
+
+        return view('employers.dashboard.index')              
                 ->with('recentApplications',$recentApplications)
-                ->with('industries',Industry::active());
+                ->with('featuredSeekers',$featuredSeekers)
+                ->with('industries',Industry::active())
+                ->with('industry',$industry ? $industry : '');
+    }
+
+    public function topCandidates(Request $request)
+    {
+        $topCandidates = Seeker::where('featured',2)->orderBy('id','DESC')->paginate(10);
+        $title = "Top Candidates";
+        //$location = isset($request->location_id) ? " OR location_id = ".$request->location_id : '';
+        $industry = isset($request->industry) ? Industry::where('slug',$request->industry)->firstOrFail() : '';
+        $q = $request->q ? '"%'.$request->q.'%"' : '';
+        $query = $q == '' ? '' : "WHERE experience like $q OR (education LIKE $q OR resume_contents LIKE $q)";
+        //dd($query);
+        if($query == '')
+        {
+            if(isset($request->location))
+            {
+                $query .= " WHERE location_id = ".$request->location;
+            }
+        }
+        else
+        {
+            if(isset($request->location))
+            {
+                $query .= " AND location_id = ".$request->location;
+            }
+        }
+
+        //dd($query);
+
+        if($query == '')
+        {
+            if(isset($request->industry))
+            {
+                $query .= " WHERE industry_id = ".$industry->id;
+            }
+        }
+        else
+        {
+            if(isset($request->industry))
+            {
+                $query .= " AND industry_id = ".$industry->id;
+            }
+        }
+
+        //$query = $query == '' ? '' : "$query";
+
+
+
+
+        $sql = "SELECT id FROM seekers $query ORDER BY featured DESC";
+        //dd($sql);
+        $results = DB::select($sql);
+
+        //dd($sql);
+        $arr = [];
+        for($i=0;$i<count($results); $i++)
+        {
+            $arr[] = $results[$i]->id;
+        }
+        //$results = DB::select($arr);
+
+        $topCandidates = Seeker::whereIn('id',$arr)->where('featured',2)->orderBy('id','DESC')->paginate(10)->appends(request()->query());
+
+        return view('employers.dashboard.top-candidates')
+                ->with('topCandidates',$topCandidates)
+                ->with('industries',Industry::active())
+                ->with('locations',Location::active())
+                ->with('location',$request->location )
+                ->with('industry',$industry ? $industry : '')
+                ->with('query',$request->q)
+                ->with('title',$title);
     }
 
     public function dashboardData(){
