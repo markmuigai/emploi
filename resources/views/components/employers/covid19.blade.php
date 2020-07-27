@@ -4,19 +4,17 @@
 	</div>
 	<div class="col-md-10 offset-md-1 responseSlider">
 		<div class="card">
-			<div class="card-body row">
-				<img src="/images/advertising_20%_disount.jpg" alt="20% discount on job advertising" class="col-md-4">
-				<div class="col-md-8">
-					<p>
-						Emploi is posting vacancies at a 20% discount for all the companies.<br>
-					</p>
-					<p>
-						Employers can <a class="orange" href="/post-a-job">fill this form</a>, write to us at <a class="orange" href="mailto:info@emploi.co">info@emploi.co</a> or call us on <a class="orange" href="tel:+254702068282">0702 068 282</a> to have their vacancy posted. 
-					</p>
-					<p>
-						<a href="/employers/rate-card" class="btn btn-orange-alt">Learn More</a>
-					</p>
-				</div>
+			<div class="col-md-12">
+				<br><br><br>
+				<p>
+					Emploi is posting vacancies at a 20% discount for all the companies.<br>
+				</p>
+				<p>
+					Employers can <a class="orange" href="/post-a-job">fill this form</a>, write to us at <a class="orange" href="mailto:info@emploi.co">info@emploi.co</a> or call us on <a class="orange" href="tel:+254702068282">0702 068 282</a> to have their vacancy posted. 
+				</p><br>
+				<p>
+					<a href="/employers/rate-card" class="btn btn-orange-alt">Learn More</a>
+				</p>
 			</div>
 		</div>
 		<div class="card">
