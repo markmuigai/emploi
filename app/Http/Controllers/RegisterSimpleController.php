@@ -66,7 +66,7 @@ class RegisterSimpleController extends Controller
             'phone_number' => isset($request->phone_number) ? Country::findOrFail($request->contact_prefix)->prefix.$request->phone_number : null,
             'industry_id' => isset($request->industry) ? $request->industry : 32,
             'country_id' => 1,
-            'featured' => -1
+            'featured' => 0
         ]);
 
         if(!isset($seeker->id))

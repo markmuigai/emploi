@@ -69,7 +69,7 @@
         </div>
     </div>
 </div>
-@if($a->user->seeker->canGetNotifications())
+@if($a->user->seeker->canGetNotification())
 <div id="jobApplication{{ $a->id }}" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -167,7 +167,7 @@
 @endif
 <script type="text/javascript">
     <?php 
-    if($a->user->seeker->canGetNotifications())
+    if($a->user->seeker->canGetNotification())
         echo 'var notificationsEnabledFor'.$a->id.'=true;';
     else
         echo 'var notificationsEnabledFor'.$a->id.'=false;';

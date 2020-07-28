@@ -77,6 +77,15 @@ class Seeker extends Model
         }
         return false;
     }
+    public static function disableProUserByUserId($user_id){
+        $seeker = Seeker::where('user_id',$user_id)->first();
+        if(isset($seeker->id))
+        {
+            $seeker->featured = 0;
+            return $seeker->save();
+        }
+        return false;
+    }
 
     public function testFeatured(){
         // 
@@ -84,7 +93,7 @@ class Seeker extends Model
 
     public function isBeingViewedBy(User $user){
         $seeker = Seeker::where('user_id',$this->user->seeker->user_id)->increment('view_count');
-        if($this->canGetNotifications())
+        if($this->canGetNotification())
         {
             $jobs = [];
             if($user->role == 'admin')
@@ -193,8 +202,10 @@ class Seeker extends Model
         }
     }
 
-    public function canGetNotifications(){
+    public function canGetNotification(){
         if($this->featured >= 1)
+            return true;
+          if($this->featured == -1)
             return true;
         $orders = $this->user->orders;
         for($i=0; $i<count($orders); $i++)

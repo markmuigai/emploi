@@ -63,7 +63,7 @@ class JobApplication extends Model
                     $message = '<br><b>Message from Recruiter</b>:<br> '.$message.'<br>';
                 }
 
-                if($this->user->seeker->canGetNotifications())
+                if($this->user->seeker->canGetNotification())
                 {
                     $caption = "Application ".$this->id." for ".$this->post->title." was Rejected";
                     $contents = "Your application for the <b>".$this->post->title."</b> position, as advertised by ".$this->post->company->name." was rejected. This application will no longer be considered.  $message

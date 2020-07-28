@@ -135,10 +135,14 @@ class ProductOrder extends Model
     		if($action == 'activate')
         	{
                 $packageUser = User::findOrFail($p->order->user_id);
-                if($packageUser->role == 'seeker' && !$packageUser->seeker->canGetNotifications())
+                if($packageUser->role == 'seeker' && $packageUser->seeker->featured == 0)
                 {
                     $p->contents = now()->add($p->days_duration,'day');
                     $p->save();
+
+                    $seeker = $packageUser->seeker;
+                    $seeker->featured = -1;
+                    $seeker->save();
                     $invoice->thankYou('email');
 
                     $caption = "Job Seeker Basic Package was activated on Emploi";
@@ -173,6 +177,7 @@ class ProductOrder extends Model
         		{
         			$p->contents = 'completed';
         			$p->save();
+                    Seeker::disableProUserByUserId($p->order->user_id);
 
                     $caption = "Job Seeker Basic Package has Expired";
                     $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback, <b>has expired</b>.

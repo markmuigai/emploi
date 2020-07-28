@@ -331,7 +331,7 @@
 
     	if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
     	{
-    		if(Auth::user()->seeker->canGetNotifications())
+    		if(Auth::user()->seeker->canGetNotification())
     			print 'seekerBasic = true;';
     		if(Auth::user()->seeker->featured == 1)
     			print 'seekerFeatured = true;';

@@ -63,7 +63,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     
                                     Job Seeker
                                     
-                                    @if($user->seeker->canGetNotifications())
+                                    @if($user->seeker->canGetNotification())
                                     <a class="fa fa-bell" href="/job-seekers/services"  data-toggle="tooltip" data-placement="right" title="Shortlist Notifications Enabled" ></a>
                                     @else
                                     <a class="fa fa-bell-slash" href="/job-seekers/services"  data-toggle="tooltip" data-placement="right"  title="Shortlist Notifications Disabled"></a>
@@ -259,7 +259,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     @endif
                 </p>
 
-                @if(!$user->seeker->canGetNotifications())
+                @if(!$user->seeker->canGetNotification())
                 <p>
                     <a href="/job-seekers/services" class="btn btn-orange-alt">Enable Shortlist Notifications</a>
                 </p>

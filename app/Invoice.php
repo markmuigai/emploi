@@ -104,7 +104,7 @@ class Invoice extends Model
                 <ul>
                      <li>You’ve been shortlisted;It is really challenging for employers to respond to every candidate and therefore the package gives you an instant update on your application progress whether shortlisted or rejected with possible reasons for rejection. This will as well save your time in the job search process.</li>
                      <li>Your profile is viewed by employers;This lets you know when your application has been opened by the employer. If you have applied directly through Emploi, then you will receive this message when an employer reads your resume through their Emploi account.</li>
-                     <li>Their CV is requested; The package enables you to get an update on whether an employer has requested your CV i.e.if the employer decides that they want to interview you, they will contact you directly with more information</li>
+                     <li>Your CV is requested; The package enables you to get an update on whether an employer has requested your CV i.e.if the employer decides that they want to interview you, they will contact you directly with more information</li>
                 </ul>
                 <br>
 
@@ -156,7 +156,7 @@ class Invoice extends Model
                 <ul>
                     <li>You’ve been shortlisted;It is really challenging for employers to respond to every candidate and therefore the package gives you an instant update on your application progress whether shortlisted or rejected with possible reasons for rejection. This will as well save your time in the job search process.</li>
                     <li>Your profile is viewed by employers;This lets you know when your application has been opened by the employer. If you have applied directly through Emploi then you will receive this message when an employer reads your resume through their Emploi account.</li>
-                    <li>Their CV is requested; The package enables you to get an update on whether an employer has requested your CV i.e.If the employer decides that they want to interview you, they will contact you directly with more information.</li>
+                    <li>Your CV is requested; The package enables you to get an update on whether an employer has requested your CV i.e.If the employer decides that they want to interview you, they will contact you directly with more information.</li>
                 </ul>
                     <p>Additionally, your profile will rank first in applications and searches; The package enables your profile to get a high ranking on applications and searches as it appears on all slots of Emploi's search pages. This makes you stay ahead of your competition and get the attention that your job deserves.</p>
                     <p>You will also get real-time analytics of your shortlist, applications and vacancies; The package enables you to get a detailed report on all your shortlists and applications.</p>
