@@ -55,7 +55,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <h3 class="">{{ $user->getName() }}</h3>
                                 <h5>
                                     
-                                    @if($user->seeker->featured == 1)
+                                    @if($user->seeker->featured > 0)
                                     <a class="" style="font-weight: bold" href="/job-seekers/services"  data-toggle="tooltip" data-placement="left"  title="You are a featured Job Seeker on Emploi">
                                     Featured
                                     </a>

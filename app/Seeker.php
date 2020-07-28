@@ -115,7 +115,7 @@ class Seeker extends Model
             $opportunities = false;
             $messages = [];
 
-            if($this->featured == 0)
+            if($this->featured < 1)
             {
                 $opportunities = true;
                 $messages[] = "Get featured on Emploi. Let your name be seen by ranking higher in applications and searches."; 
