@@ -37,7 +37,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
          <div class="card">
               <div class="card-body">
                   <h5 class="orange">Professional CV Editing</h5>
-                  <p class="card-text">We first go through your CV to understand your professional journey and angle then send you a questionnaire which will ask you questions about your career goals and experiences. However, a personal consultation will be necessary for us to really get an idea of how to best market you to employers, so we will schedule an IN-DEPTH phone interview with one of our Certified Resume Writers to go over your questionnaire answers and make sure we know everything needed to make you stand out! (This is just one of the ways we are different from other firms).</p>
+                  <p class="card-text">
+                    <ui>
+                        <li>We first go through your CV to understand your professional journey and angle then send you a questionnaire which will ask you questions about your career goals and experiences.</li> 
+                        <p>However, a personal consultation will be necessary for us to really get an idea of how to best market you to employers.</p>
+                        <li>So we will schedule an IN-DEPTH phone interview with one of our Certified Resume Writers to go over your questionnaire answers and make sure we know everything needed to make you stand out! (This is just one of the ways we are different from other firms).</li>
+                    </ui>
+                  </p><br>
               </div>
               <div class="card-footer">            
                   <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal1">SELECT</button>
@@ -326,8 +332,14 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
           <div class="card">
                 <div class="card-body">
                   <h5 class="orange">Exclusive Placement</h5>
-                  <p class="card-text">It is our responsibility to commit and help job seekers find open positions in companies where they’ll thrive, not just survive. We want to help you find a well-suited position where you are professionally rewarded and appreciated for doing what you love to do.Through this service, we shall take you up as a special client and endeavor to get you employment within the shortest time possible, in an industry and location of your choice.</p>
-              </div><br><br><br>  
+                  <p class="card-text">
+                      <ul>
+                          <li>It is our responsibility to commit and help job seekers find open positions in companies where they’ll thrive, not just survive.</li>
+                          <li> We want to help you find a well-suited position where you are professionally rewarded and appreciated for doing what you love to do.</li>
+                          <li>Through this service, we shall take you up as a special client and endeavor to get you employment within the shortest time possible, in an industry and location of your choice.</li>
+                      </ul>
+                  </p><br>
+              </div>  
               <div class="card-footer">            
                   <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal2">SELECT</button>
               </div>
@@ -417,14 +429,17 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <div class="card-body">
                   <h5 class="orange">Interview Coaching</h5>
                   <p class="card-text">
-                      <p>Interview coaching can increase your chances of getting a job for many reasons                               
-                       Coaching gives you experience answering many different interview questions and pretending to interact with potential employers.
-                       Your coach can provide you with valuable feedback that will help you improve your responses during interviews.
-                       The more you practice with a coach, the more confident you will be.
-                       A coach can give you the tools to feel confident and self-assured going into any interview.</p>                                       
-                </div><br><br>            
+                      <p>Interview coaching can increase your chances of getting a job for many reasons;</p>
+                      <ul>
+                        <li> Coaching gives you experience answering many different interview questions and pretending to interact with potential employers.</li>
+                        <li>Your coach can provide you with valuable feedback that will help you improve your responses during interviews.</li>
+                        <li>The more you practice with a coach, the more confident you will be.</li>
+                        <li> A coach can give you the tools to feel confident and self-assured going into any interview.</li>
+                      </ul>
+                    </p>                                                              
+                </div>            
               <div class="card-footer">
-                <a href="/contact" class="btn btn-orange" target="_blank">SELECT</a>
+                <a href="/contact" class="btn btn-orange">SELECT</a>
               </div>
           </div>
   
@@ -456,8 +471,34 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </div>      
               </div>
         </div>
-      </div>    
-</div>
-</div>
+      </div>
+    </div><br>
+
+
+    <h3 class="text-center" style="display: none;">Some Of Our Interview Coaches</h3>
+    <div class="card-group" style="display: none;">
+        <div class="card">
+            <div class="card-body team-member text-center">
+                <img src="/images/avatar.png" alt="simon" />
+                <h5>Simon Gitau</h5>
+              
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body team-member text-center">
+                <img src="/images/avatar.png" alt="eva" />
+                <h5>Eva Wanjohi</h5>
+              
+            </div>
+        </div>
+         <div class="card">
+            <div class="card-body team-member text-center">
+                <img src="/images/avatar.png" alt="sophy" />
+                <h5>Sophy Mwale</h5>
+         
+            </div>
+        </div>
+    </div><br>    
+  </div>
 
 @endsection
