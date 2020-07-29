@@ -843,9 +843,11 @@ class Seeker extends Model
                 }    
                 $contents .= "<a href='".url('/blog')."'>Read More Blogs</a><br>";
                 $contents .= '</div>';                                                                    
-                     
+                
+                if(User::subscriptionStatus($this->user->email)) {    
                 EmailJob::dispatch($this->user->name, $this->user->email, 'Trending Job Vacancies', $caption, $contents);
                 return true;
+                }
                          
             }
         }
