@@ -475,7 +475,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </div><br>
 
 
-    <h3 class="text-center" style="display: none;">Some Of Our Interview Coaches</h3>
+    <h3 class="text-center" style="display: none;">Some Of Our Career Experts</h3>
     <div class="card-group" style="display: none;">
         <div class="card">
             <div class="card-body team-member text-center">
@@ -494,7 +494,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
          <div class="card">
             <div class="card-body team-member text-center">
                 <img src="/images/avatar.png" alt="sophy" />
-                <h5>Sophy Mwale</h5>
+                <h5>Tom Kamaliki</h5>
          
             </div>
         </div>
