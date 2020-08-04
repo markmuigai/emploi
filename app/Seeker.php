@@ -785,20 +785,20 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(200))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(200))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
                     ->get();        
 
          $blogs = Blog::All()
-                       ->random(3);
+                       ->random(0);
          $featuredVacancies = $featured; 
            
         {
@@ -828,10 +828,10 @@ class Seeker extends Model
                   }   
                 
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
-                $contents .=  '<p style= "background:orange; color:white; text-align:center">Requesting for CV Editing?</p><p>Reach us via Call
-                              <a href="tel:+254702068282">+254 702 068 282</a>/<a href="tel:+254774569001">+254774569001</a> or 
-                              <a href="'.url('/job-seekers/summit').'"> click here to request.
-                              </a></p><br><br>';
+                $contents .=  '<p style= "background:orange; color:white; text-align:center">FREE CV REVIEW</p>
+                                   <p>Get a Free CV Review today from our experts and stand out from the rest.<a href="https://bit.ly/3fqEkrD"> click here to request.
+                                </a></p>
+                                <br><br>';
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
                 $contents .= "Blogs From Our Career Centre";
