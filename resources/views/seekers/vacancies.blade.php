@@ -193,8 +193,14 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </a>    
 </div>
 @endif
+@if($adsCounter == 6)
+<div style="width: 100%">
+    <a href="/job-seekers/free-cv-review">
+        <img src="/images/free-cv-review.png" alt="Get a Free CV Review Today"> 
+    </a>    
+</div>
+@endif
 @empty
-
 <div class="card">
     <div class="card-body text-center">
         <p>No job posts found</p>
