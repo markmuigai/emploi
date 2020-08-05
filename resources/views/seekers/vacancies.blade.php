@@ -189,14 +189,14 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @if($adsCounter == 12)
 <div style="width: 100%">
     <a href="/refer">
-        <img src="/images/promotions/cv-editing_refer_banner.jpeg" alt="Earn up to Ksh.500 by referring a friend"> 
+        <img style="width: 100%" src="/images/promotions/cv-editing_refer_banner.jpeg" alt="Earn up to Ksh.500 by referring a friend"> 
     </a>    
 </div>
 @endif
-@if($adsCounter == 6)
+@if($adsCounter == 3)
 <div style="width: 100%">
     <a href="/job-seekers/free-cv-review">
-        <img src="/images/free-cv-review.png" alt="Get a Free CV Review Today"> 
+        <img style="width: 100%" src="/images/free-cv-review.png" alt="Get a Free CV Review Today"> 
     </a>    
 </div>
 @endif

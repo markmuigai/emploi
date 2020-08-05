@@ -236,8 +236,10 @@ class CvEditController extends Controller
 
             EmailJob::dispatch($r->name, $r->email, 'We have edited your CV', $caption, $contents);
 
-            User::first()->notify(new EditingRequest($r->cvEditor->user->name.' finished editing cv for '.$r->name));
+            if (app()->environment() === 'production'){
+                User::first()->notify(new EditingRequest($r->cvEditor->user->name.' finished editing cv for '.$r->name));
             //return $request->all();
+            }
         }
         return redirect('/cv-editing/'.$slug);
     }
