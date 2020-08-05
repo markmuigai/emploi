@@ -50,20 +50,20 @@ use App\Notifications\EmployerRegistered;
 
 class EmployerController extends Controller
 {
-    
-    public function viewReport($slug, Request $request){     
+
+    public function viewReport($slug, Request $request){
 
         $user = Auth::user();
 
         if($user->employer->isOnStawiPackage())
         {
-            $referee=Referee::where('slug',$slug)->firstOrFail();  
+            $referee=Referee::where('slug',$slug)->firstOrFail();
             return view('referees.report')->with('referee',$referee);
         }
         else
             return redirect('/checkout?product=stawi');
-       
-      
+
+
     }
 
     public function register(Request $request){
@@ -86,7 +86,7 @@ class EmployerController extends Controller
                     ->with('post',$post);
             dd($post);
         }
-        abort(403);       
+        abort(403);
 
     }
 
@@ -98,7 +98,7 @@ class EmployerController extends Controller
             $post = Post::where('slug',$slug)->firstOrFail();
             return $request->all();
         }
-        abort(403);       
+        abort(403);
 
     }
 
@@ -185,8 +185,8 @@ class EmployerController extends Controller
             if(isset($link->id))
             {
                 Referral::create([
-                    'user_id' => $link->user_id, 
-                    'name' => $user->name, 
+                    'user_id' => $link->user_id,
+                    'name' => $user->name,
                     'email' => $user->email
                 ]);
 
@@ -246,7 +246,7 @@ class EmployerController extends Controller
             $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
         }
 
-        
+
 
         // $caption = "Thank you for registering your profile on Emploi as an Employer";
         // $contents = "Your account has been created successfully. Log in with username: <b>$username</b> <br>
@@ -362,11 +362,11 @@ class EmployerController extends Controller
             $posts = Post::whereIn('company_id',$company_ids)->orderBy('id','DESC')->paginate(20);
         }
 
-        
+
         return view('employers.dashboard.jobs')
                 ->with('q',$q)
                 ->with('posts',$posts);
-        
+
     }
 
     public function activeJobs(Request $request)
@@ -388,12 +388,12 @@ class EmployerController extends Controller
             $posts = Post::whereIn('company_id',$company_ids)->where('status','active')->orderBy('id','DESC')->paginate(20);
         }
 
-        
+
         return view('employers.dashboard.jobs-active')
                 ->with('q',$q)
                 ->with('activePosts',$posts);
-        
-        
+
+
     }
 
     public function otherJobs(Request $request)
@@ -414,12 +414,12 @@ class EmployerController extends Controller
         {
             $posts = Post::whereIn('company_id',$company_ids)->where('status','!=','active')->orderBy('id','DESC')->paginate(20);
         }
-        
+
         return view('employers.dashboard.jobs-other')
                 ->with('q',$q)
                 ->with('closedPosts',$posts);
-        
-        
+
+
     }
 
     public function shortlistingJobs(Request $request)
@@ -442,12 +442,12 @@ class EmployerController extends Controller
             $posts = Post::whereIn('company_id',$company_ids)->where('how_to_apply',null)->orderBy('id','DESC')->paginate(20);
         }
 
-        
+
         return view('employers.dashboard.jobs-shortlisting')
                 ->with('q',$q)
                 ->with('posts',$posts);
-        
-        
+
+
     }
 
     public function applyForUser(Request $request){
@@ -487,11 +487,11 @@ class EmployerController extends Controller
                 $request->session()->put('viewed-seeker-'.$user->seeker->id, now());
                 $user->seeker->isBeingViewedBy(Auth::user());
             }
-            
+
         }
         if(Auth::user()->role == 'admin')
             return redirect('/admin/seekers/'.$username);
-        
+
         return view('employers.seeker')
                 ->with('user',$user);
     }
@@ -535,7 +535,7 @@ class EmployerController extends Controller
 
         $featuredSeekers = Seeker::whereIn('id',$arr)->where('featured','>',0)->orderBy('featured','DESC')->paginate(12)->appends(request()->query());
 
-        return view('employers.dashboard.index')              
+        return view('employers.dashboard.index')
                 ->with('recentApplications',$recentApplications)
                 ->with('featuredSeekers',$featuredSeekers)
                 ->with('industries',Industry::active())
@@ -635,7 +635,7 @@ class EmployerController extends Controller
             <a href="/employers/jobs">Jobs Posted: '.count($user->employer->posts)  .'</a><br>
             <a href="/employers/jobs/active">Active Jobs:'. count($user->employer->activePosts) .' </a><br>
             <a href="/employers/jobs/other">Closed Jobs: '. count($user->employer->closedPosts) .'</a><br>
-            <a href="/employers/jobs/shortlisting">Shortlisting Jobs: 
+            <a href="/employers/jobs/shortlisting">Shortlisting Jobs:
                 '. count(Post::whereIn('company_id',$user->companies->pluck('id'))->where('how_to_apply',null)->orderBy('id','DESC')->get()) .'
             </a><br>
             <p>Applications Received: '. count($user->employer->jobApplications()) .' </p>
@@ -684,10 +684,10 @@ class EmployerController extends Controller
                     ->with('pool',$unrejected)
                     ->with('post',$post);
                 break;
-            
+
             default:
                 $applications = JobApplication::where('post_id',$post->id)->orderBy('id','DESC')->paginate(20);
-                
+
                 return view('employers.applications.index')
                     ->with('pool',$applications)
                     ->with('post',$post);
@@ -812,7 +812,7 @@ class EmployerController extends Controller
             ]);
         }
 
-        
+
 
         if(isset($request->skill_id) && count($request->skill_id) > 0 )
         {
@@ -1201,8 +1201,8 @@ class EmployerController extends Controller
         if($employer->user->email == 'jobs@emploi.co')
         {
             CvRequest::create([
-                'employer_id' => $employer->id, 
-                'seeker_id' => $user->seeker->id, 
+                'employer_id' => $employer->id,
+                'seeker_id' => $user->seeker->id,
                 'status' => 'accepted'
             ]);
         }
@@ -1210,11 +1210,16 @@ class EmployerController extends Controller
         {
             $r = CvRequest::requestCV($employer,$user->seeker);
         }
-        
+
 
         //try accept cv
         return redirect()->back();
 
+    }
+
+
+    public function epaas(){
+      return view('employers.epaas');
     }
 
 }
