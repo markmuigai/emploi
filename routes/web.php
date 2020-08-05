@@ -126,11 +126,11 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/browse', 'EmployerController@browse');
     Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');
     Route::post('/employers/shortlist', 'EmployerController@applyForUser');
-    
+
     Route::get('/employers/applications/{slug}/rsi', 'EmployerController@rsi');
     Route::post('/employers/applications/{slug}/rsi', 'EmployerController@saveRsi');
     Route::get('/employers/applications/{slug}/', 'EmployerController@applications');
-    
+
     //Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@toggleShortlist');
     Route::get('/employers/shortlist-toggle/{slug}/{username}', 'EmployerController@shortlistSeekerToggle');
     //Route::get('/employers/reject-toggle/{slug}/{username}', 'EmployerController@toggleReject');
@@ -179,7 +179,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('bloggers','BloggersController');
     Route::get('referees','AdminController@referees');
     Route::get('seekers/{username?}','AdminController@seekers');
-    Route::get('referee/{slug}','AdminController@viewReport');  
+    Route::get('referee/{slug}','AdminController@viewReport');
     Route::get('cv-requests/{id?}','AdminController@cvRequests');
     Route::get('vacancy-emails', 'AdminController@vacancyEmails');
     Route::get('emails', 'AdminController@emails');
@@ -232,7 +232,7 @@ Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
 });
 
 Route::group(['prefix' => 'guests',  'middleware' => 'auth'], function(){
-    Route::get('i-am-a-job-seeker', 'HomeController@makeSeeker');    
+    Route::get('i-am-a-job-seeker', 'HomeController@makeSeeker');
     Route::post('i-am-a-job-seeker', 'HomeController@saveSeeker');
 
     Route::get('i-am-an-employer', 'HomeController@makeEmployer');
@@ -273,6 +273,9 @@ Route::get('/employers/proficiency-tests', 'ContactController@proficiency');
 Route::get('/employers/psychometric-tests', 'ContactController@psychometric');
 Route::get('/employers/train-employees', 'ContactController@retrain');
 Route::get('/employers/faqs', 'ContactController@employerFaqs');
+
+Route::get('/employers/paas', 'EmployerController@epaas');
+
 
 
 Route::resource('/vacancies', 'PostsController');
