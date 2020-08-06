@@ -264,6 +264,9 @@ Route::get('/jobseekers/getfeatured', 'ContactController@getFeatured');
 Route::get('/job-seekers/getfeatured', 'ContactController@getFeatured');
 Route::get('/jobseekers/get-featured', 'ContactController@getFeatured');
 
+// JobSeeker PaaS
+Route::get('/job-seekers/paas', 'ContactController@seekerpaas');
+
 Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');
 
 Route::get('/employers/services', 'ContactController@eservices');
