@@ -89,6 +89,10 @@ class SeekerController extends Controller
 
             return $request->all();
         }
-        return $ret;        
+        return $ret;
+    }
+
+    public function paas(){
+      return view('seekers.paas');
     }
 }
