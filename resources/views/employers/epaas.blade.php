@@ -30,7 +30,7 @@
           <div class="col-lg-12 text-left">
             <h1 class="font-weight-light">Hire Part-time Professionals</h1>
             <br><br>
-            <a href="tel:+254702068282" class="btn btn-orange"><i class="fa fa-phone"></i> Call Us </a>
+            <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button><br>          
           </div>
             @if(session()->has('success'))

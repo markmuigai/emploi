@@ -35,7 +35,7 @@
             <h2 class="font-weight-bold">Are you looking for part-time work?<br>
                A new solution is here for you.</h3>
             <br><br>
-            <button type="button" class="btn btn-purple">Call US <i class="fas fa-phone"></i></button>
+             <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
 
           </div>
@@ -110,7 +110,7 @@
           <div>
 
             <div class="card border-light mb-3" style="max-width: 30rem;">
-              <div class="card-header"><h2>Pricing  <span style="color: orange;">2750KES</span></h2></div>
+              <div class="card-header"><h2>Pricing  <span style="color: orange;">2750 KES Yearly</span></h2></div>
               <div class="card-body">
                 <h5 class="card-title">What you get</h5>
                 <p class="card-text pb-5">
