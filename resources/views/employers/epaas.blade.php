@@ -165,13 +165,15 @@
             <div class="container">
 <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active text-center p-4">
-                             <p>lorem ipsum (imagine longer text) <br> lorem ipsum</p>
+                      <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active text-center">
+                             <p style="font-size: 30px">I have found a steady stream of work from PaaS Membership club. All pros need watch this space.</p><br>
+                               <p style="font-weight: bold;">John Doe</p>
                         </div>
                         <div class="carousel-item text-center p-4">
 
-                            <p>lorem ipsum (imagine longer text)</p>
+                            <p style="font-size: 30px">PaaS Membership has given a lifeline in this tough times. I have been active for 3 months now</p><br>
+                            <p style="font-weight: bold;">Tom Cruise</p>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
