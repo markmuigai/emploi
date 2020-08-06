@@ -1279,7 +1279,7 @@ class EmployerController extends Controller
             'user_id' => $user->id,
             'name' => $request->name,
             'industry_id' => 32,
-            'company_name' => $user->name,
+            'company_name' => $request->name,
             'contact_phone' =>$request->phone_number,
             'company_phone' => $request->phone_number,
             'company_email' => $user->email,
@@ -1351,7 +1351,7 @@ class EmployerController extends Controller
 
             }
 
-            return view('employers.epaas')->with('success', 'Your subscription has been sent successfully, Check your email for instructions on how to complete the payment!');
+            return redirect()->back()->with('success', 'Your subscription has been sent successfully, Check your email for instructions on how to complete the payment!');
         }
     }
 }
