@@ -7,8 +7,7 @@
     height: 90vh;
     min-height: 400px;
     font-size: 95%;
-    opacity: 0.9;
-    background-image: url('/images/js.jpg');
+    background-image: url('/images/mid.png');
     background-size: cover;
     color: white;
     background-position: center;
@@ -16,7 +15,12 @@
     }
 </style>
 
+
+<!-- animation styling -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel="stylesheet" href="/css/infinite-slider.css">
+<link rel="stylesheet" href="/css/seeker.css">
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
@@ -27,10 +31,11 @@
     <header class="masthead">
       <div class="container h-100">
         <div class="row h-100 align-items-center">
-          <div class="col-lg-12 text-left">
-            <h1 class="font-weight-light">Get Hired as a Part-time Professional</h1>
+          <div class="col-md-12 text-left">
+            <h2 class="font-weight-bold">Are you looking for part-time work?<br>
+               A new solution is here for you.</h3>
             <br><br>
-            <button type="button" class="btn btn-purple">Read More</button>
+            <button type="button" class="btn btn-purple">Call US <i class="fas fa-phone"></i></button>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
 
           </div>
@@ -43,49 +48,51 @@
     <div class="container pt-3">
 
       <div class="row">
-        <div class="col-lg-7 pr-5">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="col-lg-6">
+            <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; !important;"></iframe>
         </div>
 
-        <div class="col-lg-5 mx-auto">
+        <div class="col-lg-6 mx-auto">
             <div class="card border-light mb-3 mx-auto" style="max-width: 20rem;">
-              <div class="card-header"><h3>For Your Demand Job</h13></div>
+              <div class="card-header"><h3>On Demand Jobs</h13></div>
               <div class="card-body">
-                <!-- <h5 class="card-title">Light card title</h5> -->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!-- Large modal -->
+                <button type="button" class="btn btn-orange" data-toggle="modal" data-target=".bd-example-modal-lg">PaaS Details</button>
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg p-2">
+                  <div class="modal-content p-4">
+                     <h1>Description</h1>
+
+                     <div>
+                       <h3>Product Description</h3>
+                       PAAS is a service that seeks to provide qualified professionals on demand to
+                       handle specific tasks at affordable rates/at a cost effective plan.
+                       It is created to fulfill the need of employers for mid-level and senior
+                       positions that became vacant due to theCOVID-19 pandemic.
+                       <br>Lay-offs by companies led to reassessment of processes in the companies.
+                       PAAS seeks to connect experienced persons to the SMEs.
+                       It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap
+
+
+                     </div>
+
+                     <div class="modal-footer">
+                       <button type="button" class="btn btn-orange">Contact Us</button>
+                       <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                     </div>
+
+                  </div>
+                </div>
+                </div>
+
               </div>
-              <div class="Button text-center">
-                <a href="#">
-                  <button type="button" class="btn btn-orange">Learn More</button>
-                </a>
-              </div>
+
             </div>
 
         </div>
 
-        <section>
-      <!-- Partners -->
-      <div class="container">
-            <hr>
-            <div class="container pt-4 pb-4">
-              <section class="customer-logos slider">
-                <div class="slide"><img src="/images/logos/texas.webp"></div>
-                <div class="slide"><img src="/images/logos/uniliver.webp"></div>
-                <div class="slide"><img src="/images/logos/sanlam.webp"></div>
-                <div class="slide"><img src="/images/logos/rvibs.webp"></div>
-                <div class="slide"><img src="/images/logos/papaya.webp"></div>
-                <div class="slide"><img src="/images/logos/neema.webp"></div>
-                <div class="slide"><img src="/images/logos/mboga.webp"></div>
-                <div class="slide"><img src="/images/logos/apa.webp"></div>
-              </section>
-            </div>
       </div>
-      <hr>
-    </section>
-
-  </div>
-
-</div>
 
 <!-- start of description container -->
 <div class="container" id="#">
@@ -98,20 +105,21 @@
           <div>
 
             <div class="card border-light mb-3" style="max-width: 30rem;">
-              <div class="card-header"><h2>Pricing  <span style="color: orange;">55USD</span></h2></div>
+              <div class="card-header"><h2>Pricing  <span style="color: orange;">2750KES</span></h2></div>
               <div class="card-body">
-                <h5 class="card-title">Pay and Enjoy</h5>
+                <h5 class="card-title">What you get</h5>
                 <p class="card-text pb-5">
-                  Having you subscribed will open many more tools that you can use for your business. <br>
-                  You will unlock project management tools that you can utilize in your organization. <br>
-                  We also do the recruitment process for you, giving you time to plan on task executuion.
+                  Visibility from multiple clients. <br>
+                  Project management tools that you can utilize in your project. <br>
+                  End-to-end recruitment training ensuring you pass interview and get task. <br>
+
                 </p>
 
                 <!-- modal starts here within card -->
                 <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
+                  <div class="modal-dialog p-5" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
@@ -123,18 +131,21 @@
                         <!-- subscribe form for Professional -->
                           <form action="#" method="#">
                             <div class="form-group">
-                              <input type="text" class="form-control" id="recipient-name" placeholder="Enter Your Name">
+                              <label>Fill your name</label>
+                              <input type="text" class="form-control" id="recipient-name" placeholder="Name">
                             </div>
                             <div class="form-group">
-                              <input type="email" class="form-control" id="recipient-email" placeholder="Enter Your Email Address">
+                              <label>Email Address</label>
+                              <input type="email" class="form-control" id="recipient-email" placeholder="Email">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="recipient-phone" placeholder="Enter Your Phone Number">
+                              <label>Phone Number</label>
+                              <input type="text" class="form-control" id="recipient-phone" placeholder="Phone">
                             </div>
 
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                               <button type="button" class="btn btn-orange">Subscribe</button>
+                              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                             </div>
 
                           </form>
@@ -148,11 +159,7 @@
               </div>
             </div>
 
-
-
-
-
-
+            <!-- text carousel -->
 
           </div>
         </div>
@@ -160,14 +167,17 @@
           <div class="col-lg-6">
             <div class="container">
 <!-- testimonials -->
-                <div id="carouselContent" class="carousel slide" data-ride="carousel">
+                <div id="carouselContent" class="carousel slide pt-3" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active text-center p-4">
-                             <p>lorem ipsum (imagine longer text) <br> lorem ipsum</p>
+                        <div class="carousel-item active text-center">
+                             <p style="font-size: 30px">I have found a steady stream of work from PaaS Membership club. All pros need
+                               watch this space.</p><br>
+                               <p style="font-weight: bold;">John Doe</p>
                         </div>
                         <div class="carousel-item text-center p-4">
 
-                            <p>lorem ipsum (imagine longer text)</p>
+                            <p style="font-size: 30px">PaaS Membership has given a lifeline in this tough times. I have been active for 3 months now</p><br>
+                            <p style="font-weight: bold;">Tom Cruise</p>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
@@ -188,6 +198,30 @@
       </div>
 
 </div>
+
+<!-- Partners -->
+
+      <div class="container">
+        <div class="container text-center">
+          <h1>Potential Employers!</h1>
+        </div>
+            <hr>
+            <div class="container pt-4 pb-4">
+              <section class="customer-logos slider">
+                <div class="slide"><img src="/images/logos/texas.webp"></div>
+                <div class="slide"><img src="/images/logos/uniliver.webp"></div>
+                <div class="slide"><img src="/images/logos/sanlam.webp"></div>
+                <div class="slide"><img src="/images/logos/rvibs.webp"></div>
+                <div class="slide"><img src="/images/logos/papaya.webp"></div>
+                <div class="slide"><img src="/images/logos/neema.webp"></div>
+                <div class="slide"><img src="/images/logos/mboga.webp"></div>
+                <div class="slide"><img src="/images/logos/apa.webp"></div>
+              </section>
+            </div>
+      </div>
+      <hr>
+
+
 
 
 
