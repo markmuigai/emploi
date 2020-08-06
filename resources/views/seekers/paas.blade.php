@@ -11,12 +11,17 @@
     background-image: url('/images/js.jpg');
     background-size: cover;
     color: white;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     }
 </style>
 
+
+<!-- animation styling -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel="stylesheet" href="/css/infinite-slider.css">
+<link rel="stylesheet" href="/css/seeker.css">
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
@@ -30,7 +35,7 @@
           <div class="col-lg-12 text-left">
             <h1 class="font-weight-light">Get Hired as a Part-time Professional</h1>
             <br><br>
-            <button type="button" class="btn btn-purple">Read More</button>
+            <button type="button" class="btn btn-purple">Call US <i class="fas fa-phone"></i></button>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
 
           </div>
@@ -44,7 +49,7 @@
 
       <div class="row">
         <div class="col-lg-7 pr-5">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="400" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
         <div class="col-lg-5 mx-auto">
@@ -63,25 +68,8 @@
 
         </div>
 
-        <section>
       <!-- Partners -->
-      <div class="container">
-            <hr>
-            <div class="container pt-4 pb-4">
-              <section class="customer-logos slider">
-                <div class="slide"><img src="/images/logos/texas.webp"></div>
-                <div class="slide"><img src="/images/logos/uniliver.webp"></div>
-                <div class="slide"><img src="/images/logos/sanlam.webp"></div>
-                <div class="slide"><img src="/images/logos/rvibs.webp"></div>
-                <div class="slide"><img src="/images/logos/papaya.webp"></div>
-                <div class="slide"><img src="/images/logos/neema.webp"></div>
-                <div class="slide"><img src="/images/logos/mboga.webp"></div>
-                <div class="slide"><img src="/images/logos/apa.webp"></div>
-              </section>
-            </div>
-      </div>
-      <hr>
-    </section>
+
 
   </div>
 
@@ -123,13 +111,16 @@
                         <!-- subscribe form for Professional -->
                           <form action="#" method="#">
                             <div class="form-group">
-                              <input type="text" class="form-control" id="recipient-name" placeholder="Enter Your Name">
+                              <label>Fill your name</label>
+                              <input type="text" class="form-control" id="recipient-name" placeholder="Name">
                             </div>
                             <div class="form-group">
-                              <input type="email" class="form-control" id="recipient-email" placeholder="Enter Your Email Address">
+                              <label>Email Address</label>
+                              <input type="email" class="form-control" id="recipient-email" placeholder="Email">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="recipient-phone" placeholder="Enter Your Phone Number">
+                              <label>Phone Number</label>
+                              <input type="text" class="form-control" id="recipient-phone" placeholder="Phone">
                             </div>
 
                             <div class="modal-footer">
@@ -148,11 +139,7 @@
               </div>
             </div>
 
-
-
-
-
-
+            <!-- text carousel -->
 
           </div>
         </div>
@@ -160,14 +147,17 @@
           <div class="col-lg-6">
             <div class="container">
 <!-- testimonials -->
-                <div id="carouselContent" class="carousel slide" data-ride="carousel">
+                <div id="carouselContent" class="carousel slide pt-3" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active text-center p-4">
-                             <p>lorem ipsum (imagine longer text) <br> lorem ipsum</p>
+                        <div class="carousel-item active text-center">
+                             <p style="font-size: 30px">I have found a steady stream of work from PaaS Membership club. All pros need
+                               watch this space.</p><br>
+                               <p style="font-weight: bold;">John Doe</p>
                         </div>
                         <div class="carousel-item text-center p-4">
 
-                            <p>lorem ipsum (imagine longer text)</p>
+                            <p style="font-size: 30px">PaaS Membership has given a lifeline in this tough times. I have been active for 3 months now</p><br>
+                            <p style="font-weight: bold;">Tom Cruise</p>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
@@ -188,6 +178,26 @@
       </div>
 
 </div>
+
+<!-- Partners -->
+      <div class="container">
+            <hr>
+            <div class="container pt-4 pb-4">
+              <section class="customer-logos slider">
+                <div class="slide"><img src="/images/logos/texas.webp"></div>
+                <div class="slide"><img src="/images/logos/uniliver.webp"></div>
+                <div class="slide"><img src="/images/logos/sanlam.webp"></div>
+                <div class="slide"><img src="/images/logos/rvibs.webp"></div>
+                <div class="slide"><img src="/images/logos/papaya.webp"></div>
+                <div class="slide"><img src="/images/logos/neema.webp"></div>
+                <div class="slide"><img src="/images/logos/mboga.webp"></div>
+                <div class="slide"><img src="/images/logos/apa.webp"></div>
+              </section>
+            </div>
+      </div>
+      <hr>
+
+
 
 
 
