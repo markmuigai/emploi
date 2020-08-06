@@ -56,21 +56,26 @@
             <div class="card border-light mb-3 mx-auto" style="max-width: 20rem;">
               <div class="card-header"><h3>On Demand Jobs</h13></div>
               <div class="card-body">
+                <div class="card-text">
+                  <p class="h6 p-4">PAAS is a service that seeks to provide qualified professionals on demand to
+                  handle specific tasks at affordable rates and at a cost effective....</p>
+                </div>
                 <!-- Large modal -->
                 <button type="button" class="btn btn-orange" data-toggle="modal" data-target=".bd-example-modal-lg">PaaS Details</button>
 
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg p-2">
                   <div class="modal-content p-4">
-                     <h1>Description</h1>
+                     <h1 class="bg-light">Product Description</h1>
 
                      <div>
-                       <h3>Product Description</h3>
                        PAAS is a service that seeks to provide qualified professionals on demand to
-                       handle specific tasks at affordable rates/at a cost effective plan.
+                       handle specific tasks at affordable rates and at a cost effective plan.
+                       <br><br>
                        It is created to fulfill the need of employers for mid-level and senior
                        positions that became vacant due to theCOVID-19 pandemic.
-                       <br>Lay-offs by companies led to reassessment of processes in the companies.
+                       <br><br>
+                       Lay-offs by companies led to reassessment of processes in the companies.
                        PAAS seeks to connect experienced persons to the SMEs.
                        It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap
 
@@ -112,7 +117,6 @@
                   Visibility from multiple clients. <br>
                   Project management tools that you can utilize in your project. <br>
                   End-to-end recruitment training ensuring you pass interview and get task. <br>
-
                 </p>
 
                 <!-- modal starts here within card -->
