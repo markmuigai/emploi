@@ -43,6 +43,7 @@ use App\SeekerPersonality;
 use App\Skill;
 use App\User;
 use App\UserPermission;
+use App\EmployerSubscription;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
@@ -256,6 +257,7 @@ class EmployerController extends Controller
         //         ";
         // EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
+        if (app()->environment() === 'production')
         Notification::send(Employer::first(),new EmployerRegistered('NEW EMPLOYER: '.$c->user->name.' registered and created Company '.$c->name));
 
         $caption = "A new employer has registered on Emploi";
@@ -1218,8 +1220,138 @@ class EmployerController extends Controller
     }
 
 
-    public function epaas(){
-      return view('employers.epaas');
+    public function epaas()
+    {
+        return view('employers.epaas');
     }
 
+    public function getPaas(Request $request)
+    {   
+
+         $request->validate([
+            'name'          =>  ['required','max:50','string'],
+            'email'         =>  ['required','string', 'email', 'max:50'],
+            'phone_number' => ['required', 'string', 'max:15']
+        ]);
+        
+        $user = User::where('email',$request->email)->first();
+        $created = false;
+        if(!isset($user->id))
+        {
+            $username = explode(" ", strtolower($request->name));
+            $username = implode("-", $username).rand(1000,30000);
+            $password = User::generateRandomString(10);
+            $created = true;
+
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'username' => $username,
+                'email_verification' => User::generateRandomString(10),
+                'password' => Hash::make($password),
+            ]);
+
+            if(!isset($user->id))
+            {
+                abort(500);
+            }
+
+        // $r = Referral::where('email',$request->email)->first();
+
+        // if(!isset($r->id) && Session::has('invite_id'))
+        // {
+        //     $invite_id = Session::get('invite_id');
+        //     $link = InviteLink::find($invite_id);
+        //     if(isset($link->id))
+        //     {
+        //         Referral::create([
+        //             'user_id' => $link->user_id,
+        //             'name' => $user->name,
+        //             'email' => $user->email
+        //         ]);
+        //     }
+
+        // }
+
+
+        
+        $emp = Employer::create([
+            'user_id' => $user->id,
+            'name' => $request->name,
+            'industry_id' => 32,
+            'company_name' => $user->name,
+            'contact_phone' =>$request->phone_number,
+            'company_phone' => $request->phone_number,
+            'company_email' => $user->email,
+            'country_id' => 1,
+            'address' =>0        
+        ]);
+
+
+
+        //return $emp;
+
+        $perm = UserPermission::create([
+            'user_id' => $user->id,
+            'permission_id' => 3
+        ]);
+
+
+        if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
+        {
+            $user->verifyAccount();
+        }
+        else
+        {
+            $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
+        }
+
+
+
+        // $caption = "Thank you for registering your profile on Emploi as an Employer";
+        // $contents = "Your account has been created successfully. Log in with username: <b>$username</b> <br>
+        // <br>
+
+        // Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
+        //         ";
+        // EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+        if (app()->environment() === 'production')
+        Notification::send(Employer::first(),new EmployerRegistered('NEW EMPLOYER: '.$emp->user->name.' registered an employer profile'));
+
+        $caption = "A new employer has registered on Emploi";
+        $contents = $emp->user->name." has created an employer profile on Emploi.<br>
+        Log in to <a href='/admin/panel'>Admin panel</a> to manage employers.";
+        EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Company '.$emp->name.' Created', $caption, $contents);
+
+
+
+        }
+        // if($user->role != 'seeker')
+        {
+            $es = EmployerSubscription::create([
+                'user_id' => $user->id,
+                'name' => $user->name,
+                'phone_number' => $request->phone_number,
+                'email' => $user->email
+            ]);
+
+            if(isset($es->id))
+            {
+
+                $caption = "Subscription Received";
+                $contents = "We have received your subscription on Emploi Professional As A Service (PAAS).<br>
+                One of our administrators will get back to you shortly.
+                <br><br>
+                Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br><br>
+                Thank you for choosing Emploi.
+                <br><br>
+                ";
+                EmailJob::dispatch($user->name, $user->email, 'Subscription Received', $caption, $contents);
+
+            }
+
+            return view('employers.epaas')->with('success', 'Your subscription has been sent successfully, Check your email for instructions on how to complete the payment!');
+        }
+    }
 }

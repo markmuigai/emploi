@@ -30,10 +30,12 @@
           <div class="col-lg-12 text-left">
             <h1 class="font-weight-light">Hire Part-time Professionals</h1>
             <br><br>
-            <button type="button" class="btn btn-purple">Read More</button>
+            <a href="tel:+254702068282" class="btn btn-orange"><i class="fa fa-phone"></i> Call Us </a>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
-
-          </div>
+              @if (!empty($success))
+                  <h3 style="color: green">{{ $success }}</h3>
+              @endif
+          </div>         
         </div>
       </div>
     </header>
@@ -43,16 +45,17 @@
     <div class="container pt-3">
 
       <div class="row">
-        <div class="col-lg-7 pr-5">
+        <div class="col-lg-6 pr-5">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-        <div class="col-lg-5 mx-auto">
-            <div class="card border-light mb-3 mx-auto" style="max-width: 20rem;">
-              <div class="card-header"><h3>For Your Demand Job</h13></div>
+        <div class="col-lg-6 mx-auto">
+            <div class="card border-light mb-3 mx-auto" style="max-width: 100%;">
+              <div class="card-header"><h3>What is PAAS</h13></div>
               <div class="card-body">
                 <!-- <h5 class="card-title">Light card title</h5> -->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">PAAS is a service that seeks to provide qualified professionals on demand to handle specific tasks at affordable rates/at a cost effective plan. It is created to fulfill the need of employers for mid-level and senior positions that became vacant due to the COVID-19 pandemic.
+                Lay-offs by companies led to reassessment of processes in the companies. PAAS seeks to connect experienced persons to the SMEs. It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
               </div>
               <div class="Button text-center">
                 <a href="#">
@@ -94,11 +97,11 @@
 
         <!-- pricing section -->
 
-        <div class="col-lg-6">
+        <div class="col-md-6" style="align-items: center">
           <div>
 
-            <div class="card border-light mb-3" style="max-width: 30rem;">
-              <div class="card-header"><h2>Pricing  <span style="color: orange;">55USD</span></h2></div>
+            <div class="card border-light mb-3" style="max-width: 100%; align-items: center;">
+              <div class="card-header"><h2>Membership<br> <span style="color: orange;">Ksh. 5500 Annually</span></h2></div>
               <div class="card-body">
                 <h5 class="card-title">Pay and Enjoy</h5>
                 <p class="card-text pb-5">
@@ -120,23 +123,22 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                          <form action="#" method="#">
-                            <div class="form-group">
-                              <input type="text" class="form-control" id="recipient-name" placeholder="Enter Your Name">
-                            </div>
-                            <div class="form-group">
-                              <input type="email" class="form-control" id="recipient-email" placeholder="Enter Your Email Address">
-                            </div>
-                            <div class="form-group">
-                              <input type="text" class="form-control" id="recipient-phone" placeholder="Enter Your Phone Number">
-                            </div>
-
-                          </form>
+                            <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
+                                  @csrf
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="Enter Your Name">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter Your Email Address">
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="text" class="form-control" name="phone_number" placeholder="Enter Your Phone Number">
+                                  </div>
+                                   <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
+                            </form>
+                              <div class="btn btn-oange" style="float: right;"  data-dismiss="modal">Close</div>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-orange">Subscribe</button>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -158,7 +160,7 @@
             <div class="container">
 <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
+                    <div class="carousel-inner" role="listbox" style="display: none;">
                         <div class="carousel-item active text-center p-4">
                              <p>lorem ipsum (imagine longer text) <br> lorem ipsum</p>
                         </div>
