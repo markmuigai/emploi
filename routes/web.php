@@ -277,6 +277,9 @@ Route::get('/employers/faqs', 'ContactController@employerFaqs');
 Route::get('/employers/paas', 'EmployerController@epaas');
 Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 
+Route::get('/job-seekers/paas', 'SeekerController@paas');
+
+
 
 
 Route::resource('/vacancies', 'PostsController');
