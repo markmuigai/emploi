@@ -72,10 +72,10 @@ class ContactController extends Controller
         $skills = [];
         if(isset($request->skills))
         {
-            for ($i=0; $i < count($request->skills); $i++) { 
+            for ($i=0; $i < count($request->skills); $i++) {
                 $skill_id = $request->skills[$i];
                 array_push($skills, \App\IndustrySkill::findOrFail($skill_id));
-            }           
+            }
         }
 
         $current_position = $request->current_position ? $request->current_position : false;
@@ -149,7 +149,7 @@ class ContactController extends Controller
         $invite = InviteLink::where('slug',$slug)->first();
 
         if(!isset($invite->id))
-        {            
+        {
             return redirect('/join');
         }
         else
@@ -162,19 +162,19 @@ class ContactController extends Controller
                     $request->session()->put('invite_id', $invite->id);
                     $invite->clicks_count++;
                     $invite->save();
-                }          
-                
+                }
+
             }
 
             //create session
-            
+
 
             return view('invites.invited')
                 ->with('invite',$invite);
-            
+
             return redirect('/join');
         }
-            
+
     }
 
     public function indexRedirect(){
@@ -232,7 +232,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             }
 
             $perm = UserPermission::create([
-                'user_id' => $user->id, 
+                'user_id' => $user->id,
                 'permission_id' => 4
             ]);
 
@@ -256,7 +256,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
                 'resume_contents' => $parser->convertToText()
             ]);
 
-            
+
 
             $caption = "Thank you for registering your profile on Emploi as a Job Seeker.";
                 $contents = "Here are your login credentials for Emploi: <br>
@@ -294,8 +294,8 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             else
             {
                 CvRequest::create([
-                    'employer_id' => $post->company->user->employer->id, 
-                    'seeker_id' => $user->seeker->id, 
+                    'employer_id' => $post->company->user->employer->id,
+                    'seeker_id' => $user->seeker->id,
                     'status' => 'accepted'
                 ]);
             }
@@ -339,7 +339,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
 
                 //VacancyEmail::dispatch($email, $name, 'Application for '.$post->title." Received", $caption, $contents,'/images/email-banner-1.jpg','custom',storage_path().'/app/public/resumes/'.$user->seeker->resume,false,false);
 
-                
+
 
                 //EmailJob::dispatch($name, $email, 'Application for '.$post->title." Received", $caption, $contents);
 
@@ -452,7 +452,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return view('emails.custom_txt');
     }
 
-    
+
 
     public function join(Request $request){
         if(isset($request->redirectToUrl))
@@ -512,7 +512,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function employersIndex(){
         return redirect('/employers/publish');
     }
-    
+
     public function bkgtests(){
         return view('employers.background-checks');
     }
@@ -532,7 +532,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return view('employers.services');
     }
     public function cvtemplates(){
-        return view('seekers.cv-templates'); 
+        return view('seekers.cv-templates');
     }
     public function summit(){
         return view('seekers.summit');
@@ -541,6 +541,6 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return view('seekers.services')
                ->with('faqs',Faq::where('permission_id',4)->orderBy('created_at', 'desc')->paginate(10));
     }
-  
+
 
 }
