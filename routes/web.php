@@ -283,6 +283,9 @@ Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 Route::get('/job-seekers/paas', 'SeekerController@paas');
 
 
+Route::get('/job-seekers/paas', 'SeekerController@paas');
+
+
 
 
 Route::resource('/vacancies', 'PostsController');
