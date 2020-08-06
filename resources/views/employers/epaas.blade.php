@@ -30,12 +30,14 @@
           <div class="col-lg-12 text-left">
             <h1 class="font-weight-light">Hire Part-time Professionals</h1>
             <br><br>
-            <a href="tel:+254702068282" class="btn btn-orange"><i class="fa fa-phone"></i> Call Us </a>
-            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
-              @if (!empty($success))
-                  <h3 style="color: green">{{ $success }}</h3>
-              @endif
-          </div>         
+            <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
+            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button><br>          
+          </div>
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+            {{ session()->get('success') }}
+            </div>
+            @endif         
         </div>
       </div>
     </header>
@@ -46,7 +48,7 @@
 
       <div class="row">
         <div class="col-lg-6 pr-5">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe style="height: 350px !important;" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
         <div class="col-lg-6 mx-auto">
@@ -97,7 +99,7 @@
 
         <!-- pricing section -->
 
-        <div class="col-md-6" style="align-items: center">
+        <div class="col-md-6">
           <div>
 
             <div class="card border-light mb-3" style="max-width: 100%; align-items: center;">
@@ -125,12 +127,15 @@
                       <div class="modal-body">
                             <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
                                   @csrf
+                                  <label>Name</label>
                                   <div class="form-group">
                                     <input type="text" class="form-control" name="name" placeholder="Enter Your Name">
                                   </div>
+                                  <label>Email</label>
                                   <div class="form-group">
                                     <input type="email" class="form-control" name="email" placeholder="Enter Your Email Address">
                                   </div>
+                                  <label>Phone Number</label>
                                   <div class="form-group">
                                     <input type="text" class="form-control" name="phone_number" placeholder="Enter Your Phone Number">
                                   </div>
@@ -160,13 +165,15 @@
             <div class="container">
 <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox" style="display: none;">
-                        <div class="carousel-item active text-center p-4">
-                             <p>lorem ipsum (imagine longer text) <br> lorem ipsum</p>
+                      <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active text-center">
+                             <p style="font-size: 30px">I have found a steady stream of work from PaaS Membership club. All pros need watch this space.</p><br>
+                               <p style="font-weight: bold;">John Doe</p>
                         </div>
                         <div class="carousel-item text-center p-4">
 
-                            <p>lorem ipsum (imagine longer text)</p>
+                            <p style="font-size: 30px">PaaS Membership has given a lifeline in this tough times. I have been active for 3 months now</p><br>
+                            <p style="font-weight: bold;">Tom Cruise</p>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">

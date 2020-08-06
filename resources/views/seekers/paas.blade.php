@@ -35,7 +35,7 @@
             <h3 class="font-weight-bold">Are you looking for part-time work?<br>
                A new solution is here for you.</h3>
             <br><br>
-            <button type="button" class="btn btn-purple">Call US <i class="fas fa-phone"></i></button>
+             <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
 
           </div>
@@ -107,8 +107,70 @@
 
           <div class="col-lg-6 pt-2 mb-3">
 
-            <h2 class="text-center">Testimonials</h2>
-            <div class="container mt-2">
+        <div class="col-lg-6">
+          <div>
+
+            <div class="card border-light mb-3" style="max-width: 30rem;">
+              <div class="card-header"><h2>Pricing  <span style="color: orange;">2750 KES Yearly</span></h2></div>
+              <div class="card-body">
+                <h5 class="card-title">What you get</h5>
+                <p class="card-text pb-5">
+                  Visibility from multiple clients. <br>
+                  Project management tools that you can utilize in your project. <br>
+                  End-to-end recruitment training ensuring you pass interview and get task. <br>
+                </p>
+
+                <!-- modal starts here within card -->
+                <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog p-5" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- subscribe form for Professional -->
+                          <form action="#" method="#">
+                            <div class="form-group">
+                              <label>Fill your name</label>
+                              <input type="text" class="form-control" id="recipient-name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                              <label>Email Address</label>
+                              <input type="email" class="form-control" id="recipient-email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                              <label>Phone Number</label>
+                              <input type="text" class="form-control" id="recipient-phone" placeholder="Phone">
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-orange">Subscribe</button>
+                              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                            </div>
+
+                          </form>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- end modal in card -->
+              </div>
+            </div>
+
+            <!-- text carousel -->
+
+          </div>
+        </div>
+
+          <div class="col-lg-6">
+            <div class="container">
 <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide pt-3" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
