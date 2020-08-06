@@ -32,7 +32,7 @@
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-md-12 text-left">
-            <h2 class="font-weight-bold">Are you looking for part-time work?<br>
+            <h3 class="font-weight-bold">Are you looking for part-time work?<br>
                A new solution is here for you.</h3>
             <br><br>
             <button type="button" class="btn btn-purple">Call US <i class="fas fa-phone"></i></button>
@@ -47,17 +47,17 @@
 
     <div class="container pt-3">
 
-      <div class="row">
+      <div class="row pt-2">
         <div class="col-lg-6">
             <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; !important;"></iframe>
         </div>
 
         <div class="col-lg-6 mx-auto">
-            <div class="card border-light mb-3 mx-auto" style="max-width: 20rem;">
-              <div class="card-header"><h3>On Demand Jobs</h13></div>
+            <div class="card border-light mb-3 mx-auto mt-2" style="max-width: 20rem;">
+              <div class="card-header"><h3>Pro as a Service</h13></div>
               <div class="card-body">
                 <div class="card-text">
-                  <p class="h6 p-4">PAAS is a service that seeks to provide qualified professionals on demand to
+                  <p class="h5 p-3">PAAS is a service that seeks to provide qualified professionals on demand to
                   handle specific tasks at affordable rates and at a cost effective....</p>
                 </div>
                 <!-- Large modal -->
@@ -102,74 +102,13 @@
 <!-- start of description container -->
 <div class="container" id="#">
 
-      <div class="row pt-5 pb-5">
+      <div class="row pt-5">
+        <!-- testimonials -->
 
-        <!-- pricing section -->
+          <div class="col-lg-6 pt-2 mb-3">
 
-        <div class="col-lg-6">
-          <div>
-
-            <div class="card border-light mb-3" style="max-width: 30rem;">
-              <div class="card-header"><h2>Pricing  <span style="color: orange;">2750KES</span></h2></div>
-              <div class="card-body">
-                <h5 class="card-title">What you get</h5>
-                <p class="card-text pb-5">
-                  Visibility from multiple clients. <br>
-                  Project management tools that you can utilize in your project. <br>
-                  End-to-end recruitment training ensuring you pass interview and get task. <br>
-                </p>
-
-                <!-- modal starts here within card -->
-                <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog p-5" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <!-- subscribe form for Professional -->
-                          <form action="#" method="#">
-                            <div class="form-group">
-                              <label>Fill your name</label>
-                              <input type="text" class="form-control" id="recipient-name" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                              <label>Email Address</label>
-                              <input type="email" class="form-control" id="recipient-email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                              <label>Phone Number</label>
-                              <input type="text" class="form-control" id="recipient-phone" placeholder="Phone">
-                            </div>
-
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-orange">Subscribe</button>
-                              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                            </div>
-
-                          </form>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- end modal in card -->
-              </div>
-            </div>
-
-            <!-- text carousel -->
-
-          </div>
-        </div>
-
-          <div class="col-lg-6">
-            <div class="container">
+            <h2 class="text-center">Testimonials</h2>
+            <div class="container mt-2">
 <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide pt-3" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
@@ -180,7 +119,7 @@
                         </div>
                         <div class="carousel-item text-center p-4">
 
-                            <p style="font-size: 30px">PaaS Membership has given a lifeline in this tough times. I have been active for 3 months now</p><br>
+                            <p style="font-size: 30px">PaaS Membership gave me a lifeline. I have been active for 3 months now</p><br>
                             <p style="font-weight: bold;">Tom Cruise</p>
                         </div>
                     </div>
@@ -199,6 +138,80 @@
           </div>
 
           <!-- end of first description row -->
+
+          <!-- pricing section -->
+
+          <div class="col-lg-6 mb-3">
+            <div>
+
+              <div class="card border-light mt-4" style="max-width: 30rem;">
+                <div class="card-header"><h2>Pricing  <span style="color: orange;">2750KES</span></h2></div>
+                <div class="card-body">
+                  <h5 class="card-title">What you get</h5>
+                  <p class="card-text pb-3">
+                    Visibility from multiple clients. <br>
+                    Project management tools that you can utilize in your project. <br>
+                    End-to-end recruitment training ensuring you pass interview and get task. <br>
+                  </p>
+
+                  <!-- modal starts here within card -->
+                  <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog p-5" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- subscribe form for Professional -->
+                            <form action="#" method="#">
+                              <div class="form-group">
+                                <label class="h5">Fill your name</label>
+                                <input type="text" class="form-control" id="recipient-name" placeholder="Name">
+                              </div>
+                              <div class="form-group">
+                              <div class="form-group">
+                                <label class="h5 pr-2">Industry</label>
+                                <select name="industry" id="industry" class="select">
+                                  <option value="accountant">Accountant</option>
+                                  <option value="it">IT Specialist</option>
+                                  <option value="analyst">Data Analyst</option>
+                                  <option value="build">Building and Construction</option>
+                                </select>
+                              </div>
+                                <label class="h5">Email Address</label>
+                                <input type="email" class="form-control" id="recipient-email" placeholder="Email">
+                              </div>
+                              <div class="form-group">
+                                <label class="h5">Phone Number</label>
+                                <input type="text" class="form-control" id="recipient-phone" placeholder="Phone">
+                              </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-orange">Subscribe</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                              </div>
+
+                            </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- end modal in card -->
+                </div>
+              </div>
+
+              <!-- text carousel -->
+
+            </div>
+          </div>    <!-- end of pricing-->
+
       </div>
 
 </div>
