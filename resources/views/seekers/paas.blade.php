@@ -1,5 +1,9 @@
 @extends('layouts.general-layout')
 
+@section('covid')
+{{-- this section will be empty --}}
+@stop
+
 @section('content')
 
 <style>
