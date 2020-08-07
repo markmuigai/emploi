@@ -28,16 +28,16 @@
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-lg-12 text-left">
-            <h1 class="font-weight-light">Hire Part-time Professionals</h1>
+            <h1 class="font-weight-light">Are you looking for part-time <br>professionals? A new solution is here for you.</h1>
             <br><br>
             <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
-            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button><br>          
+            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button><br>
           </div>
             @if(session()->has('success'))
             <div class="alert alert-success">
             {{ session()->get('success') }}
             </div>
-            @endif         
+            @endif
         </div>
       </div>
     </header>
@@ -47,7 +47,7 @@
     <div class="container pt-3">
 
       <div class="row">
-        <div class="col-lg-6 pr-5">
+        <div class="col-lg-6">
           <iframe style="height: 350px !important;" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
@@ -68,9 +68,11 @@
 
         </div>
 
-        <section>
       <!-- Partners -->
-      <div class="container">
+      <div class="container mt-5">
+        <hr>
+
+            <h2 class="text-center">Our Partners</h2>
             <hr>
             <div class="container pt-4 pb-4">
               <section class="customer-logos slider">
@@ -86,7 +88,6 @@
             </div>
       </div>
       <hr>
-    </section>
 
   </div>
 
@@ -115,7 +116,7 @@
                 <!-- modal starts here within card -->
                 <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade p-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -139,11 +140,14 @@
                                   <div class="form-group">
                                     <input type="text" class="form-control" name="phone_number" placeholder="Enter Your Phone Number">
                                   </div>
-                                   <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
+                                  <div class="pt-3">
+                                    <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
+                                    <div class="btn btn-oange" style="float: right;"  data-dismiss="modal">Close</div>
+                                  </div>
+
                             </form>
-                              <div class="btn btn-oange" style="float: right;"  data-dismiss="modal">Close</div>
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>
