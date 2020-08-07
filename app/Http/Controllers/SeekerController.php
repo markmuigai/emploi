@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
+use Notification;
 use Illuminate\Support\Facades\DB;
 
 use App\Jobs\EmailJob;
@@ -22,6 +23,7 @@ use App\Seeker;
 use App\Referral;
 use App\UserPermission;
 use App\SeekerSubscription;
+use App\Notifications\PaasSubscribed;
 
 class SeekerController extends Controller
 {
@@ -173,6 +175,8 @@ class SeekerController extends Controller
 
             if(isset($js->id))
             {
+                if (app()->environment() === 'production')
+                Notification::send(User::first(),new PaasSubscribed('JOBSEEKERS PAAS SUBSCRIPTION: '.$js->name.' with contact details  '.$js->email.' and  '.$js->phone_number.'  has submitted subscription for paas.'));
 
                 $caption = "Subscription Received";
                 $contents = "We have received your subscription on Emploi Professional As A Service (PAAS).<br>

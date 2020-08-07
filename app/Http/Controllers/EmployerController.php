@@ -48,6 +48,7 @@ use App\EmployerSubscription;
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
 use App\Notifications\EmployerRegistered;
+use App\Notifications\PaasSubscribed;
 
 class EmployerController extends Controller
 {
@@ -1338,7 +1339,10 @@ class EmployerController extends Controller
 
             if(isset($es->id))
             {
+                if (app()->environment() === 'production')
+               Notification::send(Employer::first(),new PaasSubscribed('EMPLOYERS PAAS SUBSCRIPTION: '.$es->name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for paas.'));
 
+                
                 $caption = "Subscription Received";
                 $contents = "We have received your subscription on Emploi Professional As A Service (PAAS).<br>
                 One of our administrators will get back to you shortly.
