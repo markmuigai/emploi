@@ -31,7 +31,8 @@
             <h1 class="font-weight-light">Are you looking for part-time <br>professionals? A new solution is here for you.</h1>
             <br><br>
             <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
-            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button><br>
+            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+              Subscribe</button><br>
           </div>
             @if(session()->has('success'))
             <div class="alert alert-success">
@@ -53,7 +54,7 @@
 
         <div class="col-lg-6 pb-3 mx-auto">
             <div class="card border-light mb-3 mx-auto" style="max-width: 100%;">
-              <div class="card-header"><h3>What is PAAS</h13></div>
+              <div class="card-header"><h3>What is PAAS</h3></div>
               <div class="card-body">
                 <!-- <h5 class="card-title">Light card title</h5> -->
                 <p class="card-text">PAAS is a service that seeks to provide qualified professionals on demand to handle specific tasks at affordable rates/at a cost effective plan. It is created to fulfill the need of employers for mid-level and senior positions that became vacant due to the COVID-19 pandemic.
@@ -61,7 +62,7 @@
               </div>
               <div class="Button text-center">
                 <a href="#benefits">
-                  <button type="button" class="btn btn-orange">Benefits</button>
+                  <button type="button" class="btn btn-orange">Membership Benefits</button>
                 </a>
               </div>
             </div>
