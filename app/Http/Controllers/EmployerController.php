@@ -1343,7 +1343,7 @@ class EmployerController extends Controller
                 $contents = "We have received your subscription on Emploi Professional As A Service (PAAS).<br>
                 One of our administrators will get back to you shortly.
                 <br><br>
-                Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br><br>
+                If you have questions regarding your subscription or other Emploi Services kindly <a href='".url('/contact')."'>contact us</a><br.
                 Thank you for choosing Emploi.
                 <br><br>
                 ";

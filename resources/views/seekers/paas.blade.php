@@ -36,10 +36,15 @@
             <h3 class="font-weight-bold">Are you looking for part-time work?<br>
                A new solution is here for you.</h3>
             <br><br>
-            <button type="button" class="btn btn-purple">Call US <i class="fas fa-phone"></i></button>
+            <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
 
           </div>
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+            {{ session()->get('success') }}
+            </div>
+            @endif  
         </div>
       </div>
     </header>
@@ -146,7 +151,7 @@
             <div>
 
               <div class="card border-light mt-4" style="max-width: 30rem;">
-                <div class="card-header"><h2>Pricing  <span style="color: orange;">2750KES</span></h2></div>
+                <div class="card-header"><h2>Pricing  <span style="color: orange;">2750 KES Yearly</span></h2></div>
                 <div class="card-body">
                   <h5 class="card-title">What you get</h5>
                   <p class="card-text pb-3">
@@ -169,31 +174,35 @@
                         </div>
                         <div class="modal-body">
                           <!-- subscribe form for Professional -->
-                            <form action="#" method="#">
+                            <form method="POST"  enctype="multipart/form-data" action="/job-seekers/subscribe-paas">
+                              @csrf
                               <div class="form-group">
                                 <label class="h5">Fill your name</label>
-                                <input type="text" class="form-control" id="recipient-name" placeholder="Name">
+                                <input type="text" class="form-control" name="name" required="" placeholder="Name">
                               </div>
                               <div class="form-group">
-                              <div class="form-group">
-                                <label class="h5 pr-2">Industry</label>
-                                <select name="industry" id="industry" class="select">
-                                  <option value="accountant">Accountant</option>
-                                  <option value="it">IT Specialist</option>
-                                  <option value="analyst">Data Analyst</option>
-                                  <option value="build">Building and Construction</option>
-                                </select>
+                                <label class="h5">Industry</label>
+                                  <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                                  @foreach($industries as $c)
+                                  <option value="{{ $c->id }}" @if(old('industry') && old('industry')==$c->id)
+                                  selected=""
+                                  @endif
+                                  >{{ $c->name }}</option>
+                                  @endforeach
+                                  </select>
                               </div>
+
+                              <div class="form-group">
                                 <label class="h5">Email Address</label>
-                                <input type="email" class="form-control" id="recipient-email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" required="" placeholder="Email">
                               </div>
                               <div class="form-group">
                                 <label class="h5">Phone Number</label>
-                                <input type="text" class="form-control" id="recipient-phone" placeholder="Phone">
+                                <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
                               </div>
 
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-orange">Subscribe</button>
+                               <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
                                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                               </div>
 
