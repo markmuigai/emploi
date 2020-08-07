@@ -71,7 +71,7 @@
                   handle specific tasks at affordable rates and at a cost effective....</p>
                 </div>
                 <!-- Large modal -->
-                <button type="button" class="btn btn-orange" data-toggle="modal" data-target=".bd-example-modal-lg">Learn More</button>
+                <button type="button" class="btn btn-orange" data-toggle="modal" data-target=".bd-example-modal-lg">Learn More <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></button>
 
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg p-2">
@@ -154,7 +154,7 @@
           <div class="col-lg-6 mb-3">
             <div>
 
-              <div class="card border-light mt-4" style="max-width: 30rem;">
+              <div class="card shadow-sm border-light mt-4" style="max-width: 30rem;">
                 <div class="card-header"><h2>Pricing  <span style="color: orange;">2750 KES Yearly</span></h2></div>
                 <div class="card-body">
                   <h5 class="card-title">What you get</h5>
@@ -255,7 +255,7 @@
       <div class="row pt-3" id="benefits">
         <div class="col-lg">
           <div>
-            <div class="card">
+            <div class="card shadow-sm">
                 <h2 class="text-center bg-light p-4">Benefits of PaaS Membership</h2>
               <div class="card-body">
                 <div class="card-text h5">
