@@ -130,15 +130,15 @@
                                   @csrf
                                   <label>Name</label>
                                   <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="Enter Your Name">
+                                    <input type="text" class="form-control" name="name" placeholder="Enter Your Name" required>
                                   </div>
                                   <label>Email</label>
                                   <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Enter Your Email Address">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter Your Email Address" required>
                                   </div>
                                   <label>Phone Number</label>
                                   <div class="form-group">
-                                    <input type="text" class="form-control" name="phone_number" placeholder="Enter Your Phone Number">
+                                    <input type="text" class="form-control" name="phone_number" placeholder="Enter Your Phone Number" required>
                                   </div>
                                   <div class="pt-3">
                                     <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
