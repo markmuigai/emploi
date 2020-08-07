@@ -42,7 +42,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             @enderror
         </div>
         <div class="form-group">
-            <label for="phone_number">Your Phone Number </label>
+            <label for="phone_number">Your Phone Number  <b style="color: red">*</b> </label>
             <div class="row pl-3">
                 <select class="custom-select col-3" name="contact_prefix">
                     @foreach($countries as $c)
@@ -54,7 +54,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </option>
                     @endforeach
                 </select>
-                <input type="number" path="phone_number" value="{{ old('phone_number') }}" name="phone_number" id="phone_number" class="form-control col-8 ml-3" placeholder="7123123123"
+                <input type="number" required="" path="phone_number" value="{{ old('phone_number') }}" name="phone_number" id="phone_number" class="form-control col-8 ml-3" placeholder="7123123123"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" />
                 @error('phone_number')
                 <span class="invalid-feedback" role="alert">
