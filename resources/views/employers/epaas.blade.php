@@ -1,7 +1,7 @@
 @extends('layouts.zip')
 @section('title','Advertise on Emploi')
 @section('description')
-Advertise on Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Post a job in two minutes.
+Request Professionals Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Request professional in two minutes.
 @endsection
 
 
@@ -21,13 +21,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 
             @guest
-                <a href="#" class="btn btn-primary btn-theme" id="request-part-timer">Request</a>
-                <a href="#" class="btn btn-outline-primary mr-2 btn-demo">  Subscribe for PaaS</a>
+
+                <a href="#exampleModal" class="btn btn-primary btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Request</a>
+                <a href="#" class="btn btn-outline-primary mr-2 btn-demo">Learn More</a>
             @else
 
               @if(Auth::user()->role == 'employer')
 
-                  <a href="/vacancies/create" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
+                  <a href="" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
                   <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us </a>
 
               @else
@@ -55,7 +56,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
       <h3 class="head">9 out of 10 Employers</h3>
-      <p class="my-3 head"> Who advertise on Emploi receive qualified applications <b>from the first day</b>!</p>
+      <p class="my-3 head"> Who request on Emploi for PaaS receive qualified applications <b>from the first day</b>!</p>
     </div>
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
@@ -73,7 +74,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             <img src="/images/zip/s2.png" alt="" class="img-fluid" />
             <h3 class="my-3">Browse Talent Pool</h3>
             <p class="">
-            	Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.
+            	Get access to our database of on-demand professionals and shortlist, contact and select professionals with our recruitment tools.
             </p>
           </a>
         </div>
@@ -96,8 +97,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="section-info py-5">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6 cwp17-image">
-          <img src="/images/zip/business.png" class="img-fluid" alt="" />
+        <div class="col-md-6">
+          <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe>
         </div>
         <div class="col-md-6 cwp17-text">
           <h2>Recruitment Process</h2>
@@ -157,7 +158,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Applicants Management</h4>
+                 <h4>Professionals Management</h4>
                  <p>Our Role Suitability tool and other features enable you to score job applications against your model candidate and rank them for advanced shortlisting</p>
                </div>
              </div>
@@ -172,8 +173,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Premium Recruitment</h4>
-                 <p>Let's handle the recruitment process for you and provide you candidates that fit your description for you to decide. We guarantee a 2-4 day Turn-Around-Time</p>
+                 <h4>End-to-End Recruitment</h4>
+                 <p>Let's handle the recruitment process for you and provide you professionals that fit your industry skill description for you to decide.</p>
                </div>
              </div>
            </a>
@@ -202,8 +203,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Hire Remotely</h4>
-                 <p>We provide your recruitment team with the necessary tools for interviews, insight on candidates, and thorough background checks.</p>
+                 <h4>Products You Use</h4>
+                 <p>We provide you with the necessary manage your profile from inception to end. Allowing you to monitor and track your hired professional</p>
                </div>
              </div>
            </a>
@@ -285,6 +286,58 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
   <!-- /main-slider -->
 </section>
+
+<section>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog p-5" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- subscribe form for Professional -->
+              <form method="POST"  enctype="multipart/form-data" action="/job-seekers/subscribe-paas">
+                @csrf
+                <div class="form-group">
+                  <label class="h5">Fill your name</label>
+                  <input type="text" class="form-control" name="name" required="" placeholder="Name">
+                </div>
+                <div class="form-group">
+                  <label class="h5">Industry</label>
+                    <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                    <option value="" selected="">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="h5">Email Address</label>
+                  <input type="email" class="form-control" name="email" required="" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label class="h5">Phone Number</label>
+                  <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
+                </div>
+
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
+                  <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </div>
+
+              </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+</section>
+
 
 
 @endsection
