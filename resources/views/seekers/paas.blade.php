@@ -256,9 +256,7 @@
         <div class="col-lg">
           <div>
             <div class="card">
-              <div class="card-header bg-orange rounded-10">
-                <h2 class="text-center bg-light">Benefits of PaaS Membership</h2>
-              </div>
+                <h2 class="text-center bg-light p-4">Benefits of PaaS Membership</h2>
               <div class="card-body">
                 <div class="card-text h5">
                   <ol>
