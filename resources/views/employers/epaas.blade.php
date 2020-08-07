@@ -31,7 +31,7 @@
             <h1 class="font-weight-light">Are you looking for part-time <br>professionals? A new solution is here for you.</h1>
             <br><br>
             <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
-            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
               Subscribe</button><br>
           </div>
             @if(session()->has('success'))
