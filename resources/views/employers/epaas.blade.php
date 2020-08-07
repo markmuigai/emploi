@@ -166,18 +166,19 @@
         </div>
 
           <div class="col-lg-6">
+            <div class="text-center pb-2"><p class="h2">Testimonials</p></div>
             <div class="container">
 <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide" data-ride="carousel">
                       <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active text-center">
-                             <p style="font-size: 30px">I have found a steady stream of work from PaaS Membership club. All pros need watch this space.</p><br>
-                               <p style="font-weight: bold;">John Doe</p>
+                             <p style="font-size: 30px">Having worked with professionals in PaaS has increased our company's revenue. We are impressed.</p><br>
+                               <p style="font-weight: bold;">Small Clothing Business</p>
                         </div>
                         <div class="carousel-item text-center p-4">
 
-                            <p style="font-size: 30px">PaaS Membership has given a lifeline in this tough times. I have been active for 3 months now</p><br>
-                            <p style="font-weight: bold;">Tom Cruise</p>
+                            <p style="font-size: 30px">PaaS gave us the talent that we were looking for. The professionals referred are top notch.</p><br>
+                            <p style="font-weight: bold;">Milky Way</p>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
