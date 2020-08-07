@@ -115,7 +115,7 @@
       <div class="row pt-5">
         <!-- testimonials -->
 
-          <div class="col-lg-6 pt-2 mb-3">
+          <div class="col-lg-6 shadow-sm pt-2 mb-3">
 
             <h2 class="text-center">Testimonials</h2>
             <div class="container mt-2">

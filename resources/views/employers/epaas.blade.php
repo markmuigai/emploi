@@ -1,227 +1,290 @@
-@extends('layouts.general-layout')
+@extends('layouts.zip')
+@section('title','Advertise on Emploi')
+@section('description')
+Advertise on Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Post a job in two minutes.
+@endsection
+
 
 @section('content')
 
-<style>
-    .masthead {
-    height: 90vh;
-    min-height: 400px;
-    font-size: 95%;
-    opacity: 0.9;
-    background-image: url('/images/js.jpg');
-    background-size: cover;
-    color: white;
-    background-position: center;
-    background-repeat: no-repeat;
-    }
-</style>
-
-<link rel="stylesheet" href="/css/infinite-slider.css">
-<script type="text/javascript" src="/js/carousel.js">
-</script>
+<?php
+$user = isset(Auth::user()->id) ? Auth::user() : false;
+?>
+<!-- index-block1 -->
+<div class="w3l-index-block1">
+  <div class="content py-5">
+    <div class="container">
+      <div class="row align-items-center py-md-5 py-3">
+        <div class="col-md-5 content-left pt-md-0 pt-5">
+          <h1>Request for Professional.</h1>
+          <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time work? A new solution is here for you.</p>
 
 
-    <div>
+            @guest
+                <a href="#" class="btn btn-primary btn-theme" id="request-part-timer">Request</a>
+                <a href="#" class="btn btn-outline-primary mr-2 btn-demo">  Subscribe for PaaS</a>
+            @else
 
-      <!-- Full Page Image Header with Vertically Centered Content -->
-    <header class="masthead">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-lg-12 text-left">
-            <h1 class="font-weight-light">Are you looking for part-time <br>professionals? A new solution is here for you.</h1>
-            <br><br>
-            <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
-            <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-              Subscribe</button><br>
-          </div>
-            @if(session()->has('success'))
-            <div class="alert alert-success">
-            {{ session()->get('success') }}
-            </div>
+              @if(Auth::user()->role == 'employer')
+
+                  <a href="/vacancies/create" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
+                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us </a>
+
+              @else
+
+                  <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
+                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> Call Us </a>
+
+              @endif
+
             @endif
+              
+          
+        </div>
+        <div class="col-md-7 content-photo mt-md-0 mt-5">
+          <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
         </div>
       </div>
-    </header>
-
+      <div class="clear"></div>
     </div>
-
-    <div class="container pt-3">
-
-      <div class="row">
-        <div class="col-lg-6 pb-3">
-          <iframe style="height: 350px !important;" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <div class="col-lg-6 pb-3 mx-auto">
-            <div class="card shadow border-light mb-3 mx-auto" style="max-width: 100%;">
-              <div class="card-header"><h3>What is PAAS</h3></div>
-              <div class="card-body">
-                <!-- <h5 class="card-title">Light card title</h5> -->
-                <p class="card-text">PAAS is a service that seeks to provide qualified professionals on demand to handle specific tasks at affordable rates/at a cost effective plan. It is created to fulfill the need of employers for mid-level and senior positions that became vacant due to the COVID-19 pandemic.
-                Lay-offs by companies led to reassessment of processes in the companies. PAAS seeks to connect experienced persons to the SMEs. It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
-              </div>
-              <div class="Button text-center">
-                <a href="#benefits">
-                  <button type="button" class="btn btn-orange mb-3">Membership Benefits</button>
-                </a>
-              </div>
-            </div>
-
-        </div>
-
-      <!-- Partners -->
-      <div class="container mt-5">
-        <hr>
-
-            <h2 class="text-center">Our Partners</h2>
-            <hr>
-            <div class="container shadow-sm pt-4 pb-4">
-              <section class="customer-logos slider">
-                <div class="slide"><img src="/images/logos/texas.webp"></div>
-                <div class="slide"><img src="/images/logos/uniliver.webp"></div>
-                <div class="slide"><img src="/images/logos/sanlam.webp"></div>
-                <div class="slide"><img src="/images/logos/rvibs.webp"></div>
-                <div class="slide"><img src="/images/logos/papaya.webp"></div>
-                <div class="slide"><img src="/images/logos/neema.webp"></div>
-                <div class="slide"><img src="/images/logos/mboga.webp"></div>
-                <div class="slide"><img src="/images/logos/apa.webp"></div>
-              </section>
-            </div>
-      </div>
-      <hr>
-
   </div>
-
 </div>
-
-<!-- start of description container -->
-<div class="container" id="#">
-
-      <div class="row pt-5 pb-5">
-
-        <!-- pricing section -->
-
-        <div class="col-md-6">
-          <div>
-
-            <div class="card shadow border-light mb-3" style="max-width: 100%; align-items: center;">
-              <div class="card-header"><h2>Membership<br> <span style="color: orange;">Ksh. 5500 Annually</span></h2></div>
-              <div class="card-body">
-                <h5 class="card-title">What you get.</h5>
-                <p class="card-text pb-5">
-                  Project management tools. <br>
-                  End-to-end recruitment process management and support. <br>
-                  Discounts on some of our services. <br>
-                  A peace of mind for your next task.
-                </p>
-
-                <!-- modal starts here within card -->
-                <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
-
-                <div class="modal fade p-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                            <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
-                                  @csrf
-                                  <label>Name</label>
-                                  <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="Enter Your Name" required>
-                                  </div>
-                                  <label>Email</label>
-                                  <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Enter Your Email Address" required>
-                                  </div>
-                                  <label>Phone Number</label>
-                                  <div class="form-group">
-                                    <input type="text" class="form-control" name="phone_number" placeholder="Enter Your Phone Number" required>
-                                  </div>
-                                  <div class="pt-3">
-                                    <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
-                                    <div class="btn btn-oange" style="float: right;"  data-dismiss="modal">Close</div>
-                                  </div>
-
-                            </form>
-                      </div>
-
-                    </div>
-                  </div>
+<!-- //index-block1 -->
+<!-- index-block2 -->
+<section class="w3l-index-block2 py-5">
+  <div class="container py-md-3">
+    <div class="heading text-center mx-auto">
+      <h3 class="head">9 out of 10 Employers</h3>
+      <p class="my-3 head"> Who advertise on Emploi receive qualified applications <b>from the first day</b>!</p>
+    </div>
+    <div class="row bottom_grids pt-md-3">
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+          <a href="/contact" class="d-block p-lg-4 p-3">
+            <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Audience of 100k+</h3>
+            <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block">
+          <a href="/employers/browse" class="d-block p-lg-4 p-3">
+            <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Browse Talent Pool</h3>
+            <p class="">
+            	Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-5">
+        <div class="s-block">
+          <a href="/employers/services" class="d-block p-lg-4 p-3">
+            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Best Recruitment Tools</h3>
+            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /index-block2 -->
+<!-- content-with-photo17 -->
+<section class="w3l-index-block3">
+  <div class="section-info py-5">
+    <div class="container py-md-3">
+      <div class="row cwp17-two align-items-center">
+        <div class="col-md-6 cwp17-image">
+          <img src="/images/zip/business.png" class="img-fluid" alt="" />
+        </div>
+        <div class="col-md-6 cwp17-text">
+          <h2>Recruitment Process</h2>
+          <p>Let us undertake the hiring process for you - we advertise your job, screen candidates, conduct background checks, and a 90 day free replacement should candidate leave.</p>
+          <a href="#">Learn more &raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- content-with-photo17 -->
+ <div class="w3l-index-block4">
+   <div class="features-bg py-5">
+     <!-- features15 block -->
+     <div class="container py-md-3">
+       <div class="heading text-center mx-auto">
+         <h3 class="head">How it works</h3>
+         <p class="my-3 head"> PAAS is a service that seeks to provide qualified professionals on demand to handle specific tasks at affordable rates/at a cost effective plan. It is created to fulfill the need of employers for mid-level and senior positions that became vacant due to the COVID-19 pandemic.</p>
+       </div>
+       <div class="row">
+         <div class="col-md-6 features15-col-text">
+           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+             <div class="col-sm-3">
+               <div class="features15-info">
+                 <span class="fa fa-line-chart" aria-hidden="true"></span>
+               </div>
+             </div>
+             <div class="col-sm-9 mt-sm-0 mt-4">
+               <div class="features15-para">
+                 <h4>Request for a Professional</h4>
+                 <p>With an Employer's profile, after posting the request, qualified professionals are matched and an availability check is sent to confirm. From the pool of applicants a selection is made based on your parameters.</p>
+               </div>
+             </div>
+           </a>
+         </div>
+         <div class="col-md-6 features15-col-text">
+           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+             <div class="col-sm-3">
+               <div class="features15-info">
+                 <span class="fa fa-graduation-cap" aria-hidden="true"></span>
+               </div>
+             </div>
+             <div class="col-sm-9 mt-sm-0 mt-4">
+               <div class="features15-para">
+                 <h4>Browse Talent Pool </h4>
+                 <p>Search experienced candidates in our talent pool by Industry, Location, Skills amongs't others. Download their CV's, contact them directly, and offer positions. </p>
+               </div>
+             </div>
+           </a>
+         </div>
+         <div class="col-md-6 features15-col-text">
+           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+             <div class="col-sm-3">
+               <div class="features15-info">
+                 <span class="fa fa-sort-alpha-asc" aria-hidden="true"></span>
+               </div>
+             </div>
+             <div class="col-sm-9 mt-sm-0 mt-4">
+               <div class="features15-para">
+                 <h4>Applicants Management</h4>
+                 <p>Our Role Suitability tool and other features enable you to score job applications against your model candidate and rank them for advanced shortlisting</p>
+               </div>
+             </div>
+           </a>
+         </div>
+         <div class="col-md-6 features15-col-text">
+           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+             <div class="col-sm-3">
+               <div class="features15-info">
+                 <span class="fa fa-star" aria-hidden="true"></span>
+               </div>
+             </div>
+             <div class="col-sm-9 mt-sm-0 mt-4">
+               <div class="features15-para">
+                 <h4>Premium Recruitment</h4>
+                 <p>Let's handle the recruitment process for you and provide you candidates that fit your description for you to decide. We guarantee a 2-4 day Turn-Around-Time</p>
+               </div>
+             </div>
+           </a>
+         </div>
+         <div class="col-md-6 features15-col-text">
+           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+             <div class="col-sm-3">
+               <div class="features15-info">
+                 <span class="fa fa-users" aria-hidden="true"></span>
+               </div>
+             </div>
+             <div class="col-sm-9 mt-sm-0 mt-4">
+               <div class="features15-para">
+                 <h4>Featured Company</h4>
+                 <p>Top candidates apply vacancies from top companies. Let our HR and IT team provide you with branding and marketing tips to get the best candidates applying</p>
+               </div>
+             </div>
+           </a>
+         </div>
+         <div class="col-md-6 features15-col-text">
+           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+             <div class="col-sm-3">
+               <div class="features15-info">
+                 <span class="fa fa-laptop" aria-hidden="true"></span>
+               </div>
+             </div>
+             <div class="col-sm-9 mt-sm-0 mt-4">
+               <div class="features15-para">
+                 <h4>Hire Remotely</h4>
+                 <p>We provide your recruitment team with the necessary tools for interviews, insight on candidates, and thorough background checks.</p>
+               </div>
+             </div>
+           </a>
+         </div>
+       </div>
+       <div>
+         <!-- features15 block -->
+       </div>
+     </div>
+   </div>
+ </div>
+<!-- content-with-photo17 -->
+<section class="w3l-index-block7 py-5">
+  <div class="container py-md-3">
+    <div class="row cwp17-two align-items-center">
+      <div class="col-md-6 cwp17-text">
+        <h2>Great features app
+            that everyone Love</h2>
+        <p>We enhance communication between employers and job seekers by configuring and automating responses giving your organization a professional outlook and giving job seekers appropriate feedback to advance their careers. Founded in 2017 as Jobsikaz and later rebranding to Emploi in 2019, we our goal is to impact 5 million job seekers in Africa by 2025. </p>
+        <a href="/about">Read more about us &raquo;</a>
+      </div>
+      <div class="col-md-6 cwp17-image">
+        <img src="/images/inspired.jpg" class="img-fluid" alt="Hire without Bias on Emploi" />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- content-with-photo17 -->
+<section class="w3l-index-block5">
+  <!-- main-slider -->
+  <div class="testimonials py-5">
+    <div class="container text-center py-lg-3">
+      <div class="heading text-center mx-auto">
+        <h3 class="head">Managers & HR love us </h3>
+      </div>
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="owl-one owl-carousel owl-theme">
+          	<div class="item">
+              <div class="slider-info mt-lg-4 mt-3">
+                <div class="img-circle">
+                  <img src="{{asset('images/testimonials/paul.jpeg')}}" class="img-fluid rounded" alt="Paul - WorkPay">
                 </div>
-
-                <!-- end modal in card -->
+                <div class="message">“It took seven days from the time we signed up with Emploi looking to hire a key account manager to the time the candidate reported for work. We were very time constrained as we had already spent a lot of time trying to hire through other platforms with no success. From the other platforms I received a lot of irrelevant CVs that honestly I didn’t even know what to do with. I would rate Emploi higher than the other platforms, because I believe the human touch from their team was critical in fast tracking the process for us.”</div>
+                <div class="name">- Paul - WorkPay</div>
               </div>
             </div>
-
+            <div class="item">
+              <div class="slider-info mt-lg-4 mt-3">
+                <div class="img-circle">
+                  <img src="/images/avatar.png" class="img-fluid rounded" alt="Calvin Njoroge, Director – Quality Car Imports">
+                </div>
+                <div class="message">“We were struggling with sales and we needed a new team to come in and help us grow our business. So we went about putting ourselves out there interviewing; we got numerous CVs some of which were time-wasting, recklessly prepared and demoralizing to our business growth. So we got recommended to Emploi [Jobsikaz Afrique Ltd] and we were guaranteed that we would get results. I would recommend Emploi to anyone because they helped us solve a very big headache that we had. They did the recruitment for us, did the interviews and conducted background checks. All we had to do was doing a final interview and give them jobs. With regards to results, the team that we got…WOW! They helped us grow, we have 360 turnaround, we have a team that is now performing and because of that, I would recommend Emploi anytime to any businesses like ours that want to grow.”</div>
+                <div class="name">- Calvin Njoroge, Director – Quality Car Imports</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="slider-info mt-lg-4 mt-3">
+                <div class="img-circle">
+                  <img src="{{asset('images/testimonials/elijah.jpeg')}}" class="img-fluid rounded" alt="Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes">
+                </div>
+                <div class="message">“I contacted Emploi for support in recruiting sales agents and they recommended the best qualified candidates and their rankings. What we liked [about Emploi] is the speed and affordable cost which is unlike any other service we’ve seen in the market”</div>
+                <div class="name">- Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes</div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="slider-info mt-lg-4 mt-3">
+                <div class="img-circle">
+                  <img src="{{asset('images/testimonials/sandra.webp')}}" class="img-fluid rounded" alt="Sandra Eshitemi – Employer">
+                </div>
+                <div class="message">“Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.”</div>
+                <div class="name">- Sandra Eshitemi – Employer</div>
+              </div>
+            </div>
           </div>
         </div>
-
-          <div class="col-lg-6">
-            <div class="text-center pb-2"><p class="h2">Testimonials</p></div>
-            <div class="container">
-            <!-- testimonials -->
-                <div id="carouselContent" class="carousel slide" data-ride="carousel">
-                      <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active text-center">
-                             <p style="font-size: 30px">Having worked with professionals in PaaS has increased our company's revenue. We are impressed.</p><br>
-                               <p style="font-weight: bold;">Small Clothing Business</p>
-                        </div>
-                        <div class="carousel-item text-center p-4">
-
-                            <p style="font-size: 30px">PaaS gave us the talent that we were looking for. The professionals referred are top notch.</p><br>
-                            <p style="font-weight: bold;">Milky Way</p>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
-            </div>
-
-          </div>
-
-          <!-- end of first description row -->
       </div>
-      
-      <div class="row p-5" id="benefits">
-        <div class="col-lg">
-          <div>
-            <div class="card shadow-lg">
-              <div class="card-header bg-orange rounded-10">
-                <h2 class="text-center bg-light">Benefits of PaaS Membership</h2>
-              </div>
-              <div class="card-body">
-                <div class="card-text h5">
-                  <ol>
-                    <li>Access to networking with a large pool of professionals through Know The Professional networking program.</li>
-                    <li>Access to free on-demand HR advisory services.</li>
-                    <li>Immediate replacement to vacancies left by a PAAS professional</li>
-                    <li>Discounted rates on advertisement of vacancies (50% for the first 6 months)</li>
-                    <li>Highest chances of landing a potential fulltime employee in the long run.</li>
-                    <li>Accessibility to other employer tools free of charge for the duration of the contract.</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      
-      </div>
-
-</div>
-
+    </div>
+  </div>
+  <!-- /main-slider -->
+</section>
 
 
 @endsection
