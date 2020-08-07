@@ -175,6 +175,7 @@ class SeekerController extends Controller
 
             if(isset($js->id))
             {
+                if (app()->environment() === 'production')
                 Notification::send(User::first(),new PaasSubscribed('JOBSEEKERS PAAS SUBSCRIPTION: '.$js->name.' with contact details  '.$js->email.' and  '.$js->phone_number.'  has submitted subscription for paas.'));
 
                 $caption = "Subscription Received";
