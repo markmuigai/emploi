@@ -53,7 +53,7 @@
         </div>
 
         <div class="col-lg-6 pb-3 mx-auto">
-            <div class="card border-light mb-3 mx-auto" style="max-width: 100%;">
+            <div class="card shadow border-light mb-3 mx-auto" style="max-width: 100%;">
               <div class="card-header"><h3>What is PAAS</h3></div>
               <div class="card-body">
                 <!-- <h5 class="card-title">Light card title</h5> -->
@@ -62,7 +62,7 @@
               </div>
               <div class="Button text-center">
                 <a href="#benefits">
-                  <button type="button" class="btn btn-orange">Membership Benefits</button>
+                  <button type="button" class="btn btn-orange mb-3">Membership Benefits</button>
                 </a>
               </div>
             </div>
@@ -75,7 +75,7 @@
 
             <h2 class="text-center">Our Partners</h2>
             <hr>
-            <div class="container pt-4 pb-4">
+            <div class="container shadow-sm pt-4 pb-4">
               <section class="customer-logos slider">
                 <div class="slide"><img src="/images/logos/texas.webp"></div>
                 <div class="slide"><img src="/images/logos/uniliver.webp"></div>
@@ -104,7 +104,7 @@
         <div class="col-md-6">
           <div>
 
-            <div class="card border-light mb-3" style="max-width: 100%; align-items: center;">
+            <div class="card shadow border-light mb-3" style="max-width: 100%; align-items: center;">
               <div class="card-header"><h2>Membership<br> <span style="color: orange;">Ksh. 5500 Annually</span></h2></div>
               <div class="card-body">
                 <h5 class="card-title">What you get.</h5>
@@ -194,10 +194,10 @@
           <!-- end of first description row -->
       </div>
       
-      <div class="row pt-3" id="benefits">
+      <div class="row p-5" id="benefits">
         <div class="col-lg">
           <div>
-            <div class="card">
+            <div class="card shadow-lg">
               <div class="card-header bg-orange rounded-10">
                 <h2 class="text-center bg-light">Benefits of PaaS Membership</h2>
               </div>
