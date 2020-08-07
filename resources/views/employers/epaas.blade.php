@@ -47,11 +47,11 @@
     <div class="container pt-3">
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 pb-3">
           <iframe style="height: 350px !important;" src="https://www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-        <div class="col-lg-6 mx-auto">
+        <div class="col-lg-6 pb-3 mx-auto">
             <div class="card border-light mb-3 mx-auto" style="max-width: 100%;">
               <div class="card-header"><h3>What is PAAS</h13></div>
               <div class="card-body">
@@ -60,8 +60,8 @@
                 Lay-offs by companies led to reassessment of processes in the companies. PAAS seeks to connect experienced persons to the SMEs. It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
               </div>
               <div class="Button text-center">
-                <a href="#">
-                  <button type="button" class="btn btn-orange">Learn More</button>
+                <a href="#benefits">
+                  <button type="button" class="btn btn-orange">Benefits</button>
                 </a>
               </div>
             </div>
@@ -106,11 +106,12 @@
             <div class="card border-light mb-3" style="max-width: 100%; align-items: center;">
               <div class="card-header"><h2>Membership<br> <span style="color: orange;">Ksh. 5500 Annually</span></h2></div>
               <div class="card-body">
-                <h5 class="card-title">Pay and Enjoy</h5>
+                <h5 class="card-title">What you get.</h5>
                 <p class="card-text pb-5">
-                  Having you subscribed will open many more tools that you can use for your business. <br>
-                  You will unlock project management tools that you can utilize in your organization. <br>
-                  We also do the recruitment process for you, giving you time to plan on task executuion.
+                  Project management tools. <br>
+                  End-to-end recruitment process management and support. <br>
+                  Discounts on some of our services. <br>
+                  A peace of mind for your next task.
                 </p>
 
                 <!-- modal starts here within card -->
@@ -156,19 +157,13 @@
               </div>
             </div>
 
-
-
-
-
-
-
           </div>
         </div>
 
           <div class="col-lg-6">
             <div class="text-center pb-2"><p class="h2">Testimonials</p></div>
             <div class="container">
-<!-- testimonials -->
+            <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide" data-ride="carousel">
                       <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active text-center">
@@ -196,6 +191,32 @@
           </div>
 
           <!-- end of first description row -->
+      </div>
+      
+      <div class="row pt-3" id="benefits">
+        <div class="col-lg">
+          <div>
+            <div class="card">
+              <div class="card-header bg-orange rounded-10">
+                <h2 class="text-center bg-light">Benefits of PaaS Membership</h2>
+              </div>
+              <div class="card-body">
+                <div class="card-text h5">
+                  <ol>
+                    <li>Access to networking with a large pool of professionals through Know The Professional networking program.</li>
+                    <li>Access to free on-demand HR advisory services.</li>
+                    <li>Immediate replacement to vacancies left by a PAAS professional</li>
+                    <li>Discounted rates on advertisement of vacancies (50% for the first 6 months)</li>
+                    <li>Highest chances of landing a potential fulltime employee in the long run.</li>
+                    <li>Accessibility to other employer tools free of charge for the duration of the contract.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      
       </div>
 
 </div>
