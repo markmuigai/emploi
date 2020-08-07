@@ -22,8 +22,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
             @guest
 
-                <a href="#exampleModal" class="btn btn-primary btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Request</a>
-                <a href="#" class="btn btn-outline-primary mr-2 btn-demo">Learn More</a>
+                <a href="#exampleModal" class="btn btn-primary btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Request <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
             @else
 
               @if(Auth::user()->role == 'employer')
@@ -52,45 +51,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </div>
 <!-- //index-block1 -->
 <!-- index-block2 -->
-<section class="w3l-index-block2 py-5">
-  <div class="container py-md-3">
-    <div class="heading text-center mx-auto">
-      <h3 class="head">9 out of 10 Employers</h3>
-      <p class="my-3 head"> Who request on Emploi for PaaS receive qualified applications <b>from the first day</b>!</p>
-    </div>
-    <div class="row bottom_grids pt-md-3">
-      <div class="col-lg-4 col-md-6 mt-5">
-        <div class="s-block">
-          <a href="/contact" class="d-block p-lg-4 p-3">
-            <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Audience of 100k+</h3>
-            <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mt-5">
-        <div class="s-block">
-          <a href="/employers/browse" class="d-block p-lg-4 p-3">
-            <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Browse Talent Pool</h3>
-            <p class="">
-            	Get access to our database of on-demand professionals and shortlist, contact and select professionals with our recruitment tools.
-            </p>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 mt-5">
-        <div class="s-block">
-          <a href="/employers/services" class="d-block p-lg-4 p-3">
-            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Best Recruitment Tools</h3>
-            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
@@ -101,9 +62,42 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe>
         </div>
         <div class="col-md-6 cwp17-text">
-          <h2>Recruitment Process</h2>
-          <p>Let us undertake the hiring process for you - we advertise your job, screen candidates, conduct background checks, and a 90 day free replacement should candidate leave.</p>
-          <a href="#">Learn more &raquo;</a>
+          <h2>Understand PaaS</h2>
+          <p>PaaS is a full packaged plan where we advertise your job, screen candidates, conduct background checks.</p>
+
+          <!-- Large modal describing paas -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Click For Full Description <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></button>
+
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg p-2">
+            <div class="modal-content p-4">
+               <h1 class="bg-light">Product Description</h1>
+
+               <div class="h5">
+                 PAAS is a service that seeks to provide qualified professionals on demand to
+                 handle specific tasks at affordable rates and at a cost effective plan.
+                 <br><br>
+                 It is created to fulfill the need of employers for mid-level and senior
+                 positions that became vacant due to theCOVID-19 pandemic.
+                 <br><br>
+                 Lay-offs by companies led to reassessment of processes in the companies.
+                 PAAS seeks to connect experienced persons to the SMEs.
+                 It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap
+
+
+               </div>
+
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-orange">Contact Us</button>
+                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+               </div>
+
+            </div>
+          </div>
+          </div>
+
+        </div>
+        {{-- end of description modal --}}
         </div>
       </div>
     </div>
@@ -301,17 +295,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           </div>
           <div class="modal-body">
             <!-- subscribe form for Professional -->
-              <form method="POST"  enctype="multipart/form-data" action="/job-seekers/subscribe-paas">
+              <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
                 @csrf
                 <div class="form-group">
-                  <label class="h5">Fill your name</label>
-                  <input type="text" class="form-control" name="name" required="" placeholder="Name">
+                  <label class="h5">First Name</label>
+                  <input type="text" class="form-control" name="firstname" required="" placeholder="first name">
                 </div>
                 <div class="form-group">
-                  <label class="h5">Industry</label>
-                    <select path="industry" id="industry" name="industry" class="form-control input-sm">
-                    <option value="" selected="">
-                    </select>
+                  <label class="h5">Last Name</label>
+                  <input type="text" class="form-control" name="lastname" required="" placeholder="last name">
                 </div>
 
                 <div class="form-group">
@@ -324,7 +316,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
 
                 <div class="modal-footer">
-                  <input type="submit" class="btn btn-orange" name="button" value="Subscribe">
+                  <input type="submit" class="btn btn-danger" name="button" value="Submit">
                   <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                 </div>
 
