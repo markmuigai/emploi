@@ -33,7 +33,7 @@
     <div>
 
       <!-- Full Page Image Header with Vertically Centered Content -->
-    <header class="masthead">
+      <header class="masthead">
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-md-12 text-left">
@@ -51,11 +51,11 @@
             @endif  
         </div>
       </div>
-    </header>
+      </header>
 
-    </div>
+      </div>
 
-    <div class="container pt-3">
+      <div class="container pt-3">
 
       <div class="row pt-2">
         <div class="col-lg-6">
@@ -78,7 +78,7 @@
                   <div class="modal-content p-4">
                      <h1 class="bg-light">Product Description</h1>
 
-                     <div>
+                     <div class="h5">
                        PAAS is a service that seeks to provide qualified professionals on demand to
                        handle specific tasks at affordable rates and at a cost effective plan.
                        <br><br>
@@ -109,8 +109,8 @@
 
       </div>
 
-<!-- start of description container -->
-<div class="container" id="#">
+      <!-- start of description container -->
+      <div class="container" id="#">
 
       <div class="row pt-5">
         <!-- testimonials -->
@@ -119,7 +119,7 @@
 
             <h2 class="text-center">Testimonials</h2>
             <div class="container mt-2">
-<!-- testimonials -->
+            <!-- testimonials -->
                 <div id="carouselContent" class="carousel slide pt-3" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active text-center">
@@ -228,9 +228,9 @@
 
       </div>
 
-</div>
+      </div>
 
-<!-- Partners -->
+      <!-- Partners -->
 
       <div class="container">
         <div class="container text-center">
@@ -251,6 +251,31 @@
             </div>
       </div>
       <hr>
+
+      <div class="row pt-3" id="benefits">
+        <div class="col-lg">
+          <div>
+            <div class="card">
+              <div class="card-header bg-orange rounded-10">
+                <h2 class="text-center bg-light">Benefits of PaaS Membership</h2>
+              </div>
+              <div class="card-body">
+                <div class="card-text h5">
+                  <ol>
+                    <li>Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
+                    <li>Access to profession-based training and development opportunities under the Know Your Profession program.</li>
+                    <li>Increased chances for eventual permanent employment.</li>
+                    <li>Guaranteed income after a successful placement.</li>
+                    <li>Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      
+      </div>
 
     </div>
 
