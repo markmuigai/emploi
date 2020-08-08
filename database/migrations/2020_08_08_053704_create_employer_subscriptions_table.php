@@ -19,8 +19,8 @@ class CreateEmployerSubscriptionsTable extends Migration
             $table->string('name',100);
             $table->string('phone_number');
             $table->string('email',100);
-            $table->string('industry');
             $table->string('status',50)->default('inactive');
+            $table->timestamp('ending')->nullable();
             $table->timestamps();
         });
     }
