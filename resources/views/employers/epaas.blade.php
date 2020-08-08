@@ -10,19 +10,34 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 <?php
 $user = isset(Auth::user()->id) ? Auth::user() : false;
 ?>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+<link rel="stylesheet" href="/css/infinite-slider.css">
+<link rel="stylesheet" href="/css/seeker.css">
+<script type="text/javascript" src="/js/carousel.js">
+</script>
+
+
 <!-- index-block1 -->
 <div class="w3l-index-block1">
   <div class="content py-5">
     <div class="container">
       <div class="row align-items-center py-md-5 py-3">
         <div class="col-md-5 content-left pt-md-0 pt-5">
-          <h1>Request for Professional.</h1>
-          <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time work? A new solution is here for you.</p>
+          <h3 class="mt-3 mb-md-5 mb-4 h1">Request for Professional.</h3>
+          <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time professionals? A new solution is here for you.</p>
 
 
             @guest
 
-                <a href="#exampleModal" class="btn btn-primary btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Request <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a><br>          
+                <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+                <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>          
+         
             @else
 
               @if(Auth::user()->role == 'employer')
@@ -61,12 +76,19 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-6">
           <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe>
         </div>
-        <div class="col-md-6 cwp17-text">
-          <h2>Understand PaaS</h2>
-          <p>PaaS is a full packaged plan where we advertise your job, screen candidates, conduct background checks.</p>
+        <div class="col-md-6 cwp17-text h4">
+          <div class="h6">
+            <p>PAAS is a service that seeks to provide qualified professionals on demand to
+              handle specific tasks at affordable rates and at a cost effective plan.</p>
+            <p>It is created to fulfill the need of employers for mid-level and senior
+              positions that became vacant due to theCOVID-19 pandemic.</p>
+            <p>Lay-offs by companies led to reassessment of processes in the companies.
+              PAAS seeks to connect experienced persons to the SMEs.
+              It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
+
+          </div>
 
           <!-- Large modal describing paas -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Click For Full Description <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></button>
 
           <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg p-2">
@@ -110,7 +132,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
          <h3 class="head">How it works</h3>
-         <p class="my-3 head"> PAAS is a service that seeks to provide qualified professionals on demand to handle specific tasks at affordable rates/at a cost effective plan. It is created to fulfill the need of employers for mid-level and senior positions that became vacant due to the COVID-19 pandemic.</p>
+         <p class="my-3 head">To use PaaS you first need to subscribe for a membership, afterwards you can then create a request for a part-timer afterwhich Emploi will take care of the rest of the process.</p>
        </div>
        <div class="row">
          <div class="col-md-6 features15-col-text">
@@ -122,7 +144,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Request for a Professional</h4>
+                 <h4>Subscribe & Request for Part-timer</h4>
                  <p>With an Employer's profile, after posting the request, qualified professionals are matched and an availability check is sent to confirm. From the pool of applicants a selection is made based on your parameters.</p>
                </div>
              </div>
@@ -183,7 +205,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                  <h4>Featured Company</h4>
-                 <p>Top candidates apply vacancies from top companies. Let our HR and IT team provide you with branding and marketing tips to get the best candidates applying</p>
+                 <p>Top candidates seek vacancies from top companies. Let our HR and IT team provide you with branding and marketing tips to get the best candidates.</p>
                </div>
              </div>
            </a>
@@ -210,6 +232,82 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
      </div>
    </div>
  </div>
+
+ 
+<!-- PaaS Benefits -->
+
+<section class="w3l-index-block7 py-5">
+  <div class="container py-md-3">
+    <div class="heading text-center mx-auto">
+      <h3 class="head">PaaS Benefits</h3>
+      <p class="my-3 head">PaaS Membership empowers you with a continous pool of talented professionals for your on-demand tasks. It ensures that you get quality output and timeline task delivery.</p>
+    </div>
+
+    <div class="row cwp17-two align-items-center">
+      <div class="col-md-6 cwp17-text jumbotron">
+            <div class="card-header bg-white">
+              <div class="h3 mb-3" style="color: #E15419">
+                KSHs. 5500 Annually
+              </div>
+
+            </div>
+            
+            <div class="card-body pt-2 h6">
+              <ul>
+                <li>Full Year Membership</li>
+                <li>End-to-End Recruitment Support</li>
+                <li>Credible Professionals</li>
+                <li>Project Management Software</li>
+              </ul>
+            </div>
+      
+      </div>
+
+      <div class="col-md-6 cwp17-text mx-auto">
+        <div>
+          <div class="col-sm-12">
+            <div class="card-body">
+              <ul>
+                <li>Access to networking with a large pool of professionals through <b>Know The Professional</b> networking program.</li>
+                <li>Access to free on-demand HR advisory services.</li>
+                <li>Immediate replacement to vacancies left by a PAAS professional.</li>
+                <li>Discounted rates on advertisement of vacancies (50% for the first 6 months).</li>
+                <li>Highest chances of landing a potential fulltime employee in the long run.</li>
+                <li>Highest chances of landing a potential fulltime employee in the long run.</li>
+                <li>Accessibility to other employer tools free of charge for the duration of the contract.</li>
+
+              </ul>
+              <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Partners Sections -->
+<section class="w3l-index-block7 py-5">
+<div class="container">
+      <div class="container pt-4 pb-4">
+        <section class="customer-logos slider">
+          <div class="slide"><img src="/images/logos/texas.webp"></div>
+          <div class="slide"><img src="/images/logos/uniliver.webp"></div>
+          <div class="slide"><img src="/images/logos/sanlam.webp"></div>
+          <div class="slide"><img src="/images/logos/rvibs.webp"></div>
+          <div class="slide"><img src="/images/logos/papaya.webp"></div>
+          <div class="slide"><img src="/images/logos/neema.webp"></div>
+          <div class="slide"><img src="/images/logos/mboga.webp"></div>
+          <div class="slide"><img src="/images/logos/apa.webp"></div>
+        </section>
+      </div>
+</div>
+</section>
+
+
 <!-- content-with-photo17 -->
 <section class="w3l-index-block7 py-5">
   <div class="container py-md-3">
@@ -320,7 +418,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
 
                 <div class="modal-footer">
-                  <input type="submit" class="btn btn-danger" name="button" value="Submit">
+                  <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
                   <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                 </div>
 
