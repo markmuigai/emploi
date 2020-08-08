@@ -46,7 +46,7 @@ Route::get('/courses/{id}', 'HomeController@getCourse');
 
 Route::get('/invoice', 'ContactController@indexRedirect');
 Route::post('/invoice', 'InvoiceController@productCheckout');
-Route::get('/invoice/{slug}', 'InvoiceController@show');
+Route::get('/invoice/{slug}', 'InvoiceController@show')->name('invoice');
 Route::get('/invoice/{slug}/paid', 'InvoiceController@payment');
 Route::post('/invoice/{slug}/pay', 'PesapalController@pay');
 Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');

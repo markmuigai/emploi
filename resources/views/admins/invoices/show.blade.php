@@ -11,7 +11,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
+
         <h4 class="">
+                @if(session()->has('message'))
+            <div class="alert alert-success">
+            {{ session()->get('message') }}
+            </div>
+        @endif
             @if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
             <a href="/admin/invoices/" class="orange">
                 <i class="fa fa-arrow-left"></i>

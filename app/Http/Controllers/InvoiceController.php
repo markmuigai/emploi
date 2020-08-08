@@ -7,6 +7,8 @@ use Auth;
 
 use App\Invoice;
 use App\CvReferral;
+use App\SeekerSubscription;
+use App\EmployerSubscription;
 use App\Jobs\EmailJob;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\InvoicePaid;
@@ -110,6 +112,8 @@ class InvoiceController extends Controller
         // }
         $credit = 15;
         CvReferral::cVcreditFor($invoice->email,$credit);
+
+        EmployerSubscription::activateEmployerPaas($invoice->email);
         
         return view('pesapal.paid')
                 ->with('invoice',$invoice);
@@ -126,8 +130,11 @@ class InvoiceController extends Controller
         $invoice->updated_at = now();
         $invoice->save();
         
-         $credit = 15;
-         CvReferral::cVcreditFor($invoice->email,$credit);
+        $credit = 15;
+        CvReferral::cVcreditFor($invoice->email,$credit);
+
+        // SeekerSubscription::activateSeekerPaas($invoice->email);
+        EmployerSubscription::activateEmployerPaas($invoice->email);
 
         $invoice->hasBeenPaid();
         $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' was marked paid by '.Auth::user()->name.'. Payment Reference: '.$invoice->alternative_payment_slug;

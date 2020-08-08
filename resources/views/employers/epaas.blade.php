@@ -22,7 +22,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
             @guest
 
-                <a href="#exampleModal" class="btn btn-primary btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Request <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+                <a href="#exampleModal" class="btn btn-primary btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Request <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a><br>          
             @else
 
               @if(Auth::user()->role == 'employer')
@@ -313,6 +313,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <div class="form-group">
                   <label class="h5">Phone Number</label>
                   <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
+                </div>
+                <div class="form-group">
+                  <label class="h5">Company Name</label>
+                  <input type="text" class="form-control" name="company" required="" placeholder="Company name">
                 </div>
 
                 <div class="modal-footer">

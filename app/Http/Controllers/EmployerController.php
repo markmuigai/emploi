@@ -44,6 +44,7 @@ use App\Skill;
 use App\User;
 use App\UserPermission;
 use App\EmployerSubscription;
+use App\Invoice;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
@@ -1230,9 +1231,11 @@ class EmployerController extends Controller
     {   
 
          $request->validate([
-            'name'          =>  ['required','max:50','string'],
-            'email'         =>  ['required','string', 'email', 'max:50'],
-            'phone_number' => ['required', 'string', 'max:15']
+            'firstname'   =>  ['required','max:50','string'],
+            'lastname'    =>  ['required','max:50','string'],
+            'email'       =>  ['required','string', 'email', 'max:50'],
+            'phone_number'=> ['required', 'string', 'max:15'],
+            'company'     =>  ['required','max:100','string'],
         ]);
         
         $user = User::where('email',$request->email)->first();
@@ -1245,7 +1248,7 @@ class EmployerController extends Controller
             $created = true;
 
             $user = User::create([
-                'name' => $request->name,
+                'name' => $request->firstname. ' ' .$request->lastname,
                 'email' => $request->email,
                 'username' => $username,
                 'email_verification' => User::generateRandomString(10),
@@ -1278,9 +1281,9 @@ class EmployerController extends Controller
         
         $emp = Employer::create([
             'user_id' => $user->id,
-            'name' => $request->name,
+            'name' => $request->firstname. ' ' .$request->lastname,
             'industry_id' => 32,
-            'company_name' => $request->name,
+            'company_name' => $request->company,
             'contact_phone' =>$request->phone_number,
             'company_phone' => $request->phone_number,
             'company_email' => $user->email,
@@ -1296,8 +1299,7 @@ class EmployerController extends Controller
             'user_id' => $user->id,
             'permission_id' => 3
         ]);
-
-
+        
         if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
         {
             $user->verifyAccount();
@@ -1308,22 +1310,13 @@ class EmployerController extends Controller
         }
 
 
-
-        // $caption = "Thank you for registering your profile on Emploi as an Employer";
-        // $contents = "Your account has been created successfully. Log in with username: <b>$username</b> <br>
-        // <br>
-
-        // Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account for employers to easily find and shortlist you.
-        //         ";
-        // EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
-
         if (app()->environment() === 'production')
         Notification::send(Employer::first(),new EmployerRegistered('NEW EMPLOYER: '.$emp->user->name.' registered an employer profile'));
 
         $caption = "A new employer has registered on Emploi";
         $contents = $emp->user->name." has created an employer profile on Emploi.<br>
         Log in to <a href='/admin/panel'>Admin panel</a> to manage employers.";
-        EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Company '.$emp->name.' Created', $caption, $contents);
+        EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Company '.$emp->company_name.' Created', $caption, $contents);
 
 
 
@@ -1332,30 +1325,34 @@ class EmployerController extends Controller
         {
             $es = EmployerSubscription::create([
                 'user_id' => $user->id,
-                'name' => $user->name,
+                'name' => $request->firstname. ' ' .$request->lastname,
                 'phone_number' => $request->phone_number,
                 'email' => $user->email
             ]);
 
+                $invoice = Invoice::create([
+                'slug' => Invoice::generateUniqueSlug(11),
+                'first_name' => $request->firstname,
+                'last_name' => $request->lastname,
+                'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
+                'email' => $user->email,
+                'description' => 'payment for paas membership',
+                'sub_total' => 5500.00
+            ]);
+                if(isset($invoice->id))
+            {
+                $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
+                $invoice->remind('email');
+            }
+
             if(isset($es->id))
             {
                 if (app()->environment() === 'production')
-               Notification::send(Employer::first(),new PaasSubscribed('EMPLOYERS PAAS SUBSCRIPTION: '.$es->name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for paas.'));
-
-                
-                $caption = "Subscription Received";
-                $contents = "We have received your subscription on Emploi Professional As A Service (PAAS).<br>
-                One of our administrators will get back to you shortly.
-                <br><br>
-                If you have questions regarding your subscription or other Emploi Services kindly <a href='".url('/contact')."'>contact us</a><br.
-                Thank you for choosing Emploi.
-                <br><br>
-                ";
-                EmailJob::dispatch($user->name, $user->email, 'Subscription Received', $caption, $contents);
+               Notification::send(Employer::first(),new PaasSubscribed('EMPLOYERS PAAS SUBSCRIPTION: '.$es->firstname.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for paas.'));
 
             }
 
-            return redirect()->back()->with('success', 'Your subscription has been sent successfully, Check your email for instructions on how to complete the payment!');
+          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Professional as a Service (PAAS) to enjoy the benefits.');
         }
     }
 }
