@@ -1,4 +1,4 @@
-@extends('layouts.zip')
+@extends('layouts.seeker2')
 @section('title','Get Hired on Emploi')
 @section('description')
 Register as a Professional, get access to Part-time Jobs on-demand.
@@ -33,25 +33,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <p class="mt-3 mb-md-5 mb-4">Are you a professional looking for part-time work? A new solution is here for you.</p>
 
 
-            @guest
 
                 <a href="#exampleModal" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
-         
-            @else
-
-              @if(Auth::user()->role == 'employer')
-
-                  <a href="" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
-                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us </a>
-
-              @else
-
-                  <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
-                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> Call Us </a>
-
-              @endif
-
-            @endif
+        
               
           
         </div>
