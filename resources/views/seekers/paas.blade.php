@@ -37,13 +37,7 @@
             <br><br>
             <a href="tel:+254702068282" class="btn btn-purple">Call US <i class="fas fa-phone"></i></a>
             <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Subscribe</button>
-
           </div>
-            @if(session()->has('success'))
-            <div class="alert alert-success">
-            {{ session()->get('success') }}
-            </div>
-            @endif  
         </div>
       </div>
       </header>
@@ -176,8 +170,12 @@
                             <form method="POST"  enctype="multipart/form-data" action="/job-seekers/subscribe-paas">
                               @csrf
                               <div class="form-group">
-                                <label class="h5">Fill your name</label>
-                                <input type="text" class="form-control" name="name" required="" placeholder="Name">
+                                  <label class="h5">First Name</label>
+                                  <input type="text" class="form-control" name="firstname" required="" placeholder="first name">
+                              </div>
+                              <div class="form-group">
+                                  <label class="h5">Last Name</label>
+                                  <input type="text" class="form-control" name="lastname" required="" placeholder="last name">
                               </div>
                               <div class="form-group">
                                 <label class="h5">Industry</label>

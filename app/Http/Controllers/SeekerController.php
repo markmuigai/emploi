@@ -23,6 +23,7 @@ use App\Seeker;
 use App\Referral;
 use App\UserPermission;
 use App\SeekerSubscription;
+use App\Invoice;
 use App\Notifications\PaasSubscribed;
 
 class SeekerController extends Controller
@@ -111,7 +112,8 @@ class SeekerController extends Controller
     {   
 
          $request->validate([
-            'name'          =>  ['required','max:50','string'],
+            'firstname'   =>  ['required','max:50','string'],
+            'lastname'    =>  ['required','max:50','string'],
             'email'         =>  ['required','string', 'email', 'max:50'],
             'phone_number' => ['required', 'string', 'max:15'],
             'industry'    =>  ['integer']
@@ -127,7 +129,7 @@ class SeekerController extends Controller
             $created = true;
 
             $user = User::create([
-                'name' => $request->name,
+                'name' => $request->firstname. ' ' .$request->lastname,
                 'email' => $request->email,
                 'username' => $username,
                 'email_verification' => User::generateRandomString(10),
@@ -167,29 +169,27 @@ class SeekerController extends Controller
             }
              $js = SeekerSubscription::create([
                 'user_id' => $user->id,
-                'name' => $user->name,
+                'name' => $request->firstname. ' ' .$request->lastname,
                 'phone_number' => $request->phone_number,
                 'email' => $user->email,
                 'industry_id' => $request->industry
             ]);
 
-            if(isset($js->id))
+                $invoice = Invoice::create([
+                'slug' => Invoice::generateUniqueSlug(11),
+                'first_name' => $request->firstname,
+                'last_name' => $request->lastname,
+                'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
+                'email' => $user->email,
+                'description' => 'payment for paas membership',
+                'sub_total' => 2750.00
+            ]);
+                if(isset($invoice->id))
             {
-                if (app()->environment() === 'production')
-                Notification::send(User::first(),new PaasSubscribed('JOBSEEKERS PAAS SUBSCRIPTION: '.$js->name.' with contact details  '.$js->email.' and  '.$js->phone_number.'  has submitted subscription for paas.'));
-
-                $caption = "Subscription Received";
-                $contents = "We have received your subscription on Emploi Professional As A Service (PAAS).<br>
-                One of our administrators will get back to you shortly.
-                <br><br>
-                If you have questions regarding your subscription or other Emploi Services kindly <a href='".url('/contact')."'>contact us</a><br.
-                Thank you for choosing Emploi.
-                <br><br>
-                ";
-                EmailJob::dispatch($user->name, $user->email, 'Subscription Received', $caption, $contents);
-
+                $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
+                $invoice->remind('email');
             }
 
-            return redirect()->back()->with('success', 'Your subscription has been sent successfully, Check your email for instructions on how to complete the payment!');
+            return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Professional as a Service (PAAS) to enjoy the benefits.');
     }
 }

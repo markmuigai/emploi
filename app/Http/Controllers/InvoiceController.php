@@ -113,6 +113,7 @@ class InvoiceController extends Controller
         $credit = 15;
         CvReferral::cVcreditFor($invoice->email,$credit);
 
+        SeekerSubscription::activateSeekerPaas($invoice->email);
         EmployerSubscription::activateEmployerPaas($invoice->email);
         
         return view('pesapal.paid')
@@ -133,7 +134,7 @@ class InvoiceController extends Controller
         $credit = 15;
         CvReferral::cVcreditFor($invoice->email,$credit);
 
-        // SeekerSubscription::activateSeekerPaas($invoice->email);
+        SeekerSubscription::activateSeekerPaas($invoice->email);
         EmployerSubscription::activateEmployerPaas($invoice->email);
 
         $invoice->hasBeenPaid();
