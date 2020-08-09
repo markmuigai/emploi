@@ -324,61 +324,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
   </div>
 </section>
-<!-- content-with-photo17 -->
-<section class="w3l-index-block5">
-  <!-- main-slider -->
-  <div class="testimonials py-5">
-    <div class="container text-center py-lg-3">
-      <div class="heading text-center mx-auto">
-        <h3 class="head">Managers & HR love us </h3>
-      </div>
-      <div class="row">
-        <div class="col-md-10 mx-auto">
-          <div class="owl-one owl-carousel owl-theme">
-          	<div class="item">
-              <div class="slider-info mt-lg-4 mt-3">
-                <div class="img-circle">
-                  <img src="{{asset('images/testimonials/paul.jpeg')}}" class="img-fluid rounded" alt="Paul - WorkPay">
-                </div>
-                <div class="message">“It took seven days from the time we signed up with Emploi looking to hire a key account manager to the time the candidate reported for work. We were very time constrained as we had already spent a lot of time trying to hire through other platforms with no success. From the other platforms I received a lot of irrelevant CVs that honestly I didn’t even know what to do with. I would rate Emploi higher than the other platforms, because I believe the human touch from their team was critical in fast tracking the process for us.”</div>
-                <div class="name">- Paul - WorkPay</div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="slider-info mt-lg-4 mt-3">
-                <div class="img-circle">
-                  <img src="/images/avatar.png" class="img-fluid rounded" alt="Calvin Njoroge, Director – Quality Car Imports">
-                </div>
-                <div class="message">“We were struggling with sales and we needed a new team to come in and help us grow our business. So we went about putting ourselves out there interviewing; we got numerous CVs some of which were time-wasting, recklessly prepared and demoralizing to our business growth. So we got recommended to Emploi [Jobsikaz Afrique Ltd] and we were guaranteed that we would get results. I would recommend Emploi to anyone because they helped us solve a very big headache that we had. They did the recruitment for us, did the interviews and conducted background checks. All we had to do was doing a final interview and give them jobs. With regards to results, the team that we got…WOW! They helped us grow, we have 360 turnaround, we have a team that is now performing and because of that, I would recommend Emploi anytime to any businesses like ours that want to grow.”</div>
-                <div class="name">- Calvin Njoroge, Director – Quality Car Imports</div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="slider-info mt-lg-4 mt-3">
-                <div class="img-circle">
-                  <img src="{{asset('images/testimonials/elijah.jpeg')}}" class="img-fluid rounded" alt="Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes">
-                </div>
-                <div class="message">“I contacted Emploi for support in recruiting sales agents and they recommended the best qualified candidates and their rankings. What we liked [about Emploi] is the speed and affordable cost which is unlike any other service we’ve seen in the market”</div>
-                <div class="name">- Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes</div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="slider-info mt-lg-4 mt-3">
-                <div class="img-circle">
-                  <img src="{{asset('images/testimonials/sandra.webp')}}" class="img-fluid rounded" alt="Sandra Eshitemi – Employer">
-                </div>
-                <div class="message">“Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.”</div>
-                <div class="name">- Sandra Eshitemi – Employer</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /main-slider -->
-</section>
 
+
+<!-- subscribe modal -->
 <section>
 
 
