@@ -1,7 +1,7 @@
 @extends('layouts.zip')
 @section('title','Get Hired on Emploi')
 @section('description')
-Request Professionals Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Request professional in two minutes.
+Register as a Professional, get access to Part-time Jobs on-demand.
 @endsection
 
 
