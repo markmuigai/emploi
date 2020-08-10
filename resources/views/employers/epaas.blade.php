@@ -1,5 +1,5 @@
 @extends('layouts.zip')
-@section('title','Advertise on Emploi')
+@section('title','Request Part-timer')
 @section('description')
 Request Professionals Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Request professional in two minutes.
 @endsection
@@ -42,13 +42,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
               @if(Auth::user()->role == 'employer')
 
-                  <a href="" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
-                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us </a>
+              <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+              <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
 
               @else
 
-                  <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
-                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> Call Us </a>
+              <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+              <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
 
               @endif
 
@@ -77,15 +77,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe>
         </div>
         <div class="col-md-6 cwp17-text h4">
-          <div class="h6">
-            <p>PAAS is a service that seeks to provide qualified professionals on demand to
-              handle specific tasks at affordable rates and at a cost effective plan.</p>
-            <p>It is created to fulfill the need of employers for mid-level and senior
-              positions that became vacant due to theCOVID-19 pandemic.</p>
-            <p>Lay-offs by companies led to reassessment of processes in the companies.
-              PAAS seeks to connect experienced persons to the SMEs.
-              It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
-
+          <div class="card bg-white shadow-sm h4" style="max-width: 30rem;">
+            <div class="card-body">
+                <p class="card-text">PAAS is a service that seeks to provide qualified professionals on demand to
+                  handle specific tasks at affordable rates and at a cost effective plan. <br> It is created to fulfill the need of employers for mid-level and senior
+                  positions that became vacant due to theCOVID-19 pandemic.<br><br> Lay-offs by companies led to reassessment of processes in the companies.
+                  PAAS seeks to connect experienced persons to the SMEs.
+                  It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
+            </div>
           </div>
 
           <!-- Large modal describing paas -->
@@ -136,7 +135,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
        </div>
        <div class="row">
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-line-chart" aria-hidden="true"></span>
@@ -148,10 +147,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>With an Employer's profile, after posting the request, qualified professionals are matched and an availability check is sent to confirm. From the pool of applicants a selection is made based on your parameters.</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-graduation-cap" aria-hidden="true"></span>
@@ -163,10 +162,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>Search experienced candidates in our talent pool by Industry, Location, Skills amongs't others. Download their CV's, contact them directly, and offer positions. </p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-sort-alpha-asc" aria-hidden="true"></span>
@@ -178,10 +177,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>Our Role Suitability tool and other features enable you to score job applications against your model candidate and rank them for advanced shortlisting</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-star" aria-hidden="true"></span>
@@ -193,10 +192,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>Let's handle the recruitment process for you and provide you professionals that fit your industry skill description for you to decide.</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-users" aria-hidden="true"></span>
@@ -208,10 +207,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>Top candidates seek vacancies from top companies. Let our HR and IT team provide you with branding and marketing tips to get the best candidates.</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-laptop" aria-hidden="true"></span>
@@ -223,7 +222,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>We provide you with the necessary manage your profile from inception to end. Allowing you to monitor and track your hired professional</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
        </div>
        <div>
@@ -246,13 +245,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="row cwp17-two align-items-center">
       <div class="col-md-6 cwp17-text jumbotron">
             <div class="card-header bg-white">
-              <div class="h3 mb-3" style="color: #E15419">
+              <div class="h3 mb-1" style="color: #E15419">
                 KSHs. 5500 Annually
               </div>
 
             </div>
             
-            <div class="card-body pt-2 h6">
+            <div class="card-body pt-2 pb-3 h6">
               <ul>
                 <li>Full Year Membership</li>
                 <li>End-to-End Recruitment Support</li>
@@ -260,25 +259,31 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <li>Project Management Software</li>
               </ul>
             </div>
+
+            <div class="col">
+              <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+            </div>
       
       </div>
 
-      <div class="col-md-6 cwp17-text mx-auto">
+      <div class="col-md-6 cwp17-text-two mx-auto">
         <div>
           <div class="col-sm-12">
-            <div class="card-body">
-              <ul>
-                <li>Access to networking with a large pool of professionals through <b>Know The Professional</b> networking program.</li>
-                <li>Access to free on-demand HR advisory services.</li>
-                <li>Immediate replacement to vacancies left by a PAAS professional.</li>
-                <li>Discounted rates on advertisement of vacancies (50% for the first 6 months).</li>
-                <li>Highest chances of landing a potential fulltime employee in the long run.</li>
-                <li>Highest chances of landing a potential fulltime employee in the long run.</li>
-                <li>Accessibility to other employer tools free of charge for the duration of the contract.</li>
+            <div class="card bg-white shadow">
+              <div class="card-body">
+                <div class="card-text">
+                  <ol>
+                    <li>Access to networking with a large pool of professionals through <b>Know The Professional</b> networking program.</li>
+                    <li>Access to free on-demand HR advisory services.</li>
+                    <li>Immediate replacement to vacancies left by a PAAS professional.</li>
+                    <li>Discounted rates on advertisement of vacancies (50% for the first 6 months).</li>
+                    <li>Highest chances of landing a potential fulltime employee in the long run.</li>
+                    <li>Highest chances of landing a potential fulltime employee in the long run.</li>
+                    <li>Accessibility to other employer tools free of charge for the duration of the contract.</li>
 
-              </ul>
-              <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
-
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
 
