@@ -108,6 +108,10 @@ class SeekerController extends Controller
                 ->with('industries',Industry::orderBy('name')->get());
     }
 
+    public function rpaas(){
+        return view('seekers.request-paas');
+    }
+
      public function getPaas(Request $request)
     {   
 
