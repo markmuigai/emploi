@@ -34,7 +34,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 
 
+                 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
+        <!--          <h4>Assigned Tasks</h4>
+                 <p></p> -->
+                 @else
                 <a href="#exampleModal" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+                @endif
         
               
           
