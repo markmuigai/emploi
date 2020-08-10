@@ -31,13 +31,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-5 content-left pt-md-0 pt-5">
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request for Professional.</h3>
           <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time professionals? A new solution is here for you.</p>
-
-
-
-            
+  
                 @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas())
-                   <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
-                   @else 
+                <a href="#requestModal" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
+                @else 
                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
                 @endif      
          
@@ -373,9 +370,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <!-- /main-slider -->
 </section>
 
+{{-- subscribe modal --}}
 <section>
-
-
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog p-5" role="document">
         <div class="modal-content">
@@ -423,9 +419,51 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
     </div>
 
-
 </section>
 
+{{-- request form --}}
+<section>
 
+
+  <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+    <div class="modal-dialog p-5" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="requestModalLabel">Subscription Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- subscribe form for Professional -->
+          <form method="POST"  enctype="multipart/form-data" action="#">
+              @csrf
+              <div class="form-group">
+                  <label class="h5">Task Title</label>
+                  <input type="text" class="form-control" name="tasktitle" required="" placeholder="Task title">
+              </div>
+              <div class="form-group">
+                  <label class="h5">Task Description</label>
+                  <input type="text" class="form-control" name="descritption" required="" placeholder="Description">
+              </div>
+              <div class="form-group">
+                <label class="h5">Industry</label>
+                  <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                  <option value="" selected=""></option>
+                  </select>
+              </div>
+              <div class="modal-footer">
+               <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              </div>
+
+            </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
 
 @endsection
