@@ -91,9 +91,14 @@ class LoginController extends Controller
             die('Account not verified. <a href="/login">Login</a>');
         }
         if($user->role == 'employer')
-        {
-            Notification::send(Employer::first(),new EmployerLoggedIn('EMPLOYER LOGIN: '.$user->name.' logged in. Company name: '.$user->companies[0]->name));
-        }
+            if(isset($user->companies[0]))
+            {
+                Notification::send(Employer::first(),new EmployerLoggedIn('EMPLOYER LOGIN: '.$user->name.' logged in. Company name: '.$user->companies[0]->name));
+            }
+            else
+            {
+                Notification::send(Employer::first(),new EmployerLoggedIn('EMPLOYER LOGIN: '.$user->name.' has logged in.'));
+            }
 
         if($user->role == 'admin' && app()->environment() === 'production')
         {
