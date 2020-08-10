@@ -1300,15 +1300,13 @@ class EmployerController extends Controller
             'permission_id' => 3
         ]);
         
-        if(isset(Auth::user()->id) && Auth::user()->role == 'admin')
-        {
-            $user->verifyAccount();
-        }
-        else
-        {
-            $user->notify(new VerifyAccount($user->email,$user->email_verification,$user->name));
-        }
+        $caption = "Thank you for registering your profile on Emploi as an Employer";
+        $contents = "Your account has been created successfully. Log in with username: <b>$username</b> <br>
+        <br>
 
+        Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account. Thank you for choosing Emploi.
+                ";
+        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
 
         if (app()->environment() === 'production')
         Notification::send(Employer::first(),new EmployerRegistered('NEW EMPLOYER: '.$emp->user->name.' registered an employer profile'));
@@ -1352,7 +1350,7 @@ class EmployerController extends Controller
 
             }
 
-          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Professional as a Service (PAAS) to enjoy the benefits.');
+          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the Payment for Professional as a Service (PAAS) to Enjoy the Benefits.');
         }
     }
 }
