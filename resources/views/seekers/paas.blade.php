@@ -229,15 +229,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
 
     <div class="row cwp17-two align-items-center">
-      <div class="col-md-6 cwp17-text jumbotron">
-            <div class="card-header bg-white">
-              <div class="h3 mb-3" style="color: #E15419">
+      <div class="col-md-6 cwp17-text">
+            <div class="card-header bg-white shadow-sm">
+              <div class="h2 mb-3" style="color: #E15419">
                 KSHs. 2750 Annually
               </div>
 
             </div>
             
-            <div class="card-body pt-2 h6">
+            <div class="card-body pt-4 pr-3 h6">
               <ul>
                 <li>Full Year Membership</li>
                 <li>End-to-End Recruitment Support</li>
@@ -245,24 +245,24 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <li>On-Demand Basis</li>
               </ul>
             </div>
-      
+            <div class="mx-auto">
+              <button class="btn mx-auto" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+            </div>
+
       </div>
 
       <div class="col-md-6 cwp17-text mx-auto">
         <div>
           <div class="col-sm-12">
-            <div class="card-body">
-              <ul>
-                <li>Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
-                <li>Access to profession-based training and development opportunities under the Know Your Profession program.</li>
-                <li>Increased chances for eventual permanent employment.</li>
-                <li>Guaranteed income after a successful placement.</li>
-                <li>Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
-                
-              </ul>
-              <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+                <ul class="list-group">
+                  <li class="list-group-item">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
+                  <li class="list-group-item">Access to profession-based training and development opportunities under the Know Your Profession program.</li>
+                  <li class="list-group-item">Increased chances for eventual permanent employment.</li>
+                  <li class="list-group-item">Guaranteed income after a successful placement.</li>
+                  <li class="list-group-item">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
+                  
+                </ul>
 
-            </div>
           </div>
 
         </div>
