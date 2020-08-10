@@ -224,32 +224,39 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <section class="w3l-index-block7 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
-      <h3 class="head">PaaS Benefits</h3>
+      <h3 class="head">PaaS Benefits & Pricing</h3>
       <p class="my-3 head">PaaS Membership empowers you with a continous pool of talented professionals for your on-demand tasks. It ensures that you get quality output and timeline task delivery.</p>
     </div>
 
     <div class="row cwp17-two align-items-center">
-      <div class="col-md-6 cwp17-text jumbotron">
-            <div class="card-header bg-white">
-              <div class="h3 mb-1" style="color: #E15419">
+      <div class="col-md-6 cwp17-text">
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+              <div class="h3" style="color: #E15419">
                 KSHs. 5500 Annually
               </div>
 
             </div>
             
             <div class="card-body pt-2 pb-3 h6">
-              <ul>
-                <li>Full Year Membership</li>
-                <li>End-to-End Recruitment Support</li>
-                <li>Credible Professionals</li>
-                <li>Project Management Software</li>
-              </ul>
+
+              <div class="card-text p-4">
+                <ul>
+                  <li>Full Year Membership</li>
+                  <li>End-to-End Recruitment Support</li>
+                  <li>Credible Professionals</li>
+                  <li>Project Management Software</li>
+                </ul>
+              </div>
             </div>
 
-            <div class="col">
-              <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+            <div class="card-footer bg-white mx-auto p-4">
+                <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
             </div>
-      
+
+          </div>
+
       </div>
 
       <div class="col-md-6 cwp17-text-two mx-auto">
