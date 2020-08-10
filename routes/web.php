@@ -119,6 +119,7 @@ Route::get('/employers/premium-recruitment', 'ContactController@precruit');
 Route::get('/employers/candidate-vetting', 'ContactController@cvetting');
 Route::get('/employers/hr-services', 'ContactController@hrservices');
 Route::get('/employers', 'ContactController@employersIndex');
+Route::get('/employers/advertise', 'ContactController@oldAdvertise');
 
 Route::group([ 'middleware' => 'shortlist'], function(){
     Route::resource('/employers/cv-requests', 'CvRequestController');

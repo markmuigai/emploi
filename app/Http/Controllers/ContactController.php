@@ -512,6 +512,9 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     public function employersIndex(){
         return redirect('/employers/publish');
     }
+    public function oldAdvertise(){
+        return view('employers.old_advertise');
+    }
 
     public function bkgtests(){
         return view('employers.background-checks');
