@@ -42,11 +42,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     <br>
                 </div>
                 
-                <div class="col-md-12  row">
+                <div class="col-md-12 row">
                     <div class="col-md-5 pr-2" style="width: 49%; float: center;">
-                        <div class="card">
+                        <div class="card shadow">
                             <div class="card-header">
-                                <h5>Advertising Features</h5>
+                                <h4>Advertising Features</h4>
                             </div>
                             <div class="card-body">
                                 <div class="card-text">
@@ -62,9 +62,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         </div>
                     </div>
                     <div class="col-md-5 offset-md-2" style="width: 49%; float: right;">
-                        <div class="card">
+                        <div class="card shadow">
                             <div class="card-header">
-                                <h5>Employer Benefits</h5>
+                                <h4>Employer Benefits</h4>
                             </div>
                             <div class="card-body">
                                 <div class="card-text">
@@ -86,10 +86,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <div class="col-md-12">
                     <h3 class="orange pt-2 pb-3 text-center" id="charges">Our Charges</h3>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body d-flex flex-column justify-content-center">
                         
-                        <h1>Kshs <br>2,500</h1>
+                        <h1>Kshs 2,500</h1>
                         <p>SOLO</p>
                         <ul class="tick">
                             <li>1 Job Advert posted for 30 days</li><br>
@@ -106,9 +106,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         </form>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body d-flex flex-column justify-content-center">
-                        <h1>Kshs <BR>4,750</h1>
+                        <h1>Kshs 4,750</h1>
                         <p>SOLO PLUS</p>
                         <ul class="tick">
                             <li>2-4 job Adverts posted for 30 days</li><br>
@@ -125,7 +125,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         </form>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body d-flex flex-column justify-content-center">
                         <h1>Kshs 9,025</h1>
                         <p>INFINITY</p>
@@ -144,7 +144,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         </form>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card shadow-lg">
                     <div class="card-body d-flex flex-column justify-content-center">
                         <h1>Kshs 7,000</h1>
                         <p>STAWI</p>
@@ -176,7 +176,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
     <br id="advertise-form"><br>
     <div class="row">
-        <div class="card col-md-8 offset-md-2">
+        <div class="card col-sm-8 offset-md-2">
             <div class="card-body">
                 
                 <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here</h4>
