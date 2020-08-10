@@ -33,27 +33,16 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time professionals? A new solution is here for you.</p>
 
 
-            @guest
 
+            
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas())
+                   <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
+                   @else 
                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
-                <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>          
+                @endif      
          
-            @else
+            
 
-              @if(Auth::user()->role == 'employer')
-
-              <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
-              <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
-
-              @else
-
-              <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
-              <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
-
-              @endif
-
-            @endif
-              
           
         </div>
         <div class="col-md-7 content-photo mt-md-0 mt-5">

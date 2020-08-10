@@ -13,6 +13,7 @@ use App\JobApplication;
 use App\Order;
 use App\ProductOrder;
 use App\SavedProfile;
+use App\EmployerSubscription;
 
 use Carbon\Carbon;
 use App\Jobs\EmailJob;
@@ -118,6 +119,16 @@ class Employer extends Model
         if(isset($r->id))
             return false;
         return true;
+    }
+
+    public function isOnPaas(){
+      $ep = EmployerSubscription::where('user_id',$this->user->id)
+                ->where('status','active')
+                ->get();
+
+  
+            return true;
+        return false;
     }
 
     public function remainingCompanyBoosts(){
