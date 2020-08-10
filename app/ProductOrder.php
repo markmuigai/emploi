@@ -60,8 +60,6 @@ class ProductOrder extends Model
                     $seeker = $packageUser->seeker;
                     $seeker->featured = 1;
                     $seeker->save();
-                    $invoice->thankYou('email');
-
                     
                     $caption = "You are a Featured Job Seeker on Emploi";
                     $contents = "We have marked your profile as featured on Emploi. Here are the benefits you will get in the coming ".$p->days_duration." days, or until ".$p->contects.". <br>
@@ -143,7 +141,6 @@ class ProductOrder extends Model
                     $seeker = $packageUser->seeker;
                     $seeker->featured = -1;
                     $seeker->save();
-                    $invoice->thankYou('email');
 
                     $caption = "Job Seeker Basic Package was activated on Emploi";
                     $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback from Emploi, has been activated and is functional for the next ".$p->days_duration." days. <br>
