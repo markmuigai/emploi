@@ -1301,8 +1301,10 @@ class EmployerController extends Controller
         ]);
         
         $caption = "Thank you for registering your profile on Emploi as an Employer";
-        $contents = "Your account has been created successfully. Log in with username: <b>$username</b> <br>
-        <br>
+        $contents = "Here are your login credentials for Emploi: <br>
+            username: $username <br>
+            Password: $password <br>
+            <br><br>
 
         Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account. Thank you for choosing Emploi.
                 ";
