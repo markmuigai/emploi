@@ -80,9 +80,6 @@ class User extends Authenticatable
     public function meetups(){
         return $this->hasMany(Meetup::class);
     }
-    public function seekerSubscription(){
-        return $this->hasMany(SeekerSubscription::class);
-    }
 
     public function cvEditor(){
         return $this->hasOne(CvEditor::class);
