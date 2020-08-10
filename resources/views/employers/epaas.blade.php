@@ -31,13 +31,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-5 content-left pt-md-0 pt-5">
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request for Professional.</h3>
           <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time professionals? A new solution is here for you.</p>
-
-
-
-            
+  
                 @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas())
-                   <a href="#" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
-                   @else 
+                <a href="#requestModal" style="background-color: #E15419" class="btn btn-theme mx-auto" id="request-part-timer" data-toggle="modal" data-target="#" data-whatever="@mdo">Request</a><br>
+                @else 
                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
                 @endif      
          
@@ -227,32 +224,39 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <section class="w3l-index-block7 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
-      <h3 class="head">PaaS Benefits</h3>
+      <h3 class="head">PaaS Benefits & Pricing</h3>
       <p class="my-3 head">PaaS Membership empowers you with a continous pool of talented professionals for your on-demand tasks. It ensures that you get quality output and timeline task delivery.</p>
     </div>
 
     <div class="row cwp17-two align-items-center">
-      <div class="col-md-6 cwp17-text jumbotron">
-            <div class="card-header bg-white">
-              <div class="h3 mb-1" style="color: #E15419">
+      <div class="col-md-6 cwp17-text">
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+              <div class="h3" style="color: #E15419">
                 KSHs. 5500 Annually
               </div>
 
             </div>
             
             <div class="card-body pt-2 pb-3 h6">
-              <ul>
-                <li>Full Year Membership</li>
-                <li>End-to-End Recruitment Support</li>
-                <li>Credible Professionals</li>
-                <li>Project Management Software</li>
-              </ul>
+
+              <div class="card-text p-4">
+                <ul>
+                  <li>Full Year Membership</li>
+                  <li>End-to-End Recruitment Support</li>
+                  <li>Credible Professionals</li>
+                  <li>Project Management Software</li>
+                </ul>
+              </div>
             </div>
 
-            <div class="col">
-              <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
+            <div class="card-footer bg-white mx-auto p-4">
+                <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
             </div>
-      
+
+          </div>
+
       </div>
 
       <div class="col-md-6 cwp17-text-two mx-auto">
@@ -373,9 +377,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <!-- /main-slider -->
 </section>
 
+{{-- subscribe modal --}}
 <section>
-
-
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog p-5" role="document">
         <div class="modal-content">
@@ -423,9 +426,51 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
     </div>
 
-
 </section>
 
+{{-- request form --}}
+<section>
 
+
+  <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+    <div class="modal-dialog p-5" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="requestModalLabel">Subscription Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- subscribe form for Professional -->
+          <form method="POST"  enctype="multipart/form-data" action="#">
+              @csrf
+              <div class="form-group">
+                  <label class="h5">Task Title</label>
+                  <input type="text" class="form-control" name="tasktitle" required="" placeholder="Task title">
+              </div>
+              <div class="form-group">
+                  <label class="h5">Task Description</label>
+                  <input type="text" class="form-control" name="descritption" required="" placeholder="Description">
+              </div>
+              <div class="form-group">
+                <label class="h5">Industry</label>
+                  <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                  <option value="" selected=""></option>
+                  </select>
+              </div>
+              <div class="modal-footer">
+               <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              </div>
+
+            </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
 
 @endsection
