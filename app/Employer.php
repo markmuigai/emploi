@@ -122,11 +122,14 @@ class Employer extends Model
     }
 
     public function isOnPaas(){
-      $ep = EmployerSubscription::where('user_id',$this->user->id)
-                ->where('status','active')
-                ->get();
 
-  
+        if($this->user->email == 'jobs@emploi.co')
+                return true;
+        $ep = EmployerSubscription::where('user_id',$this->user->id)
+                ->Where('status', 'active')
+                ->first();
+
+        if(isset($ep->id))
             return true;
         return false;
     }
