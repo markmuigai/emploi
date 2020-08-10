@@ -57,7 +57,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
   <div class="row pt-4">
-    <div class="col-md-12 pt-2">
+    <div class="col-md-12 pt-1">
       <div class="text-center h2">
         How it works
       </div>
