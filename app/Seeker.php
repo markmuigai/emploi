@@ -17,6 +17,7 @@ use App\ProductOrder;
 use App\SeekerSkill;
 use App\User;
 use App\Blog;
+use App\SeekerSubscription;
 
 use Watson\Rememberable\Rememberable;
 use App\Jobs\EmailJob;
@@ -217,6 +218,16 @@ class Seeker extends Model
                     return true;
             }
         }
+        return false;
+    }
+
+        public function isOnPaas(){
+        $sp = SeekerSubscription::where('user_id',$this->user->id)
+                ->Where('status', 'active')
+                ->first();
+
+        if(isset($sp->id))
+            return true;
         return false;
     }
 
