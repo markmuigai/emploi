@@ -56,6 +56,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
+  <div class="row pt-4">
+    <div class="col-md-12 pt-2">
+      <div class="text-center h2">
+        How it works
+      </div>
+    </div>
+  </div>
   <div class="section-info py-5">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
