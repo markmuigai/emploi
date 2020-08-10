@@ -785,20 +785,20 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(200))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(200))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
                     ->get();        
 
          $blogs = Blog::All()
-                       ->random(3);
+                       ->random(0);
          $featuredVacancies = $featured; 
            
         {
@@ -828,10 +828,9 @@ class Seeker extends Model
                   }   
                 
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
-                $contents .=  '<p style= "background:orange; color:white; text-align:center">FREE CV REVIEW</p>
-                                   <p>Get a Free CV Review today from our experts and stand out from the rest.<a href="https://bit.ly/3fqEkrD"> click here to request.
-                                </a></p>
-                                <br><br>';
+                $contents .=  "<p style= 'background:orange; color:white; text-align:center'>Do You Want Your Profile to be Seen by Employers Easily?</p>
+                                   <p>Get Spotlight Package Today. Click <a href='".url('/checkout?product=spotlight')."'> here</a> to request </p>
+                                <br><br>";
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
                 $contents .= "Blogs From Our Career Centre";
