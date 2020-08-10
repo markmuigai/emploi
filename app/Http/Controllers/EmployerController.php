@@ -1227,6 +1227,10 @@ class EmployerController extends Controller
         return view('employers.epaas');
     }
 
+    public function rpaas() {
+        return view('employers.request');
+    }
+
     public function getPaas(Request $request)
     {   
 
