@@ -262,7 +262,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                       <input type="date" class="form-control emp_field" value="{{ $emp[2] }}" name="job_start[]" placeholder="e.g January 2018">
                                   </div>
                                   <div class="col-md-6">
-                                      <input type="date" class="form-control emp_field" value="{{ $emp[3] }}" name="job_end[]" placeholder="e.g April 2018 or current">
+                                      <input type="text" class="form-control emp_field" value="{{ $emp[3] }}" name="job_end[]" placeholder="e.g April 2018 or current">
                                   </div>
                                   <div class="col-md-12">
                                       <textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities">{{ $emp[4] }}</textarea>
@@ -291,7 +291,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                       <input type="date" class="form-control emp_field" value="" name="job_start[]" placeholder="e.g January 2018">
                                   </div>
                                   <div class="col-md-6 form-group">
-                                      <input type="date" class="form-control emp_field" value="" name="job_end[]" placeholder="e.g April 2018 or current">
+                                      <input type="text" class="form-control emp_field" value="" name="job_end[]" placeholder="e.g April 2018 or current">
                                   </div>
                                   <div class="col-md-12 form-group">
                                       <textarea class="form-control emp_field" name="responsibilities[]" rows="5" placeholder="Duties and Responsibilities"></textarea>
