@@ -264,10 +264,6 @@ Route::get('/job-seekers/get-featured', 'ContactController@getFeatured');
 Route::get('/jobseekers/getfeatured', 'ContactController@getFeatured');
 Route::get('/job-seekers/getfeatured', 'ContactController@getFeatured');
 Route::get('/jobseekers/get-featured', 'ContactController@getFeatured');
-
-// JobSeeker PaaS
-Route::get('/job-seekers/paas', 'ContactController@seekerpaas');
-
 Route::get('/job-seekers/get-alerts', 'ContactController@getAlerts');
 
 Route::get('/employers/services', 'ContactController@eservices');
@@ -282,7 +278,6 @@ Route::get('/employers/paas', 'EmployerController@epaas');
 Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 
 Route::get('/job-seekers/paas', 'SeekerController@paas');
-// Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
 
 
