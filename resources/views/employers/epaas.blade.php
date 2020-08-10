@@ -111,7 +111,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 <!-- content-with-photo17 -->
- <div class="w3l-index-block4">
+ {{-- <div class="w3l-index-block4">
    <div class="features-bg py-5">
      <!-- features15 block -->
      <div class="container py-md-3">
@@ -216,7 +216,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
        </div>
      </div>
    </div>
- </div>
+ </div> --}}
 
  
 <!-- PaaS Benefits -->
