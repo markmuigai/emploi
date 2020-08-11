@@ -111,7 +111,7 @@
                     </div>
                 </li>
                 @endif
-                @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                 @else
 
                 <li class="nav-item dropdown">
