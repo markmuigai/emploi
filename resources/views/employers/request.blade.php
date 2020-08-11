@@ -17,7 +17,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
             </div>
             <div class="modal-body">
               <!-- subscribe form for Professional -->
-                <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
+                <form method="POST"  enctype="multipart/form-data" action="/employers/request-professional">
                   @csrf
                   <div class="form-group">
                     <label class="h5">First Name</label>
@@ -43,7 +43,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
         
                   <div class="form-group">
                     <label class="h5">Task Description</label>
-                    <input type="text" class="form-control" name="company" required="" placeholder="Task">
+                    <textarea class="form-control" name="company" required=""></textarea>
                   </div>
         
                   <div class="form-group">
