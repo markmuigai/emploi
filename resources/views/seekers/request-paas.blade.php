@@ -2,7 +2,7 @@
 
 @section('title','Sign Up as Part-timer')
 @section('description')
-Get Hired as a Professionals by joining the Golden Club..
+Get Hired as a Professional by joining the Golden Club..
 @endsection
 
 

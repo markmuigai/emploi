@@ -63,8 +63,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="section-info py-5">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6">
-          <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe>
+        <div class="col-sm-6">
+            <img src="/images/hire.png" class="pt-4" alt="">
         </div>
         <div class="col-md-6 cwp17-text h4">
           <div class="h6">
@@ -78,42 +78,33 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
           </div>
 
-          <!-- Large modal describing paas -->
-
-          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg p-2">
-            <div class="modal-content p-4">
-               <h1 class="bg-light">Product Description</h1>
-
-               <div class="h5">
-                 PAAS is a service that seeks to provide qualified professionals on demand to
-                 handle specific tasks at affordable rates and at a cost effective plan.
-                 <br><br>
-                 It is created to fulfill the need of employers for mid-level and senior
-                 positions that became vacant due to theCOVID-19 pandemic.
-                 <br><br>
-                 Lay-offs by companies led to reassessment of processes in the companies.
-                 PAAS seeks to connect experienced persons to the SMEs.
-                 It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap
-
-
-               </div>
-
-               <div class="modal-footer">
-                 <button type="button" class="btn btn-orange">Contact Us</button>
-                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-               </div>
-
-            </div>
-          </div>
-          </div>
-
-        </div>
-        {{-- end of description modal --}}
         </div>
       </div>
     </div>
   </div>
+</section>
+
+<section>
+  <div class="col-md-8 mx-auto align-right pt-4">
+    <div class="modal-content bg-light shadow-lg">
+        <div class="modal-header">
+          <h5 class="modal-title text-right h4" id="exampleModalLabel">Why should you join the Golden Club?</h5>
+        </div>
+        <div class="modal-body">
+          <div class="card shadow">
+            <div class="card-text p-2">
+              <ul class="list-group">
+                <li class="list-group-item">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
+                <li class="list-group-item">Access to profession-based training and development opportunities under the Know Your Profession program.</li>
+                <li class="list-group-item">Increased chances for eventual permanent employment.</li>
+                <li class="list-group-item">Guaranteed income after a successful placement.</li>
+                <li class="list-group-item">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
 </section>
 <!-- content-with-photo17 -->
  <div class="w3l-index-block4">

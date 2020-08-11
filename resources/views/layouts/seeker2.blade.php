@@ -56,9 +56,9 @@
         <div class="form-inline">
           @guest
           <a href="/login?redirectToUrl={{ url('/login') }}" class="login mr-4"  style="color: white">Log in</a>
-          <a href="tel:+254702068282" class="btn btn-primary btn-theme" style="background-color: #E15419">
+          {{-- <a href="tel:+254702068282" class="btn btn-primary btn-theme" style="background-color: #E15419">
             <i class="fa fa-phone"></i> Call Us
-          </a>
+          </a> --}}
           @else
               <a href="/logout" class="login mr-4"  style="color: white">Log out</a>
               <a href="/home" class="btn btn-primary btn-theme" style="background-color: #E15419">Dashboard</a>
@@ -70,7 +70,7 @@
 </div>
 @yield('content')
 @if(!isset($disableZipFooter))
-<section class="w3l-index-block10">
+{{-- <section class="w3l-index-block10">
   <div class="new-block top-bottom">
     <div class="container">
       <div class="middle-section">
@@ -85,7 +85,7 @@
       </div>
     </div>
     </div>
-  </section>
+  </section> --}}
 @endif
 <!-- index-block8 -->
 <section class="w3l-index-block8 py-5">
@@ -94,6 +94,7 @@
       <h3 class="head">Have questions? We're here to help. </h3>
     </div>
     <div class="buttons mt-4">
+      <a href="/covid19-information-series" class="btn btn-outline-primary btn-more">Covid Response <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
       <a href="/contact" class="btn btn-primary btn-demo ">Contact Us</a>
       <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> 0702 068 282</a>
     </div>
