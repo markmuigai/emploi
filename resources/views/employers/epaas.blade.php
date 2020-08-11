@@ -27,20 +27,16 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <div class="w3l-index-block1">
   <div class="content py-5">
     <div class="container">
-      <div class="row align-items-center py-md-5 py-3">
-        <div class="col-md-7 content-left pt-md-0 pt-5">
-          <h3 class="mt-3 mb-md-5 mb-4 h1">Request for Professional.</h3>
+      <div class="row align-items-center py-md-5">
+        <div class="col-lg-7 content-left pt-md-5">
+          <h3 class="mt-3 md-5 h1">Request for Professional.</h3>
           <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time professionals? A new solution is here for you.</p>
   
-            <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request Part-timer</a>
+            <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request</a>
             <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
-                      
-         
-            
-
           
         </div>
-        <div class="col-md-5 mx-auto content-photo mt-md-0 mt-5">
+        <div class="col-lg-5 content-photo mt-md-5">
           <img src="/images/guru.png" class="img-fluid" alt="main image">
         </div>
       </div>
@@ -54,28 +50,28 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
-  <div class="row pt-5">
-    <div class="col-md-12 pt-1">
-      <div class="text-center h2">
-        How it works
-      </div>
-    </div>
-  </div>
   <div class="section-info py-5">
     <div class="container py-md-3">
+      <div class="row pt-1">
+        <div class="col-md-12 pb-4">
+          <div class="text-center h2">
+            What is PaaS? 
+          </div>
+        </div>
+      </div>
       <div class="row cwp17-two align-items-center">
         <div class="col-md-6">
-          <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe>
+          <div class="container-fluid">
+            <img src="/images/seeker-join.png" alt="">
+          </div>
+          {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
         </div>
         <div class="col-md-6 cwp17-text h4">
-          <div class="card bg-white shadow-sm h4" style="max-width: 30rem;">
-            <div class="card-body">
-                <p class="card-text">PAAS is a service that seeks to provide qualified professionals on demand to
+                <p class="card-text"><br>PAAS is a service that seeks to provide qualified professionals on demand to
                   handle specific tasks at affordable rates and at a cost effective plan. <br> It is created to fulfill the need of employers for mid-level and senior
                   positions that became vacant due to theCOVID-19 pandemic.<br><br> Lay-offs by companies led to reassessment of processes in the companies.
                   PAAS seeks to connect experienced persons to the SMEs.
                   It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
-            </div>
           </div>
 
         </div>
@@ -88,7 +84,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 <section>
   <div class="heading text-center mx-auto">
-    <h3 class="head">Benefits of Using PaaS</h3>
+    <h3 class="head pt-3 pb-4">Benefits of Using PaaS</h3>
     <p class="my-3 head">Join the E-Club to enjoy more benefits including faster processing of request.</p>
   </div>
   <div class="col-md-8 mx-auto align-right pt-4 pb-4">
@@ -113,6 +109,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
 </div>
 </section>
+
+<section>
 <!-- content-with-photo17 -->
  <div class="w3l-index-block4">
    <div class="features-bg py-5">
@@ -221,27 +219,22 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
    </div>
  </div>
 
+ </section>
+
  
 <!-- PaaS Benefits -->
 
 <section class="w3l-index-block7 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
-      <h3 class="head">PaaS Benefits & Pricing</h3>
-      <p class="my-3 head">PaaS Membership empowers you with a continous pool of talented professionals for your on-demand tasks. It ensures that you get quality output and timeline task delivery.</p>
+      <h3 class="head">E-Club</h3>
+      <p class="my-3 head">E-Club Description</p>
     </div>
 
     <div class="row cwp17-two align-items-center">
       <div class="col-md-8 mx-auto cwp17-text">
 
-        <div class="card shadow-sm">
-            <div class="card-header bg-white">
-              <div class="h3" style="color: #E15419">
-                KSHs. 5500 Annually
-              </div>
-
-            </div>
-            
+        <div class="card shadow-sm">      
             <div class="card-body pt-2 pb-3 h6">
 
               <div class="card-text p-4">
@@ -254,7 +247,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               </div>
             </div>
 
-            <div class="card-footer bg-white mx-auto p-4">
+            <div class="card-footer bg-white p-4">
                 <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
             </div>
 
@@ -373,11 +366,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 @csrf
                 <div class="form-group">
                   <label class="h5">First Name</label>
-                  <input type="text" class="form-control" name="firstname" required="" placeholder="first name">
+                  <input type="text" class="form-control" name="firstname" required="" placeholder="First name">
                 </div>
                 <div class="form-group">
                   <label class="h5">Last Name</label>
-                  <input type="text" class="form-control" name="lastname" required="" placeholder="last name">
+                  <input type="text" class="form-control" name="lastname" required="" placeholder="Last name">
                 </div>
 
                 <div class="form-group">

@@ -97,21 +97,15 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
     </div>
 
     <div class="col-md-6 align-right pt-4 pb-4 pl-4 ml-4">
-        <div class="modal-content shadow-lg">
-            <div class="modal-header">
-              <h5 class="modal-title text-right h4" id="exampleModalLabel">Why should you join the E-Club?</h5>
+        <div class="card bg-light">
+          <div class="card-body">
+            <div class="card-header h4 text-center bg-white">
+              Benefits for Joining E-Club
             </div>
-            <div class="modal-body">
-              <div class="modal-text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, minima non id ducimus at dolor obcaecati tempore corporis quisquam corrupti nostrum eveniet recusandae nihil. Eos sequi alias a autem. Placeat!
-              </div>
-              <div class="modal-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, minima non id ducimus at dolor obcaecati tempore corporis quisquam corrupti nostrum eveniet recusandae nihil. Eos sequi alias a autem. Placeat!
+            <div class="card-text">
+              
             </div>
-            <div class="modal-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, minima non id ducimus at dolor obcaecati tempore corporis quisquam corrupti nostrum eveniet recusandae nihil. Eos sequi alias a autem. Placeat!
-            </div>
-            </div>
+          </div>
         </div>
     </div>
 

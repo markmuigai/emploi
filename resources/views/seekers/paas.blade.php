@@ -38,7 +38,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <!--          <h4>Assigned Tasks</h4>
                  <p></p> -->
                  @else
-                 <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme">Join Gold Club</a>
+                 <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
 
                 {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
                 @endif
@@ -222,14 +222,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <section class="w3l-index-block7 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
-      <h3 class="head">PaaS Benefits</h3>
-      <h5 class="my-3">Sign up for membership now and get part time employment.</h5>
+      <h3 class="head">Golden Club Benefits</h3>
+      <h5 class="my-3">Sign up for membership.</h5>
     </div>
 
     <div class="row cwp17-two align-items-center">
-      <div class="col-md-6 cwp17-text">
+      <div class="col-md-12 cwp17-text">
             <div class="card-header bg-white shadow-sm">
-              <div class="h2 mb-3" style="color: #E15419">
+              <div class="h2 mb-3 text-center" style="color: #E15419">
                 KSHs. 2750 Annually
               </div>
 
@@ -247,23 +247,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               <button class="btn mx-auto" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
             </div>
 
-      </div>
+       </div>
 
-      <div class="col-md-6 cwp17-text mx-auto">
-        <div>
-          <div class="col-sm-12">
-                <ul class="list-group">
-                  <li class="list-group-item">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
-                  <li class="list-group-item">Access to profession-based training and development opportunities under the Know Your Profession program.</li>
-                  <li class="list-group-item">Increased chances for eventual permanent employment.</li>
-                  <li class="list-group-item">Guaranteed income after a successful placement.</li>
-                  <li class="list-group-item">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
-                  
-                </ul>
-
-          </div>
-
-        </div>
       </div>
       
     </div>

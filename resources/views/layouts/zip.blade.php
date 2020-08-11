@@ -55,10 +55,10 @@
         </ul>
         <div class="form-inline">
           @guest
-          <a href="/login?redirectToUrl={{ url('/employers/publish') }}" class="login mr-4"  style="color: white">Log in</a>
-          <a href="tel:+254702068282" class="btn btn-primary btn-theme" style="background-color: #E15419">
+          <a href="/login?redirectToUrl={{ url('/employers/publish') }}" class="login mr-4"  style="color: white">Log In</a>
+          {{-- <a href="tel:+254702068282" class="btn btn-primary btn-theme" style="background-color: #E15419">
             <i class="fa fa-phone"></i> Call Us
-          </a>
+          </a> --}}
           @else
               <a href="/logout" class="login mr-4"  style="color: white">Log out</a>
               <a href="/home" class="btn btn-primary btn-theme" style="background-color: #E15419">Dashboard</a>
