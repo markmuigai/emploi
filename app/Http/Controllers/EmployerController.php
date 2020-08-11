@@ -1227,10 +1227,6 @@ class EmployerController extends Controller
         return view('employers.epaas');
     }
 
-    public function rpaas() {
-        return view('employers.request');
-    }
-
     public function getPaas(Request $request)
     {   
 
@@ -1359,4 +1355,34 @@ class EmployerController extends Controller
           return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the Payment for Professional as a Service (PAAS) to Enjoy the Benefits.');
         }
     }
+
+        public function rpaas() {
+        return view('employers.request')
+        ->with('industries',Industry::orderBy('name')->get());
+    }
+
+     public function getProfessional(Request $request)
+    {   
+         $request->validate([
+            'firstname'   =>  ['required','max:50','string'],
+            'lastname'    =>  ['required','max:50','string'],
+            'email'       =>  ['required','string', 'email', 'max:50'],
+            'phone_number'=> ['required', 'string', 'max:15'],
+            'company'     =>  ['max:100','string'],
+            'task_title'     => ['max:100','string'],
+        ]);
+
+
+            $user= Auth::user();
+            $invoice = Invoice::create([
+            'slug' => Invoice::generateUniqueSlug(11),
+            'first_name' => $request->firstname,
+            'last_name' => $request->lastname,
+            'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
+            'email' => $request->email,
+            'description' => 'payment for part timer request',
+            'sub_total' => isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas() ? 0.1 * $request->salary : 0.27 * $request->salary
+        ]);
+    }
+
 }

@@ -19,36 +19,71 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
               <!-- subscribe form for Professional -->
                 <form method="POST"  enctype="multipart/form-data" action="/employers/request-professional">
                   @csrf
+                    <?php
+                    $fname = '';
+                    $lname = '';
+                    $email = '';
+                    $phone = '';
+
+                    if(isset(Auth::user()->id))
+                    {
+                      $full_name = Auth::user()->name;
+                      $full_name = explode(" ", $full_name);
+                      $fname = $full_name[0];
+                      $lname = isset($full_name[1]) ? $full_name[1] : '';
+                      $email = Auth::user()->email;
+                      $phone = Auth::user()->employer->contact_phone;
+                    }
+
+                    ?>
                   <div class="form-group">
-                    <label class="h5">First Name</label>
-                    <input type="text" class="form-control" name="firstname" required="" placeholder="First Name">
+                    <label class="h6">First Name <b style="color: red" title="Required">*</b></label>
+                    <input type="text" class="form-control" name="firstname" required="" placeholder="First Name" value="{{ $fname }}">
                   </div>
                   <div class="form-group">
-                    <label class="h5">Last Name</label>
-                    <input type="text" class="form-control" name="lastname" required="" placeholder="Last Name">
+                    <label class="h6">Last Name <b style="color: red" title="Required">*</b></label>
+                    <input type="text" class="form-control" name="lastname" required="" placeholder="Last Name" value="{{ $lname }}">
                   </div>
         
                   <div class="form-group">
-                    <label class="h5">Email Address</label>
-                    <input type="email" class="form-control" name="email" required="" placeholder="Email">
+                    <label class="h6">Email Address <b style="color: red" title="Required">*</b></label>
+                    <input type="email" class="form-control" name="email" required="" placeholder="Email" value="{{ $email }}">
                   </div>
                   <div class="form-group">
-                    <label class="h5">Phone Number</label>
-                    <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
+                    <label class="h6">Phone Number <b style="color: red" title="Required">*</b></label>
+                    <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
                   </div>
                   <div class="form-group">
-                    <label class="h5">Company Name</label>
-                    <input type="text" class="form-control" name="company" required="" placeholder="Company name">
+                    <label class="h6">Company Name</label>
+                    <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $fname }}">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="h6">Task <b style="color: red">*</b></label>
+                    <input type="text" class="form-control" name="task_title" required="" placeholder="task title">
                   </div>
         
                   <div class="form-group">
-                    <label class="h5">Task Description</label>
-                    <textarea class="form-control" name="company" required=""></textarea>
+                    <label class="h6">Task Description</label>
+                    <textarea class="form-control" name="task_description" placeholder="brief description about the task"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="h6">Industry</label>
+                      <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                        <option disabled selected value> -- select an option -- </option>
+                        @foreach($industries as $c)
+                        <option value="{{ $c->id }}" @if(old('industry') && old('industry')==$c->id)
+                        selected=""
+                        @endif
+                        >{{ $c->name }}</option>
+                        @endforeach
+                      </select>
                   </div>
         
                   <div class="form-group">
-                    <label class="h5">Salary</label>
-                    <input type="text" class="form-control" name="company" required="" placeholder="Salary">
+                    <label class="h6">Salary <b style="color: red" title="Required">*</b></label>
+                    <input type="text" class="form-control" name="salary" required="" placeholder="Salary">
                   </div>
         
                   <div class="modal-footer">
