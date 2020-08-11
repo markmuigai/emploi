@@ -1,5 +1,5 @@
 <?php
-    $posts = \App\Post::all();
+    $posts = \App\Post::where('company_id','!=' ,1)->where('status','active')->where('featured','true')->get();
 ?>
 <!-- FEATURED EMPLOYERS -->
 <div class="container mt-5 text-center">
