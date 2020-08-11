@@ -45,11 +45,13 @@ use App\User;
 use App\UserPermission;
 use App\EmployerSubscription;
 use App\Invoice;
+use App\Task;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
 use App\Notifications\EmployerRegistered;
 use App\Notifications\PaasSubscribed;
+use App\Notifications\InvoiceCreated;
 
 class EmployerController extends Controller
 {
@@ -1356,22 +1358,31 @@ class EmployerController extends Controller
         }
     }
 
-        public function rpaas() {
+    public function rpaas() {
         return view('employers.request')
-        ->with('industries',Industry::orderBy('name')->get());
+         ->with('industries',Industry::orderBy('name')->get());
     }
 
-     public function getProfessional(Request $request)
+    public function getProfessional(Request $request)
     {   
          $request->validate([
             'firstname'   =>  ['required','max:50','string'],
             'lastname'    =>  ['required','max:50','string'],
             'email'       =>  ['required','string', 'email', 'max:50'],
-            'phone_number'=> ['required', 'string', 'max:15'],
+            'phone_number'=>  ['required', 'string', 'max:15'],
             'company'     =>  ['max:100','string'],
-            'task_title'     => ['max:100','string'],
+            'task_title'  =>  ['max:100','string'],
         ]);
 
+             $task = Task::create([
+                'name' => $request->firstname. ' ' .$request->lastname,               
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'task_title' => $request->task_title,
+                'task_description' => $request->task_description,
+                'industry' => $request->industry,
+                'salary' => $request->salary
+            ]);
 
             $user= Auth::user();
             $invoice = Invoice::create([
@@ -1380,9 +1391,23 @@ class EmployerController extends Controller
             'last_name' => $request->lastname,
             'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
             'email' => $request->email,
-            'description' => 'payment for part timer request',
+            'description' => 'payment for part timer ',
             'sub_total' => isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas() ? 0.1 * $request->salary : 0.27 * $request->salary
         ]);
-    }
 
+             if(isset($invoice->id))
+            {
+                $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
+                $invoice->remind('email');
+            }
+
+            if(isset($invoice->id))
+            {
+                if (app()->environment() === 'production')
+                $invoice->notify(new InvoiceCreated($message));
+
+            }
+
+          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the Payment to get a professional for your task.');
+    }
 }

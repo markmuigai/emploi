@@ -9,6 +9,7 @@ use App\Invoice;
 use App\CvReferral;
 use App\SeekerSubscription;
 use App\EmployerSubscription;
+use App\Task;
 use App\Jobs\EmailJob;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\InvoicePaid;
@@ -115,6 +116,7 @@ class InvoiceController extends Controller
 
         SeekerSubscription::activateSeekerPaas($invoice->email);
         EmployerSubscription::activateEmployerPaas($invoice->email);
+        Task::activateTask($invoice->email);
         
         return view('pesapal.paid')
                 ->with('invoice',$invoice);
@@ -136,6 +138,7 @@ class InvoiceController extends Controller
 
         SeekerSubscription::activateSeekerPaas($invoice->email);
         EmployerSubscription::activateEmployerPaas($invoice->email);
+        Task::activateTask($invoice->email);
 
         $invoice->hasBeenPaid();
         $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->total.' was marked paid by '.Auth::user()->name.'. Payment Reference: '.$invoice->alternative_payment_slug;
