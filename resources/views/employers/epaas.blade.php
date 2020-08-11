@@ -88,7 +88,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 <section>
   <div class="heading text-center mx-auto">
-    <h3 class="head">Benefits</h3>
+    <h3 class="head">Benefits of Using PaaS</h3>
     <p class="my-3 head">Join the E-Club to enjoy more benefits including faster processing of request.</p>
   </div>
   <div class="col-md-8 mx-auto align-right pt-4 pb-4">
@@ -132,8 +132,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Subscribe & Request for Part-timer</h4>
-                 <p>With an Employer's profile, after posting the request, qualified professionals are matched and an availability check is sent to confirm. From the pool of applicants a selection is made based on your parameters.</p>
+                <h4>Place a Request and Agree on TOR</h4>
+                <p>Place a Request Using the Request Form and Agree on the Terms of Reference </p>
                </div>
              </div>
             </div>
@@ -147,8 +147,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Browse Talent Pool </h4>
-                 <p>Search experienced candidates in our talent pool by Industry, Location, Skills amongs't others. Download their CV's, contact them directly, and offer positions. </p>
+                <h4>Review Shortlisted</h4>
+                <p>Review and select from a shortlist of 3 from emploi's system</p>
                </div>
              </div>
             </div>
@@ -162,9 +162,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Professionals Management</h4>
-                 <p>Our Role Suitability tool and other features enable you to score job applications against your model candidate and rank them for advanced shortlisting</p>
-               </div>
+                <h4>Task Assignment</h4>
+                <p>Assign Weekly/Monthly deliverables through your candidate management dashboard</p>
+              </div>
              </div>
             </div>
          </div>
@@ -177,9 +177,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>End-to-End Recruitment</h4>
-                 <p>Let's handle the recruitment process for you and provide you professionals that fit your industry skill description for you to decide.</p>
-               </div>
+                <h4>Review, Rate & Make Payments</h4>
+                <p>Review and rate performance on task completion. Secure payments - Receive invoices and make payments through Emploi</p>
+              </div>
              </div>
             </div>
          </div>
@@ -192,9 +192,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Featured Company</h4>
-                 <p>Top candidates seek vacancies from top companies. Let our HR and IT team provide you with branding and marketing tips to get the best candidates.</p>
-               </div>
+                <h4>Performance guarantees.</h4>
+                <p>Performance guarantees: rate candidate performance on your candidate management dashcboard, request for replacement on dissatisfaction and get instant replacement of absentee candidates</p>
+              </div>
              </div>
             </div>
          </div>
@@ -207,8 +207,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Products You Use</h4>
-                 <p>We provide you with the necessary manage your profile from inception to end. Allowing you to monitor and track your hired professional</p>
+                 <h4>End of Task</h4>
+                 <p>Transition & Offboarding Management</p>
                </div>
              </div>
             </div>
