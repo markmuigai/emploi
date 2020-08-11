@@ -38,7 +38,14 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                   </div>
                   <div class="form-group">
                     <label class="h5">Industry</label>
-                    <input type="text" class="form-control" name="industry" required="" placeholder="Industry">
+                      <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                        @foreach($industries as $c)
+                        <option value="{{ $c->id }}" @if(old('industry') && old('industry')==$c->id)
+                        selected=""
+                        @endif
+                        >{{ $c->name }}</option>
+                        @endforeach
+                      </select>
                   </div>
         
                   <div class="modal-footer">
