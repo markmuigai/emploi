@@ -13,11 +13,11 @@ Get Hired as a Professional by joining the Golden Club..
     <div class="col-md-5 align-right pt-4 pb-4 pl-4 ml-4">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
-              <h5 class="modal-title text-center h4" id="exampleModalLabel">Join the Golden Club Membership Plan for exclusive part-time deals.</h5>
+              <h5 class="modal-title text-center h4 mx-auto" id="exampleModalLabel">Join Golden Club for Exclusive Jobs.</h5>
             </div>
             <div class="modal-body bg-light">
               <!-- subscribe form for Professional -->
-                <form method=""  enctype="multipart/form-data" action="#">
+                <form method="POST"  enctype="multipart/form-data" action="/job-seekers/subscribe-paas">
                   @csrf
                   <div class="form-group">
                     <label class="h5">First Name</label>

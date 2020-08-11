@@ -96,7 +96,7 @@
                 </li>
                 <!-- END OF ADMIN SIDEBAR -->
 
-                @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
+                @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                 @else
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -120,7 +120,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <!-- <a class="dropdown-item" href="/employers/dashboard">Dashboard</a> -->
-                        @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                         <a class="dropdown-item" href="/employers/browse">{{ __('jobs.browse_cvs') }}</a>
                         @endif
                         <a class="dropdown-item" href="/employers/publish">{{ __('jobs.advert_jobs') }}</a>

@@ -54,7 +54,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
-  <div class="row pt-4">
+  <div class="row pt-5">
     <div class="col-md-12 pt-1">
       <div class="text-center h2">
         How it works
@@ -78,51 +78,49 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             </div>
           </div>
 
-          <!-- Large modal describing paas -->
-
-          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg p-2">
-            <div class="modal-content p-4">
-               <h1 class="bg-light">Product Description</h1>
-
-               <div class="h5">
-                 PAAS is a service that seeks to provide qualified professionals on demand to
-                 handle specific tasks at affordable rates and at a cost effective plan.
-                 <br><br>
-                 It is created to fulfill the need of employers for mid-level and senior
-                 positions that became vacant due to theCOVID-19 pandemic.
-                 <br><br>
-                 Lay-offs by companies led to reassessment of processes in the companies.
-                 PAAS seeks to connect experienced persons to the SMEs.
-                 It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap
-
-
-               </div>
-
-               <div class="modal-footer">
-                 <button type="button" class="btn btn-orange">Contact Us</button>
-                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-               </div>
-
-            </div>
-          </div>
-          </div>
-
         </div>
-        {{-- end of description modal --}}
+
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<section>
+  <div class="heading text-center mx-auto">
+    <h3 class="head">Benefits</h3>
+    <p class="my-3 head">Join the E-Club to enjoy more benefits including faster processing of request.</p>
+  </div>
+  <div class="col-md-8 mx-auto align-right pt-4 pb-4">
+    <div class="modal-content bg-light shadow">
+        {{-- <div class="modal-header">
+          <h5 class="modal-title text-right h4" id="exampleModalLabel">Your Fulfillment is what we seek!</h5>
+        </div> --}}
+        <div class="modal-body">
+          <div class="card shadow-lg">
+            <div class="card-text p-2 h5">
+              <ul class="list-group">
+                <li class="list-group-item">Access to networking with a large pool of professionals through Know The Professional networking program.</li>
+                <li class="list-group-item">Access to free on-demand HR advisory services.</li>
+                <li class="list-group-item">Immediate replacement to vacancies left by a PAAS professional.</li>
+                <li class="list-group-item">Discounted rates on advertisement of vacancies (50% for the first 6 months).</li>
+                <li class="list-group-item">Highest chances of landing a potential fulltime employee in the long run.</li>
+                <li class="list-group-item">Accessibility to other employer tools free of charge for the duration of the contract.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+</section>
 <!-- content-with-photo17 -->
- {{-- <div class="w3l-index-block4">
+ <div class="w3l-index-block4">
    <div class="features-bg py-5">
      <!-- features15 block -->
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
-         <h3 class="head">How it works</h3>
-         <p class="my-3 head">To use PaaS you first need to subscribe for a membership, afterwards you can then create a request for a part-timer afterwhich Emploi will take care of the rest of the process.</p>
+         <h3 class="head">Creating a Part-timer Request.</h3>
+         <p class="my-3 head">To create a new request you go the request page and fill in required details including Task and Specific Industry. Emploi will then take care of the rest of the process.</p>
        </div>
        <div class="row">
          <div class="col-md-6 features15-col-text">
@@ -221,7 +219,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
        </div>
      </div>
    </div>
- </div> --}}
+ </div>
 
  
 <!-- PaaS Benefits -->
@@ -234,10 +232,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
 
     <div class="row cwp17-two align-items-center">
-      <div class="col-md-6 cwp17-text">
+      <div class="col-md-8 mx-auto cwp17-text">
 
         <div class="card shadow-sm">
-            <div class="card-header bg-light">
+            <div class="card-header bg-white">
               <div class="h3" style="color: #E15419">
                 KSHs. 5500 Annually
               </div>
@@ -262,30 +260,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
           </div>
 
-      </div>
-
-      <div class="col-md-6 cwp17-text-two mx-auto">
-        <div>
-          <div class="col-sm-12">
-            <div class="card bg-white shadow">
-              <div class="card-body">
-                <div class="card-text">
-                  <ol>
-                    <li>Access to networking with a large pool of professionals through <b>Know The Professional</b> networking program.</li>
-                    <li>Access to free on-demand HR advisory services.</li>
-                    <li>Immediate replacement to vacancies left by a PAAS professional.</li>
-                    <li>Discounted rates on advertisement of vacancies (50% for the first 6 months).</li>
-                    <li>Highest chances of landing a potential fulltime employee in the long run.</li>
-                    <li>Highest chances of landing a potential fulltime employee in the long run.</li>
-                    <li>Accessibility to other employer tools free of charge for the duration of the contract.</li>
-
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
       
     </div>
