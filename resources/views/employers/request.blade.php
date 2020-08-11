@@ -25,14 +25,14 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                     $email = '';
                     $phone = '';
 
-                    if(isset(Auth::user()->id))
+                    if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                     {
                       $full_name = Auth::user()->name;
                       $full_name = explode(" ", $full_name);
                       $fname = $full_name[0];
                       $lname = isset($full_name[1]) ? $full_name[1] : '';
                       $email = Auth::user()->email;
-                      $phone = Auth::user()->employer->contact_phone;
+                      $phone = Auth::user()->employer->contact_phone ? : '';
                     }
 
                     ?>
