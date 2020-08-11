@@ -1,8 +1,8 @@
 @extends('layouts.general-layout')
 
-@section('title','Make Request')
+@section('title','Sign Up as Part-timer')
 @section('description')
-Request Professionals Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Request professional in two minutes.
+Get Hired as a Professionals by joining the Golden Club..
 @endsection
 
 
@@ -13,11 +13,11 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
     <div class="col-md-5 align-right pt-4 pb-4 pl-4 ml-4">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
-              <h5 class="modal-title text-right h4" id="exampleModalLabel">Request for Part-Timer</h5>
+              <h5 class="modal-title text-center h4" id="exampleModalLabel">Join the Golden Club Membership Plan for exclusive part-time deals.</h5>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-light">
               <!-- subscribe form for Professional -->
-                <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
+                <form method=""  enctype="multipart/form-data" action="#">
                   @csrf
                   <div class="form-group">
                     <label class="h5">First Name</label>
@@ -52,20 +52,28 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
     </div>
 
     <div class="col-md-6 align-right pt-4 pb-4 pl-4 ml-4">
-        <div class="modal-content shadow-lg">
+        <div class="modal-content bg-light shadow-lg">
             <div class="modal-header">
-              <h5 class="modal-title text-right h4" id="exampleModalLabel">Why should you join the Gold Club?</h5>
+              <h5 class="modal-title text-right h4" id="exampleModalLabel">Why should you join the Golden Club?</h5>
             </div>
             <div class="modal-body">
-              <div class="modal-text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, minima non id ducimus at dolor obcaecati tempore corporis quisquam corrupti nostrum eveniet recusandae nihil. Eos sequi alias a autem. Placeat!
+              <div class="card shadow">
+                <div class="card-text p-2">
+                  <ul class="list-group h4">
+                    <li class="list-group-item">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
+                    <li class="list-group-item">Access to profession-based training and development opportunities under the Know Your Profession program.</li>
+                    <li class="list-group-item">Increased chances for eventual permanent employment.</li>
+                    <li class="list-group-item">Guaranteed income after a successful placement.</li>
+                    <li class="list-group-item">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
+                  </ul>
+                </div>
               </div>
-              <div class="modal-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, minima non id ducimus at dolor obcaecati tempore corporis quisquam corrupti nostrum eveniet recusandae nihil. Eos sequi alias a autem. Placeat!
             </div>
-            <div class="modal-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, minima non id ducimus at dolor obcaecati tempore corporis quisquam corrupti nostrum eveniet recusandae nihil. Eos sequi alias a autem. Placeat!
-            </div>
+
+            <div class="modal-body mx-auto">
+              <div class="shadow">
+                <a href="/job-seekers/paas" style="color: white" class="btn btn-orange">Read More</a>
+              </div>
             </div>
         </div>
     </div>
