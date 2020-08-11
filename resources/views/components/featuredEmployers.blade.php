@@ -30,6 +30,8 @@
                 infinite: true,
                 slidesToShow: 3,
                 slidesToScroll: 2,
+                autoplay: true,
+                speed: 1000,
                 arrows: true,
                 prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
                 nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
@@ -38,6 +40,8 @@
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 2,
+                            autoplay: true,
+                            speed: 1000,
                         }
                     },
                     {
@@ -45,6 +49,8 @@
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1,
+                            autoplay: true,
+                            speed: 1000,
                         }
                     },
                     {
@@ -52,6 +58,8 @@
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1,
+                            autoplay: true,
+                            speed: 1000,
                         }
                     },
                 ]
