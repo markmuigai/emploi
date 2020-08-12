@@ -36,25 +36,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-12 content-left pt-md-0 pt-5">
           <br><br><br><br><br>
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request Part-timer.</h3>
-<<<<<<< HEAD
           <p class="mt-3 mb-md-5 mb-4">Sign up for membership now and subscribe to a pool of part time talent.</p>
 
-
-
-                 <a href="/employers/rpaas" style="background-color: #E15419; color:white" class="btn btn-theme">Request</a>
-                 <a href="#exampleModal" style="background-color: #500095; color: white;" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
-
-        
-              
-=======
-          <p class="mt-3 mb-md-5 mb-4">-Sign up for membership now and subscribe to a pool of part time talent.</p>
                  
                  <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request</a>
-                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
-
-                {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}             
->>>>>>> 4792145a358bdee424d3063de5e9331cc7d66ef7
-          
+                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>        
         </div>
         
       </div>
