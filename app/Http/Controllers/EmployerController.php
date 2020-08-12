@@ -1374,7 +1374,89 @@ class EmployerController extends Controller
             'task_title'  =>  ['max:100','string'],
         ]);
 
+
+        $user = User::where('email',$request->email)->first();
+        $created = false;
+        if(!isset($user->id))
+        {
+            $username = explode(" ", strtolower($request->name));
+            $username = implode("-", $username).rand(1000,30000);
+            $password = User::generateRandomString(10);
+            $created = true;
+
+            $user = User::create([
+                'name' => $request->firstname. ' ' .$request->lastname,
+                'email' => $request->email,
+                'username' => $username,
+                'email_verification' => User::generateRandomString(10),
+                'password' => Hash::make($password),
+            ]);
+
+            if(!isset($user->id))
+            {
+                abort(500);
+            }
+
+        // $r = Referral::where('email',$request->email)->first();
+
+        // if(!isset($r->id) && Session::has('invite_id'))
+        // {
+        //     $invite_id = Session::get('invite_id');
+        //     $link = InviteLink::find($invite_id);
+        //     if(isset($link->id))
+        //     {
+        //         Referral::create([
+        //             'user_id' => $link->user_id,
+        //             'name' => $user->name,
+        //             'email' => $user->email
+        //         ]);
+        //     }
+
+        // }
+
+
+        
+        $emp = Employer::create([
+            'user_id' => $user->id,
+            'name' => $request->firstname. ' ' .$request->lastname,
+            'industry_id' => 32,
+            'company_name' => $request->company,
+            'contact_phone' =>$request->phone_number,
+            'company_phone' => $request->phone_number,
+            'company_email' => $user->email,
+            'country_id' => 1,
+            'address' =>0        
+        ]);
+
+
+        $perm = UserPermission::create([
+            'user_id' => $user->id,
+            'permission_id' => 3
+        ]);
+        
+        $caption = "Thank you for registering your profile on Emploi as an Employer";
+        $contents = "Here are your login credentials for Emploi: <br>
+            username: $username <br>
+            Password: $password <br>
+            <br><br>
+
+        Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account. Thank you for choosing Emploi.
+                ";
+        EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+        if (app()->environment() === 'production')
+        Notification::send(Employer::first(),new EmployerRegistered('NEW EMPLOYER: '.$emp->user->name.' registered an employer profile'));
+
+        $caption = "A new employer has registered on Emploi";
+        $contents = $emp->user->name." has created an employer profile on Emploi.<br>
+        Log in to <a href='/admin/panel'>Admin panel</a> to manage employers.";
+        EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Company '.$emp->company_name.' Created', $caption, $contents);
+
+        }
+
              $task = Task::create([
+                'slug' => Task::generateUniqueSlug(11),
+                'employer_id' => $user->employer->id,
                 'name' => $request->firstname. ' ' .$request->lastname,               
                 'email' => $request->email,
                 'phone_number' => $request->phone_number,
@@ -1384,6 +1466,17 @@ class EmployerController extends Controller
                 'salary' => $request->salary
             ]);
 
+             return redirect('/employers/task/'.$task->slug);
+    }
+    
+    public function task($slug)
+    {
+        return view('employers.task')
+                ->with('task',Task::where('slug',$slug)->firstOrFail());
+    }
+
+    public function getInvoice(Request $request)
+    {   
             $user= Auth::user();
             $invoice = Invoice::create([
             'slug' => Invoice::generateUniqueSlug(11),
@@ -1392,7 +1485,7 @@ class EmployerController extends Controller
             'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
             'email' => $request->email,
             'description' => 'payment for part timer ',
-            'sub_total' => isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas() ? 0.1 * $request->salary : 0.27 * $request->salary
+            'sub_total' => isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas() ? 0 * $request->salary : $request->salary + 0.135 * $request->salary
         ]);
 
              if(isset($invoice->id))
@@ -1407,7 +1500,8 @@ class EmployerController extends Controller
                 $invoice->notify(new InvoiceCreated($message));
 
             }
-
-          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the Payment to get a professional for your task.');
+    
+          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for your task to be processed.');
     }
 }
+    

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     protected $fillable = [
-        'name','email', 'phone_number','company','title','description','industry','salary','status','assigne','assigned_on'
+        'slug','employer_id','name','email', 'phone_number','company','title','description','industry','salary','status','assigne','assigned_on'
     ];
 
         public static function activateTask($email)
@@ -23,4 +23,14 @@ class Task extends Model
         return false;
     }
 
+    public static function generateUniqueSlug($length = 11) {
+        $length = $length > 41 ? 41 : $length;
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return 'TASK_'.$randomString;
+    }
 }
