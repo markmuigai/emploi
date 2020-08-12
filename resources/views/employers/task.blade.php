@@ -7,8 +7,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @endsection
 
 @section('content')
-@section('page_title', 'Professional Requisition Checkout')
-
+<h3>
+@if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
+	Professional Review Checkout
+@else
+	Professional Requisition Checkout
+@endif
+</h3><br>
 <div class="container">
     <div class="single">
     	@if (Auth::check())
