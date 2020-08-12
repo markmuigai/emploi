@@ -280,6 +280,8 @@ Route::get('/employers/eclub', 'EmployerController@eclub');
 Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 Route::post('/employers/request-professional', 'EmployerController@getProfessional');
+Route::get('/employers/task/{slug}', 'EmployerController@task');
+Route::post('/employers/invoice', 'EmployerController@getInvoice');
 
 Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::get('/job-seekers/rpaas', 'SeekerController@rpaas');
