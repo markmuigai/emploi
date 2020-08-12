@@ -23,35 +23,33 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
-<div class="pt-5 mt-3">
-    <div class="container">
-    </div>
-</div>
 
 <!-- index-block1 -->
-<header class="pt-3" style="background: url(/images/work3.jpeg); color:white; background-size: 100rem; background-attachment: fixed">
+<div class="w3l-index-block1">
   <div class="content py-5">
     <div class="container">
       <div class="row align-items-center py-md-5 py-5">
-        <div class="col-md-12 content-left pt-md-0 pt-5">
-          <br><br><br><br><br>
+        <div class="col-md-5 content-left pt-md-0 pt-5">
+
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request Part-timer.</h3>
           <p class="mt-3 mb-md-5 mb-4">Sign up for membership now and subscribe to a pool of part time talent.</p>
 
-                 
-                 <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request</a>
-                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>        
-        </div>
+          <a href="/employers/rpaas" style="background-color: #E15419; color:white;" class="btn btn-theme">Request</a>
+          <a href="#exampleModal" style="background-color: #500095; color: white;" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>        
         
+              
+          
+        </div>
+        <div class="col-md-7 content-photo mt-md-0 mt-5">
+          <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
+        </div>
       </div>
       <div class="clear"></div>
     </div>
   </div>
-</header>
-
-
-
+</div>
 <!-- //index-block1 -->
+
 <!-- index-block2 -->
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
