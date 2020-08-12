@@ -274,18 +274,18 @@ Route::get('/employers/psychometric-tests', 'ContactController@psychometric');
 Route::get('/employers/train-employees', 'ContactController@retrain');
 Route::get('/employers/faqs', 'ContactController@employerFaqs');
 
-Route::get('/employers/paas', 'EmployerController@epaas');
-Route::get('/employers/rpaas', 'EmployerController@rpaas');
-Route::get('/employers/eclub', 'EmployerController@eclub');
-Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
-Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
-Route::post('/employers/request-professional', 'EmployerController@getProfessional');
-Route::get('/employers/task/{slug}', 'EmployerController@task');
-Route::post('/employers/invoice', 'EmployerController@getInvoice');
+// Route::get('/employers/paas', 'EmployerController@epaas');
+// Route::get('/employers/rpaas', 'EmployerController@rpaas');
+// Route::get('/employers/eclub', 'EmployerController@eclub');
+// Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
+// Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
+// Route::post('/employers/request-professional', 'EmployerController@getProfessional');
+// Route::get('/employers/task/{slug}', 'EmployerController@task');
+// Route::post('/employers/invoice', 'EmployerController@getInvoice');
 
-Route::get('/job-seekers/paas', 'SeekerController@paas');
-Route::get('/job-seekers/rpaas', 'SeekerController@rpaas');
-Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
+// Route::get('/job-seekers/paas', 'SeekerController@paas');
+// Route::get('/job-seekers/rpaas', 'SeekerController@rpaas');
+// Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
 
 
 
