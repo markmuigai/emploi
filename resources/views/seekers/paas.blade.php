@@ -22,39 +22,40 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
+<div class="pt-5 mt-3">
+  <div class="container">
+  </div>
+</div>
 
 <!-- index-block1 -->
-<div class="w3l-index-block1">
+<header class="pt-3" style="background: url(/images/gclub1.jpg); color:white; background-size: cover; background-attachment: fixed">
   <div class="content py-5">
     <div class="container">
       <div class="row align-items-center py-md-5 py-5">
-        <div class="col-md-5 content-left pt-md-0 pt-5">
+        <div class="col-md-12 content-left pt-md-0 pt-5">
+          <br><br><br><br><br>
           <h3 class="mt-3 mb-md-5 mb-4 h1">Join Talent Pool.</h3>
           <p class="mt-3 mb-md-5 mb-4">Are you a professional looking for part-time work? A new solution is here for you.</p>
 
+          @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
+          <!--          <h4>Assigned Tasks</h4>
+            <p></p> -->
+            @else
+            <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
 
-
-                 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
-        <!--          <h4>Assigned Tasks</h4>
-                 <p></p> -->
-                 @else
-                 <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
-
-                {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
-                @endif
+          {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
+          @endif     
+                 
+        </div>
         
-              
-          
-        </div>
-        <div class="col-md-7 content-photo mt-md-0 mt-5">
-          <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
-        </div>
       </div>
       <div class="clear"></div>
     </div>
   </div>
-</div>
+</header>
+
 <!-- //index-block1 -->
+
 <!-- index-block2 -->
 
 <!-- /index-block2 -->
@@ -74,7 +75,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             <p>PAAS is a service that seeks to provide qualified professionals on demand to
               handle specific tasks at affordable rates and at a cost effective plan.</p>
             <p>It is created to fulfill the need of employers for mid-level and senior
-              positions that became vacant due to theCOVID-19 pandemic.</p>
+              positions that became vacant due to the COVID-19 pandemic.</p>
             <p>Lay-offs by companies led to reassessment of processes in the companies.
               PAAS seeks to connect experienced persons to the SMEs.
               It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>

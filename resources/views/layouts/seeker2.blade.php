@@ -94,9 +94,9 @@
       <h3 class="head">Have questions? We're here to help. </h3>
     </div>
     <div class="buttons mt-4">
-      <a href="/covid19-information-series" class="btn btn-outline-primary btn-more">Covid Response <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
-      <a href="/contact" class="btn btn-primary btn-demo ">Contact Us</a>
-      <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> 0702 068 282</a>
+      <a href="/covid19-information-series" class="btn btn-more" style="background-color: #E15419; color:white">Covid Response <span class="fa fa-arrow-right" aria-hidden="true"></span></a>
+      <a href="/contact" class="btn" style="background-color: #500095; color:white">Contact Us</a>
+      <a href="tel:+254702068282" class="btn mr-2" style="background-color: #E15419; color:white;"><i class="fa fa-phone"></i> 0702 068 282</a>
     </div>
   </div>
 </section>
