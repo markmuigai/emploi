@@ -9,7 +9,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('content')
 <h3>
 @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
-	Professional Review Checkout
+	Review Checkout
 @else
 	Professional Requisition Checkout
 @endif
@@ -21,24 +21,29 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			<div class="col-md-5 order-md-2 mb-4">
 				<h4 class="d-flex justify-content-between align-items-center mb-3">
 					<span class="text-muted">Your cart</span>
-				</h4>
-				
-			
+				</h4>				
 					
 				
 					<form class="card" method="POST" action="/employers/invoice">
-						@csrf
-						@if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
-						Deposit: Ksh. {{ $task-> salary }}<br>
-						eClub Membership: 100%<br>
-						<b>Total: Ksh. {{ $task->salary - $task->salary }}</b>
+					<div class='order'>   
+						<ul><br>
+						<h5 class="text-muted">Order: {{ $task->slug }}</h5><br>
+							@csrf
+							@if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
 
-						@else
+							<h5>Deposit: Ksh. {{ $task->salary }}</h5>
+							<h5>Management Fee:  Ksh. {{ 0.135 * $task->salary }}</h5>
+							<h5 class='total'>Total Monthly pay: <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b></h5>
 
-						Deposit: Ksh. {{ $task->salary }}<br>
-						Management Fee: Ksh. {{ 0.135 * $task->salary }}<br>
-                        <b>Total: Ksh. {{ $task->salary + 0.135 * $task->salary }}</b>
-						@endif
+							@else
+
+							<h5>Deposit: Ksh. {{ $task->salary }}</h5>
+							<h5>Management Fee:  Ksh. {{ 0.135 * $task->salary }}</h5>
+							<h4 class='total'>Total: <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b></h4>
+							@endif
+					    </ul>
+					</div>
+					
 			        </div>
 						
 					<div class="col-md-7 order-md-1">
@@ -112,9 +117,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 							<hr class="mb-4">							
 							   @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
-							   <button class="btn btn-primary" id="submitButton" type="submit">Complete checkout</button>
+							   <a href="/employers/dashboard" class="btn btn-primary" id="complete" type="submit">Complete checkout</a>
                                 @else
-                            <button class="btn btn-primary" id="submitButton" type="submit">Continue to checkout</button> Or    
+                               <button class="btn btn-primary" id="submitButton" type="submit">Continue to checkout</button> Or    
 							<a href="/employers/paas?redirectToUrl={{ url()->current() }}" class="btn btn-orange" id="">Checkout with eClub</a>
                                 @endif						
 						</form>
@@ -130,4 +135,22 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 		@endif
 	</div>
 </div>
+
+<script>
+	$().ready(function(){
+		var submit_clicked = false;
+
+		$('#submitButton').click(function(){
+		    submit_clicked = true;
+		});
+
+	    window.onbeforeunload = confirmExit;
+
+	    function confirmExit() {
+	    	if (submit_clicked === false) {
+	    		return "Changes not saved. Are you sure?";
+	    	}
+	    }
+	});
+</script>
 @endsection

@@ -31,20 +31,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-5 content-left pt-md-0 pt-5">
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request Part-timer.</h3>
           <p class="mt-3 mb-md-5 mb-4">-Sign up for membership now and subscribe to a pool of part time talent.</p>
-
-
-
-                 @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->seeker->isOnPaas())
-        <!--          <h4>Assigned Tasks</h4>
-                 <p></p> -->
-                 @else
+                 
                  <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request</a>
                  <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
 
-                {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
-                @endif
-        
-              
+                {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}             
           
         </div>
         <div class="col-md-7 content-photo mt-md-0 mt-5">

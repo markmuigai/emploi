@@ -79,20 +79,20 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
                   <div class="form-group">
                     <label class="h6">Field Of Expertise</label>
-                      <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                      <select id="industry" name="industry" class="form-control input-sm">
                         <option disabled selected value> -- select an option -- </option>
-                        <option value="">Accounting and Audit</option>
-                        <option value="">Marketing,Communications and PR</option>
-                        <option value="">Customer Service</option>
-                        <option value="">Human Resources</option>
-                        <option value="">Engineering</option>
-                        <option value="">Legal</option>
-                        <option value="">IT</option>
-                        <option value="">Graphic design</option>
-                         <option value="">Sales</option>
-                        <option value="">Administration and Operations</option>                       
-                        <option value="">Data Entry</option>
-                        <option value="">Any</option>                
+                        <option value="Accounting and Audit">Accounting and Audit</option>
+                        <option value="Marketing,Communications and PR">Marketing,Communications and PR</option>
+                        <option value="Customer Service">Customer Service</option>
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Legal">Legal</option>
+                        <option value="IT">IT</option>
+                        <option value="Graphic design">Graphic design</option>
+                         <option value="Sales">Sales</option>
+                        <option value="Administration and Operations">Administration and Operations</option>
+                        <option value="Data Entry">Data Entry</option>
+                        <option value="Any">Any</option>                
                       </select>
                   </div>
           
