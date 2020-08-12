@@ -77,18 +77,24 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                       <textarea class="form-control" name="task_description" placeholder="brief description about the task"></textarea>
                     </div>
 
-                      <div class="form-group col-md-6">
-                        <label class="h6">Industry</label>
-                          <select path="industry" id="industry" name="industry" class="form-control input-sm">
-                            <option disabled selected value> -- select an option -- </option>
-                            @foreach($industries as $c)
-                            <option value="{{ $c->id }}" @if(old('industry') && old('industry')==$c->id)
-                            selected=""
-                            @endif
-                            >{{ $c->name }}</option>
-                            @endforeach
-                          </select>
-                      </div>
+                  <div class="form-group">
+                    <label class="h6">Field Of Expertise</label>
+                      <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="">Accounting and Audit</option>
+                        <option value="">Marketing,Communications and PR</option>
+                        <option value="">Customer Service</option>
+                        <option value="">Human Resources</option>
+                        <option value="">Engineering</option>
+                        <option value="">Legal</option>
+                        <option value="">IT</option>
+                        <option value="">Graphic design</option>
+                         <option value="">Sales</option>
+                        <option value="">Administration and Operations</option>                       
+                        <option value="">Data Entry</option>
+                        <option value="">Any</option>                
+                      </select>
+                  </div>
           
                       <div class="form-group col-md-6">
                         <label class="h6">Salary <b style="color: red" title="Required">*</b></label>
