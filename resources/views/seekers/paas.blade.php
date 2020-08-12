@@ -63,8 +63,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="section-info py-5">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
-        <div class="col-sm-6">
-            <img src="/images/hire.png" class="pt-4" alt="">
+        <div class="col-md-6 bg-light">
+          <div class="container-fluid">
+            <img src="/images/seeker-join.png" alt="">
+          </div>
+          {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
         </div>
         <div class="col-md-6 cwp17-text h4">
           <div class="h6">

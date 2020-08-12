@@ -1363,6 +1363,10 @@ class EmployerController extends Controller
          ->with('industries',Industry::orderBy('name')->get());
     }
 
+    public function eclub(){
+        return view('employers.eclub');
+    }
+
     public function getProfessional(Request $request)
     {   
          $request->validate([

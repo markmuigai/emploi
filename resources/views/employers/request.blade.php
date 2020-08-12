@@ -10,12 +10,12 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
 
 <div class="row">
-    <div class="col-md-5 align-right pt-4 pb-4 pl-4 ml-4">
+    <div class="col-md-8 mx-auto pt-4 pb-4 pl-4 ml-4">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
-              <h5 class="modal-title text-right h4" id="exampleModalLabel">Request for Part-Timer</h5>
+              <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Request for Part-Timer</h5>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-light">
               <!-- subscribe form for Professional -->
                 <form method="POST"  enctype="multipart/form-data" action="/employers/request-professional">
                   @csrf
@@ -36,76 +36,74 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                     }
 
                     ?>
-                  <div class="form-group">
-                    <label class="h6">First Name <b style="color: red" title="Required">*</b></label>
-                    <input type="text" class="form-control" name="firstname" required="" placeholder="First Name" value="{{ $fname }}">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label class="h6">First Name <b style="color: red" title="Required">*</b></label>
+                      <input type="text" class="form-control" name="firstname" required="" placeholder="First Name" value="{{ $fname }}">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="h6">Last Name <b style="color: red" title="Required">*</b></label>
+                      <input type="text" class="form-control" name="lastname" required="" placeholder="Last Name" value="{{ $lname }}">
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label class="h6">Last Name <b style="color: red" title="Required">*</b></label>
-                    <input type="text" class="form-control" name="lastname" required="" placeholder="Last Name" value="{{ $lname }}">
-                  </div>
+                  
         
-                  <div class="form-group">
-                    <label class="h6">Email Address <b style="color: red" title="Required">*</b></label>
-                    <input type="email" class="form-control" name="email" required="" placeholder="Email" value="{{ $email }}">
-                  </div>
-                  <div class="form-group">
-                    <label class="h6">Phone Number <b style="color: red" title="Required">*</b></label>
-                    <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
-                  </div>
-                  <div class="form-group">
-                    <label class="h6">Company Name</label>
-                    <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $fname }}">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label class="h6">Email Address <b style="color: red" title="Required">*</b></label>
+                      <input type="email" class="form-control" name="email" required="" placeholder="Email" value="{{ $email }}">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="h6">Phone Number <b style="color: red" title="Required">*</b></label>
+                      <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
+                    </div>
                   </div>
 
-                  <div class="form-group">
-                    <label class="h6">Task <b style="color: red">*</b></label>
-                    <input type="text" class="form-control" name="task_title" required="" placeholder="task title">
-                  </div>
-        
-                  <div class="form-group">
-                    <label class="h6">Task Description</label>
-                    <textarea class="form-control" name="task_description" placeholder="brief description about the task"></textarea>
-                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label class="h6">Company Name</label>
+                      <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $fname }}">
+                    </div>
 
-                  <div class="form-group">
-                    <label class="h6">Industry</label>
-                      <select path="industry" id="industry" name="industry" class="form-control input-sm">
-                        <option disabled selected value> -- select an option -- </option>
-                        @foreach($industries as $c)
-                        <option value="{{ $c->id }}" @if(old('industry') && old('industry')==$c->id)
-                        selected=""
-                        @endif
-                        >{{ $c->name }}</option>
-                        @endforeach
-                      </select>
+                    <div class="form-group col-md-6">
+                      <label class="h6">Task <b style="color: red">*</b></label>
+                      <input type="text" class="form-control" name="task_title" required="" placeholder="task title">
+                    </div>
                   </div>
         
-                  <div class="form-group">
-                    <label class="h6">Salary <b style="color: red" title="Required">*</b></label>
-                    <input type="text" class="form-control" name="salary" required="" placeholder="Salary">
+                  <div class="row">
+                    <div class="form-group col-md-12">
+                      <label class="h6">Task Description</label>
+                      <textarea class="form-control" name="task_description" placeholder="brief description about the task"></textarea>
+                    </div>
+
+                      <div class="form-group col-md-6">
+                        <label class="h6">Industry</label>
+                          <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                            <option disabled selected value> -- select an option -- </option>
+                            @foreach($industries as $c)
+                            <option value="{{ $c->id }}" @if(old('industry') && old('industry')==$c->id)
+                            selected=""
+                            @endif
+                            >{{ $c->name }}</option>
+                            @endforeach
+                          </select>
+                      </div>
+          
+                      <div class="form-group col-md-6">
+                        <label class="h6">Salary <b style="color: red" title="Required">*</b></label>
+                        <input type="text" class="form-control" name="salary" required="" placeholder="Salary">
+                      </div>
+
+
                   </div>
         
                   <div class="modal-footer">
                     <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                   </div>
         
                 </form>
             </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 align-right pt-4 pb-4 pl-4 ml-4">
-        <div class="card bg-light">
-          <div class="card-body">
-            <div class="card-header h4 text-center bg-white">
-              Benefits for Joining E-Club
-            </div>
-            <div class="card-text">
-              
-            </div>
-          </div>
         </div>
     </div>
 

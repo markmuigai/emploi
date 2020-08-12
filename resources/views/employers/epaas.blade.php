@@ -5,6 +5,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 @endsection
 
 
+
 @section('content')
 
 <?php
@@ -22,31 +23,43 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
-
 <!-- index-block1 -->
 <div class="w3l-index-block1">
   <div class="content py-5">
     <div class="container">
-      <div class="row align-items-center py-md-5">
-        <div class="col-lg-7 content-left pt-md-5">
-          <h3 class="mt-3 md-5 h1">Request for Professional.</h3>
-          <p class="mt-3 mb-md-5 mb-4">Are you looking for part-time professionals? A new solution is here for you.</p>
-  
-            <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request</a>
-            <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+      <div class="row align-items-center py-md-5 py-5">
+        <div class="col-md-5 content-left pt-md-0 pt-5">
+          <h3 class="mt-3 mb-md-5 mb-4 h1">Request Part-timer.</h3>
+          <p class="mt-3 mb-md-5 mb-4">-Sign up for membership now and subscribe to a pool of part time talent.</p>
+
+
+
+                 @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->seeker->isOnPaas())
+        <!--          <h4>Assigned Tasks</h4>
+                 <p></p> -->
+                 @else
+                 <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request</a>
+                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+
+                {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
+                @endif
+        
+              
           
         </div>
-        <div class="col-lg-5 content-photo mt-md-5">
-          <img src="/images/guru.png" class="img-fluid" alt="main image">
+        <div class="col-md-7 content-photo mt-md-0 mt-5">
+          <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
         </div>
       </div>
       <div class="clear"></div>
     </div>
   </div>
 </div>
+
+
+
 <!-- //index-block1 -->
 <!-- index-block2 -->
-
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
@@ -60,7 +73,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         </div>
       </div>
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6">
+        <div class="col-md-6 bg-light">
           <div class="container-fluid">
             <img src="/images/seeker-join.png" alt="">
           </div>
@@ -82,33 +95,91 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
-<section>
-  <div class="heading text-center mx-auto">
-    <h3 class="head pt-3 pb-4">Benefits of Using PaaS</h3>
-    <p class="my-3 head">Join the E-Club to enjoy more benefits including faster processing of request.</p>
-  </div>
-  <div class="col-md-8 mx-auto align-right pt-4 pb-4">
-    <div class="modal-content bg-light shadow">
-        {{-- <div class="modal-header">
-          <h5 class="modal-title text-right h4" id="exampleModalLabel">Your Fulfillment is what we seek!</h5>
-        </div> --}}
-        <div class="modal-body">
-          <div class="card shadow-lg">
-            <div class="card-text p-2 h5">
-              <ul class="list-group">
-                <li class="list-group-item">Access to networking with a large pool of professionals through Know The Professional networking program.</li>
-                <li class="list-group-item">Access to free on-demand HR advisory services.</li>
-                <li class="list-group-item">Immediate replacement to vacancies left by a PAAS professional.</li>
-                <li class="list-group-item">Discounted rates on advertisement of vacancies (50% for the first 6 months).</li>
-                <li class="list-group-item">Highest chances of landing a potential fulltime employee in the long run.</li>
-                <li class="list-group-item">Accessibility to other employer tools free of charge for the duration of the contract.</li>
-              </ul>
-            </div>
+
+  <section class="w3l-index-block2 py-2">
+
+    <div class="container py-md-3">
+      <div class="heading text-center mx-auto">
+        <h3 class="head pt-1 pb-2">Top Benefits</h3>
+      </div>
+      <div class="row bottom_grids pt-md-3">
+        <div class="col-lg-4 col-md-6 mt-5">
+          <div class="s-block p-2">
+              <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+              <h3 class="my-3">Audience of 100k+</h3>
+              <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
           </div>
         </div>
+        <div class="col-lg-4 col-md-6 mt-5">
+          <div class="s-block p-2">
+              <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+              <h3 class="my-3">Browse Talent Pool</h3>
+              <p class="">
+                Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.
+              </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-m-6 mt-5">
+            <div class="s-block p-2">
+              <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+              <h3 class="my-3">Best Recruitment Tools</h3>
+              <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-m-6 mt-5">
+          <div class="s-block p-2">
+            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Best Recruitment Tools</h3>
+            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-m-6 mt-5">
+          <div class="s-block p-2">
+            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Best Recruitment Tools</h3>
+            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-m-6 mt-5">
+          <div class="s-block p-2">
+            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Best Recruitment Tools</h3>
+            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
+          </div>
+        </div>
+
+
+      </div>
     </div>
-</div>
-</section>
+  
+  </section>
+
+  <section>
+
+
+    <div class="header-row" id="header-row" style="padding: 0px; overflow:hidden; height:100px;">
+          <!-- container-fluid is the same as container but spans a wider viewport, 
+      it still has padding though so you need to remove this either by adding 
+      another class with no padding or inline as I did below -->
+    <div class="container-fluid pt-3" style="padding: 0px;">
+        <div class="row"> 
+          <!-- You originally has it set up for two columns, remove the second 
+      column as it is unneeded and set the first to always span all 12 columns 
+      even when at its smallest (xs). Set the overflow to hidden so no matter 
+      the height of your image it will never show outside this div-->
+          <div class="col-lg-12"> 
+              <a class="brand logo" href="#">
+          <!-- place your image here -->
+                <img src="http://placekitten.com/g/1200/600" alt="company logo" style="width: 100%;">
+              </a> 
+          </div>     
+        </div>
+      </div>
+      </div>
+  </section>
 
 <section>
 <!-- content-with-photo17 -->
@@ -227,35 +298,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <section class="w3l-index-block7 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
-      <h3 class="head">E-Club</h3>
-      <p class="my-3 head">E-Club Description</p>
+      <h3 class="head">The Stats + Other Benefits</h3>
     </div>
 
-    <div class="row cwp17-two align-items-center">
-      <div class="col-md-8 mx-auto cwp17-text">
-
-        <div class="card shadow-sm">      
-            <div class="card-body pt-2 pb-3 h6">
-
-              <div class="card-text p-4">
-                <ul>
-                  <li>Full Year Membership</li>
-                  <li>End-to-End Recruitment Support</li>
-                  <li>Credible Professionals</li>
-                  <li>Project Management Software</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="card-footer bg-white p-4">
-                <button class="btn" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
-            </div>
-
-          </div>
-
-      </div>
-      
-    </div>
   </div>
 </section>
 
