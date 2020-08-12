@@ -23,38 +23,36 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
+<div class="pt-5 mt-3">
+    <div class="container">
+    </div>
+</div>
+
 <!-- index-block1 -->
-<div class="w3l-index-block1">
+<header class="pt-3" style="background: url(/images/work3.jpeg); color:white; background-size: 100rem; background-attachment: fixed">
   <div class="content py-5">
     <div class="container">
       <div class="row align-items-center py-md-5 py-5">
-        <div class="col-md-5 content-left pt-md-0 pt-5">
+        <div class="col-md-12 content-left pt-md-0 pt-5">
+          <br><br><br><br><br>
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request Part-timer.</h3>
-          <p class="mt-3 mb-md-5 mb-4">-Sign up for membership now and subscribe to a pool of part time talent.</p>
+          <p class="mt-3 mb-md-5 mb-4">Sign up for membership now and subscribe to a pool of part time talent.</p>
 
 
 
-                 @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->seeker->isOnPaas())
-        <!--          <h4>Assigned Tasks</h4>
-                 <p></p> -->
-                 @else
-                 <a href="/employers/rpaas" style="background-color: #E15419" class="btn btn-theme">Request</a>
-                 <a href="#exampleModal" style="background-color: #500095" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
+                 <a href="/employers/rpaas" style="background-color: #E15419; color:white" class="btn btn-theme">Request</a>
+                 <a href="#exampleModal" style="background-color: #500095; color: white;" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>
 
-                {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
-                @endif
         
               
           
         </div>
-        <div class="col-md-7 content-photo mt-md-0 mt-5">
-          <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
-        </div>
+        
       </div>
       <div class="clear"></div>
     </div>
   </div>
-</div>
+</header>
 
 
 
@@ -73,7 +71,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         </div>
       </div>
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6 bg-light">
+        <div class="col-md-6 bg-dark">
           <div class="container-fluid">
             <img src="/images/seeker-join.png" alt="">
           </div>
@@ -103,11 +101,35 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <h3 class="head pt-1 pb-2">Top Benefits</h3>
       </div>
       <div class="row bottom_grids pt-md-3">
+        <div class="col-lg-4 col-m-6 mt-5">
+          <div class="s-block p-2">
+            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Convenience</h3>
+            <p class="">Sourcing, management and growth tools at one stop.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-m-6 mt-5">
+          <div class="s-block p-2">
+            <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Productivity</h3>
+            <p class="">Top quality performance: KPI & performance appraisal framework.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-m-6 mt-5">
+          <div class="s-block p-2">
+            <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Recruitment Process</h3>
+            <p class="">Thorough professional vetting: Know The Professional Candidate Referencing.</p>
+          </div>
+        </div>
+
         <div class="col-lg-4 col-md-6 mt-5">
           <div class="s-block p-2">
               <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Audience of 100k+</h3>
-              <p class="">We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
+              <h3 class="my-3">Assurance</h3>
+              <p class="">We will help you maintain a healthy pipeline of potential replacements at all times.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 mt-5">
@@ -122,33 +144,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-lg-4 col-m-6 mt-5">
             <div class="s-block p-2">
               <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Best Recruitment Tools</h3>
-              <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
+              <h3 class="my-3">Save Time</h3>
+              <p class="">Speed: 48 hour turnaround time.</p>
             </div>
-        </div>
-
-        <div class="col-lg-4 col-m-6 mt-5">
-          <div class="s-block p-2">
-            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Best Recruitment Tools</h3>
-            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-m-6 mt-5">
-          <div class="s-block p-2">
-            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Best Recruitment Tools</h3>
-            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-m-6 mt-5">
-          <div class="s-block p-2">
-            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Best Recruitment Tools</h3>
-            <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
-          </div>
         </div>
 
 
@@ -171,15 +169,20 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       even when at its smallest (xs). Set the overflow to hidden so no matter 
       the height of your image it will never show outside this div-->
           <div class="col-lg-12"> 
-              <a class="brand logo" href="#">
+              <a class="brand logo" href="/employers/eclub">
           <!-- place your image here -->
-                <img src="http://placekitten.com/g/1200/600" alt="company logo" style="width: 100%;">
+                {{-- <img src="/images/eclub.jpg" alt="company logo"> --}}
+                
               </a> 
           </div>     
         </div>
       </div>
       </div>
   </section>
+
+      <div class="jumbotron jumbotron-fluid" style="background: url(/images/eclub.jpg); background-attachment:; ">
+        <div class="container"></div>
+      </div>
 
 <section>
 <!-- content-with-photo17 -->
@@ -300,6 +303,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="heading text-center mx-auto">
       <h3 class="head">The Stats + Other Benefits</h3>
     </div>
+    @include('components.paastats')
 
   </div>
 </section>
