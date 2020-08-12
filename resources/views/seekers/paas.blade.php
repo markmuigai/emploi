@@ -87,27 +87,65 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
-<section>
-  <div class="col-md-8 mx-auto align-right pt-4">
-    <div class="modal-content bg-light shadow-lg">
-        <div class="modal-header">
-          <h5 class="modal-title text-right h4" id="exampleModalLabel">Why should you join the Golden Club?</h5>
-        </div>
-        <div class="modal-body">
-          <div class="card shadow">
-            <div class="card-text p-2">
-              <ul class="list-group">
-                <li class="list-group-item">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
-                <li class="list-group-item">Access to profession-based training and development opportunities under the Know Your Profession program.</li>
-                <li class="list-group-item">Increased chances for eventual permanent employment.</li>
-                <li class="list-group-item">Guaranteed income after a successful placement.</li>
-                <li class="list-group-item">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+<section class="w3l-index-block2 py-2">
+
+  <div class="container py-md-3">
+    <div class="heading text-center mx-auto">
+      <h3 class="head pt-1 pb-2">Top Benefits</h3>
     </div>
-</div>
+    <div class="row bottom_grids pt-md-3">
+      <div class="col-lg-4 col-m-6 mt-5">
+        <div class="s-block p-2">
+          <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+          <h3 class="my-3">Placement</h3>
+          <p class="">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-m-6 mt-5">
+        <div class="s-block p-2">
+          <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+          <h3 class="my-3">Productivity</h3>
+          <p class="">Top quality performance: KPI & performance appraisal framework.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-m-6 mt-5">
+        <div class="s-block p-2">
+          <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+          <h3 class="my-3">Opportunities</h3>
+          <p class="">Access to profession-based training and development opportunities under the Know Your Profession program.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block p-2">
+            <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Effictive</h3>
+            <p class="">Increased chances for eventual permanent employment.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-5">
+        <div class="s-block p-2">
+            <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Income</h3>
+            <p class="">
+              Guaranteed income after a successful placement.            
+            </p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-m-6 mt-5">
+          <div class="s-block p-2">
+            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+            <h3 class="my-3">Network.</h3>
+            <p class="">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</p>
+          </div>
+      </div>
+
+
+    </div>
+  </div>
+
 </section>
 <!-- content-with-photo17 -->
  <div class="w3l-index-block4">
@@ -222,41 +260,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
  
 <!-- PaaS Benefits -->
 
-<section class="w3l-index-block7 py-5">
-  <div class="container py-md-3">
-    <div class="heading text-center mx-auto">
-      <h3 class="head">Golden Club Benefits</h3>
-      <h5 class="my-3">Sign up for membership.</h5>
-    </div>
-
-    <div class="row cwp17-two align-items-center">
-      <div class="col-md-12 cwp17-text">
-            <div class="card-header bg-white shadow-sm">
-              <div class="h2 mb-3 text-center" style="color: #E15419">
-                KSHs. 2750 Annually
-              </div>
-
-            </div>
-            
-            <div class="card-body pt-4 pr-3 h6">
-              <ul>
-                <li>Full Year Membership</li>
-                <li>End-to-End Recruitment Support</li>
-                <li>Top Companies</li>
-                <li>On-Demand Basis</li>
-              </ul>
-            </div>
-            <div class="mx-auto">
-              <button class="btn mx-auto" style="background-color: #E15419; color: white"  name="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe</button>
-            </div>
-
-       </div>
-
-      </div>
-      
-    </div>
-  </div>
-</section>
 
 <!-- Partners Sections -->
 <section class="w3l-index-block7 py-2">

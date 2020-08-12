@@ -40,7 +40,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         width: 1000px;
         position: relative;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .container1 .card{
@@ -50,7 +50,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     }
 
     .container1 .card .face{
-        width: 240px;
+        width: 230px;
         height: 180px;
         transition: 0.5s;
     }
@@ -65,7 +65,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     }
 
     .container1 .card:hover .face.face1{
-        background: #ff0057;
+        background: #E15419;
         transform: translateY(0);
     }
 
@@ -95,7 +95,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px;
+        padding: 10px;
         transform: translateY(-100px);
     }
 
@@ -113,7 +113,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         text-decoration: none;
         font-weight: 900;
         color: #333;
-        padding: 5px;
+        padding: 3px;
     }
 
     .container1 .card .face.face2 .content a:hover{
@@ -152,7 +152,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <p class="card-text"><br>Emploi’s E-club membership is a programme for employers looking to hire part-time professionals. 
                 </p>
                 <p class="card-text">It seeks to connect employers with a large pool of professionals through the Know Your Profession programme.
-                </p>
+                </p> <br>
+                <button class="btn pt-2" style="background-color: #E15419; color: white;" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></button>
+
 
           </div>
 
@@ -164,28 +166,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
-<section>
     <div class="heading text-center mx-auto">
         <h3 class="head pt-1 pb-2">Top Benefits</h3>
       </div>
-</section>
 
 <section class="benefits bg-light">
     
     <div class="container1 container">
-            <div class="card">
-                <div class="face face1">
-                    <div class="content">
-                        <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
-                        <h3>Discounts</h3>
-                    </div>
-                </div>
-                <div class="face face2">
-                    <div class="content">
-                        <p>Discounted rates on other Emploi services like job advertisements(50% for the first 6 months).</p>
-                    </div>
-                </div>
-            </div>
             <div class="card">
                 <div class="face face1">
                     <div class="content">
@@ -200,12 +187,39 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
             </div>
         
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true">
+                        <h3>Payment</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>Friendly and staggered monthly payments. Invoice sent on time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
+                        <h3>Discounts</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>Discounted rates on other Emploi services like job advertisements(50% for the first 6 months).</p>
+                    </div>
+                </div>
+            </div>
 
             <div class="card">
                 <div class="face face1">
                     <div class="content">
                         <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true">
-                        <h3>Payment and Tools</h3>
+                        <h3>Free Access to Tools</h3>
                     </div>
                 </div>
                 <div class="face face2">
@@ -217,72 +231,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
 </section>
 
-
-  {{-- <section class="w3l-index-block2 py-2">
-
-    <div class="container py-md-3">
-      <div class="heading text-center mx-auto">
-        <h3 class="head pt-1 pb-2">Top Benefits</h3>
-      </div>
-      <div class="row bottom_grids pt-md-3">
-        <div class="col-lg-4 col-md-6 mt-5">
-          <div class="s-block p-2">
-              <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Audience of 100k+</h3>
-              <p class="">Free access to other Emploi tools for recruitment and talent management.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-5">
-          <div class="s-block p-2">
-              <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Browse Talent Pool</h3>
-              <p class="">
-                Friendly and staggered monthly payments              </p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-m-6 mt-5">
-            <div class="s-block p-2">
-              <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Best Recruitment Tools</h3>
-              <p class="">Receive, sort, contact, and shortlist applications online with our Role Suitability Index tool.</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-m-6 mt-5">
-          <div class="s-block p-2">
-            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Best Recruitment Tools</h3>
-            <p class="">Discounted rates on other Emploi services like job advertisements(50% for the first 6 months).</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-m-6 mt-5">
-          <div class="s-block p-2">
-            <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Best Recruitment Tools</h3>
-            <p class="">Access to free on-demand HR advisory services.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-m-6 mt-5">
-          <div class="s-block p-2">
-            <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Best Recruitment Tools</h3>
-            <p class="">Professional networking and connections with other members of the program.</p>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  
-  </section> --}}
-
-
 <section>
 <!-- content-with-photo17 -->
  <div class="w3l-index-block4">
-   <div class="features-bg py-5">
+   <div class="features-bg py-4">
      <!-- features15 block -->
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
@@ -398,6 +350,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="heading text-center mx-auto">
       <h3 class="head">The Stats + Other Benefits</h3>
     </div>
+
+    @include('components.paastats')
+
 
   </div>
 </section>
@@ -585,6 +540,57 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
     </div>
   </div>
+
+</section>
+
+{{-- subscribe modal --}}
+<section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog p-5" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- subscribe form for Professional -->
+              <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
+                @csrf
+                <div class="form-group">
+                  <label class="h5">First Name</label>
+                  <input type="text" class="form-control" name="firstname" required="" placeholder="First name">
+                </div>
+                <div class="form-group">
+                  <label class="h5">Last Name</label>
+                  <input type="text" class="form-control" name="lastname" required="" placeholder="Last name">
+                </div>
+
+                <div class="form-group">
+                  <label class="h5">Email Address</label>
+                  <input type="email" class="form-control" name="email" required="" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label class="h5">Phone Number</label>
+                  <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
+                </div>
+                <div class="form-group">
+                  <label class="h5">Company Name</label>
+                  <input type="text" class="form-control" name="company" required="" placeholder="Company name">
+                </div>
+
+                <div class="modal-footer">
+                  <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
+                  <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </div>
+
+              </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
 </section>
 

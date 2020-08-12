@@ -70,7 +70,7 @@
 </div>
 @yield('content')
 @if(!isset($disableZipFooter))
-<section class="w3l-index-block10">
+{{-- <section class="w3l-index-block10">
   <div class="new-block top-bottom">
     <div class="container">
       <div class="middle-section">
@@ -85,7 +85,7 @@
       </div>
     </div>
     </div>
-  </section>
+  </section> --}}
 @endif
 <!-- index-block8 -->
 <section class="w3l-index-block8 py-5">
