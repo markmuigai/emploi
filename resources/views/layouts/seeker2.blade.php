@@ -42,6 +42,13 @@
           <li class="nav-item active">
             <a class="nav-link" href="/vacancies" style="color: white">Vacancies</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/job-seekers/services" style="color: white;">Services</a>
+          </li> 
+          <li class="nav-item">
+              <a class="nav-link" href="/blog" style="color: white;">Career Centre</a>
+          </li>   
+
           @guest
           <li class="nav-item">
             <a class="nav-link" href="/employers/services" style="color: white;">For Employers</a>
