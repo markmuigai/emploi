@@ -25,7 +25,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 <style>
   #test {
-   background-image: url("/images/eclub3.png");
+   background-image: url("/images/eclub4.png");
    height: 100px;
    width: 100%;
 
@@ -74,7 +74,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-6 cwp17-text h4 pl-4">
               <p class="card-text container-fluid">
                 <div class="card-title align-text-right">
-                  PaaS
+                  Professionals as a Service
                 </div>
                 <p>
                   PAAS is a service that seeks to provide qualified part-time professionals on demand to

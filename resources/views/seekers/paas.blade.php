@@ -22,6 +22,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
+<style>
+  #test {
+   background-image: url("/images/eclub3.png");
+   height: 100px;
+   width: 100%;
+
+}
+</style>
+
 <div class="pt-5 mt-3">
   <div class="container">
   </div>
@@ -71,14 +80,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
         </div>
         <div class="col-md-6 cwp17-text h4">
+          <div class="h2">
+            Professionals as a Service
+          </div>
           <div class="h6">
+            
             <p>PAAS is a service that seeks to provide qualified professionals on demand to
               handle specific tasks at affordable rates and at a cost effective plan.</p>
-            <p>It is created to fulfill the need of employers for mid-level and senior
-              positions that became vacant due to the COVID-19 pandemic.</p>
-            <p>Lay-offs by companies led to reassessment of processes in the companies.
-              PAAS seeks to connect experienced persons to the SMEs.
-              It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
+        
 
           </div>
 
@@ -144,6 +153,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
 
 
+      <div class="col-md-12 pt-4 text-center">
+        <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
+      </div>
     </div>
   </div>
 
