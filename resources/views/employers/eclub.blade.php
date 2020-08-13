@@ -142,19 +142,19 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         </div>
       </div>
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6 bg-light">
+        <div class="col-md-6 bg-white">
           <div class="container-fluid">
             <img src="/images/seeker-join.png" alt="">
           </div>
           {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
         </div>
         <div class="col-md-6 cwp17-text pb-4">
-                <p class="card-text"><br>Emploi’s E-club membership is a programme for employers looking to hire part-time professionals. 
+          <br><br>
+                <p class="card-text pb-2"><br>Emploi’s E-club is a membership programme for employers looking to hire part-time professionals.
                 </p>
-                <p class="card-text">It seeks to connect employers with a large pool of professionals through the Know Your Profession programme.
-                </p> <br>
-                <button class="btn pt-2" style="background-color: #E15419; color: white;" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></button>
-
+                 
+                <button class="btn pt-1" style="background-color: #E15419; color: white;" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></button>
+                <br><br><br>
 
           </div>
 
@@ -177,12 +177,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <div class="face face1">
                     <div class="content">
                         <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true">
-                        <h3>HR Advisory and Networking</h3>
+                        <h3>HR Advisory</h3>
                     </div>
                 </div>
                 <div class="face face2">
                     <div class="content">
-                        <p>Access to free on-demand HR advisory services. <br>Professional networking and connections with other members of the program.</p>
+                        <p>Access to free on-demand HR advisory services and networking opportunities.</p><br><br>
                     </div>
                 </div>
             </div>
@@ -196,7 +196,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
                 <div class="face face2">
                     <div class="content">
-                        <p>Friendly and staggered monthly payments. Invoice sent on time.</p>
+                        <p>Friendly and staggered monthly payments. Invoice sent on time.</p><br><br>
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
                 <div class="face face2">
                     <div class="content">
-                        <p>Discounted rates on other Emploi services like job advertisements(50% for the first 6 months).</p>
+                        <p>Discounted rates on other Emploi services like job advertisements(50% for the first 6 months).</p><br>
                     </div>
                 </div>
             </div>
@@ -219,12 +219,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <div class="face face1">
                     <div class="content">
                         <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true">
-                        <h3>Free Access to Tools</h3>
+                        <h3>Free Access</h3>
                     </div>
                 </div>
                 <div class="face face2">
                     <div class="content">
-                        <p>Friendly and staggered monthly payments. <br>.Free access to other Emploi tools for recruitment and talent management.</p>
+                        <p>Access to other Emploi tools for recruitment and talent management.</p><br><br>
                     </div>
                 </div>
             </div>
@@ -251,8 +251,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                <h4>Place a Request and Agree on TOR</h4>
-                <p>Place a Request Using the Request Form and Agree on the Terms of Reference </p>
+                <h4>Request and Agree on TOR</h4>
+                <p>Place a Request Using the Request Form and Agree on the Terms of Reference.</p>
                </div>
              </div>
             </div>
@@ -297,7 +297,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                 <h4>Review, Rate & Make Payments</h4>
-                <p>Review and rate performance on task completion. Secure payments - Receive invoices and make payments through Emploi</p>
+                <p>Secure Payments and Review Performance on Task Completion.</p>
               </div>
              </div>
             </div>
@@ -311,8 +311,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                <h4>Performance guarantees.</h4>
-                <p>Performance guarantees: rate candidate performance on your candidate management dashcboard, request for replacement on dissatisfaction and get instant replacement of absentee candidates</p>
+                <h4>Instant Replacement.</h4>
+                <p>Request for replacement on dissatistaction and absentee candidates.</p>
               </div>
              </div>
             </div>
@@ -326,8 +326,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>End of Task</h4>
-                 <p>Transition & Offboarding Management</p>
+                 <h4>End of Process</h4>
+                 <p>Transition & Offboarding Management</p><br>
                </div>
              </div>
             </div>
@@ -348,7 +348,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <section class="w3l-index-block7 py-5">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
-      <h3 class="head">The Stats + Other Benefits</h3>
+      <h3 class="head">Stats</h3><br><br>
     </div>
 
     @include('components.paastats')

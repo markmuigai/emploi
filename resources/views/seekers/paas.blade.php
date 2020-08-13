@@ -99,7 +99,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="s-block p-2">
           <img src="/images/zip/s3.png" alt="" class="img-fluid" />
           <h3 class="my-3">Placement</h3>
-          <p class="">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</p>
+          <p class="">Guaranteed placement on an on-demand basis to more than one company.</p>
         </div>
       </div>
 
@@ -115,14 +115,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="s-block p-2">
           <img src="/images/zip/s2.png" alt="" class="img-fluid" />
           <h3 class="my-3">Opportunities</h3>
-          <p class="">Access to profession-based training and development opportunities under the Know Your Profession program.</p>
+          <p class="">Access to profession-based training and development opportunities</p>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block p-2">
             <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Effictive</h3>
+            <h3 class="my-3">Effective</h3>
             <p class="">Increased chances for eventual permanent employment.</p>
         </div>
       </div>
@@ -139,7 +139,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <div class="s-block p-2">
             <img src="/images/zip/s3.png" alt="" class="img-fluid" />
             <h3 class="my-3">Network.</h3>
-            <p class="">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</p>
+            <p class="">Great networking opportunities with top employers.</p>
           </div>
       </div>
 
@@ -155,11 +155,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
          <h3 class="head">Roadmap to Getting Hired</h3>
-         <p class="my-3 head">To use PaaS you first need to subscribe for a membership, afterwards you can then create a request for a part-timer afterwhich Emploi will take care of the rest of the process.</p>
+         <p class="my-3 head" style="color: #E15419">Subscribe to Golden Club Membership and work as you network.</p>
        </div>
        <div class="row">
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-line-chart" aria-hidden="true"></span>
@@ -168,13 +168,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                  <h4>Subscribe as a Part-timer</h4>
-                 <p>To join the talent pool you first need to subscribe to the talnt pool.</p>
+                 <p>To join the talent pool you first need to subscribe to Golden Club. It is from this pool that part-timers are selected.</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-graduation-cap" aria-hidden="true"></span>
@@ -182,16 +182,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Receive Request Notification and Action.</h4>
-                 <p>Depending on your industry, you will receive notifications on employers request. From the email you receive
-                     you may accept or reject the proposal.
+                 <h4>Receive Notification and Accept.</h4>
+                 <p>Depending on your industry, you will receive notifications on employers request which you may accept or decline
                  </p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-sort-alpha-asc" aria-hidden="true"></span>
@@ -199,14 +198,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>Shortlist Management</h4>
-                 <p>Our Role Suitability tool and other features enable you to score job applications against your model candidate and rank them for advanced shortlisting</p>
+                 <h4>Get Matched and Shortlisted</h4>
+                 <p>Our Role Suitability tool will be used to shortlist you. Employer then confirms.</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-star" aria-hidden="true"></span>
@@ -215,13 +214,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                  <h4>End-to-End Support</h4>
-                 <p>If you fit the description, we guide you through the interviewing session with employer so that you get hired.</p>
+                 <p>If you fit the description, we give you support to be successfully hired..</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-users" aria-hidden="true"></span>
@@ -233,10 +232,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>Top candidates seek vacancies from top companies. You can view the list of potential employers in the partners session..</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
          <div class="col-md-6 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+           <div class="d-flex flex-wrap feature-unit align-items-center">
              <div class="col-sm-3">
                <div class="features15-info">
                  <span class="fa fa-laptop" aria-hidden="true"></span>
@@ -248,7 +247,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                  <p>After getting hired we take you through the code of conduct, contract signing and tools you are going to use for the project.</p>
                </div>
              </div>
-           </a>
+            </div>
          </div>
        </div>
        <div>

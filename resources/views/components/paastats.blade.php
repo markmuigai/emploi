@@ -8,21 +8,21 @@
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fa fa-briefcase"></i><br>
                         <h5>{{ __('jobs.t_jobs') }}</h5>
-                        <h1 class="counter " id="total-jobs-stats"><span>12657</span></h1>
+                        <h1 class="counter " id="total-jobs-stats"><span>5</span></h1>
                         <p>{{ __('jobs.find_nxt_job') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fa fa-check-square"></i><br>
                         <h5>{{ __('jobs.t_cand') }}</h5>
-                        <h1 class="counter" id="total-candidates-stats"><span>44138</span></h1>
+                        <h1 class="counter" id="total-candidates-stats"><span>100</span></h1>
                         <p>{{ __('jobs.gt_hired') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
                         <i class="fa fa-building"></i><br>
                         <h5>{{ __('jobs.t_comp') }}</h5>
-                        <h1 class="counter" id="total-companies-stats"><span>1677</span></h1>
+                        <h1 class="counter" id="total-companies-stats"><span>40</span></h1>
                         <p><span id="total-hiring-companies-stats">846</span> {{ __('jobs.comp_hirin') }}</p>
                         <hr class="d-block d-md-none">
                     </div>

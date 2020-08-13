@@ -62,30 +62,35 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
-  <div class="section-info py-5">
+  <div class="section-info py-3">
     <div class="container py-md-3">
-      <div class="row pt-1">
-        <div class="col-md-12 pb-4">
-          <div class="text-center h2">
-            What is PaaS? 
-          </div>
-        </div>
-      </div>
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6 bg-dark">
+        <div class="col-md-6 bg-white">
           <div class="container-fluid">
             <img src="/images/seeker-join.png" alt="">
           </div>
           {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
         </div>
-        <div class="col-md-6 cwp17-text h4">
-                <p class="card-text"><br>PAAS is a service that seeks to provide qualified professionals on demand to
-                  handle specific tasks at affordable rates and at a cost effective plan. <br> It is created to fulfill the need of employers for mid-level and senior
-                  positions that became vacant due to theCOVID-19 pandemic.<br><br> Lay-offs by companies led to reassessment of processes in the companies.
-                  PAAS seeks to connect experienced persons to the SMEs.
-                  It also provides a processing framework to SMEs and part-time professionals to effectively fill in the gap.</p>
-          </div>
+        <div class="col-md-6 cwp17-text h4 pl-4">
+              <p class="card-text container-fluid">
+                <div class="card-title align-text-right">
+                  PaaS
+                </div>
+                <p>
+                  PAAS is a service that seeks to provide qualified part-time professionals on demand to
+                  handle specific tasks at affordable rates and at a cost effective plan. 
+                </p>
+              </p>
 
+              <p class="card-text container-fluid">
+                <div class="card-title align-text-right">
+                  E-Club
+                </div>
+                <p>
+                  E-Club is a membership programme for employers looking to hire part-time professionals.
+                  <a href="/employers/eclub">Read More...</a> 
+                </p>
+              </p>
         </div>
 
         </div>
@@ -95,11 +100,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </section>
 
 
-  <section class="w3l-index-block2 py-2">
+  <section class="w3l-index-block2 pt-1 pb-4">
 
-    <div class="container py-md-3">
+    <div class="container py-md-2">
       <div class="heading text-center mx-auto">
-        <h3 class="head pt-1 pb-2">Top Benefits</h3>
+        <h3 class="head">Top Benefits</h3>
       </div>
       <div class="row bottom_grids pt-md-3">
         <div class="col-lg-4 col-m-6 mt-5">
@@ -138,7 +143,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               <img src="/images/zip/s2.png" alt="" class="img-fluid" />
               <h3 class="my-3">Browse Talent Pool</h3>
               <p class="">
-                Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.
+                Get access to our Job Seeker database and get to hire top professionals.
               </p>
           </div>
         </div>
@@ -179,8 +184,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                <h4>Place a Request and Agree on TOR</h4>
-                <p>Place a Request Using the Request Form and Agree on the Terms of Reference </p>
+                <h4>Request and Agree on TOR</h4>
+                <p>Place a Request Using the Request Form and Agree on the Terms of Reference.</p>
                </div>
              </div>
             </div>
@@ -195,7 +200,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                 <h4>Review Shortlisted</h4>
-                <p>Review and select from a shortlist of 3 from emploi's system</p>
+                <p>Review and select from a shortlist of 3 from emploi's system.</p>
                </div>
              </div>
             </div>
@@ -210,7 +215,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                 <h4>Task Assignment</h4>
-                <p>Assign Weekly/Monthly deliverables through your candidate management dashboard</p>
+                <p>Assign Weekly/Monthly deliverables through your candidate management dashboard.</p>
               </div>
              </div>
             </div>
@@ -225,7 +230,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                 <h4>Review, Rate & Make Payments</h4>
-                <p>Review and rate performance on task completion. Secure payments - Receive invoices and make payments through Emploi</p>
+                <p>Secure Payments and Review Performance on Task Completion.</p>
               </div>
              </div>
             </div>
@@ -239,8 +244,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                <h4>Performance guarantees.</h4>
-                <p>Performance guarantees: rate candidate performance on your candidate management dashcboard, request for replacement on dissatisfaction and get instant replacement of absentee candidates</p>
+                <h4>Instant Replacement.</h4>
+                <p>Request for replacement on dissatistaction and absentee candidates.</p>
               </div>
              </div>
             </div>
@@ -254,8 +259,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              </div>
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
-                 <h4>End of Task</h4>
-                 <p>Transition & Offboarding Management</p>
+                 <h4>End of Process</h4>
+                 <p>Transition & Offboarding Management</p><br>
                </div>
              </div>
             </div>
@@ -273,12 +278,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
  
 <!-- PaaS Benefits -->
 
-<section class="w3l-index-block7 py-5">
-  <div class="container py-md-3">
+<section class="w3l-index-block7">
+  <div class="container py-md-1">
     <div class="heading text-center mx-auto">
-      <h3 class="head">The Stats + Other Benefits</h3>
+      <h3 class="head">PaaS Stats</h3>
     </div>
-    @include('components.paastats')
+    <div class="container pt-3">
+      @include('components.paastats')
+    </div>
 
   </div>
 </section>
