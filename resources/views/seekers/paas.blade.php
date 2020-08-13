@@ -22,13 +22,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
-<div class="pt-5 mt-3">
-  <div class="container">
-  </div>
-</div>
-
 <!-- index-block1 -->
-<header class="pt-3" style="background: url(/images/gclub1.jpg); color:white; background-size: cover; background-attachment: fixed;">
+
+<header>
+<div class="pt-3" style="background: url(/images/bgPaas.png); width: 100%;background-attachment:cover; color:white;">
+<!-- <header class="pt-3" style="background: url(/images/bgPaas.png); color:white; height: 100%; background-size: cover; background-attachment: fixed;"> -->
   <div class="content py-5">
     <div class="container">
       <div class="row align-items-center py-md-5 py-5">

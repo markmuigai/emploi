@@ -125,7 +125,7 @@
                         @endif
                         <a class="dropdown-item" href="/employers/publish">{{ __('jobs.advert_jobs') }}</a>
                         <a class="dropdown-item" href="/employers/premium-recruitment">{{ __('jobs.p_recruit') }}</a>
-                        <a class="dropdown-item" href="/employers/paas">eClub</a>
+                        <a class="dropdown-item" href="/employers/paas">E-Club</a>
                         <a class="dropdown-item" href="/employers/services">{{ __('other.a_services') }}</a>
                         @guest
                         @else
