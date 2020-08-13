@@ -1338,7 +1338,7 @@ class EmployerController extends Controller
                 'last_name' => $request->lastname,
                 'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
                 'email' => $user->email,
-                'description' => 'payment for paas membership',
+                'description' => 'Payment for eClub Membership',
                 'sub_total' => 5500.00
             ]);
                 if(isset($invoice->id))
@@ -1488,7 +1488,7 @@ class EmployerController extends Controller
             'last_name' => $request->lastname,
             'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
             'email' => $request->email,
-            'description' => 'payment for part timer ',
+            'description' => 'Payment for Part Timer ',
             'sub_total' => isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas() ? 0 * $request->salary : $request->salary + 0.135 * $request->salary
         ]);
 

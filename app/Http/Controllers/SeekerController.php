@@ -186,7 +186,7 @@ class SeekerController extends Controller
                 'last_name' => $request->lastname,
                 'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
                 'email' => $user->email,
-                'description' => 'payment for paas membership',
+                'description' => 'Payment for Golden Club Membership',
                 'sub_total' => 2750.00
             ]);
                 if(isset($invoice->id))
