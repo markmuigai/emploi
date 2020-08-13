@@ -9,8 +9,8 @@ Get Hired as a Professional by joining the Golden Club..
 @section('content')
 
 
-<div class="row">
-    <div class="col-md-5 align-right pt-4 pb-4 pl-4 ml-4">
+<div class="row container">
+    <div class="col-md-5 align-right pt-4 pb-4 pl-4">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
               <h5 class="modal-title text-center h4 mx-auto" id="exampleModalLabel">Join Golden Club for Exclusive Jobs.</h5>

@@ -10,12 +10,12 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
 
 <div class="row">
-    <div class="col-md-8 mx-auto pt-4 pb-4 pl-4 ml-4">
+    <div class="col-md-12 mx-auto">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
               <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Request for Part-Timer</h5>
             </div>
-            <div class="modal-body bg-light">
+            <div class="modal-body container bg-light">
               <!-- subscribe form for Professional -->
                 <form method="POST"  enctype="multipart/form-data" action="/employers/request-professional">
                   @csrf

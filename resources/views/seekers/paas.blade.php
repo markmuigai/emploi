@@ -25,7 +25,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- index-block1 -->
 
 <header>
-<div class="pt-3" style="background: url(/images/bgPaas.png); width: 100%;background-attachment:cover; color:white;">
+<div class="pt-4" style="background: url(/images/bgPaas.png); background-size:cover;background-position:center;background-attachment:fixed;width:100%; color:white;">
 <!-- <header class="pt-3" style="background: url(/images/bgPaas.png); color:white; height: 100%; background-size: cover; background-attachment: fixed;"> -->
   <div class="content py-5">
     <div class="container">
@@ -311,8 +311,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 <!-- subscribe modal -->
 <section>
-
-
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog p-5" role="document">
         <div class="modal-content">

@@ -24,6 +24,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </script>
 
 <!-- index-block1 -->
+<section>
 <div class="w3l-index-block1">
   <div class="content py-5">
     <div class="container">
@@ -47,6 +48,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
   </div>
 </div>
+</section>
 <!-- //index-block1 -->
 
 <!-- index-block2 -->
@@ -56,12 +58,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="section-info py-3">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6 bg-light">
-          <div class="container-fluid">
-            <img src="/images/seeker-join.png" alt="">
-          </div>
-          {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
-        </div>
         <div class="col-md-6 cwp17-text h4 pl-4">
               <p class="card-text container-fluid">
                 <div class="card-title align-text-right">
@@ -82,6 +78,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                   <a href="/employers/eclub">Read More...</a> 
                 </p>
               </p>
+        </div>
+
+        <div class="col-md-6 bg-light">
+          <div>
+            <img src="/images/seeker-join.png" style="max-width:100%" alt="">
+          </div>
         </div>
 
         </div>
@@ -152,11 +154,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   
   </section>
 
-  <div style="width: 100%">
+  <section>
+    <div style="width: 100%">
       <a href="/employers/eclub">
           <img style="width: 100%" src="/images/eclub4.png" alt="join eClub"> 
       </a>    
   </div>
+  </section>
+
   
  
 <section class="pb-4">
@@ -375,90 +380,44 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <!-- /main-slider -->
 </section>
 
-{{-- subscribe modal --}}
-<section>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog p-5" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <!-- subscribe form for Professional -->
-              <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
-                @csrf
-                <div class="form-group">
-                  <label class="h5">First Name</label>
-                  <input type="text" class="form-control" name="firstname" required="" placeholder="First name">
-                </div>
-                <div class="form-group">
-                  <label class="h5">Last Name</label>
-                  <input type="text" class="form-control" name="lastname" required="" placeholder="Last name">
-                </div>
-
-                <div class="form-group">
-                  <label class="h5">Email Address</label>
-                  <input type="email" class="form-control" name="email" required="" placeholder="Email">
-                </div>
-                <div class="form-group">
-                  <label class="h5">Phone Number</label>
-                  <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
-                </div>
-                <div class="form-group">
-                  <label class="h5">Company Name</label>
-                  <input type="text" class="form-control" name="company" required="" placeholder="Company name">
-                </div>
-
-                <div class="modal-footer">
-                  <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
-                  <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                </div>
-
-              </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-</section>
-
-{{-- request form --}}
-<section>
-
-
-  <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+<section class="container">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog p-5" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="requestModalLabel">Subscription Details</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Subscription Details</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <!-- subscribe form for Professional -->
-          <form method="POST"  enctype="multipart/form-data" action="#">
+            <form method="POST"  enctype="multipart/form-data" action="/employers/subscribe-paas">
               @csrf
               <div class="form-group">
-                  <label class="h5">Task Title</label>
-                  <input type="text" class="form-control" name="tasktitle" required="" placeholder="Task title">
+                <label class="h5">First Name</label>
+                <input type="text" class="form-control" name="firstname" required="" placeholder="First name">
               </div>
               <div class="form-group">
-                  <label class="h5">Task Description</label>
-                  <input type="text" class="form-control" name="descritption" required="" placeholder="Description">
+                <label class="h5">Last Name</label>
+                <input type="text" class="form-control" name="lastname" required="" placeholder="Last name">
+              </div>
+
+              <div class="form-group">
+                <label class="h5">Email Address</label>
+                <input type="email" class="form-control" name="email" required="" placeholder="Email">
               </div>
               <div class="form-group">
-                <label class="h5">Industry</label>
-                  <select path="industry" id="industry" name="industry" class="form-control input-sm">
-                  <option value="" selected=""></option>
-                  </select>
+                <label class="h5">Phone Number</label>
+                <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
               </div>
+              <div class="form-group">
+                <label class="h5">Company Name</label>
+                <input type="text" class="form-control" name="company" required="" placeholder="Company name">
+              </div>
+
               <div class="modal-footer">
-               <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
+                <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
               </div>
 
