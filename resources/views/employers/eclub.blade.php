@@ -184,7 +184,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     
             <div class="col-lg-3 col-m-5 mt-5">
               <div class="s-block p-2">
-                <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+                <img src="/images/zip/s1.png" alt="" class="img-fluid" /><br><br>
                 <h3 class="my-3">Payment</h3>
                 <p class="">Friendly and staggered monthly payments. Invoice sent on time.</p>
               </div>
@@ -194,7 +194,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               <div class="s-block p-2">
                 <img src="/images/zip/s2.png" alt="" class="img-fluid" />
                 <h3 class="my-3">Discounts</h3>
-                <p class="">Discounted rates on other Emploi services like job advertisements(50% for the first 6 months).</p>
+                <p class="">Discounted rates on other Emploi services like job advertisements.</p>
               </div>
             </div>
     
@@ -213,7 +213,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       
       </section>
 
-{{-- <section class="benefits bg-light">
+<!-- <section class="benefits bg-light">
     
     <div class="container1 container">
             <div class="card">
@@ -272,7 +272,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
             </div>
     </div>
-</section> --}}
+</section> -->
 
 <section>
 <!-- content-with-photo17 -->

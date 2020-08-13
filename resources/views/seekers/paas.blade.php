@@ -22,15 +22,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
-<style>
-  #test {
-   background-image: url("/images/rpaas.png");
-   height: 100px;
-   width: 90%;
-
-}
-</style>
-
 <div class="pt-5 mt-3">
   <div class="container">
   </div>
@@ -269,14 +260,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
    </div>
  </div>
 
- <section class="pb-4">
-  <a href="/job-seekers/rpaas">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="test">
- 
+
+   <div style="width: 100%">
+        <a href="/job-seekers/rpaas">
+            <img style="width: 100%" src="/images/rpaas.png" alt="join Golden Club"> 
+        </a>    
     </div>
-  
-  </a>
-</section>
+
 
 
  

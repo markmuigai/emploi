@@ -23,15 +23,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
-<style>
-  #test {
-   background-image: url("/images/eclub4.png");
-   height: 100px;
-   width: 100%;
-
-}
-</style>
-
 <!-- index-block1 -->
 <div class="w3l-index-block1">
   <div class="content py-5">
@@ -161,14 +152,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   
   </section>
 
-  <section class="pt-4">
-    <a href="/employers/eclub">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="test">
-   
-      </div>
-    
-    </a>
-  </section>
+  <div style="width: 100%">
+      <a href="/employers/eclub">
+          <img style="width: 100%" src="/images/eclub4.png" alt="join eClub"> 
+      </a>    
+  </div>
   
  
 <section class="pb-4">
