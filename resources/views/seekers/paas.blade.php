@@ -26,7 +26,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   #test {
    background-image: url("/images/rpaas.png");
    height: 100px;
-   width: 100%;
+   width: 90%;
 
 }
 </style>
@@ -37,7 +37,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </div>
 
 <!-- index-block1 -->
-<header class="pt-3" style="background: url(/images/gclub1.jpg); color:white; background-size: cover; background-attachment: fixed">
+<header class="pt-3" style="background: url(/images/gclub1.jpg); color:white; background-size: cover; background-attachment: fixed;">
   <div class="content py-5">
     <div class="container">
       <div class="row align-items-center py-md-5 py-5">

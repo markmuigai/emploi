@@ -166,11 +166,54 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
-    <div class="heading text-center mx-auto">
-        <h3 class="head pt-1 pb-2">Top Benefits</h3>
-      </div>
 
-<section class="benefits bg-light">
+      <section class="w3l-index-block2 pt-1 pb-4 bg-light">
+
+        <div class="container py-md-2">
+          <div class="heading text-center mx-auto">
+            <h3 class="head">Top Benefits</h3>
+          </div>
+          <div class="row bottom_grids pt-md-3">
+            <div class="col-lg-3 col-m-5 mt-5">
+              <div class="s-block p-2">
+                <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+                <h3 class="my-3">HR Advisory</h3>
+                <p class="">Access to free on-demand HR advisory services and networking opportunities.</p>
+              </div>
+            </div>
+    
+            <div class="col-lg-3 col-m-5 mt-5">
+              <div class="s-block p-2">
+                <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+                <h3 class="my-3">Payment</h3>
+                <p class="">Friendly and staggered monthly payments. Invoice sent on time.</p>
+              </div>
+            </div>
+    
+            <div class="col-lg-3 col-m-5 mt-5">
+              <div class="s-block p-2">
+                <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+                <h3 class="my-3">Discounts</h3>
+                <p class="">Discounted rates on other Emploi services like job advertisements(50% for the first 6 months).</p>
+              </div>
+            </div>
+    
+            <div class="col-lg-3 col-md-5 mt-5">
+              <div class="s-block p-2">
+                  <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+                  <h3 class="my-3">Free Access</h3>
+                  <p class="">Access to other Emploi tools for recruitment and talent management.</p>
+              </div>
+            </div>
+           
+    
+    
+          </div>
+        </div>
+      
+      </section>
+
+{{-- <section class="benefits bg-light">
     
     <div class="container1 container">
             <div class="card">
@@ -229,7 +272,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
             </div>
     </div>
-</section>
+</section> --}}
 
 <section>
 <!-- content-with-photo17 -->
