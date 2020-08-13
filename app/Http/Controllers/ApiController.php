@@ -9,6 +9,9 @@ use App\Company;
 use App\Like;
 use App\Post;
 use App\Seeker;
+use App\SeekerSubscription;
+use App\EmployerSubscription;
+use App\Task;
 
 class ApiController extends Controller
 {
@@ -17,6 +20,20 @@ class ApiController extends Controller
     	return count(Post::all());
 
     }
+
+    public function totalJpaasSub(Request $request){
+        return count(SeekerSubscription::all());
+    }
+
+    
+    public function totalEpaasSub(Request $request){
+        return count(EmployerSubscription::all());
+    }
+
+    public function totalTasks(Request $request){
+        return count(Task::all());
+    }
+
 
     public function getTotalCandidates(Request $request)
     {

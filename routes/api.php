@@ -18,6 +18,11 @@ use Illuminate\Http\Request;
 // });
 
 Route::get('/total-jobs', 'ApiController@getTotalJobs');
+Route::get('/total-seeker-paas', 'ApiController@totalJpaasSub');
+Route::get('/total-employer-paas', 'ApiController@totalEpaasSub');
+Route::get('/total-paas-tasks', 'ApiController@totalTasks');
+
+
 Route::get('/total-candidates', 'ApiController@getTotalCandidates');
 Route::get('/total-companies', 'ApiController@getTotalCompanies');
 Route::get('/total-hiring-companies', 'ApiController@getTotalHiringCompanies');

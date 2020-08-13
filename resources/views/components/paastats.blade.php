@@ -6,21 +6,21 @@
             <div class="card-body text-center py-3 py-lg-4">
                 <div class="row" id="stats-container">
                     <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fa fa-briefcase"></i>
+                        <i class="fa fa-briefcase"></i><br>
                         <h5>{{ __('jobs.t_jobs') }}</h5>
                         <h1 class="counter " id="total-jobs-stats"><span>12657</span></h1>
                         <p>{{ __('jobs.find_nxt_job') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fa fa-clipboard-check"></i>
+                        <i class="fa fa-check-square"></i><br>
                         <h5>{{ __('jobs.t_cand') }}</h5>
                         <h1 class="counter" id="total-candidates-stats"><span>44138</span></h1>
                         <p>{{ __('jobs.gt_hired') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                     <div class="col-md-4 col-sm-4 col-12">
-                        <i class="fa fa-building"></i>
+                        <i class="fa fa-building"></i><br>
                         <h5>{{ __('jobs.t_comp') }}</h5>
                         <h1 class="counter" id="total-companies-stats"><span>1677</span></h1>
                         <p><span id="total-hiring-companies-stats">846</span> {{ __('jobs.comp_hirin') }}</p>
@@ -36,7 +36,7 @@
             function loadStatistics(){
                 $.ajax({
                     type: 'GET',
-                    url: '/api/total-jobs?csrf-token='+$('#csrf_token').attr('content'),
+                    url: '/api/total-paas-tasks?csrf-token='+$('#csrf_token').attr('content'),
                     success: function(response) {
                         
                         $('#total-jobs-stats').empty();
@@ -50,7 +50,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: '/api/total-candidates?csrf-token='+$('#csrf_token').attr('content'),
+                    url: '/api/total-seeker-paas?csrf-token='+$('#csrf_token').attr('content'),
                     success: function(response) {
                         
                         $('#total-candidates-stats').empty();
@@ -65,7 +65,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: '/api/total-companies?csrf-token='+$('#csrf_token').attr('content'),
+                    url: '/api/total-employer-paas?csrf-token='+$('#csrf_token').attr('content'),
                     success: function(response) {
                         
                         $('#total-companies-stats').empty();
