@@ -63,8 +63,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
         <div class="col-md-6 bg-light">
-          <div class="container-fluid">
-            <img src="/images/seeker-join.png" alt="">
+          <div class="container">
+            <img src="/images/seeker-join.png" style="width:100%;">
           </div>
           {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
         </div>

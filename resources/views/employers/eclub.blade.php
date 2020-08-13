@@ -23,107 +23,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
-<style>
-    .benefits{
-        padding-top: 4;
-        margin: 0;
-        padding: 0;
-        min-height: 70vh;
-        max-height: 70vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: consolas;
-    }
-
-    .container1{
-        width: 1000px;
-        position: relative;
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .container1 .card{
-        margin-top: 10px;
-        position: relative;
-        cursor: pointer;
-    }
-
-    .container1 .card .face{
-        width: 230px;
-        height: 180px;
-        transition: 0.5s;
-    }
-
-    .container1 .card .face.face1{
-        position: relative;
-        background: #500095;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translateY(100px);
-    }
-
-    .container1 .card:hover .face.face1{
-        background: #E15419;
-        transform: translateY(0);
-    }
-
-    .container1 .card .face.face1 .content{
-        opacity: 0.2;
-        transition: 0.5s;
-    }
-
-    .container1 .card:hover .face.face1 .content{
-        opacity: 1;
-    }
-
-    .container1 .card .face.face1 .content img{
-        max-width: 100px;
-    }
-
-    .container1 .card .face.face1 .content h3{
-        padding: 0;
-        color: #fff;
-        text-align: center;
-        font-size: 1.5em;
-    }
-
-    .container1 .card .face.face2{
-        position: relative;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        transform: translateY(-100px);
-    }
-
-    .container1 .card:hover .face.face2{
-        transform: translateY(0);
-    }
-
-    .container1 .card .face.face2 .content p{
-        margin: 0;
-        padding: 0;
-    }
-
-    .container1 .card .face.face2 .content a{
-        display:  inline-block;
-        text-decoration: none;
-        font-weight: 900;
-        color: #333;
-        padding: 3px;
-    }
-
-    .container1 .card .face.face2 .content a:hover{
-        background: #333;
-        color: #fff;
-    }
-</style>
-
-
-
 <!-- //index-block1 -->
 <!-- index-block2 -->
 <!-- /index-block2 -->
@@ -143,8 +42,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
       <div class="row cwp17-two align-items-center">
         <div class="col-md-6 bg-white">
-          <div class="container-fluid">
-            <img src="/images/seeker-join.png" alt="">
+          <div class="container">
+            <img src="/images/seeker-join.png" style="width:100%;">
           </div>
           {{-- <iframe src="https://www.youtube.com/embed/lJIrF4YjHfQ" style="height: 350px; width: 550px; !important;"></iframe> --}}
         </div>
