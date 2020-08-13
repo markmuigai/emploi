@@ -1354,7 +1354,7 @@ class EmployerController extends Controller
 
             }
 
-          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the Payment for Professional as a Service (PAAS) to Enjoy the Benefits.');
+          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for eClub membership to enjoy the benefits.');
         }
     }
 

@@ -195,6 +195,6 @@ class SeekerController extends Controller
                 $invoice->remind('email');
             }
 
-            return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Professional as a Service (PAAS) to enjoy the benefits.');
+            return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Golden Club membership to enjoy the benefits.');
     }
 }

@@ -31,13 +31,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 							@csrf
 							@if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
 
-							<h5>Deposit: Ksh. {{ $task->salary }}</h5>
+							<h5>Salary: Ksh. {{ $task->salary }}</h5>
 							<h5>Management Fee:  Ksh. {{ 0.135 * $task->salary }}</h5>
 							<h5 class='total'>Total Monthly pay: <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b></h5>
 
 							@else
 
-							<h5>Deposit: Ksh. {{ $task->salary }}</h5>
+							<h5>Salary: Ksh. {{ $task->salary }}</h5>
 							<h5>Management Fee:  Ksh. {{ 0.135 * $task->salary }}</h5>
 							<h4 class='total'>Total: <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b></h4>
 							@endif
