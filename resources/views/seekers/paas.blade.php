@@ -24,7 +24,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 <style>
   #test {
-   background-image: url("/images/eclub3.png");
+   background-image: url("/images/rpaas.png");
    height: 100px;
    width: 100%;
 
@@ -268,6 +268,16 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
      </div>
    </div>
  </div>
+
+ <section class="pb-4">
+  <a href="/job-seekers/rpaas">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="test">
+ 
+    </div>
+  
+  </a>
+</section>
+
 
  
 <!-- PaaS Benefits -->
