@@ -25,10 +25,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 <style>
   #test {
-   background-image: url("/images/eclub.jpg");
-   height: 140px;
-   background-size: 100%;
+   background-image: url("/images/eclub3.png");
+   height: 100px;
    width: 100%;
+
 }
 </style>
 
@@ -65,7 +65,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="section-info py-3">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6 bg-white">
+        <div class="col-md-6 bg-light">
           <div class="container-fluid">
             <img src="/images/seeker-join.png" alt="">
           </div>
@@ -161,17 +161,24 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   
   </section>
 
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="test">
-  </div>
-
-<section>
+  <section class="pt-4">
+    <a href="/employers/eclub">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="test">
+   
+      </div>
+    
+    </a>
+  </section>
+  
+ 
+<section class="pb-4">
 <!-- content-with-photo17 -->
  <div class="w3l-index-block4">
    <div class="features-bg py-5">
      <!-- features15 block -->
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
-         <h3 class="head">Creating a Part-timer Request.</h3>
+         <h3 class="head pt-4">Creating a Part-timer Request.</h3>
          <p class="my-3 head">To create a new request you go the request page and fill in required details including Task and Specific Industry. Emploi will then take care of the rest of the process.</p>
        </div>
        <div class="row">
@@ -281,9 +288,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <section class="w3l-index-block7">
   <div class="container py-md-1">
     <div class="heading text-center mx-auto">
-      <h3 class="head">PaaS Stats</h3>
+      <h3 class="head pb-4">PaaS Stats</h3>
     </div>
-    <div class="container pt-3">
+    <div class="container">
       @include('components.paastats')
     </div>
 

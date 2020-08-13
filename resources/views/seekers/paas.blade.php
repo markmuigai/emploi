@@ -154,7 +154,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
      <!-- features15 block -->
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
-         <h3 class="head">Roadmap to Getting Hired</h3>
+         <h3 class="head pb-2 pt-2">Roadmap to Getting Hired</h3>
          <p class="my-3 head" style="color: #E15419">Subscribe to Golden Club Membership and work as you network.</p>
        </div>
        <div class="row">
@@ -262,7 +262,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 
 <!-- Partners Sections -->
-<section class="w3l-index-block7 py-2">
+<section class="w3l-index-block7 py-4">
 <h3 class="head text-center p-2">Potential Employers</h3>
 <div class="container">
       <div class="container pt-4 pb-4">

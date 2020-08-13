@@ -65,13 +65,13 @@ Get Hired as a Professional by joining the Golden Club..
             </div>
             <div class="modal-body">
               <div class="card shadow">
-                <div class="card-text p-2">
-                  <ul class="list-group h5">
-                    <li class="list-group-item">Guaranteed placement on an on-demand basis to one or more companies thus continuity in practicing their profession.</li>
-                    <li class="list-group-item">Access to profession-based training and development opportunities under the Know Your Profession program.</li>
-                    <li class="list-group-item">Increased chances for eventual permanent employment.</li>
-                    <li class="list-group-item">Guaranteed income after a successful placement.</li>
-                    <li class="list-group-item">Great networking opportunities with company heads, HODs and entrepreneurs as well as other professionals.</li>
+                <div class="card-text p-1 h5">
+                  <ul>
+                    <li>Top quality performance: KPI & performance appraisal framework.</li><br>
+                    <li>Access to profession-based training and development opportunities.</li><br>
+                    <li>Increased chances for eventual permanent employment.</li><br>
+                    <li>Guaranteed income after a successful placement.</li><br>
+                    <li>Great networking opportunities with top employers.</li>
                   </ul>
                 </div>
               </div>
