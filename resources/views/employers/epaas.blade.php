@@ -23,6 +23,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
+<style>
+  #test {
+   background-image: url("/images/eclub.jpg");
+   height: 140px;
+   background-size: 100%;
+   width: 100%;
+}
+</style>
 
 <!-- index-block1 -->
 <div class="w3l-index-block1">
@@ -148,34 +156,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   
   </section>
 
-  <section>
-
-
-    <div class="header-row" id="header-row" style="padding: 0px; overflow:hidden; height:100px;">
-          <!-- container-fluid is the same as container but spans a wider viewport, 
-      it still has padding though so you need to remove this either by adding 
-      another class with no padding or inline as I did below -->
-    <div class="container-fluid pt-3" style="padding: 0px;">
-        <div class="row"> 
-          <!-- You originally has it set up for two columns, remove the second 
-      column as it is unneeded and set the first to always span all 12 columns 
-      even when at its smallest (xs). Set the overflow to hidden so no matter 
-      the height of your image it will never show outside this div-->
-          <div class="col-lg-12"> 
-              <a class="brand logo" href="/employers/eclub">
-          <!-- place your image here -->
-                {{-- <img src="/images/eclub.jpg" alt="company logo"> --}}
-                
-              </a> 
-          </div>     
-        </div>
-      </div>
-      </div>
-  </section>
-
-      <div class="jumbotron jumbotron-fluid" style="background: url(/images/eclub.jpg); background-attachment:; ">
-        <div class="container"></div>
-      </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="test">
+  </div>
 
 <section>
 <!-- content-with-photo17 -->

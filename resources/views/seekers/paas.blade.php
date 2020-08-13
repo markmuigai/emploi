@@ -35,7 +35,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="col-md-12 content-left pt-md-0 pt-5">
           <br><br><br><br><br>
           <h3 class="mt-3 mb-md-5 mb-4 h1">Join Talent Pool.</h3>
-          <p class="mt-3 mb-md-5 mb-4">Are you a professional looking for part-time work? A new solution is here for you.</p>
+          <p class="mt-3 mb-md-5 mb-4 h5">Are you a professional looking for part-time work? <br> A new solution is here for you.</p>
 
           @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
           <!--          <h4>Assigned Tasks</h4>
