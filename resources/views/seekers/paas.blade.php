@@ -49,8 +49,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             <p></p> -->
             @else
             <a href="/job-seekers/register-paas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
-
-          {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
           @endif     
                  
         </div>
@@ -71,13 +69,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             </button>
           </div>
           <div class="modal-header h4">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Find This Interesting? Leave your email and our team will get back to you.</h5>
+            <h5 class="modal-title" id="exampleModalCenterTitle">Are you interested working part time? Leave us your phone number and our team will get back to you.</h5>
             
           </div>
           <div class="modal-body">
-            <form method="POST"  enctype="multipart/form-data" action="#">
+            <form method="POST"  enctype="multipart/form-data" action="/job-seekers/paas">
+              @csrf
               <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="enter email">
+                <input type="number" class="form-control" name="phone" placeholder="phone number">
               </div>
               <div class="modal-footer">
                 <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Send">
@@ -99,6 +98,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
         <div class="col-md-6 bg-light">
+          @if(session()->has('success'))
+              <div class="alert alert-success">
+              {{ session()->get('success') }}
+              </div>
+          @endif
           <div class="container">
             <img src="/images/seeker-join.png" style="width:100%;">
           </div>

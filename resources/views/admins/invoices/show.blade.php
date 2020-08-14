@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
 
         <h4 class="">
-                @if(session()->has('message'))
+        @if(session()->has('message'))
             <div class="alert alert-success">
             {{ session()->get('message') }}
             </div>

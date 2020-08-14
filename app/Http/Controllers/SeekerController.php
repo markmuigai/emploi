@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Notification;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,7 @@ use App\SeekerSubscription;
 use App\Invoice;
 use App\Notifications\PaasSubscribed;
 use App\Notifications\InvoiceCreated;
+use App\Notifications\ContactReceived;
 
 class SeekerController extends Controller
 {
@@ -202,5 +204,16 @@ class SeekerController extends Controller
             }
 
             return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Golden Club membership to enjoy the benefits.');
+    }
+
+    public function leaveContact(Request $request)
+    { 
+        // return $request->all();
+        if (isset($request->phone))
+        {    if (app()->environment() === 'production')
+             Notification::send(User::first(),new ContactReceived($request->phone.' is interested on PaaS for JOB SEEKERS'));
+        }
+
+        return Redirect::back()->with('success','Contact Received, We will get back to you shortly !');
     }
 }
