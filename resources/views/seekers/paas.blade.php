@@ -31,10 +31,25 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   
 </script>
 
+<style>
+  #bghead{
+    background: url(/images/soft.jpg); 
+    /* background: url(/images/bgPaas.png);  */
+
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    width:100%; 
+    height:100vh; 
+    color:white;
+  }
+  
+</style>
+
 <!-- index-block1 -->
 
 <header>
-<div class="pt-4" style="background: url(/images/bgPaas.png); background-size:cover;background-position:center;background-attachment:fixed;width:100%; color:white;">
+<div id="bghead">
 <!-- <header class="pt-3" style="background: url(/images/bgPaas.png); color:white; height: 100%; background-size: cover; background-attachment: fixed;"> -->
   <div class="content py-5">
     <div class="container">
@@ -98,7 +113,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="section-info py-5">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
-        <div class="col-md-6 bg-light">
+        <div class="col-md-6 bg-dark">
           <div class="container">
             <img src="/images/seeker-join.png" style="width:100%;">
           </div>
@@ -122,7 +137,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
-<section class="w3l-index-block2 py-2">
+<section class="w3l-index-block2 py-2 pb-4">
 
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
@@ -131,39 +146,50 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-m-6 mt-5">
         <div class="s-block p-2">
-          <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-          <h3 class="my-3">Placement</h3>
+          <div class="d-flex">
+            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+            <h3 class="my-3 pl-4">Placement</h3>
+          </div>
+          
           <p class="">Guaranteed placement on an on-demand basis to more than one company.</p>
         </div>
       </div>
 
       <div class="col-lg-4 col-m-6 mt-5">
         <div class="s-block p-2">
-          <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-          <h3 class="my-3">Productivity</h3>
+          <div class="d-flex">
+            <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+            <h3 class="my-3 pl-4">Productivity</h3>
+          </div>
           <p class="">Top quality performance: KPI & performance appraisal framework.</p>
         </div>
       </div>
 
       <div class="col-lg-4 col-m-6 mt-5">
         <div class="s-block p-2">
-          <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-          <h3 class="my-3">Opportunities</h3>
+          <div class="d-flex">
+            <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+            <h3 class="my-3 pl-4">Opportunities</h3>
+          </div>
           <p class="">Access to profession-based training and development opportunities</p>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block p-2">
+          <div class="d-flex">
             <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Effective</h3>
+            <h3 class="my-3 pl-4">Effective</h3>
+          </div>
             <p class="">Increased chances for eventual permanent employment.</p>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block p-2">
+          <div class="d-flex">
             <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Income</h3>
+            <h3 class="my-3 pl-4">Income</h3>
+          </div>
             <p class="">
               Guaranteed income after a successful placement.            
             </p>
@@ -171,8 +197,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
       <div class="col-lg-4 col-m-6 mt-5">
           <div class="s-block p-2">
-            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Network.</h3>
+            <div class="d-flex">
+              <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+              <h3 class="my-3 pl-4">Network.</h3>
+            </div>
             <p class="">Great networking opportunities with top employers.</p>
           </div>
       </div>
@@ -308,10 +336,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 
 <!-- Partners Sections -->
-<section class="w3l-index-block7 py-4">
+<section class="py-5 pb-5">
 <h3 class="head text-center p-2">Potential Employers</h3>
-<div class="container">
-      <div class="container pt-4 pb-4">
+<div>
+      <div class="pt-4 pb-3">
         <section class="customer-logos slider">
           <div class="slide"><img src="/images/logos/texas.webp"></div>
           <div class="slide"><img src="/images/logos/uniliver.webp"></div>

@@ -94,9 +94,9 @@
       <h3 class="head">Have questions? We're here to help. </h3>
     </div>
     <div class="buttons mt-4">
-      <a href="/post-a-job" class="btn btn-outline-primary ml-2 btn-demo">Post a Job</a>
-      <a href="/contact" class="btn btn-primary btn-demo ">Contact Us</a>
-      <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> 0702 068 282</a>
+      <a href="/post-a-job" class="btn btn-outline-primary m-2 btn-demo">Post a Job</a>
+      <a href="/contact" class="btn btn-primary btn-demo m-2">Contact Us</a>
+      <a href="tel:+254702068282" class="btn btn-outline-primary m-2 btn-demo"><i class="fa fa-phone"></i> 0702 068 282</a>
     </div>
   </div>
 </section>

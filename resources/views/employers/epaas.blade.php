@@ -141,39 +141,49 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       <div class="row bottom_grids pt-md-3">
         <div class="col-lg-4 col-m-6 mt-5">
           <div class="s-block p-2">
-            <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Convenience</h3>
+            <div class="d-flex">
+              <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+              <h3 class="my-3 pl-4">Convenience</h3>
+            </div>
             <p class="">Sourcing, management and growth tools at one stop.</p>
           </div>
         </div>
 
         <div class="col-lg-4 col-m-6 mt-5">
           <div class="s-block p-2">
-            <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Productivity</h3>
+            <div class="d-flex">
+              <img src="/images/zip/s1.png" alt="" class="img-fluid" />
+              <h3 class="my-3 pl-4">Productivity</h3>
+            </div>
             <p class="">Top quality performance: KPI & performance appraisal framework.</p>
           </div>
         </div>
 
         <div class="col-lg-4 col-m-6 mt-5">
           <div class="s-block p-2">
-            <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-            <h3 class="my-3">Recruitment Process</h3>
+            <div class="d-flex">
+              <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+              <h3 class="my-3 pl-4">Recruitment</h3>
+            </div>
             <p class="">Thorough professional vetting: Know The Professional Candidate Referencing.</p>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6 mt-5">
           <div class="s-block p-2">
+            <div class="d-flex">
               <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Assurance</h3>
+              <h3 class="my-3 pl-4">Assurance</h3>
+            </div>
               <p class="">We will help you maintain a healthy pipeline of potential replacements at all times.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 mt-5">
           <div class="s-block p-2">
+            <div class="d-flex">
               <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Browse Talent Pool</h3>
+              <h3 class="my-3 pl-4">Talent Pool</h3>
+            </div>
               <p class="">
                 Get access to our Job Seeker database and get to hire top professionals.
               </p>
@@ -181,8 +191,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         </div>
         <div class="col-lg-4 col-m-6 mt-5">
             <div class="s-block p-2">
-              <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-              <h3 class="my-3">Save Time</h3>
+              <div class="d-flex">
+                <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+                <h3 class="my-3 pl-4">Save Time</h3>
+              </div>
               <p class="">Speed: 48 hour turnaround time.</p>
             </div>
         </div>
@@ -193,7 +205,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   
   </section>
 
-  <section>
+  <section class="pt-5">
     <div style="width: 100%">
       <a href="/employers/e-club">
           <img style="width: 100%" src="/images/eclub4.png" alt="join eClub"> 

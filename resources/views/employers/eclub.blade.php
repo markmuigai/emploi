@@ -75,33 +75,41 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <div class="row bottom_grids pt-md-3">
             <div class="col-lg-3 col-m-5 mt-5">
               <div class="s-block p-2">
-                <img src="/images/zip/s3.png" alt="" class="img-fluid" />
-                <h3 class="my-3">HR Advisory</h3>
+                <div class="d-flex">
+                  <img src="/images/zip/s3.png" alt="" class="img-fluid" />
+                  <h3 class="my-3 pl-4">Advisory</h3>
+                </div>
                 <p class="">Access to free on-demand HR advisory services and networking opportunities.</p>
               </div>
             </div>
     
             <div class="col-lg-3 col-m-5 mt-5">
               <div class="s-block p-2">
-                <img src="/images/zip/s1.png" alt="" class="img-fluid" /><br><br>
-                <h3 class="my-3">Payment</h3>
-                <p class="">Friendly and staggered monthly payments. Invoice sent on time.</p>
+                <div class="d-flex">
+                  <img src="/images/zip/s1.png" alt="" class="img-fluid" /><br><br>
+                  <h3 class="my-3 pl-4">Payment</h3>
+                </div>
+                <p class="">Friendly and staggered monthly payments. Invoice sent on time.</p><br>
               </div>
             </div>
     
             <div class="col-lg-3 col-m-5 mt-5">
               <div class="s-block p-2">
-                <img src="/images/zip/s2.png" alt="" class="img-fluid" />
-                <h3 class="my-3">Discounts</h3>
+                <div class="d-flex">
+                  <img src="/images/zip/s2.png" alt="" class="img-fluid" />
+                  <h3 class="my-3 pl-4">Discounts</h3>
+                </div>
                 <p class="">Discounted rates on other Emploi services like job advertisements.</p>
               </div>
             </div>
     
             <div class="col-lg-3 col-md-5 mt-5">
               <div class="s-block p-2">
+                <div class="d-flex">
                   <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-                  <h3 class="my-3">Free Access</h3>
-                  <p class="">Access to other Emploi tools for recruitment and talent management.</p>
+                  <h3 class="my-3 pl-4">Free Access</h3>
+                </div>
+                <p class="">Access to other Emploi tools for recruitment and talent management.</p>
               </div>
             </div>
            
@@ -300,9 +308,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </section>
 
 <!-- Partners Sections -->
-<section class="w3l-index-block7 py-5">
-<div class="container">
-      <div class="container pt-4 pb-4">
+<section class="py-2">
+<div>
+      <div class="pt-3 pb-3">
         <section class="customer-logos slider">
           <div class="slide"><img src="/images/logos/texas.webp"></div>
           <div class="slide"><img src="/images/logos/uniliver.webp"></div>
