@@ -165,7 +165,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             <img src="/images/zip/s2.png" alt="" class="img-fluid" />
             <h3 class="my-3">Income</h3>
             <p class="">
-              Guaranteed income after a successful placement.            
+              Guaranteed income after successful placement.            
             </p>
         </div>
       </div>

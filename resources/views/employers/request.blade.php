@@ -61,7 +61,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
                   <div class="row">
                     <div class="form-group col-md-6">
-                      <label class="h6">Company Name</label>
+                      <label class="h6">Company Name <b style="color: red" title="Required">*</b></label>
                       <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $fname }}">
                     </div>
 

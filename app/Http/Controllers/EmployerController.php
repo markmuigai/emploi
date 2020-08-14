@@ -1349,9 +1349,10 @@ class EmployerController extends Controller
 
             if(isset($es->id))
             {
-                if (app()->environment() === 'production')
-               $invoice->notify(new InvoiceCreated($message));
-               Notification::send(Employer::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->firstname.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for paas.'));
+                if (app()->environment() === 'production'){
+                    $invoice->notify(new InvoiceCreated($message));
+                    Notification::send(Employer::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->first_name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
+                }
 
             }
 
@@ -1470,6 +1471,12 @@ class EmployerController extends Controller
                 'industry' => $request->industry,
                 'salary' => $request->salary
             ]);
+
+            if(isset($task->id))
+            {
+                if (app()->environment() === 'production')
+               Notification::send(Employer::first(),new PaasSubscribed('PAAS TASK SUBMITTED: '.$task->name.' with contact details  '.$task->email.' and  '.$task->phone_number.'  has submitted a task.'));
+            }
 
              return redirect('/employers/task/'.$task->slug);
     }
