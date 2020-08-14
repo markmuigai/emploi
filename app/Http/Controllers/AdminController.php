@@ -47,7 +47,7 @@ class AdminController extends Controller
     public function referees(Request $request)
     {
               
-        $referees = Referee::orderBy('seeker_id','DESC')->paginate(12);
+        $referees = Referee::orderBy('created_at','DESC')->paginate(12);
         return view('admins.referees')
                     ->with('referees',$referees);
                    
