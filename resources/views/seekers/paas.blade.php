@@ -39,7 +39,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <!--          <h4>Assigned Tasks</h4>
             <p></p> -->
             @else
-            <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
+            <a href="/job-seekers/register-paas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
 
           {{-- <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Subscribe <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a> --}}
           @endif     
@@ -143,7 +143,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 
       <div class="col-md-12 pt-4 text-center">
-        <a href="/job-seekers/rpaas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
+        <a href="/job-seekers/register-paas" style="background-color: #E15419" class="btn btn-theme">Join Golden Club</a>
       </div>
     </div>
   </div>
@@ -260,7 +260,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 
    <div style="width: 100%">
-        <a href="/job-seekers/rpaas">
+        <a href="/job-seekers/register-paas">
             <img style="width: 100%" src="/images/rpaas.png" alt="join Golden Club"> 
         </a>    
     </div>

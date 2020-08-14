@@ -34,7 +34,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request Part-timer.</h3>
           <p class="mt-3 mb-md-5 mb-4">Sign up for membership now and subscribe to a pool of part time talent.</p>
 
-          <a href="/employers/rpaas" style="background-color: #E15419; color:white;" class="btn btn-theme">Request</a>
+          <a href="/employers/request-paas" style="background-color: #E15419; color:white;" class="btn btn-theme">Request</a>
           <a href="#exampleModal" style="background-color: #500095; color: white;" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>        
         
               
@@ -75,7 +75,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
                 <p>
                   E-Club is a membership programme for employers looking to hire part-time professionals.
-                  <a href="/employers/eclub">Read More...</a> 
+                  <a href="/employers/e-club">Read More...</a> 
                 </p>
               </p>
         </div>
@@ -156,7 +156,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
   <section>
     <div style="width: 100%">
-      <a href="/employers/eclub">
+      <a href="/employers/e-club">
           <img style="width: 100%" src="/images/eclub4.png" alt="join eClub"> 
       </a>    
   </div>
