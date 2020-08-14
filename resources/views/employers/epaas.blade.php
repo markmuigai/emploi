@@ -26,6 +26,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
+<script>
+  $(document).ready(function(){
+   setTimeout(function(){
+       $('#myModal').modal('show');
+   }, 15000);
+  });
+  
+</script>
+
 <!-- index-block1 -->
 <section>
 <div class="w3l-index-block1">
@@ -95,6 +104,33 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
+
+<section>
+  <div class="modal fade pt-4" id="myModal">
+    <div class="modal-dialog modal-dialog-centered pt-4">
+      <div class="modal-content">
+          <div class="modal-text">
+            <button type="button" class="close d-flex pr-3 pt-2" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-header h4">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Find This Interesting? Leave your email and our team will get back to you.</h5>
+            
+          </div>
+          <div class="modal-body">
+            <form method="POST"  enctype="multipart/form-data" action="#">
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="enter email">
+              </div>
+              <div class="modal-footer">
+                <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Send">
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</section>
 
   <section class="w3l-index-block2 pt-1 pb-4">
 

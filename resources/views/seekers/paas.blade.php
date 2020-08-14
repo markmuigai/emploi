@@ -23,18 +23,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </script>
 
 <script>
-  // $(document).ready(function() {
-  //   $("#myModal").modal('show');
-  // });
-
   $(document).ready(function(){
    setTimeout(function(){
        $('#myModal').modal('show');
-   }, 2000);
-});
-  // setTimeout(function() {
-  //   $('#myModal').modal();
-  // }, 2000);
+   }, 1000);
+  });
+  
 </script>
 
 <!-- index-block1 -->
@@ -68,20 +62,27 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </header>
 
 <section>
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
+  <div class="modal fade pt-4" id="myModal">
+    <div class="modal-dialog modal-dialog-centered pt-4">
       <div class="modal-content">
-        <a class="button pl-2 close" data-dismiss="modal">&times;</a>
-
-          <div class="modal-header">
-            Find This Interesting? Leave your email and our team will get back to you.
+          <div class="modal-text">
+            <button type="button" class="close d-flex pr-3 pt-2" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-header h4">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Find This Interesting? Leave your email and our team will get back to you.</h5>
+            
           </div>
           <div class="modal-body">
-            <form action="" class="form-group">
-              <input type="text" class="form-group-item">
-              <input type="submit" name="submit" >
+            <form method="POST"  enctype="multipart/form-data" action="#">
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="enter email">
+              </div>
+              <div class="modal-footer">
+                <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Send">
+              </div>
             </form>
-          </div>
       </div>
     </div>
   </div>
