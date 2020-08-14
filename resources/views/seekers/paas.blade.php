@@ -112,16 +112,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   <div class="section-info py-5">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
-<<<<<<< HEAD
-        <div class="col-md-6 bg-dark">
-=======
         <div class="col-md-6 bg-light">
           @if(session()->has('success'))
               <div class="alert alert-success">
               {{ session()->get('success') }}
               </div>
           @endif
->>>>>>> 4081caa234ab55819e104854b697366d6424dcef
           <div class="container">
             <img src="/images/seeker-join.png" style="width:100%;">
           </div>
