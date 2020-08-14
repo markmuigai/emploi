@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 use DB;
 use Session;
@@ -1514,6 +1515,19 @@ class EmployerController extends Controller
             }
     
           return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for your task to be processed.');
+    }
+
+
+    public function leaveContact(Request $request)
+    { 
+        // return $request->all();
+        if (isset($request->phone))
+        {   
+            if (app()->environment() === 'production')
+            Notification::send(Employer::first(),new PaasSubscribed($request->phone.' is interested on PaaS for EMPLOYERS'));
+        }
+        
+        return Redirect::back()->with('success','Contact Received, We will get back to you shortly !');
     }
 }
     
