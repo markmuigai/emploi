@@ -26,7 +26,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   $(document).ready(function(){
    setTimeout(function(){
        $('#myModal').modal('show');
-   }, 1000);
+   }, 10000);
   });
   
 </script>
