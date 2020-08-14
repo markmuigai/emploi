@@ -22,6 +22,21 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
+<script>
+  // $(document).ready(function() {
+  //   $("#myModal").modal('show');
+  // });
+
+  $(document).ready(function(){
+   setTimeout(function(){
+       $('#myModal').modal('show');
+   }, 2000);
+});
+  // setTimeout(function() {
+  //   $('#myModal').modal();
+  // }, 2000);
+</script>
+
 <!-- index-block1 -->
 
 <header>
@@ -51,6 +66,26 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
   </div>
 </header>
+
+<section>
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <a class="button pl-2 close" data-dismiss="modal">&times;</a>
+
+          <div class="modal-header">
+            Find This Interesting? Leave your email and our team will get back to you.
+          </div>
+          <div class="modal-body">
+            <form action="" class="form-group">
+              <input type="text" class="form-group-item">
+              <input type="submit" name="submit" >
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- //index-block1 -->
 
