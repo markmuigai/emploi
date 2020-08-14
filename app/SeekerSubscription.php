@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Jobs\EmailJob;
 
 class SeekerSubscription extends Model
 {
@@ -18,8 +19,28 @@ class SeekerSubscription extends Model
         {
            $user->status = 'active';
            $user->ending = now()->addYear();
-           return $user->save();
-        }     
-        return false;
-    }
+           $user->save();
+
+                    $caption = "Job Seeker Golden Club subscriptions activated on Emploi";
+                    $contents = "You have successfully subscribed to the Golden Club which enables you to be placed for part time jobs from top employers, this will remain active for a period of one year. <br>
+                      You will be eligible to the following benefits: <br>
+                      <ul>
+                          <li>Guaranteed placement on an on-demand basis to more than one company.</li>
+                          <li>Access to profession-based training and development opportunities.</li>
+                          <li>Increased chances for eventual permanent employment.</li>
+                          <li>Guaranteed income after successful placement.</li>
+                          <li>Great networking opportunities with top employers.</li>
+                      </ul>
+
+                    <p>If you require further information on your subscription, <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    We wish you the very best. 
+
+                    <br>";
+                    EmailJob::dispatch( $user->name, $user->email, 'Golden Club activated', $caption, $contents);
+        }
+            
+    }     
+     
 }
+

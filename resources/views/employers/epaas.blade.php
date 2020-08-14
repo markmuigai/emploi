@@ -38,10 +38,15 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- index-block1 -->
 <section>
 <div class="w3l-index-block1">
-  <div class="content py-5">
-    <div class="container">
-      <div class="row align-items-center py-md-5 py-5">
+  <div class="content py-5">   
+    <div class="container"> 
+      <div class="row align-items-center py-md-5 py-5"> 
         <div class="col-md-5 content-left pt-md-0 pt-5">
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+            {{ session()->get('success') }}
+            </div>
+        @endif
 
           <h3 class="mt-3 mb-md-5 mb-4 h1">Request Part-timer.</h3>
           <p class="mt-3 mb-md-5 mb-4">Sign up for membership now and subscribe to a pool of part time talent.</p>
@@ -115,13 +120,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             </button>
           </div>
           <div class="modal-header h4">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Find This Interesting? Leave your email and our team will get back to you.</h5>
+            <h5 class="modal-title" id="exampleModalCenterTitle">Are you interested in hiring part time professional? Leave your phone number and our team will get back to you.</h5>
             
           </div>
           <div class="modal-body">
-            <form method="POST"  enctype="multipart/form-data" action="#">
+            <form method="POST"  enctype="multipart/form-data" action="/employers/paas">
+              @csrf
               <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="enter email">
+                <input type="number" class="form-control" name="phone" placeholder="phone number">
               </div>
               <div class="modal-footer">
                 <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Send">
