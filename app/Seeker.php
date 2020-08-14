@@ -809,7 +809,7 @@ class Seeker extends Model
                     ->get();        
 
          $blogs = Blog::All()
-                       ->random(4);
+                       ->random(3);
          $featuredVacancies = $featured; 
            
         {
@@ -839,8 +839,8 @@ class Seeker extends Model
                   }   
                 
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
-                $contents .=  "<p style= 'background:orange; color:white; text-align:center'>Do You Want Your Profile to be Seen by Employers Easily?</p>
-                                   <p>Get Spotlight Package Today. Click <a href='".url('/checkout?product=spotlight')."'> here</a> to request </p>
+                $contents .=  "<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING HIRED</p>
+                                   <p>Click <a href='https://bit.ly/3fqEkrD'> here</a> to have your CV done to perfection at no cost at all.</p>
                                 <br><br>";
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
