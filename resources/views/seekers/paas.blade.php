@@ -33,7 +33,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
 <style>
   #bghead{
-    background: url(/images/soft.jpg); 
+    background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/soft.jpg); 
     /* background: url(/images/bgPaas.png);  */
 
     background-size: cover;
@@ -327,7 +327,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
  </div>
 
 
-   <div style="width: 100%">
+   <div class="container">
         <a href="/job-seekers/register-paas">
             <img style="width: 100%" src="/images/rpaas.png" alt="join Golden Club"> 
         </a>    
