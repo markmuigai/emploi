@@ -92,7 +92,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                           <option value="Sales">Sales</option>
                           <option value="Administration and Operations">Administration and Operations</option>
                           <option value="Data Entry">Data Entry</option>
-                          <option value="Any">Any</option>                
+                          <option value="Other">Other</option>                
                         </select>
                     </div>
           

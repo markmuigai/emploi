@@ -70,7 +70,7 @@ Get Hired as a Professional by joining the Golden Club..
                     <li>Top quality performance: KPI & performance appraisal framework.</li><br>
                     <li>Access to profession-based training and development opportunities.</li><br>
                     <li>Increased chances for eventual permanent employment.</li><br>
-                    <li>Guaranteed income after a successful placement.</li><br>
+                    <li>Guaranteed income after successful placement.</li><br>
                     <li>Great networking opportunities with top employers.</li>
                   </ul>
                 </div>
