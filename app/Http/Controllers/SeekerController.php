@@ -25,6 +25,7 @@ use App\UserPermission;
 use App\SeekerSubscription;
 use App\Invoice;
 use App\Notifications\PaasSubscribed;
+use App\Notifications\InvoiceCreated;
 
 class SeekerController extends Controller
 {
@@ -193,6 +194,11 @@ class SeekerController extends Controller
             {
                 $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
                 $invoice->remind('email');
+            }
+
+            {
+            if (app()->environment() === 'production')
+            $invoice->notify(new InvoiceCreated($message));
             }
 
             return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Golden Club membership to enjoy the benefits.');

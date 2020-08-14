@@ -1350,7 +1350,8 @@ class EmployerController extends Controller
             if(isset($es->id))
             {
                 if (app()->environment() === 'production')
-               Notification::send(Employer::first(),new PaasSubscribed('EMPLOYERS PAAS SUBSCRIPTION: '.$es->firstname.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for paas.'));
+               $invoice->notify(new InvoiceCreated($message));
+               Notification::send(Employer::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->firstname.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for paas.'));
 
             }
 
