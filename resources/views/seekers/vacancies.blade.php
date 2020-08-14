@@ -218,14 +218,4 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @include('components.featuredEmployers')
 
-<a href="/refer">
-    @if($agent->isMobile())
-        <img src="/images/friends_refer_thin-flat.png" style="width: 100%" alt="Refer your Friends for Rewards">
-    @else            
-        <img src="/images/friends_refer_lg.png" style="width: 100%" alt="Refer your Friends for Rewards">
-    @endif
-    
-</a>
-
-
 @endsection
