@@ -9,8 +9,8 @@ Get Hired as a Professional by joining the Golden Club..
 @section('content')
 
 
-<div class="row container">
-    <div class="col-md-5 align-right pt-4 pb-4 pl-4">
+<div class="row container mx-auto">
+    <div class="col-md-12 align-right mx-auto pt-4 pb-4">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
               <h5 class="modal-title text-center h4 mx-auto" id="exampleModalLabel">Join Golden Club for Exclusive Jobs.</h5>
@@ -54,33 +54,6 @@ Get Hired as a Professional by joining the Golden Club..
                   </div>
         
                 </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 align-right pt-4 pb-4 pl-4 ml-4">
-        <div class="modal-content bg-light shadow-lg">
-            <div class="modal-header">
-              <h5 class="modal-title text-right h4" id="exampleModalLabel">Why should you join the Golden Club?</h5>
-            </div>
-            <div class="modal-body">
-              <div class="card shadow">
-                <div class="card-text p-1 h5">
-                  <ul>
-                    <li>Top quality performance: KPI & performance appraisal framework.</li><br>
-                    <li>Access to profession-based training and development opportunities.</li><br>
-                    <li>Increased chances for eventual permanent employment.</li><br>
-                    <li>Guaranteed income after successful placement.</li><br>
-                    <li>Great networking opportunities with top employers.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal-body mx-auto">
-              <div class="shadow">
-                <a href="/job-seekers/paas" style="color: white" class="btn btn-orange">Read More</a>
-              </div>
             </div>
         </div>
     </div>
