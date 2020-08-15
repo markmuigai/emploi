@@ -9,7 +9,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('content')
 @section('page_title', 'Profile')
 
-@include('components.ads.responsive')
+<!-- @include('components.ads.responsive') -->
 
 @if($user->role == 'seeker')
 <div class="row align-items-center">
