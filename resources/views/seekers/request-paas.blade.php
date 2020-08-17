@@ -10,7 +10,7 @@ Get Hired as a Professional by joining the Golden Club..
 
 
 <div class="row container mx-auto">
-    <div class="col-md-12 align-right mx-auto pt-4 pb-4">
+    <div class="col-md-8 align-right mx-auto pt-4 pb-4">
         <div class="modal-content shadow-lg">
             <div class="modal-header">
               <h5 class="modal-title text-center h4 mx-auto" id="exampleModalLabel">Join Golden Club for Exclusive Jobs.</h5>
