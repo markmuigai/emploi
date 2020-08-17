@@ -30,7 +30,7 @@
                     </ul>
                 </div>
                 <div class="col-md-5">
-                         <h4>{{ __('other.find_us') }}</h4>
+                         <h4 style="text-align: center">{{ __('other.find_us') }}</h4>
                     <div class="row align-items-center">
                         <div class="col-1">
                             <i class="fas fa-map-marker-alt"></i>
