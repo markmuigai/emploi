@@ -20,24 +20,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <p class="mt-3 mb-md-5 mb-4">Advertise & shortlist your job here and take advantage of our superior shortlisting tools.</p>
 
 
-            @guest
                 <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
                 <a href="/employers/register?redirectToUrl={{ url('/employers/publish') }}" class="btn btn-outline-primary mr-2 btn-demo">  Create Account</a>
-            @else
-
-              @if(Auth::user()->role == 'employer')
-
-                  <a href="/vacancies/create" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
-                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"> <i class="fa fa-phone"></i> Call Us </a>
-
-              @else
-
-                  <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
-                  <a href="tel:+254702068282" class="btn btn-outline-primary mr-2 btn-demo"><i class="fa fa-phone"></i> Call Us </a>
-
-              @endif
-
-            @endif
+            
               
           
         </div>

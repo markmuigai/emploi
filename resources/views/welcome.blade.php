@@ -29,11 +29,18 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     }
 
     #cards{
-        background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/connect.jpg); 
+        background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/black.jpg); 
         background-size: cover;
         background-position: center;
         min-height: 300px;
         color: white;
+
+    }
+
+    .btn2{
+        background-color: #500095;
+        color: white;
+        outline: 0;
 
     }
 
@@ -396,8 +403,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               <p class="card-text">PAAS is a service that seeks to provide qualified part-time professionals on demand 
                   to handle specific tasks at affordable rates and at a cost effective plan.</p>
             </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-white">Visit Page</a>
+            <div class="card-footer d-flex">
+                <a href="/job-seekers/paas" class="btn mr-2 btn2">Golden Club</a>
+                <a href="/employers/e-club" class="btn btn2">E-Club</a>
             </div>
           </div>
         </div>
@@ -409,7 +417,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 where you will thrive not just survive</p>
             </div>
             <div class="card-footer">
-                <a href="#" class="btn btn-white">Visit Page</a>
+                <a href="/job-seekers/summit" class="btn btn2">Visit Page</a>
             </div>
           </div>
         </div>
@@ -417,12 +425,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <div class="col-md-6">
             <div class="card shadow" id="cards" style="min-height: 300px;">
               <div class="card-body">
-                <h5 class="card-title pb-2">Career Summit</h5>
+                <h5 class="card-title pb-2">Spotlight</h5>
                 <p class="card-text">This package provides Job-seekers with Coaching and support that gets you a job
                   where you will thrive not just survive</p>
               </div>
               <div class="card-footer">
-                  <a href="#" class="btn btn-white">Visit Page</a>
+                  <a href="/job-seekers/services" class="btn btn2">Visit Page</a>
               </div>
             </div>
           </div>
@@ -430,12 +438,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
           <div class="col-md-6">
             <div class="card shadow" id="cards" style="min-height: 300px;">
               <div class="card-body">
-                <h5 class="card-title pb-2">Career Summit</h5>
+                <h5 class="card-title pb-2">Pro Package</h5>
                 <p class="card-text">This package provides Job-seekers with Coaching and support that gets you a job
                   where you will thrive not just survive</p>
               </div>
               <div class="card-footer">
-                  <a href="#" class="btn btn-white">Visit Page</a>
+                  <a href="/job-seekers/services" class="btn btn2">Visit Page</a>
               </div>
             </div>
           </div>
