@@ -10,8 +10,8 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
 
 <div class="row">
-    <div class="col-md-12 mx-auto">
-        <div class="modal-content shadow-lg">
+    <div class="col-md-7 mx-auto">
+        <div class="modal-content mt-4 pb-2 shadow-lg">
             <div class="modal-header">
               <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Request for Part-Timer</h5>
             </div>
