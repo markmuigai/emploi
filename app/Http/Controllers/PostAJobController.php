@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class PostAJobController extends Controller
 {
     public function postJob(){
-    	return view('employers.postJob.index');
+        return view('employers.postJob.index');
+        // return view('employers.postJob.index2');
     }
 
     public function advertise(Request $request, $industry_name = false){

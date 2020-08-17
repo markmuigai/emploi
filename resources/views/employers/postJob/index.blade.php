@@ -229,7 +229,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                         @csrf
                                         <input type="hidden" name="product" value="solo">
                                         <p>
-                                            <input type="submit" name="" value="Get Started" class="btn btn-orange-alt" style="background-color: #FF5E00; color: white;">
+                                            <input type="submit" name="" value="Get Started" class="btn" style="background-color: #E15419; color: white;">
                                         </p>
                                     </form>
                                 </div>
@@ -248,7 +248,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                         @csrf
                                         <input type="hidden" name="product" value="solo_plus">
                                         <p>
-                                            <input type="submit" name="" value="Get Started" class="btn btn-orange-alt" style="background-color: #FF5E00; color: white;">
+                                            <input type="submit" name="" value="Get Started" class="btn" style="background-color: #E15419; color: white;">
                                         </p>
                                       </form>
                                 </div>
@@ -270,7 +270,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                           @csrf
                                           <input type="hidden" name="product" value="stawi">
                                           <p>
-                                              <input type="submit" name="" value="Get Started" class="btn btn-orange-alt" style="background-color: #FF5E00; color: white;">
+                                              <input type="submit" name="" value="Get Started" class="btn" style="background-color: #E15419; color: white;">
                                           </p>
                                       </form>
                               </div>
@@ -290,7 +290,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                         @csrf
                                         <input type="hidden" name="product" value="infinity">
                                         <p>
-                                            <input type="submit" name="" value="Get Started" class="btn btn-orange-alt" style="background-color: #FF5E00; color: white;">
+                                            <input type="submit" name="" value="Get Started" class="btn" style="background-color: #E15419; color: white;">
                                         </p>
                                       </form>
                                 </div>
