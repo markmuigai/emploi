@@ -70,7 +70,7 @@ footer ul.footer-menu{list-style:none;padding-left:0}
 footer p{margin-bottom:0}
 footer i{font-size:1.2rem}
 .social a i{font-size:1.5rem}
-.social-icons{height:70%;padding-left:2rem;display:flex;flex-direction:column;justify-content:space-between}
+.social-icons{height:50%;padding-left:2rem;display:flex;justify-content:space-between}
 .sign-copy{position:absolute;width:100%;bottom:0;text-align:center}
 #socialModal .fab{font-size:2rem}
 button.close{position:absolute;right:-1.9rem;top:-1.9rem;background-color:var(--primary);opacity:1;color:#fff;border-radius:50%;padding:.5rem .7rem;font-size:1.3rem}

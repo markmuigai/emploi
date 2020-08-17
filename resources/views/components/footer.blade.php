@@ -3,15 +3,15 @@
     <div class="container">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                        <h4>{{ __('other.menu') }}</h4>
                     <ul class="footer-menu">
                         <li><a href="/about">About Us</a></li>
-                        <li><a href="/events">Events</a></li>
+                    <!--     <li><a href="/events">Events</a></li>
                         <li><a href="/blog">{{ __('blog.c_centre') }}</a></li>
                         <li><a href="/join">{{ __('auth.register') }}</a></li>
                         <li><a href="/employers/publish">Advertise</a></li>
-                        <li><a href="/vacancies">Vacancies</a></li>
+                        <li><a href="/vacancies">Vacancies</a></li> -->
                         <li><a href="/contact">Contact Us</a></li>
                         <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
                         <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                          <h4>{{ __('other.find_us') }}</h4>
                     <div class="row align-items-center">
                         <div class="col-1">
@@ -42,30 +42,35 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-envelope"></i>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row align-items-center">
+                                <div class="col-1">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="col-10">
+                                    <a href="tel:+254702068282">0702 068 282</a>
+                                    <br>
+                                    <a href="tel:+254774569001">0774 569 001</a>
+                                    <br>
+                                    <a href="tel:+254772795017">0772 795 017</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-10">
-                            <a href="mailto:info@emploi.co">info@emploi.co</a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="col-10">
-                            <a href="tel:+254702068282">0702 068 282</a>
-                            <br>
-                            <a href="tel:+254774569001">0774 569 001</a>
-                            <br>
-                            <a href="tel:+254772795017">0772 795 017</a>
-                        </div>
+                        <div class="col-md-6">
+                            <div class="row align-items-center"><br><br><br>
+                                <div class="col-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="col-10">
+                                    <a href="mailto:info@emploi.co">info@emploi.co</a>
+                                </div>
+                            </div>
+                        </div>                
                     </div>
                 </div>
                 <div class="col-md-4">
-                         <h4>{{ __('other.social') }}</h4>
+                         <h4 style="text-align: center">{{ __('other.social') }}</h4>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/emploi.co/" target="_blank" rel="noreferrer">
                             <span style="display: none">Follow us on Facebook</span>
