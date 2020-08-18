@@ -183,7 +183,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         <div class="s-block p-2">
           <div class="d-flex">
             <img src="/images/zip/s1.png" alt="" class="img-fluid" />
-            <h3 class="my-3 pl-4">Effective</h3>
+            <h3 class="my-3 pl-4">Possibility</h3>
           </div>
             <p class="">Increased chances for eventual permanent employment.</p>
         </div>
