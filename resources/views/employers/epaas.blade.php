@@ -211,10 +211,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   
   </section>
 
-  <section class="pt-5">
-    <div style="width: 100%">
+  <section class="pt-5 container">
+    <div style="">
       <a href="/employers/e-club">
-          <img style="width: 100%" src="/images/eclub4.png" alt="join eClub"> 
+          <img style="width: 100%" src="/images/epaas.jpg" alt="join eClub"> 
+
       </a>    
   </div>
   </section>
@@ -324,6 +325,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
          </div>
        </div>
        <div>
+
+        
+    <div class="col-md-12 d-flex justify-content-center pt-5">
+      <a href="#exampleModal" style="background-color: #E15419; color: white;" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>        
+
+    </div>
          <!-- features15 block -->
        </div>
      </div>
@@ -331,6 +338,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
  </div>
 
  </section>
+
 
  
 <!-- PaaS Benefits -->

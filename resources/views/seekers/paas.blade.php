@@ -327,10 +327,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
  </div>
 
 
-   <div class="container">
+   <div class="container"> 
         <a href="/job-seekers/register-paas">
-            <img style="width: 100%" src="/images/rpaas.png" alt="join Golden Club"> 
-        </a>    
+          <img style="width: 100%" src="/images/jpaas.jpg" alt="join Golden Club"> 
+      </a> 
     </div>
 
 
