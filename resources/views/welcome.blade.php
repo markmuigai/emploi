@@ -29,7 +29,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     }
 
     #cards{
-        background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/black.jpg); 
+        background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/black.jpg); 
         background-size: cover;
         background-position: center;
         min-height: 300px;
@@ -391,7 +391,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             @endif
         </div>        
     </div>
-</div>
+</div><br>
 
 <!-- GET STARTED -->
 <section class="container-fluid container">
@@ -403,21 +403,24 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               <p class="card-text">PAAS is a service that seeks to provide qualified part-time professionals on demand 
                   to handle specific tasks at affordable rates and at a cost effective plan.</p>
             </div>
-            <div class="card-footer d-flex">
-                <a href="/job-seekers/paas" class="btn mr-2 btn2">Golden Club</a>
-                <a href="/employers/e-club" class="btn btn2">E-Club</a>
-            </div>
+                 <p>
+                    Job-Seekers <a href="/job-seekers/paas" class="btn btn-orange">Golden Club</a>
+
+                </p>
+                <p>
+                    Employers <a  href="/employers/e-club" class="btn btn-orange">E-Club</a>                                                                   
+                </p>          
           </div>
         </div>
         <div class="col-md-6">
           <div class="card shadow" id="cards" style="min-height: 300px;">
             <div class="card-body">
               <h5 class="card-title pb-2">Career Summit</h5>
-              <p class="card-text">This package provides Job-seekers with Coaching and support that gets you a job
-                where you will thrive not just survive</p>
+              <p class="card-text">This package provides job-seekers with coaching and support that gets you a job
+                where you will thrive not just survive.</p>
             </div>
             <div class="card-footer">
-                <a href="/job-seekers/summit" class="btn btn2">Visit Page</a>
+                <a href="/job-seekers/summit" class="btn btn-orange">Visit Page</a>
             </div>
           </div>
         </div>
@@ -426,11 +429,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="card shadow" id="cards" style="min-height: 300px;">
               <div class="card-body">
                 <h5 class="card-title pb-2">Spotlight</h5>
-                <p class="card-text">This package provides Job-seekers with Coaching and support that gets you a job
-                  where you will thrive not just survive</p>
+                <p class="card-text">This package enables a job-seeker to to be on top rank in all search lists.</p>
               </div>
               <div class="card-footer">
-                  <a href="/job-seekers/services" class="btn btn2">Visit Page</a>
+                  <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
               </div>
             </div>
           </div>
@@ -439,11 +441,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="card shadow" id="cards" style="min-height: 300px;">
               <div class="card-body">
                 <h5 class="card-title pb-2">Pro Package</h5>
-                <p class="card-text">This package provides Job-seekers with Coaching and support that gets you a job
-                  where you will thrive not just survive</p>
+                <p class="card-text">This package provides job-seekers with notification updates.</p>
               </div>
               <div class="card-footer">
-                  <a href="/job-seekers/services" class="btn btn2">Visit Page</a>
+                  <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
               </div>
             </div>
           </div>
