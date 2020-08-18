@@ -20,7 +20,13 @@
                             {{ $a->user->seeker->location->country->name }}</p>
                         @endif
                     </div>
-                    <div class="col-12 col-md-4 col-lg-4 pt-md-2 text-md-center">
+                    <div class="col-12 col-md-8 col-lg-8 ">
+                         <?php $completed =  $a->user->seeker->calculateProfileCompletion(); ?>
+                                <p>Profile; <strong>{{ $completed }}%</strong> complete</p>
+                                <div class="progress" style="height: 5px">
+                                    <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width:{{ $completed }}%">
+                                    </div>
+                                </div><br>
                         <h5>
                             RSI 
                             <?php
