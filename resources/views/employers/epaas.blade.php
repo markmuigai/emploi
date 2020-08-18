@@ -328,7 +328,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
         
     <div class="col-md-12 d-flex justify-content-center pt-5">
-      <a href="#exampleModal" style="background-color: #E15419; color: white;" class="btn btn-theme" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>        
+      <a href="#exampleModal" style="background-color: #E15419; color: white;" class="btn btn-theme mr-4" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Join E-Club <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span></a>        
+      <a href="/employers/e-club" style="background-color: #500095; color:white;" class="btn btn-theme">Visit E-Club Page</a>
 
     </div>
          <!-- features15 block -->
