@@ -12,6 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <?php
 $user = Auth::user();
 ?>
+@if($user->seeker->featured > 0)
 <a href="/job-seekers/paas" class="btn btn-orange">Apply for part time jobs</a>
 <h4 align="center">Profile Performance Summary</h4>
 <div class="card-deck">
@@ -46,12 +47,11 @@ $user = Auth::user();
         </div>
     </div>
 </div>
-@if($user->seeker->featured == 0)
-<h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Buy spotlight plan today to increase your profile visibity</a></h5>
+<h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan to win one month free</a></h5>
+
+<!-- <h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Buy spotlight plan today to increase your profile visibility</a></h5> -->
  @endif
- @if($user->seeker->featured == 1 && $user->seeker->view_count > 5)
- <h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Renew your spotlight plan with annual subscription on a free one month discount</a></h5>
- @endif 
+
 <br><br><h4>Recent Blogs</h4>
 <div class="row">
 	<div class="col-md-12">
