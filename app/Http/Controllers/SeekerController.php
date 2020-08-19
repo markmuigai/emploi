@@ -131,7 +131,7 @@ class SeekerController extends Controller
         $created = false;
 
         if(isset($user->id) && $user->userpermission->permission_id == 3){
-           return \Redirect::route('eclub')->with('fail','We noted you are registered as an employer. Kindly join E-Club for Employers or register with a different email as a Jobseeker !');
+           return \Redirect::route('eclub')->with('fail','We noted you are registered as an employer. Kindly join E-Club for employers.');
         }
         if(isset($user->id) && $user->userpermission->permission_id == 2){
             die("Product is only for Employers and Jobseekers");
