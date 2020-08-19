@@ -381,7 +381,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     
 @include('components.featuredEmployers')
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
             @if($agent->isMobile())
@@ -391,7 +391,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             @endif
         </div>        
     </div>
-</div><br>
+</div><br> -->
 
 <!-- GET STARTED -->
 <section class="container-fluid container" style="display: none;">
