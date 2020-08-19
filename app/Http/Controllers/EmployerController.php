@@ -1400,7 +1400,14 @@ class EmployerController extends Controller
 
         $user = User::where('email',$request->email)->first();
         $created = false;
-        if(!isset($user->id))
+
+        if(isset($user->id) && $user->userpermission->permission_id == 4){
+           abort(403);
+        }
+        if(isset($user->id) && $user->userpermission->permission_id == 2){
+            die("This Product is only for Employers and Jobseekers");
+        }
+                if(!isset($user->id))
         {
             $username = explode(" ", strtolower($request->name));
             $username = implode("-", $username).rand(1000,30000);

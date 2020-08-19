@@ -380,6 +380,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
        
     
 @include('components.featuredEmployers')
+<br>
 
 <section class="container-fluid container" style="display: none;">
     <div class="row">
