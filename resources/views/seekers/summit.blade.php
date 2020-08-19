@@ -22,6 +22,123 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         height: 650px;
         overflow-y: auto;
     }
+
+     
+
+    .pricing .card {
+      border: none;
+      border-radius: 1rem;
+      transition: all 0.2s;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing hr {
+      margin: 1.5rem 0;
+    }
+
+    .pricing .card-title {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      letter-spacing: .1rem;
+      font-weight: bold;
+    }
+
+    .pricing .card-price {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .pricing .card-price .period {
+      font-size: 0.8rem;
+    }
+
+    .pricing ul li {
+      margin-bottom: 1rem;
+    }
+
+    .pricing .text-muted {
+      opacity: 0.7;
+    }
+
+    .pricing .btn {
+      font-size: 80%;
+      border-radius: 5rem;
+      letter-spacing: .1rem;
+      font-weight: bold;
+      padding: 1rem;
+      opacity: 0.7;
+      transition: all 0.2s;
+    }
+
+    /* Hover Effects on Card */
+
+    @media (min-width: 992px) {
+      .pricing .card:hover {
+        margin-top: -.25rem;
+        margin-bottom: .25rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+      }
+      .pricing .card:hover .btn {
+        opacity: 1;
+      }
+  }
+
+
+  .ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .ribbon::before,
+  .ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 5px solid #2980b9;
+  }
+
+  .ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: #E87341; 
+    /* #3498DB */
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    color: #fff;
+    font: 700 18px/1 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* top right*/
+.ribbon-top-right {
+  top: -10px;
+  right: -10px;
+}
+.ribbon-top-right::before,
+.ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbon-top-right::before {
+  top: 0;
+  left: 0;
+}
+.ribbon-top-right::after {
+  bottom: 0;
+  right: 0;
+}
+.ribbon-top-right span {
+  left: -25px;
+  top: 30px;
+  transform: rotate(45deg);
+}
+
 </style>
 <div class="container">
     <div class="text content-left summit-header"><br><br><br>
@@ -30,7 +147,79 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
              <p>Coaching and support that gets you a job<br>where you will thrive not just survive.</p>
         </div>          
     </div><br>
-  
+
+
+    <section class="pricing py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Free Tier -->
+          <div class="col-lg-4">
+            <div class="card mb-5 mb-lg-0">
+              <div class="card-body">
+                <div class="ribbon ribbon-top-right ml-2"><span>50% Off</span></div><br><br>
+                <h5 class="card-title text-muted text-uppercase text-center">Professional CV Editing</h5>
+                <h6 class="card-price text-center">$0<span class="period">/month</span></h6>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited Private Projects</li>
+                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
+                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain</li>
+                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li><br><br><br>
+                </ul>
+                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal1">Button</a>
+              </div>
+            </div>
+          </div>
+          <!-- Plus Tier -->
+          <div class="col-lg-4">
+            <div class="card mb-5 mb-lg-0">
+              <div class="card-body"><br><br>
+                <h5 class="card-title text-muted text-uppercase text-center">Exclusive Placement</h5>
+                <h6 class="card-price text-center bg-light">$9<span class="period">/month</span></h6>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Users</strong></li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Free Subdomain</li>
+                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li><br><br><br>
+                </ul>
+                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal2">GET STARTED</a>
+              </div>
+            </div>
+          </div>
+          <!-- Pro Tier -->
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body"><br><br>
+                <h5 class="card-title text-muted text-uppercase text-center">Interview Coaching</h5>
+                <h6 class="card-price text-center">$49<span class="period">/month</span></h6>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited Users</strong></li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>150GB Storage</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited</strong> Free Subdomains</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li><br><br><br>
+                </ul>
+                <a href="/contact" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
  <div class="row">
     <div class="col-md-4">
@@ -46,7 +235,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                   </p><br>
               </div>
               <div class="card-footer">            
-                  <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal1">SELECT</button>
+                  <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal1">Get Started</button>
               </div>
           </div>   
 
