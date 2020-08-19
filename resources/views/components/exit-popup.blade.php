@@ -69,122 +69,95 @@
 	    </div>
 	</div>
 </div>
-
-<div class="modal fade" id="seekerPackages" role="dialog"  aria-hidden="true">	
-	<div class="modal-dialog modal-dialog-centered" role="document">
-	    <!-- Modal content-->
-		<div class="modal-content px-3 pt-3">
-			<div class="modal-body">
-				<div class="modal-header">					
-					<h5 class="orange" style="text-align: center">
-						Get Noticed by Employers and Never Miss A Job Update!
-					</h5>
-			
-				</div>
-				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerPackages">
+    <div class="modal fade" id="seekerService" role="dialog" aria-labelledby="seekerService" aria-hidden="true" >	
+		<div class="modal-dialog modal-dialog-centered" role="document" >
+		    
+			<div class="modal-content col-md-12" >
+				<div class="modal-body" >
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerService">
 	                <i class="fas fa-times" aria-hidden="true"></i>
-	              </button>
-				<div class="modal-body">
-					<div class="card-deck">
-	                    <div class="card">
-	                        <div class="card-body">
-	                            <h5 class="card-title">Pro</h5>
-	                            <p class="card-text">
-                                	<ul class="tick">
-                                		<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
-                                	</ul>    
-	                            </p>
-	                        </div>
-	                        <div class="card-footer">
-	                            <a href="/checkout?product=pro" class="btn btn-orange">Get - Ksh 49 p.m.</a>
-	                        </div>
-	                    </div>
-	                    <div class="card">
-	                        <div class="card-body">
-	                            <h5 class="card-title">Spotlight</h5>
-	                            <p class="card-text">
-	                            		<ul class="tick">            
-									    <li>Have your profile rank first in applications and searches.</li>
-										<li>Get real-time analytics.</li>
-										<li>Get notifications when an employer shortlists you or when your profile is viewed.</li>
-									</ul>
-	                            </p>
-	                        </div>
-	                        <div class="card-footer">
-	                            <small class="text-muted">
-	                                <a href="/checkout?product=spotlight" class="btn btn-orange">Get - Ksh 159 p.m.</a>
-	                            </small>
-	                        </div>
-	                    </div>
+	              </button>			
+					<div class="row">
+						<div class="col-md-6">	                    
+		                    <div class="card">
+		                            <h5 style="margin-left: 20%">Pro</h5>
+		                            <ul>
+		                            	<li>Get real-time notifications when you are shortlisted and when your profile is viewed. </li>                 
+		                            </ul>
+		                        <!--     <ul class="tick">
+		                            	 <li>Activate at KES 49 per monthly subscription or KES 539 per annual subscription at a one-month discount.</li>
+		                            </ul> -->
+		                                              
+		                        <div class="card-footer">
+		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 539<br>(one month discount of KES 49)</b></a>
+		                        </div>
+		                    </div>
+                        </div>
+                    
+	                   <div class="col-md-6">
+		                   	<div class="card">
+		                            <h5 style="margin-left: 20%">Spotlight</h5>
+		                            <ul>
+		                            	<li>All PRO benefits in addition to appearing first in all search lists.	</li>
+		                            </ul><br><br>		                                                
+		                        <div class="card-footer">
+		                            <small class="text-muted">
+		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b> </a>
+		                            </small>
+		                        </div>
+		                    </div>
+	                    </div> 
+			        </div>              
 
-	                </div>
-	                <div style="text-align: center;">
-	                	<br>
-	                	<a href="{{ url('/job-seekers/summit') }}" class="btn btn-sm btn-orange-alt">Get Professional CV Editing</span></a> OR  <a class="btn btn-orange-alt" href="/job-seekers/free-cv-review">Free CV Review</a>
-	                </div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+    </div>
 
-<!-- <div class="modal fade" id="seekerServices" role="dialog" aria-labelledby="seekerService" aria-hidden="true">	
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		   
-			<div class="modal-content px-3 pt-3">
-				<div class="modal-body">
-				<div class="modal-header">					
-					<h5 class="orange" style="text-align: center">
-						Get Noticed by Employers and Never Miss A Job Update!
-					</h5>
-			
-				</div>
-				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerServices">
+    <div class="modal fade" id="seekerService" role="dialog" aria-labelledby="seekerService" aria-hidden="true" >	
+		<div class="modal-dialog modal-dialog-centered" role="document" >
+		    
+			<div class="modal-content col-md-12" >
+				<div class="modal-body" >
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerService">
 	                <i class="fas fa-times" aria-hidden="true"></i>
-	              </button>
-				<div class="modal-body">
-					<div class="card-deck">
-	                    <div class="card">
-	                        <div class="card-body">
-	                            <h5 class="card-title">Pro</h5>
-	                            <p class="card-text">
-	                            <ul class="tick"> 
-	                            	<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
-	                            </ul>
-	                            </p>
-	                        </div>
-	                        <div class="card-footer">
-	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Buy - Ksh 49 p.m.</a>
-	                        </div>
-	                    </div>
-	                    <div class="card">
-	                        <div class="card-body">
-	                            <h5 class="card-title">Spotlight</h5>
-	                            <p class="card-text">
-									<ul class="tick">            
-										<li>Have your profile rank first in applications and searches.</li>
-										<li>Get real-time analytics.</li>
-										<li>Get notifications when an employer shortlists you or when your profile is viewed.</li>
-									</ul> 
-	                            </p>
-	                        </div>
-	                        <div class="card-footer">
-	                            <small class="text-muted">
-	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Buy - Ksh 159 p.m.</a>
-	                            </small>
-	                        </div>
-	                    </div>
+	              </button>			
+					<div class="row">
+						<div class="col-md-6">	                    
+		                    <div class="card">
+		                            <h5 style="margin-left: 20%">Pro</h5>
+		                            <ul>
+		                            	<li>Get real-time notifications when you are shortlisted and when your profile is viewed. </li>                 
+		                            </ul>
+		                        <!--     <ul class="tick">
+		                            	 <li>Activate at KES 49 per monthly subscription or KES 539 per annual subscription at a one-month discount.</li>
+		                            </ul> -->
+		                                              
+		                        <div class="card-footer">
+		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 539<br>(one month discount of KES 49)</b></a>
+		                        </div>
+		                    </div>
+                        </div>
+                    
+	                   <div class="col-md-6">
+		                   	<div class="card">
+		                            <h5 style="margin-left: 20%">Spotlight</h5>
+		                            <ul>
+		                            	<li>All PRO benefits in addition to appearing first in all search lists.	</li>
+		                            </ul><br><br>		                                                
+		                        <div class="card-footer">
+		                            <small class="text-muted">
+		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b> </a>
+		                            </small>
+		                        </div>
+		                    </div>
+	                    </div> 
+			        </div>              
 
-	                </div>
-	                <div style="text-align: center;">
-	                	<br>
-	                	<a href="{{ url('/job-seekers/summit') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
-	                </div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div> -->
+    </div>
 
 
 <div class="modal fade" id="employerServices" role="dialog" aria-labelledby="employerService" aria-hidden="true">	
@@ -225,63 +198,50 @@
 	</div>
 </div>
 
-<!-- <div class="modal fade" id="seekerService" role="dialog" aria-labelledby="seekerService" aria-hidden="true">	
-		<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="seekerService" role="dialog" aria-labelledby="seekerService" aria-hidden="true" >	
+		<div class="modal-dialog modal-dialog-centered" role="document" >
 		    
-			<div class="modal-content px-3 pt-3">
-				<div class="modal-body">
-				<div class="modal-header">					
-					<h5 class="orange" style="text-align: center">
-						Get Noticed by Employers and Never Miss A Job Update!
-					</h5>
-			
-				</div>
+			<div class="modal-content col-md-12" >
+				<div class="modal-body" >
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerService">
 	                <i class="fas fa-times" aria-hidden="true"></i>
-	              </button>
-				<div class="modal-body">
-					<div class="card-deck">
-	                    <div class="card">
-	                        <div class="card-body">
-	                            <h5 class="card-title">Pro</h5>
-	                            <p class="card-text">
-	                            <ul class="tick"> 
-	                            	<li>Get notifications when an employer shortlists you or when your profile is viewed by a shortlisting recruiter</li>
-	                            </ul>
-	                            </p>
-	                        </div>
-	                        <div class="card-footer">
-	                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange-alt">Buy - Ksh 49 p.m.</a>
-	                        </div>
-	                    </div>
-	                    <div class="card">
-	                        <div class="card-body">
-	                            <h5 class="card-title">Spotlight</h5>
-	                            <p class="card-text">
-									<ul class="tick">            
-										<li>Have your profile rank first in applications and searches.</li>
-										<li>Get real-time analytics.</li>
-										<li>Get notifications when an employer shortlists you or when your profile is viewed.</li>
-									</ul> 
-	                            </p>
-	                        </div>
-	                        <div class="card-footer">
-	                            <small class="text-muted">
-	                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange-alt">Buy - Ksh 159 p.m.</a>
-	                            </small>
-	                        </div>
-	                    </div>
+	              </button>			
+					<div class="row">
+						<div class="col-md-6">	                    
+		                    <div class="card">
+		                            <h5 style="margin-left: 20%">Pro</h5>
+		                            <ul>
+		                            	<li>Get real-time notifications when you are shortlisted and when your profile is viewed. </li>                 
+		                            </ul>
+		                        <!--     <ul class="tick">
+		                            	 <li>Activate at KES 49 per monthly subscription or KES 539 per annual subscription at a one-month discount.</li>
+		                            </ul> -->
+		                                              
+		                        <div class="card-footer">
+		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 539<br>(one month discount of KES 49)</b></a>
+		                        </div>
+		                    </div>
+                        </div>
+                    
+	                   <div class="col-md-6">
+		                   	<div class="card">
+		                            <h5 style="margin-left: 20%">Spotlight</h5>
+		                            <ul>
+		                            	<li>All PRO benefits in addition to appearing first in all search lists.	</li>
+		                            </ul><br><br>		                                                
+		                        <div class="card-footer">
+		                            <small class="text-muted">
+		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b> </a>
+		                            </small>
+		                        </div>
+		                    </div>
+	                    </div> 
+			        </div>              
 
-	                </div>
-	                <div style="text-align: center;">
-	                	<br>
-	                	<a href="{{ url('/job-seekers/summit') }}" target="_blank">Get Professional CV Editing at <span class="blink_text">50% Discount</span></a>
-	                </div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div> -->
+    </div>
 
 
 <div class="modal fade" id="cvEditing" role="dialog" aria-labelledby="cvEditing" aria-hidden="true">	
