@@ -36,7 +36,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       <div class="row pt-1">
         <div class="col-md-12 pb-4">
           <div class="text-center h2">
-            Welcome to E-Club Membership Page
+            Welcome to E-Club
           </div>
         </div>
       </div>

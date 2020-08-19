@@ -4,12 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Jobs\EmailJob;
+use Illuminate\Notifications\Notifiable;
+
 
 class EmployerSubscription extends Model
-{
+{   
+    use Notifiable; 
     protected $fillable = [
         'user_id','name','email','phone_number','ending','status'
     ];
+
+       public function routeNotificationForSlack($notification)
+    {
+        return 'https://hooks.slack.com/services/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';
+    }
+
 
     public static function activateEmployerPaas($email)
     {

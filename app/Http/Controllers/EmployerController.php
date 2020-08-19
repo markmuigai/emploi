@@ -1232,7 +1232,6 @@ class EmployerController extends Controller
 
     public function getPaas(Request $request)
     {   
-
          $request->validate([
             'firstname'   =>  ['required','max:50','string'],
             'lastname'    =>  ['required','max:50','string'],
@@ -1263,6 +1262,7 @@ class EmployerController extends Controller
                 abort(500);
             }
 
+
         // $r = Referral::where('email',$request->email)->first();
 
         // if(!isset($r->id) && Session::has('invite_id'))
@@ -1280,7 +1280,11 @@ class EmployerController extends Controller
 
         // }
 
-
+        if(isset($user->id) && $user->userpermission->permission_id != 3)
+        {
+            abort(403);
+        }
+        else
         
         $emp = Employer::create([
             'user_id' => $user->id,
@@ -1333,31 +1337,35 @@ class EmployerController extends Controller
                 'email' => $user->email
             ]);
 
-                $invoice = Invoice::create([
-                'slug' => Invoice::generateUniqueSlug(11),
-                'first_name' => $request->firstname,
-                'last_name' => $request->lastname,
-                'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
-                'email' => $user->email,
-                'description' => 'Payment for eClub Membership',
-                'sub_total' => 5500.00
-            ]);
-                if(isset($invoice->id))
-            {
-                $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
-                $invoice->remind('email');
-            }
-
-            if(isset($es->id))
-            {
-                if (app()->environment() === 'production'){
-                    $invoice->notify(new InvoiceCreated($message));
-                    Notification::send(Employer::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->first_name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
+            if(isset($es->id)){
+                  if (app()->environment() === 'production')
+                    Notification::send(EmployerSubscription::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
                 }
+            //     $invoice = Invoice::create([
+            //     'slug' => Invoice::generateUniqueSlug(11),
+            //     'first_name' => $request->firstname,
+            //     'last_name' => $request->lastname,
+            //     'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
+            //     'email' => $user->email,
+            //     'description' => 'Payment for eClub Membership',
+            //     'sub_total' => 5500.00
+            // ]);
+            //     if(isset($invoice->id))
+            // {
+            //     $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
+            //     $invoice->remind('email');
+            // }
 
-            }
+            // if(isset($es->id))
+            // {
+            //     if (app()->environment() === 'production'){
+            //         $invoice->notify(new InvoiceCreated($message));
+            //         Notification::send(Employer::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->first_name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
+            //     }
 
-          return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for eClub membership to enjoy the benefits.');
+            // }
+
+            return redirect('/checkout?product=e_club');
         }
     }
 
