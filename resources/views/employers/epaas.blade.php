@@ -119,8 +119,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-header h4">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Are you interested in hiring part time professionals? Leave your phone number and our team will get back to you.</h5>
+          <div class="modal-header h4">Employer PAAS</div>
+          <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalCenterTitle">Are you interested in hiring part time professionals? Leave your phone number and our team will get back to you.</h6>
             
           </div>
           <div class="modal-body">
