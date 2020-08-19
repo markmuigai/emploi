@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
 	Review Checkout
 @else
-	Professional Requisition Checkout
+	Professional Requisition
 @endif
 </h3><br>
 <div class="container">

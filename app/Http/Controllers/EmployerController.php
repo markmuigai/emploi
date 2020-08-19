@@ -1402,7 +1402,7 @@ class EmployerController extends Controller
         $created = false;
 
         if(isset($user->id) && $user->userpermission->permission_id == 4){
-           abort(403);
+           return Redirect::back()->with('msg', 'You need to have an employer account to use this service. <a href="'. url('/employers/register') . '">Register</a> as an employer or   <a href="'. url('/login') . '">Login here</a>.');
         }
         if(isset($user->id) && $user->userpermission->permission_id == 2){
             die("This Product is only for Employers and Jobseekers");
