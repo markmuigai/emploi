@@ -1247,7 +1247,7 @@ class EmployerController extends Controller
            return \Redirect::route('golden')->with('industries',Industry::orderBy('name')->get())->with('fail','We noted you are registered as a Jobseeker. Kindly join Golden club for jobseekers');
         }
         if(isset($user->id) && $user->userpermission->permission_id == 2){
-            die("Product is only for Employers and Jobseekers");
+            die("This Product is only for Employers and Jobseekers");
         }
         
       
