@@ -183,27 +183,28 @@ class SeekerController extends Controller
                 'industry_id' => $request->industry
             ]);
 
-                $invoice = Invoice::create([
-                'slug' => Invoice::generateUniqueSlug(11),
-                'first_name' => $request->firstname,
-                'last_name' => $request->lastname,
-                'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
-                'email' => $user->email,
-                'description' => 'Payment for Golden Club Membership',
-                'sub_total' => 2750.00
-            ]);
-                if(isset($invoice->id))
-            {
-                $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
-                $invoice->remind('email');
-            }
+            //     $invoice = Invoice::create([
+            //     'slug' => Invoice::generateUniqueSlug(11),
+            //     'first_name' => $request->firstname,
+            //     'last_name' => $request->lastname,
+            //     'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
+            //     'email' => $user->email,
+            //     'description' => 'Payment for Golden Club Membership',
+            //     'sub_total' => 2750.00
+            // ]);
+            //     if(isset($invoice->id))
+            // {
+            //     $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
+            //     $invoice->remind('email');
+            // }
 
-            {
+           
+        if (isset($js->id))
+        {    
             if (app()->environment() === 'production')
-            $invoice->notify(new InvoiceCreated($message));
-            }
-
-            return \Redirect::route('invoice', [$invoice->slug])->with('message', 'Complete the payment for Golden Club membership to enjoy the benefits.');
+             Notification::send(SeekerSubscription::first(),new PaasSubscribed('GOLDEN CLUB SUBSCRIPTION: '.$js->name.' with contact details  '.$js->email.' and  '.$js->phone_number.'  has submitted subscription for Golden Club Membership.'));
+        }
+            return redirect('/checkout?product=golden_club');
     }
 
     public function leaveContact(Request $request)
@@ -211,7 +212,7 @@ class SeekerController extends Controller
         // return $request->all();
         if (isset($request->phone))
         {    if (app()->environment() === 'production')
-             Notification::send(User::first(),new ContactReceived($request->phone.' is interested on PaaS for JOB SEEKERS'));
+             Notification::send(SeekerSubscription::first(),new PaasSubscribed($request->phone.' is interested on PaaS for JOB SEEKERS'));
         }
 
         return Redirect::back()->with('success','Contact Received, We will get back to you shortly !');

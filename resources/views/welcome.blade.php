@@ -394,7 +394,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </div><br>
 
 <!-- GET STARTED -->
-<section class="container-fluid container">
+<section class="container-fluid container" style="display: none;">
     <div class="row">
         <div class="col-md-6">
           <div class="card shadow" id="cards"  style="min-height: 300px;">
@@ -403,13 +403,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               <p class="card-text">PAAS is a service that seeks to provide qualified part-time professionals on demand 
                   to handle specific tasks at affordable rates and at a cost effective plan.</p>
             </div>
-                 <p>
-                    Job-Seekers <a href="/job-seekers/paas" class="btn btn-orange">Golden Club</a>
-
-                </p>
-                <p>
-                    Employers <a  href="/employers/e-club" class="btn btn-orange">E-Club</a>                                                                   
-                </p>          
+                 <div class="card-footer">
+                     <a href="/job-seekers/paas" class="btn btn-orange">Golden Club</a>
+                </div>       
           </div>
         </div>
         <div class="col-md-6">
