@@ -225,7 +225,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
          <h3 class="head pb-2 pt-2">Roadmap to Getting Hired</h3>
-         <p class="my-3 head" style="color: #E15419">Subscribe to Golden Club Membership and work as you network.</p>
+         <a href="/job-seekers/register-paas"><p class="my-3 head" style="color: #E15419">Subscribe to Golden Club Membership and work as you network.</p>         </a>
        </div>
        <div class="row">
          <div class="col-md-6 features15-col-text">
