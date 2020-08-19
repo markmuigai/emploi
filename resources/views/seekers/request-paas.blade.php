@@ -11,8 +11,13 @@ Get Hired as a Professional by joining the Golden Club..
 
 <div class="row container mx-auto">
     <div class="col-md-8 align-right mx-auto pt-4 pb-4">
+          @if(session()->has('fail'))
+              <div class="alert alert-success">
+              {{ session()->get('fail') }}
+              </div>
+          @endif
         <div class="modal-content shadow-lg">
-            <div class="modal-header">
+            <div class="modal-header">            
               <h5 class="modal-title text-center h4 mx-auto" id="exampleModalLabel">Join Golden Club for Exclusive Jobs.</h5>
             </div>
             <div class="modal-body bg-light">

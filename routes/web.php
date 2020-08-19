@@ -274,7 +274,7 @@ Route::get('/employers/faqs', 'ContactController@employerFaqs');
 Route::get('/employers/paas', 'EmployerController@epaas');
 Route::post('/employers/paas', 'EmployerController@leaveContact');
 Route::get('/employers/request-paas', 'EmployerController@rpaas');
-Route::get('/employers/e-club', 'EmployerController@eclub');
+Route::get('/employers/e-club', 'EmployerController@eclub')->name('eclub');
 Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 Route::post('/employers/request-professional', 'EmployerController@getProfessional');
@@ -283,7 +283,7 @@ Route::post('/employers/invoice', 'EmployerController@getInvoice');
 
 Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
-Route::get('/job-seekers/register-paas', 'SeekerController@rpaas');
+Route::get('/job-seekers/register-paas', 'SeekerController@rpaas')->name('golden');
 Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
 
 
