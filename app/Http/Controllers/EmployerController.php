@@ -1484,7 +1484,7 @@ class EmployerController extends Controller
             if(isset($task->id))
             {
                 if (app()->environment() === 'production')
-               Notification::send(Employer::first(),new PaasSubscribed('PAAS TASK SUBMITTED: '.$task->name.' with contact details  '.$task->email.' and  '.$task->phone_number.'  has submitted a task.'));
+                Notification::send(EmployerSubscription::first(),new PaasSubscribed('PAAS TASK SUBMITTED: '.$task->name.' with contact details  '.$task->email.' and  '.$task->phone_number.'  has submitted a task.'));
             }
 
              return redirect('/employers/task/'.$task->slug);
@@ -1532,7 +1532,7 @@ class EmployerController extends Controller
         if (isset($request->phone))
         {   
             if (app()->environment() === 'production')
-            Notification::send(Employer::first(),new PaasSubscribed($request->phone.' is interested on PaaS for EMPLOYERS'));
+            Notification::send(EmployerSubscription::first(),new PaasSubscribed($request->phone.' is interested on PaaS for EMPLOYERS'));
         }
         
         return Redirect::back()->with('success','Contact Received, We will get back to you shortly !');
