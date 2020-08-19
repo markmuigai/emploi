@@ -1242,6 +1242,15 @@ class EmployerController extends Controller
         
         $user = User::where('email',$request->email)->first();
         $created = false;
+
+        if(isset($user->id) && $user->userpermission->permission_id == 4){
+           return \Redirect::route('golden')->with('industries',Industry::orderBy('name')->get())->with('fail','We noted you are registered as a Jobseeker. Kindly join Golden club for Jobseeker or register with a different email as an employer !');
+        }
+        if(isset($user->id) && $user->userpermission->permission_id == 2){
+            die("Product is only for Employers and Jobseekers");
+        }
+        
+      
         if(!isset($user->id))
         {
             $username = explode(" ", strtolower($request->name));
@@ -1280,12 +1289,7 @@ class EmployerController extends Controller
 
         // }
 
-        if(isset($user->id) && $user->userpermission->permission_id != 3)
-        {
-            abort(403);
-        }
-        else
-        
+           
         $emp = Employer::create([
             'user_id' => $user->id,
             'name' => $request->firstname. ' ' .$request->lastname,
@@ -1364,6 +1368,10 @@ class EmployerController extends Controller
             //     }
 
             // }
+
+                if (Auth::guest()) {
+               return \Redirect::to("/login?redirectToUrl=/checkout?product=e_club");
+            }
 
             return redirect('/checkout?product=e_club');
         }

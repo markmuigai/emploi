@@ -129,7 +129,14 @@ class SeekerController extends Controller
         
         $user = User::where('email',$request->email)->first();
         $created = false;
-        if(!isset($user->id))
+
+        if(isset($user->id) && $user->userpermission->permission_id == 3){
+           return \Redirect::route('eclub')->with('fail','We noted you are registered as an employer. Kindly join E-Club for Employers or register with a different email as a Jobseeker !');
+        }
+        if(isset($user->id) && $user->userpermission->permission_id == 2){
+            die("Product is only for Employers and Jobseekers");
+        }
+                if(!isset($user->id))
         {
             $username = explode(" ", strtolower($request->name));
             $username = implode("-", $username).rand(1000,30000);
@@ -204,7 +211,12 @@ class SeekerController extends Controller
             if (app()->environment() === 'production')
              Notification::send(SeekerSubscription::first(),new PaasSubscribed('GOLDEN CLUB SUBSCRIPTION: '.$js->name.' with contact details  '.$js->email.' and  '.$js->phone_number.'  has submitted subscription for Golden Club Membership.'));
         }
-            return redirect('/checkout?product=golden_club');
+
+
+        if (Auth::guest()) {
+        return \Redirect::to("/login?redirectToUrl=/checkout?product=golden_club");
+        }
+        return redirect('/checkout?product=golden_club');
     }
 
     public function leaveContact(Request $request)

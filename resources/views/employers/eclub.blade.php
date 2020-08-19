@@ -40,6 +40,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           </div>
         </div>
       </div>
+      @if(session()->has('fail'))
+          <div class="alert alert-success">
+          {{ session()->get('fail') }}
+          </div>
+      @endif
       <div class="row cwp17-two align-items-center">
         <div class="col-md-6 bg-white">
           <div class="container">

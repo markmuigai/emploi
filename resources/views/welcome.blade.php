@@ -381,19 +381,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     
 @include('components.featuredEmployers')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 offset-md-1">
-            @if($agent->isMobile())
-                @include('components.ads.mobile_400x350')
-            @else            
-                @include('components.ads.flat_728x90')
-            @endif
-        </div>        
-    </div>
-</div><br>
-
-<!-- GET STARTED -->
 <section class="container-fluid container" style="display: none;">
     <div class="row">
         <div class="col-md-6">
