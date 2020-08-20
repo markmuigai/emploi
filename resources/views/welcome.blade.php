@@ -382,67 +382,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @include('components.featuredEmployers')
 <br>
 
-
-<!-- GET STARTED -->
-<div class="get-started">
-    <div class="container">
-        <div class="content">
-            @guest
-                <h1>{{ __('other.find_right_job') }}</h1>
-                <p>{{ __('other.looking_') }}</p>
-                <h4>{{ __('other.more_than') }} <span class="seeker-stats"><span>2207</span></span> {{ __('other.proffesionals_path') }}</h4>
-                <a href="/employers/services" class="btn btn-white px-4">Employer Services</a>
-                <a href="/job-seekers/services" class="btn btn-orange px-4">Job Seeker Services</a>
-                <a href="/post-a-job" class="btn btn-white px-4">Post a Job</a>
-            @else
-                @if(Auth::user()->role == 'seeker')
-                    <h1>{{ __('other.find_right_job') }}</h1>
-                    <p>Looking for a job? Maybe your CV doesn't stand out! Let us catapult your career and land you a job with our professional CV Editing.</p>
-                    <h4>More than <span class="seeker-stats"><span>2207</span></span> professional got their path to success.</h4>
-                    <a href="/vacancies/{{ Auth::user()->seeker->industry_id ? Auth::user()->seeker->industry->slug : 'featured' }}" class="btn btn-orange">Explore Vacancies</a>
-                    <a href="/job-seekers/cv-editing" class="btn btn-white px-4">Request CV Editing</a>
-                @endif
-                @if(Auth::user()->role == 'employer')
-                    <h1>Let us recruit for you</h1>
-                    <p>Looking to hire? We offer premium recruitment solutions that'll make sure you have the right candindate</p>
-                    <h4>We conduct pre-assessment, background checks, proficiency tests, have a <span>ready pool of more than 40,000 job seekers</span> to start from.</h4>
-                    <a href="/employers/publish" class="btn btn-orange">Advertise</a>
-                    <a href="/home" class="btn btn-white px-4">My Dashboard</a>
-                @endif
-                @if(Auth::user()->role == 'admin')
-                    <h1>Admin Logged In</h1>
-                    <a href="/home" class="btn btn-orange">Dashboard</a>
-                    <a href="/logout" class="btn btn-white px-4">Logout</a>
-                @endif
-                @if(Auth::user()->role == 'super-admin')
-                    <h1>Super Admin Logged in</h1>
-                    <a href="/home" class="btn btn-orange">Dashboard</a>
-                    <a href="/logout" class="btn btn-white px-4">Logout</a>
-                @endif
-            @endguest
-        </div>
-        <script type="text/javascript">
-            $().ready(function(){
-                $.ajax({
-                    type: 'GET',
-                    url: '/api/job-seekers-who-found-their-way?csrf-token='+$('#csrf_token').attr('content'),
-                    success: function(response) {
-                        
-                        $('.seeker-stats').empty();
-                        $('.seeker-stats').append('<span>'+response+'</span>');
-                        
-                    },
-                    error: function(e) {
-
-                        
-                    },
-                });
-            });
-        </script>
-    </div>
-</div>
-
-<section class="container-fluid container" style="display: none;">
+<section class="container-fluid container">
     <div class="row">
         <div class="col-md-6">
           <div class="card shadow" id="cards"  style="min-height: 300px;">
