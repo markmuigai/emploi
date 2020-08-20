@@ -149,10 +149,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </div><br>
 
 
-    <section class="pricing py-5">
+   <!-- <section class="pricing py-5">
       <div class="container">
         <div class="row">
-          <!-- Free Tier -->
+
           <div class="col-lg-4">
             <div class="card mb-5 mb-lg-0">
               <div class="card-body">
@@ -174,7 +174,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               </div>
             </div>
           </div>
-          <!-- Plus Tier -->
+
           <div class="col-lg-4">
             <div class="card mb-5 mb-lg-0">
               <div class="card-body"><br><br>
@@ -195,7 +195,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               </div>
             </div>
           </div>
-          <!-- Pro Tier -->
+
           <div class="col-lg-4">
             <div class="card">
               <div class="card-body"><br><br>
@@ -218,7 +218,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
           </div>
         </div>
       </div>
-    </section>
+    </section>  -->
 
 
  <div class="row">
