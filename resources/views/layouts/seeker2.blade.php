@@ -43,12 +43,12 @@
             <a class="nav-link" href="/vacancies" style="color: white">Vacancies</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="/job-seekers/services" style="color: white;">Services</a>
+              <a class="nav-link" href="/job-seekers/services" style="color: white;">Other Services</a>
           </li> 
           <li class="nav-item">
               <a class="nav-link" href="/blog" style="color: white;">Career Centre</a>
-          </li>   
-
+          </li>
+          
           @guest
          
           @else
@@ -60,6 +60,7 @@
         </ul>
         <div class="form-inline">
           @guest
+          <a href="/employers/paas" class="nav-link mr-4"  style="color: white">For Employers</a>
           <a href="/login?redirectToUrl={{ url('/login') }}" class="login mr-4"  style="color: white">Log in</a>
           {{-- <a href="tel:+254702068282" class="btn btn-primary btn-theme" style="background-color: #E15419">
             <i class="fa fa-phone"></i> Call Us

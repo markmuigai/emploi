@@ -55,6 +55,7 @@
         </ul>
         <div class="form-inline">
           @guest
+          <a href="/job-seekers/paas" style="color: white;" class="nav-link mr-4">For Job-Seekers</a>
           <a href="/login?redirectToUrl={{ url('/employers/publish') }}" class="login mr-4"  style="color: white">Log In</a>
           {{-- <a href="tel:+254702068282" class="btn btn-primary btn-theme" style="background-color: #E15419">
             <i class="fa fa-phone"></i> Call Us
