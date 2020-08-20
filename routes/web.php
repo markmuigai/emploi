@@ -271,7 +271,6 @@ Route::get('/employers/psychometric-tests', 'ContactController@psychometric');
 Route::get('/employers/train-employees', 'ContactController@retrain');
 Route::get('/employers/faqs', 'ContactController@employerFaqs');
 
-Route::get('/employers/home', 'EmployerController@index');
 Route::get('/employers/paas', 'EmployerController@epaas');
 Route::post('/employers/paas', 'EmployerController@leaveContact');
 Route::get('/employers/request-paas', 'EmployerController@rpaas');

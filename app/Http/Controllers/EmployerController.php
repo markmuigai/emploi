@@ -56,11 +56,6 @@ use App\Notifications\InvoiceCreated;
 
 class EmployerController extends Controller
 {
-    public function index(Request $request)
-    {
-        return view('employers.landing');
-    }
-
     public function viewReport($slug, Request $request){
 
         $user = Auth::user();
