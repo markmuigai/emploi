@@ -122,7 +122,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 							   To pay a total of <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b> at the end of the month.</p>
                                 @else
                                <button class="btn btn-primary" id="submitButton" type="submit">Continue to checkout</button>  Or   
-							   <a href="/employers/paas?redirectToUrl={{ url()->current() }}" style="float: right" class="btn btn-orange" >Checkout with eClub</a>
+							   <a href="/employers/e-club?redirectToUrl={{ url()->current() }}" style="float: right" class="btn btn-orange" >Checkout with eClub</a>
                                 @endif						
 						</form>
 						<p><button type="button" class="btn btn-orange-alt" style="float: right" data-toggle="modal" data-target="#eclub">Learn more</button></p>
