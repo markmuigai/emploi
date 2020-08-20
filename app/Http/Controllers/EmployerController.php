@@ -1244,10 +1244,10 @@ class EmployerController extends Controller
         $created = false;
 
         if(isset($user->id) && $user->userpermission->permission_id == 4){
-           return \Redirect::route('golden')->with('industries',Industry::orderBy('name')->get())->with('fail','We noted you are registered as a Jobseeker. Kindly join Golden club for Jobseeker or register with a different email as an employer !');
+           return \Redirect::route('golden')->with('industries',Industry::orderBy('name')->get())->with('fail','We noted you are registered as a Jobseeker. Kindly join Golden club for jobseekers');
         }
         if(isset($user->id) && $user->userpermission->permission_id == 2){
-            die("Product is only for Employers and Jobseekers");
+            die("This Product is only for Employers and Jobseekers");
         }
         
       
@@ -1400,7 +1400,14 @@ class EmployerController extends Controller
 
         $user = User::where('email',$request->email)->first();
         $created = false;
-        if(!isset($user->id))
+
+        if(isset($user->id) && $user->userpermission->permission_id == 4){
+           return Redirect::back()->with('msg', 'You need to have an employer account to use this service. <a href="'. url('/employers/register') . '">Register</a> as an employer or   <a href="'. url('/login') . '">Login here</a>.');
+        }
+        if(isset($user->id) && $user->userpermission->permission_id == 2){
+            die("This Product is only for Employers and Jobseekers");
+        }
+                if(!isset($user->id))
         {
             $username = explode(" ", strtolower($request->name));
             $username = implode("-", $username).rand(1000,30000);

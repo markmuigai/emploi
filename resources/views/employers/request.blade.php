@@ -11,6 +11,11 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
 <div class="row">
     <div class="col-md-6 mx-auto">
+        @if(session()->has('msg'))
+            <div class="alert alert-success">
+            {!! session()->get('msg') !!}
+            </div>
+        @endif
         <div class="modal-content mt-4 pb-2 shadow-lg">
             <div class="modal-header">
               <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Request for Part-Timer</h5>
@@ -25,13 +30,14 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                     $email = '';
                     $phone = '';
 
-                    if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+                    if(isset(Auth::user()->id))
                     {
                       $full_name = Auth::user()->name;
                       $full_name = explode(" ", $full_name);
                       $fname = $full_name[0];
                       $lname = isset($full_name[1]) ? $full_name[1] : '';
                       $email = Auth::user()->email;
+                      if(Auth::user()->role == 'employer')
                       $phone = Auth::user()->employer->contact_phone ? : '';
                     }
 
