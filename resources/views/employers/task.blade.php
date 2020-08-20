@@ -143,7 +143,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			                            <ul>
 			                            	<li>Friendly and staggered monthly payments. Invoice sent on time.</li>
 			                            	<li>Access to free on-demand HR advisory services and networking opportunities.</li>
-			                            	<li>Access to other Emploi tools for recruitment and talent management.</li>
+			                            	<li>Access to recruitment and talent management tools.</li>
 			                            	<li>Discounted rates on other Emploi services like job advertisements.</li>
 			                            </ul>                           
 			                     

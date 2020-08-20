@@ -114,7 +114,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                   <img src="/images/zip/s1.png" alt="" class="img-fluid" />
                   <h3 class="my-3 pl-2 mr-1">Free Access</h3>
                 </div>
-                <p class="">Access to other Emploi tools for recruitment and talent management.</p>
+                <p class="">Access to recruitment and talent management tools.</p>
               </div>
             </div>
            
