@@ -55,7 +55,6 @@ Get Hired as a Professional by joining the Golden Club..
         
                   <div class="modal-footer">
                     <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                   </div>
         
                 </form>
