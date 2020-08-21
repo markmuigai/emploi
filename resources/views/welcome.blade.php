@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     }
 
     #pro{
-         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/pro.jpg); 
+         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/pro2.jpg); 
         background-size: cover;
         background-position: center;
         min-height: 300px;
