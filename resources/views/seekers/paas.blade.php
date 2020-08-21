@@ -44,6 +44,22 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     color:white;
   }
   
+  .blink{
+		padding: 10px;	
+    color: white;
+		text-align: center;
+	}
+	.span{
+		font-size: 28px;
+		font-family: cursive;
+		color: #E15419;
+		animation: blink 1s linear infinite;
+	}
+  @keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+  }
 </style>
 
 <!-- index-block1 -->
@@ -103,6 +119,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
+<div class="blink pt-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get Golden Club One Month Free</span></a></div>
+
 <!-- //index-block1 -->
 
 <!-- index-block2 -->
@@ -110,8 +128,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <!-- /index-block2 -->
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
-  <div class="section-info py-5">
+  <div class="section-info py-2">
     <div class="container py-md-3">
+
       <div class="row cwp17-two align-items-center">
         <div class="col-md-6 bg-light">
           @if(session()->has('success'))
@@ -131,7 +150,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           <div class="h6">
             
             <p>PAAS is a service that seeks to provide qualified professionals on demand to
-              handle specific tasks at affordable rates and at a cost effective plan.</p>
+              handle specific tasks at affordable rates and at a cost effective plan.</p><br>
         
 
           </div>
