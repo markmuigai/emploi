@@ -1482,15 +1482,14 @@ class EmployerController extends Controller
         EmailJob::dispatch('Emploi Team', 'jobapplication389@gmail.com', 'Company '.$emp->company_name.' Created', $caption, $contents);
 
         }
-
              $task = Task::create([
                 'slug' => Task::generateUniqueSlug(11),
                 'employer_id' => $user->employer->id,
                 'name' => $request->firstname. ' ' .$request->lastname,               
                 'email' => $request->email,
                 'phone_number' => $request->phone_number,
-                'task_title' => $request->task_title,
-                'task_description' => $request->task_description,
+                'title' => $request->task_title,
+                'description' => $request->task_description,
                 'industry' => $request->industry,
                 'salary' => $request->salary
             ]);
