@@ -13,7 +13,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <?php
 $user = Auth::user();
 ?>
-@if($user->seeker->featured == 1)
+@if($user->seeker->featured > 0)
+<a href="/job-seekers/register-paas" class="btn btn-orange">Apply for part time jobs</a>
+<h4 align="center">Profile Performance Summary</h4>
 <style>
 	.seeker-analytics{
 	/*  position: relative;
@@ -29,35 +31,34 @@ $user = Auth::user();
 	  border-radius: 0;*/
 	}
 </style>
-<h4 align="center">My Summary</h4>
 <div class="card-deck">
     <div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
+            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
             <p>Applications</p>
         </div>
     </div>
      <div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
+            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
             <p>Shortlisted</p>
         </div>
 	</div>
 	 <div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
+            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
             <p>Rejected</p>
         </div>
 	</div>
 	 <div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="orange">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
+            <h1 class="white">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
             <p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
     </div>
 </div>
 	<div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="orange">{{ $user->seeker->view_count }}</h1>
+            <h1 class="white">{{ $user->seeker->view_count }}</h1>
             <p><br>Profile Views</p>
         </div>
     </div>
