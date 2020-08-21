@@ -191,12 +191,14 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('metrics', 'AdminController@seekerMetrics');
     Route::resource('cveditors','EditorController');
     Route::get('cv-edit-requests/{id?}', 'AdminController@editingRequests');
-    Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingRequests');
+    Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingReque');
     Route::resource('industries', 'IndustryController');
     Route::get('employers', 'AdminController@employers');
     Route::get('companies', 'AdminController@companies');
     Route::post('log-in-as', 'AdminController@loginas');
-    Route::get('username/{username}', 'AdminController@loginWithUsername');
+    Route::get('username/{username}', 'AdminController@loginWithUsername');  
+
+    Route::get('paas-task/{id?}', 'AdminController@taskRequests');
 
     Route::get('referrals', 'AdminController@referrals');
     Route::get('cv-referrals', 'AdminController@cvReferrals');
@@ -285,9 +287,6 @@ Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
 Route::get('/job-seekers/register-paas', 'SeekerController@rpaas')->name('golden');
 Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
-
-
-
 
 
 Route::resource('/vacancies', 'PostsController');
