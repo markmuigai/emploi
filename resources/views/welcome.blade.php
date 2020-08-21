@@ -29,6 +29,45 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     }
 
     #paas{
+        background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/paas.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+
+        
+
+    }
+    
+    #summit{
+         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/summit.jpg); 
+        background-size: cover;
+        background-position: relative;
+        min-height: 300px;
+        color: white;
+
+
+    }
+
+    #spotlight{
+         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/spotlight.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+
+
+    }
+
+    #pro{
+         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/pro.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+    }
+
+     #seeker_paas{
         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/paas.jpg); 
         background-size: cover;
         background-position: relative;
@@ -38,7 +77,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
     }
     
-    #summit{
+    #seeker_summit{
          background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/summit.jpg); 
         background-size: cover;
         background-position: relative;
@@ -47,7 +86,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
     }
 
-    #spotlight{
+    #seeker_spotlight{
          background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/spotlight.jpg); 
         background-size: cover;
         background-position: center;
@@ -56,7 +95,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
     }
 
-    #pro{
+    #seeker_pro{
          background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/pro2.jpg); 
         background-size: cover;
         background-position: center;
@@ -408,14 +447,14 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     
 @include('components.featuredEmployers')
 <br>
-
+@if(Auth::user())
 <section class="container-fluid container">
     <div class="row">
         <div class="col-md-6">
           <div class="card shadow" id="paas">
             <div class="card-body">
               <h2 class="card-title pb-2">PaaS</h2>
-              <h5 class="card-text"> Get qualified part time professionals on demand.</h5>
+              <h5 class="card-text"> Get qualified part time professionals on demand</h5>
             </div>
                  <div class="card-footer">
                      <a href="/job-seekers/paas" class="btn btn-orange">Visit Page</a>
@@ -426,7 +465,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
           <div class="card shadow" id="summit">
             <div class="card-body">
               <h2 class="card-title pb-2">Career Summit</h2>
-              <h5 class="card-text">Get coaching and support that will get you a job where you will thrive not just survive.</h5>
+              <h5 class="card-text">Get coaching and support that will get you a job where you will thrive not just survive</h5>
             </div>
             <div class="card-footer">
                 <a href="/job-seekers/summit" class="btn btn-orange">Visit Page</a>
@@ -450,7 +489,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="card shadow" id="pro">
               <div class="card-body">
                 <h2 class="card-title pb-2">Pro Package</h2>
-                <h5 class="card-text">Get real-time notification updates.</h5>
+                <h5 class="card-text">Get real-time notification updates</h5>
               </div>
               <div class="card-footer">
                   <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
@@ -461,6 +500,62 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       </div>
 
 </section>
+
+<br>
+@else
+<section class="container-fluid container">
+    <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow" id="seeker_paas">
+            <div class="card-body">
+              <h2 class="card-title pb-2">PaaS</h2>
+              <h5 class="card-text"> Get qualified part time professionals on demand</h5>
+            </div>
+                 <div class="card-footer">
+                     <a href="/job-seekers/paas" class="btn btn-orange">Visit Page</a>
+                </div>       
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow" id="seeker_summit">
+            <div class="card-body">
+              <h2 class="card-title pb-2">Career Summit</h2>
+              <h5 class="card-text">Get coaching and support that will get you a job where you will thrive not just survive</h5>
+            </div>
+            <div class="card-footer">
+                <a href="/job-seekers/summit" class="btn btn-orange">Visit Page</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow" id="seeker_spotlight">
+              <div class="card-body">
+                <h2 class="card-title pb-2">Spotlight</h2>
+                <h5 class="card-text">Get to appear top in all search lists.</h5>
+              </div>
+              <div class="card-footer">
+                  <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card shadow" id="seeker_pro">
+              <div class="card-body">
+                <h2 class="card-title pb-2">Pro Package</h2>
+                <h5 class="card-text">Get real-time notification updates</h5>
+              </div>
+              <div class="card-footer">
+                  <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+
+</section>
+@endif
 @include('components.top-search')
 <!-- END OF GET STARTED -->
 <script type="text/javascript">
