@@ -9,49 +9,62 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Dashboard')
 
+
 <?php
 $user = Auth::user();
 ?>
-@if($user->seeker->featured > 0)
-<a href="/job-seekers/paas" class="btn btn-orange">Apply for part time jobs</a>
-<h4 align="center">Profile Performance Summary</h4>
+@if($user->seeker->featured == 1)
+<style>
+	.seeker-analytics{
+	/*  position: relative;
+	  display: flex;
+	  flex-direction: row;
+	  min-width: 0;
+	  word-wrap: break-word;*/
+	  background-color: #500095;
+	  color: white;
+/*	  color: white;
+	  background-clip: border-box;
+	  border: 0px solid rgba(0, 0, 0, 0.125);
+	  border-radius: 0;*/
+	}
+</style>
+<h4 align="center">My Summary</h4>
 <div class="card-deck">
-    <div class="card">
+    <div class="card seeker-analytics">
         <div class="card-body text-center">
             <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
             <p>Applications</p>
         </div>
     </div>
-    <div class="card">
+     <div class="card seeker-analytics">
         <div class="card-body text-center">
             <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
             <p>Shortlisted</p>
         </div>
-    </div>
-    <div class="card">
+	</div>
+	 <div class="card seeker-analytics">
         <div class="card-body text-center">
             <h1 class="orange">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
             <p>Rejected</p>
         </div>
-    </div>
-     <div class="card">
+	</div>
+	 <div class="card seeker-analytics">
         <div class="card-body text-center">
             <h1 class="orange">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
-            <p>{{ $user->seeker->industry->name }} Vacancies</p>
-        </div>
+            <p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
     </div>
-    <div class="card">
+</div>
+	<div class="card seeker-analytics">
         <div class="card-body text-center">
             <h1 class="orange">{{ $user->seeker->view_count }}</h1>
             <p><br>Profile Views</p>
         </div>
     </div>
 </div>
-<h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan to win one month free</a></h5>
+<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan to win one month free</a></h5>
 
-<!-- <h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Buy spotlight plan today to increase your profile visibility</a></h5> -->
  @endif
-
 <br><br><h4>Recent Blogs</h4>
 <div class="row">
 	<div class="col-md-12">
@@ -77,6 +90,7 @@ $user = Auth::user();
 @if(isset($user->seeker->industry_id))
 <hr>
 <h4>{{ $user->seeker->industry->name }} Jobs</h4>
+@include('components.ads.responsive')
 <?php
 $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('status','active')->orderBy('id','DESC')->orderBy('featured','DESC')->paginate(8);
 ?>
