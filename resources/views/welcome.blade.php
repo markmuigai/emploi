@@ -28,8 +28,27 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         border-radius: 1.5em
     }
 
-    #cards{
-        background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/black.jpg); 
+    #paas{
+        background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/paas.jpg); 
+        background-size: cover;
+        background-position: relative;
+        min-height: 300px;
+        color: white;
+        
+
+    }
+    
+    #summit{
+         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/summit.jpg); 
+        background-size: cover;
+        background-position: relative;
+        min-height: 300px;
+        color: white;
+
+    }
+
+    #spotlight{
+         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/spotlight.jpg); 
         background-size: cover;
         background-position: center;
         min-height: 300px;
@@ -37,6 +56,14 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
     }
 
+    #pro{
+         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/pro.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+
+    }
     .btn2{
         background-color: #500095;
         color: white;
@@ -385,23 +412,21 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <section class="container-fluid container">
     <div class="row">
         <div class="col-md-6">
-          <div class="card shadow" id="cards"  style="min-height: 300px;">
+          <div class="card shadow" id="paas">
             <div class="card-body">
-              <h5 class="card-title pb-2">PaaS</h5>
-              <p class="card-text">PAAS is a service that seeks to provide qualified part-time professionals on demand 
-                  to handle specific tasks at affordable rates and at a cost effective plan.</p>
+              <h2 class="card-title pb-2">PaaS</h2>
+              <h5 class="card-text"> Get qualified part time professionals on demand.</h5>
             </div>
                  <div class="card-footer">
-                     <a href="/job-seekers/paas" class="btn btn-orange">Golden Club</a>
+                     <a href="/job-seekers/paas" class="btn btn-orange">Visit Page</a>
                 </div>       
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card shadow" id="cards" style="min-height: 300px;">
+          <div class="card shadow" id="summit">
             <div class="card-body">
-              <h5 class="card-title pb-2">Career Summit</h5>
-              <p class="card-text">This package provides job-seekers with coaching and support that gets you a job
-                where you will thrive not just survive.</p>
+              <h2 class="card-title pb-2">Career Summit</h2>
+              <h5 class="card-text">Get coaching and support that will get you a job where you will thrive not just survive.</h5>
             </div>
             <div class="card-footer">
                 <a href="/job-seekers/summit" class="btn btn-orange">Visit Page</a>
@@ -410,10 +435,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
 
         <div class="col-md-6">
-            <div class="card shadow" id="cards" style="min-height: 300px;">
+            <div class="card shadow" id="spotlight">
               <div class="card-body">
-                <h5 class="card-title pb-2">Spotlight</h5>
-                <p class="card-text">This package enables a job-seeker to to be on top rank in all search lists.</p>
+                <h2 class="card-title pb-2">Spotlight</h2>
+                <h5 class="card-text">Get to appear top in all search lists.</h5>
               </div>
               <div class="card-footer">
                   <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
@@ -422,10 +447,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
           </div>
 
           <div class="col-md-6">
-            <div class="card shadow" id="cards" style="min-height: 300px;">
+            <div class="card shadow" id="pro">
               <div class="card-body">
-                <h5 class="card-title pb-2">Pro Package</h5>
-                <p class="card-text">This package provides job-seekers with notification updates.</p>
+                <h2 class="card-title pb-2">Pro Package</h2>
+                <h5 class="card-text">Get real-time notification updates.</h5>
               </div>
               <div class="card-footer">
                   <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
