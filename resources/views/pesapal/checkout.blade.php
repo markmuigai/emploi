@@ -144,10 +144,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					<hr class="mb-4">
 					<button class="btn btn-primary btn-lg btn-block" id="submitButton" type="submit">Continue to checkout</button>
 				</form>
+				@if($product->days_duration == 30)  
 				<hr>
 				<p style="text-align: center;">
 					<a href="#similar-products" class="btn btn-orange-alt">Go to other products</a>
 				</p>
+				@endif
 
 
 				

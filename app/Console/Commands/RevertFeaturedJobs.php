@@ -42,7 +42,12 @@ class RevertFeaturedJobs extends Command
         $posts = Post::where('featured','true')
                 ->where('created_at', '<=', Carbon::now()->subDays(2)->toDateTimeString())
                 ->where('slug', '!=', 'job-opportunity-at-pioneer-assurance')
-                ->where('slug', '!=', 'sales-executive-intern-at-emploi')  
+                ->where('slug', '!=', 'sales-executive-intern-at-emploi')
+                ->where('slug', '!=', 'insurance-direct-sales-representative-job-available-apply')  
+                ->where('slug', '!=', 'insurance-sales-agents-pybi')                             
+                ->where('slug', '!=', 'sales-representative-needed-apply ')
+                ->where('slug', '!=', 'marketing-jobs-available-apply-now')
+                ->where('slug', '!=', 'sales-officer-wanted-urgently-apply')
                 ->get();
 
         
