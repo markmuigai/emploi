@@ -63,7 +63,7 @@ $user = Auth::user();
         </div>
     </div>
 </div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan to win one month free</a></h5>
+<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
 
  @endif
 <br><br><h4>Recent Blogs</h4>
