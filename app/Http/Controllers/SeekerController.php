@@ -207,16 +207,23 @@ class SeekerController extends Controller
 
            
         if (isset($js->id))
+
+            $user->seeker->activateFreeGoldenClub();
         {    
             if (app()->environment() === 'production')
              Notification::send(SeekerSubscription::first(),new PaasSubscribed('GOLDEN CLUB SUBSCRIPTION: '.$js->name.' with contact details  '.$js->email.' and  '.$js->phone_number.'  has submitted subscription for Golden Club Membership.'));
         }
+         
+        if (Auth::guest())
+            {
+             return redirect('/job-seekers/dashboard');
+         }
+         return \Redirect::to("/login?redirectToUrl=/job-seekers/dashboard");
 
-
-        if (Auth::guest()) {
-        return \Redirect::to("/login?redirectToUrl=/checkout?product=golden_club");
-        }
-        return redirect('/checkout?product=golden_club');
+        // if (Auth::guest()) {
+        // return \Redirect::to("/login?redirectToUrl=/checkout?product=golden_club");
+        // }
+        // return redirect('/checkout?product=golden_club');
     }
 
     public function leaveContact(Request $request)

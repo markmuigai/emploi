@@ -191,7 +191,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('metrics', 'AdminController@seekerMetrics');
     Route::resource('cveditors','EditorController');
     Route::get('cv-edit-requests/{id?}', 'AdminController@editingRequests');
-    Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingReque');
+    Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingRequests');
     Route::resource('industries', 'IndustryController');
     Route::get('employers', 'AdminController@employers');
     Route::get('companies', 'AdminController@companies');

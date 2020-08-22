@@ -231,6 +231,67 @@ class Seeker extends Model
         return false;
     }
 
+        public function activateFreeGoldenClub($days = 30){
+        $product = Product::where('slug','golden_club')->first();
+        if(isset($product->id))
+        {
+            $order = Order::create([
+                'user_id' => $this->user->id,
+                'slug' => Order::generateUniqueSlug(10)
+            ]);
+            $productOrder = ProductOrder::create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'days_duration' => $days,
+                'price' => 0
+            ]);
+            $invoice = Invoice::create([
+                'order_id' => $order->id,
+                'slug' => Invoice::generateUniqueSlug(11),
+                'first_name' => $this->user->name,
+                'phone_number' =>$this->phone_number,
+                'email' => $this->user->email,
+                'description' => $product->description,
+                'sub_total' => 0,
+                'alternative_payment_slug' => 'Free Golden Club Package'
+            ]);
+           
+            $user = SeekerSubscription::where('email',$this->user->email)->where('status','inactive')->first();
+            if(isset($user))
+            {
+               $user->status = 'active';
+               $user->ending = now()->addMonths(1);
+               $user->save();
+
+                        $caption = "Job Seeker Golden Club subscriptions activated on Emploi";
+                        $contents = "You have successfully subscribed to the Golden Club which enables you to be placed for part time jobs from top employers, this will remain active for a period of one month. <br>
+                          You will be eligible to the following benefits: <br>
+                          <ul>
+                              <li>Guaranteed placement on an on-demand basis to more than one company.</li>
+                              <li>Access to profession-based training and development opportunities.</li>
+                              <li>Increased chances for eventual permanent employment.</li>
+                              <li>Guaranteed income after successful placement.</li>
+                              <li>Great networking opportunities with top employers.</li>
+                          </ul>
+
+                        <p>If you require further information on your subscription, <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                        We wish you the very best. 
+
+                        <br>";
+                        EmailJob::dispatch( $this->user->name, $this->user->email, 'Golden Club activated', $caption, $contents);
+            }
+
+ 
+
+        }
+        //create order
+        //create product order
+        //send slack notification
+        //activate golden club
+
+    }
+
     public function educationLevel(){
         return $this->belongsTo(EducationLevel::class,'education_level_id');
     }

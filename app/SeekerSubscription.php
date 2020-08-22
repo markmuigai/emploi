@@ -17,6 +17,10 @@ class SeekerSubscription extends Model
     {
         return 'https://hooks.slack.com/services/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';
     }
+
+       public function User(){
+        return $this->belongsTo(User::class,'user_id');
+    }
       public static function activateSeekerPaas($email)
     {
        
