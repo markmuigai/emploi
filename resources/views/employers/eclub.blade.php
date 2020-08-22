@@ -456,9 +456,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                       $fname = $full_name[0];
                       $lname = isset($full_name[1]) ? $full_name[1] : '';
                       $email = Auth::user()->email;
-                      if(Auth::user()->role == 'employer')
+                      if(Auth::user()->role == 'employer'){
                       $phone = Auth::user()->employer->contact_phone ? : '';
                       $company = Auth::user()->employer->company_name ? : '';
+                      }
                     }
 
                     ?>
