@@ -24,22 +24,40 @@ Get Hired as a Professional by joining the Golden Club..
               <!-- subscribe form for Professional -->
                 <form method="POST"  enctype="multipart/form-data" action="/job-seekers/subscribe-paas">
                   @csrf
+                          <?php
+                    $fname = '';
+                    $lname = '';
+                    $email = '';
+                    $phone = '';
+
+                    if(isset(Auth::user()->id))
+                    {
+                      $full_name = Auth::user()->name;
+                      $full_name = explode(" ", $full_name);
+                      $fname = $full_name[0];
+                      $lname = isset($full_name[1]) ? $full_name[1] : '';
+                      $email = Auth::user()->email;
+                      if(Auth::user()->role == 'seeker')
+                      $phone = Auth::user()->seeker->phone_number ? : '';
+                    }
+
+                    ?>
                   <div class="form-group">
                     <label class="h5">First Name</label>
-                    <input type="text" class="form-control" name="firstname" required="" placeholder="First Name">
+                    <input type="text" class="form-control" name="firstname" required="" placeholder="First Name"  value="{{ $fname }}">
                   </div>
                   <div class="form-group">
                     <label class="h5">Last Name</label>
-                    <input type="text" class="form-control" name="lastname" required="" placeholder="Last Name">
+                    <input type="text" class="form-control" name="lastname" required="" placeholder="Last Name"  value="{{ $lname }}">
                   </div>
         
                   <div class="form-group">
                     <label class="h5">Email Address</label>
-                    <input type="email" class="form-control" name="email" required="" placeholder="Email">
+                    <input type="email" class="form-control" name="email" required="" placeholder="Email"  value="{{ $email }}">
                   </div>
                   <div class="form-group">
                     <label class="h5">Phone Number</label>
-                    <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
+                    <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
                   </div>
                   <div class="form-group">
                     <label class="h5">Industry</label>
