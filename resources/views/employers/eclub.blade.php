@@ -23,6 +23,27 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 <script type="text/javascript" src="/js/carousel.js">
 </script>
 
+<style>
+  .blink{
+  width: auto;
+  padding-top: 10px;
+  padding-bottom: 30px;	
+  color: white;
+  text-align: center;
+  }
+  .span{
+    font-size: 24px;
+    font-family: cursive;
+    color: #E15419;
+    animation: blink 1s linear infinite;
+  }
+  @keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+  }
+</style>
+
 <!-- //index-block1 -->
 <!-- index-block2 -->
 <!-- /index-block2 -->
@@ -68,6 +89,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
     </div>
   </div>
+</section>
+
+<section>
+  <div class="blink pt-4 container-fluid w3l-index-block3"><a href="#exampleModal" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="text-decoration: none;"><span class="span">Get E-Club Membership One Month Free</span></a></div>
+
 </section>
 
 
