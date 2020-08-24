@@ -52,7 +52,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     .snip1214 .plan-price {
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
-      font-size: 2.4em;
+      font-size: 2.0em;
       color:    #808080;
     }
     .snip1214 .plan-type {
@@ -153,6 +153,23 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
        font-size:1.0rem;
       display: inline;
     }
+
+    .blink{
+		padding: 10px;	
+    color: white;
+		text-align: center;
+	}
+	.span{
+		font-size: 28px;
+		font-family: cursive;
+		color: #500095;
+		animation: blink 1s linear infinite;
+	}
+  @keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+  }
 </style>
     
 
@@ -209,8 +226,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
             <div class="card-deck text-center row">
                 <div class="col-sm-12">
+                  <div class="blink pt-4"><a style="text-decoration: none;"><span class="span"><u>Claim your one month free on job advertisement now!!!</u></span></a></div>
+
                     <h3 class="orange pt-3 pb-4 text-center" id="charges">Our Charges</h3>
                 </div>
+
                 <div class="container">
                     <div class="card">
                       <div class="card-body">         
@@ -219,12 +239,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                       <h5 class="plan-title">
                                         Solo
                                       </h5>
-                                    <div class="plan-cost"><span class="plan-price">Ksh. 2,500</span><span class="plan-type">/ <br>Month</span></div>
+                                    <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
+                                    <div class="plan-cost"><strike><span class="plan-price">2500</span></strike><span class="plan-price"><br> KES 2,000</span><span class="plan-type">/ <br>Month</span></div>
                                     <ul class="plan-features">               
                                           <li><i class="ion-checkmark"> </i>1 Job Advert posted for 30 days</li>
                                           <li><i class="ion-checkmark"> </i>Shared to social media pages</li>
                                           <li><i class="ion-checkmark"> </i>Job AD sent out to our entire database</li>                 
-                                      </ul><br><br><br>
+                                      </ul><br><br><br><br><br>
                                       <form method="POST" action="/checkout">
                                         @csrf
                                         <input type="hidden" name="product" value="solo">
@@ -238,12 +259,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                       <h5 class="plan-title">
                                          Solo Plus
                                       </h5>
-                                      <div class="plan-cost"><span class="plan-price">Ksh. 4,750</span><span class="plan-type">/ <br>Month</span></div>
+                                      <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
+                                      <div class="plan-cost"><strike><span class="plan-price">4750</span></strike><span class="plan-price"><br> KES 3,800</span><span class="plan-type">/ <br>Month</span></div>
                                       <ul class="plan-features">
                                           <li><i class="ion-checkmark"></i>2-4 job Adverts posted for 30 days</li>
                                           <li><i class="ion-checkmark"></i>Shared to Social media pages</li>
                                           <li><i class="ion-checkmark"></i>Job AD sent out to our entire database</li>
-                                      </ul><br><br><br>
+                                      </ul><br><br><br><br><br>
                                       <form method="POST" action="/checkout">
                                         @csrf
                                         <input type="hidden" name="product" value="solo_plus">
@@ -257,7 +279,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                     <h5 class="plan-title">
                                     Stawi
                                     </h5>
-                                    <div class="plan-cost"><span class="plan-price">Ksh. 7,000
+                                    <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
+                                    <div class="plan-cost"><strike><span class="plan-price">7000</span></strike><br><span class="plan-price">KES 5,600
                                   </span><span class="plan-type">/ Month</span></div>
                                         <ul class="plan-features">
                                         <li><i class="ion-checkmark"> </i>All in Solo</li>
@@ -279,7 +302,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                       <h5 class="plan-title">
                                        Infinity
                                       </h5>
-                                      <div class="plan-cost"><span class="plan-price">Ksh. 9,025
+                                    <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
+                                    <div class="plan-cost"><strike><span class="plan-price">9025</span></strike><br><span class="plan-price">KES 7,220
                                     </span><span class="plan-type">/ Month</span></div>
                                       <ul class="plan-features">
                                           <li><i class="ion-checkmark"> </i>More than 4 job Adverts posted for 30 days</li>
