@@ -240,7 +240,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                         Solo
                                       </h5>
                                     <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                    <div class="plan-cost"><strike><span class="plan-price">2500</span></strike><span class="plan-price"><br> KES 2,000</span><span class="plan-type">/ <br>Month</span></div>
+                                    <div class="plan-cost"><strike><span class="plan-price">KES 2500</span></strike><span class="plan-price"><br> KES 2,000</span><span class="plan-type">/ <br>Month</span></div>
                                     <ul class="plan-features">               
                                           <li><i class="ion-checkmark"> </i>1 Job Advert posted for 30 days</li>
                                           <li><i class="ion-checkmark"> </i>Shared to social media pages</li>
@@ -260,7 +260,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                          Solo Plus
                                       </h5>
                                       <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                      <div class="plan-cost"><strike><span class="plan-price">4750</span></strike><span class="plan-price"><br> KES 3,800</span><span class="plan-type">/ <br>Month</span></div>
+                                      <div class="plan-cost"><strike><span class="plan-price">KES 4750</span></strike><span class="plan-price"><br> KES 3,800</span><span class="plan-type">/ <br>Month</span></div>
                                       <ul class="plan-features">
                                           <li><i class="ion-checkmark"></i>2-4 job Adverts posted for 30 days</li>
                                           <li><i class="ion-checkmark"></i>Shared to Social media pages</li>
@@ -280,7 +280,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                     Stawi
                                     </h5>
                                     <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                    <div class="plan-cost"><strike><span class="plan-price">7000</span></strike><br><span class="plan-price">KES 5,600
+                                    <div class="plan-cost"><strike><span class="plan-price">KES 7000</span></strike><br><span class="plan-price">KES 5,600
                                   </span><span class="plan-type">/ Month</span></div>
                                         <ul class="plan-features">
                                         <li><i class="ion-checkmark"> </i>All in Solo</li>
@@ -303,7 +303,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                        Infinity
                                       </h5>
                                     <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                    <div class="plan-cost"><strike><span class="plan-price">9025</span></strike><br><span class="plan-price">KES 7,220
+                                    <div class="plan-cost"><strike><span class="plan-price">KES 9025</span></strike><br><span class="plan-price">KES 7,220
                                     </span><span class="plan-type">/ Month</span></div>
                                       <ul class="plan-features">
                                           <li><i class="ion-checkmark"> </i>More than 4 job Adverts posted for 30 days</li>
