@@ -20,7 +20,7 @@ return [
     't_comp' => 'Total Companies',
     'find_nxt_job' => 'Find your next job effortlessly.',
     'gt_hired' => 'Get hired with minimal effort.',
-    'comp_hirin' => 'companies are hiring.',
+    'comp_hirin' => 'Companies are hiring.',
     'for_emp' => 'For Employers',
     'for_js' => 'For Job Seekers',
     'cv_edit_txt' => 'A recruiter may spend as little as 20 seconds looking at each CV. You need to maximize on your 20 seconds to deliver maximum impression to the recruiter.',
