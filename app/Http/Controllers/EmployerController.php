@@ -275,6 +275,11 @@ class EmployerController extends Controller
                 ->with('username',$user->username);
     }
 
+    public function paasdash(Request $request)
+    {
+        return view('employers.paasdash');
+    }
+
     public function browse(Request $request)
     {
         //errors exist

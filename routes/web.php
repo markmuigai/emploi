@@ -124,6 +124,7 @@ Route::get('/employers/advertise', 'ContactController@oldAdvertise');
 Route::group([ 'middleware' => 'shortlist'], function(){
     Route::resource('/employers/cv-requests', 'CvRequestController');
     Route::resource('/employers/saved', 'SavedProfileController');
+    Route::get('/employers/paas-dash', 'EmployerController@paasdash');
     Route::get('/employers/browse', 'EmployerController@browse');
     Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');
     Route::post('/employers/shortlist', 'EmployerController@applyForUser');
