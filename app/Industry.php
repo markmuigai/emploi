@@ -28,6 +28,10 @@ class Industry extends Model
         return $this->hasMany(CvEditor::class);
     }
 
+        public function tasks(){
+        return $this->hasMany(Task::class);
+    }
+
     public function employers(){
     	return $this->hasMany(Employer::class);
     }

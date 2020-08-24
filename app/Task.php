@@ -10,6 +10,10 @@ class Task extends Model
         'slug','employer_id','name','email', 'phone_number','company','title','description','industry','salary','status','assigne','assigned_on'
     ];
 
+    //    public function industry(){
+    //     return $this->belongsTo(Industry::class);
+    // }
+
         public static function activateTask($email)
     {
        
