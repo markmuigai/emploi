@@ -92,7 +92,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 </section>
 
 <section>
-  <div class="blink pt-4 container-fluid w3l-index-block3"><a href="#exampleModal" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="text-decoration: none;"><span class="span">Get E-Club Membership One Month Free</span></a></div>
+  <div class="blink pt-4 container-fluid w3l-index-block3"><a href="#exampleModal" id="request-part-timer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="text-decoration: none;"><span class="span">Get One Month Free E-Club Membership Now!!</span></a></div>
 
 </section>
 

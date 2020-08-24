@@ -119,7 +119,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 
-<div class="blink pt-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get Golden Club One Month Free</span></a></div>
+<div class="blink pt-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get One Month Free Golden Club Membership Now!!</span></a></div>
 
 <!-- //index-block1 -->
 

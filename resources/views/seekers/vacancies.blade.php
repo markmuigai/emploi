@@ -8,6 +8,25 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @section('content')
 @section('page_title', $title)
+
+<style>
+    .blink{
+		padding: 10px;	
+    color: white;
+		text-align: center;
+	}
+	.span{
+		font-size: 28px;
+		font-family: cursive;
+		color: #E15419;
+		animation: blink 1s linear infinite;
+	}
+  @keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+  }
+</style>
 <h5 class="orange">Get all the latest jobs in one place and apply.</h5>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}"> 
      <div class="col-lg-2 col-md-6 py-2">         
@@ -68,6 +87,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <hr>
     </div>
 </form> 
+
+
+<div class="blink pt-4 mb-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get One Month Free Golden Club Membership Now!!</span></a></div>
+
 <!-- FEATURED VACANCIES -->
 <div class="card mb-4">
     <div class="card-body">
