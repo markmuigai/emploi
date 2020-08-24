@@ -18,6 +18,7 @@ use App\SeekerSkill;
 use App\User;
 use App\Blog;
 use App\SeekerSubscription;
+use App\Task;
 
 use Watson\Rememberable\Rememberable;
 use App\Jobs\EmailJob;
@@ -994,6 +995,165 @@ class Seeker extends Model
 
     public function seekerJobs(){
         return $this->hasMany(SeekerJob::class);
+    }
+
+
+        public function findRsi(){
+        //return $this->getPlainRsi($post);
+        $perc = 0;
+
+        $profileElements = ['resume', 'education_level_id', 'education', 'years_experience',  'experience', 'phone_number', 'current_position'];
+        $total = count($profileElements);
+        foreach($profileElements as $element) {
+            $perc += !empty($this->{$element}) ? 1 : 0;
+        }
+
+        $perc = round($perc / $total * 18); 
+
+        if ($this->user->seeker->featured > 0) 
+        {
+            $perc = $perc + 4;
+        }
+        
+        if ($this->user->seeker->location_id != NULL) {
+            $perc = $perc + 1;
+        }
+        
+        if ($this->user->seeker->objective != NULL)
+        {
+            $perc = $perc + 1;
+        }
+
+        if ($this->user->avatar != NULL) 
+        {
+            $perc = $perc + 1;
+        }
+
+
+         $task = Task::where('industry',$this->user->seeker->industry->name)
+                    ->first();
+
+        if($task)
+        {
+            $perc = $perc+2;
+        }
+                
+        //referee feedback 
+        if(count($this->jobApplicationReferees) > 0)
+        {
+            $performance = array();
+            $workQuality = array();
+            $targets = array();
+            $rehire = array();
+            $discplinary = array();
+
+            for($i=0; $i<count($this->jobApplicationReferees); $i++)
+            {
+                $rf = $this->jobApplicationReferees[$i];
+                
+                    array_push($discplinary, $rf->discplinary_cases);
+                    array_push($rehire, $rf->would_you_rehire);
+            }
+
+            for($i=0; $i<count($this->seekerJobs); $i++)
+            {
+                if($this->seekerJobs[$i]->referee->status != 'ready')
+                    continue;
+                $sj = $this->seekerJobs[$i];
+                array_push($performance, $sj->work_performance);                
+                array_push($workQuality, $sj->work_quality);
+                array_push($targets, $sj->meeting_targets);
+            }
+            $performance = count($performance) > 0 ? array_sum($performance ) / count($performance) : 0;
+            $workQuality = count($workQuality) > 0 ? array_sum($workQuality ) / count($workQuality) : 0;
+            $targets = count($targets) > 0 ? array_sum($targets ) / count($targets) : 0;
+
+            //$perc += $ref;
+
+            //would you rehire
+            $hire = true;
+            //$nohire = false;
+            for($i=0; $i<count($rehire);$i++)
+            {
+                if($rehire[$i] == 'no' || $rehire[$i] == 'maybe')
+                    $hire = false;
+                // if($rehire[$i] == 'maybe')
+                //     $nohire = true;
+            }
+            if($hire)
+                $perc = $perc + 1.5;
+            // elseif($nohire)
+            //     $perc = $perc * 0.85;
+
+            //performance
+            if($performance >= 90)
+                $perc = $perc + 1.25;
+            elseif($performance>=75)
+                $perc = $perc + 1;
+            elseif($performance>=60)
+                $perc = $perc + 0.75;
+            elseif($performance>=50)
+                $perc = $perc + 0.5;
+            elseif($performance>=30)
+                $perc = $perc + 0.25;
+            else
+                $perc = $perc + 0.1;
+
+
+            //work quality
+            if($workQuality >= 90)
+                $perc = $perc + 1.25;
+            elseif($workQuality>=75)
+                $perc = $perc + 1;
+            elseif($workQuality>=60)
+                $perc = $perc + 0.75;
+            elseif($workQuality>=50)
+                $perc = $perc + 0.5;
+            elseif($workQuality>=30)
+                $perc = $perc + 0.25;
+            else
+                $perc = $perc + 0.1;
+
+            //ability to meet targets
+
+            if($targets >= 90)
+                $perc = $perc + 1.25;
+            elseif($targets>=75)
+                $perc = $perc + 1;
+            elseif($targets>=60)
+                $perc = $perc + 0.75;
+            elseif($targets>=50)
+                $perc = $perc + 0.5;
+            elseif($targets>=30)
+                $perc = $perc + 0.25;
+            else
+                $perc = $perc + 0.1;
+
+            //discplinary cases
+            $gross = false;
+            $mod = false;
+            $minor = false;
+            for($i=0; $i<count($discplinary);$i++)
+            {
+                if($discplinary[$i] == 'some')
+                    $mod = true;
+                if($discplinary[$i] == 'many')
+                    $gross = true;
+                if($discplinary[$i] == 'minor')
+                    $minor = true;
+            }
+            if($gross)
+                $perc = $perc + 0.5;
+            elseif($mod)
+                $perc = $perc + 0.85;
+            elseif($minor)
+                $perc = $perc + 0.95;
+
+        }
+
+               
+        // $perc=$perc+26;
+        return round($perc,2);
     }
 
 }
