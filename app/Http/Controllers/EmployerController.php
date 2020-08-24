@@ -1377,9 +1377,9 @@ class EmployerController extends Controller
             // return redirect('/checkout?product=e_club');
          if (Auth::guest())
             {
-             return redirect('/employers/dashboard');
+             return redirect('/employers/request-paas');
          }
-         return \Redirect::to("/login?redirectToUrl=/employers/dashboard");
+         return \Redirect::to("/login?redirectToUrl=/employers/request-paas");
        }
     }
 
