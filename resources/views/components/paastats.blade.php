@@ -23,7 +23,7 @@
                         <i class="fa fa-building"></i><br>
                         <h5>{{ __('jobs.t_comp') }}</h5>
                         <h1 class="counter" id="total-companies-stats"><span>40</span></h1>
-                        <p><span id="total-hiring-companies-stats">846</span> {{ __('jobs.comp_hirin') }}</p>
+                        <p>{{ __('jobs.comp_hirin') }}</p>
                         <hr class="d-block d-md-none">
                     </div>
                 </div>
