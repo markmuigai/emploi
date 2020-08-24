@@ -31,6 +31,8 @@ use App\Seeker;
 use App\UnregisteredUser;
 use App\User;
 use App\ProductOrder;
+use App\Task;
+use App\SeekerSubscription;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1283,6 +1285,46 @@ class AdminController extends Controller
         Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br>
         Thank you for your cooperation.";
         EmailJob::dispatch($e->cvEditor->user->name, $e->cvEditor->user->email, 'Emploi Cv Edit Request', $caption, $contents);
+
+        return redirect()->back();
+        return $request->all();
+    }
+
+    public function taskRequests(Request $request, $id = false){
+            if(!$id)
+            return view('admins.paas.index')
+                ->with('tasks',Task::Where('name','like','%'.$request->q.'%')
+                                            ->orWhere('email','like','%'.$request->q.'%')     
+                                            ->orderBy('created_at','DESC')->paginate(10));
+        
+        $t = Task::findOrFail($id);
+        $professionals = SeekerSubscription::where('status','active')
+                        ->where('industry_id', $t->industry)
+                        ->get();
+        $allprofessionals = SeekerSubscription::where('status','active')
+                        ->get();
+        return view('admins.paas.show')
+                ->with('task',$t)
+                ->with('professionals',$professionals)
+                ->with('allprofessionals',$allprofessionals);
+
+    }
+
+    public function selectProfessionals(Request $request, $id)
+    {
+        $e = Task::findOrFail($id);
+        $e->cv_editor_id = $request->editor_id;
+        $e->assigned_on = now();
+        $e->status = 'assigned';
+        $e->save();
+
+        // $caption = "Cv Edit Request on Emploi";
+        // $contents = "A CV Editing request has been assigned to you. Log in and process this request. <b> Consider this an urgent call. If you require additional information, kindly contact us.<br><br>
+        // <a href='".url('/cv-editing/'.$e->slug)."'>View CV Editing Request</a>
+        //  <br>
+        // Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br>
+        // Thank you for your cooperation.";
+        // EmailJob::dispatch($e->cvEditor->user->name, $e->cvEditor->user->email, 'Emploi Cv Edit Request', $caption, $contents);
 
         return redirect()->back();
         return $request->all();

@@ -60,10 +60,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <br><br>
 
+                <a href="/admin/paas-task" class="btn btn-sm btn-orange">Paas Task ({{ count(\App\Task::all()) }})</a>
                 <a href="/admin/employers" class="btn btn-sm btn-success">Employers</a>
                 <a href="/admin/cv-requests" class="btn btn-sm btn-info">CV Requests</a>
                 <a href="/admin/companies" class="btn btn-sm btn-primary">Companies</a>
-                <a href="/admin/received-requests" class="btn btn-sm btn-primary">Advert Requests {{ $ar > 0 ? '('.$ar.')' : '' }}</a>
+                <a href="/admin/received-requests" class="btn btn-orange">Advert Requests {{ $ar > 0 ? '('.$ar.')' : '' }}</a>
 
                 <br><br>
 
@@ -98,7 +99,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/vacancy-emails" class="btn btn-sm btn-info">Vacancy Emails</a>
                 
                 <a href="/admin/posts" class="btn btn-sm btn-success">Job Posts {{ $nj > 0 ? '('.$nj.')' : '' }}</a>
-                <a href="/admin/job-post-groups" class="btn btn-sm btn-success">Job Post Groups</a>
+                <a href="/admin/job-post-groups" class="btn btn-sm btn-info">Job Post Groups</a>
 
 
 

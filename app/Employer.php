@@ -134,6 +134,63 @@ class Employer extends Model
         return false;
     }
 
+    public function activateFreeEclub($days = 30){
+        $product = Product::where('slug','e_club')->first();
+        if(isset($product->id))
+        {
+            $order = Order::create([
+                'user_id' => $this->user->id,
+                'slug' => Order::generateUniqueSlug(10)
+            ]);
+            $productOrder = ProductOrder::create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'days_duration' => $days,
+                'price' => 0
+            ]);
+            $invoice = Invoice::create([
+                'order_id' => $order->id,
+                'slug' => Invoice::generateUniqueSlug(11),
+                'first_name' => $this->company_name,
+                'email' => $this->user->email,
+                'description' => $product->description,
+                'sub_total' => 0,
+                'alternative_payment_slug' => 'Free E-Club Package'
+            ]);
+        $user = EmployerSubscription::where('email', $this->user->email)->where('status','inactive')->first();
+
+        if(isset($user))
+            {
+               $user->status = 'active';
+               $user->ending = now()->addMonths(1);
+               $user->save();
+
+                  $caption = "  Employer E-Club subscriptions activated on Emploi";
+                  $contents = "You have successfully subscribed to the E-Club which offers a great variety of benefits to employers which include. <br>
+                    <ul>
+                        <li>Sourcing, management and growth tools at one stop.</li>
+                        <li>Get access to our Job Seeker database and get to hire top professionals.</li>
+                        <li>Thorough professional vetting: Know The Professional Candidate Referencing.</li>
+                        <li>Top quality performance: KPI & performance appraisal framework.</li>
+                        <li>We will help you maintain a healthy pipeline of potential replacements at all times.</li>
+                        <li>Speed: 48 hour turnaround time.</li>
+                    </ul>
+
+                  <p>If you require further information on your subscription, <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                  Thank you for choosing Emploi. 
+
+                  <br>";
+                  EmailJob::dispatch( $this->company_name,  $this->user->email, 'E-Club Subscription activated', $caption, $contents);
+            } 
+
+        }
+        //create order
+        //create product order
+        //send slack notification
+
+    }
+
     public function remainingCompanyBoosts(){
         $orders = $this->user->orders;
         $productOrders = [];

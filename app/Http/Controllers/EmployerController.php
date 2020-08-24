@@ -1343,7 +1343,7 @@ class EmployerController extends Controller
             if(isset($es->id)){
                   if (app()->environment() === 'production')
                     Notification::send(EmployerSubscription::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
-                }
+                
             //     $invoice = Invoice::create([
             //     'slug' => Invoice::generateUniqueSlug(11),
             //     'first_name' => $request->firstname,
@@ -1368,12 +1368,19 @@ class EmployerController extends Controller
 
             // }
 
-                if (Auth::guest()) {
-               return \Redirect::to("/login?redirectToUrl=/checkout?product=e_club");
-            }
-
-            return redirect('/checkout?product=e_club');
+            $user->employer->activateFreeEclub();
         }
+            //     if (Auth::guest()) {
+            //    return \Redirect::to("/login?redirectToUrl=/checkout?product=e_club");
+            // }
+
+            // return redirect('/checkout?product=e_club');
+         if (Auth::guest())
+            {
+             return redirect('/employers/request-paas');
+         }
+         return \Redirect::to("/login?redirectToUrl=/employers/request-paas");
+       }
     }
 
     public function rpaas() {
