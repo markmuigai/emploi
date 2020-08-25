@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <div class="row" style="text-align: right; border-bottom: 0.1em solid #ff5e00">
+        <div class="row pb-4" style="text-align: right; border-bottom: 0.1em solid #ff5e00">
             <a href="/admin/paas-task" class="btn btn-default">
             <i class="fa fa-arrow-left"></i> Back
             </a>  
@@ -47,6 +47,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <?php $rsi =  $p->user->seeker->findRsi(); ?>
                             <a class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="right"  title="Your Role Suitability Index is {{ $rsi }}%">RSI {{ $rsi }}%</a>
                             </option>
+                            <a href="#">Shortlist</a>
+
                             @empty
                             @endforelse
                         </select>
