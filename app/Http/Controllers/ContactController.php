@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Blog;
 use App\Contact;
@@ -20,6 +21,7 @@ use App\Post;
 use App\Seeker;
 use App\User;
 use App\UserPermission;
+use App\Coaching;
 
 use App\Jobs\EmailJob;
 use App\Jobs\VacancyEmail;
@@ -410,6 +412,48 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
     	}
 
     	return view('contacts.failed');
+    }
+
+
+    public function coachingRequest(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:50'],
+            'email'  =>  ['required', 'string', 'email','max:50'],
+            'resume' => ['required','mimes:pdf,docx,doc','max:51200'],
+            'phone_number' => ['required', 'string', 'max:20'],
+            'industry'    =>  ['integer']
+        ]);
+        $optional_message = $request->message ? $request->message : 'No custom message';
+        $storage_path = '/public/resume-edits';
+        $resume_url = basename(Storage::put($storage_path, $request->resume));
+
+            $r = Coaching::create([
+            'email' => $request->email,
+            'industry_id' => $request->industry, 
+            'name' => $request->name,
+            'phone_number' => $request->phone_number,
+            'message' => $optional_message
+        ]);
+
+        if(isset($r->id))
+        {
+
+            $message = "Your request for interview coaching has been received. One of our representatives will get in touch shortly.";
+            $error = '';
+
+            if (app()->environment() === 'production') {
+                'INTERVIEW COACHING: '$r->name.' with phone '$r->phone_number.' has requested for Interview Coaching';
+                Seeker::first()->notify(new EditingRequest($sm));
+            }
+        }
+        else
+            $error = "An error occurred while processing your request. Kindly try again after a while or contact us if the error persists";       
+
+        
+            return redirect('/job-seekers/coaching-request')
+                ->with('message',$message)
+                ->with('error',$error);
     }
 
     public function webmail()
