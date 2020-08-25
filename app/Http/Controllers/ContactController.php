@@ -443,7 +443,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             $error = '';
 
             if (app()->environment() === 'production') {
-                'INTERVIEW COACHING: '$r->name.' with phone '$r->phone_number.' has requested for Interview Coaching';
+                'INTERVIEW COACHING: '.$r->name.' with phone '.$r->phone_number.' has requested for Interview Coaching';
                 Seeker::first()->notify(new EditingRequest($sm));
             }
         }
