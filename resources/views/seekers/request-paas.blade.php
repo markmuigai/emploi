@@ -9,6 +9,24 @@ Get Hired as a Professional by joining the Golden Club..
 @section('content')
 
 
+<style type="text/css">
+    .blink{
+    padding: 10px;  
+    color: white;
+    text-align: center;
+  }
+  .span{
+    font-size: 28px;
+    font-family: cursive;
+    color: #E15419;
+    animation: blink 1s linear infinite;
+  }
+  @keyframes blink{
+  0%{opacity: 0;}
+  50%{opacity: .5;}
+  100%{opacity: 1;}
+  }
+</style>
 <div class="row container mx-auto">
     <div class="col-md-8 align-right mx-auto pt-4 pb-4">
           @if(session()->has('fail'))
@@ -20,6 +38,7 @@ Get Hired as a Professional by joining the Golden Club..
             <div class="modal-header">            
               <h5 class="modal-title text-center h4 mx-auto" id="exampleModalLabel">Join Golden Club for Exclusive Jobs.</h5>
             </div>
+            <div class="blink pt-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Free For One Month</span></a></div>
             <div class="modal-body bg-light">
               <!-- subscribe form for Professional -->
                 <form method="POST"  enctype="multipart/form-data" action="/job-seekers/subscribe-paas">
