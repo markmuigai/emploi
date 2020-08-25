@@ -879,9 +879,8 @@ class Seeker extends Model
                if(count($featuredVacancies) > 0){
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
 
-                $contents  ="<p>Don't assume your CV is good enough: A professional CV critique could be just what you need to
-                           figure out what's been missing and what needs to go.Click <a href='https://bit.ly/3fqEkrD'> here</a> to 
-                           have your CV reviewed to perfection at no cost.</p>" ; 
+                $contents  ="<p>Are you looking to work part-time? Join the Golden Club today and enjoy a one-month free membership.
+                             Get on board now and let hiring employers find you.<a href='https://bit.ly/2CMMYTY'>Join Now</a></p>" ; 
                 $contents .= '<p style= "background:orange; color:white">';
 
                 $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";

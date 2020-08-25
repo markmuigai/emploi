@@ -52,6 +52,43 @@ class Employer extends Model
         EmailJob::dispatch($this->user->name, $this->user->email, 'Welcome to Emploi', $caption, $contents);
     }
 
+    public function activateFreeStawi($days = 30){
+        $product = Product::where('slug','stawi')->first();
+        if(isset($product->id))
+        {
+            $order = Order::create([
+                'user_id' => $this->user->id,
+                'slug' => Order::generateUniqueSlug(10)
+            ]);
+            $productOrder = ProductOrder::create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'days_duration' => $days,
+                'price' => 0
+            ]);
+            $invoice = Invoice::create([
+                'order_id' => $order->id,
+                'slug' => Invoice::generateUniqueSlug(11),
+                'first_name' => $this->company_name,
+                'email' => $this->user->email,
+                'description' => $product->description,
+                'sub_total' => 0,
+                'alternative_payment_slug' => 'Free Stawi Package'
+            ]);
+            if(app()->environment() === 'production')
+            {
+                $message = $this->name." activated free stawi package. Email: ".$this->user->email;
+                $this->notify(new \App\Notifications\SystemError($message));
+            }
+            // ProductOrder::enablePending();
+
+        }
+        //create order
+        //create product order
+        //send slack notification
+
+    }
+
     public function isOnStawiPackage(){
         if($this->user->email == 'jobs@emploi.co')
             return true;

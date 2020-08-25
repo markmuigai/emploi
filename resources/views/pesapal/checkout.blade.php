@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					<span class="badge badge-secondary badge-pill">1</span>
 				</h4>
 				   @if($product->days_duration == 30)            
-					    <h6 class="orange">Get 1 month free on yearly payment either by:</h6>
+					    <h6 class="orange">Get 1 month free on annual subscription:</h6>
 					    <ul>
 					    	<li><a href="" id="duration_yearly">Clicking here</a></li>
 					    	<li>Selecting duration below as one year</li>

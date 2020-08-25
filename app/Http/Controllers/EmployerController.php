@@ -1314,6 +1314,9 @@ class EmployerController extends Controller
             'user_id' => $user->id,
             'permission_id' => 3
         ]);
+        if (isset($emp->id)) {
+            $emp->user->employer->activateFreeStawi();
+        }
         
         $caption = "Thank you for registering your profile on Emploi as an Employer";
         $contents = "Here are your login credentials for Emploi: <br>
@@ -1372,8 +1375,8 @@ class EmployerController extends Controller
             //     }
 
             // }
-
             $user->employer->activateFreeEclub();
+
         }
             //     if (Auth::guest()) {
             //    return \Redirect::to("/login?redirectToUrl=/checkout?product=e_club");
@@ -1420,8 +1423,11 @@ class EmployerController extends Controller
         }
                 if(!isset($user->id))
         {
-            $username = explode(" ", strtolower($request->name));
-            $username = implode("-", $username).rand(1000,30000);
+            $username = explode(" ", $request->name);
+            $username = strtolower(implode("", $username).rand(1000,30000));
+            $username = explode(".", $username);
+            $username = implode('',$username);
+
             $password = User::generateRandomString(10);
             $created = true;
 
@@ -1432,11 +1438,6 @@ class EmployerController extends Controller
                 'email_verification' => User::generateRandomString(10),
                 'password' => Hash::make($password),
             ]);
-
-            if(!isset($user->id))
-            {
-                abort(500);
-            }
 
         // $r = Referral::where('email',$request->email)->first();
 
@@ -1474,7 +1475,12 @@ class EmployerController extends Controller
             'user_id' => $user->id,
             'permission_id' => 3
         ]);
-        
+
+        if (isset($emp->id)) {
+            $emp->user->employer->activateFreeStawi();
+        }
+
+
         $caption = "Thank you for registering your profile on Emploi as an Employer";
         $contents = "Here are your login credentials for Emploi: <br>
             username: $username <br>
@@ -1484,6 +1490,8 @@ class EmployerController extends Controller
         Verify your account <a href='".url('/verify-account/'.$user->email_verification)."'>here</a> and finish setting up your account. Thank you for choosing Emploi.
                 ";
         EmailJob::dispatch($user->name, $user->email, 'Verify Emploi Account', $caption, $contents);
+
+        
 
         if (app()->environment() === 'production')
         Notification::send(Employer::first(),new EmployerRegistered('NEW EMPLOYER: '.$emp->user->name.' registered an employer profile'));

@@ -209,7 +209,12 @@ class User extends Authenticatable
         if($this->role == 'employer')
         {
             $this->employer->sendWelcomeEmail();
+           
         }
+        if($this->role == 'employer')
+        {
+            $this->employer->activateFreeStawi(); 
+        }    
         return true;
     }
 
