@@ -114,7 +114,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                  <h4>Advertise a Job</h4>
-                 <p>With an Employer's profile, after advertise your job, qualified job applications start streaming in. Easily shortlist or reject applications with professional response templates.</p>
+                 <p>With an Employer's profile, after advertising your job, qualified job applications start streaming in. Easily shortlist or reject applications with professional response templates.</p>
                </div>
              </div>
            </a>
