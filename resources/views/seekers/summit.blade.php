@@ -250,7 +250,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <div class="row col-md-6 mx-auto ml-1" style="background-color:#554594">
           <div class="container-fluid text-center pt-3">
             <div class="h5 font-weight-bold" style="color:white;">AFTER</div>
-            <img src="/images/cv92.jpg" style="width:100%; height:90%;" class="shadow">
+            <img src="/images/cv101.jpg" style="width:100%; height:90%;" class="shadow">
 
           </div>
         </div>
@@ -636,9 +636,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                           </div> 
                                         </div>
                                     <div class="col-md-12 card">
-                                          <div class="card-body">
-                                            <p style="text-align: center">Featured jobseeker tag for 3 months on the website to appear on all searches and applicant lists</p>
-                                          </div>
+                                            <ul class="fa-ul card-body">
+                                              <li><span class="fa-li" style="text-align:center;"><i class="fas fa-check orange"></i></span>Featured jobseeker tag for 3 months on the website to appear on all searches and applicant lists</li>
+                                            </ul>
                                     </div>    
 
                                 <div class="text-center">
