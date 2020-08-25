@@ -181,7 +181,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('bloggers','BloggersController');
     Route::get('referees','AdminController@referees');
     Route::get('seekers/{username?}','AdminController@seekers');
-    Route::get('paas-seekers/{username?}','AdminController@PaasSeekers');
     Route::get('referee/{slug}','AdminController@viewReport');
     Route::get('cv-requests/{id?}','AdminController@cvRequests');
     Route::get('vacancy-emails', 'AdminController@vacancyEmails');
