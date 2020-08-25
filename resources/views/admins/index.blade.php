@@ -51,6 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 $ar = \App\Advert::where('status','pending')->count();
                 ?>
 
+                <a href="/admin/paas-seekers" class="btn btn-sm btn-danger">Paas Professionals ({{ count(\App\SeekerSubscription::where('status','active')->get()) }})</a>
                 <a href="/admin/seekers" class="btn btn-sm btn-primary">Job Seekers</a>
                 <a href="/admin/cveditors" class="btn btn-sm btn-info">CV Editors</a>
                 <a href="/admin/cv-edit-requests" class="btn btn-sm btn-success">CV Edit Requests ({{ count(\App\CvEditRequest::all()) }})</a>

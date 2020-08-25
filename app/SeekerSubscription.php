@@ -21,6 +21,10 @@ class SeekerSubscription extends Model
        public function User(){
         return $this->belongsTo(User::class,'user_id');
     }
+    
+       public function industry(){
+        return $this->belongsTo(Industry::class,'industry_id');
+    }
       public static function activateSeekerPaas($email)
     {
        

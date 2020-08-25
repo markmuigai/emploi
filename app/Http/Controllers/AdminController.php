@@ -354,7 +354,29 @@ class AdminController extends Controller
                     ->with('seekers',Seeker::orderBy('featured','DESC')->orderBy('id','DESC')->paginate(30));
         //show all seekers
     }
-          
+    
+
+      public function PaasSeekers($username=null, Request $request)
+    {
+        // if($username)
+        // {
+        //     $seeker = SeekerSubscription::where('status','active')->firstOrFail();
+            
+            
+        //         if(!$request->session()->has('viewed-seeker-'.$user->seeker->id))
+        //         {
+        //             $request->session()->put('viewed-seeker-'.$user->seeker->id, now());
+        //             $user->seeker->isBeingViewedBy(Auth::user());
+        //         }
+                $seekers = SeekerSubscription::where('status','active')->paginate(15);
+
+                return view('admins.paas.seekers')
+                    ->with('seekers',$seekers);
+
+            
+        
+       
+    }    
 
 
     public function cvRequests(Request $request, $id=false){

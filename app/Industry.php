@@ -59,6 +59,9 @@ class Industry extends Model
     public function cvEditRequests(){
         return $this->hasMany(CvEditRequest::class);
     }
+       public function seekerSubscription(){
+        return $this->hasMany(SeekerSubscription::class);
+    }
 
     public function activePosts($counter = 10){
         return Post::where('status','active')
