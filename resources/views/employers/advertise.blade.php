@@ -41,7 +41,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
                 <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
                 <a href="/employers/register?redirectToUrl={{ url('/employers/publish') }}" class="btn btn-outline-primary mr-2 btn-demo">  Create Account</a><br><br>
-                <a href="/employers/paas" class="btn btn-theme" target="_blank" id="visit-employer-paas" style="width: 300px;background-color:#E15419;">Request for Part Timer <span class="spinner-grow spinner-grow-sm ml-2" role="status" aria-hidden="true"></span></a>
+                <a href="/employers/paas" class="btn btn-theme" id="visit-employer-paas" style="width: 300px;background-color:#E15419;">Request for Part Timer <span class="spinner-grow spinner-grow-sm ml-2" role="status" aria-hidden="true"></span></a>
 
               
           
