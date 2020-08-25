@@ -9,9 +9,9 @@ Get a free CV review from our Experts and stand out from the crowd.
 @section('content')
 <div class="container py-5">
 	<div class="text-center">
-		<h2 class="orange text-center">Free CV Review</h2>
+		<h2 class="orange text-center">Interview Coaching Review</h2>
 		<p>
-			Get a Free CV Review plus <a href="/job-seekers/summit">a 50% discount on Cv edit</a> from our experts and stand out from the crowd
+			Get detailed interview coaching from our experts and stand out from the crowd
 		</p>
 	</div>
 	
