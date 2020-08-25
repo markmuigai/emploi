@@ -33,6 +33,7 @@ Route::get('/mass-recruitment', 'ContactController@mass_recruitment');
 Route::get('/employers/role-suitability-index', 'ContactController@rsi');
 
 Route::post('/interview-coaching', 'ContactController@coachingRequest');
+Route::post('/exclusive-placement', 'ContactController@placementRequest');
 
 Route::get('/webmail', 'ContactController@webmail');
 Route::get('/cpanel', 'ContactController@cpanel');

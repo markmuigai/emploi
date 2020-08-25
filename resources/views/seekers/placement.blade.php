@@ -10,6 +10,14 @@ Get Exclusive Placement Services from our Experts and stand out from the crowd.
 <div class="container py-5">
 	<div class="text-center">
 		<h2 class="orange text-center">Request for Exclusive Placement</h2>
+
+			<p>
+			@if(session()->has('message'))
+                <div class="alert alert-success">
+                {{ session()->get('message') }}
+                </div>
+            @endif
+        </p>
 	
 	</div>
 	
@@ -17,11 +25,10 @@ Get Exclusive Placement Services from our Experts and stand out from the crowd.
 	
 </div>
 
-	<div class="row" >
+	<div class="row" >		
 		
-		
-		<form method="POST"  enctype="multipart/form-data" action="#" class="col-md-8 offset-md-2">
-			<input type="hidden" name="free_review" value="true">
+		<form method="POST"  enctype="multipart/form-data" action="/exclusive-placement" class="col-md-8 offset-md-2">
+			<input type="hidden" value="true">
 			@csrf
 			<p>
 				<label>Name: <b style="color: red">*</b></label>
@@ -83,7 +90,7 @@ Get Exclusive Placement Services from our Experts and stand out from the crowd.
 				<textarea class="form-control" placeholder="Add Optional message.  " maxlength="500" name="message">{{ old('message') }}</textarea>
 			</p>
 			<p>
-				<input type="submit" class="btn btn-orange" value="Get Free CV Review">
+				<input type="submit" class="btn btn-orange" value="Request">
 			</p>
 		</form>
 	</div>

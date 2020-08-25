@@ -19,11 +19,6 @@ Get interview from our Experts and stand out from the crowd.
                 {{ session()->get('message') }}
                 </div>
             @endif
-            @if(session()->has('error'))
-                <div class="alert alert-success">
-                {{ session()->get('error') }}
-                </div>
-            @endif
         </p>
 	</div>
 	
