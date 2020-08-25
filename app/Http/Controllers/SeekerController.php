@@ -38,6 +38,16 @@ class SeekerController extends Controller
             ->with('blogs',Blog::recent(20));
     }
 
+    public function coaching(Request $request)
+    {
+        return view('seekers.coaching');
+    }
+
+    public function placement(Request $request)
+    {
+        return view('seekers.placement');
+    }
+
     public function toProfile(){
         return redirect('/profile');
     }
