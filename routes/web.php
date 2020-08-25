@@ -298,6 +298,7 @@ Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
 Route::get('/job-seekers/register-paas', 'SeekerController@rpaas')->name('golden');
 Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
 Route::get('/job-seekers/coaching-request', 'SeekerController@coaching');
+Route::get('/job-seekers/placement-request', 'SeekerController@placement');
 
 
 

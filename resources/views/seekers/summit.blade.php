@@ -640,7 +640,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     </div>    
 
                                 <div class="text-center">
-                                    <a href="/contact" class="btn btn-orange">Contact Us</a>
+                                    <a href="/job-seekers/placement-request" class="btn btn-orange">Make Request</a>
                                 </div>
                           </div>
                           <div class="modal-footer">

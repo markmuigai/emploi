@@ -1,18 +1,16 @@
 @extends('layouts.general-layout')
 
-@section('title','Emploi :: Interview Coaching')
+@section('title','Emploi :: Exclusive Placement')
 
 @section('description')
-Get interview from our Experts and stand out from the crowd.
+Get Exclusive Placement Services from our Experts and stand out from the crowd.
 @endsection
 
 @section('content')
 <div class="container py-5">
 	<div class="text-center">
-		<h2 class="orange text-center">Interview Coaching Request Form</h2>
-		<p>
-			Get detailed interview coaching from our experts and stand out from the crowd
-		</p>
+		<h2 class="orange text-center">Request for Exclusive Placement</h2>
+	
 	</div>
 	
 

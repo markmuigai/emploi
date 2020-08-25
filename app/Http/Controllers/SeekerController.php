@@ -43,6 +43,11 @@ class SeekerController extends Controller
         return view('seekers.coaching');
     }
 
+    public function placement(Request $request)
+    {
+        return view('seekers.placement');
+    }
+
     public function toProfile(){
         return redirect('/profile');
     }
