@@ -220,7 +220,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
      <div class="container py-md-3">
        <div class="heading text-center mx-auto">
          <h3 class="head">Creating a Part-timer Request.</h3>
-         <p class="my-3 head">To create a new request you go the request page and fill in required details including Task and Specific Industry. Emploi will then take care of the rest of the process.</p>
+         <p class="my-3 head">To create a new request, go the request page and fill in required details including Task and Specific Industry. Emploi will then take care of the rest of the process.</p>
        </div>
        <div class="row">
          <div class="col-md-6 features15-col-text">
@@ -248,7 +248,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                 <h4>Review Shortlisted</h4>
-                <p>Review and select from a shortlist of 3 from emploi's system</p>
+                <p>Review and select from a shortlist of 3 from Emploi's system</p>
                </div>
              </div>
             </div>

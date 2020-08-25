@@ -72,7 +72,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       <div class="row align-items-center py-md-5 py-5">
         <div class="col-md-12 content-left pt-md-0 pt-5">
           <br><br><br><br><br>
-          <h3 class="mt-3 mb-md-5 mb-4 h1">Join Talent Pool.</h3>
+          <h3 class="mt-3 mb-md-5 mb-4 h1">Join our Talent Pool.</h3>
           <p class="mt-3 mb-md-5 mb-4 h5">Are you a professional looking for part-time work? <br> A new solution is here for you.</p>
 
           @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
@@ -318,7 +318,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
              <div class="col-sm-9 mt-sm-0 mt-4">
                <div class="features15-para">
                  <h4>Featured Companies</h4>
-                 <p>Top candidates seek vacancies from top companies. You can view the list of potential employers in the partners session..</p>
+                 <p>Top candidates seek vacancies from top companies. You can view the list of potential employers in the partners section..</p>
                </div>
              </div>
             </div>
@@ -385,8 +385,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="row cwp17-two align-items-center">
       <div class="col-md-6 cwp17-text">
         <h2>Great features app
-            that everyone Love</h2>
-        <p>We enhance communication between employers and job seekers by configuring and automating responses giving your organization a professional outlook and giving job seekers appropriate feedback to advance their careers. Founded in 2017 as Jobsikaz and later rebranding to Emploi in 2019, we our goal is to impact 5 million job seekers in Africa by 2025. </p>
+            that everyone Loves</h2>
+        <p>We enhance communication between employers and job seekers by configuring and automating responses giving your organization a professional outlook and giving job seekers appropriate feedback to advance their careers. Founded in 2017 as Jobsikaz and later rebranding to Emploi in 2019, our goal is to impact 5 million job seekers in Africa by 2025. </p>
         <a href="/about">Read more about us &raquo;</a>
       </div>
       <div class="col-md-6 cwp17-image">
