@@ -858,13 +858,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(4))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(2))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(4))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -879,9 +879,9 @@ class Seeker extends Model
                if(count($featuredVacancies) > 0){
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
 
-                $contents  ="<p>Are you looking to work part-time? Join the Golden Club today and enjoy a one-month free membership.
-                             Get on board now and let hiring employers find you.<a href='https://bit.ly/2CMMYTY'>Join Now</a></p>" ; 
-                $contents .= '<p style= "background:orange; color:white">';
+                // $contents  ="<p>Are you looking to work part-time? Join the Golden Club today and enjoy a one-month free membership.
+                //              Get on board now and let hiring employers find you.<a href='https://bit.ly/2CMMYTY'>Join Now</a></p>" ; 
+                $contents  = '<p style= "background:orange; color:white">';
 
                 $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
                 $contents .= '</p>';
