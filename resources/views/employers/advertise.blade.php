@@ -16,7 +16,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="container">
       <div class="row align-items-center py-md-5 py-3">
         <div class="col-md-5 content-left pt-md-0 pt-5">
-          <h1>Post Your First Job in Minutes</h1>
+          <h5>Free Job Advertisement for new employers.</h5>
+          <h5> 20% discount for all employers.</h5>
           <p class="mt-3 mb-md-5 mb-4">Advertise & shortlist your job here and take advantage of our superior shortlisting tools.</p>
 
 
