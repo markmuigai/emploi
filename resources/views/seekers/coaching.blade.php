@@ -22,7 +22,7 @@ Get interview from our Experts and stand out from the crowd.
 	<div class="row" >
 		
 		
-		<form method="POST"  enctype="multipart/form-data" action="/cv-editing" class="col-md-8 offset-md-2">
+		<form method="POST"  enctype="multipart/form-data" action="#" class="col-md-8 offset-md-2">
 			<input type="hidden" name="free_review" value="true">
 			@csrf
 			<p>
