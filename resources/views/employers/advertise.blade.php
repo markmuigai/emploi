@@ -55,7 +55,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </div>
 
-<div class="blink pt-4"><a href="/post-a-job" style="text-decoration: none;"><span class="span">>> Free Job Advertisement for new employers. 20% discount for all employers.</span></a></div>
+<div class="blink pt-4"><a href="/post-a-job" style="text-decoration: none;"><span class="span">Free Job Advertisement for new employers. 20% discount for all employers.</span></a></div>
 
 <!-- //index-block1 -->
 <!-- index-block2 -->
