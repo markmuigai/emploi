@@ -10,14 +10,32 @@ Advertise on Emploi and reach an audience of 100k+, get access to Premium Shortl
 <?php
 $user = isset(Auth::user()->id) ? Auth::user() : false;
 ?>
+
+<style>
+  .blink{
+		padding: 10px;	
+    color: white;
+		text-align: center;
+	}
+	.span{
+		font-size: 28px;
+		font-family: cursive;
+		color: #E15419;
+		animation: blink 1s linear infinite;
+	}
+  @keyframes blink{
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+    }
+</style>
 <!-- index-block1 -->
 <div class="w3l-index-block1">
   <div class="content py-5">
     <div class="container">
       <div class="row align-items-center py-md-5 py-3">
         <div class="col-md-5 content-left pt-md-0 pt-5">
-          <h5>Free Job Advertisement for new employers.</h5>
-          <h5> 20% discount for all employers.</h5>
+          <h3>Post Your Job in Minutes</h3>
           <p class="mt-3 mb-md-5 mb-4">Advertise & shortlist your job here and take advantage of our superior shortlisting tools.</p>
 
 
@@ -36,9 +54,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
   </div>
 </div>
+
+<div class="blink pt-4"><a href="/post-a-job" style="text-decoration: none;"><span class="span">>> Free Job Advertisement for new employers. 20% discount for all employers.</span></a></div>
+
 <!-- //index-block1 -->
 <!-- index-block2 -->
-<section class="w3l-index-block2 py-5">
+<section class="w3l-index-block2 py-4">
   <div class="container py-md-3">
     <div class="heading text-center mx-auto">
       <h3 class="head">9 out of 10 Employers</h3>
