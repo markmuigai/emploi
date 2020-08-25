@@ -226,7 +226,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
             <div class="card-deck text-center row">
                 <div class="col-sm-12">
-                  <div class="blink pt-4"><a style="text-decoration: none;"><span class="span"><u>Claim your one month free on job advertisement now!!!</u></span></a></div>
+                  <div class="blink pt-4"><a style="text-decoration: none;"><span class="span"><u>Claim your one month free job advertisement now!!!</u></span></a></div>
 
                     <h3 class="orange pt-3 pb-4 text-center" id="charges">Our Charges</h3>
                 </div>
