@@ -48,6 +48,7 @@ class RevertFeaturedJobs extends Command
                 ->where('slug', '!=', 'sales-representative-needed-apply ')
                 ->where('slug', '!=', 'marketing-jobs-available-apply-now')
                 ->where('slug', '!=', 'sales-officer-wanted-urgently-apply')
+                ->where('slug', '!=', 'exciting-career-opportunity-in-insurance-sales')
                 ->get();
 
         
