@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <style type="text/css">
    .summit-header
    {
-      background: linear-gradient(to right, #808080, rgba(81, 81, 81, .3)), url(../images/seeker_services.jpg);
+      background: linear-gradient(to right,#515151,rgba(100,100,100,.5)), url(../images/seeker_services.jpg);
       height: 50vh;
       background-repeat: no-repeat;
       background-position: 85% center;
@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
     .banner1
     {
-      background: linear-gradient(to right, #808080, rgba(81, 81, 81, .3)), url(../images/seeker_services.jpg);
+      background: linear-gradient(to right,#515151,rgba(100,100,100,.5)), url(../images/seeker_services.jpg);
       height: 40vh;
       background-size:cover;
       padding-left: 0;
@@ -174,7 +174,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="card mb-5 mb-lg-0">
               <div class="card-body"><br><br>
                 <h5 class="card-title text-muted text-uppercase text-center">Exclusive Placement</h5>
-                <h6 class="card-price text-center">5000 - 16000 <br><span class="period">KES/month</span></h6>
                 <hr>
                 <ul class="fa-ul">
                   <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Professional discovery- In-depth career advisory</strong></li>
@@ -196,14 +195,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               <div class="card-body">
                 <div class="ribbon ribbon-top-right ml-2"><span>50% Off</span></div><br><br>
                 <h5 class="card-title text-muted text-uppercase text-center">Professional CV Editing</h5>
-                <h6 class="card-price text-center">1000 - 5000 <br><span class="period">KES/month</span></h6>
                 <hr>
 
                 <ul class="fa-ul pb-3">
                   <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Increased interview chances</strong></li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Indepth career advisory</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Summarised skills and achievements</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>50% discount</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Cover Letter</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Updated resume</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Timely format</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Industry –accepted standards</li>
@@ -219,7 +217,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="card">
               <div class="card-body"><br><br>
                 <h5 class="card-title text-muted text-uppercase text-center">Interview Coaching</h5>
-                <h6 class="card-price text-center">Contact us for more details <br><span class="period"></span></h6>
                 <hr>
                 <ul class="fa-ul pb-2">
                   <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Practical interview experience</strong></li>
@@ -228,7 +225,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Employer insight</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Personalized expert feedback</li>
                 </ul><br><br><br><br><br><br><br><br><br><br><br>
-                <a href="/contact" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button">Get Started</a>
+                <a href="/job-seekers/coaching-request" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button">Get Started</a>
               </div>
             </div>
           </div>
@@ -236,27 +233,31 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       </div>
     </section> 
 
-    <section class="row pb-4 pt-2">
+<section>
+    <div class="col-md-12 pb-4 pt-2">
       <div class="container-fluid text-center pt-4 pb-4">
         <div class="h3 font-weight-bold">SEE THE DIFFERENCE A PROFESSIONAL RESUME MAKES</div>
       </div>
       <div class="row mx-auto pt-3">
-        <div class="row col-md-6 mx-auto mr-1">
+        <div class="row col-md-6 mx-auto mr-1" style="background-color:#554594">
           <div class="container-fluid text-center pt-3">
-            <div class="h5 font-weight-bold">BEFORE</div>
+            <div class="h5 font-weight-bold" style="color:white;">BEFORE</div>
+            <img src="/images/cv91.jpg" style="width:100%; height:90%;" class="shadow">
+
           </div>
-          <img src="/images/cv91.jpg" style="width:100%; height:100%;" class="shadow">
         </div>
         
-        <div class="row col-md-6 mx-auto ml-1">
+        <div class="row col-md-6 mx-auto ml-1" style="background-color:#554594">
           <div class="container-fluid text-center pt-3">
-            <div class="h5 font-weight-bold">AFTER</div>
+            <div class="h5 font-weight-bold" style="color:white;">AFTER</div>
+            <img src="/images/cv92.jpg" style="width:100%; height:90%;" class="shadow">
+
           </div>
-          <img src="/images/cv92.jpg" style="width:100%; height:100%;" class="shadow">
         </div>
       </div>
       <br><br><br><br><br><br><br>
-    </section>
+    </div>
+  </section>
 
 
 <div class="container-fluid no-padding">
@@ -321,10 +322,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         if(isset($p->id))
                                         
                                       ?>
-                                      <h5><del>Kshs {{ $price }}</del></h5>
-                                         <p>Entry Level</p>
-                                          <br><br>
-                                          <div class="orange">50% off</div>
+                                         <p>1. Entry Level</p>
+                                         <h5><del>Kshs {{ $price }}</del></h5>
                                           <h5>Kshs 1000</h5>
                                           <form method="POST" action="/checkout" >
                                         @csrf
@@ -346,10 +345,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         if(isset($p->id))
                                         
                                       ?>
-                                      <h5><del>Kshs {{ $price }}</del></h5>
-                                         <p>Mid Level</p>
-                                          <br><br>
-                                          <div class="orange">50% off</div>
+                                         <p>2. Mid Level</p>
+                                         <h5><del>Kshs {{ $price }}</del></h5>
                                           <h5>Kshs 2000</h5>
                                           <form method="POST" action="/checkout" >
                                         @csrf
@@ -373,9 +370,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         if(isset($p->id))
                                           
                                       ?>
-                                      <h5><del>Kshs {{ $price }}</del></h5>
-                                        <p>Career Change / Promotion Seeking CV</p>
-                                        <div class="orange">50% off</div>
+                                        <p>3. Career Change / Promotion Seeking CV</p>
+                                        <h5><del>Kshs {{ $price }}</del></h5>
                                           <h5>Kshs 3000</h5>
                                         <form method="POST" action="/checkout">
                                         @csrf
@@ -397,10 +393,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         if(isset($p->id))
                                           
                                       ?>
+                                      <p>4. Management Level</p>
                                       <h5><del>Kshs {{ $price }}</del></h5>
-                                      <p>Management Level</p>
-                                      <br>
-                                      <div class="orange">50% off</div>
                                         <h5>Kshs 3000</h5>
                                       <form method="POST" action="/checkout">
                                       @csrf
@@ -424,10 +418,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         if(isset($p->id))
                                           
                                       ?>
-                                      <del>Kshs {{ $price }}</del></h5>
-                                        Senior Management Level</p>
-                                        <div class="orange">50% off</div>
-                                      Kshs 5000</h5>
+                                        5. Senior Management Level</p>
+                                        <del>Kshs {{ $price }}</del></h5>
+                                        <h5>Kshs 5000</h5>
                                         <form method="POST" action="/checkout">
                                         @csrf
                                         <input type="hidden" name="product" value="s_mgnt_cv_edit">
@@ -602,7 +595,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                    <div class="text-center py-3">
                                         <img src="/images/exclusive.jpg" class="w-50" alt="Premium Placement">
                                     </div>
-                                 <h5 class="pt-2">WHAT DOES IT ENTAILS</h5>
+                                 <h5 class="pt-2">WHAT DOES IT ENTAIL?</h5>
                                  <ol>
                                      <li>Professional discovery- In-depth career advisory</li>
                                      <li>Career profile -Opportunity mapping</li>
@@ -619,25 +612,25 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                      
                                   
                                     <div class="row" style="text-align: center;">
-                                          <div class="col-md-12" style="">
+                                          <div class="col-lg-12" style="">
                                               <h5>Other FREE Benefits!</h5>
                                           </div>
-                                          <div class="col-md-4 card">
-                                              <div class="card-body">
-                                                 <p>CV Review</p>
-                                              </div>     
+                                          <div class="col-lg-4 card">
+                                            <ul class="fa-ul">
+                                              <li><span class="fa-li"><i class="fas fa-check orange"></i></span>CV Review</li>
+                                            </ul>
                                           </div>
 
-                                          <div class="col-md-4 card">
-                                              <div class="card-body">
-                                                  <p>CV Editing</p>
-                                              </div>   
+                                          <div class="col-lg-4 card">
+                                            <ul class="fa-ul">
+                                              <li><span class="fa-li"><i class="fas fa-check orange"></i></span>CV Editing</li>
+                                            </ul>
                                           </div>
 
-                                          <div class="col-md-4 card">
-                                              <div class="card-body">
-                                                <p>Updating Of LinkedIn Profile</p>
-                                              </div>   
+                                          <div class="col-lg-4 card">
+                                            <ul class="fa-ul">
+                                              <li><span class="fa-li"><i class="fas fa-check orange"></i></span>LinkedIn Profile Update</li>
+                                            </ul>
                                           </div> 
                                         </div>
                                     <div class="col-md-12 card">
