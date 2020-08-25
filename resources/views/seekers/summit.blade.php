@@ -15,6 +15,18 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       background-repeat: no-repeat;
       background-position: 85% center;
     }
+
+    .banner1
+    {
+      background: linear-gradient(to right, #808080, rgba(81, 81, 81, .3)), url(../images/seeker_services.jpg);
+      height: 40vh;
+      background-size:cover;
+      padding-left: 0;
+      padding-right: 0;
+      color: #fff;
+     }
+
+
     .modal-dialog{
         overflow-y: initial !important
     }
@@ -44,7 +56,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     }
 
     .pricing .card-price {
-      font-size: 3rem;
+      font-size: 1.7rem;
       margin: 0;
     }
 
@@ -66,7 +78,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       letter-spacing: .1rem;
       font-weight: bold;
       padding: 1rem;
-      opacity: 0.7;
       transition: all 0.2s;
     }
 
@@ -140,58 +151,66 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 }
 
 </style>
-<div class="container">
+<div class="container container-fluid pb-4">
     <div class="text content-left summit-header"><br><br><br>
         <div style="margin-left: 50px; color: white">
             <h1 >Summit Plan</h1>
              <p>Coaching and support that gets you a job<br>where you will thrive not just survive.</p>
         </div>          
-    </div><br>
+</div><br>
+
+<div class="container">
+  <h2 class="text-center pt-4" style="font-weight: bold;">Get your career to the top</h2>
+  <p class="h5 text-center">
+    Are your job application efforts proving unfruitful? The Career Summit will land you that interview ASAP!</p>
+</div>
 
 
-   <!-- <section class="pricing py-5">
+<section class="pricing py-5">
       <div class="container">
         <div class="row">
 
           <div class="col-lg-4">
             <div class="card mb-5 mb-lg-0">
-              <div class="card-body">
-                <div class="ribbon ribbon-top-right ml-2"><span>50% Off</span></div><br><br>
-                <h5 class="card-title text-muted text-uppercase text-center">Professional CV Editing</h5>
-                <h6 class="card-price text-center">$0<span class="period">/month</span></h6>
+              <div class="card-body"><br><br>
+                <h5 class="card-title text-muted text-uppercase text-center">Exclusive Placement</h5>
+                <h6 class="card-price text-center">5000 - 16000 <br><span class="period">KES/month</span></h6>
                 <hr>
                 <ul class="fa-ul">
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited Private Projects</li>
-                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
-                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain</li>
-                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li><br><br><br>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Professional discovery- In-depth career advisory</strong></li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Career profile -Opportunity mappingg</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Fine-tuning of application tools, pitches, presentations and outreach messaging</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Coaching(2 sessions) on the best interviewing techniques- 100% success rate to date</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Vacancy hunting</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Post placement follow-up and support</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>CV Review</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>CV Editing</li>
                 </ul>
-                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal1">Button</a>
+                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal2">GET STARTED</a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="card mb-5 mb-lg-0">
-              <div class="card-body"><br><br>
-                <h5 class="card-title text-muted text-uppercase text-center">Exclusive Placement</h5>
-                <h6 class="card-price text-center bg-light">$9<span class="period">/month</span></h6>
+              <div class="card-body">
+                <div class="ribbon ribbon-top-right ml-2"><span>50% Off</span></div><br><br>
+                <h5 class="card-title text-muted text-uppercase text-center">Professional CV Editing</h5>
+                <h6 class="card-price text-center">1000 - 5000 <br><span class="period">KES/month</span></h6>
                 <hr>
-                <ul class="fa-ul">
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Users</strong></li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Free Subdomain</li>
-                  <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li><br><br><br>
-                </ul>
-                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal2">GET STARTED</a>
+
+                <ul class="fa-ul pb-3">
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Increased interview chances</strong></li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Indepth career advisory</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Summarised skills and achievements</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>50% discount</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Updated resume</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Timely format</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Industry –accepted standards</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Professional touch</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Objective Point of View</li>
+                </ul><br><br><br>
+                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal1">Get Started</a>
               </div>
             </div>
           </div>
@@ -200,44 +219,86 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="card">
               <div class="card-body"><br><br>
                 <h5 class="card-title text-muted text-uppercase text-center">Interview Coaching</h5>
-                <h6 class="card-price text-center">$49<span class="period">/month</span></h6>
+                <h6 class="card-price text-center">Contact us for more details <br><span class="period"></span></h6>
                 <hr>
-                <ul class="fa-ul">
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited Users</strong></li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>150GB Storage</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited</strong> Free Subdomains</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li><br><br><br>
-                </ul>
+                <ul class="fa-ul pb-2">
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Practical interview experience</strong></li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>In depth career advisory</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Build your confidence</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Employer insight</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Personalized expert feedback</li>
+                </ul><br><br><br><br><br><br><br><br><br><br><br>
                 <a href="/contact" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button">Get Started</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>  -->
+    </section> 
+
+    <section class="row pb-4 pt-2">
+      <div class="container-fluid text-center pt-4 pb-4">
+        <div class="h3 font-weight-bold">SEE THE DIFFERENCE A PROFESSIONAL RESUME MAKES</div>
+      </div>
+      <div class="row mx-auto pt-3">
+        <div class="row col-md-6 mx-auto mr-1">
+          <div class="container-fluid text-center pt-3">
+            <div class="h5 font-weight-bold">BEFORE</div>
+          </div>
+          <img src="/images/cv91.jpg" style="width:100%; height:100%;" class="shadow">
+        </div>
+        
+        <div class="row col-md-6 mx-auto ml-1">
+          <div class="container-fluid text-center pt-3">
+            <div class="h5 font-weight-bold">AFTER</div>
+          </div>
+          <img src="/images/cv92.jpg" style="width:100%; height:100%;" class="shadow">
+        </div>
+      </div>
+      <br><br><br><br><br><br><br>
+    </section>
+
+
+<div class="container-fluid no-padding">
+ 
+<div class="card">
+  <div class="card-body">
+      <div class="container">
+        <h4 class="orange">Frequently asked questions by Job Seekers.</h4>
+        <div class="panel-group" id="faqAccordion">
+          @forelse($faqs as $faq)
+          <div class="panel panel-default " id="faq{{$faq->id}}">
+              <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question{{$faq->id}}">
+                   <h5 class="panel-title">
+                    <span class="ing" style="cursor: pointer">Q: {{ $faq->title }}</span>
+                 </h5>
+
+              </div>
+              <div id="question{{$faq->id}}" class="panel-collapse collapse" style="height: 0px;">
+                  <div class="panel-body">
+                       <h5><span class="label label-primary" style="color: #500095">Answer</span></h5>
+
+                      <p style="font-style: italic;">
+                        <?php echo $faq->description; ?>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          @empty
+           <p>
+            Check back later or <a href="/contact" class="orange">Contact Us</a>
+          </p>
+          @endforelse
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 
  <div class="row">
     <div class="col-md-4">
-         <div class="card">
-              <div class="card-body">
-                  <h5 class="orange">Professional CV Editing</h5>
-                  <p class="card-text">
-                    <ui>
-                        <li>We first go through your CV to understand your professional journey and angle then send you a questionnaire which will ask you questions about your career goals and experiences.</li> 
-                        <p>However, a personal consultation will be necessary for us to really get an idea of how to best market you to employers.</p>
-                        <li>So we will schedule an IN-DEPTH phone interview with one of our Certified Resume Writers to go over your questionnaire answers and make sure we know everything needed to make you stand out! (This is just one of the ways we are different from other firms).</li>
-                    </ui>
-                  </p><br>
-              </div>
-              <div class="card-footer">            
-                  <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal1">Get Started</button>
-              </div>
-          </div>   
 
       <!-- Modal -->
         <div class="modal fade" id="myModal1" role="dialog">
@@ -500,13 +561,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                       
                                   </form>
                                 </div><br>
-                                  <div class="col-md-12"style="background-color: rgba(81, 81, 81, .3)">
+                                <!--  <div class="col-md-12"style="background-color: rgba(81, 81, 81, .3)">
                                     <div class="card" >
                                       <div class="card-body">
                                       <p class="orange">Have you been called to an interview urgently? Do not worry here at Emploi we can assist you with emergency CV EDITING ready within 24 Hours. So the next time you get this kind of emergency, know that we have got you covered.</p>
                                       </div>                                
                                     </div>
-                                </div>
+                                </div>  -->
 
                           </div>
                           <div class="modal-footer">
@@ -517,25 +578,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
       </div><br><br>
 
-        <div class="col-md-4">
-          <div class="card">
-                <div class="card-body">
-                  <h5 class="orange">Exclusive Placement</h5>
-                  <p class="card-text">
-                      <ul>
-                          <li>It is our responsibility to commit and help job seekers find open positions in companies where they’ll thrive, not just survive.</li>
-                          <li> We want to help you find a well-suited position where you are professionally rewarded and appreciated for doing what you love to do.</li>
-                          <li>Through this service, we shall take you up as a special client and endeavor to get you employment within the shortest time possible, in an industry and location of your choice.</li>
-                      </ul>
-                  </p><br>
-              </div>  
-              <div class="card-footer">            
-                  <button type="button" class="btn btn-orange" data-toggle="modal" data-target="#myModal2">SELECT</button>
-              </div>
-          </div>
+
 
       <!-- Modal -->
-        <div class="modal fade" id="myModal2" role="dialog">
+          <div class="modal fade" id="myModal2" role="dialog">
               <div class="modal-dialog">
               
                     <!-- Modal content-->
@@ -610,27 +656,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </div>      
               </div>
         </div>
-      </div>
 
                 
-        <div class="col-md-4">
-          <div class="card">
-                <div class="card-body">
-                  <h5 class="orange">Interview Coaching</h5>
-                  <p class="card-text">
-                      <p>Interview coaching can increase your chances of getting a job for many reasons;</p>
-                      <ul>
-                        <li> Coaching gives you experience answering many different interview questions and pretending to interact with potential employers.</li>
-                        <li>Your coach can provide you with valuable feedback that will help you improve your responses during interviews.</li>
-                        <li>The more you practice with a coach, the more confident you will be.</li>
-                        <li> A coach can give you the tools to feel confident and self-assured going into any interview.</li>
-                      </ul>
-                    </p>                                                              
-                </div>            
-              <div class="card-footer">
-                <a href="/contact" class="btn btn-orange">SELECT</a>
-              </div>
-          </div>
   
         <div class="modal fade" id="myModal3" role="dialog">
               <div class="modal-dialog">
@@ -660,8 +687,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </div>      
               </div>
         </div>
-      </div>
-    </div><br>
 
 
     <h3 class="text-center" style="display: none;">Some Of Our Career Experts</h3>

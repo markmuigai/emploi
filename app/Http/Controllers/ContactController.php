@@ -538,7 +538,9 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
         return view('seekers.cv-templates');
     }
     public function summit(){
-        return view('seekers.summit');
+        return view('seekers.summit')
+            ->with('faqs',Faq::where('permission_id',4)->orderBy('created_at', 'desc')->paginate(10));
+
     }
     public function jservices(){
         return view('seekers.services')

@@ -380,6 +380,30 @@ class EmployerController extends Controller
 
     }
 
+    public function paastask(Request $request)
+    {
+        $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(4);
+
+        // return $task;
+        return view('employers.dashpaas.task')
+            ->with('tasks', $tasks);
+    }
+
+    public function adminpaas(Request $request)
+    {
+        return view('employers.dashpaas.admin');
+    }
+
+    public function paasinv(Request $request)
+    {
+        return view('employers.dashpaas.invoice');
+    }
+
+    public function prequest(Request $request)
+    {
+        return view('employers.dashpaas.request');
+    }
+
     public function activeJobs(Request $request)
     {
         $q = isset($request->q) ? $request->q : '';

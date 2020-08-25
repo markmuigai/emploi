@@ -37,4 +37,9 @@ class Task extends Model
         }
         return 'TASK_'.$randomString;
     }
+
+    public function show($id){
+        
+        return view();
+    }
 }

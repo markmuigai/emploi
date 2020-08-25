@@ -101,6 +101,7 @@
                             <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/employers/browse" role="tab" aria-controls="v-pills-messages" aria-selected="false">Browse Candidates <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/employers/saved" role="tab" aria-controls="v-pills-messages" aria-selected="false">Saved Profiles <i class="fas fa-chevron-right"></i></a>
+                           <!-- <a class="nav-link" id="v-pills-messages-tab" href="/employers/paas-dash" role="tab" aria-controls="v-pills-messages" aria-selected="false">PAAS <i class="fas fa-chevron-right"></i></a> -->
                             <a class="nav-link" id="v-pills-messages-tab" href="/employers/cv-requests" role="tab" aria-controls="v-pills-messages" aria-selected="false">Requested Profiles <i class="fas fa-chevron-right"></i></a>
 
                             <!-- <a class="nav-link" id="v-pills-settings-tab" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Test Center <i class="fas fa-chevron-right"></i></a> -->

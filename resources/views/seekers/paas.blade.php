@@ -101,8 +101,9 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
           </div>
           <div class="modal-header h4">Golden Club - PAAS</div>
           <div class="modal-header">
+            <div class="blink pt-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get One Month Free Golden Club Membership Now!!</span></a></div>
             <h6 class="modal-title" id="exampleModalCenterTitle">Are you interested in working part time? Leave us your phone number and our team will get back to you.</h6>
-            
+ 
           </div>
           <div class="modal-body">
             <form method="POST"  enctype="multipart/form-data" action="/job-seekers/paas">
