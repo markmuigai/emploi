@@ -237,6 +237,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('/how-to', 'AdminController@adminFaqs');
 
     Route::get('events/{endpoint?}','MeetupController@adminMeetups');
+    Route::get('eplacement','AdminController@eplacement');
+    Route::get('coaching','AdminController@coaching');
+
 });
 
 
