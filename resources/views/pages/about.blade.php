@@ -90,7 +90,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </div>
                     <div class="icon-box-body">
                         <h5><a href="/job-seekers/summit">CV Editing</a></h5>
-                        <p>We edit job seekers CVs while taking into consideration the industry</p>
+                        <p>We edit job seekers' CVs while taking their industry into consideration</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2 icon-service d-flex">
@@ -107,7 +107,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <i class="fas fa-bolt"></i>
                     </div>
                     <div class="icon-box-body">
-                        <h5><a href="/job-seekers/exclusive-placement">Exclusive Placement</a></h5>
+                        <h5><a href="/job-seekers/summit">Exclusive Placement</a></h5>
                         <p>Includes CV editing, interview coaching, and boost in search results as well as recommendation to employers</p>
                     </div>
                 </div>
