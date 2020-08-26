@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: CV Editing Referrals' )
+@section('title','Emploi Admin :: Exclusive Placement' )
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
@@ -14,7 +14,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
         <div class="" style="">
             <a href="/admin/panel" class="btn "><i class="fa fa-arrow-left"></i> Back</a>
-            <a href="/refer" class="btn btn-orange" style="float: right;">Refer Friends</a>  
         </div>
         <br>
         <div class="row">
@@ -22,11 +21,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="col-md-6 card">
                 <div class="card-body">
-                    <h4>{{ $e->user_id ? $e->user->name : 'Anonymous User' }}</h4>
+                    <h4>{{ $e->name }}</h4>
                     <p><strong>Created: {{ $e->created_at->diffForHumans() }}</strong></p>
                     <p>
                         {{ $e->name ? $e->name : '' }} <br>
-                        <a href="mailto:{{ $e->email }}">{{ $e->email }}</a>
+                        <a href="mailto:{{ $e->email }}">{{ $e->email }}</a><br>
+                        <a href="tel:{{ $e->phone_number }}">{{ $e->phone_number }}</a>
                     </p>
                     <p>
                         Status: <b>{{ $e->status }}</b>
@@ -36,11 +36,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         @empty
         <p style="text-align: center;">
-            No Exclusive Placement have been found.
+            No exclusive placement request found.
         </p>
         </div>
         @endforelse
     </div>
+        {{ $exclusive->links() }}
 </div>
 
 @endsection

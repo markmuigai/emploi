@@ -1,20 +1,19 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: CV Editing Referrals' )
+@section('title','Emploi Admin :: Career Coaching' )
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('page_title',  'Coaching' )
+@section('page_title',  'Career Coaching' )
 
 @section('content')
 
 <div class="card">
     <div class="card-body">
         <div class="" style="">
-            <a href="/admin/panel" class="btn "><i class="fa fa-arrow-left"></i> Back</a>
-            <a href="/refer" class="btn btn-orange" style="float: right;">Refer Friends</a>  
+            <a href="/admin/panel" class="btn "><i class="fa fa-arrow-left"></i> Back</a> 
         </div>
         <br>
         <div class="row">
@@ -23,11 +22,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="col-md-6 card">
                 <div class="card-body">
-                    <h4>{{ $c->user_id ? $c->user->name : 'Anonymous User' }}</h4>
+                    <h4>{{ $c->name }}</h4>
                     <p><strong>Created: {{ $c->created_at->diffForHumans() }}</strong></p>
                     <p>
                         {{ $c->name ? $c->name : '' }} <br>
-                        <a href="mailto:{{ $c->email }}">{{ $c->email }}</a>
+                        <a href="mailto:{{ $c->email }}">{{ $c->email }}</a><br>
+                        <a href="tel:{{ $c->phone_number }}">{{ $c->phone_number }}</a>
                     </p>
                     <p>
                         Status: <b>{{ $c->status }}</b>
@@ -37,13 +37,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         @empty
         <p style="text-align: center;">
-            No Interview Coaching have been found.
+            No interview coaching request found.
         </p>
         </div>
-        @endforelse
-       
+        @endforelse       
     </div>
-</div>
+       {{ $coaching->links() }}
+</div> 
 
 
 @endsection

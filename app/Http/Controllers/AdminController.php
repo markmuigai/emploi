@@ -34,7 +34,7 @@ use App\ProductOrder;
 use App\Task;
 use App\SeekerSubscription;
 use App\ExclusivePlacement;
-use App\coaching;
+use App\Coaching;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1356,7 +1356,7 @@ class AdminController extends Controller
 
     public function eplacement()
     {
-        $exclusive = ExclusivePlacement::all();
+        $exclusive = ExclusivePlacement::orderBy('created_at','DESC')->paginate(12);
 
         return view('admins.eplacement')
                   ->with('exclusive',$exclusive);
@@ -1364,7 +1364,7 @@ class AdminController extends Controller
 
  public function coaching()
     {
-        $coaching = coaching::all();
+        $coaching = Coaching::orderBy('created_at','DESC')->paginate(12);
         return view('admins.coaching')
                 ->with('coaching',$coaching);
     }
