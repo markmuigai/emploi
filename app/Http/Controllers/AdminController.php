@@ -33,6 +33,8 @@ use App\User;
 use App\ProductOrder;
 use App\Task;
 use App\SeekerSubscription;
+use App\ExclusivePlacement;
+use App\coaching;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1350,6 +1352,21 @@ class AdminController extends Controller
 
         return redirect()->back();
         return $request->all();
+    }
+
+    public function eplacement()
+    {
+        $exclusive = ExclusivePlacement::all();
+
+        return view('admins.eplacement')
+                  ->with('exclusive',$exclusive);
+    }
+
+ public function coaching()
+    {
+        $coaching = coaching::all();
+        return view('admins.coaching')
+                ->with('coaching',$coaching);
     }
 
 }
