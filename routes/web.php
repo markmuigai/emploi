@@ -55,6 +55,8 @@ Route::post('/invoice/{slug}/pay', 'PesapalController@pay');
 Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');
 Route::get('/pesapalNotifications','PesapalController@ipn');
 
+Route::get('/redmine', 'RedmineController@test');
+
 Auth::routes();
 Route::get('/', 'WelcomeController@index');
 Route::get('/registered', 'ContactController@registered');
@@ -127,13 +129,11 @@ Route::get('/employers/advertise', 'ContactController@oldAdvertise');
 Route::group([ 'middleware' => 'shortlist'], function(){
     Route::resource('/employers/cv-requests', 'CvRequestController');
     Route::resource('/employers/saved', 'SavedProfileController');
-    //Route::get('/employers/paas-dash', 'EmployerController@paasdash');
-    //Route::get('/employers/paas-tasks', 'EmployerController@paastask');
-  
-
-    //Route::get('/employers/requests', 'EmployerController@prequest');
-    //Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
-    //Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
+    Route::get('/employers/paas-dash', 'EmployerController@paasdash');
+    Route::get('/employers/paas-tasks', 'EmployerController@paastask');
+    Route::get('/employers/requests', 'EmployerController@prequest');
+    Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
+    Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
 
 
     Route::get('/employers/browse', 'EmployerController@browse');
