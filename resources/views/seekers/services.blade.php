@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
    .jservices_header
    {
-      background: linear-gradient(to right, #808080, rgba(81, 81, 81, .3)), url(../images/seeker_services.jpg);
+      background: linear-gradient(#500095 100%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,160,.3)), url(../images/seeker_services.jpg) no-repeat;
       height: 50vh;
       background-repeat: no-repeat;
       background-position: 85% center;  

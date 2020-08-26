@@ -7,6 +7,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @endsection
 
 @section('content')
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
 <style type="text/css">
    .summit-header
    {
@@ -141,6 +144,51 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 }
 
 </style>
+
+<style>
+
+  .banner{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#500095 100%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,160,.3)), url(../images/seeker_services.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 27vh;
+    overflow: hidden;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+    font-family: sans-serif;
+    /* text-transform: uppercase; */
+
+  }
+
+  .banner h1{
+    margin: 0;
+  }
+
+  .banner h2{
+    margin: 0 0 20px 0;
+  }
+
+  .banner a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #E87341;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 20s;
+  }
+
+  .banner a:hover{
+    background: none;
+    color: white;
+  }
+
+
+
+</style>
 <div class="container container-fluid pb-4">
     <div class="text content-left summit-header"><br><br><br>
         <div style="margin-left: 50px; color: white">
@@ -222,6 +270,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
       </div>
     </section> 
+
+
+    <div class="banner animate__animated animate__pulse animate__infinite	infinite animate__slow	10s">
+
+      <h1>50% Off</h1>
+      <h5>Professional CV Editing</h5>
+      <a href="#" data-toggle="modal" data-target="#myModal1">Request</a>
+    
+    </div>
 
 <section>
     <div class="col-md-12 pb-4 pt-2">
