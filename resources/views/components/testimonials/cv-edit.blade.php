@@ -2,10 +2,9 @@
 <div class="container">    
         <h2 class="orange" style="text-align: center;">What Fellow Job Seekers Say...</h2>
     <div class="testimonials cvEditTestimonials">
-        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
+       <!--  <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
-            <!--     <h2 class="text-center orange">Job Seeker Feedback</h2>
- -->                <div class="row align-items-center justify-content-center">
+                <div class="row align-items-center justify-content-center">
                     <div class="col-7 col-sm-5 col-md-2">
                         <img src="/images/testimonials/angela.jpeg" data-src="{{asset('images/testimonials/angela.jpeg')}}" alt="Angela Amondi" class="w-100 lazy">
                     </div>
@@ -17,7 +16,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
          <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
             <div class="card-body">
