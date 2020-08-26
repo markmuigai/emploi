@@ -72,7 +72,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </div>
                     <div class="icon-box-body">
                         <h5>Candidate Vetting</h5>
-                        <p>We perform IQ, Competancy and Background checks on candidates</p>
+                        <p>We perform IQ, Competency and Background checks on candidates</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2 icon-service d-flex">
