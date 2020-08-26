@@ -10,21 +10,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <style type="text/css">
    .summit-header
    {
-      background: linear-gradient(to right,#515151,rgba(100,100,100,.5)), url(../images/seeker_services.jpg);
+      background: linear-gradient(#500095 100%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,160,.3)), url(../images/seeker_services.jpg);
       height: 50vh;
       background-repeat: no-repeat;
       background-position: 85% center;
     }
-
-    .banner1
-    {
-      background: linear-gradient(to right,#515151,rgba(100,100,100,.5)), url(../images/seeker_services.jpg);
-      height: 40vh;
-      background-size:cover;
-      padding-left: 0;
-      padding-right: 0;
-      color: #fff;
-     }
 
 
     .modal-dialog{
@@ -155,7 +145,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <div class="text content-left summit-header"><br><br><br>
         <div style="margin-left: 50px; color: white">
             <h1 >Summit Plan</h1>
-             <p>Coaching and support that gets you a job<br>where you will thrive not just survive.</p>
+             <p style="font-size:18px;">Coaching and support that gets you a job<br>where you will thrive not just survive.</p>
         </div>          
 </div><br>
 
@@ -177,7 +167,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <hr>
                 <ul class="fa-ul">
                   <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Professional discovery- In-depth career advisory</strong></li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Career profile -Opportunity mappingg</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Career profile -Opportunity mapping</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Fine-tuning of application tools, pitches, presentations and outreach messaging</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Coaching(2 sessions) on the best interviewing techniques- 100% success rate to date</li>
                   <li><span class="fa-li"><i class="fas fa-check"></i></span>Vacancy hunting</li>
