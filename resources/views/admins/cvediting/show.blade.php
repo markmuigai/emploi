@@ -24,6 +24,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     {{ $edit->name }}
                     <small>{{ $edit->created_at->diffForHumans() }}</small>
                 </h4>
+                <h5><small>{{ $edit->created_at }}</small></h5>
                 <p>
                     <b>{{ $edit->industry->name }}</b> <a href="/storage/resume-edits/{{ $edit->original_url }}">Initial CV</a><br>
                     {{ $edit->message }}
