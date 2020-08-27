@@ -72,15 +72,15 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label class="h6">Task <b style="color: red">*</b></label>
-                      <input type="text" class="form-control" name="task_title" required="" placeholder="task title">
+                      <label class="h6">Job Title<b style="color: red">*</b></label>
+                      <input type="text" class="form-control" name="task_title" required="" placeholder="Enter job title">
                     </div>
                   </div>
         
                   <div class="row">
                     <div class="form-group col-md-12">
-                      <label class="h6">Task Description</label>
-                      <textarea class="form-control" name="task_description" placeholder="brief description about the task"></textarea>
+                      <label class="h6">Job Description</label>
+                      <textarea class="form-control" name="task_description" placeholder="brief description about the job"></textarea>
                     </div>
 
                     <div class="form-group col-md-6">
