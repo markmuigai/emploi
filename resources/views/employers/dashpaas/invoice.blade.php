@@ -21,10 +21,36 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       
         <div class="tab-content">
           <div id="home" class="tab-pane active mt-2 pb-4">
-            <h3>Tasks</h3>
-            <div class="container">
+            <div id="home" class="tab-pane active mt-2 pb-4">
+            <div class="container mt-4">
+              <table class="table">
                 <div class="row">
-                    
+                  <tr>
+                    <th>Invoice Number</th>
+                    <th>Amount</th>
+                    <th>Subsciption</th>
+                    <th>Status</th>
+
+
+                  </tr>
+                  @foreach ($invoices as $invoice)
+                    <tbody>
+                      <tr>
+                      <td>{{ $invoice->slug }}</td>
+                      <td>{{ $invoice->sub_total }}</td>
+                      <td>{{ $invoice->alternative_payment_slug }}</td>
+                      <td>{{ $invoice->status }}</td>
+
+                      <td><a href="#" style="color: blue">view</a></td>
+                      <td><a href="#" style="color: blue">pay</a></td>
+                      </tr>                      
+                    </tbody>
+                      
+                  @endforeach
+                </table>
+
+                {{ $invoices->links() }}
+
                 </div>
             </div>
           </div>

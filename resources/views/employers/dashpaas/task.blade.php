@@ -22,30 +22,30 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="tab-content">
           <div id="home" class="tab-pane active mt-2 pb-4">
             <div class="container mt-4">
-              <table class="table">
-                <div class="row">
-                  <tr>
-                    <th>TasK Name</th>
-                    <th>TasK Status</th>
-                    <th>TasK ID</th>
+                <table class="table">
+                  <div class="row">
+                    <tr>
+                      <th>TasK Name</th>
+                      <th>TasK Status</th>
+                      <th>TasK ID</th>
 
-                  </tr>
-                  @foreach ($tasks as $task)
-                    <tbody>
-                      <tr>
-                      <td>{{ $task->slug }}</td>
-                      <td>{{ $task->status }}</td>
-                      <td> {{$task->id}} </td>
-                      <td><a href="#" style="color: blue">view</a></td>
-                      </tr>                      
-                    </tbody>
-                      
-                  @endforeach
+                    </tr>
+                    @foreach ($tasks as $task)
+                      <tbody>
+                        <tr>
+                        <td>{{ $task->slug }}</td>
+                        <td>{{ $task->status }}</td>
+                        <td> {{$task->id}} </td>
+                        <td><a href="#" style="color: blue">view</a></td>
+                        </tr>                      
+                      </tbody>
+                        
+                    @endforeach
                 </table>
 
                 {{ $tasks->links() }}
 
-                </div>
+              </div>
             </div>
           </div>
 

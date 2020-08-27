@@ -16,22 +16,44 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Requests</a></li>
-          <li><a class="btn btn-orange-alt" style="color: black;" data-toggle="tab" href="#menu1">Shortlisted</a></li>
+          <li><a class="btn btn-orange-alt" style="color: black;" data-toggle="tab" href="#menu1">Shortlist</a></li>
         </ul>
       
         <div class="tab-content">
           <div id="home" class="tab-pane active mt-2 pb-4">
-            <h3>Requests</h3>
-            <div class="container">
-                <div class="row">
-                    
+
+                <div class="container mt-4">
+                  <table class="table">
+                    <div class="row">
+                      <tr>
+                        <th>Request ID</th>
+                        <th>Request Status</th>
+
+                      </tr>
+                      @foreach ($tasks as $task)
+                        <tbody>
+                          <tr>
+                          <td>{{ $task->slug }}</td>
+                          <td>{{ $task->status }}</td>
+                          <td><a href="#" style="color: blue">view</a></td>
+                          </tr>                      
+                        </tbody>
+                          
+                      @endforeach
+                  </table>
+
+                  {{ $tasks->links() }}
+
                 </div>
-            </div>
+            
           </div>
+
+
           <div id="menu1" class="tab-pane fade mt-2 pb-4">
-            <h3>Shortlisted</h3>
+            <h3>Shortlist</h3>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
+          
           
           
         </div>

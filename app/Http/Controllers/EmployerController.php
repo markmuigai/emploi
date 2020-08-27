@@ -47,6 +47,7 @@ use App\UserPermission;
 use App\EmployerSubscription;
 use App\Invoice;
 use App\Task;
+use App\PartTimer;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
@@ -382,7 +383,7 @@ class EmployerController extends Controller
 
     public function paastask(Request $request)
     {
-        $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(4);
+        $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
 
         // return $task;
         return view('employers.dashpaas.task')
@@ -391,17 +392,31 @@ class EmployerController extends Controller
 
     public function adminpaas(Request $request)
     {
-        return view('employers.dashpaas.admin');
+        $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
+        $shortlisted = PartTimer::where('status', 'shortlisted')->paginate(5);
+
+        return view('employers.dashpaas.admin')
+            ->with('tasks', $tasks)
+            ->with('shortlisted', $shortlisted);
     }
 
     public function paasinv(Request $request)
     {
-        return view('employers.dashpaas.invoice');
+        $invoices = Invoice::where('email', Auth::user()->email)->paginate(5);
+        $status = Invoice::where('pesapal_transaction_tracking_id',null)
+                    ->where('alternative_payment_slug',null);
+
+        return view('employers.dashpaas.invoice')
+            ->with('invoices', $invoices)
+            ->with('status', $status);
     }
 
     public function prequest(Request $request)
     {
-        return view('employers.dashpaas.request');
+        $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
+
+        return view('employers.dashpaas.request')
+            ->with('tasks', $tasks);
     }
 
     public function activeJobs(Request $request)
@@ -1594,5 +1609,16 @@ class EmployerController extends Controller
         
         return Redirect::back()->with('success','Contact Received, We will get back to you shortly !');
     }
+
+
+    public function hire()
+    {
+        $user = Auth::user();
+        $t =   PartTimer::update(['task_slug' => $slug]);
+        
+        return Redirect::back()->with('hired','Hired Successfully!');
+     }
+        
+    
 }
     
