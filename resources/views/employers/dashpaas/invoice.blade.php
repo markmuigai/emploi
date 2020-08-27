@@ -39,10 +39,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                       <td>{{ $invoice->slug }}</td>
                       <td>{{ $invoice->sub_total }}</td>
                       <td>{{ $invoice->alternative_payment_slug }}</td>
-                      <td>{{ $invoice->pesapal_transaction_tracking_id }}</td>
 
-                      <td><a href="/employers/view-invoice/{{ $invoice->slug }}" style="color: blue">view</a></td>
+                      @if( $invoice->pesapal_transaction_tracking_id != NULL || $invoice->alternative_payment_slug != NULL )
+                      <td><a style="color: blue">paid</a></td>
+                      @else
                       <td><a href="/invoice/{{ $invoice->slug }}" style="color: blue">pay</a></td>
+                      @endif
+
+                      <td><a href="/employers/view-invoice/{{ $invoice->slug }}" style="color: blue">view</a></td>  
+
+                      
                       </tr>                      
                     </tbody>
                       
