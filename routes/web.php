@@ -55,8 +55,6 @@ Route::post('/invoice/{slug}/pay', 'PesapalController@pay');
 Route::get('/invoice/{slug}/pay', 'PesapalController@payRedirect');
 Route::get('/pesapalNotifications','PesapalController@ipn');
 
-Route::get('/redmine', 'RedmineController@test');
-
 Auth::routes();
 Route::get('/', 'WelcomeController@index');
 Route::get('/registered', 'ContactController@registered');
@@ -129,11 +127,13 @@ Route::get('/employers/advertise', 'ContactController@oldAdvertise');
 Route::group([ 'middleware' => 'shortlist'], function(){
     Route::resource('/employers/cv-requests', 'CvRequestController');
     Route::resource('/employers/saved', 'SavedProfileController');
-    Route::get('/employers/paas-dash', 'EmployerController@paasdash');
-    Route::get('/employers/paas-tasks', 'EmployerController@paastask');
-    Route::get('/employers/requests', 'EmployerController@prequest');
-    Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
-    Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
+    //Route::get('/employers/paas-dash', 'EmployerController@paasdash');
+    //Route::get('/employers/paas-tasks', 'EmployerController@paastask');
+  
+
+    //Route::get('/employers/requests', 'EmployerController@prequest');
+    //Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
+    //Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
 
 
     Route::get('/employers/browse', 'EmployerController@browse');
@@ -240,6 +240,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('eplacement','AdminController@eplacement');
     Route::get('coaching','AdminController@coaching');
 
+    Route::get('paas-applications','AdminController@paasApplications');
+    Route::get('paas-applications/{id}','AdminController@paasApplication');
+    Route::get('shortlist-toggle/{slug}/{username}', 'AdminController@shortlistSeekerToggle');
+
 });
 
 
@@ -303,6 +307,7 @@ Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
 Route::get('/job-seekers/register-paas', 'SeekerController@rpaas')->name('golden');
 Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
+Route::get('/job-seekers/apply-task/{slug}', 'SeekerController@applyTask');
 Route::get('/job-seekers/coaching-request', 'SeekerController@coaching');
 Route::get('/job-seekers/placement-request', 'SeekerController@placement');
 

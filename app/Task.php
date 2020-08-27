@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\PartTimer;
+
 class Task extends Model
 {
     protected $fillable = [
@@ -41,5 +43,18 @@ class Task extends Model
     public function show($id){
         
         return view();
+    }
+
+    public function isShortlisted($seeker){
+        if(!$seeker->hasApplied($this))
+            return false;
+        $t = PartTimer::where('user_id',$seeker->user->id)->where('task_slug',$this->slug)->first();
+        //dd( $j->status );
+        if(isset($t->id) && $t->status == 'shortlisted')
+        {
+            //dd('gere');
+            return true;
+        }
+        return false;
     }
 }

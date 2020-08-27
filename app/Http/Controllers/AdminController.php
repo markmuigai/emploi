@@ -35,6 +35,7 @@ use App\Task;
 use App\SeekerSubscription;
 use App\ExclusivePlacement;
 use App\Coaching;
+use App\PartTimer;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1362,11 +1363,78 @@ class AdminController extends Controller
                   ->with('exclusive',$exclusive);
     }
 
- public function coaching()
+    public function coaching()
     {
         $coaching = Coaching::orderBy('created_at','DESC')->paginate(12);
         return view('admins.coaching')
                 ->with('coaching',$coaching);
+    }
+
+    public function paasApplications(Request $request)
+    {
+            $tasks=Task::Where('status','active')
+                        ->Where('name','like','%'.$request->q.'%')
+                        ->orWhere('title','like','%'.$request->q.'%')
+                        ->orWhere('email','like','%'.$request->q.'%')     
+                        ->orderBy('created_at','DESC')
+                        ->paginate(10);
+            return view('admins.paas-applications.index')
+                ->with('tasks',$tasks);
+                                          
+        
+        // $t = Task::findOrFail($id);
+        // $professionals = SeekerSubscription::where('status','active')
+        //                 ->where('industry_id', $t->industry)
+        //                 ->get();
+        // $allprofessionals = SeekerSubscription::where('status','active')
+        //                 ->get();
+        // return view('admins.paas.show')
+        //         ->with('task',$t)
+        //         ->with('professionals',$professionals)
+        //         ->with('allprofessionals',$allprofessionals);
+    }
+
+
+    public function paasApplication(Request $request, $id, $endpoint = null){
+        $task = Task::where('id',$id)->firstOrFail();
+        switch ($endpoint) {
+            case 'shortlisted':
+                return view('admins.paas-applications.shortlisted')
+                    ->with('pool',$post->shortlisted)
+                    ->with('post',$post);
+                break;
+
+            case 'selected':
+                return view('admins.paas-applications.selected')
+                    ->with('pool',$post->selected)
+                    ->with('post',$post);
+                break;
+            default:
+                $applications = PartTimer::where('task_slug',$task->slug)->orderBy('id','DESC')->paginate(20);
+                return view('admins.paas-applications.show')
+                    ->with('pool',$applications)
+                    ->with('task',$task);
+                break;
+        }
+        return redirect()->back();
+     }
+
+
+    public function shortlistSeekerToggle(Request $request, $slug, $username){
+        $user = User::where('username',$username)->firstOrFail();
+        $task = Task::where('slug',$slug)->firstOrFail();
+        if($user->seeker->hasAppliedTask($task))
+        {
+            $t = PartTimer::where('user_id',$user->id)->where('task_slug',$slug)->firstOrFail();
+            if($t->status === NULL && $t->shortlistToggle())
+            {
+                return 'shortlisted';
+            }
+            elseif($t->status === 'shortlisted' && $t->shortlistToggle())
+            {
+                return 'remove-from-shortlist';
+            }
+        }
     }
 
 }
