@@ -60,21 +60,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 {{ $tasks->links() }}
 
               </div>
+              <br><br><br>
+
           </div>
 
           <div id="docs" class="tab-pane fade mt-2 pb-4">
             <h3>Shortlisted</h3>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <br><br><br>
           </div>
 
           <div id="leave" class="tab-pane fade mt-2 pb-4">
             <h3>Shortlisted</h3>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <br><br><br>
           </div>
 
           <div id="off" class="tab-pane fade mt-2 pb-4">
             <h3>Shortlisted</h3>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <br><br><br> 
           </div>
           
           

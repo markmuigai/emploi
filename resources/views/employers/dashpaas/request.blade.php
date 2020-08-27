@@ -47,6 +47,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                   {{ $tasks->links() }}
 
                 </div>
+                <br><br><br>
+
             
           </div>
 
@@ -79,6 +81,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 {{ $tasks->links() }}
 
               </div>
+              <br><br><br>
+
           </div>
           
           
