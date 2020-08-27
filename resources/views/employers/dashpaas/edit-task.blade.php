@@ -18,7 +18,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
         @endif
         <div class="modal-content mt-4 pb-2 shadow-lg">
             <div class="modal-header">
-              <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Request for Part-Timer</h5>
+              <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Edit Part-Timer Request</h5>
             </div>
             <div class="modal-body container bg-light">
               <!-- subscribe form for Professional -->
