@@ -1630,7 +1630,8 @@ class EmployerController extends Controller
         $candidate->save();
         
         $employer = Auth::user();
-           // if(app()->environment() === 'production')       
+        
+        if(app()->environment() === 'production')       
         {   
            Notification::send(EmployerSubscription::first(),new PaasSubscribed($candidate->user->name.' has been selected by employer '.$employer->name.' for PaaS Task '));
         }
