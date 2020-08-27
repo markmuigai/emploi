@@ -39,9 +39,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                       <td>{{ $invoice->slug }}</td>
                       <td>{{ $invoice->sub_total }}</td>
                       <td>{{ $invoice->alternative_payment_slug }}</td>
-                      <td>{{ $invoice->status }}</td>
+                      <td>{{ $invoice->pesapal_transaction_tracking_id }}</td>
 
-                      <td><a href="#" style="color: blue">view</a></td>
+                      <td><a href="/employers/view-invoice/{{ $invoice->slug }}" style="color: blue">view</a></td>
                       <td><a href="#" style="color: blue">pay</a></td>
                       </tr>                      
                     </tbody>

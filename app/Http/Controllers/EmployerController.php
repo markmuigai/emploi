@@ -411,12 +411,24 @@ class EmployerController extends Controller
             ->with('status', $status);
     }
 
+    public function viewInvoice($slug){
+
+        $invoice = Invoice::where('slug',$slug)->firstOrFail();
+        
+        return view('employers.dashpaas.invoice-view')
+                ->with('invoice',$invoice);
+
+    }
+
     public function prequest(Request $request)
     {
         $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
+        $shortlisted = PartTimer::where('status', 'shortlisted')->paginate(5);
+
 
         return view('employers.dashpaas.request')
-            ->with('tasks', $tasks);
+            ->with('tasks', $tasks)
+            ->with('shortlisted', $shortlisted);
     }
 
     public function activeJobs(Request $request)

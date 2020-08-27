@@ -35,7 +35,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <tr>
                           <td>{{ $task->slug }}</td>
                           <td>{{ $task->status }}</td>
-                          <td><a href="#" style="color: blue">view</a></td>
+                          <td><a href="#" style="color: blue">Edit</a></td>
+                          <td><a href="#" style="color: blue">Cancel</a></td>
+                          <td><a href="#" style="color: blue">View</a></td>
                           </tr>                      
                         </tbody>
                           
@@ -50,8 +52,33 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
           <div id="menu1" class="tab-pane fade mt-2 pb-4">
-            <h3>Shortlist</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="container mt-4">
+                <table class="table">
+                  <div class="row">
+                    <tr>
+                      <th>Status</th>
+                      <th>Name</th>
+
+
+                    </tr>
+                    @foreach ($shortlisted as $prof)
+                      <tbody>
+                        <tr>
+                        <td>{{ $prof->status}}</td>
+                        <td>{{ $prof->user->name }}</td>
+
+                        <td><a href="/employers/browse/{{ $prof->user->username }}" target="_blank" style="color: blue">View</a></td>
+                        <td><a href="/employers/paas-hire" style="color: blue">Hire</a></td>
+
+                        </tr>                      
+                      </tbody>
+                        
+                    @endforeach
+                </table>
+
+                {{ $tasks->links() }}
+
+              </div>
           </div>
           
           
