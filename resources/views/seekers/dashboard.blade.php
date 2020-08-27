@@ -67,10 +67,10 @@ $user = Auth::user();
         </div>
     </div>
 </div>
-@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
 <br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
-
  @endif
+ 
+@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
 <br><br>
 @if(session()->has('applied'))
 	  <div class="alert alert-success">
