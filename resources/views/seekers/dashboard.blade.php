@@ -69,9 +69,9 @@ $user = Auth::user();
 </div>
 <br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
  @endif
- 
+
 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
-<br><br>
+<br>
 @if(session()->has('applied'))
 	  <div class="alert alert-success">
 	  {{ session()->get('applied') }}
@@ -80,8 +80,8 @@ $user = Auth::user();
 <?php
 $tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
 ?>
-<div class="row" id="paas_task">
-
+<br id="paas_task"><br>
+<div class="row">
 	@forelse ($tasks as $t)
 	<div class="col-lg-6">
 		<div class="card my-2">
@@ -109,7 +109,7 @@ $tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
 		                @endif
 					</div>
 					<div class="col-md-6">
-						<h4>Details</h4>
+						<h6>Details</h6>
                             <p> {{ $t->description }}</p>
 					</div>
 				</div>
@@ -192,7 +192,7 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 		                <a href="/vacancies/{{ $b->slug }}" class="btn btn-orange">View and Apply</a>
 
 		                @else
-		                <span class="btn btn-orange-alt">Applicattion Sent</span>
+		                <span class="btn btn-orange-alt">Application Sent</span>
 
 		                @endif
 					</div>

@@ -1622,14 +1622,21 @@ class EmployerController extends Controller
         return Redirect::back()->with('success','Contact Received, We will get back to you shortly !');
     }
 
-
-    public function hire()
-    {
-        $user = Auth::user();
-        $t =   PartTimer::update(['task_slug' => $slug]);
+    
+    public function hire($id)
+    {        
+        $candidate = PartTimer::find($id);
+        $candidate->update(['status' =>'selected']);
+        $candidate->save();
         
+        $employer = Auth::user();
+           // if(app()->environment() === 'production')       
+        {   
+           Notification::send(EmployerSubscription::first(),new PaasSubscribed($candidate->user->name.' has been selected by employer '.$employer->name.' for PaaS Task '));
+        }
+
         return Redirect::back()->with('hired','Hired Successfully!');
-     }
+    }
         
     
 }

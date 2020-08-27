@@ -25,6 +25,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="tab-content">
           <div id="home" class="tab-pane active mt-2 pb-4">
               <div class="container mt-4">
+              @if(session()->has('hired'))
+                <div class="alert alert-success">
+                {{ session()->get('hired') }}
+                </div>
+              @endif
                 <table class="table">
                   <div class="row">
                     <tr>
@@ -40,7 +45,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <td>{{ $prof->user->name }}</td>
 
                         <td><a href="/employers/browse/{{ $prof->user->username }}" target="_blank" style="color: blue">view</a></td>
-                        <td><a href="/employers/paas-hire" style="color: blue">Hire</a></td>
+                        @if($prof->status == 'selected')
+                        <td><a href="#" style="color: blue">Hired</a></td>
+                        @else
+                        <td><a href="/employers/paas-hire/{{ $prof->id }}" style="color: blue">Hire</a></td>
+                        @endif
 
                         </tr>                      
                       </tbody>
