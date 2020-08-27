@@ -19,6 +19,7 @@ use App\User;
 use App\Blog;
 use App\SeekerSubscription;
 use App\Task;
+use App\PartTimer;
 
 use Watson\Rememberable\Rememberable;
 use App\Jobs\EmailJob;
@@ -335,6 +336,13 @@ class Seeker extends Model
         $j = JobApplication::where('user_id',$this->user->id)
                 ->where('post_id',$post->id)->first();
         if(isset($j->id))
+            return true;
+        return false;
+    }
+    public function hasAppliedTask($task){
+        $t = PartTimer::where('user_id',$this->user->id)
+                ->where('task_slug',$task->slug)->first();
+        if(isset($t->id))
             return true;
         return false;
     }

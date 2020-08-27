@@ -13,8 +13,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <?php
 $user = Auth::user();
 ?>
-@if($user->seeker->featured > 0)
+@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
+<a href="#paas_task" class="btn btn-orange">Apply for part time jobs</a>
+@else
 <a href="/job-seekers/register-paas" class="btn btn-orange">Apply for part time jobs</a>
+@endif
+@if($user->seeker->featured > 0)
 <h4 align="center">Profile Performance Summary</h4>
 <style>
 	.seeker-analytics{
@@ -63,10 +67,70 @@ $user = Auth::user();
         </div>
     </div>
 </div>
+@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
 <br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
 
  @endif
-<br><br><h4>Recent Blogs</h4>
+<br><br>
+@if(session()->has('applied'))
+	  <div class="alert alert-success">
+	  {{ session()->get('applied') }}
+	  </div>
+@endif
+<?php
+$tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
+?>
+<div class="row" id="paas_task">
+
+	@forelse ($tasks as $t)
+	<div class="col-lg-6">
+		<div class="card my-2">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-6">
+						<h5><a href="">{{ $t->title }}</a></h5>
+						<p>
+							{{ $t->company }}
+							<small class="badge badge-purple">{{ $t->salary }}</small>
+						</p>					
+						<span href="">{{ $t->created_at->diffForHumans() }}</span>
+
+						<?php 
+		                    $show = true; 
+		                    if(Auth::user()->seeker->hasAppliedTask($t))
+		                    {
+		                        $show = false;
+		                    }
+		                ?>
+		                @if($show)
+		                <a href="/job-seekers/apply-task/{{ $t->slug }}" class="btn btn-orange">Apply</a>
+		                @else
+		                <span class="btn btn-orange-alt">Applied</span>
+		                @endif
+					</div>
+					<div class="col-md-6">
+						<h4>Details</h4>
+                            <p> {{ $t->description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	@empty
+	<div class="col-12 my-3 text-center">
+		<div class="card">
+			<div class="card-body">
+				<p>Check Back Later.</p>
+			</div>
+		</div>
+	</div>
+	@endforelse
+</div>
+	{{ $tasks->links() }}
+	<hr>
+@endif
+
+<h4>Recent Blogs</h4>
 <div class="row">
 	<div class="col-md-12">
 		<?php $blogsTransparent = true; ?>
@@ -83,6 +147,7 @@ $user = Auth::user();
 	</div>
 	
 </div>
+
 @include('components.ads.responsive')
 <?php
 $user = Auth::user();

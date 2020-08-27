@@ -25,6 +25,7 @@ use App\Referral;
 use App\UserPermission;
 use App\SeekerSubscription;
 use App\Invoice;
+use App\PartTimer;
 use App\Notifications\PaasSubscribed;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\ContactReceived;
@@ -245,5 +246,16 @@ class SeekerController extends Controller
         }
 
         return Redirect::back()->with('success','Contact Received, We will get back to you shortly !');
+    }
+
+    public function applyTask($slug)
+    { 
+         $user = Auth::user();
+         $t =   PartTimer::create([
+                'user_id' => $user->id,
+                'task_slug' => $slug 
+            ]);
+
+        return Redirect::back()->with('applied','Application success!');
     }
 }
