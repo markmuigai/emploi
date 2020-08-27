@@ -130,6 +130,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/paas-dash', 'EmployerController@paasdash');
     Route::get('/employers/paas-tasks', 'EmployerController@paastask');
     Route::get('/employers/view-invoice/{slug}', 'EmployerController@viewInvoice');
+    Route::get('/employers/view-task/{slug}', 'EmployerController@viewTask');
     Route::get('/employers/paas-hire/{id}', 'EmployerController@hire');
 
 

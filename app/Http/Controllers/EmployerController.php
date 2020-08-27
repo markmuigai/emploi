@@ -420,6 +420,15 @@ class EmployerController extends Controller
 
     }
 
+    public function viewTask($slug)
+    {
+        $task = Task::where('slug',$slug)->firstOrFail();
+     
+
+        return view('employers.dashpaas.task-view')
+            ->with('task', $task);
+    }
+
     public function prequest(Request $request)
     {
         $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
