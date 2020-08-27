@@ -393,7 +393,7 @@ class EmployerController extends Controller
     public function adminpaas(Request $request)
     {
         $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
-        $shortlisted = PartTimer::where('status', 'shortlisted')->paginate(5);
+        $shortlisted = PartTimer::where('status', 'shortlisted')->orwhere('status', 'selected')->paginate(5);
 
         return view('employers.dashpaas.admin')
             ->with('tasks', $tasks)
