@@ -129,8 +129,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::resource('/employers/saved', 'SavedProfileController');
     Route::get('/employers/paas-dash', 'EmployerController@paasdash');
     Route::get('/employers/paas-tasks', 'EmployerController@paastask');
-    Route::get('/employers/paas-hire', 'EmployerController@hire');
     Route::get('/employers/view-invoice/{slug}', 'EmployerController@viewInvoice');
+    Route::get('/employers/paas-hire/{id}', 'EmployerController@hire');
 
 
     Route::get('/employers/requests', 'EmployerController@prequest');
