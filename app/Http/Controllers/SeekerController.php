@@ -26,6 +26,7 @@ use App\UserPermission;
 use App\SeekerSubscription;
 use App\Invoice;
 use App\PartTimer;
+use App\Task;
 use App\Notifications\PaasSubscribed;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\ContactReceived;
@@ -257,5 +258,11 @@ class SeekerController extends Controller
             ]);
 
         return Redirect::back()->with('applied','Application success!');
+    }
+
+    public function show($id)
+    {     $task= Task:: Where('id',$id)->firstOrFail();
+            return view('pages.task-content')
+            ->with('task',$task);
     }
 }

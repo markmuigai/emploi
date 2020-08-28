@@ -57,4 +57,13 @@ class Task extends Model
         }
         return false;
     }
+
+
+    public function getPreviewAttribute(){
+        $max_length = strlen($this->description);
+        if($max_length > 250)
+            return strip_tags(substr($this->description, 0,160).'...');
+        return strip_tags($this->description);
+        return $this->description;
+    } 
 }

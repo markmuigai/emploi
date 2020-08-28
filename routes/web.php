@@ -127,17 +127,15 @@ Route::get('/employers/advertise', 'ContactController@oldAdvertise');
 Route::group([ 'middleware' => 'shortlist'], function(){
     Route::resource('/employers/cv-requests', 'CvRequestController');
     Route::resource('/employers/saved', 'SavedProfileController');
-    // Route::get('/employers/paas-dash', 'EmployerController@paasdash');
-    // Route::get('/employers/paas-tasks', 'EmployerController@paastask');
-    // Route::get('/employers/view-invoice/{slug}', 'EmployerController@viewInvoice');
-    // Route::get('/employers/view-task/{slug}', 'EmployerController@viewTask');
-    // Route::get('/employers/edit-task/{slug}', 'EmployerController@editTask');
-    // Route::get('/employers/paas-hire/{id}', 'EmployerController@hire');
+    Route::get('/employers/paas-dash', 'EmployerController@paasdash');
+    Route::get('/employers/paas-tasks', 'EmployerController@paastask');
+    Route::get('/employers/view-invoice/{slug}', 'EmployerController@viewInvoice');
+    Route::get('/employers/paas-hire/{id}', 'EmployerController@hire');
 
 
-    // Route::get('/employers/requests', 'EmployerController@prequest');
-    // Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
-    // Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
+    Route::get('/employers/requests', 'EmployerController@prequest');
+    Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
+    Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
 
 
     Route::get('/employers/browse', 'EmployerController@browse');
@@ -314,6 +312,8 @@ Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
 Route::get('/job-seekers/apply-task/{slug}', 'SeekerController@applyTask');
 Route::get('/job-seekers/coaching-request', 'SeekerController@coaching');
 Route::get('/job-seekers/placement-request', 'SeekerController@placement');
+
+Route::get("/paas-task/main_content/{id}",'SeekerController@show');
 
 
 

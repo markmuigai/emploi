@@ -110,7 +110,8 @@ $tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
 					</div>
 					<div class="col-md-6">
 						<h6>Details</h6>
-                            <p> {{ $t->description }}</p>
+                        <p class="truncate">{!!html_entity_decode($t->preview)!!}</p>
+                         <a href="{{ url('/paas-task/main_content/'.$t->id) }}" class="orange">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -219,6 +220,5 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 @include('components.ads.responsive')
 
 @endif
-
 
 @endsection
