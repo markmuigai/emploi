@@ -48,7 +48,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @if($prof->status == 'selected')
                         <td><a href="#" style="color: blue">Hired</a></td>
                         @else
-                        <td><a href="/employers/paas-hire/{{ $prof->id }}" style="color: blue">Hire</a></td>
+                        <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td>
                         @endif
 
                         </tr>                      
@@ -86,6 +86,5 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
       </div>
 </section>
-
 
 @endsection
