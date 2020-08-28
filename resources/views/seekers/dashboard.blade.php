@@ -70,67 +70,6 @@ $user = Auth::user();
 <br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
  @endif
 
-@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
-<br>
-@if(session()->has('applied'))
-	  <div class="alert alert-success">
-	  {{ session()->get('applied') }}
-	  </div>
-@endif
-<?php
-$tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
-?>
-<br id="paas_task"><br>
-<div class="row">
-	@forelse ($tasks as $t)
-	<div class="col-lg-6">
-		<div class="card my-2">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-6">
-						<h5><a href="">{{ $t->title }}</a></h5>
-						<p>
-							{{ $t->company }}
-							<small class="badge badge-purple">{{ $t->salary }}</small>
-						</p>					
-						<span href="">{{ $t->created_at->diffForHumans() }}</span>
-
-						<?php 
-		                    $show = true; 
-		                    if(Auth::user()->seeker->hasAppliedTask($t))
-		                    {
-		                        $show = false;
-		                    }
-		                ?>
-		                @if($show)
-		                <a href="/job-seekers/apply-task/{{ $t->slug }}" class="btn btn-orange">Apply</a>
-		                @else
-		                <span class="btn btn-orange-alt">Applied</span>
-		                @endif
-					</div>
-					<div class="col-md-6">
-						<h6>Details</h6>
-                        <p class="truncate">{!!html_entity_decode($t->preview)!!}</p>
-                         <a href="{{ url('/paas-task/main_content/'.$t->id) }}" class="orange">Read More</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	@empty
-	<div class="col-12 my-3 text-center">
-		<div class="card">
-			<div class="card-body">
-				<p>Check Back Later.</p>
-			</div>
-		</div>
-	</div>
-	@endforelse
-</div>
-	{{ $tasks->links() }}
-	<hr>
-@endif
-
 <h4>Recent Blogs</h4>
 <div class="row">
 	<div class="col-md-12">
