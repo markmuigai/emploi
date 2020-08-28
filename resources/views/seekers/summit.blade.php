@@ -297,7 +297,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <div class="row col-md-6 mx-auto ml-1" style="background-color:#554594">
           <div class="container-fluid text-center pt-3">
             <div class="h5 font-weight-bold" style="color:white;">AFTER</div>
-            <img src="/images/cv102.jpg" style="width:100%; height:90%;" class="shadow">
+            <img src="/images/cv103.jpg" style="width:100%; height:90%;" class="shadow">
 
           </div>
         </div>
