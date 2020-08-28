@@ -432,9 +432,12 @@ class EmployerController extends Controller
     public function editTask($slug)
     {
         $task = Task::where('slug', $slug)->firstOrFail();
+        $industries = Industry::where('status','active')->get();
 
         return view('employers.dashpaas.edit-task')
-            ->with('task', $task);        
+            ->with('task', $task)
+            ->with('industries',$industries);
+                    
     }
 
     public function prequest(Request $request)

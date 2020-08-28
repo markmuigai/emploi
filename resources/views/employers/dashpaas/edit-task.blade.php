@@ -85,27 +85,24 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
                     <div class="form-group col-md-6">
                       <label class="h6">Field Of Expertise</label>
-                        <select id="industry" name="industry" class="form-control input-sm">
-                          <option disabled selected value> -- select an option -- </option>
-                          <option value="3">Accounting and Audit</option>
-                          <option value="17">Marketing,Communications and PR</option>
-                          <option value="9">Customer Service</option>
-                          <option value="12">Human Resources</option>
-                          <option value="6">Engineering</option>
-                          <option value="14">Legal</option>
-                          <option value="13">IT</option>
-                          <option value="8">Graphic design</option>
-                          <option value="29">Sales</option>
-                          <option value="1">Administration and Operations</option>
-                          <option value="13">Data Entry</option>
-                          <option value="32">Other</option>                
-                        </select>
+                      <select path="industry" id="industry" name="industry" class="form-control input-sm">
+                        @foreach($industries as $c)
+                        <option value="{{ $c->id }}" @if($c->id == $task->industry)
+                            selected=""
+                            @endif
+                            >{{ $c->name }}</option>
+                        @endforeach
+                      </select>
                     </div>
-          
-                      <div class="form-group col-md-6">
+
+                    <div class="form-group col-md-6">
                         <label class="h6">Salary <b style="color: red" title="Required">*</b></label>
                         <input type="text" class="form-control" name="salary" required="" placeholder="Salary" value="{{ $task->salary }}">
-                      </div>
+                    </div>
+                    
+                    </div>
+          
+                      
 
 
                   </div>
