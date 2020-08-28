@@ -18,6 +18,7 @@ class CreateCoachingsTable extends Migration
             $table->string('email',100);
             $table->string('name',100);
             $table->string('phone_number',20);
+            $table->string('resume',100);
             $table->integer('industry_id');
             $table->string('message');
             $table->string('status',20)->default('pending');

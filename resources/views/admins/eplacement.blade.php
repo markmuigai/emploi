@@ -28,6 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <a href="mailto:{{ $e->email }}">{{ $e->email }}</a><br>
                         <a href="tel:{{ $e->phone_number }}">{{ $e->phone_number }}</a>
                     </p>
+                    <a href="/storage/resume-edits/{{ $e->resume }}" class="btn btn-orange">View CV</a>
                     <p>
                         Status: <b>{{ $e->status }}</b>
                     </p>

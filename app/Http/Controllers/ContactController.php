@@ -424,7 +424,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             'resume' => ['required','mimes:pdf,docx,doc','max:51200'],
             'phone_number' => ['required', 'string', 'max:20'],
             'industry'    =>  ['integer']
-        ]);
+        ]);        
         $optional_message = $request->message ? $request->message : 'No custom message';
         $storage_path = '/public/resume-edits';
         $resume_url = basename(Storage::put($storage_path, $request->resume));
@@ -434,7 +434,8 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             'industry_id' => $request->industry, 
             'name' => $request->name,
             'phone_number' => $request->phone_number,
-            'message' => $optional_message
+            'message' => $optional_message,
+            'resume' =>$resume_url
         ]);
 
         if(isset($r->id))
@@ -476,7 +477,8 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             'industry_id' => $request->industry, 
             'name' => $request->name,
             'phone_number' => $request->phone_number,
-            'message' => $optional_message
+            'message' => $optional_message,
+            'resume' => $resume_url
         ]);
 
         if(isset($r->id))
