@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Make Request')
+@section('title','Edit Request')
 @section('description')
 Request Professionals Emploi and reach an audience of 100k+, get access to Premium Shortlisting tools and Candidate Ranking algorithims. Request professional in two minutes.
 @endsection
@@ -67,12 +67,12 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                   <div class="row">
                     <div class="form-group col-md-4">
                       <label class="h6">Company Name <b style="color: red" title="Required">*</b></label>
-                      <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $fname }}">
+                      <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $task->company }}">
                     </div>
 
                     <div class="form-group col-md-6">
                       <label class="h6">Job Title<b style="color: red">*</b></label>
-                      <input type="text" class="form-control" name="task_title" required="" placeholder="Enter job title" value="{{ $task->name }}">
+                      <input type="text" class="form-control" name="task_title" required="" placeholder="Enter job title" value="{{ $task->title }}">
                     </div>
 
                      <div class="form-group col-md-2">

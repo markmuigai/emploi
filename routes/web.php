@@ -133,6 +133,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/paas-hire/{id}', 'EmployerController@hire');
     Route::get('/employers/edit-task/{slug}', 'TaskController@editTask');
     Route::post('/employers/edit-task/{slug}', 'TaskController@update');
+    Route::get('/employers/delete-task/{slug}', 'TaskController@delete');
 
 
     Route::get('/employers/requests', 'EmployerController@prequest');

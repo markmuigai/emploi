@@ -36,7 +36,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <td>{{ $task->slug }}</td>
                           <td>{{ $task->status }}</td>
                           <td><a href="/employers/edit-task/{{ $task->slug }}" style="color: blue">Edit</a></td>
-                          <td><a href="#" style="color: blue">Cancel</a></td>
+                          <td><a href="/employers/delete-task/{{ $task->slug }}" style="color: blue" onclick="return confirm('Are you sure you want to cancel request {{ $task->title }}?')">Delete</a></td>
                           <td><a href="/employers/view-task/{{ $task->slug }}" style="color: blue">View</a></td>
                           </tr>                      
                         </tbody>

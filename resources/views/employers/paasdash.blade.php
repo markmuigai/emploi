@@ -32,6 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
   .banner h1{
     margin: 0;
+    margin-top:10px;
   }
 
   .banner h2{
@@ -45,6 +46,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     color: #ffffff;
     text-decoration: none;
     transition: 20s;
+    margin-top:10px;
   }
 
   .banner a:hover{
@@ -90,13 +92,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header" style="background-color:#554695; color:white;">
-                    Read More
+                    Get the Best
                 </div>              
             </div>
-            <div class="banner animate__animated animate__swing animate__infinite	infinite animate__slower 20s mt-4">
-                <h1>50% Off</h1>
-                <h5>Professional CV Editing</h5>
-                <a href="#" data-toggle="modal" data-target="#myModal1">Request</a>
+            <div class="banner shadow-lg animate__animated animate__ animate__infinite	infinite animate__slower 20s mt-4">
+                <h1></h1>
+                <h4>Hire Top Professionals on PaaS</h4>
+                <a href="/employers/request-paas">Request</a>
             </div>
         </div>
     

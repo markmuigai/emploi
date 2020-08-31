@@ -85,15 +85,22 @@ class TaskController extends Controller
         $task->name = $request->firstname. ' ' .$request->lastname;               
 
         $task->email = $request->email;
-        $task->phone_number = $request->phone;
+        $task->phone_number = $request->phone_number;
         $task->company = $request->company;
-        $task->title = $request->title;
+        $task->title = $request->task_title;
         $task->positions = $request->positions;
-        $task->description = $request->description;
+        $task->description = $request->task_description;
         $task->industry = $request->industry;
         $task->salary = $request->salary;
 
         $task->save();
         return redirect('/employers/task/'.$task->slug);
+    }
+
+    public function delete($slug)
+    {
+        $task = Task::where('slug',$slug);
+        $task->delete($slug);
+        return redirect('/employers/requests');
     }
 }
