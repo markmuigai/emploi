@@ -260,9 +260,19 @@ class SeekerController extends Controller
         return Redirect::back()->with('applied','Application success!');
     }
 
-    public function show($id)
-    {     $task= Task:: Where('id',$id)->firstOrFail();
-            return view('pages.task-content')
-            ->with('task',$task);
+    public function show($id, $email=false)
+    {
+        if(!$email)
+        {     $task= Task:: Where('id',$id)->firstOrFail();
+                return view('pages.task-content')
+                ->with('task',$task);
+        }
+
+       $user = User::where('email',$email)->firstOrFail();
+        Auth::login($user);
+
+        $task= Task:: Where('id',$id)->firstOrFail();
+        return view('pages.task-content')
+          ->with('task',$task);
     }
 }

@@ -29,9 +29,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <a href="tel:{{ $e->phone_number }}">{{ $e->phone_number }}</a>
                     </p>
                     <a href="/storage/resume-edits/{{ $e->resume }}" class="btn btn-orange">View CV</a>
-                    <p>
+                     <?php
+                    $user = App\User::where('email',$e->email)->first();
+                    ?>
+                     @if(isset($user->id) && $user->role == 'seeker')
+                    <a href="/admin/eplacement/{{ $user->id }}" style="float: right;" class="btn btn-orange-alt">Make Featured</a>
+                     @endif
+                     @if(!isset($user->id))
+                     <p class="orange" style="float: right">User not registered</p>
+                     @endif
+            <!--  <p>
                         Status: <b>{{ $e->status }}</b>
-                    </p>
+                    </p> -->
                 </div>
                 
             </div>
