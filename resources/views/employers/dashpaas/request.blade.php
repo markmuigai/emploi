@@ -33,10 +33,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                       @foreach ($tasks as $task)
                         <tbody>
                           <tr>
-                          <td>{{ $task->slug }}</td>
+                          <td>{{ $task->title }}</td>
                           <td>{{ $task->status }}</td>
                           <td><a href="/employers/edit-task/{{ $task->slug }}" style="color: blue">Edit</a></td>
-                          <td><a href="/employers/delete-task/{{ $task->slug }}" style="color: blue" onclick="return confirm('Are you sure you want to cancel request {{ $task->title }}?')">Delete</a></td>
+                          <td><a href="/employers/delete-task/{{ $task->slug }}" style="color: blue" onclick="return confirm('This action is irreversible. Once you delete this request:{{ $task->title }} there is no going back. Please be certain?')">Delete</a></td>
                           <td><a href="/employers/view-task/{{ $task->slug }}" style="color: blue">View</a></td>
                           </tr>                      
                         </tbody>
