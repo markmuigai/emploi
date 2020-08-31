@@ -887,9 +887,8 @@ class Seeker extends Model
                if(count($featuredVacancies) > 0){
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
 
-                // $contents  ="<p>Are you looking to work part-time? Join the Golden Club today and enjoy a one-month free membership.
-                //              Get on board now and let hiring employers find you.<a href='https://bit.ly/2CMMYTY'>Join Now</a></p>" ; 
-                $contents  = '<p style= "background:orange; color:white">';
+                $contents  ="<p>Is your profile failing to get hits by employers? Subscribe to the Spotlight package today and increase your profile visibilty for employers to see and shortlist you easily<a href='https://bit.ly/3bbM00b'> Subscribe.</a></p>" ;      
+                $contents  .= '<p style= "background:orange; color:white">';
 
                 $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
                 $contents .= '</p>';
@@ -912,7 +911,9 @@ class Seeker extends Model
                 $contents .= "</ul>";                        
                   }   
                 
-                $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>";            
+                $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>"; 
+
+                $contents  .="<p>Are you making job applications with no feedback whatsoever? Subscribe to the Pro package today and get real-time notifications when you're shortlisted,your cv is requested or when you're profile has been viewed.<a href='https://bit.ly/31JhPuw'> Subscribe.</a></p>" ;            
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
                 $contents .= "Blogs From Our Career Centre";
