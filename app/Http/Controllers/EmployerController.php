@@ -1568,6 +1568,7 @@ class EmployerController extends Controller
                 'name' => $request->firstname. ' ' .$request->lastname,               
                 'email' => $request->email,
                 'phone_number' => $request->phone_number,
+                'company' => $request->company,
                 'title' => $request->task_title,
                 'positions' => $request->positions,
                 'description' => $request->task_description,
