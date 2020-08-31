@@ -26,21 +26,24 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 					
 				
 					<form class="card" method="POST" action="/employers/invoice">
-					<div class='order'>   
+					<div class='order'>
+					<?php
+                    $salary = $task->salary * $task->positions;
+					?>   
 						<ul><br>
 						<h5 class="text-muted">Order: {{ $task->slug }}</h5><br>
 							@csrf
 							@if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
 
-							<h5>Salary: Ksh. {{ $task->salary }}</h5>
-							<h5>Management Fee:  Ksh. {{ 0.135 * $task->salary }}</h5>
-							<h5 class='total'>Total Monthly pay: <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b></h5>
+							<h5>Salary: Ksh. {{ $salary }}</h5>
+							<h5>Management Fee:  Ksh. {{ 0.135 * $salary }}</h5>
+							<h5 class='total'>Total Monthly pay: <b>Ksh. {{ $salary + 0.135 * $salary }}</b></h5>
 
 							@else
 
-							<h5>Salary: Ksh. {{ $task->salary }}</h5>
-							<h5>Management Fee:  Ksh. {{ 0.135 * $task->salary }}</h5>
-							<h4 class='total'>Total: <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b></h4>
+							<h5>Salary: Ksh. {{ $salary }}</h5>
+							<h5>Management Fee:  Ksh. {{ 0.135 * $salary }}</h5>
+							<h4 class='total'>Total: <b>Ksh. {{ $salary + 0.135 * $salary }}</b></h4>
 							@endif
 					    </ul>
 					</div>
@@ -110,7 +113,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 							<div class="mb-3">
 								<label for="salary">Salary </label>
-								<input type="text" class="form-control" name="salary" required="" value=" {{ $task->salary }}">
+								<input type="text" class="form-control" name="salary" required="" value=" {{ $salary }}">
 								<div class="invalid-feedback">
 									Please enter a valid salary.
 								</div>
@@ -119,7 +122,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 							<!-- <hr class="mb-4">	 -->						
 							   @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
 							   <p><a href="/employers/dashboard" class="btn btn-primary" id="complete" type="submit">Complete checkout</a>
-							   To pay a total of <b>Ksh. {{ $task->salary + 0.135 * $task->salary }}</b> at the end of the month.</p>
+							   To pay a total of <b>Ksh. {{ $salary + 0.135 * $salary }}</b> at the end of the month.</p>
                                 @else
                                <button class="btn btn-primary" id="submitButton" type="submit">Continue to checkout</button>  Or   
 							   <a href="/employers/e-club?redirectToUrl={{ url()->current() }}" style="float: right" class="btn btn-orange" >Checkout with eClub</a>

@@ -1580,6 +1580,7 @@ class EmployerController extends Controller
                 'email' => $request->email,
                 'phone_number' => $request->phone_number,
                 'title' => $request->task_title,
+                'positions' => $request->positions,
                 'description' => $request->task_description,
                 'industry' => $request->industry,
                 'salary' => $request->salary

@@ -66,7 +66,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                       <label class="h6">Company Name <b style="color: red" title="Required">*</b></label>
                       <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $fname }}">
                     </div>
@@ -74,6 +74,14 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                     <div class="form-group col-md-6">
                       <label class="h6">Job Title<b style="color: red">*</b></label>
                       <input type="text" class="form-control" name="task_title" required="" placeholder="Enter job title">
+                    </div>
+
+                     <div class="form-group col-md-2">
+                   <label>Positions<b style="color: red">*</b></label>
+                    <select name="positions" class="form-control">
+                        @for($i=1; $i<=20;$i++ ) <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
                     </div>
                   </div>
         
