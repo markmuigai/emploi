@@ -131,12 +131,16 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/paas-tasks', 'EmployerController@paastask');
     Route::get('/employers/view-invoice/{slug}', 'EmployerController@viewInvoice');
     Route::get('/employers/paas-hire/{id}', 'EmployerController@hire');
+    Route::get('/employers/edit-task/{slug}', 'TaskController@editTask');
+    Route::post('/employers/edit-task/{slug}', 'TaskController@update');
 
 
     Route::get('/employers/requests', 'EmployerController@prequest');
     Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
     Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
 
+    Route::get('signaturepad','SignaturePadController@index');
+    Route::post('signaturepad','SignaturePadController@upload')->name('signaturepad.upload');
 
     Route::get('/employers/browse', 'EmployerController@browse');
     Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');

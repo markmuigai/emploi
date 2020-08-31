@@ -8,7 +8,6 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
 @section('content')
 
-
 <div class="row">
     <div class="col-md-6 mx-auto">
         @if(session()->has('msg'))
@@ -18,11 +17,11 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
         @endif
         <div class="modal-content mt-4 pb-2 shadow-lg">
             <div class="modal-header">
-              <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Edit Part-Timer Request</h5>
+              <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Request for Part-Timer</h5>
             </div>
             <div class="modal-body container bg-light">
               <!-- subscribe form for Professional -->
-                <form method="POST"  enctype="multipart/form-data" action="/employers/request-professional">
+                <form method="POST"  enctype="multipart/form-data" action="/employers/edit-task/{{ $task->slug }}">
                   @csrf
                     <?php
                     $fname = '';
@@ -66,21 +65,29 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                       <label class="h6">Company Name <b style="color: red" title="Required">*</b></label>
                       <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $fname }}">
                     </div>
 
                     <div class="form-group col-md-6">
                       <label class="h6">Job Title<b style="color: red">*</b></label>
-                      <input type="text" class="form-control" name="task_title" required="" placeholder="Enter job title" value="{{ $task->title }}">
+                      <input type="text" class="form-control" name="task_title" required="" placeholder="Enter job title" value="{{ $task->name }}">
+                    </div>
+
+                     <div class="form-group col-md-2">
+                      <label>Positions<b style="color: red">*</b></label>
+                      <select name="positions" class="form-control">
+                          @for($i=1; $i<21;$i++ ) <option value="{{ $i }}" {{ $i == $task->positions ? 'selected="selected"' : '' }}>{{ $i }}</option>
+                              @endfor
+                      </select>
                     </div>
                   </div>
         
                   <div class="row">
                     <div class="form-group col-md-12">
                       <label class="h6">Job Description</label>
-                      <textarea class="form-control" name="task_description" placeholder="brief description about the job" value="{{ $task->description }}"></textarea>
+                      <textarea class="form-control" name="task_description" placeholder="brief description about the job">{{ $task->description }}</textarea>
                     </div>
 
                     <div class="form-group col-md-6">
@@ -94,21 +101,17 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                         @endforeach
                       </select>
                     </div>
-
-                    <div class="form-group col-md-6">
+          
+                      <div class="form-group col-md-6">
                         <label class="h6">Salary <b style="color: red" title="Required">*</b></label>
                         <input type="text" class="form-control" name="salary" required="" placeholder="Salary" value="{{ $task->salary }}">
-                    </div>
-                    
-                    </div>
-          
-                      
+                      </div>
 
 
                   </div>
         
                   <div class="modal-footer">
-                    <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Save">
+                    <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button">
                   </div>
         
                 </form>
