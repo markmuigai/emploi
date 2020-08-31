@@ -34,10 +34,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tbody>
                           <tr>
                           <td>{{ $task->title }}</td>
-                          <td>{{ $task->status }}</td>
-                          <td><a href="/employers/edit-task/{{ $task->slug }}" style="color: blue">Edit</a></td>
-                          <td><a href="/employers/delete-task/{{ $task->slug }}" style="color: blue" onclick="return confirm('This action is irreversible. Once you delete this request:{{ $task->title }} there is no going back. Please be certain?')">Delete</a></td>
-                          <td><a href="/employers/view-task/{{ $task->slug }}" style="color: blue">View</a></td>
+                          <td>{{ $task->status }}</td>   
+                          <td><a href="/employers/view-task/{{ $task->slug }}" style="color: blue; text-decoration:none;">View <i class="far fa-eye"></i></a></td>
+                          <td><a href="/employers/edit-task/{{ $task->slug }}" style="color: blue; text-decoration:none">Edit <i class="far fa-edit"></i></a></td>
+                          <td><a href="/employers/delete-task/{{ $task->slug }}" style="color: blue; text-decoration:none;" onclick="return confirm('This action is irreversible. Once you delete this request:{{ $task->title }} there is no going back. Please be certain?')">Delete <i class="far fa-trash-alt"></i></a></td>
                           </tr>                      
                         </tbody>
                           
