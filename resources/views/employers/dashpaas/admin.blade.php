@@ -9,7 +9,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Administration')
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
 
+<link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
+
+<style>
+    .kbw-signature { width: 200px; height: 100px;}
+    #sig canvas{
+        width: 100% !important;
+        height: 100% !important;
+    }
+</style>
 <!-- NAV-TABS -->
 
 <section>
@@ -65,8 +78,42 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
           </div>
 
           <div id="docs" class="tab-pane fade mt-2 pb-4">
-            <h3>Shortlisted</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  
+              <div>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 mt-5">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Contract Signing</h5>
+                            </div>
+                            <div class="card-body">
+                                  @if ($message = Session::get('success'))
+                                      <div class="alert alert-success  alert-dismissible">
+                                          <button type="button" class="close" data-dismiss="alert">×</button>  
+                                          <strong>{{ $message }}</strong>
+                                      </div>
+                                  @endif
+                                  <form method="POST" action="{{ route('signaturepad.upload') }}">
+                                      @csrf
+                                      <div class="col-md-12">
+                                          <label class="" for="">Signature:</label>
+                                          <br/>
+                                          <div id="sig" ></div>
+                                          <br/>
+                                          <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
+                                          <textarea id="signature64" name="signed" style="display: none"></textarea>
+                                      </div>
+                                      <br/>
+                                      <button class="btn btn-success">Save</button>
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+            
           <br><br><br>
           </div>
 
@@ -85,6 +132,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
           
         </div>
       </div>
+
+      
+      <script type="text/javascript">
+          var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
+          $('#clear').click(function(e) {
+              e.preventDefault();
+              sig.signature('clear');
+              $("#signature64").val('');
+          });
+      </script>
 </section>
 
 @endsection

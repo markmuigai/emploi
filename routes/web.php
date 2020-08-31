@@ -137,6 +137,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/admin-paas', 'EmployerController@adminpaas');
     Route::get('/employers/invoice-paas', 'EmployerController@paasinv');
 
+    Route::get('signaturepad','SignaturePadController@index');
+    Route::post('signaturepad','SignaturePadController@upload')->name('signaturepad.upload');
 
     Route::get('/employers/browse', 'EmployerController@browse');
     Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');
