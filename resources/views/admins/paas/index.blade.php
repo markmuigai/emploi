@@ -24,6 +24,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </form>
         <br>
         @include('components.ads.responsive')
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+            {{ session()->get('success') }}
+            </div>
+        @endif
         @forelse($tasks as $t)
         <div class="row">
             <div class="col-md-8">
@@ -38,7 +43,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <div class="col-md-4 text-right">
                 <p><strong>{{ $t->status }}</strong> </p>
-                <a href="/admin/paas-task/{{$t->id}}" class="btn btn-orange btn-sm">View</a>
+                <p><a href="/admin/paas-task/{{$t->id}}" class="btn btn-orange btn-sm">View</a></p>
+                <p><a href="/admin/paas-send/{{$t->id}}" class="btn btn-orange btn-sm">Send To Professionals</a></p>
             </div>
         </div>
         <hr>
