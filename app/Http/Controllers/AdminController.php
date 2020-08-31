@@ -1354,7 +1354,7 @@ class AdminController extends Controller
       
         EmailJob::dispatch($p->name, $p->email, 'Emploi PaaS', $caption, $contents);
         }
-        return redirect()->back()->with('success',''.$t->title.' has been sent to professionals');
+        return redirect()->back()->with('success',''.$t->title.' job has been sent to professionals');
     }
 
     public function eplacement()
