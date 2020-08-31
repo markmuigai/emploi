@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+
 use Auth;
 use Carbon\Carbon;
 use OneSignal;
@@ -1335,24 +1337,23 @@ class AdminController extends Controller
 
     }
 
-    public function selectProfessionals(Request $request, $id)
+    public function sendTasks(Request $request, $id)
     {
-        $e = Task::findOrFail($id);
-        $e->cv_editor_id = $request->editor_id;
-        $e->assigned_on = now();
-        $e->status = 'assigned';
-        $e->save();
+        $t = Task::findOrFail($id);
+        $prof = SeekerSubscription::where('status','active')
+                        ->where('industry_id', $t->industry)
+                        ->get();
 
-        // $caption = "Cv Edit Request on Emploi";
-        // $contents = "A CV Editing request has been assigned to you. Log in and process this request. <b> Consider this an urgent call. If you require additional information, kindly contact us.<br><br>
-        // <a href='".url('/cv-editing/'.$e->slug)."'>View CV Editing Request</a>
-        //  <br>
-        // Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a> or by sending us an e-mail to <a href='mailto:info@emploi.co'>info@emploi.co</a><br>
-        // Thank you for your cooperation.";
-        // EmailJob::dispatch($e->cvEditor->user->name, $e->cvEditor->user->email, 'Emploi Cv Edit Request', $caption, $contents);
-
-        return redirect()->back();
-        return $request->all();
+        $caption = $t->name. " is looking for you";
+        $contents = "Interested in this position of  ".$t->title." on Emploi Paas?.  <b> Click the link below.<br><br>
+        <a href='".url('/job-seekers/apply-task/'.$t->slug)."'>Click here if interested</a>
+         <br>
+        For more details about this position click<a href= '".url('/paas-task/main_content/'.$t->id).">here</a><br>
+        Thank you for you for always choosing Emploi.";
+        foreach($prof as $p){
+        EmailJob::dispatch($p->name, $p->email, 'Emploi Paas', $caption, $contents);
+        }
+        return redirect()->back()->with('success',''.$t->title.' has been sent to professionals');
     }
 
     public function eplacement()
@@ -1361,6 +1362,15 @@ class AdminController extends Controller
 
         return view('admins.eplacement')
                   ->with('exclusive',$exclusive);
+    }
+
+
+    public function makeFeatured($id)
+    {        
+        $seeker = Seeker::Where('user_id',$id)->firstOrFail();
+        $seeker->update(['featured' =>2]);
+        $seeker->save();
+        return Redirect::back();
     }
 
     public function coaching()
