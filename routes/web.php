@@ -216,6 +216,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('username/{username}', 'AdminController@loginWithUsername');  
 
     Route::get('paas-task/{id?}', 'AdminController@taskRequests');
+    Route::get('paas-send/{id}', 'AdminController@sendTasks');
+
 
     Route::get('referrals', 'AdminController@referrals');
     Route::get('cv-referrals', 'AdminController@cvReferrals');
@@ -243,6 +245,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('events/{endpoint?}','MeetupController@adminMeetups');
     Route::get('eplacement','AdminController@eplacement');
     Route::get('coaching','AdminController@coaching');
+    Route::get('eplacement/{id}','AdminController@makeFeatured');
 
     Route::get('paas-applications','AdminController@paasApplications');
     Route::get('paas-applications/{id}','AdminController@paasApplication');

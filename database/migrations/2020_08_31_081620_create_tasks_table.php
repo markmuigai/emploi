@@ -22,12 +22,17 @@ class CreateTasksTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('company')->nullable();
             $table->string('title',500)->nullable();
+            $table->integer('positions')->default(1);
             $table->longtext('description')->nullable();
             $table->string('industry')->nullable();
             $table->decimal('salary',10,2)->nullable();
             $table->string('status',50)->default('pending');
             $table->string('assignee')->nullable();
+            $table->longtext('sub-task')->nullable();
             $table->timestamp('assigned_on')->nullable();
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('end_at')->nullable();
+            $table->timestamp('ended_at')->nullable();
             $table->timestamps();
         });
     }

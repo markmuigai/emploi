@@ -9,7 +9,7 @@ use App\PartTimer;
 class Task extends Model
 {
     protected $fillable = [
-        'slug','employer_id','name','email', 'phone_number','company','title','description','industry','salary','status','assigne','assigned_on'
+        'slug','employer_id','name','email', 'phone_number','company','title','positions','description','industry','salary','status','assignee','sub_task','assigned_on','started_at','end_at','ended_at'
     ];
 
     //    public function industry(){
