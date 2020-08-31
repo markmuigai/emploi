@@ -1343,15 +1343,16 @@ class AdminController extends Controller
         $prof = SeekerSubscription::where('status','active')
                         ->where('industry_id', $t->industry)
                         ->get();
-
-        $caption = $t->name. " is looking for you";
-        $contents = "Interested in this position of  ".$t->title." on Emploi Paas?.  <b> Click the link below.<br><br>
-        <a href='".url('/job-seekers/apply-task/'.$t->slug)."'>Click here if interested</a>
-         <br>
-        For more details about this position click<a href= '".url('/paas-task/main_content/'.$t->id).">here</a><br>
-        Thank you for you for always choosing Emploi.";
         foreach($prof as $p){
-        EmailJob::dispatch($p->name, $p->email, 'Emploi Paas', $caption, $contents);
+        $caption = $t->name. " is looking for you";
+        $contents = "Interested in this position of  ".$t->title." on Emploi PaaS Task?. 
+                    Don't miss out on this opportunity. Click <a href='".url('/paas-task/main_content/'.$t->id.'/'.$p->email)."'>here</a>
+                    to apply <br><br><br>
+
+
+        Thank you for you for always choosing Emploi.";
+      
+        EmailJob::dispatch($p->name, $p->email, 'Emploi PaaS', $caption, $contents);
         }
         return redirect()->back()->with('success',''.$t->title.' has been sent to professionals');
     }

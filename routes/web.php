@@ -320,7 +320,7 @@ Route::get('/job-seekers/apply-task/{slug}', 'SeekerController@applyTask');
 Route::get('/job-seekers/coaching-request', 'SeekerController@coaching');
 Route::get('/job-seekers/placement-request', 'SeekerController@placement');
 
-Route::get("/paas-task/main_content/{id}",'SeekerController@show');
+Route::get("/paas-task/main_content/{id}/{email?}",'SeekerController@show');
 
 
 
