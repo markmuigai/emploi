@@ -16,12 +16,14 @@ class CreateIssuesTable extends Migration
         Schema::create('issues', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title',500);
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('task_slug');
             $table->timestamp('start_on')->nullable();
             $table->timestamp('due_date')->nullable();
             $table->timestamp('ended_on')->nullable();
             $table->string('status')->nullable();
+            $table->string('assignee')->nullable();
+            $table->timestamp('assigned_on')->nullable();
             $table->string('supervisor')->nullable();
             $table->string('owner')->nullable();
             $table->string('watcher')->nullable();
