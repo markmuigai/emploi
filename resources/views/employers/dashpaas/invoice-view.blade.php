@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <a href="{{ url()->previous() }}" class="btn btn-default">
     <i class="fa fa-arrow-left"></i>Back
-</a>
+</a><br><br>
 <section>
 
     <div class="container">
