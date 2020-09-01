@@ -313,6 +313,8 @@ Route::post('/employers/request-professional', 'EmployerController@getProfession
 Route::get('/employers/task/{slug}', 'EmployerController@task');
 Route::post('/employers/invoice', 'EmployerController@getInvoice');
 
+Route::resource('/issues', 'IssueController');
+
 Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
 Route::get('/job-seekers/register-paas', 'SeekerController@rpaas')->name('golden')->middleware('auth');
