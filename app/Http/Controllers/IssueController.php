@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Issue;
 use App\PartTimer;
+use App\Task;
 
 class IssueController extends Controller
 {
@@ -41,12 +42,12 @@ class IssueController extends Controller
          $i = Issue::create([
             'title' => $request->title, 
             'description' => $request->description, 
-            'task_slug' =>0,
+            'task_slug' =>$request->slug,
             'assignee' => $request->assignee,
             'start_on'=>$request->start_date,
             'due_date'=>$request->due_date
         ]);
-        return redirect('/issues/'.$i->id);
+        return redirect('/issues/'.$i->task_slug);
         return $request->all();
     }
 
@@ -56,10 +57,13 @@ class IssueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $issue = Issue::findOrFail($id);
+        $issue = Issue::where('task_slug', $slug)->get();
+        $task = Task::where('slug', $slug)->get();
+
         return view('issues.show')
+                ->with('task', $task)
                 ->with('issue',$issue);
     }
 

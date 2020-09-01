@@ -48,6 +48,7 @@ use App\EmployerSubscription;
 use App\Invoice;
 use App\Task;
 use App\PartTimer;
+use App\Issue;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
