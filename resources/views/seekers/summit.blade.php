@@ -198,8 +198,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </div><br>
 
 <div class="container">
-  <h2 class="text-center pt-4" style="font-weight: bold;">Get your career to the top</h2>
-  <p class="h5 text-center">
+  <h4 class="text-center pt-4" style="font-weight: bold;">Get your career to the top</h4>
+  <p class="h6 text-center">
     Are your job application efforts proving unfruitful? The Career Summit will land you that interview ASAP!</p>
 </div>
 
