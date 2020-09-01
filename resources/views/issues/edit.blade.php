@@ -16,9 +16,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Edit Issue            
         </h2>
         <br>
-        <form method="post" action="/issues/{{ $issue->id }}" enctype="multipart/form-data">
+        <form method="post" action="/issues/update/{{ $issue->id }}" enctype="multipart/form-data">
            @csrf
-            {{ method_field('PUT') }}
 
             <div class="form-group">
                 <label>

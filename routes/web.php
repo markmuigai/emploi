@@ -320,8 +320,8 @@ Route::get('/issues/view/{id}', 'IssueController@view');
 Route::get('/issues/create', 'IssueController@create');
 Route::post('/issues/store', 'IssueController@store');
 Route::get('/issues/edit/{id}', 'IssueController@edit');
+Route::post('/issues/update/{id}', 'IssueController@update');
 Route::delete('/issues/delete/{id}', 'IssueController@destroy');
-
 Route::get('/issues', 'IssueController@index');
 
 

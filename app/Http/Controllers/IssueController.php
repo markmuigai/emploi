@@ -104,7 +104,9 @@ class IssueController extends Controller
         $issue->description = $request->description;
         $issue->assignee = $request->assignee;
         $issue->save();
-        return redirect('/issues/'.$issue->id);
+        // return redirect('/issues/'.$issue->id);
+        return redirect('/issues');
+
     }
 
     /**
