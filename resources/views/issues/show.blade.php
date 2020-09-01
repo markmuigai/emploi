@@ -23,28 +23,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row">
 
             <div class="col">
+
+            @foreach ($issue as $i)
                 <br>
-                <h3><b style="float: right;"> </b>{{ $issue->title }}</h3>
+                <h3><b style="float: right;"> </b>{{ $i->title }}</h3>
 
                 <p>
-                    <?php echo $issue->description; ?>
+                    <?php echo $i->description; ?>
                 </p>
                 <hr>
                 <br>
 
                 <p>
-                    <strong>Created:</strong> {{ $issue->created_at->diffForHumans() }}<br>
-                    <strong>Updated:</strong> {{ $issue->updated_at->diffForHumans() }}
+                    <strong>Created:</strong> {{ $i->created_at->diffForHumans() }}<br>
+                    <strong>Updated:</strong> {{ $i->updated_at->diffForHumans() }}
 
-                    <a href="/issues/{{ $issue->id }}/edit" class="btn btn-link" style="float: right;">
+                    <a href="/issues/edit/{{ $i->id }}" class="btn btn-link" style="float: right;">
                         <i class="fa fa-pen"></i> Edit
                     </a>
-                    <form method="POST" action="/issues/{{ $issue->id }}" style="display: inline">
+                    <form method="POST" action="/issues/delete/{{ $i->id }}" style="display: inline">
                         @csrf
                         {{ method_field('DELETE') }}
                         <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                 </p>
+            @endforeach
             </div>
 
         </div>

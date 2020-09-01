@@ -16,14 +16,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             New Issue            
         </h2>
         <br>
-        <form method="post" action="/issues">
+        <?php 
+
+            $user = Auth::user();
+            $task = App\Task::where('employer_id', $user->employer->id)->get();
+        ?>
+        <form method="post" action="/issues/store">
             @csrf
 
             <div class="form-group">
                 <label>
-                    Title:
+                    Issue Title:
                 </label>
-                <input type="text" name="title" placeholder="" value="" required="required" class="form-control" maxlength="500">
+                <input name="title" class="form-control input-sm" required="" id="title"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Task Number:</label>
+                <select name="slug" class="form-control input-sm">
+                    @foreach($task as $t)
+                    <option value="{{ $t->slug }}" 
+                        selected=""
+                    
+                        >{{ $t->slug }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">

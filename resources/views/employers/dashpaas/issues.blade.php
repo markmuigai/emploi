@@ -1,24 +1,22 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: All Jobs Listed')
+@section('title','Emploi :: Issue')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'Task Management')
+@section('page_title', 'Task Issue Management')
 
 
 <!-- NAV-TABS -->
-<a href="{{ url()->previous() }}" class="btn btn-default">
-    <i class="fa fa-arrow-left"></i>Back
-</a>
+
 <section>
     <div class="container">
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Tasks</a></li>
-          <li><a class="btn btn-orange-alt" style="color: black;" href="/issues">Issues Dashboard</a></li>
+          <li><a class="btn btn-orange-alt" style="color: black;" data-toggle="tab" href="#menu1">Issues Dashboard</a></li>
         </ul>
       
         <div class="tab-content">
@@ -27,25 +25,29 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <table class="table">
                   <div class="row">
                     <tr>
-                      <th>Task Name</th>
-                      <th>Task Status</th>
-                      <th>Task ID</th>
+                      <th>Issue Title</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                      <th>Due</th>
+                      <th>assignee</th>
+
 
                     </tr>
-                    @foreach ($tasks as $task)
+                    @foreach ($issues as $i)
                       <tbody>
                         <tr>
-                        <td>{{ $task->title }}</td>
-                        <td>{{ $task->status }}</td>
-                        <td> {{$task->id}} </td>
-                        <td><a href="/issues/show/{{ $task->slug }}" style="color: blue">view Issues</a></td>
+                        <td>{{ $i->title }}</td>
+                        <td> {{$i->description}} </td>
+                        <td>{{ $i->status }}</td>
+                        <td> {{$i->due_date->format('d/m/Y')}} </td>
+                        <td> {{$i->assignee}} </td>
+
                         </tr>                      
                       </tbody>
                                                   
                     @endforeach
                 </table>
 
-                {{ $tasks->links() }}
 
               </div>
             </div>

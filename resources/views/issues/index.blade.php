@@ -10,6 +10,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 
+<?php 
+    $user = Auth::user();
+    $task = App\Task::where('employer_id', $user->employer->id)->get();
+?>
+
 <div class="card">
     <div class="card-body">
         <div class="row" style="text-align: right; border-bottom: 0.1em solid #ff5e00">
@@ -25,8 +30,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Created:</strong> {{ $i->created_at->diffForHumans() }}</p>
                 <p><strong>Updated:</strong> {{ $i->updated_at->diffForHumans() }}</p>
                 <p>
-                    <a href="/issues/{{$i->id}}" class="btn btn-orange btn-sm">View</a>
-                    <a href="/issues/{{$i->id}}/edit" class="btn btn-link btn-sm">Edit</a>
+                    <a href="/issues/edit/{{ $i->id }}" class="btn btn-orange btn-sm">View</a>
+                    <a href="/issues/edit/{{$i->id}}" class="btn btn-link btn-sm">Edit</a>
                 </p>
                 <hr>
                 

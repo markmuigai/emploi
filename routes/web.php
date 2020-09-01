@@ -314,7 +314,15 @@ Route::post('/employers/request-professional', 'EmployerController@getProfession
 Route::get('/employers/task/{slug}', 'EmployerController@task');
 Route::post('/employers/invoice', 'EmployerController@getInvoice');
 
-Route::resource('/issues', 'IssueController');
+// Route::resource('/issues', 'IssueController');
+Route::get('/issues/show/{slug}', 'IssueController@show');
+Route::get('/issues/create', 'IssueController@create');
+Route::post('/issues/store', 'IssueController@store');
+Route::get('/issues/edit/{id}', 'IssueController@edit');
+Route::delete('/issues/delete/{id}', 'IssueController@destroy');
+
+Route::get('/issues', 'IssueController@index');
+
 
 Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
