@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Created:</strong> {{ $i->created_at->diffForHumans() }}</p>
                 <p><strong>Updated:</strong> {{ $i->updated_at->diffForHumans() }}</p>
                 <p>
-                    <a href="/issues/edit/{{ $i->id }}" class="btn btn-orange btn-sm">View</a>
+                    <a href="/issues/view/{{ $i->id }}" class="btn btn-orange btn-sm">View</a>
                     <a href="/issues/edit/{{$i->id}}" class="btn btn-link btn-sm">Edit</a>
                 </p>
                 <hr>

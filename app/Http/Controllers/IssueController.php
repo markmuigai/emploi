@@ -47,7 +47,8 @@ class IssueController extends Controller
             'start_on'=>$request->start_date,
             'due_date'=>$request->due_date
         ]);
-        return redirect('/issues/'.$i->task_slug);
+        return redirect('/issues');
+        // return redirect('/issues/edit/'.$i->id);
         return $request->all();
     }
 
@@ -64,6 +65,14 @@ class IssueController extends Controller
 
         return view('issues.show')
                 ->with('task', $task)
+                ->with('issue',$issue);
+    }
+
+    public function view($id)
+    {
+        $issue = Issue::where('id', $id)->get();
+
+        return view('issues.show')
                 ->with('issue',$issue);
     }
 
