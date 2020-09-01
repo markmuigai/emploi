@@ -7,7 +7,9 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
 
 @section('content')
-
+<a href="{{ url()->previous() }}" class="btn btn-default">
+    <i class="fa fa-arrow-left"></i>Back
+</a>
 <div class="row">
     <div class="col-md-6 mx-auto">
         @if(session()->has('msg'))
