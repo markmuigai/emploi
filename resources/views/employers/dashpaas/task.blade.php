@@ -21,25 +21,33 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       
         <div class="tab-content">
           <div id="home" class="tab-pane active mt-2 pb-4">
-            <div class="container mt-4">
+            <div class="container mt-4 card">
                 <table class="table">
                   <div class="row">
                     <tr>
-                      <th>TasK Name</th>
-                      <th>TasK Status</th>
-                      <th>TasK ID</th>
+                      <th>Task Name</th>
+                      <th>Task Status</th>
+                      <th>Task ID</th>
 
                     </tr>
                     @foreach ($tasks as $task)
                       <tbody>
                         <tr>
-                        <td>{{ $task->slug }}</td>
+                        <td>{{ $task->title }}</td>
                         <td>{{ $task->status }}</td>
                         <td> {{$task->id}} </td>
                         <td><a href="#" style="color: blue">view</a></td>
+                        <td>
+                          <a class="" href="#" data-toggle="collapse" data-target="#demo">Simple collapsible</a>
+                          <div id="demo" class="collapse {{ $task->slug }}">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                          </div>
+                        </td>
                         </tr>                      
                       </tbody>
-                        
+                                                  
                     @endforeach
                 </table>
 

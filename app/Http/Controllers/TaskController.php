@@ -103,4 +103,18 @@ class TaskController extends Controller
         $task->delete($slug);
         return redirect('/employers/requests');
     }
+
+    public function shortlist($slug)
+    {
+        $pros = PartTimer::where('task_slug',$slug)->get();
+        $tasks = Task::where('slug', $slug)->get();
+        $industries = Industry::where('name', $slug)->get();
+        
+        
+        return view('employers.dashpaas.shortlist')
+            ->with('pros',$pros)
+            ->with('tasks', $tasks)
+            ->with('industries', $industries);
+    }
+
 }
