@@ -18,8 +18,11 @@ $user = Auth::user();
 @else
 <a href="/job-seekers/register-paas" class="btn btn-orange">Apply for part time jobs</a>
 @endif
+@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
+<a href="/job-seekers/issues" class="btn btn-orange">View Your PaaS Task Issues</a>
+@endif
 @if($user->seeker->featured > 0)
-<h4 align="center">Profile Performance Summary</h4>
+<br><br><h4 align="center">Profile Performance Summary</h4>
 <style>
 	.seeker-analytics{
 	/*  position: relative;

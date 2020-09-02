@@ -324,6 +324,9 @@ Route::post('/issues/update/{id}', 'IssueController@update');
 Route::delete('/issues/delete/{id}', 'IssueController@destroy');
 Route::get('/issues', 'IssueController@index');
 
+Route::get('/job-seekers/issues', 'IssueController@issueView');
+Route::get('/job-seekers/issue/{id}', 'IssueController@issueShow');
+
 
 Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
