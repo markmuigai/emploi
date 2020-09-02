@@ -20,9 +20,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     }
 </style>
 
-<div class="row mr-auto pb-3 ml-1">
-    <a href="/employers/paas-tasks" class="btn btn-default">
+<div class="row mr-auto pb-3 ml-1 d-flex">
+    <a href="/employers/paas-tasks" class="btn btn-default mr-2">
         <i class="fa fa-arrow-left"></i> Go to Tasks
+    </a>
+
+    <a href="/issues" class="btn btn-default ml-2">
+        <i class="fa fa-arrow-right"></i> Go to Issues
     </a>
     
         <br><hr>
