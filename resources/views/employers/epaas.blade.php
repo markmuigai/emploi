@@ -531,6 +531,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               </div>
 
               <div class="modal-footer">
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                  <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
+              </div>
+              
                 <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
               </div>
