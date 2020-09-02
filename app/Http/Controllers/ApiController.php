@@ -12,6 +12,8 @@ use App\Seeker;
 use App\SeekerSubscription;
 use App\EmployerSubscription;
 use App\Task;
+use App\Issues;
+use App\PartTimer;
 
 class ApiController extends Controller
 {
@@ -32,6 +34,14 @@ class ApiController extends Controller
 
     public function totalTasks(Request $request){
         return count(Task::all());
+    }
+
+    public function totalIssues(Request $request){
+        return count(Issue::all());
+    }
+
+    public function totalHired(Request $request){
+        return count(PartTimer::all());
     }
 
 

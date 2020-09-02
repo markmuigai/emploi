@@ -21,6 +21,9 @@ Route::get('/total-jobs', 'ApiController@getTotalJobs');
 Route::get('/total-seeker-paas', 'ApiController@totalJpaasSub');
 Route::get('/total-employer-paas', 'ApiController@totalEpaasSub');
 Route::get('/total-paas-tasks', 'ApiController@totalTasks');
+Route::get('/total-issues', 'ApiController@totalIssues');
+Route::get('/total-hired', 'ApiController@totalHired');
+
 
 
 Route::get('/total-candidates', 'ApiController@getTotalCandidates');

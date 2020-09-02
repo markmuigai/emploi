@@ -104,6 +104,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     
     </div>
 
+    <section class="w3l-index-block7 pt-5">
+        <div class="container py-md-1">
+            <div class="heading text-center mx-auto">
+            <h3 class="head pb-4">PaaS Stats</h3>
+            </div>
+            <div class="container">
+            @include('components.tast-stats')
+            </div>
+
+        </div>
+    </section>
+
     
     <br><br><br>
 
