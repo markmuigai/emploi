@@ -32,13 +32,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
 
             <div class="form-group">
-                <label for="location">Task Number:</label>
+                <label for="location">Parent Task:</label>
                 <select name="slug" class="form-control input-sm">
                     @foreach($task as $t)
                     <option value="{{ $t->slug }}" 
                         selected=""
                     
-                        >{{ $t->slug }}</option>
+                        >{{ $t->title }}</option>
                     @endforeach
                 </select>
             </div>
