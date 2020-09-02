@@ -89,7 +89,13 @@ Get Hired as a Professional by joining the Golden Club..
                         @endforeach
                       </select>
                   </div>
-        
+
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required="">
+                      <label class="form-check-label" for="defaultCheck1">
+                      I agree to the <a href="/terms-and-conditions" class="orange">Terms And Conditions</a>  <b style="color: red" title="Required">*</b>
+                      </label>
+                  </div>        
                   <div class="modal-footer">
                     <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
                   </div>
