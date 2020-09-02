@@ -530,12 +530,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <input type="text" class="form-control" name="company" required="" placeholder="Company name" value="{{ $company }}">
               </div>
 
-              <div class="modal-footer">
-              <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                  <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
+              <div class="custom-control custom-checkbox form-check">
+                  <input type="checkbox" class="custom-control-input" id="defaultUnchecked" required="">
+                  <label class="custom-control-label" for="defaultUnchecked">
+                    I agree to the <a href="/terms-and-conditions" style="color:orange;">Terms And Conditions</a>  <b style="color: orange" title="Required">*</b>
+                  </label>
               </div>
-              
+
+              <div class="modal-footer">    
                 <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Submit">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
               </div>
