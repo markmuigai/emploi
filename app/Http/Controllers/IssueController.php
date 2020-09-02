@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Issue;
 use App\PartTimer;
 use App\Task;
@@ -121,4 +122,22 @@ class IssueController extends Controller
         $issue->delete();
         return redirect('/issues');
     }
+
+    public function issueView()
+    {
+        $user = Auth::user();
+        $i = Issue::where('assignee', $user->name)->paginate(10);
+
+        return view('seekers.issues')
+                ->with('i',$i);
+    }
+
+    public function issueShow($id)
+    {
+        $issue = Issue::where('id', $id)->get();
+
+        return view('seekers.issue')
+                ->with('issue',$issue);
+    }
+
 }
