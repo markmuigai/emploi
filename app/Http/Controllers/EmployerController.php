@@ -383,7 +383,7 @@ class EmployerController extends Controller
 
     public function paastask(Request $request)
     {
-        $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
+        $tasks = Task::where('employer_id', Auth::user()->employer->id)->where('status','!=', 'pending')->paginate(5);
 
         // return $task;
         return view('employers.dashpaas.task')
