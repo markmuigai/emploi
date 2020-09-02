@@ -18,7 +18,7 @@ class IssueController extends Controller
     public function index()
     {
         return view('issues.index')
-                ->with('issues',Issue::orderBy('id','DESC')->paginate(10));
+                ->with('issues',Issue::orderBy('id','DESC')->paginate(5));
     }
 
     /**
