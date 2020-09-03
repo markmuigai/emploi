@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'seeker' => \App\Http\Middleware\SeekerMiddleware::class,
         'shortlist' => \App\Http\Middleware\Shortlist::class,
+        'club' => \App\Http\Middleware\PaasClubMiddleware::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'super' => \App\Http\Middleware\SuperAdminMiddleware::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,

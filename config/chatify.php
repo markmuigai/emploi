@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'name' => env('CHATIFY_NAME', 'Chatify Messenger'),
+    'name' => env('CHATIFY_NAME', 'Chat Area'),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ return [
     |
     */
 
-    'middleware' => env('CHATIFY_MIDDLEWARE', 'auth'),
+    'middleware' => env('CHATIFY_MIDDLEWARE', 'club'),
 
     /*
     |--------------------------------------------------------------------------
