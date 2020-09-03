@@ -61,7 +61,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
                     </div>
                     <div class="form-group col-md-6">
                       <label class="h6">Phone Number <b style="color: red" title="Required">*</b></label>
-                      <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
+                      <input type="number" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
                     </div>
                   </div>
 
@@ -112,7 +112,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
           
                       <div class="form-group col-md-6">
                         <label class="h6">Salary <b style="color: red" title="Required">*</b></label>
-                        <input type="text" class="form-control" name="salary" required="" placeholder="Salary">
+                        <input type="number" class="form-control" name="salary" required="" placeholder="Salary">
                       </div>
 
 

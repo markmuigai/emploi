@@ -438,7 +438,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 </div>
                 <div class="form-group">
                   <label class="h5">Phone Number</label>
-                  <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone">
+                  <input type="number" class="form-control" name="phone_number" required="" placeholder="Phone">
                 </div>
 
                 <div class="modal-footer">
