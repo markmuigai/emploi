@@ -41,8 +41,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             @foreach ($issue as $i)
                 <br>
-                <h3><b style="float: right;"> </b>{{ $i->title }}</h3>
-
+                <div class="row d-flex">
+                <h3 class="mr-5 ml-3"><b> </b>{{ $i->title }}</h3>
+                <h3 class="ml-5"><b> </b>{{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h3>
+                </div>
                 <p>
                     <?php echo $i->description; ?>
                 </p>
