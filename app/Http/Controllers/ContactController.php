@@ -445,8 +445,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             $error = '';
 
             if (app()->environment() === 'production') {
-                'INTERVIEW COACHING: '.$r->name.' with phone '.$r->phone_number.' has requested for Interview Coaching';
-                Seeker::first()->notify(new EditingRequest($sm));
+               Notification::send(User::first(),new ContactReceived('INTERVIEW COACHING: '.$r->name.' with phone '.$r->phone_number.' has requested for Interview Coaching'));
             }
         }
         else
@@ -488,8 +487,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             $error = '';
 
             if (app()->environment() === 'production') {
-                'EXCLUSIVE PLACEMENT: '.$r->name.' with phone '.$r->phone_number.' has requested for Interview Coaching';
-                Seeker::first()->notify(new EditingRequest($sm));
+                Notification::send(User::first(),new ContactReceived('EXCLUSIVE PLACEMENT: '.$r->name.' with phone '.$r->phone_number.' has requested for Interview Coaching'));
             }
         }
         else
