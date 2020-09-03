@@ -523,7 +523,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               </div>
               <div class="form-group">
                 <label class="h5">Phone Number</label>
-                <input type="text" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
+                <input type="number" class="form-control" name="phone_number" required="" placeholder="Phone" value="{{ $phone }}">
               </div>
               <div class="form-group">
                 <label class="h5">Company Name</label>
