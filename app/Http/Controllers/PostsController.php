@@ -80,6 +80,7 @@ class PostsController extends Controller
     {
         $user = Auth::user();
         $companies = Company::where('user_id',$user->id)->orderBy('name')->get();
+        $locations =Location::Where('status','active')->orderBy('country_id')->get();
 
         if(count($companies) == 0)
         {
@@ -88,7 +89,7 @@ class PostsController extends Controller
         $skills =  IndustrySkill::all();
         return view('jobs.create')
                 ->with('companies',$companies)
-                ->with('locations',Location::active())
+                ->with('locations',$locations)
                 ->with('countries',Country::active())
                 ->with('industries',Industry::active())
                 ->with('educationLevels',EducationLevel::all())
