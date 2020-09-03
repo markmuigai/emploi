@@ -11,8 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container pb-0 pb-lg-4 pt-4">
     <h2 class="orange text-center">Premium Recruitment</h2>
     <p>
-        So you have an urgent vacancy. The longer it stays open the more your business loses. The best thing would be for you to advertise that. You will receive applications and fill it within no time right? But that’s not what
-        statistics say. It says that you will likely receive anything between 200 – 800 CVs and 75% to 88% of them will be unqualified. And you will take about 20 out of a possible 35 hours recruitment hours on shortlisting alone.
+        So you have an urgent vacancy. The longer it stays open, the more your business loses. The best thing would be for you to advertise it. You will receive applications and fill it within no time, right? But that’s not what statistics say. It says that you will likely receive anything between 200 – 800 CVs, and 75% to 88% will be unqualified. And you will take about 20 out of a possible 35 hours of recruitment hours on shortlisting alone.
     </p>
     <h5 class="orange pt-2">So, what to do?</h5>
     <p>

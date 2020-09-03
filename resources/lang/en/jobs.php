@@ -21,6 +21,8 @@ return [
     't_cand' => 'Total Candidates',
     't_comp' => 'Total Companies',
     'find_nxt_job' => 'Find your next job effortlessly.',
+    'text_job' => 'Manage projects effortlessly.',
+    'text_hired' => 'Hire with minimal effort.',
     'gt_hired' => 'Get hired with minimal effort.',
     'comp_hirin' => 'Companies are hiring.',
     'for_emp' => 'For Employers',
