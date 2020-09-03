@@ -95,7 +95,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     Get the Best
                 </div>              
             </div>
-            <div class="banner shadow-lg animate__animated animate__zoomInUp animate__infinite	infinite animate__slower 20s mt-4">
+            <div class="banner shadow-lg animate__animated animate__swing animate__infinite	infinite animate__slower 20s mt-4">
                 <h1></h1>
                 <h4>Hire Top Professionals on PaaS</h4>
                 <a href="/employers/request-paas">Request</a>
@@ -104,17 +104,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     
     </div>
 
-    <section class="w3l-index-block7 pt-5">
-        <div class="container py-md-1">
-            <div class="heading text-center mx-auto">
-            <h3 class="head pb-4">PaaS Stats</h3>
-            </div>
-            <div class="container">
-            @include('components.tast-stats')
+        <div class="col-md-8 align-items-right pt-2 mt-2">
+            <div>
+            @include('components.task-stats')
             </div>
 
         </div>
-    </section>
 
     
     <br><br><br>

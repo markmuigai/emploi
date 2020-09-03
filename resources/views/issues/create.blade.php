@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <?php 
 
             $user = Auth::user();
-            $task = App\Task::where('employer_id', $user->employer->id)->get();
+            $task = App\Task::where('employer_id', $user->employer->id)->where('status','!=', 'pending')->get();
         ?>
         <form method="post" action="/issues/store">
             @csrf
