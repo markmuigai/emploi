@@ -11,14 +11,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 <!-- NAV-TABS -->
-<a href="{{ url()->previous() }}" class="btn btn-default">
-    <i class="fa fa-arrow-left"></i>Back
+<a href="{{ url()->previous() }}" class="btn btn-orange-alt">
+    <i class="fa fa-arrow-left"></i> Back
 </a>
 <section>
     <div class="container">
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Requests</a></li>
-          <li><a class="btn btn-orange-alt" style="color: black;" href="/employers/request-paas">Request for Part-Timer</a></li>
+          <li><a class="btn btn-orange-alt" href="/employers/request-paas">Request for Part-Timer</a></li>
         </ul>
       
         <div class="tab-content">

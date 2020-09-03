@@ -11,17 +11,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 <!-- NAV-TABS -->
-<a href="{{ url()->previous() }}" class="btn btn-default">
-    <i class="fa fa-arrow-left"></i>Back
+<a href="{{ url()->previous() }}" class="btn btn-orange-alt">
+    <i class="fa fa-arrow-left"></i> Back
 </a>
 <section>
     <div class="container">
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Invoices</a></li>
           @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
-          <li><a class="btn btn-orange-alt" style="color: black;" data-toggle="tab" href="#">Subscribed</a></li>
+          <li><a class="btn btn-orange-alt" style="" data-toggle="tab" href="#">Subscribed</a></li>
           @else
-          <li><a class="btn btn-orange-alt" style="color: black;" data-toggle="tab" href="#">Subscribe</a></li>
+          <li><a class="btn btn-orange-alt" style="" data-toggle="tab" href="#">Subscribe</a></li>
           @endif
         </ul>
       
