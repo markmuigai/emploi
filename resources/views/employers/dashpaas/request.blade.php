@@ -45,7 +45,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <!-- <td><a href="/employers/view-task/{{ $task->slug }}" style="color: blue; text-decoration:none;">View <i class="far fa-eye"></i></a></td> -->
                           <!-- <td><a href="/employers/edit-task/{{ $task->slug }}" style="color: blue; text-decoration:none">Edit <i class="far fa-edit"></i></a></td> -->
                           <td><a href="/employers/delete-task/{{ $task->slug }}" style="color: blue; text-decoration:none;" onclick="return confirm('This action is irreversible. Once you delete this request:{{ $task->title }} there is no going back. Please be certain?')">Delete <i class="far fa-trash-alt"></i></a></td>
+                          @if($task->status != 'pending')
                           <td><a href="/employers/shortlist/{{ $task->slug }}" style="color: blue; text-decoration:none">Shortlist <i class="fas fa-user-circle"></i></a></td>
+                          @else
+                          <td><a style="color: blue; text-decoration:none">Not Activated</a></td>
+                          @endif
+                          
                           </tr>                      
                         </tbody>
                           

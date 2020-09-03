@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <style>
     hr {
     color:#ddd;
-    background-color: orange; 
+    background-color: #E1573A; 
     height:2px;
     border:none;
     max-width:100%;
@@ -43,7 +43,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
                 <div class="row d-flex">
                 <h3 class="mr-5 ml-3 pr-5"><b> </b>{{ $i->title }}</h3>
-                <h6 class="ml-5 mt-2 orange"><b> </b>Due date: {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h6>
+                <h6 class="mt-2 mr-5 orange" style="position: absolute; right: 0;"><b>Due date:</b> {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h6>
                 </div>
                 <p>
                     <?php echo $i->description; ?>

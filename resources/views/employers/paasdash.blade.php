@@ -77,8 +77,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-text">
                     Follow the process defined below to use PaaS components fully.
                         <ul>
-                            <li>Create new task request.</li>
-                            <li>Make payment upfront if not in E-Club, <a href="/employers/e-club" style="color:orange; text-decoration:none;">join E-Club!</a></li>
+                            <li>Create new task request. <a href="/employers/request-paas" class="orange">Request Form.</a></li>
+                            <li>Make payment upfront if not in E-Club, <a href="/employers/e-club" class="orange">Join E-Club.</a></li>
                             <li>Request made is forwarded to all Job Seekers in the same industry and those interested accept the request.</li>
                             <li>Pick from a pool of Emploi's shortlisted candidates.</li>
                             <li>Create new issues under each task and define timeline.</li>
