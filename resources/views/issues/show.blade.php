@@ -21,12 +21,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </style>
 
 <div class="row mr-auto pb-3 ml-1 d-flex">
-    <a href="/employers/paas-tasks" class="btn btn-default mr-2">
+    <a href="/employers/paas-tasks" class="btn btn-orange-alt mr-2">
         <i class="fa fa-arrow-left"></i> Go to Tasks
     </a>
 
-    <a href="/issues" class="btn btn-default ml-2">
-        <i class="fa fa-arrow-right"></i> Go to Issues
+    <a href="/issues" class="btn btn-orange-alt ml-2">
+        Go to Issues <i class="fa fa-arrow-right"></i> 
     </a>
     
         <br><hr>
@@ -42,8 +42,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @foreach ($issue as $i)
                 <br>
                 <div class="row d-flex">
-                <h3 class="mr-5 ml-3"><b> </b>{{ $i->title }}</h3>
-                <h3 class="ml-5"><b> </b>{{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h3>
+                <h3 class="mr-5 ml-3 pr-5"><b> </b>{{ $i->title }}</h3>
+                <h5 class="ml-5 mt-2 orange"><b> </b>Due date: {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h5>
                 </div>
                 <p>
                     <?php echo $i->description; ?>

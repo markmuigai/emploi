@@ -9,12 +9,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Edit Issue')
 
+<h2>
+    <a href="#" class="btn btn-sm btn-orange-alt" onclick="window.history.back()"><i class="fa fa-arrow-left"></i> Back</a>
+</h2>
+
 <div class="card">
     <div class="card-body">
-        <h2>
-            <a href="#" class="btn btn-sm btn-default" onclick="window.history.back()"><i class="fa fa-arrow-left"></i> Back</a>
-            Edit Issue            
-        </h2>
+       
         <br>
         <form method="post" action="/issues/update/{{ $issue->id }}" enctype="multipart/form-data">
            @csrf

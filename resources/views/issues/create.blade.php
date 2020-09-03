@@ -7,14 +7,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Create Issue')
+@section('page_title', 'Create New Issue')
+
+<h2>
+    <a href="/issues" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
+</h2>
 
 <div class="card">
     <div class="card-body">
-        <h2>
-            <a href="/issues" class="btn btn-sm btn-default"><i class="fa fa-arrow-left"></i> Back</a>
-            New Issue            
-        </h2>
+       
         <br>
         <?php 
 

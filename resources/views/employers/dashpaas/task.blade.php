@@ -11,14 +11,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 <!-- NAV-TABS -->
-<a href="{{ url()->previous() }}" class="btn btn-default">
-    <i class="fa fa-arrow-left"></i>Back
+<a href="{{ url()->previous() }}" class="btn btn-orange-alt ml-2">
+    <i class="fa fa-arrow-left"></i>  Back
 </a>
 <section>
     <div class="container">
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Tasks</a></li>
-          <li><a class="btn btn-orange-alt" style="color: black;" href="/issues">Issues</a></li>
+          <li><a class="btn btn-orange-alt" style="color: #E1573A;" href="/issues">Issues</a></li>
         </ul>
       
         <div class="tab-content">
@@ -36,7 +36,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tr>
                         <td>{{ $task->title }}</td>
                         <td>{{ $task->status }}</td>
-                        <td><a href="/issues/show/{{ $task->slug }}" style="color: blue">view Issues</a></td>
+                        <td><a href="/issues/show/{{ $task->slug }}" class="btn btn-orange-alt btn-sm">view issues</a></td>
                         </tr>                      
                       </tbody>
                                                   

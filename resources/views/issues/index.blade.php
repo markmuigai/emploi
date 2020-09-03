@@ -6,7 +6,7 @@
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('page_title', 'Issues') 
+@section('page_title', 'All Issues') 
 
 @section('content')
 
@@ -27,13 +27,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="row d-flex">
     <div>
-        <a href="/employers/paas-tasks" class="btn btn-default mr-2 ml-3">
+        <a href="/employers/paas-tasks" class="btn btn-orange-alt mr-2 ml-3">
             <i class="fa fa-arrow-left"></i> Go to Tasks
         </a>
     </div>
 
     <div>
-        <a href="/issues/create" class="btn btn-default">Create New Issue</a> 
+        <a href="/issues/create" class="btn btn-orange-alt">Create New Issue</a> 
     </div>
 </div>
 
@@ -46,8 +46,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @forelse($issues as $i)
 
             <div class="col-md-10 offset-md-1">
-                <div class="col-md-7">
+                <div class="col-md-12">
+
                     <h4>{{ $i->title }} </h4>
+                    <h5 class="ml-5 orange text-right"><b> </b>Due date: {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h5>
+                    
                     <p><strong>Created:</strong> {{ $i->created_at->diffForHumans() }}</p>
                     <p><strong>Updated:</strong> {{ $i->updated_at->diffForHumans() }}</p>
                 </div>
