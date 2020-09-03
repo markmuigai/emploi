@@ -43,7 +43,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <br>
                 <div class="row d-flex">
                 <h3 class="mr-5 ml-3 pr-5"><b> </b>{{ $i->title }}</h3>
-                <h5 class="ml-5 mt-2 orange"><b> </b>Due date: {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h5>
+                <h6 class="ml-5 mt-2 orange"><b> </b>Due date: {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h6>
                 </div>
                 <p>
                     <?php echo $i->description; ?>
