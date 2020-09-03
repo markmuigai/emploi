@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <style>
     hr {
     color:#ddd;
-    background-color: orange; 
+    background-color: #E1573A; 
     height:2px;
     border:none;
     max-width:100%;
