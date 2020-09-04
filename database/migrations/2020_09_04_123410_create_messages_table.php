@@ -16,7 +16,7 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title',500);
-            $table->string('task_slug';
+            $table->string('task_slug');
             $table->string('body',5000);
             $table->string('to_id');
             $table->string('from_id');
