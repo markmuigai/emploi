@@ -1573,8 +1573,9 @@ class EmployerController extends Controller
                 'positions' => $request->positions,
                 'description' => $request->task_description,
                 'industry' => $request->industry,
-                'salary' => $request->salary
-            ]);
+                'salary' => $request->salary,
+                'status' => isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas() ? 'active' :  'pending'
+                ]);
 
             if(isset($task->id))
             {
