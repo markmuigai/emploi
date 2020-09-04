@@ -27,6 +27,7 @@ use App\SeekerSubscription;
 use App\Invoice;
 use App\PartTimer;
 use App\Task;
+use App\Message;
 use App\Notifications\PaasSubscribed;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\ContactReceived;
@@ -275,4 +276,57 @@ class SeekerController extends Controller
         return view('pages.task-content')
           ->with('task',$task);
     }
+
+    public function compose(Request $request, $slug)
+    {
+        $message = Message::where('task_slug', $slug)->firstOrFail();
+        return view('seekers.messages.compose')
+            ->with('message', $message);
+    }
+
+    public function message($slug)
+    {
+
+        $user = Auth::user();
+        $message = Message::where('to_id', $user->id)->where('task_slug', $slug)->firstOrFail();
+
+        return view('seekers.messages.view')
+                ->with('message',$message);
+
+    }
+
+    public function send(Request $request)
+    {
+        $t = Task::where('slug', $request->slug)->first();
+        // return $request->all();
+        $user = Auth::user();
+        $m = Message::create([
+            'title'=>$request->title,
+            'task_slug' =>$t->slug,
+            'body' => $request->body,           
+            'to_id' => $request->to_id,
+            'from_id'=>$user->id
+        ]);
+        return redirect('/sent');
+        return $request->all();
+    }
+
+    public function inbox(Request $request)
+    {
+        $user = Auth::user();
+
+        $messages = Message::where('from_id', $user->id)->get();
+        return view('seekers.messages.inbox')
+            ->with('messages', $messages);
+    }
+
+    public function sent(Request $request)
+    {
+        $user = Auth::user();
+
+        $messages = Message::where('to_id', $user->id)->get();
+        return view('seekers.messages.sent')
+            ->with('messages', $messages);
+    }
+
 }

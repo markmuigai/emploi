@@ -333,7 +333,6 @@ Route::get('/messages/show/{slug}', 'MessagesController@show');
 Route::get('/messages/view/{id}', 'MessagesController@view');
 
 
-
 Route::get('/job-seekers/paas', 'SeekerController@paas');
 Route::post('/job-seekers/paas', 'SeekerController@leaveContact');
 Route::get('/job-seekers/register-paas', 'SeekerController@rpaas')->name('golden')->middleware('auth');
@@ -341,6 +340,14 @@ Route::post('/job-seekers/subscribe-paas', 'SeekerController@getPaas');
 Route::get('/job-seekers/apply-task/{slug}', 'SeekerController@applyTask');
 Route::get('/job-seekers/coaching-request', 'SeekerController@coaching');
 Route::get('/job-seekers/placement-request', 'SeekerController@placement');
+
+Route::get('/compose/{slug}', 'SeekerController@compose');
+Route::post('/send', 'SeekerController@send');
+Route::get('/inbox/{slug}', 'SeekerController@message');
+Route::get('/inbox', 'SeekerController@inbox');
+Route::get('/sent', 'SeekerController@sent');
+
+
 
 Route::get("/paas-task/main_content/{id}/{email?}",'SeekerController@show');
 

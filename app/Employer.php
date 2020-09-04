@@ -14,6 +14,7 @@ use App\Order;
 use App\ProductOrder;
 use App\SavedProfile;
 use App\EmployerSubscription;
+use App\Message;
 
 use Carbon\Carbon;
 use App\Jobs\EmailJob;
@@ -718,5 +719,9 @@ class Employer extends Model
 
         }
         return false;
+    }
+
+    public function Messages(){
+        return $this->hasMany(Message::class);
     }
 }
