@@ -44,7 +44,7 @@ class DeactivateEmployerPaas extends Command
         {
             $end = $ends[$i];
 
-            $end->status = 'completed';
+            $end->status = 'completed'; //subscription expired
             $end->save();
         }    
     }
