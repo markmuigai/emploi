@@ -315,7 +315,7 @@ class SeekerController extends Controller
     {
         $user = Auth::user();
 
-        $messages = Message::where('from_id', $user->id)->get();
+        $messages = Message::where('to_id', $user->id)->get();
         return view('seekers.messages.inbox')
             ->with('messages', $messages);
     }

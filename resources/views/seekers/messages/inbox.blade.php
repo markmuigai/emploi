@@ -14,7 +14,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <i class="fa fa-arrow-left"></i>Back
 </a><br><br>
 <?php 
-
 $user = Auth::user();
 ?>
 
@@ -23,11 +22,15 @@ $user = Auth::user();
         <div class="row" style="text-align: right; ">
         </div>
         <div class="row">
-        @forelse($messages as $m)        
+        @forelse($messages as $m)
+            <?php
+             $employer = \App\User::Where('id',$m->from_id)->first();
+            ?>        
             <div class="col-md-10 offset-md-1">
             <br>
                <div class="row d-flex">
-                <h3 class="mr-5 ml-3"><b> </b>{{ $m->title }}</h3>
+                <h4 class="mr-5 ml-3"><b> </b>{{ $m->title }}</h4>
+                [ {{ $employer->name }} ]
                 </div>
                 <div class="row">
                     <p>{{ $m->body }}</p>
