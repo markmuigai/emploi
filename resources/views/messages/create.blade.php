@@ -40,12 +40,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     Message:
                 </label>
-                <textarea name="messages" class="form-control" required=""></textarea>
+                <textarea name="body" class="form-control" required=""></textarea>
             </div>
 
            <div class="form-group">
                 <label for="location">To:</label>
-                <select name="assignee" class="form-control input-sm">
+                <select name="to_id" class="form-control input-sm">
                     @foreach($prof as $p)
                     <option value="{{ $p->user->name }}" 
                         selected=""

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $fillable = [
-        'task_title', 'body','to_id','from_id','attachment','seen'
+        'title', 'task_slug', 'body','to_id','from_id','attachment','seen'
     ];
 }

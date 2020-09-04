@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Messages;
+use App\Message;
 use App\Issue;
 use App\PartTimer;
 use App\Task;
@@ -39,8 +39,18 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {  
+        $t = Task::where('slug', $request->slug)->first();
+        $user = Auth::user();
+        $m = Message::create([
+            'title'=>$t->title,
+            'task_slug' =>$request->slug,
+            'body' => $request->body,           
+            'to_id' => $request->to_id,
+            'from_id'=>$user->id
+        ]);
+        return redirect('/messages');
+        return $request->all();
     }
 
     /**

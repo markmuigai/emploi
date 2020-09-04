@@ -328,6 +328,9 @@ Route::get('/job-seekers/issues', 'IssueController@issueView');
 Route::get('/job-seekers/issue/{id}', 'IssueController@issueShow');
 
 Route::get('/messages/create', 'MessageController@create');
+Route::post('/messages/store', 'MessageController@store');
+Route::get('/messages/show/{slug}', 'MessagesController@show');
+Route::get('/messages/view/{id}', 'MessagesController@view');
 
 
 
