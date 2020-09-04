@@ -329,8 +329,9 @@ Route::get('/job-seekers/issue/{id}', 'IssueController@issueShow');
 
 Route::get('/messages/create', 'MessageController@create');
 Route::post('/messages/store', 'MessageController@store');
-Route::get('/messages/show/{slug}', 'MessagesController@show');
-Route::get('/messages/view/{id}', 'MessagesController@view');
+// Route::get('/messages/show/{slug}', 'MessageController@view');
+Route::get('/messages/view/{to_id}', 'MessageController@show');
+Route::get('/messages', 'MessageController@index');
 
 
 Route::get('/job-seekers/paas', 'SeekerController@paas');

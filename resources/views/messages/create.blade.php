@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Message')
 
 <h2>
-    <a href="/issues" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
+    <a href="/messages" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
 </h2>
 
 <div class="card">
@@ -47,7 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label for="location">To:</label>
                 <select name="to_id" class="form-control input-sm">
                     @foreach($prof as $p)
-                    <option value="{{ $p->user->name }}" 
+                    <option value="{{ $p->user->id }}" 
                         selected=""
                     
                         >{{ $p->user->name }}</option>

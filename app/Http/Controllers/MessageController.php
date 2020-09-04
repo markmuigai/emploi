@@ -17,8 +17,9 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   $user = Auth::user();
+        return view('messages.index')
+                ->with('messages',Message::Where('from_id', $user->id)->orderBy('id','DESC')->paginate(10));
     }
 
     /**
@@ -59,9 +60,17 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($to_id)
     {
-        //
+        $user = Auth::user();
+        $seeker = Message::where('to_id', $to_id)->orderBy('id','DESC')->paginate(8);
+        $employer = Message::where('to_id', $user->id)->Where('from_id',$to_id)->orderBy('id','DESC')->paginate(8);
+        // $task = Task::where('slug', $slug)->get();
+
+        return view('messages.show')
+                // ->with('task', $task)
+                ->with('seeker',$seeker)
+                ->with('employer',$employer);
     }
 
     /**
