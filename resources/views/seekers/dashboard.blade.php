@@ -82,8 +82,6 @@ $user = Auth::user();
 	</div>
 	
 </div>
-
-@include('components.ads.responsive')
 <?php
 $user = Auth::user();
 ?>
@@ -91,7 +89,6 @@ $user = Auth::user();
 @if(isset($user->seeker->industry_id))
 <hr>
 <h4>{{ $user->seeker->industry->name }} Jobs</h4>
-@include('components.ads.responsive')
 <?php
 $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('status','active')->orderBy('id','DESC')->orderBy('featured','DESC')->paginate(8);
 ?>
