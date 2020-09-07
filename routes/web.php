@@ -342,7 +342,7 @@ Route::get('/job-seekers/apply-task/{slug}', 'SeekerController@applyTask');
 Route::get('/job-seekers/coaching-request', 'SeekerController@coaching');
 Route::get('/job-seekers/placement-request', 'SeekerController@placement');
 
-Route::get('/compose/{slug}', 'SeekerController@compose');
+Route::get('/compose/{id}', 'SeekerController@compose');
 Route::post('/send', 'SeekerController@send');
 Route::get('/inbox/{id}', 'SeekerController@message');
 Route::get('/inbox', 'SeekerController@inbox');

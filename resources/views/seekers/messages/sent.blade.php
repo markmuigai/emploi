@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 
 <a href="/inbox" class="btn btn-orange">
-    <i class="fa fa-arrow-left"></i>Back
+    <i class="fa fa-arrow-left"></i> Back
 </a><br><br>
 <?php 
 
