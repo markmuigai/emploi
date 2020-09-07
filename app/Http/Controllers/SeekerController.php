@@ -277,9 +277,9 @@ class SeekerController extends Controller
           ->with('task',$task);
     }
 
-    public function compose(Request $request, $slug)
+    public function compose(Request $request, $id)
     {
-        $message = Message::where('task_slug', $slug)->firstOrFail();
+        $message = Message::where('id', $id)->firstOrFail();
         return view('seekers.messages.compose')
             ->with('message', $message);
     }
@@ -324,7 +324,7 @@ class SeekerController extends Controller
     {
         $user = Auth::user();
 
-        $messages = Message::where('to_id', $user->id)->get();
+        $messages = Message::where('from_id', $user->id)->get();
         return view('seekers.messages.sent')
             ->with('messages', $messages);
     }

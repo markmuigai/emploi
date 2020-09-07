@@ -7,9 +7,6 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
 
 @section('content')
-<a href="{{ url()->previous() }}" class="btn btn-default">
-    <i class="fa fa-arrow-left"></i>Back
-</a>
 <div class="row">
     <div class="col-md-6 mx-auto">
         @if(session()->has('msg'))
@@ -18,7 +15,7 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
             </div>
         @endif
         <div class="modal-content mt-4 pb-2 shadow-lg">
-            <div class="modal-header">
+            <div class="modal-header">           
               <h5 class="modal-title text-right h4 mx-auto" id="exampleModalLabel">Request for Part-Timer</h5>
             </div>
             <div class="modal-body container bg-light">
@@ -112,8 +109,12 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
 
                   </div>
         
-                  <div class="modal-footer">
+                  <div class="modal-footer row d-flex">
+                    <a href="{{ url()->previous() }}" class="btn" style="background-color: #E15419; color:white;">
+                    <i class="fa fa-arrow-left"></i> Back
+                    </a>
                     <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button">
+
                   </div>
         
                 </form>
