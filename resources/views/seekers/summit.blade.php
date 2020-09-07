@@ -312,11 +312,45 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </div>
   </section>
 
-  @include('components.testimonials.cv-edit')<br>
+  @include('components.testimonials.cv-edit')
+  
+<div class="container-fluid no-padding" style="display: none;">
+<h3 class="orange text-center">Our Career Experts</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+            <div class="card-body team-member text-center">
+                <img src="/images/avatar.png" alt="simon" />
+                <h5>Simon Gitau</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada tortor quis nunc dignissim, a eleifend nisi mollis. Proin vel enim eu nisi scelerisque vehicula. Proin sit amet elementum odio. Nunc quis posuere ipsum. Morbi malesuada tellus quam. Nulla nec condimentum nisl. Mauris maximus quam sem.</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+            <div class="card-body team-member text-center">
+                <img src="/images/career_experts/eva.png" alt="eva" />
+                <h5>Eva Wanjohi</h5>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada tortor quis nunc dignissim, a eleifend nisi mollis. Proin vel enim eu nisi scelerisque vehicula. Proin sit amet elementum odio. Nunc quis posuere ipsum. Morbi malesuada tellus quam. Nulla nec condimentum nisl. Mauris maximus quam sem.</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card">
+            <div class="card-body team-member text-center">
+                <img src="/images/avatar.png" alt="sophy" />
+                <h5>Tom Kamaliki</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada tortor quis nunc dignissim, a eleifend nisi mollis. Proin vel enim eu nisi scelerisque vehicula. Proin sit amet elementum odio. Nunc quis posuere ipsum. Morbi malesuada tellus quam. Nulla nec condimentum nisl. Mauris maximus quam sem.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div><br>  
+
+  @include('components.blogs')
 
 
-
-<div class="container-fluid no-padding">
+<br><div class="container-fluid no-padding">
  
 <div class="card">
   <div class="card-body">
@@ -353,8 +387,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 </div>
 
-
- <div class="row">
+<div class="row">
     <div class="col-md-4">
 
       <!-- Modal -->
@@ -736,32 +769,4 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </div>      
               </div>
         </div>
-
-
-    <h3 class="text-center" style="display: none;">Some Of Our Career Experts</h3>
-    <div class="card-group" style="display: none;">
-        <div class="card">
-            <div class="card-body team-member text-center">
-                <img src="/images/avatar.png" alt="simon" />
-                <h5>Simon Gitau</h5>
-              
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body team-member text-center">
-                <img src="/images/avatar.png" alt="eva" />
-                <h5>Eva Wanjohi</h5>
-              
-            </div>
-        </div>
-         <div class="card">
-            <div class="card-body team-member text-center">
-                <img src="/images/avatar.png" alt="sophy" />
-                <h5>Tom Kamaliki</h5>
-         
-            </div>
-        </div>
-    </div><br>    
-  </div>
-
 @endsection
