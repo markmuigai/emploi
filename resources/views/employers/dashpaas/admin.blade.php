@@ -25,16 +25,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </style>
 <!-- NAV-TABS -->
 
-<a href="{{ url()->previous() }}" class="btn btn-orange-alt">
+<a href="{{ url()->previous() }}" class="btn btn-orange">
     <i class="fa fa-arrow-left"></i> Back
 </a>
 <section>
     <div class="container">
         <ul class="nav nav-tabs mt-4">
-          <li class="active btn btn-purple mr-4"><a data-toggle="tab" href="#home">Shortlisted</a></li>
-          <li class="btn btn-orange-alt mr-4"><a data-toggle="tab" href="#docs">Documents</a></li>
-          <li class="btn btn-purple mr-4"><a data-toggle="tab" href="#leave">Leave Requests</a></li>
-          <li class="btn btn-orange-alt mr-4"><a data-toggle="tab" href="#off">Offboarding</a></li>
+          <li class="active btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#home">Shortlisted</a></li>
+          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Documents</a></li>
+          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#leave">Leave Requests</a></li>
+          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li>
 
         </ul>
       
