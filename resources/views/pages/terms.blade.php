@@ -12,10 +12,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <h2 class="orange text-center">Terms and Conditions</h2>
 
     <h4 class="pt-3">What is EMPLOI?</h4>
-    @include('components.ads.responsive')
     <p>
        EMPLOI is a SAAS Enabled Marketplace Platform for integrated talent acquisition, management, and Growth. It's your online career advisory and employment service with a tailored twist. With EMPLOI, users can dream about the future, plan their careers, learn new skills and competencies, and find jobs that match their unique talent and profile. EMPLOI allows employers to attract vast talents, find candidates that match their requirements, conduct fast headhunting, and continuously keep their staff skills up to date with the current job market demands. 
     </p>
+     @include('components.ads.responsive')
     <h4 class="pt-3">What are these Terms about?</h4>
     <p>
        These EMPLOI Service Terms and condition are information that may be presented amid the Service (collectively "Terms" governing Your (later on referred to as "You," "Your" or "End User") access and use of the Service, Site, Content, and software (collectively the "Service"). You are presumed to have accepted the terms through registration and usage of the service or any portion. 
@@ -71,7 +71,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
          <li>Not to share out Your password or otherwise allow other people to access the Content. The restrictions on copying, applicable to media, also apply to the Content accessibility as part of this Service.</li>
     </ul>
       @include('components.ads.responsive')
-      
+
      <h6 class="pt-3">Respect the privacy of others;</h6>
      <ul>
          <li>By Not distributing or posting spam, unreasonably large files, chain letters, pyramid schemes, viruses; </li>
@@ -161,7 +161,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </p>
 
     <h4 class="pt-3">What about service availability and technical requirements?</h4>
-    @include('components.ads.responsive')
     <p>
         The Content and the Service availability may differ and are subject to EMPLOI's sole discretion. The Service may not be usable in all countries; hence it may be available only in selected languages. The Service, operations, and some features may also be according to the network, compatibility of the devices used, and the content formats supported. 
     </p>
@@ -169,6 +168,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <p>
        EMPLOI may disable any Content or Service contained in Your Service account for any reason and remove any Content and/or disable copies of any application on Your device to protect the Service, application providers, wireless carriers over whose network You access the Service or any other affected or potentially affected parties.
     </p>
+     @include('components.ads.responsive')
 
     <h4 class="pt-3">Can I cancel my order?</h4>
     <p>
