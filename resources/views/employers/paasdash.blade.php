@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'All About PaaS')
+@section('page_title', 'PaaS Dashboard')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
 
@@ -57,15 +57,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </style>
 
 <div class="tab-content pt-2 mb-4 pb-5" id="PaaS Menu">
+
+    <ul class="nav nav-tabs mb-4">
+        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/admin-paas" style="text-decoration: none;">Administration</a></li>
+        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/paas-tasks" style="text-decoration: none;">Task Management</a></li>
+        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/invoice-paas" style="text-decoration: none;">Invoice and Subscription</a></li>
+        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/requests" style="text-decoration: none;">Requests Management</a></li>
+
+    </ul>
    
-    <div class="row pb-4 nav">
-        <div class="col-md-12 d-flex container">
-            <div class="btn btn-orange-alt p-2 mr-2"><a href="/employers/admin-paas" style="text-decoration: none;"><span class="span">Administration</span></a></div>
-            <div class="btn btn-orange-alt p-2 mr-2"><a href="/employers/paas-tasks" style="text-decoration: none;"><span class="span">Task Management</span></a></div>
-            <div class="btn btn-orange-alt p-2 mr-2"><a href="/employers/invoice-paas" style="text-decoration: none;"><span class="span">Invoice and Subscription</span></a></div>
-            <div class="btn btn-orange-alt p-2 mr-2"><a href="/employers/requests" style="text-decoration: none;"><span class="span">Requests Management</span></a></div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-8">
