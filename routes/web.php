@@ -344,7 +344,7 @@ Route::get('/job-seekers/placement-request', 'SeekerController@placement');
 
 Route::get('/compose/{slug}', 'SeekerController@compose');
 Route::post('/send', 'SeekerController@send');
-Route::get('/inbox/{slug}', 'SeekerController@message');
+Route::get('/inbox/{id}', 'SeekerController@message');
 Route::get('/inbox', 'SeekerController@inbox');
 Route::get('/sent', 'SeekerController@sent');
 

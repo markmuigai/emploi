@@ -284,11 +284,11 @@ class SeekerController extends Controller
             ->with('message', $message);
     }
 
-    public function message($slug)
+    public function message($id)
     {
 
         $user = Auth::user();
-        $message = Message::where('to_id', $user->id)->where('task_slug', $slug)->firstOrFail();
+        $message = Message::where('to_id', $user->id)->where('id', $id)->firstOrFail();
 
         return view('seekers.messages.view')
                 ->with('message',$message);
