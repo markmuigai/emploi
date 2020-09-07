@@ -63,8 +63,8 @@ class MessageController extends Controller
     public function show($to_id)
     {
         $user = Auth::user();
-        $seeker = Message::where('to_id', $to_id)->orderBy('id','DESC')->paginate(8);
-        $employer = Message::where('to_id', $user->id)->Where('from_id',$to_id)->orderBy('id','DESC')->paginate(8);
+        $seeker = Message::where('to_id', $to_id)->orderBy('id','DESC')->paginate(4);
+        $employer = Message::where('to_id', $user->id)->Where('from_id',$to_id)->orderBy('id','DESC')->paginate(4);
         // $task = Task::where('slug', $slug)->get();
 
         return view('messages.show')
