@@ -315,23 +315,23 @@ Route::get('/employers/task/{slug}', 'EmployerController@task');
 Route::post('/employers/invoice', 'EmployerController@getInvoice');
 
 // Route::resource('/issues', 'IssueController');
-Route::get('/issues/show/{slug}', 'IssueController@show');
-Route::get('/issues/view/{id}', 'IssueController@view');
-Route::get('/issues/create', 'IssueController@create');
-Route::post('/issues/store', 'IssueController@store');
-Route::get('/issues/edit/{id}', 'IssueController@edit');
-Route::post('/issues/update/{id}', 'IssueController@update');
-Route::delete('/issues/delete/{id}', 'IssueController@destroy');
-Route::get('/issues', 'IssueController@index');
+Route::get('/issues/show/{slug}', 'IssueController@show')->middleware('employer');
+Route::get('/issues/view/{id}', 'IssueController@view')->middleware('employer');
+Route::get('/issues/create', 'IssueController@create')->middleware('employer');
+Route::post('/issues/store', 'IssueController@store')->middleware('employer');
+Route::get('/issues/edit/{id}', 'IssueController@edit')->middleware('employer');
+Route::post('/issues/update/{id}', 'IssueController@update')->middleware('employer');
+Route::delete('/issues/delete/{id}', 'IssueController@destroy')->middleware('employer');
+Route::get('/issues', 'IssueController@index')->middleware('employer');
 
 Route::get('/job-seekers/issues', 'IssueController@issueView');
 Route::get('/job-seekers/issue/{id}', 'IssueController@issueShow');
 
-Route::get('/messages/create', 'MessageController@create');
-Route::post('/messages/store', 'MessageController@store');
+Route::get('/messages/create', 'MessageController@create')->middleware('employer');
+Route::post('/messages/store', 'MessageController@store')->middleware('employer');
 // Route::get('/messages/show/{slug}', 'MessageController@view');
-Route::get('/messages/view/{to_id}', 'MessageController@show');
-Route::get('/messages', 'MessageController@index');
+Route::get('/messages/view/{to_id}', 'MessageController@show')->middleware('employer');
+Route::get('/messages', 'MessageController@index')->middleware('employer');
 
 
 Route::get('/job-seekers/paas', 'SeekerController@paas');
