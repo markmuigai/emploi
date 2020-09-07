@@ -38,7 +38,7 @@ $user = Auth::user();
 
                 <p>
                     <a href="/compose/{{ $m->task_slug }}" class="btn btn-orange btn-sm">Reply</a>
-                    <a href="/inbox/{{ $m->task_slug }}" class="btn btn-orange btn-sm">View</a>
+                    <a href="/inbox/{{ $m->id }}" class="btn btn-orange btn-sm">View</a>
 
                 </p>
                 <hr>               
