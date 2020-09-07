@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="form-group">
                 <label for="location">Task:</label>
-                <input name="title" class="form-control input-sm" required=""  value="{{ $message->title }}"></input>
+                <input name="title" class="form-control input-sm" required=""  value="{{ $message->title }}" readonly="readonly"></input>
 
             </div>
 
