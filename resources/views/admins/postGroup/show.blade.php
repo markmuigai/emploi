@@ -6,6 +6,15 @@
 {{ \App\Post::cleanString($postGroup->description)}}
 @endsection
 
+@section('meta-include')
+<meta property="og:image" content="{{ asset('images/500g.png') }}">
+<meta property="og:image:width"   content="900" />
+<meta property="og:image:height"  content="600" />
+
+<meta property="og:url"           content="{{ url('/vacancies/'.$postGroup->slug) }}/" />
+<meta property="og:title"         content="{{ $postGroup->title }}" />
+<meta property="og:description"   content="{{ $postGroup->description }}" />
+@endsection
 
 @section('content')
 @section('page_title', $postGroup->getTitle() )
@@ -60,7 +69,7 @@
                             <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-sm-left text-md-right">
                                 <p>
                                     <a href="">
-                                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($pg->imageUrl) }}" class="w-100 lazy" alt="{{ $pg->getTitle() }}" />
+                                    <img src="" data-src="{{ asset($pg->imageUrl) }}" class="w-100 lazy" alt="{{ $pg->getTitle() }}" />
                                     </a>
 
                                     <span>Posted <span style="text-decoration: underline;"><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($pg->created_at))->diffForHumans() ?></span></span>
