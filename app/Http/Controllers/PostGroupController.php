@@ -43,15 +43,37 @@ class PostGroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         //return $request->all();
+         $request->validate([
+            'image'    =>  ['mimes:png,jpg,jpeg','max:51200']
+        ]);
+        if(isset($request->image))
+        {
+            $image = $request->file('image');
+            $image_url = time() . '.' . $image->getClientOriginalExtension();
+            $storage_path = storage_path().'/app/public/images/logos/'.$image_url;
+            $watermark = Image::make(public_path('/images/logo.png'));   
+            // $featured_image_url = basename(Storage::put($storage_path, $request->featured_image));
+
+            Image::make($image)->resize(900, 600)->insert($watermark, 'bottom-right', 50, 50)->save($storage_path);
+
+            // $storage_path = '/public/images/logos';
+            // $image_url = basename(Storage::put($storage_path, $request->image));
+        }
+        else
+        {
+            $image_url = "";
+        }
+
         $slug = explode(" ", strtolower($request->title));
         $slug = implode("-", $slug).PostGroup::generateRandomString(10);
         $pg = PostGroup::create([
             'slug' => $slug, 
             'title' => $request->title, 
             'description' => $request->description,
-            'how_to_apply' => $request->how_to_apply
+            'how_to_apply' => $request->how_to_apply,
+            'image' => $image_url
         ]);
         if(isset($request->post_ids))
         {

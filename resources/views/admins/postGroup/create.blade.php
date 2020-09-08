@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <label>How to Apply</label>
                         <textarea class="form-control" id="how_to_apply" required="" name="how_to_apply"></textarea>
                     </div>
-                    <div style="display: none">
+                    <div style="">
                         <br>
                         <label>Image</label>
                         <input type="file" name="image">
