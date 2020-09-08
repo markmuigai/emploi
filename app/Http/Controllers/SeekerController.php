@@ -28,6 +28,7 @@ use App\Invoice;
 use App\PartTimer;
 use App\Task;
 use App\Message;
+use App\Issue;
 use App\Notifications\PaasSubscribed;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\ContactReceived;
@@ -327,6 +328,18 @@ class SeekerController extends Controller
         $messages = Message::where('from_id', $user->id)->get();
         return view('seekers.messages.sent')
             ->with('messages', $messages);
+    }
+
+    public function leave(Request $request, $slug)
+    {
+        $user = Auth::user();
+
+        $task = Task::where('task_slug', $slug);
+        $issue = Issue::where('task_slug', $slug);
+
+        return view('seekers.messages.leave')
+            ->with('task', $task)
+            ->with('issue', $issue);
     }
 
 }
