@@ -16,7 +16,7 @@ class CreateLeaveRequestsTable extends Migration
         Schema::create('leave_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('task_slug');
+            $table->string('task_slug');
             $table->longtext('reason');
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();

@@ -29,7 +29,7 @@ return [
     'for_js' => 'For Job Seekers',
     'cv_edit_txt' => 'A recruiter may spend as little as 20 seconds looking at each CV. You need to maximize on your 20 seconds to deliver maximum impression to the recruiter.',
     'f_seeker' => 'Featured Jobseeker',
-    'f_seeker_txt' => 'Have your profile rank first in applications and searches. Includes Application updates',
+    'f_seeker_txt' => 'Have your profile rank first in applications and searches. Includes application updates',
     'j_vacays' => 'Job Vacancies',
     'j_vacays_txt' => 'We aggregate top vacancies from companies and job boards, ensuring your career progresses upwards steadily',
     'v_vacays' => 'We aggregate top vacancies from companies and job boards, ensuring your career progresses upwards steadily',
