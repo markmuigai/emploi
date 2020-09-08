@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Image;
+
 use App\Post;
 use App\PostGroup;
 use App\PostGroupJob;
