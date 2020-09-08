@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 $user = Auth::user();
 ?>
 @if($user->seeker->featured > 0)
-<br><br><h4 align="center">Profile Performance Summary</h4>
+<br><h4 align="center">Profile Performance Summary</h4><br>
 <style>
 	.seeker-analytics{
 	/*  position: relative;
@@ -65,7 +65,59 @@ $user = Auth::user();
 <br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
  @endif
 
-<h4>Recent Blogs</h4>
+ @if($user->seeker->featured == 0)
+<br><h4 align="center">Profile Performance Summary</h4><br>
+<style>
+	.seeker-analytics{
+	/*  position: relative;
+	  display: flex;
+	  flex-direction: row;
+	  min-width: 0;
+	  word-wrap: break-word;*/
+	  background-color: #500095;
+	  color: white;
+/*	  color: white;
+	  background-clip: border-box;
+	  border: 0px solid rgba(0, 0, 0, 0.125);
+	  border-radius: 0;*/
+	}
+</style>
+<div class="card-deck">
+    <div class="card seeker-analytics">
+        <div class="card-body text-center">
+            <h1 class="white"></h1>
+            <p>Applications</p>
+        </div>
+    </div>
+     <div class="card seeker-analytics">
+        <div class="card-body text-center">
+            <h1 class="white"></h1>
+            <p>Shortlisted</p>
+        </div>
+	</div>
+	 <div class="card seeker-analytics">
+        <div class="card-body text-center">
+            <h1 class="white"></h1>
+            <p>Rejected</p>
+        </div>
+	</div>
+	 <div class="card seeker-analytics">
+        <div class="card-body text-center">
+            <h1 class="white"> </h1>
+            <p>Vacancies</p>
+    </div>
+</div>
+	<div class="card seeker-analytics">
+        <div class="card-body text-center">
+            <h1 class="white"></h1>
+            <p>Profile Views</p>
+        </div>
+    </div>
+</div>
+<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Purchase spotlight plan to view your profile performance summary</a></h5>
+ @endif
+
+<br><h4>Recent Blogs</h4>
 <div class="row">
 	<div class="col-md-12">
 		<?php $blogsTransparent = true; ?>
