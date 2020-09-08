@@ -1,4 +1,7 @@
 @extends('layouts.general-layout')
+@section('scripts')
+  {!! NoCaptcha::renderJs() !!}
+@stop
 
 @section('title','Advertise on Emploi')
 

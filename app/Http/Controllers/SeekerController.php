@@ -349,7 +349,7 @@ class SeekerController extends Controller
         // return $request->all();
         $user = Auth::user();
         $m = LeaveRequest::create([
-            // 'user_id'=>$user->id,
+            'user_id'=>$user->id,
             'task_slug' =>$request->task_slug,
             'reason' => $request->reason,           
             'start_time' => $request->start_time,
@@ -357,6 +357,16 @@ class SeekerController extends Controller
         ]);
         return redirect('/job-seeker/issues');
         return $request->all();
+    }
+
+    public function leaveRequests(Request $request)
+    {
+        $user = Auth::user();
+        $leaves = LeaveRequest::where('user_id', $user->id)->get();
+
+        return view('seekers.messages.leaves')
+            ->with('leaves', $leaves);
+
     }
 
 }

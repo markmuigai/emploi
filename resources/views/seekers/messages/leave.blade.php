@@ -58,7 +58,7 @@ $user = Auth::user();
                 <label>
                     Start Date:
                 </label>
-                <input type="date" class="form-control" value="" name="start_time"  required="" placeholder="">
+                <input type="date" class="form-control" value="" name="start_time" required="" placeholder="">
             </div>
 
             <div class="form-group">

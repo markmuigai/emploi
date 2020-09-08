@@ -121,8 +121,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
           </div>
 
           <div id="leave" class="tab-pane fade mt-2 pb-4">
-            <h3>Shortlisted</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+          <div class="card">
+              <div class="card-body">
+                
+                          @foreach ($leaves as $m)
+                              <br>
+                              <div class="row d-flex">
+                              <h5 class="mr-5 ml-3 pr-5"><b> </b>{{ $m->id }}</h5>
+                              <h6>{{ $m->reason }}</h6>
+                              </div>
+                              <br>
+
+                              <hr>
+                          @endforeach
+                      </div>
+                
+              </div>
+          </div>
+            
             <br><br><br>
           </div>
 

@@ -48,6 +48,7 @@ use App\EmployerSubscription;
 use App\Invoice;
 use App\Task;
 use App\PartTimer;
+use App\LeaveRequest;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
@@ -392,12 +393,16 @@ class EmployerController extends Controller
 
     public function adminpaas(Request $request)
     {
+        $user = Auth::user();
+
         $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
         $shortlisted = PartTimer::where('status', 'shortlisted')->orwhere('status', 'selected')->paginate(5);
+        $leaves = LeaveRequest::where('task_slug', $user->slug)->where('id', $user->id)->get();
 
         return view('employers.dashpaas.admin')
             ->with('tasks', $tasks)
-            ->with('shortlisted', $shortlisted);
+            ->with('shortlisted', $shortlisted)
+            ->with('leaves', $leaves);
     }
 
     public function paasinv(Request $request)
