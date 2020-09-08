@@ -10,6 +10,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <?php
 $user = isset(Auth::user()->id) ? Auth::user() : false;
 ?>
+
+{!! htmlScriptTagJsApi() !!}
+
 <style type="text/css">
     @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
     @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
@@ -360,6 +363,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         <textarea name="description" id="description" rows="5" class="form-control"></textarea>
                     </div>
                     <div class="text-center">
+                        {!! htmlFormSnippet() !!}
+
                         <input type="submit" class="btn btn-orange" value="Submit">
                         @if(!$user || $user->role != 'employer')
                         <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
