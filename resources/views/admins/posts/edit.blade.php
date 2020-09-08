@@ -109,7 +109,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         <a href="#" class="btn btn-sm btn-orange-alt toSection2">Previous</a>
 
-        <button type="submit" name="button" class="btn btn-sm btn-orange pull-right">Savev Job Post</button>
+        <button type="submit" name="button" class="btn btn-sm btn-orange pull-right">Save Job Post</button>
     </div>
 
 </form>
