@@ -29,6 +29,7 @@ use App\PartTimer;
 use App\Task;
 use App\Message;
 use App\Issue;
+use App\LeaveRequest;
 use App\Notifications\PaasSubscribed;
 use App\Notifications\InvoiceCreated;
 use App\Notifications\ContactReceived;
@@ -340,6 +341,22 @@ class SeekerController extends Controller
         return view('seekers.messages.leave')
             ->with('task', $task)
             ->with('issue', $issue);
+    }
+
+    public function storeLeave(Request $request)
+    {
+        //$t = Task::where('slug', $request->slug)->first();
+        // return $request->all();
+        $user = Auth::user();
+        $m = LeaveRequest::create([
+            // 'user_id'=>$user->id,
+            'task_slug' =>$request->task_slug,
+            'reason' => $request->reason,           
+            'start_time' => $request->start_time,
+            'end_time'=>$request->end_time
+        ]);
+        return redirect('/job-seeker/issues');
+        return $request->all();
     }
 
 }

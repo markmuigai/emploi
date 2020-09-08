@@ -348,6 +348,8 @@ Route::get('/inbox/{id}', 'SeekerController@message');
 Route::get('/inbox', 'SeekerController@inbox');
 Route::get('/sent', 'SeekerController@sent');
 Route::get('/leave/{slug}', 'SeekerController@leave');
+Route::post('/store-leave', 'SeekerController@storeLeave');
+
 
 
 

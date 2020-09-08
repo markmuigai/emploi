@@ -24,68 +24,54 @@ $user = Auth::user();
 
 <div class="card">
     <div class="card-body">
-       
+    <?php 
+    $user = Auth::user();
+    $tasks = App\PartTimer::where('user_id', $user->id)->get();
+    ?>
+
         <br>
     
-        <form method="post" action="/leave/store">
+        <form method="post" action="/store-leave">
             @csrf
 
             <div class="form-group">
-                <label>
-                    Issue Title:
-                </label>
-                <input name="title" class="form-control input-sm" required="" id="title"></input>
-            </div>
-
-            <div class="form-group">
-                <label for="location">Parent Task:</label>
-                <select name="slug" class="form-control input-sm">
-                    @foreach($task as $t)
-                    <option value="{{ $t->slug }}" 
-                        selected=""
+                <label for="location">Assigned Task:</label>
+                <select name="task_slug" class="form-control input-sm" readonly="readonly">
+                    @foreach($tasks as $t)
+                    <option value="{{ $t->task_slug }}" 
+                        selected="{{ $t->task_slug }}"
                     
-                        >{{ $t->title }}</option>
+                        >{{ $t->task_slug }}</option>
                     @endforeach
                 </select>
             </div>
 
+
             <div class="form-group">
                 <label>
-                    Description:
+                    Reason:
                 </label>
-                <textarea name="description" class="form-control" required=""></textarea>
-            </div>
-
-           <div class="form-group">
-                <label for="location">Assignee:</label>
-                <select name="assignee" class="form-control input-sm">
-
-                    <option value="" 
-                        selected=""
-                    
-                        ></option>
-
-                </select>
+                <textarea name="reason" class="form-control" required=""></textarea>
             </div>
 
             <div class="form-group">
                 <label>
                     Start Date:
                 </label>
-                <input type="date" class="form-control" value="" name="start_date"  required="" placeholder="">
+                <input type="date" class="form-control" value="" name="start_time"  required="" placeholder="">
             </div>
 
             <div class="form-group">
                 <label>
-                    Due Date:
+                    End Date:
                 </label>
-                <input type="date" class="form-control" value="" name="due_date" placeholder="">
+                <input type="date" class="form-control" value="" name="end_time" required="" placeholder="">
             </div>       
 
             
 
             
-            <button type="submit" name="button" class="btn btn-orange">Create Issue</button>
+            <button type="submit" name="button" class="btn btn-orange">Send Request</button>
         </form>
     </div>
 </div>
