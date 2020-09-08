@@ -68,8 +68,8 @@
                             </div>
                             <div class="col-12 col-md-6 col-lg-5 d-flex flex-column justify-content-between text-sm-left text-md-right">
                                 <p>
-                                    <a href="">
-                                    <img src="{{ $pg->image }}" class="w-100 lazy" alt="{{ $pg->getTitle() }}" />
+                                    <a href="{{ url('/vacancies/'.$postGroup->slug) }}">
+                                    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="w-100 lazy" alt="{{ $post->getTitle() }}" />
                                     </a>
 
                                     <span>Posted <span style="text-decoration: underline;"><?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($pg->created_at))->diffForHumans() ?></span></span>
