@@ -312,7 +312,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Talent Database</h5>
-                                        <p class="card-text">Search tens of thousands of qualified CVs for quick shortlisting, direct contact and hire</p>
+                                        <p class="card-text">Search tens of thousands of qualified CVs for quick shortlisting, direct contact and hire.</p>
                                     </div>
                                     <div class="card-footer">
                                         <a href="/employers/browse" class="btn btn-orange">Browse</a>
@@ -321,7 +321,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Advertise Jobs</h5>
-                                        <p class="card-text">Reach an Audience of 100k+ subscribers, Utilize Advanced Recruitment tools and Candidate Ranking Algorithm.</p>
+                                        <p class="card-text">Reach an audience of 100k+ subscribers, utilize advanced recruitment tools and candidate ranking algorithm.</p>
                                     </div>
                                     <div class="card-footer">
                                         <a href="/employers/publish" class="btn btn-orange">Advertise Here</a>
@@ -331,7 +331,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     <div class="card-body">
                                         <h5 class="card-title">Recruitment Process Outsourcing</h5>
                                         <p class="card-text">
-                                        Use our Talent database and powerful Search-Sort-Assess-Score engine to cut down your recruitment workload by Up to 70% and your costs By Up to 65%. </p>
+                                        Use our talent database and powerful search-sort-assess-score engine to cut down your recruitment workload by up to 70% and your costs by up to 65%. </p>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted">
