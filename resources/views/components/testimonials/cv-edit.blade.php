@@ -105,8 +105,6 @@
             </div>
         </div>
     </div>
-
-  @include('components.blogs')
 </div>
 
 <script type="text/javascript">

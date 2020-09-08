@@ -281,6 +281,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
   <br>
 
   @include('components.testimonials.cv-edit')<br>
+    @include('components.blogs')<br>
 
 
 <div class="card">

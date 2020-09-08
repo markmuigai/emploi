@@ -108,7 +108,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             <form method="POST"  enctype="multipart/form-data" action="/job-seekers/paas">
               @csrf
               <div class="form-group">
-                <input type="number" class="form-control" name="phone" placeholder="phone number">
+                <input type="number" class="form-control" name="phone" placeholder="phone number" required="" >
               </div>
               <div class="modal-footer">
                 <input type="submit" class="btn" style="background-color: #E15419; color: white;" name="button" value="Send">
