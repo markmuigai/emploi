@@ -331,12 +331,12 @@ class SeekerController extends Controller
             ->with('messages', $messages);
     }
 
-    public function leave(Request $request, $slug)
+    public function leave($slug)
     {
         $user = Auth::user();
 
-        $task = Task::where('task_slug', $slug);
-        $issue = Issue::where('task_slug', $slug);
+        $task = Task::where('slug', $slug)->first();
+        $issue = Issue::where('task_slug', $slug)->first();
 
         return view('seekers.messages.leave')
             ->with('task', $task)

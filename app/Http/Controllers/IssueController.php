@@ -134,7 +134,7 @@ class IssueController extends Controller
 
     public function getIssues($slug)
     {
-        $issues = Issue::where('task_slug', $slug)->paginate(2);
+        $issues = Issue::where('task_slug', $slug)->paginate(4);
 
         return view('seekers.issues')
                 ->with('issues',$issues);

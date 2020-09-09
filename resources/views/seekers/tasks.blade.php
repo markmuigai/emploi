@@ -23,7 +23,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <br>
                <div class="row d-flex">
                 <h3 class="mr-5 ml-3"><b> </b>{{ $t->title }}</h3>
-                <h5 class="ml-5 orange">Due in {{ Carbon\Carbon::parse($t->due_date)->diffForHumans() }}</h5>
                 </div>
 
                 <p>{{ $t->description}}</p>
@@ -32,6 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Updated:</strong> {{ $t->updated_at->diffForHumans() }}</p>
                 <p>
                     <a href="/job-seekers/issue/{{ $t->slug }}" class="btn btn-orange btn-sm">View Issues</a>
+                    <a href="/leave/{{ $t->slug }}" class="btn btn-orange btn-sm">Request Leave</a>
                 </p>
                 <hr>               
             </div>     
