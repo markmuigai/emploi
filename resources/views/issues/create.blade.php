@@ -62,7 +62,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label for="location">Assignee:</label>
                 <select name="assignee" class="form-control input-sm">
                     @foreach($prof as $p)
-                    <option value="{{ $p->user->name }}" 
+                    <option value="{{ $p->user->id }}" 
                         selected=""
                     
                         >{{ $p->user->name }}</option>

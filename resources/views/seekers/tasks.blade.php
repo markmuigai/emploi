@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: Issues') )
+@section('title','Emploi Admin :: Tasks') )
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('page_title', 'Issues') 
+@section('page_title', 'Tasks') 
 
 @section('content')
 
@@ -18,31 +18,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row" style="text-align: right; ">
         </div>
         <div class="row">
-        @forelse($issues as $i)        
+        @forelse($tasks as $t)        
             <div class="col-md-10 offset-md-1">
             <br>
                <div class="row d-flex">
-                <h3 class="mr-5 ml-3"><b> </b>{{ $i->title }}</h3>
-                <h5 class="ml-5 orange">Due in {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h5>
+                <h3 class="mr-5 ml-3"><b> </b>{{ $t->title }}</h3>
+                <h5 class="ml-5 orange">Due in {{ Carbon\Carbon::parse($t->due_date)->diffForHumans() }}</h5>
                 </div>
 
-                <p><strong>Created:</strong> {{ $i->created_at->diffForHumans() }}</p>
-                <p><strong>Updated:</strong> {{ $i->updated_at->diffForHumans() }}</p>
+                <p>{{ $t->description}}</p>
+
+                <p><strong>Created:</strong> {{ $t->created_at->diffForHumans() }}</p>
+                <p><strong>Updated:</strong> {{ $t->updated_at->diffForHumans() }}</p>
                 <p>
-                    <a href="/job-seekers/issues/{{ $i->id }}" class="btn btn-orange btn-sm">View</a>
+                    <a href="/job-seekers/issue/{{ $t->slug }}" class="btn btn-orange btn-sm">View Issues</a>
                 </p>
                 <hr>               
             </div>     
         
         @empty
         <p class="text-center">
-            No Issues Found
+            No Task Found
         </p>
-          @endforelse
-        </div>          
+        </div>
+        @endforelse
     </div>
-    {{ $issues->links() }}
 </div>
-
+{{ $tasks->links() }}
 
 @endsection

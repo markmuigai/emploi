@@ -123,19 +123,26 @@ class IssueController extends Controller
         return redirect('/issues');
     }
 
-    public function issueView()
+
+    public function getSeekerTasks()
     {
         $user = Auth::user();
-        $i = Issue::where('assignee', $user->name)->paginate(10);
+        $tasks = Task::where('assignee', $user->id)->paginate(4);
+        return view('seekers.tasks')
+                ->with('tasks',$tasks);
+    }
+
+    public function getIssues($slug)
+    {
+        $issues = Issue::where('task_slug', $slug)->paginate(2);
 
         return view('seekers.issues')
-                ->with('i',$i);
+                ->with('issues',$issues);
     }
 
     public function issueShow($id)
     {
         $issue = Issue::where('id', $id)->get();
-
         return view('seekers.issue')
                 ->with('issue',$issue);
     }

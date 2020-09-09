@@ -324,8 +324,9 @@ Route::post('/issues/update/{id}', 'IssueController@update')->middleware('employ
 Route::delete('/issues/delete/{id}', 'IssueController@destroy')->middleware('employer');
 Route::get('/issues', 'IssueController@index')->middleware('employer');
 
-Route::get('/job-seekers/issues', 'IssueController@issueView');
-Route::get('/job-seekers/issue/{id}', 'IssueController@issueShow');
+Route::get('/job-seekers/tasks', 'IssueController@getSeekerTasks');
+Route::get('/job-seekers/issue/{slug}', 'IssueController@getIssues');
+Route::get('/job-seekers/issues/{id}', 'IssueController@issueShow');
 
 Route::get('/messages/create', 'MessageController@create')->middleware('employer');
 Route::post('/messages/store', 'MessageController@store')->middleware('employer');
