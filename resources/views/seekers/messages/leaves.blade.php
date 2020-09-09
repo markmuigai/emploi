@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
        
                 @foreach ($leaves as $m)
                     <br>
-                    <div class="row ml-1 mb-1">
+                    <div class="row ml-0 mb-1">
                         <p class="h4">{{ $m->reason }}</p>
                     </div>
 

@@ -38,20 +38,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                     @foreach ($leaves as $i)
                         <br>
-                        <div class="row d-flex">
-                        <h3 class="mr-5 ml-3 pr-5"><b> </b>{{ $i->reason }}</h3>
+                        <div>
+                        <h3 class="ml-0"><b> </b>{{ $i->reason }}</h3><br>
                         <!-- <h6 class="mt-2 mr-5 orange" style="position: absolute; right: 0;"><b>Due date:</b> {{ Carbon\Carbon::parse($i->due_date)->diffForHumans() }}</h6> -->
                         </div>
-                        <p>
-                            
-                        </p>
-                        <br>
-
                         <p>
                             <strong>Start On:</strong> {{ Carbon\Carbon::parse($i->start_time)->diffForHumans() }}<br>
                             <strong>End On:</strong> {{ Carbon\Carbon::parse($i->end_time)->diffForHumans() }}
 
-                            <div class="col-md-12 d-flex pt-4">
+                            <h6 class="mr-5 orange" style="text-align:right;"><b> </b>{{ $i->status }}</h6>
+
+
+                            <div class="col-md-12 d-flex">
                             
                             @if($i->status == NULL)
                             <a class="btn btn-orange mt-4 mr-2" href="/employers/accept-leave/{{$i->id}}"  onclick="return confirm('Are you sure to accept this leave request')">Accept</a>
