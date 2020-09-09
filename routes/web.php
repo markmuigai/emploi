@@ -131,6 +131,10 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/paas-tasks', 'EmployerController@paastask');
     Route::get('/employers/view-invoice/{slug}', 'EmployerController@viewInvoice');
     Route::get('/employers/paas-hire/{id}', 'EmployerController@hire');
+
+    Route::get('/employers/accept-leave/{id}', 'EmployerController@acceptLeave');
+    Route::get('/employers/reject-leave/{id}', 'EmployerController@rejectLeave');
+
     Route::get('/employers/edit-task/{slug}', 'TaskController@editTask');
     Route::post('/employers/edit-task/{slug}', 'TaskController@update');
     Route::get('/employers/delete-task/{slug}', 'TaskController@delete');
@@ -313,6 +317,8 @@ Route::post('/employers/subscribe-paas', 'EmployerController@getPaas');
 Route::post('/employers/request-professional', 'EmployerController@getProfessional');
 Route::get('/employers/task/{slug}', 'EmployerController@task');
 Route::post('/employers/invoice', 'EmployerController@getInvoice');
+
+Route::get('/employers/leaves/{slug}', 'EmployerController@leaves')->middleware('employer');
 
 // Route::resource('/issues', 'IssueController');
 Route::get('/issues/show/{slug}', 'IssueController@show')->middleware('employer');

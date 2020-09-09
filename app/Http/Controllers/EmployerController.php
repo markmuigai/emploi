@@ -428,10 +428,43 @@ class EmployerController extends Controller
     public function viewTask($slug)
     {
         $task = Task::where('slug',$slug)->firstOrFail();
+        $leaves = LeaveRequest::where('task_slug', $slug)->where('id', $user->id)->get();
+
      
 
         return view('employers.dashpaas.task-view')
-            ->with('task', $task);
+            ->with('task', $task)
+            ->with('leaves', $leaves);
+    }
+
+    public function leaves($slug)
+    {
+        $task = Task::where('slug',$slug)->firstOrFail();
+        $leaves = LeaveRequest::where('task_slug', $slug)->get();
+
+        return view('employers.dashpaas.leave')
+            ->with('task', $task)
+            ->with('leaves', $leaves);
+    }
+
+    public function acceptLeave($id)
+    {        
+        $candidate = LeaveRequest::find($id);
+        $candidate->update(['status' =>'accepted']);
+        $candidate->save();
+                
+
+        return Redirect::back()->with('accepted','Leave Accepted!');
+    }
+
+    public function rejectLeave($id)
+    {        
+        $candidate = LeaveRequest::find($id);
+        $candidate->update(['status' =>'rejected']);
+        $candidate->save();
+        
+
+        return Redirect::back()->with('rejected','Leave Rejected!');
     }
 
     public function prequest(Request $request)
