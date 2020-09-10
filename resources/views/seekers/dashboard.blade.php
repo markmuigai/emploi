@@ -20,7 +20,7 @@ $user = Auth::user();
 <a href="/job-seekers/register-paas" class="btn btn-orange">Apply for part time jobs</a>
 @endif
 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
-<a href="/job-seekers/tasks" class="btn btn-orange">View Your PaaS Tasks</a>
+<a href="/job-seekers/tasks" class="btn btn-orange">View Your PaaS Jobs</a>
 @endif<br>
 @if($user->seeker->featured > 0)
 <br><h4 align="center">Profile Performance Summary</h4><br>
@@ -138,7 +138,7 @@ $user = Auth::user();
 <hr>
 <h4>{{ $user->seeker->industry->name }} Part Time Jobs</h4>
 <?php
-$tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
+$tasks = \App\Task::where('status','active')->where('industry',$user->seeker->industry_id)->orderBy('id','DESC')->paginate(8);
 ?>
 <p id="paas_task"></p>
 <div class="row">
