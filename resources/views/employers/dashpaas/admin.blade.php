@@ -31,9 +31,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <section>
     <div class="container">
         <ul class="nav nav-tabs mt-4">
-          <li class="active btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#home">Shortlisted</a></li>
-          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Documents</a></li>
-          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#leave">Leave Requests</a></li>
+          <li class="active btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#home">Hired</a></li>
+          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
           <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li>
 
         </ul>
@@ -84,6 +83,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
   
               <div>
+
+              <div class="row">
+                  <img src="#" style="width:100%; height:90%;pointer-events: none;" class="shadow">
+              </div>
+
                 <div class="row">
                     <div class="col-md-6 offset-md-3 mt-5">
                         <div class="card">
@@ -120,31 +124,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
           <br><br><br>
           </div>
 
-          <div id="leave" class="tab-pane fade mt-2 pb-4">
-
-          <div class="card">
-              <div class="card-body">
-                
-                          @foreach ($leaves as $m)
-                              <br>
-                              <div class="row d-flex">
-                              <h5 class="mr-5 ml-3 pr-5"><b> </b>{{ $m->id }}</h5>
-                              <h6>{{ $m->reason }}</h6>
-                              </div>
-                              <br>
-
-                              <hr>
-                          @endforeach
-                      </div>
-                
-              </div>
-          </div>
-            
-            <br><br><br>
-          </div>
 
           <div id="off" class="tab-pane fade mt-2 pb-4">
-            <h3>Shortlisted</h3>
+            <h3>Offboarding Management</h3>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <br><br><br> 
           </div>
