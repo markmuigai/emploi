@@ -15,7 +15,7 @@ return [
     'r_cv_edit' => 'Request CV Editing',
     'job_u_love' => 'Choose A Job You Love',
     'advert_here' => 'Advertise Here',
-    't_issues' => 'Total Issues',
+    't_issues' => 'Total Tasks',
     't_hired' => 'Total Hired',
     't_jobs' => 'Total Jobs',
     't_cand' => 'Total Candidates',
