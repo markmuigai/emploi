@@ -1,13 +1,13 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Create Issue')
+@section('title','Emploi :: Create Task')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'Create New Issue')
+@section('page_title', 'Create New Task')
 
 <h2>
     <a href="/issues" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
@@ -27,13 +27,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="form-group">
                 <label>
-                    Issue Title:
+                    Task Title:
                 </label>
                 <input name="title" class="form-control input-sm" required="" id="title"></input>
             </div>
 
             <div class="form-group">
-                <label for="location">Parent Task:</label>
+                <label for="location">Parent Job:</label>
                 <select name="slug" class="form-control input-sm">
                     @foreach($task as $t)
                     <option value="{{ $t->slug }}" 

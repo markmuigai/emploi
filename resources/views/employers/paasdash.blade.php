@@ -60,7 +60,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     <ul class="nav nav-tabs mb-4">
         <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/admin-paas" style="text-decoration: none;">Administration</a></li>
-        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/paas-tasks" style="text-decoration: none;">Task Management</a></li>
+        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/paas-tasks" style="text-decoration: none;">Job Management</a></li>
         <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/invoice-paas" style="text-decoration: none;">Invoice and Subscription</a></li>
         <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/requests" style="text-decoration: none;">Requests Management</a></li>
 
@@ -77,11 +77,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="card-text">
                     Follow the process defined below to use PaaS components fully.
                         <ul>
-                            <li>Create new task request. <a href="/employers/request-paas" class="orange">Request Form.</a></li>
+                            <li>Create new job request. <a href="/employers/request-paas" class="orange">Request Form.</a></li>
                             <li>Make payment upfront if not in E-Club, <a href="/employers/e-club" class="orange">Join E-Club.</a></li>
-                            <li>Request made is forwarded to all Job Seekers in the same industry and those interested accept the request.</li>
+                            <li>Request made is forwarded to all job seekers in the same industry and those interested accept the request.</li>
                             <li>Pick from a pool of Emploi's shortlisted candidates.</li>
-                            <li>Create new issues under each task and define timeline.</li>
+                            <li>Create new tasks under each job and define timeline.</li>
 
                         </ul>
                     </div>

@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: Issue Preview')
+@section('title','Emploi Admin :: Task Preview')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('page_title', 'Issue Preview')
+@section('page_title', 'Task Preview')
 
 @section('content')
 
@@ -22,11 +22,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="row mr-auto pb-3 ml-1 d-flex">
     <a href="/employers/paas-tasks" class="btn btn-orange-alt mr-2">
-        <i class="fa fa-arrow-left"></i> Go to Tasks
+        <i class="fa fa-arrow-left"></i> Go to Jobs
     </a>
 
     <a href="/issues" class="btn btn-orange-alt ml-2">
-        Go to Issues <i class="fa fa-arrow-right"></i> 
+        Go to Tasks <i class="fa fa-arrow-right"></i> 
     </a>
     
         <br><hr>

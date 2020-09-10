@@ -92,7 +92,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <div class="col-md-6 offset-md-3 mt-5">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Contract Signing</h5>
+                                <h5>Signing Area</h5>
                             </div>
                             <div class="card-body">
                                   @if ($message = Session::get('success'))
@@ -108,11 +108,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                           <br/>
                                           <div id="sig" ></div>
                                           <br/>
-                                          <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
                                           <textarea id="signature64" name="signed" style="display: none"></textarea>
                                       </div>
                                       <br/>
-                                      <button class="btn btn-success">Save</button>
+                                      <button id="clear" class="btn btn-orange-alt ml-3">Clear</button>
+                                      <button class="btn btn-orange ml-2">Save</button>
                                   </form>
                             </div>
                         </div>
