@@ -18,11 +18,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="row" style="text-align: right; ">
         </div>
         <div class="row">
-        @forelse($tasks as $t)        
+        @forelse($jobs as $t)
+        <?php 
+            $task = App\Task::where('slug', $t->task_slug)->first();
+        ?>        
             <div class="col-md-10 offset-md-1">
             <br>
                <div class="row d-flex">
-                <h3 class="mr-5 ml-3"><b> </b>{{ $t->title }}</h3>
+                <h3 class="mr-5 ml-3"><b> </b>{{ $task->title }}</h3>
                 </div>
 
                 <p>{{ $t->description}}</p>
@@ -30,20 +33,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Created:</strong> {{ $t->created_at->diffForHumans() }}</p>
                 <p><strong>Updated:</strong> {{ $t->updated_at->diffForHumans() }}</p>
                 <p>
-                    <a href="/job-seekers/issue/{{ $t->slug }}" class="btn btn-orange btn-sm">View Tasks</a>
-                    <a href="/leave/{{ $t->slug }}" class="btn btn-orange btn-sm">Request Leave</a>
+                    <a href="/job-seekers/issue/{{ $t->task_slug }}" class="btn btn-orange btn-sm">View Tasks</a>
+                    <a href="/leave/{{ $t->task_slug }}" class="btn btn-orange btn-sm">Request Leave</a>
                 </p>
                 <hr>               
             </div>     
         
         @empty
         <p class="text-center">
-            No Task Found
+            No job Found
         </p>
         </div>
         @endforelse
     </div>
 </div>
-{{ $tasks->links() }}
+{{ $jobs->links() }}
 
 @endsection

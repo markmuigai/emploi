@@ -127,9 +127,9 @@ class IssueController extends Controller
     public function getSeekerTasks()
     {
         $user = Auth::user();
-        $tasks = Task::where('assignee', $user->id)->paginate(4);
+        $jobs = PartTimer::where('user_id', $user->id)->where('status','selected')->paginate(4);
         return view('seekers.tasks')
-                ->with('tasks',$tasks);
+                ->with('jobs',$jobs);
     }
 
     public function getIssues($slug)

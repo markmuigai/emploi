@@ -138,7 +138,7 @@ $user = Auth::user();
 <hr>
 <h4>{{ $user->seeker->industry->name }} Part Time Jobs</h4>
 <?php
-$tasks = \App\Task::where('status','active')->Where('Industry', $user->seeker->industry_id)->orderBy('id','DESC')->paginate(8);
+$tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
 ?>
 <p id="paas_task"></p>
 <div class="row">
