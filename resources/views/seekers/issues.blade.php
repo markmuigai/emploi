@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: Issues') )
+@section('title','Emploi Admin :: Tasks') )
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('page_title', 'Issues') 
+@section('page_title', 'Tasks') 
 
 @section('content')
 
