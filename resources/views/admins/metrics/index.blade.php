@@ -62,7 +62,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         Referees: {{ $referees_count }} <br>
                         Cv Editors: {{ $cv_editors }} <br>
                         {{ __('other.faqs') }}: {{ $faqs }} <br>
-                        Spotlight: {{ $featured_seeker }} <br>
+                        Spotlight: {{ $featured_seeker }} <br><br>
+
+                        Paid Spotlight: {{ $spotlight }} <br>
                     </div>
                     <div class="col-md-6">
                         Adverts: {{ $adverts_count }} <br>
@@ -71,7 +73,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         RSI Model Seekers: {{ $model_seekers_count }} <br>
                         Job Posts: {{ $posts_count }} <br>
                         CV Edit Requests: {{ $cv_edit_requests }} <br>
-                        Pro: {{ $seeker_basic }} <br>
+                        Pro: {{ $seeker_basic }} <br><br>
+
+                        Paid Pro: {{ $pro }} <br>
                     </div>
                 </div>
             </div>

@@ -1173,6 +1173,9 @@ class AdminController extends Controller
         $featured_seeker = ProductOrder::where('product_id',1)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $seeker_basic = ProductOrder::where('product_id',7)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
+        $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
         $months = [
             'Jan',
             'Feb',
@@ -1226,6 +1229,9 @@ class AdminController extends Controller
         $featured_seeker = ProductOrder::where('product_id',1)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $seeker_basic = ProductOrder::where('product_id',7)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
+        $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+
 
         $months = [
             'Jan',
@@ -1266,6 +1272,8 @@ class AdminController extends Controller
             ->with('focus_month',$focus_month)
             ->with('featured_seeker',$featured_seeker)
             ->with('seeker_basic',$seeker_basic)
+            ->with('spotlight',$spotlight)
+            ->with('pro',$pro)
             ;
     }
 
