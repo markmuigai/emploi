@@ -25,6 +25,6 @@ class SignaturePadController extends Controller
 	      
 	    $file = $folderPath . uniqid() . '.'.$image_type;
 	    file_put_contents($file, $image_base64);
-	    return back()->with('success', 'success Full upload signature');
+	    return back()->with('success', 'Contract Successfully Signed');
     }
 }
