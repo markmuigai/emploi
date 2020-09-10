@@ -133,10 +133,14 @@ $user = Auth::user();
 	  {{ session()->get('applied') }}
 	  </div>
 @endif
+
+@if(isset($user->seeker->industry_id))
+<hr>
+<h4>{{ $user->seeker->industry->name }} Part Time Jobs</h4>
 <?php
-$tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
+$tasks = \App\Task::where('status','active')->Where('Industry', $user->seeker->industry_id)->orderBy('id','DESC')->paginate(8);
 ?>
-<br id="paas_task"><br>
+<p id="paas_task"></p>
 <div class="row">
 	@forelse ($tasks as $t)
 	<div class="col-lg-6">
@@ -185,6 +189,7 @@ $tasks = \App\Task::where('status','active')->orderBy('id','DESC')->paginate(8);
 </div>
 	{{ $tasks->links() }}
 	<hr>
+@endif
 @endif
 
 <br><h4>Recent Blogs</h4>
