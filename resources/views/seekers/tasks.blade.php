@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: Tasks') )
+@section('title','Emploi Admin :: Jobs') )
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('page_title', 'Tasks') 
+@section('page_title', 'Jobs') 
 
 @section('content')
 
@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Created:</strong> {{ $t->created_at->diffForHumans() }}</p>
                 <p><strong>Updated:</strong> {{ $t->updated_at->diffForHumans() }}</p>
                 <p>
-                    <a href="/job-seekers/issue/{{ $t->slug }}" class="btn btn-orange btn-sm">View Issues</a>
+                    <a href="/job-seekers/issue/{{ $t->slug }}" class="btn btn-orange btn-sm">View Tasks</a>
                     <a href="/leave/{{ $t->slug }}" class="btn btn-orange btn-sm">Request Leave</a>
                 </p>
                 <hr>               
