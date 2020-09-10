@@ -60,7 +60,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
             <div style="border: 2px solid #500095; padding: 10px;">
               <a href="/job-seekers/" class="d-block p-lg-4 p-3">
               <h3 class="my-3">50% off CV Editing</h3>
-              <p class="">We've slashed our Professional CV Editing service fee by 50% as we work to get you an interview.</p>
+              <p class="">We've slashed our Professional CV Editing service fee by 50% as we work to get you an interview.<br><br><br><br></p>
             </a>
           </div>
         </div>
@@ -70,7 +70,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
             <div style="border: 2px solid #500095; padding: 10px;">
               <a href="/employers/rate-card" class="d-block p-lg-4 p-3">
               <h3 class="my-3">Free Job Posting</h3>
-              <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus by giving a free first job post for new employers and 20% discount for all employers.</b></p>
+              <p class="">Emploi offers its recruitment tools for companies involved in the fight against the corona virus by giving a free first job post for new employers and 20% discount for all employers.<br><br></b></p>
               </a>
             </div>
         </div>
@@ -82,7 +82,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
         <div class="s-block">
             <div style="border: 2px solid #500095; padding: 10px;">
                 <a href="https://emploi.co/blog/please-give-me-a-job-state-of-unemployment-in-kenya-before-covid-19" class="d-block p-lg-4 p-3">
-                <h3 class="my-3">Please Give Me a Job”: State of Unemployment in Kenya Before COVID-19</h3>
+                <h3 class="my-3">Please Give Me a Job”: State of Unemployment in Kenya Before COVID-19.<br></h3>
                 <p class=""></p>
               </a>
           </div>
@@ -92,7 +92,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
          <div class="s-block">
             <div style="border: 2px solid #500095; padding: 10px;">
               <a href="https://emploi.co/blog/staff-re-on-boarding-a-strategy-for-effective-return-to--work-in-the-midst-of-covid-19" class="d-block p-lg-4 p-3">
-              <h3 class="my-3">Staff re-on-boarding; a strategy for effective return-to- work in the midst of covid-19</h3>
+              <h3 class="my-3">Staff re-on-boarding; a strategy for effective return-to- work in the midst of covid-19.<br><br></h3>
               <p class=""> </p>
             </a>
           </div>
@@ -103,7 +103,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
             <div style="border: 2px solid #500095; padding: 10px;">
               <a href="https://emploi.co/blog/positioning-for-an-interview-post-covid-19---the-time-of-great-tension" class="d-block p-lg-4 p-3">
               <h3 class="my-3">Positioning For an Interview Post-COVID-19 - The Time of Great Tension </h3>
-              <p class="">Here we give tips on how to prepare for an interview.</p>
+              <p class="">Tips on how to prepare for interview.</p>
               </a>
             </div>
         </div>
@@ -126,7 +126,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
             <a href="/job-seekers/free-cv-review" class="d-block p-lg-4 p-3">
               <h3 class="my-3">Free CV Review </h3>
               <p class="">
-                Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.
+                Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.<br><br><br><br>
               </p>
             </a>
           </div>
@@ -137,7 +137,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
             <div style="border: 2px solid #500095; padding: 10px;">
               <a href="https://emploi.co/blog/how-the-corona-virus-is-changing-the-world-of-work" class="d-block p-lg-4 p-3">
               <h3 class="my-3">How the corona virus is changing the world of work.</h3>
-              <p class="">We talk on how the corona virus has triggered indelible shifts in the way the world works.</b></p>
+              <p class="">We talk on how the corona virus has triggered indelible shifts in the way the world works.</b><br><br></p>
               </a>
             </div>
           </div>
@@ -149,7 +149,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
           <div style="border: 2px solid #500095; padding: 10px;">
             <a href="https://emploi.co/blog/after-covid-19-what-next-in-the-labour-environment" class="d-block p-lg-4 p-3">
               <h3 class="my-3">After COVID-19, What Next in the Labour Environment?</h3>
-              <p class="">Here we talk of possible shift in the employment pattern after COVID-19. </p>
+              <p class="">Here we talk of possible shift in the employment pattern after COVID-19. <br><br><br><br></p>
             </a>
           </div>
         </div>
@@ -160,7 +160,7 @@ See how we are supporting companies and individuals in the fight against COVID-1
             <a href="https://emploi.co/blog/the-challenges-of-working-from-home-and-how-to-overcome-them" class="d-block p-lg-4 p-3">
               <h3 class="my-3">Challenges of Working from Home</h3>
               <p class="">
-                We talk about the new challenges businesses and individuals face while working from home, with expert advise on how to overcome.
+                We talk about the new challenges businesses and individuals face while working from home, with expert advise on how to overcome.<br><br><br>
               </p>
             </a>
           </div>
