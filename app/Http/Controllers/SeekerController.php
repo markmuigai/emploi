@@ -355,7 +355,8 @@ class SeekerController extends Controller
             'start_time' => $request->start_time,
             'end_time'=>$request->end_time
         ]);
-        return redirect('/job-seeker/issues');
+        return redirect('/leave-requests');
+        return 'Leave Request Sent';
         return $request->all();
     }
 

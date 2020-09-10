@@ -31,8 +31,8 @@ $user = Auth::user();
             <div class="form-group">
                 <label for="location">Assigned Task:</label>
                 <select name="task_slug" class="form-control input-sm" readonly="readonly">
-                    <option value="{{ $task->title }}" 
-                        selected="{{ $task->title }}"
+                    <option value="{{ $task->slug }}" 
+                        selected="{{ $task->slug }}"
                     
                         >{{ $task->title }}</option>
                 </select>
