@@ -32,8 +32,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#home">Hired</a></li>
-          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
-          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li>
+<!--           <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
+          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li> -->
 
         </ul>
       
