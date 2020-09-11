@@ -350,14 +350,14 @@ Route::get('/job-seekers/apply-task/{slug}', 'SeekerController@applyTask');
 Route::get('/job-seekers/coaching-request', 'SeekerController@coaching');
 Route::get('/job-seekers/placement-request', 'SeekerController@placement');
 
-Route::get('/compose/{id}', 'SeekerController@compose');
-Route::post('/send', 'SeekerController@send');
-Route::get('/inbox/{id}', 'SeekerController@message');
-Route::get('/inbox', 'SeekerController@inbox');
-Route::get('/sent', 'SeekerController@sent');
-Route::get('/leave-requests', 'SeekerController@leaveRequests');
-Route::get('/leave/{slug}', 'SeekerController@leave');
-Route::post('/store-leave', 'SeekerController@storeLeave');
+Route::get('/compose/{id}', 'SeekerController@compose')->middleware('seeker');
+Route::post('/send', 'SeekerController@send')->middleware('seeker');
+Route::get('/inbox/{id}', 'SeekerController@message')->middleware('seeker');
+Route::get('/inbox', 'SeekerController@inbox')->middleware('seeker');
+Route::get('/sent', 'SeekerController@sent')->middleware('seeker');
+Route::get('/leave-requests', 'SeekerController@leaveRequests')->middleware('seeker');
+Route::get('/leave/{slug}', 'SeekerController@leave')->middleware('seeker');
+Route::post('/store-leave', 'SeekerController@storeLeave')->middleware('seeker');
 
 
 
