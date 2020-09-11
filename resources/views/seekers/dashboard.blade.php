@@ -13,7 +13,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <?php
 $user = Auth::user();
 ?>
-
 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
 <a href="#paas_task" class="btn btn-orange">Apply for part time jobs</a>
 @else
@@ -21,6 +20,7 @@ $user = Auth::user();
 @endif
 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
 <a href="/job-seekers/tasks" class="btn btn-orange">View Your PaaS Jobs</a>
+<a href="/inbox" class="btn btn-purple mr-1" style="float: right;" dusk="create-new-post"><i class="fas fa-comments"></i> Messages</a> 
 @endif<br>
 @if($user->seeker->featured > 0)
 <br><h4 align="center">Profile Performance Summary</h4><br>
