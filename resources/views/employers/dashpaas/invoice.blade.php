@@ -34,7 +34,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                   <tr>
                     <th>Invoice Number</th>
                     <th>Amount</th>
-                    <th>Subsciption</th>
+                    <th>Subscription</th>
                     <th>Status</th>
 
 
