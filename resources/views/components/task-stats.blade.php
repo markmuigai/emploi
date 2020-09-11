@@ -1,7 +1,7 @@
 <!-- STATISTICS -->
 <div>
     <div>
-        <div class="h4 text-center pt-1">Numbers Don't Lie</div>
+        <div class="h4 text-center pt-1">Statistics</div>
         <div class="card" style="background-color: #510096; color:white;">
             <div class="card-body text-center">
                 <div class="row">
