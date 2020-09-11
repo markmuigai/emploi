@@ -36,7 +36,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         
         @empty
         <p class="text-center">
-            No Issues Found
+            No Tasks Found
         </p>
           @endforelse
         </div>          
