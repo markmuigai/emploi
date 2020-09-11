@@ -189,9 +189,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         <div class="row">
                             @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
+                            <a href="/messages" class="btn btn-purple mr-1" dusk="create-new-post"><i class="fas fa-comments"></i> Messages</a>
+                            @endif
+
+                            @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->isOnPaas())
                             <a href="/inbox" class="btn btn-purple mr-1" dusk="create-new-post"><i class="fas fa-comments"></i> Messages</a>
                             @endif
-                            
+
                             @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                             <a href="/vacancies/create" class="btn btn-orange" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
 
