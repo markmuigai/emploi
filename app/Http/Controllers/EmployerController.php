@@ -409,7 +409,7 @@ class EmployerController extends Controller
     {
         $invoices = Invoice::where('email', Auth::user()->email)
                     ->where('description','Payment for Part Timer')
-                    ->orWhere('alternative_payment_slug', 'Free E-Club Package')->paginate(5);
+                    ->Where('alternative_payment_slug', 'Free E-Club Package')->paginate(5);
 
         return view('employers.dashpaas.invoice')
             ->with('invoices', $invoices);
