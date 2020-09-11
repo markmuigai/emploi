@@ -44,10 +44,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <h5 class="text-left" style="color:orange;">Field of Expertise: {{ $p->user->seeker->industry->name }}</h5>
                                 <h5 class="text-left" style="color:orange;">Experience: {{ $p->user->seeker->years_experience }}</h5>
                                 @if($p->status == 'selected')
-                                <a  class="btn btn-primary-alt mt-4">Hired</a>
+                                <a  class="btn btn-orange-alt mt-4">Hired</a>
                                 @else
-                                <a class="btn btn-primary mt-4" href="/employers/paas-hire/{{ $p->id }}"  onclick="return confirm('Are you sure to hire {{ $p->user->name }}?')">Hire</a>
+                                <a class="btn btn-orange mt-4" href="/employers/paas-hire/{{ $p->id }}"  onclick="return confirm('Are you sure to hire {{ $p->user->name }}?')">Hire</a>
                                 @endif
+                                <a href="/employers/browse/{{ $p->user->username }}" target="_blank" class="btn btn-orange mt-4">View Profile</a>
                             </div>
                           </div>
                             
