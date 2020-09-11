@@ -483,6 +483,83 @@ class Employer extends Model
         return $applications;
     }
 
+
+     public function getApplications($counter = 20){
+        $posts = array();
+        $c = "SELECT id FROM companies WHERE user_id = ".$this->user->id;
+        $c = DB::select($c);
+        $companies = '(';
+        for($i=0; $i<count($c); $i++)
+        {
+            $companies .= $c[$i]->id;
+            if($i < count($c)-1)
+                $companies .= ',';
+        }
+        $companies .= ')';
+
+        if($companies == '()')
+            return array();
+
+        $p = "SELECT id FROM posts WHERE company_id IN $companies";
+        $p = DB::select($p);
+
+        // $posts = [];
+        // for($i=0; $i<count($p); $i++)
+        //     $posts[] = $p[$i]->id;
+
+        // $applications = JobApplication::whereIn('post_id',$posts)->get();
+
+        $posts = '(';
+        for($i=0; $i<count($p); $i++)
+        {
+            $posts .= $p[$i]->id;
+            if($i < count($p)-1)
+                $posts .= ',';
+        }
+        $posts .= ')';
+
+        if($posts == '()')
+            return array();
+
+       $sql = "SELECT users.username, users.name, posts.slug, posts.title, job_applications.id, job_applications.user_id, job_applications.post_id, job_applications.created_at FROM job_applications LEFT JOIN users ON users.id = job_applications.user_id LEFT JOIN posts ON posts.id = job_applications.post_id WHERE job_applications.post_id IN  $posts ORDER BY job_applications.created_at DESC LIMIT $counter ";
+
+        $applications = DB::select($sql);
+
+        return $applications;
+
+        dd($a);
+
+        for($i=0; $i<count($this->companies); $i++)
+        {
+            for($k=0; $k<count($this->companies[$i]->posts); $k++)
+            {
+                array_push($posts, $this->companies[$i]->posts[$k]);
+            }
+        }
+
+        $new_posts = '(';
+        for($i=0; $i<count($posts); $i++)
+        {
+            $new_posts .= $posts[$i]->id;
+            if($i < count($posts)-1)
+                $new_posts .= ',';
+        }
+        $new_posts .= ')';
+
+        if($new_posts == '()')
+            return array();
+
+        $sql = "SELECT id FROM job_applications WHERE post_id IN  $new_posts ORDER BY created_at DESC LIMIT $counter";
+        $results = DB::select($sql);
+
+        $applications = array();
+
+        for($i=0; $i<count($results); $i++)
+            array_push($applications,JobApplication::find($results[$i]->id));
+
+        return $applications;
+    }
+
     public function getApplicationsOn($day){
         $posts = array();
         for($i=0; $i<count($this->companies); $i++)

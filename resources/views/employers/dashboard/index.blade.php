@@ -11,11 +11,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <a href="/employers/rate-card" class="btn btn-orange-alt"  data-placement="left">Our Packages</a>
 <a href="/employers/dashboard/top-candidates" class="btn btn-orange"  data-placement="left">Hire Top Candidates</a>
+ @if(Auth::user()->email == 'jobs@emploi.co')
+<a href="/employers/dashboard/applications" class="btn btn-orange-alt"  data-placement="left">View Applications</a>
+@endif
 <div class="card my-2 recents">
     <div class="card-body row">
         <div class="col-md-7">
             <h6>Recent Applications </h6>
-            <ul>
+            <ol>
                 @forelse($recentApplications as $application)
 
                   <li>
@@ -30,7 +33,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                     <li>No Applications have been received</li>
                 @endforelse
-            </ul>
+            </ol>
         </div>
         <div class="col-md-5" id="stats-field">
             <p>Loading stats...</p>

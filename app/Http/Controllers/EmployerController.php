@@ -651,6 +651,13 @@ class EmployerController extends Controller
                 ->with('industry',$industry ? $industry : '');
     }
 
+    public function internalApp(Request $request)
+    {
+        $internalApplications = Auth::user()->employer->getApplications();
+        return view('employers.dashboard.internal-applications')
+                ->with('internalApplications',$internalApplications);
+    }
+
     public function topCandidates(Request $request)
     {
         $topCandidates = Seeker::where('featured',2)->orderBy('id','DESC')->paginate(10);
