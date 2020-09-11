@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: All Requests')
+@section('title','Emploi :: Requests')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.

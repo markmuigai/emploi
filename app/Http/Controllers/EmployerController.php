@@ -407,13 +407,12 @@ class EmployerController extends Controller
 
     public function paasinv(Request $request)
     {
-        $invoices = Invoice::where('email', Auth::user()->email)->paginate(5);
-        $status = Invoice::where('pesapal_transaction_tracking_id',null)
-                    ->where('alternative_payment_slug',null);
+        $invoices = Invoice::where('email', Auth::user()->email)
+                    ->where('description','Payment for Part Timer')
+                    ->orWhere('alternative_payment_slug', 'Free E-Club Package')->paginate(5);
 
         return view('employers.dashpaas.invoice')
-            ->with('invoices', $invoices)
-            ->with('status', $status);
+            ->with('invoices', $invoices);
     }
 
     public function viewInvoice($slug){
