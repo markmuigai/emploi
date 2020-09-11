@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         
         @empty
         <p class="text-center">
-            No job Found
+            No job found
         </p>
         </div>
         @endforelse
