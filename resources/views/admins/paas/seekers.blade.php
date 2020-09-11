@@ -1,13 +1,13 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: Paas Professionals')
+@section('title','Emploi Admin :: PaaS Professionals')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'Paas Professionals')
+@section('page_title', 'PaaS Professionals')
 
 <div class="card">
     <div class="card-body">
