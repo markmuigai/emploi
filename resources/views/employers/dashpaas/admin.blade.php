@@ -127,7 +127,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
           <div id="off" class="tab-pane fade mt-2 pb-4">
             <h3>Offboarding Management</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <br><br><br> 
           </div>
           
