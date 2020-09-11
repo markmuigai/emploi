@@ -188,7 +188,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         
 
                         <div class="row">
-                            @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && $user->employer->isOnPaas())
+                            @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
                             <a href="/inbox" class="btn btn-purple mr-1" dusk="create-new-post"><i class="fas fa-comments"></i> Messages</a>
                             @endif
                             
