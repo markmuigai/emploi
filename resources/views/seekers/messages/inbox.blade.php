@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <i class="fa fa-arrow-left"></i> Back
 </a>
 <a href="/sent" class="btn btn-orange">
-   <i class="fa fa-comment"></i> Sent
+   <i class="fa fa-paper-plane"></i> Sent
 </a><br><br>
 <?php 
 $user = Auth::user();
