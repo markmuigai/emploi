@@ -94,6 +94,7 @@ Route::get('/create-account', 'ContactController@createAcc');
 
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
     Route::get('dashboard', 'EmployerController@dashboard');
+    Route::get('dashboard/applications', 'EmployerController@internalApp');
     Route::get('dashboard-data', 'EmployerController@dashboardData');
     Route::get('dashboard-stats', 'EmployerController@dashboardStats');
     Route::get('dashboard-chartData', 'EmployerController@dashboardChartData');
