@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Invoice and Subscription Management')
+@section('page_title', 'Subscription Management')
 
 
 <!-- NAV-TABS -->

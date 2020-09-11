@@ -26,7 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </a>
 
     <a href="/issues" class="btn btn-orange-alt ml-2">
-        Go to Tasks <i class="fa fa-arrow-right"></i> 
+        View all Tasks <i class="fa fa-arrow-right"></i> 
     </a>
     
         <br><hr>

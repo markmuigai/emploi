@@ -85,7 +85,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
               <div>
 
               <div class="row">
-                  <img src="#" style="width:100%; height:90%;pointer-events: none;" class="shadow">
+                  <img src="#" alt="contract view" style="width:100%; height:90%;pointer-events: none;" class="shadow">
               </div>
 
                 <div class="row">
