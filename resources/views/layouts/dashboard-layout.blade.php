@@ -186,20 +186,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div id="postJob" class="mb-2">
                         <h2>@yield('page_title')</h2>
                         
+
+                        <div class="row">
+                            <a href="/inbox" class="btn btn-purple mr-1" dusk="create-new-post"><i class="fas fa-comments"></i> Messages</a>
+                            
+                            @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
+                            <a href="/vacancies/create" class="btn btn-orange" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
+
+                            @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
+                            <a href="/vacancies" class="btn btn-orange"><i class="fas fa-plus"></i> Apply For A Job</a>
+
+                            @elseif( isset(Auth::user()->id) && Auth::user()->role == 'admin' )
+                            <h3>
+                                <span class="badge badge-secondary">
+                                    {{ Auth::user()->jurisdictions[0]->country->name }}
+                                </span>
+                            </h3>
+                            @endif
+                        </div>
                         
-                        @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
-                        <a href="/vacancies/create" class="btn btn-orange" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
-
-                        @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
-                        <a href="/vacancies" class="btn btn-orange"><i class="fas fa-plus"></i> Apply For A Job</a>
-
-                        @elseif( isset(Auth::user()->id) && Auth::user()->role == 'admin' )
-                        <h3>
-                            <span class="badge badge-secondary">
-                                {{ Auth::user()->jurisdictions[0]->country->name }}
-                            </span>
-                        </h3>
-                        @endif
                     </div>
                     
                     <!-- END OF ADD JOB AS AN EMPLOYER -->
