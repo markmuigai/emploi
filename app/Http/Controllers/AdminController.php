@@ -644,7 +644,7 @@ class AdminController extends Controller
                         continue;
                     if(User::subscriptionStatus($user->email))
                     {
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi_Weekly_Digest@emploi.co',$url);
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                     }
                 }
                 break;
@@ -776,7 +776,7 @@ class AdminController extends Controller
                     {
                         $email = $users[$i]->email;
                         $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
-                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi_Weekly_Digest@emploi.co',$url);
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                     }
                 }
                 break;
@@ -791,7 +791,7 @@ class AdminController extends Controller
                     {
                         $email = $users[$i]->email;
                         $name = $users[$i]->name ? $users[$i]->name : 'job seeker';
-                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi_Weekly_Digest@emploi.co',$url);
+                        VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                     }
                 }
 
@@ -837,7 +837,7 @@ class AdminController extends Controller
                         continue;
                     if(User::subscriptionStatus($user->email))
                     {
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi_Weekly_Digest@emploi.co',$url);
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                     }
                 }
 
