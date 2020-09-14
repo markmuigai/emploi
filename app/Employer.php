@@ -484,7 +484,7 @@ class Employer extends Model
     }
 
 
-     public function getApplications($counter = 40){
+     public function getApplications($counter = 60){
         $posts = array();
         $c = "SELECT id FROM companies WHERE user_id = ".$this->user->id;
         $c = DB::select($c);
