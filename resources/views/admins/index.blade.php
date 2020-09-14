@@ -61,7 +61,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <br><br>
 
-                <a href="/admin/paas-task" class="btn btn-sm btn-orange">Paas Task ({{ count(\App\Task::all()) }})</a>
+                <a href="/admin/paas-task" class="btn btn-sm btn-orange">Paas Jobs ({{ count(\App\Task::all()) }})</a>
                 <a href="/admin/employers" class="btn btn-sm btn-success">Employers</a>
                 <a href="/admin/cv-requests" class="btn btn-sm btn-info">CV Requests</a>
                 <a href="/admin/companies" class="btn btn-sm btn-primary">Companies</a>

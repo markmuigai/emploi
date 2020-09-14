@@ -44,7 +44,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="col-md-4 text-right">
                 <p><strong>{{ $t->status }}</strong> </p>
                 <p><a href="/admin/paas-task/{{$t->id}}" class="btn btn-orange btn-sm">View</a></p>
+                @if($t->status == 'active')
                 <p><a href="/admin/paas-send/{{$t->id}}" class="btn btn-orange btn-sm">Send To Professionals</a></p>
+                @endif
             </div>
         </div>
         <hr>
