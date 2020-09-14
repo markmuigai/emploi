@@ -1,13 +1,13 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Dashboard')
+@section('title','Emploi :: Real Time Applications')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'Dashboard')
+@section('page_title', 'Real Time Application')
 
 <a href="/employers/rate-card" class="btn btn-orange-alt"  data-placement="left">Our Packages</a>
 <a href="/employers/dashboard/top-candidates" class="btn btn-orange"  data-placement="left">Hire Top Candidates</a>

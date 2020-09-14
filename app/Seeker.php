@@ -945,7 +945,7 @@ class Seeker extends Model
         switch ($channel) {
             case 'email':
                 $caption = "Complete your job-seeker profile on Emploi.";
-                $contents = "Employers are passing over your profile. Complete your profile to unlock the following benefits;
+                $contents = "Employers are passing over your profile. Complete your profile and update your CV to unlock the following benefits;
                              <ul style= 'text-align:left'>
                                  <li>Entice a recruiter with your complete work and education history</li>
                                  <li>Stand a much higher chance of being shortlisted</li>
