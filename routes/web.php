@@ -334,6 +334,8 @@ Route::get('/issues', 'IssueController@index')->middleware('employer');
 Route::get('/job-seekers/tasks', 'IssueController@getSeekerTasks');
 Route::get('/job-seekers/issue/{slug}', 'IssueController@getIssues');
 Route::get('/job-seekers/issues/{id}', 'IssueController@issueShow');
+Route::get('/job-seekers/issues/complete/{id}', 'IssueController@markCompleted');
+
 
 Route::get('/messages/create', 'MessageController@create')->middleware('employer');
 Route::post('/messages/store', 'MessageController@store')->middleware('employer');

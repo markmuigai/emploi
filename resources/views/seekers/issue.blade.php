@@ -37,6 +37,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <strong>Created:</strong> {{ $i->created_at->diffForHumans() }}<br>
                     <strong>Updated:</strong> {{ $i->updated_at->diffForHumans() }}
                 </p>
+                @if($i->status == 'completed')
+                    <a href="#" style="float: right;" class="btn btn-orange">Completed</a>                
+                @else
+                <a href="/job-seekers/issues/complete/{{ $i->id }}" onclick="return confirm('Are you sure to mark {{ $i->title }} completed?')" style="float: right;" class="btn btn-orange">Mark Completed</a>    
+                @endif
             @endforeach
             </div>
 

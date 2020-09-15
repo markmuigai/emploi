@@ -147,4 +147,13 @@ class IssueController extends Controller
                 ->with('issue',$issue);
     }
 
+
+    public function markCompleted($id)
+    {        
+        $i = Issue::Where('id',$id)->firstOrFail();
+        $i->update(['status' =>'completed']);
+        $i->save();
+        return Redirect()->back();
+    }
+
 }
