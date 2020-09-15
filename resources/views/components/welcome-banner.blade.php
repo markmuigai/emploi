@@ -38,7 +38,7 @@ if(isset(Auth::user()->id))
                                     <div class="row">
                                       <div class="col-md-6">
                                         <p>
-                                          <label>Name:</label>
+                                          <label style="color: #000">Name:</label>
                                           @error('name')
                                             <div class="text-center my-2 py-1 alert alert-danger" role="alert">
                                                 Invalid name
@@ -49,7 +49,7 @@ if(isset(Auth::user()->id))
                                       </div>
                                           <div class="col-md-6">
                                         <p>
-                                          <label>Phone Number:</label>
+                                          <label style="color: #000">Phone Number:</label>
                                           @error('phone_number')
                                             <div class="text-center my-2 py-1 alert alert-danger" role="alert">
                                                 Invalid phone number
@@ -62,7 +62,7 @@ if(isset(Auth::user()->id))
                                   <div class="row">
                                     <div class="col-md-6">
                                       <p>
-                                        <label>Email:</label>
+                                        <label style="color: #000">Email:</label>
                                         @error('email')
                                           <div class="text-center my-2 py-1 alert alert-danger" role="alert">
                                               Invalid e-mail address
@@ -73,7 +73,7 @@ if(isset(Auth::user()->id))
                                     </div>
                                     <div class="col-md-6">
                                       <p>
-                                        <label>Current CV: <small>.doc, .docx and .pdf - Max 5MB</small></label>
+                                        <label style="color: #000">Current CV: <small>.doc, .docx and .pdf - Max 5MB</small></label>
                                         @error('resume')
                                           <div class="text-center my-2 py-1 alert alert-danger" role="alert">
                                               Invalid resume uploaded
@@ -86,7 +86,7 @@ if(isset(Auth::user()->id))
                                   <div class="row">
                                     <div class="col-md-6">
                                       <p>
-                                        <label>Industry:</label>
+                                        <label style="color: #000">Industry:</label>
                                         @error('industry')
                                           <div class="text-center my-2 py-1 alert alert-danger" role="alert">
                                               Invalid industry selected
@@ -102,7 +102,7 @@ if(isset(Auth::user()->id))
                                     </div>
                                     <div class="col-md-6">
                                       <p>
-                                        <label>Message:</label>
+                                        <label style="color: #000">Message:</label>
                                         @error('message')
                                           <div class="text-center my-2 py-1 alert alert-danger" role="alert">
                                               Invalid message
