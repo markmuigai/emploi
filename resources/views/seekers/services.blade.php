@@ -422,7 +422,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                           </p>
                                     <p>
                                       
-                                      <a href="/job-seekers/summit" class="btn btn-orange-alt" target="_blank">View Pricing</a>
+                                      <a href="/job-seekers/summit" class="btn btn-orange-alt" target="_blank">Learn More</a>
                                       
                                     </p>
                                       

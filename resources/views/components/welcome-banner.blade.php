@@ -118,7 +118,7 @@ if(isset(Auth::user()->id))
                                           </p>
                                     <p>
                                       
-                                      <a href="/job-seekers/summit" class="btn btn-orange-alt" target="_blank">View Pricing</a>
+                                      <a href="/job-seekers/summit" class="btn btn-orange-alt" target="_blank">Learn More</a>
                                       
                                     </p>
                                       
