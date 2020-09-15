@@ -49,6 +49,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a class="btn btn-orange mt-4" href="/employers/paas-hire/{{ $p->id }}"  onclick="return confirm('Are you sure to hire {{ $p->user->name }}?')">Hire</a>
                                 @endif
                                 <a href="/employers/browse/{{ $p->user->username }}" target="_blank" class="btn btn-orange mt-4">View Profile</a>
+                                <a class="btn btn-orange-alt mt-4" href='mailto:{{ $p->user->email }}'>Email</a> 
                             </div>
                           </div>
                             
