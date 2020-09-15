@@ -373,14 +373,17 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                         <textarea name="description" id="description" rows="5" class="form-control"></textarea>
                     </div>                  
                     
+                    @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                     <div class="g-recaptcha"  id="recaptcha"  data-sitekey="6LdLhckZAAAAAAw00q3_UyaksiGoo7hbyjNcQ1it" class="form-control"  data-callback="enableBtn">                      
                     </div>
+                    @endif
 
                     <div class="text-center">
-                        <input type="submit" class="btn btn-orange" id="button1" disabled="disabled" value="Submit">
-                        @if(!$user || $user->role != 'employer')
-                        <p>Create an Employer profile and shortlist with our Role Suitability Index. <br>
-                            <a href="/employers/register" class="orange">Employer Registration</a></p>
+                        @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+                         <input type="submit" class="btn btn-orange" id="button1" disabled="disabled" value="Submit">
+                         @else
+                        <p>
+                          <a href="/employers/register?redirectToUrl={{ url()->current() }}" class="orange">Login or register to post and shortlist with our Role Suitability Index</a></p>
                         @endif
                     </div>
                 </form>
