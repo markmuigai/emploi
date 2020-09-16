@@ -137,7 +137,7 @@ class CvEditController extends Controller
         if(isset($r->id))
         {
 
-            $message = "Request has been received for professional CV editing. One of our representatives will get in touch shortly. Thank you for choosing Emploi";
+            $message = "Your request has been received for professional CV editing. One of our CV consultants will get in touch shortly. Thank you for choosing Emploi";
 
             $caption = "CV Editing request has been received on Emploi";
             $contents = $message."

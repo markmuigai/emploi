@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             {{ $message }}
         </p>
 
-        <a href="/home" class="btn btn-orange mt-3">Home</a>
+        <a href="/job-seekers/summit" class="btn btn-orange mt-3">View pricing</a>
     </div>
 </div>
 
