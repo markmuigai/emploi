@@ -87,8 +87,8 @@ Request Professionals Emploi and reach an audience of 100k+, get access to Premi
         
                   <div class="row">
                     <div class="form-group col-md-12">
-                      <label class="h6">Job Description</label>
-                      <textarea class="form-control" name="task_description" placeholder="brief description about the job"></textarea>
+                      <label class="h6">Job Description<b style="color: red" title="Required">*</b></label>
+                      <textarea class="form-control" name="task_description" required="" placeholder="brief description about the job"></textarea>
                     </div>
 
                     <div class="form-group col-md-6">
