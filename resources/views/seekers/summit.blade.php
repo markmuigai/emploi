@@ -212,27 +212,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-4">
-            <div class="card mb-5 mb-lg-0">
-              <div class="card-body"><br><br>
-                <h5 class="card-title text-muted text-uppercase text-center">Exclusive Placement</h5>
-                <hr>
-                <ul class="fa-ul">
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Professional discovery- In-depth career advisory</strong></li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Career profile -Opportunity mapping</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Fine-tuning of application tools, pitches, presentations and outreach messaging</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Coaching(2 sessions) on the best interviewing techniques- 100% success rate to date</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Vacancy hunting</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Post placement follow-up and support</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>CV Review</li>
-                  <li><span class="fa-li"><i class="fas fa-check"></i></span>CV Editing</li>
-                </ul>
-                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal2">GET STARTED</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
+           <div class="col-lg-4">
             <div class="card mb-5 mb-lg-0">
               <div class="card-body">
                 <div class="ribbon ribbon-top-right ml-2"><span>50% Off</span></div><br><br>
@@ -271,11 +251,30 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               </div>
             </div>
           </div>
+
+          <div class="col-lg-4">
+            <div class="card mb-5 mb-lg-0">
+              <div class="card-body"><br><br>
+                <h5 class="card-title text-muted text-uppercase text-center">Exclusive Placement</h5>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Professional discovery- In-depth career advisory</strong></li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Career profile -Opportunity mapping</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Fine-tuning of application tools, pitches, presentations and outreach messaging</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Coaching(2 sessions) on the best interviewing techniques- 100% success rate to date</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Vacancy hunting</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>Post placement follow-up and support</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>CV Review</li>
+                  <li><span class="fa-li"><i class="fas fa-check"></i></span>CV Editing</li>
+                </ul>
+                <a href="#" class="btn btn-block text-uppercase btn-white" style="background-color: #500094;" type="button" data-toggle="modal" data-target="#myModal2">GET STARTED</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section> 
-
-
+    
     <div class="banner animate__animated animate__pulse animate__infinite	infinite animate__slow	10s">
 
       <h1>50% Off</h1>
