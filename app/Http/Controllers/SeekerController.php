@@ -291,6 +291,8 @@ class SeekerController extends Controller
 
         $user = Auth::user();
         $message = Message::where('to_id', $user->id)->where('id', $id)->firstOrFail();
+        $message->update(['seen' =>1]);
+        $message->save();
 
         return view('seekers.messages.view')
                 ->with('message',$message);
