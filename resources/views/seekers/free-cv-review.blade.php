@@ -68,7 +68,8 @@ Get a free CV review from our Experts and stand out from the crowd.
 			        Invalid industry selected
 			    </div>
 			    @enderror
-				<select name="industry" class="form-control">
+			    <select name="industry" required="" class="form-control">
+                    <option disabled selected value> -- select an option -- </option>
 					@forelse(\App\Industry::orderBy('name')->get() as $ind)
 					<option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
 					@empty

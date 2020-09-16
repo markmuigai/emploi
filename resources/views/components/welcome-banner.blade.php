@@ -26,7 +26,7 @@ if(isset(Auth::user()->id))
                     <div class="modal-content">
                           <div class="modal-header">
                            <!--  <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal">&times;</button> -->
-                            <h4 class="orange">Request Professional CV Editing</h4>
+                            <h4 class="orange">Request For Professional CV Editing</h4><br>                            
                           </div>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeCvEditRequestModal">
                               <i class="fas fa-times" aria-hidden="true"></i>
@@ -92,8 +92,9 @@ if(isset(Auth::user()->id))
                                               Invalid industry selected
                                           </div>
                                           @enderror
-                                        <select name="industry" class="form-control">
-                                          @forelse(\App\Industry::orderBy('name')->get() as $ind)
+                                        <select name="industry" required="" class="form-control">
+                                          <option disabled selected value> -- select an option -- </option>
+                                          @forelse(\App\Industry::orderBy('name')->get() as $ind)                                     
                                           <option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
                                           @empty
                                           @endforelse

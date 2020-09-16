@@ -610,8 +610,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                           <div class="text-center my-2 py-1 alert alert-danger" role="alert">
                                               Invalid industry selected
                                           </div>
-                                          @enderror
-                                        <select name="industry" class="form-control">
+                                        @enderror
+                                        <select name="industry" required="" class="form-control">
+                                          <option disabled selected value> -- select an option -- </option>
                                           @forelse(\App\Industry::orderBy('name')->get() as $ind)
                                           <option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
                                           @empty
