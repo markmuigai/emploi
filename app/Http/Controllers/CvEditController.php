@@ -151,9 +151,9 @@ class CvEditController extends Controller
             EmailJob::dispatch($r->name, $r->email, 'Professional CV Editing Requested', $caption, $contents);
 
             if (app()->environment() === 'production') {
-                $sm = $free_review ?  $r->name.' requested for CV Editing' : $r->name.' requested for Free CV Review';
+                $sm = $free_review ?  $r->name.'requested for Free CV Review' : $r->name.' requested for CV Editing';
                 Seeker::first()->notify(new EditingRequest($sm));
-            }
+            }            
         }
         else
             $message = "An error occurred while processing your request. Kindly try again after a while or contact us if the error persists";

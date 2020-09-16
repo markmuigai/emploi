@@ -332,7 +332,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                            <!--  <button type="button" style="background-color: #FF5733" class="close" data-dismiss="modal">&times;</button> -->
                             <h4 class="orange">Request Professional CV Editing</h4>
                           </div>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeInviteFriendsModal">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeCvEditRequestModal">
                               <i class="fas fa-times" aria-hidden="true"></i>
                           </button>
                           <div class="modal-body"> 
