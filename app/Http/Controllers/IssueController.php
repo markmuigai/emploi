@@ -40,13 +40,15 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
+         $user = Auth::user();
          $i = Issue::create([
             'title' => $request->title, 
             'description' => $request->description, 
             'task_slug' =>$request->slug,
             'assignee' => $request->assignee,
             'start_on'=>$request->start_date,
-            'due_date'=>$request->due_date
+            'due_date'=>$request->due_date,
+            'owner' =>$user->id
         ]);
         return redirect('/issues');
         // return redirect('/issues/edit/'.$i->id);
@@ -151,7 +153,7 @@ class IssueController extends Controller
     public function markCompleted($id)
     {        
         $i = Issue::Where('id',$id)->firstOrFail();
-        $i->update(['status' =>'completed']);
+        $i->update(['status' =>'completed','ended_on' =>now()]);
         $i->save();
         return Redirect()->back();
     }
