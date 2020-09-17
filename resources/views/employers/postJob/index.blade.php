@@ -348,7 +348,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     <div class="row">
         <div class="card shadow-lg col-sm-8 offset-md-2">
             <div class="card-body">
-                
+              @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                 <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here</h4>
                 <form action="/employers/publish" method="POST">
                     @csrf
@@ -378,15 +378,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     </div>
                     @endif
 
-                    <div class="text-center">
-                        @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+                    <div class="text-center">                   
                          <input type="submit" class="btn btn-orange" id="button1" disabled="disabled" value="Submit">
                          @else
-                        <p>
-                          <a href="/employers/register?redirectToUrl={{ url()->current() }}" class="orange">Login or register to post and shortlist with our Role Suitability Index</a></p>
-                        @endif
+                        <h5>
+                          <a href="/employers/register?redirectToUrl={{ url()->current() }}" class="orange">Login or register to post and shortlist with our Role Suitability Index</a></h5>
                     </div>
                 </form>
+              @endif
             </div>
         </div>
     </div>
