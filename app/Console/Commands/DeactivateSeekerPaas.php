@@ -51,6 +51,31 @@ class DeactivateSeekerPaas extends Command
 
             $end->status = 'completed';
             $end->save();
+
+            $caption = "Your Golden Club Membership Expired";
+            $contents = "Your Golden Club membership has expired <br>
+                      You will nolonger be eligible for the following benefits: <br>
+                      <ul>
+                          <li>Guaranteed placement on an on-demand basis to more than one company.</li>
+                          <li>Access to profession-based training and development opportunities.</li>
+                          <li>Increased chances for eventual permanent employment.</li>
+                          <li>Guaranteed income after successful placement.</li>
+                          <li>Great networking opportunities with top employers.</li>
+                      </ul>
+
+                      <br>
+
+                    <a href=".url('/job-seekers/register-paas').">Reactivate Golden Club</a>
+                     
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+                    
+
+                    <br>";
+                    EmailJob::dispatch( $end->name, $end->email, 'Golden Club Membership Expired', $caption, $contents);
         }
 
         $ends = SeekerSubscription::where('ending','>', now())->where('status','active')->get();
@@ -76,7 +101,7 @@ class DeactivateSeekerPaas extends Command
 
                       <br>
 
-                    <a href=".url('/checkout?product=golden_club').">Renew Golden Club</a>
+                    <a href=".url('/job-seekers/register-paas').">Renew Golden Club</a>
                      
                     <br><br>
 
