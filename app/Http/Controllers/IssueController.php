@@ -7,6 +7,9 @@ use Auth;
 use App\Issue;
 use App\PartTimer;
 use App\Task;
+use App\User;
+
+use App\Jobs\EmailJob;
 
 class IssueController extends Controller
 {
@@ -48,7 +51,7 @@ class IssueController extends Controller
             'assignee' => $request->assignee,
             'start_on'=>$request->start_date,
             'due_date'=>$request->due_date,
-            'owner' =>$user->id
+            'owner' =>$user->id  //the logged in user id i.e the employer/creator of issue
         ]);
         return redirect('/issues');
         // return redirect('/issues/edit/'.$i->id);
@@ -151,11 +154,28 @@ class IssueController extends Controller
 
 
     public function markCompleted($id)
-    {        
+    {    
+   
         $i = Issue::Where('id',$id)->firstOrFail();
         $i->update(['status' =>'completed','ended_on' =>now()]);
-        $i->save();
-        return Redirect()->back();
-    }
+        $saved = $i->save();
 
+        if($saved)
+        {  
+        $seeker= User::Where('id',$i->assignee)->first();
+        $employer= User::Where('id',$i->owner)->first();
+
+        $caption = "Task ".$i->title." has been marked complete";
+        $contents = "Part-timer has completed task ".$i->title.". <br>
+                
+            <p>We wish to inform you that the task you created on Emploi ".$i->title." and assigned ".$seeker->name." has been completed. Kindly <a href='". url('/login') . "'>Login</a>.') and review if it has been done to your satisfaction</p>
+
+            Thank you for choosing Emploi. 
+
+              <br>";
+
+            EmailJob::dispatch( $employer->name, $employer->email, 'Task on Emploi has been marked complete', $caption, $contents);
+        }
+        return redirect('/job-seekers/tasks');       
+    }
 }
