@@ -345,10 +345,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
         
     </div>
     <br id="advertise-form"><br>
-    <div class="row">
+    @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+    <div class="row">   
         <div class="card shadow-lg col-sm-8 offset-md-2">
-            <div class="card-body">
-              @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
+            <div class="card-body">             
                 <h4 class="text-center"> <i class="fa fa-check-circle" style="color: green"></i> Advertise here</h4>
                 <form action="/employers/publish" method="POST">
                     @csrf
@@ -377,19 +377,19 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                     <div class="g-recaptcha"  id="recaptcha"  data-sitekey="6LdLhckZAAAAAAw00q3_UyaksiGoo7hbyjNcQ1it" class="form-control"  data-callback="enableBtn">                      
                     </div>
                     @endif
-
                     <div class="text-center">                   
                          <input type="submit" class="btn btn-orange" id="button1" disabled="disabled" value="Submit">
-                         @else
-                        <h5>
-                          <a href="/employers/register?redirectToUrl={{ url()->current() }}" class="orange">Login or register to post and shortlist with our Role Suitability Index</a></h5>
-                    </div>
+                    </div>               
                 </form>
-              @endif
             </div>
         </div>
     </div>
-</div>
+    @else
+    <div class="text-center">   
+      <h5>
+          <a href="/login?redirectToUrl={{ url()->current() }}" class="orange">Login or register as a employer to post and shortlist with our Role Suitability Index</a></h5>
+    </div>
+    @endif
 
 <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
