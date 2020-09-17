@@ -387,7 +387,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     @else
     <div class="text-center">   
       <h5>
-          <a href="/login?redirectToUrl={{ url()->current() }}" class="orange">Login or register as a employer to post and shortlist with our Role Suitability Index</a></h5>
+          <a href="/login?redirectToUrl={{ url()->current() }}" class="orange">Login or register as an employer to post and shortlist with our Role Suitability Index</a></h5>
     </div>
     @endif
 
