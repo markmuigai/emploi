@@ -86,7 +86,7 @@ class DeactivateSeekerPaas extends Command
             $expiry = new Carbon($end->ending);
             $today = now();
 
-            if($today->diff($expiry)->days == 10){
+            if($today->diff($expiry)->days == 7){
 
             $caption = "Renew Golden Club Membership";
             $contents = "Your Golden Club memebership which enables you to be placed for part time jobs from top employers, will expire in ".$today->diff($expiry)->days." days <br>
