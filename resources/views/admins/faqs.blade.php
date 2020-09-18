@@ -8,7 +8,11 @@ Do you have questions? Here are frequently asked questions by Job Seekers.
 
 @section('content')
 @section('page_title', 'Admin '. __('other.faqs') )
-
+<style type="text/css">
+	.panel-title:hover{
+	    color: #554695;
+  }
+</style>
 <div class="card">
     <div class="card-body">
         <div class="container">

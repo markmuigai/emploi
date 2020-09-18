@@ -141,6 +141,10 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     width: 100%;
   }
 }
+
+.panel-title:hover{
+  color: #554695;
+  }
 </style>
 
 <div class="container">
