@@ -24,6 +24,7 @@ use App\UserPermission;
 use App\Coaching;
 use App\ExclusivePlacement;
 
+
 use App\Jobs\EmailJob;
 use App\Jobs\VacancyEmail;
 
@@ -35,6 +36,8 @@ use App\Notifications\ContactReceived;
 use App\Notifications\JobApplied;
 use PDF;
 use Image;
+
+use App\Notifications\CvDownloaded;
 
 class ContactController extends Controller
 {
@@ -110,8 +113,12 @@ class ContactController extends Controller
         $names = explode(" ", strtolower($request->name));
         $names = implode("_", $names);
 
-         return $pdf->download("$names-CV.pdf");
-
+        if($pdf){
+        Notification::send(Contact::first(),new CvDownloaded('CV BUILDER: '.$request->name.' ('.$request->phone.')  ('.$request->email.') used cv buider.'));
+       }
+        
+        return $pdf->download("$names-CV.pdf");
+   
         return view('seekers.cv-builder.template1')
                 ->with('name',$request->name)
                 ->with('email',$request->email)

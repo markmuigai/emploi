@@ -50,12 +50,7 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
 
 <div class="card">
     <div class="card-body">
-
-        <p style="text-align: right;">
-          Emploi CV-editing masterclass: <a href="https://emploi.co/events/cv-writing-webinar" class="btn btn-orange-alt">Learn more</a>
-          <hr>
-        </p>
-        
+             
         <form method="POST" action="/job-seekers/cv-builder/download" enctype="multipart/form-data">
             @csrf
             <h4>Personal Details</h4>
@@ -292,7 +287,7 @@ Create a resume that will land you your dream job, for free, on Emploi or reques
         </div>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
    $('#cvbuilder').click(function(){
  var x = location.hostname;
 
@@ -309,7 +304,7 @@ if (x === "emploi.co" || x ==="emploi.co.ke" || x =="emploi.co.rw")
     url: url
     });
  });   
-</script>
+</script> -->
 
 <script type="text/javascript">
     <?php
