@@ -278,6 +278,7 @@ Route::group(['prefix' => 'guests',  'middleware' => 'auth'], function(){
     Route::post('i-am-an-employer', 'HomeController@saveEmployer');
 });
 
+Route::get('/register', 'RegisterSimpleController@seeker');
 Route::get('/jobsikaz', 'RegisterSimpleController@seeker');
 Route::get('/jobseekers', 'RegisterSimpleController@seeker');
 Route::get('/jobseeker', 'RegisterSimpleController@seeker');

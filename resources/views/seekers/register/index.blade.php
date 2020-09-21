@@ -20,6 +20,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('user_title','Job Seeker Registration')
 
 
+{!! htmlScriptTagJsApi() !!}
+
    <!--  <h5 class="orange">Ready to jumpstart,  change or advance your career path?  Sign up today and get started.
     Join a pool of <span style="color: black">48,000+ job seekers.</span></h5><br> -->
 <div class="container text-center">
@@ -93,10 +95,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 I agree to the <a href="/terms-and-conditions" class="orange">Terms And Conditions</a>
             </label>
         </div>
-        <div class="d-flex justify-content-between">
-            <button type="submit" name="button" class="btn btn-orange">{{ __('auth.register') }} <i class="fas fa-chevron-right"></i></button>
+        <div class="g-recaptcha"  id="recaptcha"  data-sitekey="6LdLhckZAAAAAAw00q3_UyaksiGoo7hbyjNcQ1it" class="form-control"  data-callback="enableBtn">                      
         </div>
-        
+        <br>
+        <div class="text-center">                   
+            <input type="submit" name="button" class="btn btn-orange" id="button1" disabled="disabled" value="Submit">
+        </div>       
 
     </div>
 </form>
@@ -113,3 +117,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 
 @endsection
+
+<script type="text/javascript">
+   function enableBtn(){
+   document.getElementById("button1").disabled = false;
+ }
+</script>
