@@ -45,6 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 {{ session()->get('hired') }}
                 </div>
               @endif
+              @if(count($shortlisted) > 0)
                 <table class="table">
                   <div class="row">
                     <tr>
@@ -63,12 +64,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                      <!--    <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td> -->
                         </tr>                      
                       </tbody>
-                      @endif
-                        
-                    @endforeach
-                </table>
+                      @endif  
 
+                    @endforeach
+                  </div>
+                </table>
                 {{ $tasks->links() }}
+                @else
+                <p>No list of Hired Staff</p>
+                @endif
 
               </div>
               <br><br><br>
