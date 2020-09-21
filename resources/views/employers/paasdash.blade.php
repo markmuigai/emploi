@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'PaaS Dashboard')
+@section('page_title', 'Management Dashboard')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
 
@@ -60,7 +60,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     <ul class="nav nav-tabs mb-4">
         <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/admin-paas" style="text-decoration: none;">Administration</a></li>
-        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/paas-tasks" style="text-decoration: none;">Job Management</a></li>
+        <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/paas-tasks" style="text-decoration: none;">Task Management</a></li>
         <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/invoice-paas" style="text-decoration: none;">Invoice and Subscription</a></li>
         <li class="btn btn-orange-alt mr-2 mb-1"><a href="/employers/requests" style="text-decoration: none;">Requests Management</a></li>
 
