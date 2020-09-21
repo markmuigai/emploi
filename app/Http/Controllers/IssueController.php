@@ -19,9 +19,10 @@ class IssueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $user = Auth::user();
         return view('issues.index')
-                ->with('issues',Issue::orderBy('id','DESC')->paginate(5));
+                ->with('issues',Issue::Where('owner', $user->id)->orderBy('id','DESC')->paginate(5));
     }
 
     /**
