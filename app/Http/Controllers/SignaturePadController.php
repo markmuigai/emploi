@@ -13,7 +13,7 @@ class SignaturePadController extends Controller
 
     public function upload(Request $request)
     {
-	    $folderPath = public_path('upload/');
+	    $folderPath = public_path('storage/signatures');
 	  
 	    $image_parts = explode(";base64,", $request->signed);
 	        

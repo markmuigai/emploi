@@ -61,9 +61,9 @@
         </div>
         @enderror
         <label>Attach Resume <strong class="text-danger">*</strong> (.doc, .docx or .pdf) <small>(Max 5MB)</small> </label>
-        <input type="file" name="resume" required="" accept=".doc, .docx,.pdf">
+        <input type="file" name="resume" required="" accept=".doc, .docx,.pdf"> <a class="orange" href="/job-seekers/cv-builder" style="float: right;" target="_blank">Don't have a CV? Click here to use our free CV builder.</a>
     </div>
-    <br>
+    <br><br>
     <div>
         <input type="submit" value="Submit Application" class="btn btn-orange">
     </div>
