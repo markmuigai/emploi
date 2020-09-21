@@ -48,26 +48,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <table class="table">
                   <div class="row">
                     <tr>
-                      <th>Status</th>
                       <th>Name</th>
 
 
                     </tr>
                     @foreach ($shortlisted as $prof)
+                      @if($prof->status == 'selected')
                       <tbody>
                         <tr>
-                        <td>{{ $prof->status}}</td>
                         <td>{{ $prof->user->name }}</td>
 
                         <td><a href="/employers/browse/{{ $prof->user->username }}" target="_blank" style="color: blue">view</a></td>
-                        @if($prof->status == 'selected')
                         <td><a href="#" style="color: blue">Hired</a></td>
-                        @else
-                        <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td>
-                        @endif
-
+                     <!--    <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td> -->
                         </tr>                      
                       </tbody>
+                      @endif
                         
                     @endforeach
                 </table>
@@ -127,11 +123,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
           <div id="off" class="tab-pane fade mt-2 pb-4">
             <h3>Offboarding Management</h3>
-            <br><br><br> 
+            <div class="tab-content">
+                <div id="home" class="tab-pane active mt-2 pb-4">
+                    <div class="container mt-4">
+                       <table class="table">
+                            <div class="row">
+                              <tr>
+                                <th>Name</th>
+
+
+                              </tr>
+                              @foreach ($shortlisted as $prof)
+                                @if($prof->status == 'selected')
+                                <tbody>
+                                  <tr>
+                                  <td>{{ $prof->user->name }}</td>
+
+                                  <td><a href="/employers/browse/{{ $prof->user->username }}" target="_blank" style="color: blue">view</a></td>
+                                  <td><a href="#" style="color: blue">Hired</a></td>
+                               <!--    <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td> -->
+                                  </tr>                      
+                                </tbody>
+                                @endif
+                                  
+                              @endforeach
+                          </table>
+                      </div>
+                  </div>
+              </div>
+             
           </div>
           
-          
-        </div>
+       
       </div>
 
       
