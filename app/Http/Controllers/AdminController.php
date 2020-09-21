@@ -667,7 +667,7 @@ class AdminController extends Controller
                     if(!isset($user->id))
                         continue;
                     if(User::subscriptionStatus($user->email))
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
                 
                 
@@ -685,7 +685,7 @@ class AdminController extends Controller
                         
                         if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
                         {
-                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                             //print "<br> ".$row[0];
                         }
                         
@@ -711,7 +711,7 @@ class AdminController extends Controller
                         
                         if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
                         {
-                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                             //print "<br> ".$row[0];
                         }
                         
@@ -741,7 +741,7 @@ class AdminController extends Controller
                     if(!isset($user->id))
                         continue;
                     if(User::subscriptionStatus($user->email))
-                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                        VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
 
                 break;
@@ -762,7 +762,7 @@ class AdminController extends Controller
                 {
                     $user = User::find($company->user_id);
                     if(isset($company->email) && $company->user_id == 3)
-                    VacancyEmail::dispatch($company->email,$company->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                    VacancyEmail::dispatch($company->email,$company->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
                 
                 
@@ -962,7 +962,7 @@ class AdminController extends Controller
 
                 for($i=0; $i<count($team); $i++)
                 {
-                    VacancyEmail::dispatch($team[$i][0],$team[$i][1], $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                    VacancyEmail::dispatch($team[$i][0],$team[$i][1], $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
 
                 // $sql = "SELECT name, email FROM users WHERE email like \"%@emploi.co\"";
@@ -988,7 +988,7 @@ class AdminController extends Controller
                         
                         if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
                         {
-                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            VacancyEmail::dispatch($email,'there', $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                             //print "<br> ".$row[0];
                         }
                         
@@ -1008,7 +1008,7 @@ class AdminController extends Controller
                 for($i=0; $i<count($contacts); $i++)
                 {
                     $contact = $contacts[$i];
-                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
                 break;
 
@@ -1018,7 +1018,7 @@ class AdminController extends Controller
                 for($i=0; $i<count($contacts); $i++)
                 {
                     $contact = $contacts[$i];
-                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
                 break;
 
@@ -1028,7 +1028,7 @@ class AdminController extends Controller
                 for($i=0; $i<count($contacts); $i++)
                 {
                     $contact = $contacts[$i];
-                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
                 break;
 
@@ -1038,7 +1038,7 @@ class AdminController extends Controller
                 for($i=0; $i<count($contacts); $i++)
                 {
                     $contact = $contacts[$i];
-                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                 }
                 break;
 
@@ -1056,7 +1056,7 @@ class AdminController extends Controller
                         
                         if(User::subscriptionStatus($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match('/@.+\./', $email))
                         {
-                            VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                            VacancyEmail::dispatch($email,$name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'Emploi@emploi.co',$url);
                             //print "<br> ".$row[0];
                         }
                         
