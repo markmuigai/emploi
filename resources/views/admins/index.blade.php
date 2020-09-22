@@ -97,6 +97,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <br><br>
 
+                <a href="/admin/products" class="btn btn-sm btn-success">Products ({{ count(\App\Product::all()) }})</a>
                 <a href="/admin/vacancy-emails" class="btn btn-sm btn-info">Vacancy Emails</a>
                 
                 <a href="/admin/posts" class="btn btn-sm btn-success">Job Posts {{ $nj > 0 ? '('.$nj.')' : '' }}</a>
@@ -107,16 +108,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 
 
                 <hr>
-                <a href="/admin/products" class="btn btn-sm btn-success">Products ({{ count(\App\Product::all()) }})</a>
-                <a href="/admin/invoices" class="btn btn-sm btn-primary">Invoices ({{ count(\App\Invoice::where('alternative_payment_slug',null)->where('pesapal_transaction_tracking_id',null)->get()) }})</a>                
+                 <a href="/admin/eplacement" class="btn btn-sm btn-primary">Exclusive Placement ({{ count(\App\ExclusivePlacement::all()) }})</a>
+                <a href="/admin/invoices" class="btn btn-sm btn-info">Invoices ({{ count(\App\Invoice::where('alternative_payment_slug',null)->where('pesapal_transaction_tracking_id',null)->get()) }})</a>                
                 <a href="/admin/referees" class="btn btn-sm btn-info">Referees({{ count(\App\Referee::where('status','ready')->get()) }})</a>
 
                 <a href="/admin/orders" class="btn btn-sm btn-success" style="display: none">Orders</a>
                 <a href="/admin/product-orders" class="btn btn-sm btn-info" style="display: none">Product Orders</a>
 
                 <hr>
-                <a href="/admin/eplacement" class="btn btn-sm btn-primary">Exclusive Placement ({{ count(\App\ExclusivePlacement::all()) }})</a>
-                 <a href="/admin/cv-referrals" class="btn btn-sm btn-info">CV-Edit Referrals({{ count(\App\CvReferral::all()) }})</a>
+                <a href="/admin/paas-employers" class="btn btn-sm btn-success">E-Club ({{ count(\App\EmployerSubscription::where('status','active')->get()) }})</a>             
+                 <a href="/admin/cv-referrals" class="btn btn-sm btn-primary">CV-Edit Referrals({{ count(\App\CvReferral::all()) }})</a>
 
                 <hr>
                 <a href="/admin/events" class="btn btn-sm btn-orange">Events ({{ count(\App\Meetup::where('started_at',NULL)->get()) }})</a>

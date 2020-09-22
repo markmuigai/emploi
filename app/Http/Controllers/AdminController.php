@@ -35,6 +35,7 @@ use App\User;
 use App\ProductOrder;
 use App\Task;
 use App\SeekerSubscription;
+use App\EmployerSubscription;
 use App\ExclusivePlacement;
 use App\Coaching;
 use App\PartTimer;
@@ -381,7 +382,17 @@ class AdminController extends Controller
             
         
        
-    }    
+    }
+
+    public function PaasEmployers(Request $request)
+        {   
+
+        return view('admins.paas.employers')->with('employers',EmployerSubscription::where('status','active')
+                                            ->orWhere('name','like','%'.$request->q.'%')
+                                            ->orWhere('email','like','%'.$request->q.'%')     
+                                            ->orderBy('created_at','DESC')->paginate(15));     
+             
+        }        
 
 
     public function cvRequests(Request $request, $id=false){

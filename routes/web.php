@@ -220,6 +220,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('cv-edit-requests/{id}/assign', 'AdminController@assignEditingRequests');
     Route::resource('industries', 'IndustryController');
     Route::get('employers', 'AdminController@employers');
+    Route::get('paas-employers','AdminController@PaasEmployers');
     Route::get('companies', 'AdminController@companies');
     Route::post('log-in-as', 'AdminController@loginas');
     Route::get('username/{username}', 'AdminController@loginWithUsername');  
