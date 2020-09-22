@@ -16,7 +16,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     <div class="mt-4">
         <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
-        <a href="/vacancies" class="btn btn-orange-alt">Vacancies</a>
+        <a href="/job-seekers/cv-builder" class="btn btn-orange-alt">Build CV</a>
+        <a href="/job-seekers/free-cv-review" class="btn btn-orange">Free CV Review</a>
     </div>
 </div>
 
