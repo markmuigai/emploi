@@ -387,9 +387,7 @@ class AdminController extends Controller
     public function PaasEmployers(Request $request)
         {   
 
-        return view('admins.paas.employers')->with('employers',EmployerSubscription::where('status','active')
-                                            ->orWhere('name','like','%'.$request->q.'%')
-                                            ->orWhere('email','like','%'.$request->q.'%')     
+        return view('admins.paas.employers')->with('employers',EmployerSubscription::where('status','active') 
                                             ->orderBy('created_at','DESC')->paginate(15));     
              
         }        

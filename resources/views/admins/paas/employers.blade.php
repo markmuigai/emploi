@@ -12,10 +12,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        <form>
+       <!--  <form>
             <input type="text" placeholder="Search here" name="q" required="" class="form-control">
         </form>
-        <br>
+        <br> -->
         @include('components.ads.responsive')
         @forelse($employers as $e)
         <div class="row align-items-center">
