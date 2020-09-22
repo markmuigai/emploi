@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi Admin :: Tasks') )
+@section('title','Emploi Admin :: Issues') )
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
-@section('page_title', 'All Tasks') 
+@section('page_title', 'All Issues') 
 
 @section('content')
 
@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $task = App\Task::where('employer_id', $user->employer->id)->get();
 ?>
 
-<h4>Assign Duties and Manage Task Perfomance.</h4>
+<h4>Assign Duties and Manage Issue Perfomance.</h4>
 
 <div class="row d-flex">
     <div>
@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 
     <div>
-        <a href="/issues/create" class="btn btn-orange-alt">Create New Task</a> 
+        <a href="/issues/create" class="btn btn-orange-alt">Create New Issue</a> 
     </div>
 </div>
 

@@ -54,6 +54,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     color: white;
   }
 
+
+
 </style>
 
 <div class="tab-content pt-2 mb-4 pb-5" id="PaaS Menu">
@@ -69,6 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
     <div class="row">
         <div class="col-md-8">
+                <h4>Hire and Manage Professionals at One Stop.</h4>
             <div class="card">
                 <div class="card-header" style="background-color:#554695; color: white;">
                     How it works
@@ -89,7 +92,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4"><br>
             <div class="card">
                 <div class="card-header" style="background-color:#554695; color:white;">
                     Get the Best

@@ -14,6 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <section>
     <div class="container">
+      <h5>Assign Duties and Manage Task Perfomance.</h5>
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Tasks</a></li>
           <li><a class="btn btn-orange-alt" style="color: black;" data-toggle="tab" href="#menu1">Issues Dashboard</a></li>

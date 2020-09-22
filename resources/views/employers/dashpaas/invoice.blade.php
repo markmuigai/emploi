@@ -15,7 +15,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <i class="fa fa-arrow-left"></i> Back Home
 </a>
 <section>
-    <div class="container">
+    <div class="container"><br>
+      <h5>View and Manage your Invoices.</h5>
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Invoices</a></li>
           @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())

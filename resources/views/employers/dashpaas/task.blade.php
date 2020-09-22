@@ -18,11 +18,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="container">
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange mr-4"><a data-toggle="tab" href="#home">Jobs</a></li>
-          <li><a class="btn btn-orange-alt" style="color: #E1573A;" href="/issues">Tasks</a></li>
+          <li><a class="btn btn-orange-alt" style="color: #E1573A;" href="/issues">Issues</a></li>
         </ul>
       
-        <div class="tab-content">
+        <div class="tab-content">         
           <div id="home" class="tab-pane active mt-2 pb-4">
+             <h5>Manage leave requests and view tasks per professional.</h5>
             <div class="container mt-4 card">
                 <table class="table">
                   <div class="row">
@@ -37,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <td>{{ $task->title }}</td>
                         <td>{{ $task->status }}</td>
                         <td><a href="/employers/leaves/{{ $task->slug }}" class="btn btn-orange-alt btn-sm">leave requests</a></td>
-                        <td><a href="/issues/show/{{ $task->slug }}" class="btn btn-orange-alt btn-sm">view Tasks</a></td>
+                        <td><a href="/issues/show/{{ $task->slug }}" class="btn btn-orange-alt btn-sm">view Issues</a></td>
                         </tr>                      
                       </tbody>
                                                   
