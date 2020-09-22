@@ -25,6 +25,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     $task = App\Task::where('employer_id', $user->employer->id)->get();
 ?>
 
+<h4>Assign Duties and Manage Task Perfomance.</h4>
+
 <div class="row d-flex">
     <div>
         <a href="/employers/paas-tasks" class="btn btn-orange-alt mr-2 ml-3">
