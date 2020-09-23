@@ -1,13 +1,13 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Create Task')
+@section('title','Emploi :: Create Issue')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'Create New Task')
+@section('page_title', 'Create New Issue')
 
 <h2>
     <a href="/issues" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             <div class="form-group">
                 <label>
-                    Task Title:
+                    Title:
                 </label>
                 <input name="title" class="form-control input-sm" required="" id="title"></input>
             </div>
