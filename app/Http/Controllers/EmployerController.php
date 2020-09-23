@@ -468,8 +468,8 @@ class EmployerController extends Controller
 
     public function prequest(Request $request)
     {
-        $tasks = Task::where('employer_id', Auth::user()->employer->id)->paginate(5);
-        $shortlisted = PartTimer::where('status', 'shortlisted')->paginate(5);
+        $tasks = Task::where('employer_id', Auth::user()->employer->id)->orderBy('created_at','DESC')->paginate(5);
+        $shortlisted = PartTimer::where('status', 'shortlisted')->orderBy('created_at','DESC')->paginate(5);
 
 
         return view('employers.dashpaas.request')
