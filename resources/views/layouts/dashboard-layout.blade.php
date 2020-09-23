@@ -197,6 +197,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             @endif
 
                             @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
+                            <a href="/employers/request-paas" class="btn btn-orange-alt mr-2" >Request PartTimer</a>
                             <a href="/vacancies/create" class="btn btn-orange" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
 
                             @elseif( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
