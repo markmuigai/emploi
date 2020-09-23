@@ -40,7 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @forelse($e->companies as $c)
                 <a href="/admin/companies/{{ $c->id }}" class="">{{ $c->name }}</a>
                 @empty
-                No companies match this profile
+                {{ $e->company_name }}
                 @endforelse
                 
             </div>

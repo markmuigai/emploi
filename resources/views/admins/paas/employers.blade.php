@@ -9,7 +9,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Employers')
 
-
 <div class="card">
     <div class="card-body">
        <!--  <form>
@@ -18,13 +17,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <br> -->
         @include('components.ads.responsive')
         @forelse($employers as $e)
+        <?php 
+            $c = App\Employer::where('user_id', $e->user_id)->first();
+        ?>
         <div class="row align-items-center">
             <div class=" col-lg-7 col-md-6">
                 <h4>{{ $e->name }}</h4>
-                Subscribed: {{ $e->created_at }}
-                <p>
-
-                    <a href="mailto:{{ $e->email }}">{{ $e->email }}</a> || <a href="tel:{{ $e->phone_number }}">{{ $e->phone_number }}</a>
+                <h5>Company: {{ $c->company_name }}</h5> 
+                <a href="mailto:{{ $e->email }}">{{ $e->email }}</a> || <a href="tel:{{ $e->phone_number }}">{{ $e->phone_number }}</a><br>
+                 Subscribed: {{ $e->created_at }}
                 </p>
             </div>
         </div>
