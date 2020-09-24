@@ -236,9 +236,4 @@ class CompanyController extends Controller
         return view('companies.featured.featured-failed')
                 ->with('company',$company);
     }
-
-       public function Featured()
-    {
-      return view('companies.featured.featured');
-    }
 }

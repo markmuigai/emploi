@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container">
     <div class="col-md-12">
       <div class="row">
-        	<div class="col-md-8"><br>
+        	<div class="col-md-6"><br>
         	<h3 class="orange">Featured Company</h3>
     		    <h5>Featured Companies get more views on our platform.</h5>
 
@@ -43,7 +43,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     		    <div class="blink pt-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get free one job post for subscribing to this package</span></a></div>		   
     		</div>
 
-        <div class="col-md-2">
+        <div class="col-md-6">
            @include('components.ads.responsive')
         </div>              
     </div>

@@ -641,5 +641,9 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
                ->with('faqs',Faq::where('permission_id',4)->orderBy('created_at', 'desc')->paginate(10));
     }
 
+    public function Featured()
+    {
+      return view('companies.featured.featured');
+    }
 
 }
