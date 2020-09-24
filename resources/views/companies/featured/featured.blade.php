@@ -41,11 +41,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     		    </ul>
     		    <a href="/checkout?product=featured_company" class="btn btn-orange">Request</a>
     		    <div class="blink pt-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get free one job post for subscribing to this package</span></a></div>		   
-    		</div>
+    		  </div>
 
-        <div class="col-md-6">
-           @include('components.ads.responsive')
-        </div>              
+          <div class="col-md-6"><br>
+             @include('components.ads.responsive')
+          </div>
+      </div>              
     </div>
 </div>
 @endsection
