@@ -55,7 +55,7 @@
                                        
                                         '<p>'+
                                             '<a href="/blog/'+blog['slug']+'" class="orange">Read More</a>'+
-                                            '<button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal'+blog["id"]+'" style="float: right;"><i class="fas fa-share-alt"></i> Share</button>'+
+                                            // '<button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal'+blog["id"]+'" style="float: right;"><i class="fas fa-share-alt"></i> Share</button>'+
                                             
                                         '</p>'+
                                         
