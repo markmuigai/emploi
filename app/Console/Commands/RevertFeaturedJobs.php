@@ -69,7 +69,7 @@ class RevertFeaturedJobs extends Command
                 ->where('slug', '!=', 'opportunity-in-sales-executive-life-insurance')
                 ->where('slug', '!=', 'open-career-opportunity-at-interpeace-apply')
                 ->where('slug', '!=', 'sales-executives-wanted')
-                ->where('slug', '!=', '')             
+                ->where('slug', '!=', 'sales-advisors-wanted-urgently-apply-now ')            
                 ->get();
 
         
