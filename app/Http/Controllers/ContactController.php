@@ -23,6 +23,7 @@ use App\User;
 use App\UserPermission;
 use App\Coaching;
 use App\ExclusivePlacement;
+use App\CvBuilder;
 
 
 use App\Jobs\EmailJob;
@@ -56,7 +57,11 @@ class ContactController extends Controller
     public function cvBuilderDownload(Request $request)
     {
         $request->validate([
-            'avatar'    =>  ['mimes:png,jpg,jpeg','max:51200']
+            'avatar'    =>  ['mimes:png,jpg,jpeg','max:51200'],
+            'name' => ['required', 'string', 'max:50'],
+            'email'  =>  ['required', 'string', 'email','max:50'],
+            'phone' => ['required', 'string', 'max:20'],
+            'industry'    =>  ['integer']
         ]);
 
         $education = array();
@@ -112,8 +117,16 @@ class ContactController extends Controller
 
         $names = explode(" ", strtolower($request->name));
         $names = implode("_", $names);
+        
+        $r = CvBuilder::create([
+            'email' => $request->email,
+            'industry' => $request->industry, 
+            'name' => $request->name,
+            'phone' => $request->phone,
+        ]);
 
         if($pdf){
+        if (app()->environment() === 'production')
         Notification::send(Contact::first(),new CvDownloaded('CV BUILDER: '.$request->name.' ('.$request->phone.')  ('.$request->email.') used cv buider.'));
        }
         
