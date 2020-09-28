@@ -1188,6 +1188,7 @@ class AdminController extends Controller
 
         $eclub = EmployerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
         $golden_club = SeekerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
+        $referral = Referral::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','completed')->count();
 
         $months = [
             'Jan',
@@ -1247,6 +1248,7 @@ class AdminController extends Controller
 
         $eclub = EmployerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
         $golden_club = SeekerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
+        $referral = Referral::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','completed')->count();
 
 
         $months = [
@@ -1292,6 +1294,7 @@ class AdminController extends Controller
             ->with('pro',$pro)
             ->with('eclub',$eclub)
             ->with('golden_club',$golden_club)
+            ->with('referral',$referral)
             ;
     }
 

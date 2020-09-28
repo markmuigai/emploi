@@ -78,6 +78,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                         Paid Pro: {{ $pro }} <br>
                         Golden Club: {{ $golden_club }} <br>
+                        Referrals: {{ $referral }} <br>
                     </div>
                 </div>
             </div>
