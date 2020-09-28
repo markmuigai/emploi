@@ -127,7 +127,7 @@ class ContactController extends Controller
 
         if($pdf){
         if (app()->environment() === 'production')
-        Notification::send(Contact::first(),new CvDownloaded('CV BUILDER: '.$request->name.' ('.$request->phone.')  ('.$request->email.') used cv buider.'));
+        Notification::send(Contact::first(),new CvDownloaded('CV BUILDER: '.$request->name.' ('.$request->phone.')  ('.$request->email.') used cv builder.'));
        }
         
         return $pdf->download("$names-CV.pdf");

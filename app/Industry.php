@@ -63,7 +63,7 @@ class Industry extends Model
         return $this->hasMany(SeekerSubscription::class);
     }
 
-    public function CvBuilder(){
+    public function cvBuilders(){
         return $this->hasMany(CvBuilder::class);
     }
 
