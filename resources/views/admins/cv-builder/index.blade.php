@@ -39,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <b>{{ $i->name }}</b> <br>
                 </p>
                 <p>
-                    Phone: {{ $c->phone_number }}<br>
+                    Phone: {{ $c->phone }}<br>
                     Email: {{ $c->email }}
                 </p>
 
