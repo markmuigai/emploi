@@ -47,7 +47,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     $user = App\User::where('email',$c->email)->first();
                     ?>
                      @if(isset($user->id) && $user->role == 'seeker')
-                    <a href="{{ $user->seeker->resumeUrl }}" style="float: right;" class="btn btn-orange-alt">View CV</a>
+                    <a href="{{ $user->seeker->resumeUrl }}" style="float: right;" class="btn btn-orange">View CV</a>
                      @endif
                      @if(!isset($user->id))
                      <p class="orange" style="float: right">User not registered</p>
