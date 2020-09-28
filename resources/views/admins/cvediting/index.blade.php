@@ -41,7 +41,35 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </p>
                 
             </div>
-            <div class="col-md-4 text-right">
+            <div class="col-md-4 text-right"><br>
+                @if($e->amount == 1000)
+                <p>Amount: 1000 to 2000 Ksh.</p>
+                @endif
+
+                @if($e->amount == 2000)
+                <p>Amount: 2000 to 3000 Ksh.</p>
+                @endif
+
+                @if($e->amount == 3000)
+                <p>Amount: 3000 to 4000 Ksh.</p>
+                @endif
+
+                @if($e->amount == 4000)
+                <p>Amount: 4000 to 5000 Ksh.</p>
+                @endif
+
+                @if($e->amount == 5000)
+                <p>Amount: 5000 to 6000 Ksh.</p>
+                @endif
+
+                @if($e->amount == 6000)
+                <p>Amount: More than 6000 Ksh.</p>
+                @endif
+                
+                @if($e->experience=NULL)
+                <p>Experience: {{ $e->experience }}</p>
+                @endif
+                
                 <p><strong>{{ $e->status }}</strong> </p>
                 <a href="/admin/cv-edit-requests/{{$e->id}}" class="btn btn-orange btn-sm">Manage</a>
             </div>

@@ -76,6 +76,48 @@ Get a free CV review from our Experts and stand out from the crowd.
 					@endforelse
 				</select>
 			</p>
+
+			<p>
+              <label class="h6">Experience: <b style="color: red">*</b> </label>
+	                <select id="experience" name="experience" required="" class="form-control">
+	                  <option disabled selected value> -- select an option -- </option>
+	                  <option value="0">No Experience/Less than 1 year</option>
+	                  <option value="1">1 Year</option>
+	                  <option value="2">2 Years</option>
+	                  <option value="3">3 Years</option>
+	                  <option value="4">4 Years</option>
+	                  <option value="5">5 Years</option>
+	                  <option value="6">6 Years</option>
+	                  <option value="7">7 Years</option>
+	                  <option value="8">8 Years</option>
+	                  <option value="9">9 Years</option>
+	                  <option value="10">10 Years</option>
+	                  <option value="11">11 Years</option>
+	                  <option value="12">12 Years</option>
+	                  <option value="13">13 Years</option>
+	                  <option value="14">14 Years</option>
+	                  <option value="15">15 Years</option>
+	                  <option value="16">16 Years</option>
+	                  <option value="17">17 Years</option>
+	                  <option value="18">18 Years</option>
+	                  <option value="19">19 Years</option> 
+	                  <option value="19">19 Years</option>
+	                  <option value="20">Over 20 Years</option>  
+	                </select>                 
+			</p>
+
+			<p>
+              <label class="h6">Amount you are willing to pay for CV Editing: <b style="color: red">*</b><small> In Ksh.</small></label>
+	                <select id="amount" name="amount" required="" class="form-control">
+	                  <option disabled selected value> -- select an option -- </option>
+	                  <option value="1000">1000 to 2000</option>
+	                  <option value="2000">2000 to 3000</option>
+	                  <option value="3000">3000 to 4000</option>
+	                  <option value="4000">4000 to 5000</option>
+	                  <option value="5000">5000 to 6000</option>
+	                  <option value="6000">More than 6000</option>                            
+	                </select>                 
+			</p>
 			<p>
 				<label>Message:</label>
 				@error('message')
