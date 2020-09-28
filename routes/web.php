@@ -262,6 +262,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('paas-applications/{id}','AdminController@paasApplication');
     Route::get('shortlist-toggle/{slug}/{username}', 'AdminController@shortlistSeekerToggle');
 
+    Route::get('cv-builder', 'AdminController@CvBuilder');
+
 });
 
 

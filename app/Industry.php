@@ -63,6 +63,10 @@ class Industry extends Model
         return $this->hasMany(SeekerSubscription::class);
     }
 
+    public function CvBuilder(){
+        return $this->hasMany(CvBuilder::class);
+    }
+
     public function activePosts($counter = 10){
         return Post::where('status','active')
                     ->where('industry_id',$this->id)

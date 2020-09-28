@@ -116,7 +116,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <a href="/admin/product-orders" class="btn btn-sm btn-info" style="display: none">Product Orders</a>
 
                 <hr>
-                <a href="/admin/paas-employers" class="btn btn-sm btn-success">E-Club ({{ count(\App\EmployerSubscription::where('status','active')->get()) }})</a>             
+                <a href="/admin/paas-employers" class="btn btn-sm btn-orange">E-Club ({{ count(\App\EmployerSubscription::where('status','active')->get()) }})</a>
+                <a href="/admin/cv-builder" class="btn btn-sm btn-success">CV Builder ({{ count(\App\CvBuilder::all()) }})</a>               
                  <a href="/admin/cv-referrals" class="btn btn-sm btn-primary">CV-Edit Referrals({{ count(\App\CvReferral::all()) }})</a>
 
                 <hr>

@@ -39,6 +39,7 @@ use App\EmployerSubscription;
 use App\ExclusivePlacement;
 use App\Coaching;
 use App\PartTimer;
+use App\CvBuilder;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1463,6 +1464,18 @@ class AdminController extends Controller
                 return 'remove-from-shortlist';
             }
         }
+    }
+
+
+    public function CvBuilder(Request $request)
+    {
+        $cv=CvBuilder::Where('status','active')
+                    ->Where('name','like','%'.$request->q.'%')
+                    ->orWhere('email','like','%'.$request->q.'%')
+                    ->orWhere('phone','like','%'.$request->q.'%')
+                    ->paginate(2);
+            return view('admins.cv-builder.index')
+                ->with('cv',$cv);  
     }
 
 }
