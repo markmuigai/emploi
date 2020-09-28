@@ -107,15 +107,17 @@ Get a free CV review from our Experts and stand out from the crowd.
 			</p>
 
 			<p>
-              <label class="h6">Amount you are willing to pay for CV Editing: <b style="color: red">*</b><small> In Ksh.</small></label>
-	                <select id="amount" name="amount" required="" class="form-control">
+                <label class="h6">Are you willing to pay for a professional CV Editing?</small></label>
+					<label><input type="radio" name="Radio" value="yes" required=""> Yes</label>
+					<label><input type="radio" name="Radio" value="no" required=""> No</label>
+
+	                <select id="amount" name="amount" class="form-control" hidden="true">
 	                  <option disabled selected value> -- select an option -- </option>
 	                  <option value="1000">1000 to 2000</option>
 	                  <option value="2000">2000 to 3000</option>
 	                  <option value="3000">3000 to 4000</option>
 	                  <option value="4000">4000 to 5000</option>
-	                  <option value="5000">5000 to 6000</option>
-	                  <option value="6000">More than 6000</option>                            
+	                  <option value="5000">Above 5000</option>                          
 	                </select>                 
 			</p>
 			<p>
@@ -146,9 +148,16 @@ Get a free CV review from our Experts and stand out from the crowd.
 		@include('components.featuredEmployers')
 	</div>
 	
-
-
-	
-
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+        if($(this).attr("value") == 'yes')
+            document.getElementById("amount").hidden = false;
+            else 
+            	document.getElementById("amount").hidden = true;
+    });
+});
+</script>
 
 @endsection
+

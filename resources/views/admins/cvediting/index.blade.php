@@ -59,11 +59,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endif
 
                 @if($e->amount == 5000)
-                <p>Amount: 5000 to 6000 Ksh.</p>
-                @endif
-
-                @if($e->amount == 6000)
-                <p>Amount: More than 6000 Ksh.</p>
+                <p>Amount: Above 6000 Ksh.</p>
                 @endif
                 
                 @if($e->experience=NULL)
