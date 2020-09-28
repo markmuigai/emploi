@@ -107,7 +107,7 @@ Get a free CV review from our Experts and stand out from the crowd.
 			</p>
 
 			<p>
-                <label class="h6">Are you willing to pay for a professional CV Editing?</small></label>
+                <label class="h6">Are you willing to pay for professional CV Editing?</small></label>
 					<label><input type="radio" name="Radio" value="yes" required=""> Yes</label>
 					<label><input type="radio" name="Radio" value="no" required=""> No</label>
 
