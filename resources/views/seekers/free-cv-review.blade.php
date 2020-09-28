@@ -112,7 +112,7 @@ Get a free CV review from our Experts and stand out from the crowd.
 					<label><input type="radio" name="Radio" value="no" required=""> No</label>
 
 	                <select id="amount" name="amount" class="form-control" hidden="true">
-	                  <option disabled selected value> -- select an option -- </option>
+	                  <option disabled selected value>Select amount you can pay (in Ksh.)</option>
 	                  <option value="1000">1000 to 2000</option>
 	                  <option value="2000">2000 to 3000</option>
 	                  <option value="3000">3000 to 4000</option>
