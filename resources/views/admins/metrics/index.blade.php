@@ -65,6 +65,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         Spotlight: {{ $featured_seeker }} <br><br>
 
                         Paid Spotlight: {{ $spotlight }} <br>
+                        E Club: {{ $eclub }} <br>
                     </div>
                     <div class="col-md-6">
                         Adverts: {{ $adverts_count }} <br>
@@ -76,6 +77,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         Pro: {{ $seeker_basic }} <br><br>
 
                         Paid Pro: {{ $pro }} <br>
+                        Golden Club: {{ $golden_club }} <br>
                     </div>
                 </div>
             </div>

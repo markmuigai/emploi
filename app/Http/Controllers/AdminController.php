@@ -1186,6 +1186,9 @@ class AdminController extends Controller
         $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
+        $eclub = EmployerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
+        $golden_club = SeekerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
+
         $months = [
             'Jan',
             'Feb',
@@ -1242,6 +1245,9 @@ class AdminController extends Controller
         $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
         $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
+        $eclub = EmployerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
+        $golden_club = SeekerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
+
 
         $months = [
             'Jan',
@@ -1284,6 +1290,8 @@ class AdminController extends Controller
             ->with('seeker_basic',$seeker_basic)
             ->with('spotlight',$spotlight)
             ->with('pro',$pro)
+            ->with('eclub',$eclub)
+            ->with('golden_club',$golden_club)
             ;
     }
 
