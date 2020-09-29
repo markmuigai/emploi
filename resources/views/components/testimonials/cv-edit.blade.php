@@ -104,6 +104,22 @@
                 </div>
             </div>
         </div>
+
+        <div class="card mx-4 mx-md-5 mx-lg-2 my-3">
+            <div class="card-body">
+            <!--     <h2 class="text-center orange">Job Seeker Feedback</h2> -->
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7 col-sm-5 col-md-2">
+                         <img src="/images/testimonials/earnest.jpg" data-src="{{asset('/images/testimonials/earnest.jpg')}}" alt="Earnest Chege"  class="w-100 lazy">
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <p>I wish to appreciate the good work done by Emploi CV writing team for putting together an enticing resume. I have sought CV writing services with other companies since 2017 but still went a long time without a job. I physically visited their offices where I filled a detailed questionnaire and in 3 days my CV was completed. In 3 months of job hunting using the same CV I have had 4 interviews via Skype and Zoom. The last interview got me a job with a military contractor based in USA.</p>
+                        <hr class="short">
+                        <h5>Earnest Chege</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
