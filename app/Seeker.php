@@ -866,13 +866,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(14))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(7))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(14))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(7))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -885,9 +885,16 @@ class Seeker extends Model
         {
     
                if(count($featuredVacancies) > 0){
+
+                $contents ="<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING
+
+                            HIRED</p> 
+                            <p>Click <a href='https://bit.ly/3fqEkrD'> here</a> to have your CV done to perfection at no cost.</p>
+                                <br><br>";  
+
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
     
-                $contents  = '<p style= "background:orange; color:white">';
+                $contents  .= '<p style= "background:orange; color:white">';
 
                 $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
                 $contents .= '</p>';
@@ -911,12 +918,7 @@ class Seeker extends Model
                   }   
                 
                 $contents .= "Click <a href='".url('/vacancies')."'>vacancies</a> for more and how to apply.<br>"; 
-
-                $contents  .="<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING
-
-                            HIRED</p> 
-                            <p>Click <a href='https://bit.ly/3fqEkrD'> here</a> to have your CV done to perfection at no cost at all.</p>
-                                <br><br>";         
+                   
 
                 $contents .= '<p style= "background:orange; color:white; text-align:center">'; 
                 $contents .= "Blogs From Our Career Centre";
