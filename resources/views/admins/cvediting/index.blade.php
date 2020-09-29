@@ -62,10 +62,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Amount: Above 6000 Ksh.</p>
                 @endif
                 
-                @if($e->experience=NULL)
-                <p>Experience: {{ $e->experience }}</p>
+                @if($e->experience!=null)
+                <p>Experience: {{ $e->experience }} Years</p>
                 @endif
-                
+                  
                 <p><strong>{{ $e->status }}</strong> </p>
                 <a href="/admin/cv-edit-requests/{{$e->id}}" class="btn btn-orange btn-sm">Manage</a>
             </div>

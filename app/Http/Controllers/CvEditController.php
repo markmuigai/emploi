@@ -62,7 +62,7 @@ class CvEditController extends Controller
             'resume' => ['required','mimes:pdf,docx,doc','max:51200'],
             'phone_number' => ['required', 'string', 'max:20'],
             'industry'    =>  ['integer'],
-            'experience'    =>  ['integer'],
+            'experience'  =>  ['integer'],
             'amount'    =>  ['integer'],
             'message' => ['max:500']
         ]);
