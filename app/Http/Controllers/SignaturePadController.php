@@ -27,7 +27,7 @@ class SignaturePadController extends Controller
 	    $image_base64 = base64_decode($image_parts[1]);
 	      
 	    $file = $folderPath . uniqid() .'[' .$user->email. '].'.$image_type;
-	    file_put_contents($file, $image_base64);
-	    return back()->with('success', 'Contract Successfully Signed');
+	    file_put_contents($file, $image_base64); 
+	    return response()->download($file,$user->email."_signature.png");
     }
 }
