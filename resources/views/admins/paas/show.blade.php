@@ -20,16 +20,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h5>
+                <h4>
                     {{ $task->name }}
                     <small>{{ $task->created_at->diffForHumans() }}</small>
-                </h5>
+                </h4>
+                <h5>Company: {{ $task->company }}</h5>
              
                 <p>
                     Phone: {{ $task->phone_number }}<br>
                     Email: {{ $task->email }}
                 </p>
                 <h6>Task: {{ $task->title }}</h6>
+                        <small>{{ $task->salary }} Ksh.</small>
                 <p>Description: {{ $task->description }}</p>
                 
             </div>
