@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @error('resume')
                     <p class="text-danger">Resume errors were detected</p>
                 @enderror
-                @error('resume')
+                @error('avatar')
                     <p class="text-danger">Avatar errors were detected</p>
                 @enderror
                 <h3 class="text-center">Step 1 of 3 : Personal Details</h3>
