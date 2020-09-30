@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class SignaturePadController extends Controller
 {
@@ -13,7 +14,9 @@ class SignaturePadController extends Controller
 
     public function upload(Request $request)
     {
-	    $folderPath = public_path('storage/signatures');
+	    $user= Auth::user();
+
+	    $folderPath = public_path('storage/signatures/');
 	  
 	    $image_parts = explode(";base64,", $request->signed);
 	        
@@ -23,7 +26,7 @@ class SignaturePadController extends Controller
 	      
 	    $image_base64 = base64_decode($image_parts[1]);
 	      
-	    $file = $folderPath . uniqid() . '.'.$image_type;
+	    $file = $folderPath . uniqid() .'[' .$user->email. '].'.$image_type;
 	    file_put_contents($file, $image_base64);
 	    return back()->with('success', 'Contract Successfully Signed');
     }
