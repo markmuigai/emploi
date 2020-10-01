@@ -36,7 +36,7 @@ class TaskController extends Controller
             'email'       =>  ['required','string', 'email', 'max:50'],
             'phone_number'=>  ['required', 'string', 'max:15'],
             'company'     =>  ['max:100','string'],
-            'task_title'  =>  ['max:100','string'],
+            'task_title'  =>  ['max:100','string']
         ]);
 
         $task->name = $request->firstname. ' ' .$request->lastname;               
