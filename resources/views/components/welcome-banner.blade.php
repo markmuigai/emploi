@@ -15,7 +15,7 @@ if(isset(Auth::user()->id))
 <p>
     <a href="#featured-vacancies" class="btn btn-orange px-4">{{ __('jobs.l_vacancies') }}</a>
     <br class="for-mobile"><br class="for-mobile">
-     <a href="#" class="btn btn-white px-4" data-toggle="modal" data-target="#myModal">{{ __('jobs.r_cv_edit') }}</a>
+     <a href="/job-seekers/free-cv-review" class="btn btn-white px-4">Request For Free CV Review</a>
 </p>
 
 
