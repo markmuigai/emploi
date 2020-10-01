@@ -3,58 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use Auth;
-use DB;
-use Session;
-use Notification;
 
-use App\Candidate;
-use App\Company;
-use App\CompanySize;
-use App\Country;
-use App\Course;
-use App\CvRequest;
-use App\EducationLevel;
-use App\Employer;
-use App\IqTest;
 use App\Industry;
-use App\IndustrySkill;
-use App\InterviewResult;
-use App\InviteLink;
-use App\JobApplication;
-use App\Location;
-use App\ModelSeeker;
-use App\ModelSeekerCourse;
-use App\ModelSeekerSkill;
-use App\ModelSeekerPersonalityTrait;
-use App\Personality;
-use App\PersonalityTrait;
-use App\Post;
-use App\PsychometricTest;
-use App\Referee;
-use App\Referral;
-use App\JobApplicationReferee;
-use App\RsiWeight;
-use App\Seeker;
-use App\SeekerPreviousCompanySize;
-use App\SeekerPersonality;
-use App\Skill;
-use App\User;
-use App\UserPermission;
-use App\EmployerSubscription;
-use App\Invoice;
 use App\Task;
 use App\PartTimer;
 use App\Issue;
 
-use App\Jobs\EmailJob;
-use App\Notifications\VerifyAccount;
-use App\Notifications\EmployerRegistered;
-use App\Notifications\PaasSubscribed;
-use App\Notifications\InvoiceCreated;
+
 
 class TaskController extends Controller
 {
