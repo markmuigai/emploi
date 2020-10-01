@@ -324,6 +324,15 @@ Route::post('/employers/request-professional', 'EmployerController@getProfession
 Route::get('/employers/task/{slug}', 'EmployerController@task');
 Route::post('/employers/invoice', 'EmployerController@getInvoice');
 
+Route::get('/employers/offboarding/tasks', 'OffboardingTaskController@tasks');
+Route::get('/employers/offboarding/create/{slug}', 'OffboardingTaskController@create');
+Route::post('/employers/offboarding/store', 'OffboardingTaskController@store');
+Route::get('/employers/offboarding/view/{id}', 'OffboardingTaskController@show');
+Route::get('/employers/offboarding/edit/{id}', 'OffboardingTaskController@edit');
+Route::post('/employers/offboarding/update/{id}', 'OffboardingTaskController@update');
+Route::get('/employers/offboarding/delete/{id}', 'OffboardingTaskController@destroy');
+Route::get('/employers/task/complete/{id}', 'OffboardingTaskController@complete');
+
 Route::get('/employers/leaves/{slug}', 'EmployerController@leaves')->middleware('employer');
 
 // Route::resource('/issues', 'IssueController');

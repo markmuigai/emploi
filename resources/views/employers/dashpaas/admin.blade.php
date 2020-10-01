@@ -33,7 +33,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       <h4>See all your Latest Hires.</h4>
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#home">Hired</a></li>
-<!--           <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
+   <!--        <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
           <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li> -->
 
         </ul>
@@ -127,31 +127,42 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
           <div id="off" class="tab-pane fade mt-2 pb-4">
-            <h3>Offboarding Management</h3>
+            <h4>Offboarding Management</h4>
+            <h6>Create offboarding tasks</h6>
+            <?php
+                $user=Auth()->user();
+                $ot = App\OffboardingTask::where('user_id', $user->id)->get();
+            ?>
             <div class="tab-content">
                 <div id="home" class="tab-pane active mt-2 pb-4">
                     <div class="container mt-4">
+
+
                        <table class="table">
                             <div class="row">
                               <tr>
-                                <th>Name</th>
-
-
-                              </tr>
-                              @foreach ($shortlisted as $prof)
-                                @if($prof->status == 'selected')
+                                <th>Title</th>
+                                <th>Assigned To</th>
+                                <th>Status</th>
+                                <th><a href="/employers/offboarding/tasks" style="color: blue">Create New Task</a></th>
+                                </td>
+                              @forelse($ot as $o)
                                 <tbody>
                                   <tr>
-                                  <td>{{ $prof->user->name }}</td>
+                                  <td>{{ $o->title }}</td>
+                                  <td>{{ $o->assigned_to }}</td>
+                                  <td>{{ $o->status }}</td>
 
-                                  <td><a href="/employers/browse/{{ $prof->user->username }}" target="_blank" style="color: blue">view</a></td>
-                                  <td><a href="#" style="color: blue">Hired</a></td>
-                               <!--    <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td> -->
+                                  <td><a href="/employers/offboarding/view/{{ $o->id }}" style="color: blue">view more details</a></td>
+
+                                  <td><a href="/employers/offboarding/edit/{{ $o->id }}" style="color: blue">Edit</a></td>
+
+                                  <td><a href="/employers/offboarding/delete/{{ $o->id }}" style="color: blue">Delete</a></td>
                                   </tr>                      
                                 </tbody>
-                                @endif
-                                  
-                              @endforeach
+                              @empty
+                              <p>There is no offboarding task. You can create a task here</p>                                  
+                              @endforelse
                           </table>
                       </div>
                   </div>
