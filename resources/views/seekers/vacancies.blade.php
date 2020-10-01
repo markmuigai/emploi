@@ -163,7 +163,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </p>
                 <p>Current Openings: <strong>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</strong></p>
                 <p>
-                    <a href="/vacancies/{{ $post->industry->name }}" title="View {{ $post->industry->name }} jobs">
+                    <a href="/vacancies/{{ $post->industry->slug }}" title="View {{ $post->industry->name }} jobs">
                         <i class="fa fa-briefcase"></i> {{ $post->industry->name }}
                     </a>
                 </p>
