@@ -16,8 +16,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             Edit Frequently Asked Question            
         </h2>
         <br>
-        <form method="post" action="/admin/faqs">
+        <form method="post" action="/admin/faqs/{{ $faq->id }}">
             @csrf
+            {{method_field('PUT')}}
 
             <div class="form-group">
                 <label>
@@ -48,7 +49,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             
 
             
-            <button type="submit" name="button" class="btn btn-orange">Create Faq</button>
+            <button type="submit" name="button" class="btn btn-orange">Edit Faq</button>
         </form>
     </div>
 </div>

@@ -94,7 +94,7 @@ class FaqController extends Controller
         $faq->description = $request->description;
         $faq->permission_id = $request->permission;
         $faq->save();
-        return redirect('/admin/faqs/'.$f->id);
+        return redirect('/admin/faqs/'.$id);
     }
 
     /**
