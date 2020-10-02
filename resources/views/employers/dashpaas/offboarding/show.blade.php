@@ -21,7 +21,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 </style>
 
 <div class="row mr-auto pb-3 ml-1 d-flex">
-    <a href="/employers/paas-dash" class="btn btn-orange-alt mr-2">
+    <a href="/employers/admin-paas" class="btn btn-orange-alt mr-2">
         <i class="fa fa-arrow-left"></i>Back
     </a>
 </div>
@@ -39,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                              <small>{{ $t->category }}</small></h3>
                         </div>
                         <p>
-                            {{ $t->description }}                       
+                            <?php echo $t->description; ?>                     
                         </p>
                         <p>
                             <b>Assigned to:</b> {{ $t->assigned_to }}<br>

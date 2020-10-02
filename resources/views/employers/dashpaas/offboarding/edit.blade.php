@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Create Offboarding Task')
 
 <h2>
-    <a href="/employers/offboarding" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
+    <a href="/employers/admin-paas" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
 </h2>
 
 <div class="card">
@@ -99,7 +99,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label>
                     Description:
                 </label>
-                <textarea name="description" value="{{ $t->description }}" class="form-control" id="description"></textarea>
+                <textarea name="description" class="form-control" id="description">{{ old('description') ? old('description') : $t->description }}</textarea>
             </div>
 
             

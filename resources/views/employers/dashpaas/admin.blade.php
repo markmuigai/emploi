@@ -33,7 +33,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       <h4>See all your Latest Hires.</h4>
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#home">Hired</a></li>
-   <!--        <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
+<!--           <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
           <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li> -->
 
         </ul>
@@ -70,12 +70,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @endforeach
                   </div>
                 </table>
-                {{ $tasks->links() }}
                 @else
                 <p>No list of Hired Staff</p>
                 @endif
-
               </div>
+                 {{ $tasks->links() }}
               <br><br><br>
 
           </div>
@@ -131,7 +130,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h6>Create offboarding tasks</h6>
             <?php
                 $user=Auth()->user();
-                $ot = App\OffboardingTask::where('user_id', $user->id)->get();
+                $ot = App\OffboardingTask::where('user_id', $user->id)->paginate(10);
             ?>
             <div class="tab-content">
                 <div id="home" class="tab-pane active mt-2 pb-4">
@@ -165,6 +164,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                               @endforelse
                           </table>
                       </div>
+                        {{ $ot->links() }}
                   </div>
               </div>
              
