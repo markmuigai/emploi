@@ -1484,7 +1484,8 @@ class AdminController extends Controller
                     ->Where('name','like','%'.$request->q.'%')
                     ->orWhere('email','like','%'.$request->q.'%')
                     ->orWhere('phone','like','%'.$request->q.'%')
-                    ->paginate(2);
+                    ->orderBy('id','desc')
+                    ->paginate(10);
             return view('admins.cv-builder.index')
                 ->with('cv',$cv);  
     }
