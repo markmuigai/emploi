@@ -36,7 +36,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <option disabled selected value>Select status</option>
                           <option value="active">active</option>
                           <option value="pending">pending</option>
-                          <option value="inactive">inactive</option>
                           <option value="completed">completed</option>                
                         </select>
                     </div>

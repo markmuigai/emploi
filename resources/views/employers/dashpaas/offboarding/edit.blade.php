@@ -1,13 +1,13 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Create Offboarding task')
+@section('title','Emploi :: Edit Offboarding task')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
 
 @section('content')
-@section('page_title', 'Create Offboarding Task')
+@section('page_title', 'Edit Offboarding Task')
 
 <h2>
     <a href="/employers/admin-paas" class="btn btn-sm btn-orange-alt" role="button"><i class="fa fa-arrow-left"></i> Back</a>
@@ -36,7 +36,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <option value="{{ $t->status}}">{{ $t->status }}</option>
                           <option value="active">active</option>
                           <option value="pending">pending</option>
-                          <option value="inactive">inactive</option>
                           <option value="completed">completed</option>                
                         </select>
                     </div>
@@ -71,7 +70,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <label>
                             Date:
                         </label>
-                        <input type="date"  value="{{ $t->date }}"  class="form-control" name="date"  required="" placeholder="">
+                        <input type="date-local"  value="{{ \Carbon\Carbon::parse($t->date)->format('Y-m-d') }}"  class="form-control" name="date"  required="" placeholder="">
                     </div>
                 </div>
                         
