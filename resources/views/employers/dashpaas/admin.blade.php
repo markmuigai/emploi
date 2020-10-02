@@ -33,8 +33,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       <h4>See all your Latest Hires.</h4>
         <ul class="nav nav-tabs mt-4">
           <li class="active btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#home">Hired</a></li>
-<!--           <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
-          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li> -->
+          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#docs">Contract Signing</a></li>
+          <li class="btn btn-orange-alt mr-4 mb-1"><a data-toggle="tab" href="#off">Offboarding</a></li>
 
         </ul>
       
@@ -62,7 +62,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                         <td><a href="/employers/browse/{{ $prof->user->username }}" target="_blank" style="color: blue">view</a></td>
                         <td><a href="#" style="color: blue">Hired</a></td>
-                     <!--    <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td> -->
+                        <td><a class="btn btn-primary" href="/employers/paas-hire/{{ $prof->id }}"  onclick="return confirm('Are you sure to hire {{ $prof->user->name }}?')">Hire</a></td>
                         </tr>                      
                       </tbody>
                       @endif  
@@ -154,9 +154,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                                   <td><a href="/employers/offboarding/view/{{ $o->id }}" style="color: blue">view more details</a></td>
 
-                                  <td><a href="/employers/offboarding/edit/{{ $o->id }}" style="color: blue">Edit</a></td>
+                                  <td><a href="/employers/offboarding/edit/{{ $o->id }}" style="color: blue">Edit <i class="far fa-edit"></i></a></td>
 
-                                  <td><a href="/employers/offboarding/delete/{{ $o->id }}" style="color: blue">Delete</a></td>
+                                  <td><a href="/employers/offboarding/delete/{{ $o->id }}" style="color: blue" onclick="return confirm('This action is irreversible.Please be certain?')">Delete <i class="far fa-trash-alt"></a></td>
                                   </tr>                      
                                 </tbody>
                               @empty
