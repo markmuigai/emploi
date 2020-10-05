@@ -144,19 +144,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         <!-- GUEST SIDEBAR -->
                         @else
-                        @include('components.social-auth')
-                        <br>
                         <div class="card">
-                            <div class="card-body text-center">
-                                
-                                <a href="/join" class="btn btn-orange">{{ __('auth.register') }}</a>
-                                <h6 class="mt-3">- Have An Account -</h6>
-                                <a href="/login" class="btn btn-orange-alt">{{ __('auth.login') }}</a>
-
-                                
-                            </div>
+                         <h5 style="text-align: center">{{ __('jobs.top_industries') }}</h5>
+                            <ul >                           
+                                <li><a href="/vacancies/sales">Sales Jobs</a></li>
+                                <li><a href="/vacancies/it-and-telecoms">IT & Telecoms</a></li>
+                                <li><a href="/vacancies/hr">Human Resource</a></li>
+                                <li><a href="/vacancies/admin">Office and Admin Jobs</a></li>
+                                <li><a href="/vacancies/accounting">Accounting Jobs</a></li>
+                                <li><a href="/vacancies/government">Government Jobs</a></li>
+                                <li><a href="/vacancies/graduate-jobs">Graduate Jobs</a></li>
+                                <li><a href="/vacancies/healthcare">Healthcare & Pharmaceutical</a></li>
+                            </ul>
                         </div>
-                        <!-- END OF GUEST SIDEBAR -->
+                            @include('components.social-auth')
+                            <br>
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    
+                                    <a href="/join" class="btn btn-orange">{{ __('auth.register') }}</a>
+                                 <!--    <h6 class="mt-3">- Have An Account -</h6> -->
+                                    <a href="/login" class="btn btn-orange-alt">{{ __('auth.login') }}</a>
+
+                                    
+                                </div>
+                            </div>
+                            <!-- END OF GUEST SIDEBAR -->
                         @endif
 
 

@@ -20,9 +20,6 @@
 <div class="w3l-bootstrap-header fixed-top">
   <nav class="navbar navbar-expand-lg navbar-light p-2" style="background-color: #500095; border: #500095">
     <div class="container">
-      {{-- <a class="navbar-brand" href="/">
-        <img src="/images/logo-alt.png" style="width: 5em">
-      </a> --}} 
     <a class="navbar-brand" href="/">
         <img src="/images/logo-alt.png" alt="Emploi" title="Emploi logo" style="height:35px;" />
     </a>
