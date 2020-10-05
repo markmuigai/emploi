@@ -107,9 +107,19 @@ Get a free CV review from our Experts and stand out from the crowd.
 			</p>
 
 			<p>
-                <label class="h6">Are you willing to pay for professional CV Editing?</small></label>
-					<label><input type="radio" name="Radio" value="yes" required=""> Yes</label>
-					<label><input type="radio" name="Radio" value="no" required=""> No</label>
+				    <label class="h6">Have you ever engaged a professional CV Editor?</small></label>
+				        <label>
+							<input type="checkbox" class="check" value="yes" name="check"/>Yes
+						</label>
+						<label>
+					        <input type="checkbox" class="check" value="no" name="check" />No
+						</label>
+			</p>
+
+			<p>
+                <label class="h6">Are you willing to engage our professional CV Editing service at a cost?</small></label>
+					<label><input type="radio" name="Radio" id="radio" value="yes" required=""> Yes</label>
+					<label><input type="radio" name="Radio" id="radio" value="no" required=""> No</label>
 
 	                <select id="amount" name="amount" class="form-control" hidden="true">
 	                  <option disabled selected value>Select amount you can pay (in Ksh.)</option>
@@ -152,10 +162,36 @@ Get a free CV review from our Experts and stand out from the crowd.
 	$(document).ready(function(){
     $('input[type="radio"]').click(function(){
         if($(this).attr("value") == 'yes')
-            document.getElementById("amount").hidden = false;
+            document.getElementById("amount").hidden = false;    
             else 
-            	document.getElementById("amount").hidden = true;
+            document.getElementById("amount").hidden = true;
+      
     });
+
+        $('input[type="radio"]').click(function(){
+        if($(this).attr("value") == 'yes')
+            document.getElementById("amount").required = true;     
+            else 
+            document.getElementById("amount").required = false;
+    });
+
+			        // the selector will match all input controls of type :checkbox
+		// and attach a click event handler 
+		$("input:checkbox").on('click', function() {
+		  // in the handler, 'this' refers to the box clicked on
+		  var $box = $(this);
+		  if ($box.is(":checked")) {
+		    // the name of the box is retrieved using the .attr() method
+		    // as it is assumed and expected to be immutable
+		    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+		    // the checked state of the group/box on the other hand will change
+		    // and the current value is retrieved using .prop() method
+		    $(group).prop("checked", false);
+		    $box.prop("checked", true);
+		  } else {
+		    $box.prop("checked", false);
+		  }
+		});
 });
 </script>
 

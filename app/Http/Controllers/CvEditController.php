@@ -155,7 +155,7 @@ class CvEditController extends Controller
             EmailJob::dispatch($r->name, $r->email, 'Professional CV Editing Requested', $caption, $contents);
 
             if (app()->environment() === 'production') {
-                $sm = $free_review ?  $r->name.' requested for Free CV Review' : $r->name.' requested for CV Editing';
+                $sm = $free_review ?  $r->name.' requested for Free CV Review; CV Editing Before? '.$request->check.', Can Pay? '.$request->amount.'' : $r->name.' requested for CV Editing';
                 Seeker::first()->notify(new EditingRequest($sm));
             }            
         }
