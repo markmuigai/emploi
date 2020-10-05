@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p>Experience: {{ $e->experience }} Years</p>
                 @endif
                   
-                <p><strong>{{ $e->status }}</strong> </p>
+                <p>Status: <strong>{{ $e->status }}</strong> </p>
                 <a href="/admin/cv-edit-requests/{{$e->id}}" class="btn btn-orange btn-sm">Manage</a>
             </div>
         </div>
