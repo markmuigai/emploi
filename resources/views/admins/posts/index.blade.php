@@ -44,7 +44,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                     <div class="col-md-3 text-md-right text-left">
                         <p>Open for {{ $p->daysSince  }} days</p>
-                        <p>{{ $p->status }}</p>
+                        <p>Status: {{ $p->status }}</p>
                     </div>
                 </div>
                 <hr>
