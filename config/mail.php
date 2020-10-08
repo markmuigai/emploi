@@ -4,13 +4,13 @@ return [
 
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.sparkpostmail.com'),
 
     'port' => env('MAIL_PORT', 587),
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'info@emploi.co'),
-        'name' => env('MAIL_FROM_NAME', 'Emploi Team'),
+        'name' => env('MAIL_FROM_NAME', 'Emploi'),
     ],
 
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
