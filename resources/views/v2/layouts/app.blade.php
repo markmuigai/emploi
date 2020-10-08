@@ -301,48 +301,7 @@
         <!-- End Footer -->
 
         <!-- Copyright -->
-        <div class="copyright-area three">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="copyright-item">
-                            <ul>
-                                <li>
-                                    <a href="index-3.html#" target="_blank">
-                                        <i class='bx bxl-facebook'></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html#" target="_blank">
-                                        <i class='bx bxl-twitter'></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html#" target="_blank">
-                                        <i class='bx bxl-linkedin-square'></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html#" target="_blank">
-                                        <i class='bx bxl-pinterest-alt'></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html#" target="_blank">
-                                        <i class='bx bxl-youtube'></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="copyright-item">
-                            <p>Copyright @2020 Design & Developed by <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('v2.components.copyright')
         <!-- End Copyright -->
 
 
