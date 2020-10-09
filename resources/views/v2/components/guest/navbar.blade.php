@@ -109,10 +109,10 @@
                         </li> -->
                         @else
                             <li class="nav-item">
-                                <a href="/login" class="btn btn-lg btn-login btn-white px-3">{{ __('auth.login') }}</a>
+                                <a href="/login" style="margin-right:0px !important" class="btn btn-login btn-white px-3">{{ __('auth.login') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/join" class="btn btn-lg btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.register') }}</a>
+                                <a href="/join" style="padding-left" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.register') }}</a>
                             </li>
                         @endif
                     </ul>
