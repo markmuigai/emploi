@@ -55,7 +55,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('command:DeactivateExpiredJobs')->dailyAt('08:00');
         $schedule->command('command:ProInvoiceReminder')->monthlyOn(3, '06:30');
         $schedule->command('command:SpotlightInvoiceReminder')->monthlyOn(3, '07:30');
-        $schedule->command('command:SendCompleteProfileEmails')->monthlyOn(14, '11:00');
+        // $schedule->command('command:SendCompleteProfileEmails')->monthlyOn(14, '11:00');
         $schedule->command('command:DeactivateSeekerPaas')->dailyAt('8:30');
         $schedule->command('command:DeactivateEmployerPaas')->dailyAt('9:00');
         
