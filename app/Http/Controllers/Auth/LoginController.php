@@ -90,7 +90,7 @@ class LoginController extends Controller
             return view('pages.not-verified');
             die('Account not verified. <a href="/login">Login</a>');
         }
-        if($user->role == 'employer')
+        if($user->role == 'employer' && app()->environment() === 'production')
             if(isset($user->companies[0]))
             {
                 Notification::send(Employer::first(),new EmployerLoggedIn('EMPLOYER LOGIN: '.$user->name.' logged in. Company name: '.$user->companies[0]->name));
