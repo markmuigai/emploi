@@ -866,13 +866,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(7))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(10))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(7))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(10))
                     ->where('industry_id',$this->user->seeker->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -884,7 +884,7 @@ class Seeker extends Model
            
         {
     
-               if(count($featuredVacancies) > 0){
+               if($this->user->hasVerified()){
 
                 $contents ="<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING
 
