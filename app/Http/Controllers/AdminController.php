@@ -873,14 +873,14 @@ class AdminController extends Controller
                     )
                 );
 
-                Mail::to('earnest@emploi.co')
+                Mail::to('mark@emploi.co')
                 ->send(
                     new CustomVacancyEmail(
-                        'Earnest Wanyonyi',
+                        'Mark Muigai',
                         $subject,
                         $caption,
                         $contents,
-                        'earnest@emploi.co',
+                        'mark@emploi.co',
                         $banner,
                         $template,
                         $attachment1,
@@ -960,13 +960,13 @@ class AdminController extends Controller
             case 'team':
 
                 $team = [
-                    ['brian@emploi.co','Obare C. Brian'],
                     ['sophy@emploi.co','Sophy Mwale'],
                     ['derrick@emploi.co','Derrick Brian'],
-                    ['simon@emploi.co','Simon'],
+                    ['eva@emploi.co','Eva Wanjohi'],
                     ['silvia@emploi.co','Silvia Kamau'],
-                    ['david@emploi.co','David'],
-                    ['ernest@emploi.co','Ernest Wanyonyi'],
+                    ['david@emploi.co','David Kirarit'],
+                    ['mark@emploi.co','Mark Muigai'],
+                    ['adera@emploi.co','Kevin Adera'],
                     ['margaret@emploi.co','Margaret Ongachi']
                 ];
 
