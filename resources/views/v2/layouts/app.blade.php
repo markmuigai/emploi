@@ -30,7 +30,7 @@
 
         <title>Jecto - Job Board and Portal HTML Template</title>
 
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" sizes="512x512" href="{{ asset('images/favicon.png') }}">
     </head>
     <body>
         <!-- Preloader -->
