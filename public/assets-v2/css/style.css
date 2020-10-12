@@ -1795,6 +1795,7 @@ button:focus {
 /*-- End Feedback --*/
 /*-- Blog --*/
 .blog-item {
+  background-color: white !important;
   margin-bottom: 30px;
   border: 1px dashed #c4c4c4;
   border-radius: 5px;
@@ -4295,7 +4296,7 @@ button:focus {
 /*-- End Pricing --*/
 /*-- Partner --*/
 .partner-area.two {
-  background-color: #fafafa;
+  background-color: #e154195e;
 }
 
 /*-- End Partner --*/
@@ -4462,7 +4463,13 @@ button:focus {
 /*-- End Client --*/
 /*-- Blog --*/
 .blog-area.three {
-  background-color: #fafafa;
+  /* background-image: #fafafa; */
+  background-color: #191918;
+  background-size: contain  ;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+
 }
 
 .blog-area.three .section-title {
