@@ -273,6 +273,12 @@ class User extends Authenticatable
         return preg_replace('/[^A-Za-z0-9\-.@]/', '', $string);
     }
 
+    public function hasVerified(){
+        if($this->email_verified_at != NULL)
+            return true;
+        return false;
+        }
+
     public function credits(){
         return $this->hasMany(Credit::class);
     }

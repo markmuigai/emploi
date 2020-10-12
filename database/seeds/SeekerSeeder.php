@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CompanySeeder extends Seeder
+class SeekerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,11 +11,11 @@ class CompanySeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+     {
         // run a set of operations within a database transaction
         DB::transaction(function () {
             // Get sql file path
-            $sql = database_path('/sql/companies.sql');
+            $sql = database_path('/sql/seekers.sql');
             // collect contents and pass to DB::unprepared
             DB::unprepared(file_get_contents($sql));
         });

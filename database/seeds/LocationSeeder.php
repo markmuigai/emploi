@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Database\Seeder;
 
 class LocationSeeder extends Seeder
@@ -13,13 +11,6 @@ class LocationSeeder extends Seeder
      */
     public function run()
     {
-        // run a set of operations within a database transaction
-        DB::transaction(function () {
-            // Get sql file path 
-            $sql = database_path('locations.sql');
-
-            // collect contents and pass to DB::unprepared
-            DB::unprepared(file_get_contents($sql));
-        });
+        //
     }
 }

@@ -29,6 +29,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <a href="/companies/{{ $c->name }}">
                         {{ $c->name }}
                     </a>
+                    @if($c->isFeatured())
+                        <a href="#company-vacancies" class="badge badge-success" style="float: right; color: gold">FEATURED</a>
+                    @endif
                 </h5>
                 <p class="truncate-short">{{ $c->industry->name }}</p>
                 <p><i class="fas fa-map-marker-alt"></i> {{ $c->location->name.', '.$c->location->country->name }}</p>
