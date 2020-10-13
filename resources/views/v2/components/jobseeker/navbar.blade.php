@@ -7,7 +7,7 @@
     </div>
 
     <!-- Menu For Desktop Device -->
-    <div class="main-nav three">
+    <div class="main-nav three collapsed menu-shrink">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="/v2">

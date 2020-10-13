@@ -1,6 +1,11 @@
 @extends('v2.layouts.app')
 
 @section('content')
+    <!-- Navbar -->
+    @include('v2.components.guest.navbar')
+    <!-- End Navbar -->
+
+    @include('v2.components.main-banner')
 
     <!-- Who we are -->
     <div class="new-area pt-100 pb-70">

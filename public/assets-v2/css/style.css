@@ -3560,6 +3560,14 @@ button:focus {
 
 .main-nav.three.menu-shrink {
   background: #500095;
+  /* -webkit-box-shadow: 0px 0px 20px 0px #6363636b;
+          box-shadow: 0px 0px 20px 0px #6363636b; */
+}
+
+/* Collapsed menu */
+.main-nav.three.collapsed {
+  padding: 10px !important;
+  background: #500095;
   -webkit-box-shadow: 0px 0px 20px 0px #6363636b;
           box-shadow: 0px 0px 20px 0px #6363636b;
 }
