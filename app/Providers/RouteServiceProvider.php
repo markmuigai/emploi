@@ -41,6 +41,9 @@ class RouteServiceProvider extends ServiceProvider
 
         // Guest route
         $this->mapGuestRoutes();
+
+        // Job seeker routes
+        $this->mapJobSeekerRoutes();
     }
 
     /**
@@ -58,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the "web" routes for the application.
+     * Define the guest routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
@@ -71,6 +74,22 @@ class RouteServiceProvider extends ServiceProvider
              ->name('guest.')
              ->namespace('App\Http\Controllers\Guest')
              ->group(base_path('routes/guest.php'));
+    }
+
+    /**
+     * Define the guest routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapJobSeekerRoutes()
+    {
+        Route::prefix('v2')
+             ->middleware('web')
+             ->name('job-seeker.')
+             ->namespace('App\Http\Controllers\JobSeeker')
+             ->group(base_path('routes/jobseeker.php'));
     }
 
     /**
