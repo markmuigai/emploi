@@ -39,27 +39,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               </p>
               <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
             </div>
-
     
-            @if(isset(Auth::user()->id) || $blog->is_public !== 0)
-
                 <p><?php echo $blog->contents; ?></p>
                 @if($blog->image2)
                 <br>
                 <div class="blog-image" style="background-image: url('/storage/blogs/{{ $blog->image2 }}')"></div>
                 @endif
-            @else
-                <p>
-                    {!!html_entity_decode($blog->longPreview(1000))!!}
-                </p>
-                <br>
-                <div id="show"><?php echo $blog->contents; ?></div>
-                <br>
-                <p style="text-align: center;">
-                    <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange-alt">{{ __('auth.login') }}</a> or <a href="/join?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Create Free Account</a> to view the full blog.
-                </p>
-
-            @endif
+   
             <hr>
             <p>
                 <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}" style="float: left;"><i class="fas fa-share-alt"></i> Share</button>
@@ -150,7 +136,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(function() {
     // setTimeout() function will be fired after page is loaded
     // it will wait for 10 sec. and then will fire
@@ -159,6 +145,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
   $('#show').fadeOut('slow');
 }, 10000);
 });
-</script>
+</script> -->
           
 @endsection
