@@ -309,38 +309,29 @@
     </section>
     <!-- End Blog -->
 
-    <!-- Client -->
-    <section class="client-area ptb-100">
-        <div class="client-img">
-            <img src="{{asset('assets-v2/img/home-three/client1.jpg')}}" alt="Client">
-            <img src="{{asset('assets-v2/img/home-three/client2.jpg')}}" alt="Client">
-            <img src="{{asset('assets-v2/img/home-three/client3.jpg')}}" alt="Client">
-            <img src="{{asset('assets-v2/img/home-three/client4.jpg')}}" alt="Client">
-            <img src="{{asset('assets-v2/img/home-three/client5.jpg')}}" alt="Client">
-            <img src="{{asset('assets-v2/img/home-three/client6.jpg')}}" alt="Client">
-        </div>
-        <div class="container">
-            <div class="section-title three">
-                <div class="sub-title-wrap">
-                    <img src="{{asset('assets-v2/img/home-three/title-img.png')}}" alt="Icon">
+        <!-- Testimonial -->
+        <section class="testimonial-area pt-5 pb-100">
+            <div class="container">
+                <div class="section-title two text-center">
+                    <h2>Testimonials</h2>
                 </div>
-                <h2>Our Trusted Clients</h2>
-            </div>
-            <div class="client-slider owl-theme owl-carousel">
-                <div class="client-item">
-                    <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenimminim veniam quis nostrud  dolore magn</p>
-                    <h3>Devit M. Kolin</h3>
-                    <span>CEO & Founder</span>
-                </div>
-                <div class="client-item">
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>
-                    <h3>Tom Henry</h3>
-                    <span>Director</span>
+                <div class="testimonial-slider owl-theme owl-carousel">
+                    <div class="testimonial-item">
+                        <img src="{{asset('assets-v2/img/home-two/testimonial1.jpg')}}" alt="Testimonial">
+                        <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud</p>
+                        <h3>Devit M.Kolin</h3>
+                        <span>CEO & Founder</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <img src="{{asset('assets-v2/img/home-two/testimonial2.jpg')}}" alt="Testimonial">
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                        <h3>Tom Henry</h3>
+                        <span>Director</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End Client -->
+        </section>
+        <!-- End Testimonial -->
 
     <!-- Partner -->
     <div class="partner-area two pt-5 pb-70">

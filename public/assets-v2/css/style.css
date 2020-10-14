@@ -2612,7 +2612,7 @@ button:focus {
 }
 
 .company-area.two .owl-prev:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -3274,7 +3274,7 @@ button:focus {
 }
 
 .testimonial-area .owl-prev:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -3290,7 +3290,7 @@ button:focus {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #21a212;
+  background-color: #e15419;
   z-index: -1;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -3309,7 +3309,7 @@ button:focus {
 }
 
 .testimonial-area .owl-next:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -3325,7 +3325,7 @@ button:focus {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #21a212;
+  background-color: #e15419;
   z-index: -1;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -3343,7 +3343,6 @@ button:focus {
 
 .testimonial-area .section-title {
   margin-bottom: 30px;
-  max-width: 830px;
   margin-left: auto;
 }
 
