@@ -51,20 +51,30 @@
                                 <span>Trending Keywords:</span>
                             </li>
                             <li>
-                                <a href="index-3.html#">Account Manager,</a>
+                                <a href="/vacancies/sales">Sales Jobs</a>
                             </li>
                             <li>
-                                <a href="index-3.html#">Administrative,</a>
+                                <a href="/vacancies/it-and-telecoms">IT & Telecoms</a>
                             </li>
                             <li>
-                                <a href="index-3.html#">Android,</a>
+                                <a href="/vacancies/hr">Human Resource</a>
                             </li>
                             <li>
-                                <a href="index-3.html#">Angular,</a>
+                                <a href="/vacancies/admin">Office and Admin Jobs</a>
                             </li>
                             <li>
-                                <a href="index-3.html#">appASP.NET</a>
+                                <a href="/vacancies/accounting">Accounting Jobs</a>
                             </li>
+                            <li>
+                                <a href="/vacancies/government">Government Jobs</a>
+                            </li>
+                            <li>
+                                <a href="/vacancies/graduate-jobs">Graduate Jobs</a>
+                            </li>
+                            <li>
+                                <a href="/vacancies/healthcare">Healthcare & Pharmaceutical</a>
+                            </li>
+                    
                         </ul>
                     </div>
                     <div class="register-area">

@@ -144,94 +144,10 @@
                 </div>
                 <h2>{{ __('jobs.f_jobs') }}</h2>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-2">
-                    <div class="feature-item">
-                        <a href="job-details.html">
-                            <img src="{{ asset('assets-v2/img/home-three/feature1.png') }}" alt="Feature">
-                        </a>
-                        <div class="bottom">
-                            <h3>
-                                <a href="job-details.html">Accounting</a>
-                            </h3>
-                            <span>5 Jobs</span>
-                            <i class="flaticon-verify"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-2">
-                    <div class="feature-item">
-                        <a href="job-details.html">
-                            <img src="{{ asset('assets-v2/img/home-three/feature2.png') }}" alt="Feature">
-                        </a>
-                        <div class="bottom">
-                            <h3>
-                                <a href="job-details.html">Digital Marketing</a>
-                            </h3>
-                            <span>2 Jobs</span>
-                            <i class="flaticon-verify"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-2">
-                    <div class="feature-item">
-                        <a href="job-details.html">
-                            <img src="{{ asset('assets-v2/img/home-three/feature3.png') }}" alt="Feature">
-                        </a>
-                        <div class="bottom">
-                            <h3>
-                                <a href="job-details.html">Customer Service</a>
-                            </h3>
-                            <span>4 Jobs</span>
-                            <i class="flaticon-verify"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-2">
-                    <div class="feature-item">
-                        <a href="job-details.html">
-                            <img src="{{ asset('assets-v2/img/home-three/feature4.png') }}" alt="Feature">
-                        </a>
-                        <div class="bottom">
-                            <h3>
-                                <a href="job-details.html">Broadcasting</a>
-                            </h3>
-                            <span>1 Job</span>
-                            <i class="flaticon-verify"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-2">
-                    <div class="feature-item">
-                        <a href="job-details.html">
-                            <img src="{{ asset('assets-v2/img/home-three/feature5.png') }}" alt="Feature">
-                        </a>
-                        <div class="bottom">
-                            <h3>
-                                <a href="job-details.html">Sale Assistance</a>
-                            </h3>
-                            <span>5 Jobs</span>
-                            <i class="flaticon-verify"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-2">
-                    <div class="feature-item">
-                        <a href="job-details.html">
-                            <img src="{{ asset('assets-v2/img/home-three/feature6.png') }}" alt="Feature">
-                        </a>
-                        <div class="bottom">
-                            <h3>
-                                <a href="job-details.html">Teachers</a>
-                            </h3>
-                            <span>2 Job</span>
-                            <i class="flaticon-verify"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('v2.components.featured-jobs')
             <div class="job-browse">
-                <p>Jobs are waiting for you <a href="jobs.html">Browse all jobs</a></p>
+                <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
+                <a href="/vacancies/featured" class="btn btn-orange-alt mt-3 mb-5">Featured Vacancies</a>
             </div>
         </div>
     </section>
@@ -243,95 +159,35 @@
             <div class="section-title three">
                 <h2 class="text-white">Blog & News</h2>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="blog-item">
-                        <div class="top">
-                            <a href="blog-details.html">
-                                <img src="{{asset('assets-v2/img/home-one/blog1.jpg')}}" alt="Blog">
-                            </a>
-                        </div>
-                        <span>Job skills. 12-09-2020</span>
-                        <h3>
-                            <a href="blog-details.html">The Internet Is A Job Seeker Most Crucial Success </a>
-                        </h3>
-                        <div class="cmn-link">
-                            <a href="blog-details.html">
-                                <i class="flaticon-right-arrow one"></i>
-                                Learn More
-                                <i class="flaticon-right-arrow two"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="blog-item">
-                        <div class="top">
-                            <a href="blog-details.html">
-                                <img src="{{asset('assets-v2/img/home-one/blog2.jpg')}}" alt="Blog">
-                            </a>
-                        </div>
-                        <span>Career advice. 11-09-2020</span>
-                        <h3>
-                            <a href="blog-details.html">Today From Connecting With Potential Employers</a>
-                        </h3>
-                        <div class="cmn-link">
-                            <a href="blog-details.html">
-                                <i class="flaticon-right-arrow one"></i>
-                                Learn More
-                                <i class="flaticon-right-arrow two"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="blog-item">
-                        <div class="top">
-                            <a href="blog-details.html">
-                                <img src="{{asset('assets-v2/img/home-one/blog3.jpg')}}" alt="Blog">
-                            </a>
-                        </div>
-                        <span>Future plan. 10-09-2020</span>
-                        <h3>
-                            <a href="blog-details.html">We’ve Weeded Through Hundreds Of Job Hunting</a>
-                        </h3>
-                        <div class="cmn-link">
-                            <a href="blog-details.html">
-                                <i class="flaticon-right-arrow one"></i>
-                                Learn More
-                                <i class="flaticon-right-arrow two"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @include('v2.components.blogs')<br>
+
         </div>
     </section>
     <!-- End Blog -->
 
-        <!-- Testimonial -->
-        <section class="testimonial-area pt-5 pb-100">
-            <div class="container">
-                <div class="section-title two text-center">
-                    <h2>Testimonials</h2>
+    <!-- Testimonial -->
+    <section class="testimonial-area pt-5 pb-100">
+        <div class="container">
+            <div class="section-title two text-center">
+                <h2>Testimonials</h2>
+            </div>
+            <div class="testimonial-slider owl-theme owl-carousel">
+                <div class="testimonial-item">
+                    <img src="{{asset('assets-v2/img/home-two/testimonial1.jpg')}}" alt="Testimonial">
+                    <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud</p>
+                    <h3>Devit M.Kolin</h3>
+                    <span>CEO & Founder</span>
                 </div>
-                <div class="testimonial-slider owl-theme owl-carousel">
-                    <div class="testimonial-item">
-                        <img src="{{asset('assets-v2/img/home-two/testimonial1.jpg')}}" alt="Testimonial">
-                        <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud</p>
-                        <h3>Devit M.Kolin</h3>
-                        <span>CEO & Founder</span>
-                    </div>
-                    <div class="testimonial-item">
-                        <img src="{{asset('assets-v2/img/home-two/testimonial2.jpg')}}" alt="Testimonial">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                        <h3>Tom Henry</h3>
-                        <span>Director</span>
-                    </div>
+                <div class="testimonial-item">
+                    <img src="{{asset('assets-v2/img/home-two/testimonial2.jpg')}}" alt="Testimonial">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                    <h3>Tom Henry</h3>
+                    <span>Director</span>
                 </div>
             </div>
-        </section>
-        <!-- End Testimonial -->
+        </div>
+    </section>
+    <!-- End Testimonial -->
 
     <!-- Partner -->
     <div class="partner-area two pt-5 pb-70">
@@ -340,30 +196,7 @@
                 <h2>Featured Employers</h2>
             </div>
             <div class="partner-slider owl-theme owl-carousel">
-                <div class="partner-item">
-                    <img src="{{asset('assets-v2/img/home-one/partner1.png')}}" alt="Partner">
-                    <img src="{{asset('assets-v2/img/home-one/partner1.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{asset('assets-v2/img/home-one/partner2.png')}}" alt="Partner">
-                    <img src="{{asset('assets-v2/img/home-one/partner2.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{asset('assets-v2/img/home-one/partner3.png')}}" alt="Partner">
-                    <img src="{{asset('assets-v2/img/home-one/partner3.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{asset('assets-v2/img/home-one/partner4.png')}}" alt="Partner">
-                    <img src="{{asset('assets-v2/img/home-one/partner4.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{asset('assets-v2/img/home-one/partner5.png')}}" alt="Partner">
-                    <img src="{{asset('assets-v2/img/home-one/partner5.png')}}" alt="Partner">
-                </div>
-                <div class="partner-item">
-                    <img src="{{asset('assets-v2/img/home-one/partner1.png')}}" alt="Partner">
-                    <img src="{{asset('assets-v2/img/home-one/partner1.png')}}" alt="Partner">
-                </div>
+                @include('v2.components.featured-employers')                
             </div>
         </div>
     </div>
