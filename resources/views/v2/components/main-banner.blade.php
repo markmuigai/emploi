@@ -12,7 +12,7 @@
                     <div class="banner-form-area">
                         <form method="get" action="/vacancies/search" class="text-center">
                             <div class="row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>
                                             <i class='bx bx-search'></i>
@@ -20,9 +20,9 @@
                                             <input type="text" name="q" class="form-control" placeholder="Search Your Job" value="" onfocus="" onblur="">
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <div class="form-group">
-                                   <select name="industry" class="custom-select">
+                                   <select name="industry" class="main-banner select">
                                         <option value="-1">All Industries</option>
                                         @foreach(\App\Industry::active() as $i)
                                         <option value="{{ $i->id }}">{{ $i->name }}
@@ -31,9 +31,9 @@
                                     </select>	
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <div class="form-group">
-                                        <select name="location" class="custom-select">
+                                        <select name="location">
                                             <option value="-1">All Locations</option>
                                             @foreach(\App\Location::active() as $l)
                                             <option value="{{ $l->id }}">{{ $l->name }}
