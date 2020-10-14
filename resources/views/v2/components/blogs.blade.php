@@ -5,7 +5,7 @@
     <!-- FEATURED JOBS -->
        <div class="row">
         @foreach($blogs as $b)
-            <div class="col-sm-6 col-lg-4">
+            <div class="col-sm-6 col-lg-4 d-flex align-items-stretch">
                 <div class="blog-item">
                     <div class="top">
                         <a href="/blog/{{ $b->slug }}">

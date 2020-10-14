@@ -10,32 +10,36 @@
                     </p>
                     <h1>Blast Off <span>Your Career</span></h1>
                     <div class="banner-form-area">
-                        <form>
+                        <form method="get" action="/vacancies/search" class="text-center">
                             <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>
                                             <i class='bx bx-search'></i>
                                         </label>
-                                        <input type="text" class="form-control" placeholder="Search Your Job">
+                                            <input type="text" name="q" class="form-control" placeholder="Search Your Job" value="" onfocus="" onblur="">
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
-                                        <select>
-                                            <option>All Categories</option>
-                                            <option>Another option</option>
-                                            <option>A option</option>
-                                            <option>Potato</option>
-                                        </select>	
+                                   <select name="industry" class="custom-select">
+                                        <option value="-1">All Industries</option>
+                                        @foreach(\App\Industry::active() as $i)
+                                        <option value="{{ $i->id }}">{{ $i->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>	
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group two">
-                                        <label>
-                                            <i class='bx bx-location-plus'></i>
-                                        </label>
-                                        <input type="text" class="form-control" placeholder="Location">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <select name="location" class="custom-select">
+                                            <option value="-1">All Locations</option>
+                                            @foreach(\App\Location::active() as $l)
+                                            <option value="{{ $l->id }}">{{ $l->name }}
+                                            </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -80,30 +84,8 @@
                     <div class="register-area">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-4 col-lg-4">
-                                    <div class="register-item">
-                                        <h3>
-                                            <span class="odometer" data-count="6,789,990">00</span> 
-                                        </h3>
-                                        <p>Registered Users</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-lg-4">
-                                    <div class="register-item">
-                                        <h3>
-                                            <span class="odometer" data-count="8,098,234">00</span> 
-                                        </h3>
-                                        <p>Global Employers</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-lg-4">
-                                    <div class="register-item">
-                                        <h3>
-                                            <span class="odometer" data-count="3,678,890">00</span> 
-                                        </h3>
-                                        <p>Available Jobs</p>
-                                    </div>
-                                </div>
+                                @include('v2.components.stats')
+                            
                             </div>
                         </div>
                     </div>

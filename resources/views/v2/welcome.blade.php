@@ -139,8 +139,6 @@
         <div class="container-fluid">
             <div class="section-title three">
                 <div class="sub-title-wrap">
-                    {{-- <img src="{{ asset('assets-v2/img/home-three/title-img.png') }}" alt="Icon">
-                    <span class="sub-title">Employers Offering Job</span> --}}
                 </div>
                 <h2>{{ __('jobs.f_jobs') }}</h2>
             </div>
@@ -173,16 +171,40 @@
             </div>
             <div class="testimonial-slider owl-theme owl-carousel">
                 <div class="testimonial-item">
-                    <img src="{{asset('assets-v2/img/home-two/testimonial1.jpg')}}" alt="Testimonial">
-                    <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud</p>
-                    <h3>Devit M.Kolin</h3>
+                       <img src="images/team/sophy.png" alt="Sophy" />
+                    <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenimminim veniam quis nostrud  dolore magn</p>
+                    <h3>Sophy Mwale</h3>
                     <span>CEO & Founder</span>
                 </div>
                 <div class="testimonial-item">
-                    <img src="{{asset('assets-v2/img/home-two/testimonial2.jpg')}}" alt="Testimonial">
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                    <h3>Tom Henry</h3>
-                    <span>Director</span>
+                    <img src="{{asset('images/testimonials/kizito.webp')}}" alt="Kipkemoi">
+                    <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me an opportunity of getting there.</p>
+                    <h3>Kipkemoi Kizito</h3>
+                    <span>Job Seeker</span>
+                </div>
+                <div class="testimonial-item">
+                    <img src="{{asset('images/testimonials/sandra.webp')}}" alt="Sandra">
+                    <p>Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all they are reputable.</p>
+                    <h3>Sandra Eshitemi</h3>
+                    <span>Employer</span>
+                </div>
+                <div class="testimonial-item">
+                    <img src="{{asset('images/testimonials/fay.webp')}}" alt="Faith">
+                    <p>The Emploi Team creates a great rapport with their candidates and is an invaluable asset to anyone looking for a job.</p>
+                    <h3>Faith Chepkemoi</h3>
+                    <span>Job Seeker</span>
+                </div>
+                <div class="testimonial-item">
+                    <img src="{{asset('/images/testimonials/linda.png')}}" alt="Linda">
+                    <p>I highly recommend Emploi to anyone not making progress in their job search in the current market.</p>
+                    <h3>Linda Isuyi</h3>
+                    <span>Job Seeker</span>
+                </div>
+                <div class="testimonial-item">
+                    <img src="{{asset('/images/testimonials/earnest.png')}}" alt="Earnest">
+                    <p>I wish to appreciate the good work done by Emploi CV writing team for putting together an enticing resume. I have sought CV writing services with other companies since 2017 but still went a long time without a job. </p>
+                    <h3>Earnest Chege</h3>
+                    <span>Job Seeker</span>
                 </div>
             </div>
         </div>
