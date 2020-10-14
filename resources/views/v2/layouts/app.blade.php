@@ -28,7 +28,7 @@
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="{{asset('assets-v2/css/responsive.css')}}">
 
-        <title>Jecto - Job Board and Portal HTML Template</title>
+        <title>Welcome to Emploi - The Premier Online Job Placement Platform in Africa</title>
 
         <link rel="icon" sizes="512x512" href="{{ asset('images/favicon.png') }}">
     </head>
