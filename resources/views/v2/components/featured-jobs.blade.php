@@ -5,7 +5,7 @@
 
 <div class="row">
     @foreach($posts as $p)
-    <div class="col-sm-6 col-lg-2">
+    <div class="col-sm-6 col-lg-2 d-flex align-items-stretch">
         <div class="feature-item">
             <a href="/vacancies/{{ $p->slug }}">
                <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
