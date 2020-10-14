@@ -463,7 +463,7 @@ button:focus {
 }
 
 .banner-content .banner-form-area .form-group .nice-select .list {
-  width: 100%;
+  /* width: 100%; */
   display: block;
 }
 
@@ -8049,3 +8049,10 @@ button:focus {
 /*# sourceMappingURL=style.css.map */
 
 /* Home Page */
+
+/* main banner button responsiveness */
+@media only screen and (max-width: 768px) {
+  .banner-content.three .banner-form-area .btn{
+    margin-top: 20px;
+  }
+}
