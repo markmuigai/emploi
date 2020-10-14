@@ -17,7 +17,11 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <span class="tooltip-span">Hot</span>
-                            <a href="/v2/vacancies" class="nav-link dropdown-toggle">Vacancies <i class='bx bx-chevron-down'></i></a>
+                            
+                            <a href="{{Route('v2.vacancies.index')}}" class="nav-link dropdown-toggle {{
+                                request()->routeIs('v2.vacancies.index') ? 'active' : '' 
+                                }}">Vacancies
+                                <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
@@ -26,7 +30,7 @@
                                     <a href="favourite-jobs.html" class="nav-link">Favourite Jobs</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="job-details.html" class="nav-link">Job Details</a>
+                                    <a href="/v2/self-assessment" class="nav-link">Self Assessment</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="post-a-job.html" class="nav-link">Post A Job</a>
