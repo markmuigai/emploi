@@ -71,7 +71,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('v2')
              ->middleware('web')
-             ->name('guest.')
+             ->name('v2.guest.')
              ->namespace('App\Http\Controllers\Guest')
              ->group(base_path('routes/guest.php'));
     }
@@ -87,7 +87,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('v2')
              ->middleware('web')
-             ->name('job-seeker.')
+             ->name('v2.')
              ->namespace('App\Http\Controllers\JobSeeker')
              ->group(base_path('routes/jobseeker.php'));
     }
