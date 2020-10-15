@@ -1,6 +1,6 @@
     
 <?php
-    $posts = \App\Post::where('status','active')->where('featured','true')->get();
+    $posts = \App\Post::where('company_id','!=' ,1)->where('status','active')->where('featured','true')->get();
 ?>
 
     <!-- Partner -->
