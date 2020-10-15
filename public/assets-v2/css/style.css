@@ -3789,6 +3789,7 @@ button:focus {
   width: 70px;
   height: 70px;
   padding-right: 10px;
+  object-fit: cover;
 }
 
 .employer-item h3 {
