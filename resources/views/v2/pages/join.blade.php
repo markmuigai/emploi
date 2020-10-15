@@ -1,67 +1,59 @@
-@extends('layouts.sign')
-
-@section('title','Emploi :: Create an Account')
-
-@section('description')
-Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
-@endsection
-
-<?php  
-$join_title = 'Create An Account';
-if(isset($name))
-{
-    $nname = explode(" ", $name);
-    $join_title = $nname[0].", select account type";
-}
-?>
-
-@section('user_title', $join_title)
+@extends('v2.layouts.app')
 
 @section('content')
+    <!-- Navbar -->
+    @include('v2.components.navbar.sign')
+    <!-- End Navbar -->
 
-
-
-<div class="container text-center">
-    <p>
-        @if(!isset($name))
-
-        
-        <div class="sign-left ">
-            <a href="https://emploi.co/auth-with/facebook" class="pr-2"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://emploi.co/auth-with/google" class="pr-2"><i class="fab fa-google"></i></a>
-            <a href="https://emploi.co/auth-with/linkedin" class="pr-2"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <br>
-        Welcome to Emploi, an efficient platform to manage recruitments and find work for a successful career.
-        @else
-        Howdy {{ $name }}, welcome to Emploi. We've started creating your account, select whether you are an employer or job seeker.
-        @endif
-    </p>
-    <div class="row acc-links">
+    <!-- Select registration -->
+    <div class="user-form-area" style="margin-top: 100px">
+        <div class="container-fluid pt-2">
+            <div class="row m-0 d-flex justify-content-center">
+                <div class="col-lg-6 p-0">
+                    <div class="user-content">
+                        @include('v2.components.social-auth')
+                        <div class="top">
+                            <p class="text-center">Welcome to Emploi, an efficient platform to manage recruitments and find work for a successful career.</p>
+                            <div class="row acc-links">
        
-        <a href="/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
-            <img src="/images/seeker-join.png" class="w-100 py-3" alt="Job Seeker Registration">
-            <h4>Job Seeker Registration</h4>
-        </a>
-         <a href="/employers/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
-            <img src="/images/employer-join.png" class="w-100 py-3" alt="Employer Registration">
-            <h4>Company Registration</h4>
-        </a>
+                                <a href="/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
+                                    <img src="/images/seeker-join.png" class="w-100 py-3" alt="Job Seeker Registration">
+                                    <h4>Job Seeker Registration</h4>
+                                </a>
+                                 <a href="/employers/register{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="col-md-6 col-12">
+                                    <img src="/images/employer-join.png" class="w-100 py-3" alt="Employer Registration">
+                                    <h4>Company Registration</h4>
+                                </a>
+                            </div>
+                            @if(!isset($name))
+                            <div class="text-center">
+                                <p>Already have an account?</p>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-md-5">
+                                        <a href="/login" class="btn btn-orange">Log in here</a>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <p>or</p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <a href="/contact" class="btn btn-orange-alt">Contact Us</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            @else
+                            <div class="text-center">
+                                <p>
+                                    Need help registering? <br> <a href="/contact{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="btn btn-orange-alt">Contact Us</a>
+                                </p>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    @if(!isset($name))
-    <div class="text-center">
-        <p>
-            Already have an account? <br> <a href="/login" class="btn btn-orange">Log in here</a> or <a href="/contact" class="btn btn-orange-alt">Contact Us</a>
-        </p>
-    </div>
-    @else
-    <div class="text-center">
-        <p>
-            Need help registering? <br> <a href="/contact{{ isset($name) ? '?email='.$email.'&name='.$name : '' }}" class="btn btn-orange-alt">Contact Us</a>
-        </p>
-    </div>
-    @endif
-    @include('components.ads.responsive')
-</div>
+    <!-- Select registration -->
 
 @endsection
