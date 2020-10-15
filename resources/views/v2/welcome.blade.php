@@ -171,12 +171,6 @@
             </div>
             <div class="testimonial-slider owl-theme owl-carousel">
                 <div class="testimonial-item">
-                       <img src="images/team/sophy.png" alt="Sophy" />
-                    <p>Awesome dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaenimminim veniam quis nostrud  dolore magn</p>
-                    <h3>Sophy Mwale</h3>
-                    <span>CEO & Founder</span>
-                </div>
-                <div class="testimonial-item">
                     <img src="{{asset('images/testimonials/kizito.webp')}}" alt="Kipkemoi">
                     <p>Emploi helped me define exactly what it is I was looking for and they even went further And gave me an opportunity of getting there.</p>
                     <h3>Kipkemoi Kizito</h3>
@@ -211,17 +205,10 @@
     </section>
     <!-- End Testimonial -->
 
-    <!-- Partner -->
-    <div class="partner-area two pt-5 pb-70">
-        <div class="container text-center">
-            <div class="section-title three">
-                <h2>Featured Employers</h2>
-            </div>
-            <div class="partner-slider owl-theme owl-carousel">
-                @include('v2.components.featured-employers')                
-            </div>
-        </div>
-    </div>
-    <!-- End Partner -->
+    <!-- Featured -->
+
+    @include('v2.components.featured-employers')                
+  
+    <!-- End Featured Employers -->
 
 @endsection
