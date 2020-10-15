@@ -605,8 +605,8 @@
                     </ul>
                     @forelse($posts as $post)
                     <div class="employer-item">
-                        <a href="/vacancies/{{$post->slug}}/">  
-                     <!--    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="w-100 lazy" alt="{{ $post->getTitle() }}" /> -->
+                        <a href="/vacancies/{{$post->slug}}/"> 
+                        <img src="{{ asset('images/500g.png') }}" data-src="/storage/images/logos/{{ $post->image }}" alt="{{ $post->getTitle() }}" />
                         </a>
                             <h3>{{ $post->getTitle() }}</h3>
                             <ul>

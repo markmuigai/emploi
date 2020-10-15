@@ -3786,6 +3786,9 @@ button:focus {
   position: absolute;
   top: 25px;
   left: 25px;
+  width: 70px;
+  height: 70px;
+  padding-right: 10px;
 }
 
 .employer-item h3 {
@@ -3819,7 +3822,7 @@ button:focus {
   color: #00d2ff;
   font-size: 14px;
   margin-right: 0;
-}
+} 
 
 .employer-item p {
   margin-bottom: 18px;
