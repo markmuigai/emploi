@@ -9,7 +9,7 @@
                 <div class="blog-item">
                     <div class="top">
                         <a href="/blog/{{ $b->slug }}">
-                            <img src="{{ $b->image1 }}" alt="Blog">
+                            <img src="/storage/blogs/{{ $b->image1 }}" alt="{{ $b->title }}">
                         </a>
                     </div>
                     <span>{{ $b->category->name }}</span>
