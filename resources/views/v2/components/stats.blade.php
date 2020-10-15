@@ -2,7 +2,7 @@
     <div class="col-sm-4 col-lg-4">
         <div class="register-item">
             <h3>
-                <span class="odometer" data-count="1000+">00</span> 
+                <span class="odometer" data-count="1000">00+</span> 
             </h3>
             <p>Companies</p>
         </div>
@@ -10,7 +10,7 @@
     <div class="col-sm-4 col-lg-4">
         <div class="register-item">
             <h3>
-                <span class="odometer" data-count="30000+">00</span> 
+                <span class="odometer" data-count="30000">00+</span> 
             </h3>
             <p>Job Seekers</p>
         </div>
@@ -18,7 +18,7 @@
     <div class="col-sm-4 col-lg-4">
         <div class="register-item">
             <h3>
-                <span class="odometer" data-count="20000+">00</span> 
+                <span class="odometer" data-count="20000">00+</span> 
             </h3>
             <p>Available Jobs</p>
         </div>

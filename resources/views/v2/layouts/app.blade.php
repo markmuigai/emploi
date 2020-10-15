@@ -30,9 +30,20 @@
 
         <title>Welcome to Emploi - The Premier Online Job Placement Platform in Africa</title>
 
-        <link rel="icon" sizes="512x512" href="{{ asset('images/favicon.png') }}">
+        <link rel="icon" sizes="512x512" href="{{ asset('images/favicon.png') }}">   
+
     </head>
     <body>
+
+
+         <!-- tawkto -->
+        @include('components.tawk')
+        <!-- tawkto -->  
+
+        <!-- cookie -->
+        @include('cookieConsent::index')
+        <!-- cookie -->
+
         <!-- Preloader -->
         @include('v2.components.preloader')
         <!-- End Preloader -->

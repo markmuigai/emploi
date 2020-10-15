@@ -9,240 +9,6 @@
     <div class="job-area-list ptb-100" style="margin-top: 35px">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
-                    <ul class="job-list-item align-items-center">
-                        <li>
-                            <a href="jobs.html#">Results Found <span>(17)</span></a>
-                            <a class="rss" href="jobs.html#">
-                                <i class='bx bx-rss'></i>RSS Feed
-                            </a>
-                        </li>
-                        <li>
-                            <span class="sort">Sort By:</span>
-                            <form>
-                                <div class="form-group">
-                                    <select>
-                                        <option>Title</option>
-                                        <option>Another option</option>
-                                        <option>A option</option>
-                                        <option>Potato</option>
-                                    </select>
-                                </div>
-                            </form>	
-                        </li>
-                    </ul>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job1.png')}}" alt="Employer">
-                            <h3>Product Designer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Los Angeles, CS, USA
-                                </li>
-                                <li>5 months ago</li>
-                            </ul>
-                            <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one">Accounting</span>
-                            <span class="span-two">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job2.png')}}" alt="Employer">
-                            <h3>Sr. Shopify Developer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Houston, TX, USA
-                                </li>
-                                <li>4 months ago</li>
-                            </ul>
-                            <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                            <span class="span-one">Accounting</span>
-                            <span class="span-two two">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job3.png')}}" alt="Employer">
-                            <h3>Tax Manager</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Ho Chi Minh City, Vietnam
-                                </li>
-                                <li>6 months ago</li>
-                            </ul>
-                            <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                            <span class="span-one two">Broardcasting</span>
-                            <span class="span-two three">FREELANCER</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job4.png')}}" alt="Employer">
-                            <h3>Senior Data Engineer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Cardiss, UK
-                                </li>
-                                <li>9 months ago</li>
-                            </ul>
-                            <p>International collaborative designer amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one three">Web & Software Dev</span>
-                            <span class="span-two four">REMOTE</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job5.png')}}" alt="Employer">
-                            <h3>Construction Worker</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Adelaide SA, Australia
-                                </li>
-                                <li>10 months ago</li>
-                            </ul>
-                            <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one">Accounting</span>
-                            <span class="span-two">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job6.png')}}" alt="Employer">
-                            <h3>Product Manager</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Warangal, Telangana, India
-                                </li>
-                                <li>2 months ago</li>
-                            </ul>
-                            <p>Wind Power Engineering Manager amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one four">Customer Service</span>
-                            <span class="span-two">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job7.png')}}" alt="Employer">
-                            <h3>Marketing Manager</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Delhi, India
-                                </li>
-                                <li>5 months ago</li>
-                            </ul>
-                            <p>Wind Power Engineering Manager amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one">Accounting</span>
-                            <span class="span-two one">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job8.png')}}" alt="Employer">
-                            <h3>JavaScript Developer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Washington, USA
-                                </li>
-                                <li>4 months ago</li>
-                            </ul>
-                            <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                            <span class="span-one">Accounting</span>
-                            <span class="span-two two">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job9.png')}}" alt="Employer">
-                            <h3>jQuery Developer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Barmingham, UK
-                                </li>
-                                <li>6 months ago</li>
-                            </ul>
-                            <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                            <span class="span-one two">Broardcasting</span>
-                            <span class="span-two three">FREELANCER</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job10.png')}}" alt="Employer">
-                            <h3>PHP Developer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Saudi Arabia
-                                </li>
-                                <li>9 months ago</li>
-                            </ul>
-                            <p>International collaborative designer amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one three">Web & Software Dev</span>
-                            <span class="span-two four">REMOTE</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job11.png')}}" alt="Employer">
-                            <h3>WordPress Developer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Australia
-                                </li>
-                                <li>10 months ago</li>
-                            </ul>
-                            <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one">Accounting</span>
-                            <span class="span-two">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="employer-item">
-                        <a href="job-details.html">
-                            <img src="{{asset('assets-v2/img/home-one/job12.png')}}" alt="Employer">
-                            <h3>React Developer</h3>
-                            <ul>
-                                <li>
-                                    <i class="flaticon-send"></i>
-                                    Estonia
-                                </li>
-                                <li>2 months ago</li>
-                            </ul>
-                            <p>Wind Power Engineering Manager amet conscu adiing elitsed do eusmod tempor</p>
-                            <span class="span-one four">Customer Service</span>
-                            <span class="span-two">FULL TIME</span>
-                        </a>
-                    </div>
-                    <div class="pagination-area">
-                        <ul>
-                            <li>
-                                <a href="jobs.html#">Prev</a>
-                            </li>
-                            <li>
-                                <a href="jobs.html#">1</a>
-                            </li>
-                            <li>
-                                <a href="jobs.html#">2</a>
-                            </li>
-                            <li>
-                                <a href="jobs.html#">3</a>
-                            </li>
-                            <li>
-                                <a href="jobs.html#">Next</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-lg-4">
                     <div class="job-list-right">
                         <div class="job">
@@ -813,6 +579,62 @@
                             </div>
                         </div>
                     </div>  
+                </div>
+
+                <div class="col-lg-8">
+                    <ul class="job-list-item align-items-center">
+                        <li>
+                            <a href="jobs.html#">Results Found <span>(17)</span></a>
+                            <a class="rss" href="jobs.html#">
+                                <i class='bx bx-rss'></i>RSS Feed
+                            </a>
+                        </li>
+                        <li>
+                            <span class="sort">Sort By:</span>
+                            <form>
+                                <div class="form-group">
+                                    <select>
+                                        <option>Title</option>
+                                        <option>Another option</option>
+                                        <option>A option</option>
+                                        <option>Potato</option>
+                                    </select>
+                                </div>
+                            </form> 
+                        </li>
+                    </ul>
+                    @forelse($posts as $post)
+                    <div class="employer-item">
+                        <a href="/vacancies/{{$post->slug}}/">  
+                     <!--    <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($post->imageUrl) }}" class="w-100 lazy" alt="{{ $post->getTitle() }}" /> -->
+                        </a>
+                            <h3>{{ $post->getTitle() }}</h3>
+                            <ul>
+                                <li>
+                                    <i class="flaticon-send"></i>
+                                    {{ $post->location->country->name }}, {{ $post->location->name }}
+                                </li>
+                                <li>{{ $post->since }}</li>
+                            </ul>
+                            <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
+                            <span class="span-one"> {{ $post->industry->name }}</span>
+                            <span class="span-two"> {{ $post->vacancyType->name }}</span>
+                        </a>
+                    </div>
+                    @empty
+                    <div class="card">
+                    <div class="card-body text-center">
+                        <p>No job posts found</p>
+                    </div>
+                    </div>
+                    @endforelse
+                   
+                 
+                    <div class="pagination-area">
+                        <ul>
+                        {{ $posts->links() }}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
