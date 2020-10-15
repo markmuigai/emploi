@@ -38,8 +38,12 @@
 
          <!-- tawkto -->
         @include('components.tawk')
-        <!-- tawkto -->
-        
+        <!-- tawkto -->  
+
+        <!-- cookie -->
+        @include('cookieConsent::index')
+        <!-- cookie -->
+
         <!-- Preloader -->
         @include('v2.components.preloader')
         <!-- End Preloader -->
