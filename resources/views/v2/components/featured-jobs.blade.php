@@ -14,7 +14,7 @@
                 <h3>
                     <a href="/vacancies/{{ $p->slug }}">{{ $p->title }}</a>
                 </h3>
-                 <span>{{$p->positions}} Positions</span>
+                 <span>{{ $p->positions }} Position{{ $p->positions == 1 ? '' : 's' }}</span>
                 <i class="flaticon-verify"></i>
             </div>
         </div>
