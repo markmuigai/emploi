@@ -1795,6 +1795,7 @@ button:focus {
 /*-- End Feedback --*/
 /*-- Blog --*/
 .blog-item {
+  height: 500px;
   background-color: white !important;
   margin-bottom: 30px;
   border: 1px dashed #c4c4c4;
