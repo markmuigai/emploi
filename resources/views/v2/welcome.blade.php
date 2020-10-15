@@ -157,7 +157,7 @@
             <div class="section-title three">
                 <h2 class="text-white">Blog & News</h2>
             </div>
-                @include('v2.components.blogs')<br>
+            @include('v2.components.blogs')<br>
 
         </div>
     </section>
