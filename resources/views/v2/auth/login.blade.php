@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Navbar -->
-    @include('v2.components.jobseeker.navbar')
+    @include('v2.components.navbar.sign')
     <!-- End Navbar -->
 
     <!-- Login -->
