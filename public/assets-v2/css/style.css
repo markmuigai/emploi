@@ -7127,7 +7127,7 @@ button:focus {
 
 .user-form-area .user-content {
   padding-left: 30px;
-  max-width: 600px;
+  /* max-width: 600px; */
   margin-left: 0;
   margin-right: auto;
   text-align: center;
@@ -8059,5 +8059,10 @@ button:focus {
 @media only screen and (max-width: 768px) {
   .banner-content.three .banner-form-area .btn{
     margin-top: 20px;
+  }
+  
+  /* Login Page styling */
+  .user-form-area{
+    margin-top: 0px !important;
   }
 }

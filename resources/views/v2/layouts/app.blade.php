@@ -48,10 +48,6 @@
         @include('v2.components.preloader')
         <!-- End Preloader -->
 
-        <!-- Navbar -->
-        @include('v2.components.guest.navbar')
-        <!-- End Navbar -->
-
         @yield('content')
 
         <!-- Footer -->

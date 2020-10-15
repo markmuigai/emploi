@@ -1,281 +1,222 @@
-@extends('layouts.dashboard-layout')
-
-@section('title','Emploi :: Job Seeker Dashboard')
-
-@section('description')
-Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
-@endsection
+@extends('v2.layouts.app')
 
 @section('content')
-@section('page_title', 'Dashboard')
-
-
-<?php
-$user = Auth::user();
-?>
-@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
-<a href="#paas_task" class="btn btn-orange">Apply for part time jobs</a>
-@else
-<a href="/job-seekers/register-paas" class="btn btn-orange">Apply for part time jobs</a>
-@endif
-@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
-<a href="/job-seekers/tasks" class="btn btn-orange">View Your PaaS Jobs</a>
-@endif<br>
-@if($user->seeker->featured > 0)
-<br><h4 align="center">Profile Performance Summary</h4><br>
-<style>
-	.seeker-analytics{
-	/*  position: relative;
-	  display: flex;
-	  flex-direction: row;
-	  min-width: 0;
-	  word-wrap: break-word;*/
-	  background-color: #500095;
-	  color: white;
-/*	  color: white;
-	  background-clip: border-box;
-	  border: 0px solid rgba(0, 0, 0, 0.125);
-	  border-radius: 0;*/
-	}
-</style>
-<div class="card-deck">
-    <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
-            <p>Applications</p>
-        </div>
-    </div>
-     <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
-            <p>Shortlisted</p>
-        </div>
-	</div>
-	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
-            <p>Rejected</p>
-        </div>
-	</div>
-	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
-            <p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
-    </div>
-</div>
-	<div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ $user->seeker->view_count }}</h1>
-            <p><br>Profile Views</p>
-        </div>
-    </div>
-</div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
- @endif
-
- @if($user->seeker->featured == 0)
-<br><h4 align="center">Profile Performance Summary</h4><br>
-<style>
-	.seeker-analytics{
-	/*  position: relative;
-	  display: flex;
-	  flex-direction: row;
-	  min-width: 0;
-	  word-wrap: break-word;*/
-	  background-color: #500095;
-	  color: white;
-/*	  color: white;
-	  background-clip: border-box;
-	  border: 0px solid rgba(0, 0, 0, 0.125);
-	  border-radius: 0;*/
-	}
-</style>
-<div class="card-deck">
-    <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white"></h1>
-            <p>Applications</p>
-        </div>
-    </div>
-     <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white"></h1>
-            <p>Shortlisted</p>
-        </div>
-	</div>
-	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white"></h1>
-            <p>Rejected</p>
-        </div>
-	</div>
-	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white"> </h1>
-            <p>Vacancies</p>
-    </div>
-</div>
-	<div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white"></h1>
-            <p>Profile Views</p>
-        </div>
-    </div>
-</div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Purchase spotlight plan to view your profile performance summary</a></h5>
- @endif
-
-@if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
-<br>
-@if(session()->has('applied'))
-	  <div class="alert alert-success">
-	  {{ session()->get('applied') }}
-	  </div>
-@endif
-
-@if(isset($user->seeker->industry_id))
-<br id="paas_task"><br>
-<hr>
-<h4>{{ $user->seeker->industry->name }} Part Time Jobs</h4>
-<?php
-$tasks = \App\Task::where('status','active')->where('industry',$user->seeker->industry_id)->orderBy('id','DESC')->paginate(8);
-?>
-<div class="row">
-	@forelse ($tasks as $t)
-	<div class="col-lg-6">
-		<div class="card my-2">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-6">
-						<h5><a href="">{{ $t->title }}</a></h5>
-						<p>
-							{{ $t->company }}
-							<small class="badge badge-purple">{{ $t->salary }}</small>
-						</p>					
-						<span href="">{{ $t->created_at->diffForHumans() }}</span>
-
-						<?php 
-		                    $show = true; 
-		                    if(Auth::user()->seeker->hasAppliedTask($t))
-		                    {
-		                        $show = false;
-		                    }
-		                ?>
-		                @if($show)
-		                <a href="/job-seekers/apply-task/{{ $t->slug }}" class="btn btn-orange">Apply</a>
-		                @else
-		                <span class="btn btn-orange-alt">Applied</span>
-		                @endif
-					</div>
-					<div class="col-md-6">
-						<h6>Details</h6>
-                        <p class="truncate">{!!html_entity_decode($t->preview)!!}</p>
-                         <a href="{{ url('/paas-task/main_content/'.$t->id) }}" class="orange">Read More</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	@empty
-	<div class="col-12 my-3 text-center">
-		<div class="card">
-			<div class="card-body">
-				<p>Check Back Later.</p>
-			</div>
-		</div>
-	</div>
-	@endforelse
-</div>
-	{{ $tasks->links() }}
-	<hr>
-@endif
-@endif
-
-<br><h4>Recent Blogs</h4>
-<div class="row">
-	<div class="col-md-12">
-		<?php $blogsTransparent = true; ?>
-		@include('components.blogs')
-	</div>
+    <!-- Navbar -->
+    @include('v2.components.jobseeker.navbar')
+	<!-- End Navbar -->
 	
-</div>
-<hr>
-<div style="text-align: center;" class="row">
-	<div class="col-md-8 offset-md-2">
-		<a href="/refer">
-			<img src="/images/friends_refer_thin-flat.png" style="width: 80%" alt="Refer your Friends and Win">
-		</a>
-	</div>
-	
-</div>
-<?php
-$user = Auth::user();
-?>
-
-@if(isset($user->seeker->industry_id))
-<hr>
-<h4>{{ $user->seeker->industry->name }} Jobs</h4>
-<?php
-$posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('status','active')->orderBy('id','DESC')->orderBy('featured','DESC')->paginate(8);
-?>
-<div class="row">
-
-	@forelse ($posts as $b)
-	<div class="col-lg-6">
-		<div class="card my-2">
-			<div class="card-body">
-				<div class="row align-items-center">
-					<div class="col-4">
-						<img src="{{ asset($b->imageUrl) }}" class="w-100" alt="{{ $b->title }}">
-						<br>
-						<span href="/vacancies/{{ $b->slug }}">{{ $b->created_at->diffForHumans() }}</span>
-					</div>
-					<div class="col-8">
-						<h5><a href="/vacancies/{{ $b->slug }}">{{ $b->title }}</a></h5>
-						<p>
-							<a href="/companies/{{ $b->company->name }}">{{ $b->company->name }}</a>
-							<small class="badge badge-purple">{{ $b->monthlySalary() }}</small>
-						</p>
-						
-
-						
-						<?php 
-		                    $show = true; 
-		                    if(Auth::user()->seeker->hasApplied($b))
-		                    {
-		                        $show = false;
-		                    }
-		                ?>
-		                @if($show)
-		                <a href="/vacancies/{{ $b->slug }}" class="btn btn-orange">View and Apply</a>
-
-		                @else
-		                <span class="btn btn-orange-alt">Application Sent</span>
-
-		                @endif
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	@empty
-	<div class="col-12 my-3 text-center">
-		<div class="card">
-			<div class="card-body">
-				<p>No Industry jobs have been posted.</p>
-			</div>
-		</div>
-	</div>
-	@endforelse
-</div>
-<div>
-	{{ $posts->links() }}
-</div>
-
-@else
-
-@include('components.ads.responsive')
-
-@endif
+	<!-- Dashboard -->
+        <!-- Dashboard -->
+        <div class="dashboard-area ptb-100 mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="profile-item">
+                            <img src="{{asset('assets-v2/img/dashboard1.jpg')}}" alt="Dashboard">
+                            <h2>Tom Henry</h2>
+                            <span>Web Developer</span>
+                        </div>
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="dashboard.html#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                <i class='bx bx-user'></i>
+                                My Profile
+                            </a>
+                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="dashboard.html#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                <div class="profile-list">
+                                    <i class='bx bxs-inbox'></i>
+                                    Applied Jobs
+                                </div>
+                            </a>
+                            <a href="single-resume.html">
+                                <div class="profile-list">
+                                    <i class='bx bx-note'></i>
+                                    My Resume
+                                </div>
+                            </a>
+                            <a  href="login.html">
+                                <div class="profile-list">
+                                    <i class='bx bx-log-out'></i>
+                                    Logout
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <div class="profile-content">
+                                    <form>
+                                        <div class="profile-content-inner">
+                                            <h2>Basic Info</h2>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Your Name:</label>
+                                                        <input type="text" class="form-control" placeholder="Tom Henry">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Your Email:</label>
+                                                        <input type="email" class="form-control" placeholder="hello@jecto.com">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Phone:</label>
+                                                        <input type="text" class="form-control" placeholder="+123 - 456 - 789">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Date Of Birth:</label>
+                                                        <input type="text" class="form-control" placeholder="01/01/1995">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Job Title:</label>
+                                                        <input type="text" class="form-control" placeholder="Web Developer">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Position:</label>
+                                                        <input type="text" class="form-control" placeholder="Team Leader">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Salary:</label>
+                                                        <input type="text" class="form-control" placeholder="$1500/per month">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Cover Picture</label>
+                                                        <input type="file">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="profile-content-inner">
+                                            <h2>Education</h2>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Title:</label>
+                                                        <input type="text" class="form-control" placeholder="Under Graduate">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Degree:</label>
+                                                        <input type="text" class="form-control" placeholder="BSC in Computer Science">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Institute:</label>
+                                                        <input type="text" class="form-control" placeholder="Jecto University & Technology, UK">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Year:</label>
+                                                        <input type="text" class="form-control" placeholder="2015 - 2020">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="profile-content-inner">
+                                            <h2>Social Links</h2>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Facebook:</label>
+                                                        <input type="text" class="form-control" placeholder="https://www.facebook.com">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Twitter:</label>
+                                                        <input type="text" class="form-control" placeholder="https://www.twitter.com">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Instagram:</label>
+                                                        <input type="text" class="form-control" placeholder="https://www.instagram.com">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label>Linkedin:</label>
+                                                        <input type="text" class="form-control" placeholder="https://www.linkedin.com">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn dashboard-btn">Save Your Information</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <div class="employer-item">
+                                    <a href="job-details.html">
+                                        <img src="assets/img/home-one/job1.png" alt="Employer">
+                                        <h3>Product Designer</h3>
+                                        <ul>
+                                            <li>
+                                                <i class="flaticon-send"></i>
+                                                Los Angeles, CS, USA
+                                            </li>
+                                            <li>5 months ago</li>
+                                        </ul>
+                                        <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
+                                        <span class="span-one">Accounting</span>
+                                        <span class="span-two">FULL TIME</span>
+                                    </a>
+                                </div>
+                                <div class="employer-item">
+                                    <a href="job-details.html">
+                                        <img src="assets/img/home-one/job2.png" alt="Employer">
+                                        <h3>Sr. Shopify Developer</h3>
+                                        <ul>
+                                            <li>
+                                                <i class="flaticon-send"></i>
+                                                Houston, TX, USA
+                                            </li>
+                                            <li>4 months ago</li>
+                                        </ul>
+                                        <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                        <span class="span-one">Accounting</span>
+                                        <span class="span-two two">FULL TIME</span>
+                                    </a>
+                                </div>
+                                <div class="employer-item">
+                                    <a href="job-details.html">
+                                        <img src="assets/img/home-one/job3.png" alt="Employer">
+                                        <h3>Tax Manager</h3>
+                                        <ul>
+                                            <li>
+                                                <i class="flaticon-send"></i>
+                                                Ho Chi Minh City, Vietnam
+                                            </li>
+                                            <li>6 months ago</li>
+                                        </ul>
+                                        <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
+                                        <span class="span-one two">Broardcasting</span>
+                                        <span class="span-two three">FREELANCER</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <!-- End Dashboard -->
+	<!-- End Dashboard -->
 
 @endsection
