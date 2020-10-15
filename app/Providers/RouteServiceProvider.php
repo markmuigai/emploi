@@ -44,6 +44,9 @@ class RouteServiceProvider extends ServiceProvider
 
         // Job seeker routes
         $this->mapJobSeekerRoutes();
+
+        // Auth v2 routes
+        $this->mapAuthV2Routes();
     }
 
     /**
@@ -58,6 +61,22 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+    }
+
+    /**
+     * Define the "authV2" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAuthV2Routes()
+    {
+        Route::prefix('v2')
+             ->middleware('web')
+             ->name('v2.')
+             ->namespace('App\Http\Controllers\V2')
+             ->group(base_path('routes/auth-v2.php'));
     }
 
     /**
