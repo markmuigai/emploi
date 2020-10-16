@@ -2263,7 +2263,7 @@ button:focus {
 /*----- Home Demo Two CSS -----*/
 /*-- Navbar --*/
 .main-nav.two nav .navbar-nav .nav-item:hover a {
-  color: #21a212;
+  color: #e15419;
 }
 
 .main-nav.two nav .navbar-nav .nav-item a {
@@ -2271,11 +2271,11 @@ button:focus {
 }
 
 .main-nav.two nav .navbar-nav .nav-item a:hover, .main-nav.two nav .navbar-nav .nav-item a:focus, .main-nav.two nav .navbar-nav .nav-item a.active {
-  color: #21a212;
+  color: #e15419;
 }
 
 .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li:hover a {
-  color: #21a212;
+  color: #e15419;
 }
 
 .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li a {
@@ -2283,11 +2283,11 @@ button:focus {
 }
 
 .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li a:before {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li a:hover, .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li a:focus, .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li a.active {
-  color: #21a212;
+  color: #e15419;
 }
 
 .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a {
@@ -2295,15 +2295,15 @@ button:focus {
 }
 
 .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover, .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus, .main-nav.two nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a.active {
-  color: #21a212;
+  color: #e15419;
 }
 
 .main-nav.two .tooltip-span {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .main-nav.two .tooltip-span:before {
-  border-top: 7px solid #21a212;
+  border-top: 7px solid #e15419;
 }
 
 .main-nav.two .tooltip-span.two {
@@ -2315,7 +2315,7 @@ button:focus {
 }
 
 .side-nav.two .job-right {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .side-nav.two .job-right i {
@@ -2372,7 +2372,7 @@ button:focus {
 }
 
 .banner-content.two .banner-form-area .btn {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .banner-content.two .banner-form-area .btn i {
@@ -2385,7 +2385,7 @@ button:focus {
 
 .banner-content.two .banner-key ul li span {
   color: #fff;
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .banner-img-two {
@@ -2534,8 +2534,8 @@ button:focus {
 }
 
 .support-area p span {
-  color: #21a212;
-  border-bottom: 1px solid #21a212;
+  color: #e15419;
+  border-bottom: 1px solid #e15419;
 }
 
 .support-area .support-item:hover img {
@@ -2563,7 +2563,7 @@ button:focus {
 }
 
 .support-area .support-slider .owl-prev:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -2575,7 +2575,7 @@ button:focus {
 }
 
 .support-area .support-slider .owl-next:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -2629,7 +2629,7 @@ button:focus {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #21a212;
+  background-color: #e15419;
   z-index: -1;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -2648,7 +2648,7 @@ button:focus {
 }
 
 .company-area.two .owl-next:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -2664,7 +2664,7 @@ button:focus {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #21a212;
+  background-color: #e15419;
   z-index: -1;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -2690,15 +2690,15 @@ button:focus {
 }
 
 .company-item.two:hover .bottom a {
-  color: #21a212;
+  color: #e15419;
 }
 
 .company-item.two .feature-top-right span {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .company-item.two .bottom h4 {
-  color: #21a212;
+  color: #e15419;
 }
 
 .company-item.two .top a img {
@@ -2727,7 +2727,7 @@ button:focus {
 }
 
 .explore-area.two .explore-item .section-title .sub-title {
-  color: #21a212;
+  color: #e15419;
 }
 
 .explore-area.two .explore-item .section-title .sub-title:before {
@@ -2744,7 +2744,7 @@ button:focus {
 
 .explore-area.two .explore-item ul li .left-btn {
   color: #fff;
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .explore-area.two .explore-item ul li .left-btn i {
@@ -2760,13 +2760,13 @@ button:focus {
 }
 
 .explore-area.two .explore-item ul li .right-btn {
-  color: #21a212;
-  border: 1px solid #21a212;
+  color: #e15419;
+  border: 1px solid #e15419;
 }
 
 .explore-area.two .explore-item ul li .right-btn:hover {
   color: #fff;
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .explore-area.two .explore-img {
@@ -2837,7 +2837,7 @@ button:focus {
 }
 
 .categories-area .nav-pills a.active {
-  color: #21a212;
+  color: #e15419;
   background-color: transparent;
 }
 
@@ -2921,13 +2921,13 @@ button:focus {
 }
 
 .categories-area .cat-item .link:hover {
-  color: #21a212;
+  color: #e15419;
 }
 
 /*-- End Categories --*/
 /*-- Work --*/
 .section-title.two .sub-title:before {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .work-area.two .section-title {
@@ -2961,13 +2961,13 @@ button:focus {
   right: -16px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 12px solid #21a212;
+  border-bottom: 12px solid #e15419;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
 .work-item.two i {
-  color: #21a212;
+  color: #e15419;
   position: relative;
   top: 0;
   right: 0;
@@ -2991,7 +2991,7 @@ button:focus {
 }
 
 .job-area.two .sorting-menu ul li:hover, .job-area.two .sorting-menu ul li.active {
-  color: #21a212;
+  color: #e15419;
 }
 
 .job-area.two .section-title .sub-title:before {
@@ -3015,17 +3015,17 @@ button:focus {
 }
 
 .job-area.two .job-item:hover {
-  border: 1px dashed #21a212;
-  border-left: 2px solid #21a212;
+  border: 1px dashed #e15419;
+  border-left: 2px solid #e15419;
   background-color: #fff;
 }
 
 .job-area.two .job-item .job-left h3 a:hover {
-  color: #21a212;
+  color: #e15419;
 }
 
 .job-area.two .job-item .job-left ul li {
-  color: #21a212;
+  color: #e15419;
 }
 
 .job-area.two .job-item .job-left ul li:nth-child(3) {
@@ -3037,17 +3037,17 @@ button:focus {
 }
 
 .job-area.two .job-item .job-right ul li a:hover {
-  color: #21a212;
+  color: #e15419;
   background-color: #dffedb;
 }
 
 .job-area.two .feature-top-right span {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .job-area.two .job-browse p a {
-  color: #21a212;
-  border-bottom: 1px solid #21a212;
+  color: #e15419;
+  border-bottom: 1px solid #e15419;
 }
 
 .job-area.two .job-browse p a:hover {
@@ -3073,8 +3073,8 @@ button:focus {
 
 .candidate-area .candidate-browse p a {
   display: inline-block;
-  color: #21a212;
-  border-bottom: 1px solid #21a212;
+  color: #e15419;
+  border-bottom: 1px solid #e15419;
   font-weight: 500;
 }
 
@@ -3096,7 +3096,7 @@ button:focus {
 }
 
 .candidate-area .owl-prev:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -3112,7 +3112,7 @@ button:focus {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #21a212;
+  background-color: #e15419;
   z-index: -1;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -3131,7 +3131,7 @@ button:focus {
 }
 
 .candidate-area .owl-next:hover {
-  color: #21a212 !important;
+  color: #e15419 !important;
   background-color: transparent !important;
 }
 
@@ -3147,7 +3147,7 @@ button:focus {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #21a212;
+  background-color: #e15419;
   z-index: -1;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -3185,7 +3185,7 @@ button:focus {
 }
 
 .candidate-item .left h3 a:hover {
-  color: #21a212;
+  color: #e15419;
 }
 
 .candidate-item .left span {
@@ -3233,7 +3233,7 @@ button:focus {
 
 .candidate-item .left .cmn-link a:hover {
   margin-left: -45px;
-  color: #21a212;
+  color: #e15419;
 }
 
 .candidate-item .left .cmn-link a:hover .one {
@@ -3241,7 +3241,7 @@ button:focus {
 }
 
 .candidate-item .left .cmn-link a:hover .two {
-  color: #21a212;
+  color: #e15419;
 }
 
 .candidate-item img {
@@ -3382,19 +3382,19 @@ button:focus {
 /*-- End Testimonial --*/
 /*-- Blog --*/
 .blog-area.two .cmn-link a {
-  color: #21a212;
+  color: #e15419;
 }
 
 .blog-area.two .cmn-link a i {
-  color: #21a212;
+  color: #e15419;
 }
 
 .blog-area.two .cmn-link a:hover .two {
-  color: #21a212;
+  color: #e15419;
 }
 
 .blog-area.two .blog-item h3 a:hover {
-  color: #21a212;
+  color: #e15419;
 }
 
 /*-- End Blog --*/
@@ -3455,7 +3455,7 @@ button:focus {
   left: -4px;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 9px solid #21a212;
+  border-bottom: 9px solid #e15419;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
@@ -3473,15 +3473,15 @@ button:focus {
 /*-- End Register --*/
 /*-- Footer --*/
 .footer-item.two .footer-logo ul li a:hover {
-  color: #21a212;
+  color: #e15419;
 }
 
 .footer-item.two .footer-service ul li a:hover {
-  color: #21a212;
+  color: #e15419;
 }
 
 .footer-item.two .footer-newsletter form .btn {
-  background-color: #21a212;
+  background-color: #e15419;
 }
 
 .footer-item.two .footer-newsletter form .btn:hover {
@@ -3491,8 +3491,8 @@ button:focus {
 /*-- End Footer --*/
 /*-- Copyright --*/
 .copyright-area.two .copyright-item p a {
-  color: #21a212;
-  border-bottom: 1px solid #21a212;
+  color: #e15419;
+  border-bottom: 1px solid #e15419;
 }
 
 .copyright-area.two .copyright-item p a:hover {
@@ -3848,12 +3848,12 @@ button:focus {
 }
 
 .employer-item .span-one.four {
-  color: #21a212;
+  color: #e15419;
 }
 
 .employer-item .span-two {
   color: #fff;
-  background-color: #21a212;
+  background-color: #e15419;
   border-radius: 5px;
   padding: 4px 10px;
   font-size: 13px;
