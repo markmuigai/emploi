@@ -121,7 +121,6 @@
                         @endif
                         @auth
                         <li class="nav-item">
-                            <span class="tooltip-span two">New</span>
                             <img src="{{ Auth::user()->getPublicAvatarUrl() }}" height="30px" class="profile-avatar mp-3" alt="Profile">
                             <i class='bx bx-chevron-down text-white'></i>
                             <ul class="dropdown-menu">
