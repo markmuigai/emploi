@@ -37,17 +37,17 @@
                             </a>
                             <a href="/v2/vacancies">
                                 <div class="profile-list">
-                                    <i class='bx bx-task'></i>
+                                    <i class='bx bx-job'></i>
                                     Vacancies
                                 </div>
                             </a>
-                            <a href="profile/referees">
+                            <a href="v2/profile/referees">
                                 <div class="profile-list">
                                     <i class='bx bx-user'></i>
                                     Referees
                                 </div>
                             </a>
-                            <a  href="/logout">
+                            <a  href="login.html">
                                 <div class="profile-list">
                                     <i class='bx bx-log-out'></i>
                                     Logout

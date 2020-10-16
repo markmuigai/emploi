@@ -22,9 +22,9 @@
                                 My Profile
                             </a>
                             <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="dashboard.html#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                <div class="profile-list">                               
+                                <div class="/profile-list">                               
                                     <i class='bx bxs-inbox'></i>
-                                    <a href="#">
+                                    <a href="applications">
                                     Applied Jobs
                                 </a>
                                 </div>
@@ -41,7 +41,7 @@
                                     Vacancies
                                 </div>
                             </a>
-                            <a href="profile/referees">
+                            <a href="#">
                                 <div class="profile-list">
                                     <i class='bx bx-user'></i>
                                     Referees
