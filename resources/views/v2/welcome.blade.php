@@ -85,7 +85,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-lg-4">
-                    <a href="/vacancies">
+                    <a href="/v2/vacancies">
                         <div class="work-item">
                             <i class="flaticon-comment"></i>
                             <span>03</span>
@@ -144,7 +144,7 @@
                 @include('v2.components.featured-jobs')
             </div>
             <div class="job-browse pt-3">
-                <a class="cmn-btn" href="/vacancies">
+                <a class="cmn-btn" href="/v2/vacancies">
                     View All Jobs
                     <i class='bx bx-briefcase-alt'></i>
                 </a>

@@ -1005,12 +1005,14 @@ button:focus {
 
 .job-item .job-left {
   position: relative;
-  padding-left: 100px;
+  padding-left: 20px;
 }
 
 .job-item .job-left img {
   position: absolute;
   top: 8px;
+  width: 170px;
+  height: auto;
   left: 0;
 }
 
@@ -2702,8 +2704,9 @@ button:focus {
 }
 
 .company-item.two .top a img {
-  height: 55px;
-  width: 55px;
+  height: auto;
+  width: 60%;
+  object-fit: cover;
 }
 
 /*-- End Company --*/
@@ -8053,6 +8056,15 @@ button:focus {
 /*----- End Back to Top -----*/
 /*# sourceMappingURL=style.css.map */
 
+
+.job-left-details{
+  padding-left: 180px
+}
+
+.job-area .job-right{
+  padding-left: 100px
+}
+
 /* Home Page */
 
 /* main banner button responsiveness */
@@ -8065,6 +8077,15 @@ button:focus {
   .user-form-area{
     margin-top: 0px !important;
   }
+
+  .job-left-details{
+    padding-left: 0px
+  }
+
+  .job-area .job-right{
+    padding-left: 0px;
+    padding-top:20px;
+  }
 }
 
 /* Custom nice select styling */
@@ -8072,5 +8093,9 @@ button:focus {
   border-radius: 0px;
   height: 200px;
   overflow-y: auto;
+}
+
+h4,h3{
+  color: #e15419 !important;
 }
 

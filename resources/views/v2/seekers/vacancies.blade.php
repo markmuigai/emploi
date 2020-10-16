@@ -6,7 +6,7 @@
     <!-- End Navbar -->
 
     <!-- Jobs -->
-    <div class="job-area-list dashboard-area ptb-100" style="margin-top: 35px">
+    <div class="job-area-list dashboard-area mt-1 ptb-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -17,6 +17,7 @@
                     <!-- Filter -->
                     <div class="job-filter-area pt-2">
                         <div class="container">
+                            <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
                             <form>
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-3">
@@ -198,31 +199,33 @@
                                                 <div class="row align-items-center">
                                                     <div class="col-lg-7">
                                                         <div class="job-left">
-                                                            <img src="{{ asset($post->imageUrl) }}" height="80px" alt="Brand">
-                                                            <h3>{{ $post->getTitle() }}</h3>
-                                                            <p>{{$post->company->name}}</p>
-                                                            <ul>
-                                                                @if(isset(Auth::user()->id))
-                                                                    <li>
-                                                                        {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
+                                                            <img src="https://emploi.co/storage/images/logos/1602857488.png" height="80px" alt="Brand">
+                                                            <div class="job-left-details">
+                                                                <h3>{{ $post->getTitle() }}</h3>
+                                                                <p>{{$post->company->name}}</p>
+                                                                <ul>
+                                                                    @if(isset(Auth::user()->id))
+                                                                        <li>
+                                                                            {{ $post->monthlySalary() }} {{ $post->monthly_salary == 0 ? '' : 'p.m.' }}
+                                                                        </li>
+                                                                    @else
+                                                                        <a href="/login" class="orange">{{ __('auth.login') }}</a> to view salary
+                                                                    @endif
+                                                                    <br>
+                                                                    <li class="mt-2">
+                                                                        <i class="flaticon-appointment"></i>
+                                                                        Posted {{ $post->since }}
                                                                     </li>
-                                                                @else
-                                                                    <a href="/login" class="orange">{{ __('auth.login') }}</a> to view salary
-                                                                @endif
-                                                                <br>
-                                                                <li class="mt-2">
-                                                                    <i class="flaticon-appointment"></i>
-                                                                    Posted {{ $post->since }}
-                                                                </li>
-                                                                <br>
-                                                                <li class="mt-2">
-                                                                    <i class='bx bx-location-plus'></i>
-                                                                    {{ $post->location->country->name }}, {{ $post->location->name }}
-                                                                </li>
-                                                            </ul>
+                                                                    <br>
+                                                                    <li class="mt-2">
+                                                                        <i class='bx bx-location-plus'></i>
+                                                                        {{ $post->location->country->name }}, {{ $post->location->name }}
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 d-flex justify-content-center">
+                                                    <div class="col-lg-5">
                                                         <div class="job-right">
                                                             <ul>
                                                                 <li>
