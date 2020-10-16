@@ -4,7 +4,7 @@
 ?>
 
     <!-- Partner -->
-    <div class="partner-area pt-100 pb-70">
+    <div class="partner-area pt-4 pb-5">
         <div class="container">
             <div class="section-title three text-center">
                 <h2>Featured Employers</h2>
