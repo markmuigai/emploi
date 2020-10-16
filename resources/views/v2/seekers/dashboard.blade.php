@@ -22,18 +22,32 @@
                                 My Profile
                             </a>
                             <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="dashboard.html#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                <div class="profile-list">
+                                <div class="profile-list">                               
                                     <i class='bx bxs-inbox'></i>
+                                    <a href="profile/applications">
                                     Applied Jobs
+                                </a>
                                 </div>
                             </a>
-                            <a href="single-resume.html">
+                            <a href="#">
                                 <div class="profile-list">
                                     <i class='bx bx-note'></i>
                                     My Resume
                                 </div>
                             </a>
-                            <a  href="login.html">
+                            <a href="/v2/vacancies">
+                                <div class="profile-list">
+                                    <i class='bx bx-task'></i>
+                                    Vacancies
+                                </div>
+                            </a>
+                            <a href="profile/referees">
+                                <div class="profile-list">
+                                    <i class='bx bx-user'></i>
+                                    Referees
+                                </div>
+                            </a>
+                            <a  href="/logout">
                                 <div class="profile-list">
                                     <i class='bx bx-log-out'></i>
                                     Logout
