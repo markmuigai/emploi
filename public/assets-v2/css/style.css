@@ -1797,7 +1797,7 @@ button:focus {
 /*-- End Feedback --*/
 /*-- Blog --*/
 .blog-item {
-  height: 580px;
+  /* height: 580px; */
   background-color: white !important;
   margin-bottom: 30px;
   border: 1px dashed #c4c4c4;
@@ -1856,6 +1856,7 @@ button:focus {
 .blog-item h3 {
   font-size: 20px;
   margin-bottom: 20px;
+  /* height: 56px; */
 }
 
 .blog-item h3 a {
