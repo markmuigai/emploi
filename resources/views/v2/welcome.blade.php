@@ -134,22 +134,28 @@
     </section>
     <!-- End Our Services -->
 
-    <!-- Featured jobs -->
-    <section class="feature-area pb-100">
+    <!-- Featured Jobs -->
+    <section class="company-area two pb-100">
         <div class="container-fluid">
-            <div class="section-title three">
-                <div class="sub-title-wrap">
-                </div>
+            <div class="section-title two">
                 <h2>{{ __('jobs.f_jobs') }}</h2>
             </div>
-            @include('v2.components.featured-jobs')
-            <div class="job-browse">
-                <a href="/vacancies" class="btn btn-orange mt-3 mb-5">View All Jobs</a>
-                <a href="/vacancies/featured" class="btn btn-orange-alt mt-3 mb-5">Featured Vacancies</a>
+            <div class="company-slider owl-theme owl-carousel">
+                @include('v2.components.featured-jobs')
+            </div>
+            <div class="job-browse pt-3">
+                <a class="cmn-btn" href="/vacancies">
+                    View All Jobs
+                    <i class='bx bx-briefcase-alt'></i>
+                </a>
+                <a class="cmn-btn" href="/vacancies/featured">
+                    Featured Vacancies
+                    <i class='bx bx-star' ></i>
+                </a>
             </div>
         </div>
     </section>
-    <!-- End Featured jobs -->
+    <!-- End Featured Jobs -->
 
     <!-- Blog -->
     <section class="blog-area three pt-100 pb-70">
