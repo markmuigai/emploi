@@ -85,9 +85,14 @@
         <script src="{{asset('assets-v2/js/owl.carousel.min.js')}}"></script>
         <!-- Progressbar JS -->
         <script src="{{asset('assets-v2/js/progressbar.min.js')}}"></script>
+        <!-- Nice Scroll-->
+        <script src="{{asset('assets-v2/js/jquery.nicescroll.min.js')}}"></script>
         <!-- Select2 JS-->
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <!-- Custom JS -->
         <script src="{{asset('assets-v2/js/custom.js')}}"></script>
+
+        <!--js in blade-->
+        @yield('js')
     </body>
 </html>
