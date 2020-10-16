@@ -68,12 +68,14 @@ class PostsController extends Controller
             ->where('status','!=','inactive')
             ->orderBy('created_at','DESC')
             ->paginate(15)->onEachSide(3);
-        return view('v2.seekers.vacancies')
-                ->with('industries',Industry::active())
-                ->with('locations',Location::active())
-                ->with('vacancyTypes',VacancyType::all())
-                ->with('title',$title)
-                ->with('posts',$posts);
+        return view('v2.seekers.vacancies',[
+            'industries' => Industry::active(),
+            'locations' => Location::active(),
+            'vacancyTypes' => VacancyType::all(),
+            'title' => $title,
+            'posts' => $posts,
+            'educationLevels' => EducationLevel::all()
+        ]);
     }
 
     public function create()
