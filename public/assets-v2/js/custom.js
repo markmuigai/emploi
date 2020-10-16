@@ -366,9 +366,9 @@ jQuery(function ($) {
 
 	// Nice scroll
 	// $("html").niceScroll();	
-	$(".list").niceScroll();
+	// $(".list").niceScroll();
 
-	$("body").niceScroll({
+	$("html").niceScroll({
 		cursorcolor:"#e15419",
 		cursorwidth:"16px"
 	  });
