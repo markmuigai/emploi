@@ -24,7 +24,7 @@
                                         @enderror
                                     @endif
                                     <label for="">Username or Email<b style="color: red" title="Required"> *</b></label>
-                                    <input type="email" name="username" required="required" value="{{ old('username') }}" class="form-control" placeholder="Email">
+                                    <input type="text" name="username" required="required" value="{{ old('username') }}" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     @if (isset($errors))
