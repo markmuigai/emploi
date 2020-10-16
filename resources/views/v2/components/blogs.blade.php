@@ -10,7 +10,7 @@
             <div class="blog-item">
                 <div class="top">
                     <a href="blog-details.html">
-                        <img src="{{asset('assets-v2/img/home-one/blog1.jpg')}}" alt="{{ $b->title }}">
+                        <img src="/storage/blogs/{{ $b->image1 }}" alt="{{ $b->title }}">
                     </a>
                 </div>
                 <span>{{ $b->category->name }} </span>

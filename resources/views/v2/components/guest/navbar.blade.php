@@ -26,13 +26,13 @@
                                     <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="favourite-jobs.html" class="nav-link">Favourite Jobs</a>
+                                    <a herf="#" class="nav-link">Favourite Jobs</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="post-a-job.html" class="nav-link">Post A Job</a>
+                                    <a herf="#" class="nav-link">Post A Job</a>
                                 </li>
                             </ul>
                         </li>

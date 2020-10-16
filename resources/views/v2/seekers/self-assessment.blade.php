@@ -9,7 +9,7 @@
     <div class="job-area-list ptb-100" style="margin-top: 35px">
         <div class="container">
             <div class="row">
-                hey
+                
             </div>
         </div>
     </div>
