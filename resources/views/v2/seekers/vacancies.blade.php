@@ -199,7 +199,7 @@
                                                 <div class="row align-items-center">
                                                     <div class="col-lg-7">
                                                         <div class="job-left">
-                                                            <img src="https://emploi.co/storage/images/logos/1602857488.png" height="80px" alt="Brand">
+                                                            <img src="{{ asset($post->imageUrl) }}" height="80px" alt="Brand">
                                                             <div class="job-left-details">
                                                                 <h3>{{ $post->getTitle() }}</h3>
                                                                 <p>{{$post->company->name}}</p>
