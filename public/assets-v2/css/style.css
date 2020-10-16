@@ -5955,7 +5955,7 @@ button:focus {
 }
 
 .job-filter-area .form-group .nice-select .list {
-  width: 100%;
+  /* width: 100%; */
   display: block;
 }
 
@@ -8066,3 +8066,11 @@ button:focus {
     margin-top: 0px !important;
   }
 }
+
+/* Custom nice select styling */
+.nice-select .list {
+  border-radius: 0px;
+  height: 200px;
+  overflow-y: auto;
+}
+
