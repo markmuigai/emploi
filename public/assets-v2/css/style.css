@@ -8100,3 +8100,9 @@ h4,h3{
   color: #e15419 !important;
 }
 
+.blog-content p{
+  height: 60px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

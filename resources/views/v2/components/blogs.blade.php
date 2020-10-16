@@ -18,10 +18,11 @@
                     <h3>
                         <a href="/blog/{{ $b->slug }}"> {{ $b->title }} </a>
                     </h3>
-                    <p>{!!html_entity_decode($b->longPreview(100))!!}</p>
+                    {{-- <p>{!!html_entity_decode($b->longPreview(100))!!}</p> --}}
+                    <p>{!!html_entity_decode($b->longPreview())!!}</p>
                 </div>
                 <div class="cmn-link d-flex align-self-end">
-                    <a href="blog-details.html" class="align-self-end">
+                    <a href="blog-details.html" class="align-self-end mt-2">
                         <i class="flaticon-right-arrow one"></i>
                         Learn More
                         <i class="flaticon-right-arrow two"></i>
@@ -29,6 +30,6 @@
                 </div>
             </div>
         </div> 
-        @endforeach          
+        @endforeach   
     </div>
     <!-- End of Blogs -->

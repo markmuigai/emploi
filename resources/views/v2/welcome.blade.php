@@ -144,7 +144,7 @@
                 @include('v2.components.featured-jobs')
             </div>
             <div class="job-browse pt-3">
-                <a class="cmn-btn" href="/v2/vacancies">
+                <a class="cmn-btn mb-2" href="/v2/vacancies">
                     View All Jobs
                     <i class='bx bx-briefcase-alt'></i>
                 </a>
@@ -164,7 +164,12 @@
                 <h2 class="text-white">Blog & News</h2>
             </div>
             @include('v2.components.blogs')<br>
-
+            <div class="d-flex justify-content-center">
+                <a class="text-center cmn-btn" href="/blog">
+                    View All Blogs
+                    <i class='bx bx-book-reader'></i>
+                </a>
+            </div>
         </div>
     </section>
     <!-- End Blog -->
