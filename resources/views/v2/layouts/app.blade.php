@@ -27,6 +27,8 @@
         <link rel="stylesheet" href="{{asset('assets-v2/css/style.css')}}">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="{{asset('assets-v2/css/responsive.css')}}">
+        <!-- select2 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 
         <title>Welcome to Emploi - The Premier Online Job Placement Platform in Africa</title>
 
@@ -58,7 +60,6 @@
         @include('v2.components.copyright')
         <!-- End Copyright -->
 
-
         <!-- Essential JS -->
         <script src="{{asset('assets-v2/js/jquery-3.5.1.min.js')}}"></script>
         <script src="{{asset('assets-v2/js/popper.min.js')}}"></script>
@@ -84,6 +85,8 @@
         <script src="{{asset('assets-v2/js/owl.carousel.min.js')}}"></script>
         <!-- Progressbar JS -->
         <script src="{{asset('assets-v2/js/progressbar.min.js')}}"></script>
+        <!-- Select2 JS-->
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <!-- Custom JS -->
         <script src="{{asset('assets-v2/js/custom.js')}}"></script>
     </body>
