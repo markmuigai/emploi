@@ -363,4 +363,13 @@ jQuery(function ($) {
 		$('html, body').animate({ scrollTop: 0 }, 900);
 		return false;
 	});
+
+	// Nice scroll
+	// $("html").niceScroll();	
+	$(".list").niceScroll();
+
+	$("body").niceScroll({
+		cursorcolor:"#e15419",
+		cursorwidth:"16px"
+	  });
 }(jQuery));
