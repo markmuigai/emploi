@@ -10,11 +10,13 @@
         <div class="dashboard-area ptb-100 mt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="profile-item">
-                            <img src="{{asset('assets-v2/img/dashboard1.jpg')}}" alt="Dashboard">
-                            <h2>Tom Henry</h2>
-                            <span>Web Developer</span>
+                             <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive w-100" alt="My Avatar" />
+                            <h2>{{ $user->getName() }}</h2>
+                           {{ $user->seeker->current_position }}
+                            {{ $user->email }}
+                             {{ $user->seeker->phone_number }}
                         </div>
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="dashboard.html#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
@@ -55,176 +57,114 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="tab-content" id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 <div class="profile-content">
-                                    <form>
                                         <div class="profile-content-inner">
                                             <h2>Basic Info</h2>
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Your Name:</label>
-                                                        <input type="text" class="form-control" placeholder="Tom Henry">
+                                            <!-- INFO CARD -->                
+                                            <div class="card py-2 mb-4">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                   
+                                                        <div class="col-md-12">
+                                                        
+                                                            <h5>
+                                                                
+                                                                @if($user->seeker->featured > 0)
+                                                                <a class="" style="font-weight: bold" href="/job-seekers/services"  data-toggle="tooltip" data-placement="left"  title="You are a featured Job Seeker on Emploi">
+                                                                Featured
+                                                                </a>
+                                                                @endif
+                                                                
+                                                                Job Seeker
+                                                                
+                                                                @if($user->seeker->canGetNotification())
+                                                                <a class="fa fa-bell" href="/job-seekers/services"  data-toggle="tooltip" data-placement="right" title="Shortlist Notifications Enabled" ></a>
+                                                                @else
+                                                                <a class="fa fa-bell-slash" href="/job-seekers/services"  data-toggle="tooltip" data-placement="right"  title="Shortlist Notifications Disabled"></a>
+                                                                @endif
+
+                                                                
+                                                            </h5>
+                                                            <h6 title="Referral Credits">
+                                                                <a href="/profile/invites">
+                                                                [ {{ $user->totalCredits }} credits ]
+                                                                </a>
+                                                                @if($user->seeker->searching)
+                                                                <span class="badge badge-success">Searching</span>
+                                                                @endif
+                                                            </h6>
+
+                                                            <?php $completed =  $user->seeker->calculateProfileCompletion(); ?>
+                                                            <p>Profile; <strong>{{ $completed }}%</strong> complete</p>
+                                                            <div class="progress" style="height: 5px">
+                                                                <div class="progress-bar" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width:{{ $completed }}%">
+                                                                </div>
+                                                            </div>
+                                                            @if($completed == 100)
+                                                              <p class="text-center"><span class="text-success">Congratulations. Your profile is complete.</span>
+                                                                </p>
+                                                            @elseif($completed == 88 && $user->seeker->featured == 0)
+                                                               <p class="text-center"><a href="/job-seekers/services" class="orange">Update your profile to increase your chances of being shortlisted.</a>
+                                                                </p>.
+                                                            @else                                    
+                                                                <p class="text-center"> <a href="/profile/edit" class="orange">Update your profile to increase your chances of being shortlisted.</a>
+                                                                </p>. 
+                                                            @endif                        
+                                                        
+                                                          <!--   @if(!$user->seeker->hasCompletedProfile())
+                                                            <p class="text-center">
+                                                                <a href="/profile/edit" class="text-danger"> <i class="fas fa-info"></i> Update your profile and start applying for jobs</a>
+                                                            </p>
+                                                            @endif -->
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Your Email:</label>
-                                                        <input type="email" class="form-control" placeholder="hello@jecto.com">
+                                                    <div class="row mb-2 text-center about-icons">
+                                                        <div class="col-md-4 col-6 my-3">
+                                                            <i class="orange fas fa-map-marker-alt"></i>
+                                                            <p>Location</p>
+                                                            <p><strong>{{ $user->seeker->location_id ? $user->seeker->location->name.', '.$user->seeker->location->country->code : 'Not set' }}</strong></p>
+                                                        </div>
+                                                        <div class="col-md-4 col-6 my-3">
+                                                            <i class="orange fas fa-network-wired"></i>
+                                                            <p>Industry</p>
+                                                            <p><strong>{{ $user->seeker->industry->name }}</strong></p>
+                                                        </div>
+                                                        <div class="col-md-4 col-6 my-3">
+                                                            <i class="orange fas fa-user"></i>
+                                                            <p>Gender</p>
+                                                            <p><strong>{{ $user->seeker->sex }}</strong></p>
+                                                        </div>
+                                                        <div class="col-md-4 col-6 my-3">
+                                                            <i class="orange fas fa-briefcase"></i>
+                                                            <p>Experience</p>
+                                                            <p><strong>{{ $user->seeker->years_experience }} Year(s)</strong></p>
+                                                        </div>
+                                                        <div class="col-md-4 col-6 my-3">
+                                                            <i class="orange fas fa-graduation-cap"></i>
+                                                            <p>Qualification</p>
+                                                            <p><strong>{{ $user->seeker->education_level_id ? $user->seeker->educationLevel->name : 'Not set' }}</strong></p>
+                                                        </div>
+                                                        <div class="col-md-4 col-6 my-3">
+                                                            <i class="orange fas fa-sort-amount-up-alt"></i>
+                                                            <p>Career Level</p>
+                                                            <p><strong>Manager</strong></p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Phone:</label>
-                                                        <input type="text" class="form-control" placeholder="+123 - 456 - 789">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Date Of Birth:</label>
-                                                        <input type="text" class="form-control" placeholder="01/01/1995">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Job Title:</label>
-                                                        <input type="text" class="form-control" placeholder="Web Developer">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Position:</label>
-                                                        <input type="text" class="form-control" placeholder="Team Leader">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Salary:</label>
-                                                        <input type="text" class="form-control" placeholder="$1500/per month">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Cover Picture</label>
-                                                        <input type="file">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="profile-content-inner">
-                                            <h2>Education</h2>
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Title:</label>
-                                                        <input type="text" class="form-control" placeholder="Under Graduate">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Degree:</label>
-                                                        <input type="text" class="form-control" placeholder="BSC in Computer Science">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Institute:</label>
-                                                        <input type="text" class="form-control" placeholder="Jecto University & Technology, UK">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Year:</label>
-                                                        <input type="text" class="form-control" placeholder="2015 - 2020">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="profile-content-inner">
-                                            <h2>Social Links</h2>
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Facebook:</label>
-                                                        <input type="text" class="form-control" placeholder="https://www.facebook.com">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Twitter:</label>
-                                                        <input type="text" class="form-control" placeholder="https://www.twitter.com">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Instagram:</label>
-                                                        <input type="text" class="form-control" placeholder="https://www.instagram.com">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Linkedin:</label>
-                                                        <input type="text" class="form-control" placeholder="https://www.linkedin.com">
-                                                    </div>
+
+                                                    <h4>Career Objective</h4>
+                                                    <p>
+                                                        {{ $user->seeker->objective ? $user->seeker->objective : 'Career Objective not included' }}
+                                                    </p>
                                                 </div>
                                             </div>
+                                            <!-- END OF INFO CARD -->
                                         </div>
-                                        <button type="submit" class="btn dashboard-btn">Save Your Information</button>
-                                    </form>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                <div class="employer-item">
-                                    <a href="job-details.html">
-                                        <img src="assets/img/home-one/job1.png" alt="Employer">
-                                        <h3>Product Designer</h3>
-                                        <ul>
-                                            <li>
-                                                <i class="flaticon-send"></i>
-                                                Los Angeles, CS, USA
-                                            </li>
-                                            <li>5 months ago</li>
-                                        </ul>
-                                        <p>We are Looking for a skilled Ul/UX designer amet conscu adiing elitsed do eusmod tempor</p>
-                                        <span class="span-one">Accounting</span>
-                                        <span class="span-two">FULL TIME</span>
-                                    </a>
-                                </div>
-                                <div class="employer-item">
-                                    <a href="job-details.html">
-                                        <img src="assets/img/home-one/job2.png" alt="Employer">
-                                        <h3>Sr. Shopify Developer</h3>
-                                        <ul>
-                                            <li>
-                                                <i class="flaticon-send"></i>
-                                                Houston, TX, USA
-                                            </li>
-                                            <li>4 months ago</li>
-                                        </ul>
-                                        <p>Responsible for managing skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                                        <span class="span-one">Accounting</span>
-                                        <span class="span-two two">FULL TIME</span>
-                                    </a>
-                                </div>
-                                <div class="employer-item">
-                                    <a href="job-details.html">
-                                        <img src="assets/img/home-one/job3.png" alt="Employer">
-                                        <h3>Tax Manager</h3>
-                                        <ul>
-                                            <li>
-                                                <i class="flaticon-send"></i>
-                                                Ho Chi Minh City, Vietnam
-                                            </li>
-                                            <li>6 months ago</li>
-                                        </ul>
-                                        <p>International collaborative a skilled Ul/UX designer amet conscu adiing elitsed do eusmod</p>
-                                        <span class="span-one two">Broardcasting</span>
-                                        <span class="span-two three">FREELANCER</span>
-                                    </a>
-                                </div>
-                            </div>
+        
                         </div>
                     </div>
                   </div>

@@ -41,6 +41,9 @@ class SeekerController extends Controller
     public function dashboard(Request $request)
     {
         return view('v2.seekers.dashboard')
+            ->with('user',Auth::user())
+            ->with('countries', Country::active())
+            ->with('locations', Location::active())
             ->with('posts',Auth::user()->seeker->featuredPosts())
             ->with('blogs',Blog::recent(20));
     }
