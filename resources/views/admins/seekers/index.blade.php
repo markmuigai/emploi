@@ -39,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
     <div class="form-row mt-3">
-        <div class="form-group col-lg-3 text-center">
+        <div class="form-group col-lg-2 text-center">
             <select name="location" class="custom-select">
                 <option value="">All Locations</option>
                 @forelse($locations as $l)
@@ -67,7 +67,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 @endfor
             </select>
         </div>
-        <div class="form-group col-lg-3 text-center">
+        <div class="form-group col-lg-3">
+            <select name="dob" class="custom-select">
+                <option value="">Any Year Of Birth</option>
+                <option value="2000" >Above 2000</option>
+                <option value="1990" >1990 to 1999</option>
+                <option value="1980" >1980 to 1989</option>
+                <option value="1970" >1970 to 1979</option>
+                <option value="1960" >1960 to 1969</option>
+                <option value="1950" >Below 1959</option>
+            
+            </select>
+        </div>
+        <div class="form-group col-lg-1 text-center">
             <button type="submit" name="button" class="btn btn-orange">Search</button>
         </div>
     </div>
@@ -110,6 +122,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><a href="mailto:{{ $seeker->user->email }}" class="orange">{{ $seeker->user->email }}</a></p>
                 <p>{{ $seeker->phone_number }}</p>
                 <p>{{ $seeker->sex }}</p>
+
+                <p>Age: {{ $seeker->age }}</p>
                 
                 <form action="/admin/log-in-as" method="POST">
                     @csrf

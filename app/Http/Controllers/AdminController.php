@@ -207,7 +207,7 @@ class AdminController extends Controller
             
         }
         if(isset($request->search))
-        {
+        {     
             $first = true;
             $location ="";
             if(isset($request->location))
@@ -298,6 +298,62 @@ class AdminController extends Controller
                 
             }
 
+            $dob ="";
+
+            if(isset($request->dob))
+                switch ($request->dob) {
+                    case '2000':
+                        $seekers_by_year = Seeker::all()->filter(function($s){
+                            $year = Carbon::parse($s->date_of_birth)->year;
+                            return $year > 2000;
+                        });
+                        break;
+
+                    case '1990':
+                        $seekers_by_year = Seeker::all()->filter(function($s){
+                            $year = Carbon::parse($s->date_of_birth)->year;
+                            return $year >= 1990 && $year < 2000;
+                        });
+                        break;
+                    case '1980':
+                        $seekers_by_year = Seeker::all()->filter(function($s){
+                            $year = Carbon::parse($s->date_of_birth)->year;
+                            return $year >= 1980 && $year < 1990;
+                        });
+                        break;
+                    case '1970':
+                        $seekers_by_year = Seeker::all()->filter(function($s){
+                            $year = Carbon::parse($s->date_of_birth)->year;
+                            return $year >= 1970 && $year < 1980;
+                        });
+                        break;
+                    case '1960':
+                        break;
+                        $seekers_by_year = Seeker::all()->filter(function($s){
+                            $year = Carbon::parse($s->date_of_birth)->year;
+                            return $year >= 1960 && $year < 1970;
+                        });
+                        break;
+                    
+                    default:
+                        $seekers_by_year = Seeker::all()->filter(function($s){
+                            $year = Carbon::parse($s->date_of_birth)->year;
+                            return $year < 1960;
+                        });
+                        break;
+                }
+            
+                
+            {   
+            
+
+               
+                 // $date = Carbon::parse($request->dob)->diffInYears();
+                 // return $date;
+                
+            }
+
+
             $featured ="";
             if(isset($request->featured) && $request->featured != 'all')
             {
@@ -337,6 +393,12 @@ class AdminController extends Controller
                 array_push($newseekers,$results[$i]->user_id);
             }
 
+
+            // dd($newseekers, $seekers_by_year->pluck('user_id'));
+            // Push job seekers filtered by year
+            if(isset($request->dob))
+            $newseekers = collect($newseekers)->intersect($seekers_by_year->pluck('user_id'))->toArray();
+
             $seekers = Seeker::whereIn('user_id',$newseekers)
                     ->orderBy('id','DESC')
                     ->paginate(20)
@@ -353,6 +415,7 @@ class AdminController extends Controller
                     ->with('phone_number',$request->phone_number)
                     ->with('keywords',$request->keywords)
                     ->with('experience',$request->experience)
+                    ->with('dob',$request->dob)
                     ->with('seekers',$seekers);
         }
         return view('admins.seekers.index')
