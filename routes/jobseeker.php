@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // CV Review routes
 Route::resource('cv-review', 'CVReviewController');
+
+// Self Assessment routes
+ROute::resource('self-assessment', 'SelfAssessmentController');

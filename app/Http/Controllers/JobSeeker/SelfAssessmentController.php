@@ -25,7 +25,7 @@ class SelfAssessmentController extends Controller
     public function create()
     {
         // Return view
-        return view('v2.seekers.self-assessment');
+        return view('v2.seekers.self-assessment.create');
     }
 
     /**
