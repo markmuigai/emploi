@@ -221,6 +221,98 @@ class HomeController extends Controller
                 ->with('user',Auth::user());
     }
 
+        public function editBio(){
+        $user = Auth::user();
+        return view('v2.seekers.edit-personal-details')
+                ->with('educationLevels',EducationLevel::all())
+                ->with('user',$user)
+                ->with('locations',Location::active())
+                ->with('industries',Industry::active())
+                ->with('countries',Country::active());
+    }
+
+    public function updateBio(Request $request)
+    {
+        // return $request->all();
+        $user = Auth::user();
+
+        {
+            $request->validate([
+                'avatar'    =>  ['mimes:png,jpg,jpeg','max:51200']
+            ]);
+
+            $user->name = $request->name;
+            $user->username = $request->username;
+
+            if(isset($request->avatar))
+            {
+                if(isset($user->avatar) && file_exists(storage_path()."/app/public/avatars/".$user->avatar))
+                {
+                    unlink(storage_path().'/app/public/avatars/'.$user->avatar);
+                }
+
+                $avatar = $request->file('avatar');
+                $avatar_url = time() . '.' . $avatar->getClientOriginalExtension();
+                $storage_path = storage_path().'/app/public/avatars/'.$avatar_url;
+
+                Image::make($avatar)->resize(300, 300)->save($storage_path);
+
+                // $storage_path = '/public/avatars';
+                // $user->avatar = basename(Storage::put($storage_path, $request->avatar));
+
+                $user->avatar = $avatar_url;
+            }
+
+            $user->updated_at = now();
+
+            if($user->save())
+            {
+                $seeker = $user->seeker;
+
+                $seeker->public_name = $request->public_name;                
+                $seeker->gender = $request->gender;
+                $seeker->date_of_birth = $request->date_of_birth;
+                $seeker->phone_number = $request->phone_number;
+                $seeker->post_address = $request->post_address;
+                $seeker->country_id = $request->country;
+                $seeker->location_id = $request->location;
+                $seeker->objective = $request->objective;
+
+                     
+                }
+            
+                          
+                }
+
+                if($seeker->save())
+                {
+                    return view('pages.profile-updated')
+                            ->with('title','Profile Updated')
+                            ->with('message','Your profile has been updated successfully');
+                }
+
+        }
+    public function editEdu(){
+        $user = Auth::user();
+        return view('v2.seekers.edit-education')
+                ->with('user',$user);
+    }
+        
+    public function editExp(){
+        $user = Auth::user();
+        return view('v2.seekers.edit-experience')
+                ->with('user',$user);
+    }
+
+    public function editSkills(){
+        $user = Auth::user();
+        $skills =  IndustrySkill::all();
+        return view('v2.seekers.edit-skills')
+                ->with('user',$user)
+                ->with('skills',$skills);
+    }
+
+
     public function updateProfile(){
         $user = Auth::user();
         if($user->role == 'seeker')
