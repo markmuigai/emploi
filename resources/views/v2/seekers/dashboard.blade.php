@@ -14,9 +14,9 @@
                         <div class="profile-item">
                              <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="img-responsive w-100" alt="My Avatar" />
                             <h2>{{ $user->getName() }}</h2>
-                           {{ $user->seeker->current_position }}
+                            {{ $user->seeker->current_position }}
                             {{ $user->email }}
-                             {{ $user->seeker->phone_number }}
+                            {{ $user->seeker->phone_number }}
                         </div>
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="dashboard.html#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
@@ -63,6 +63,7 @@
                                 <div class="profile-content">
                                         <div class="profile-content-inner">
                                             <h2>Basic Info</h2>
+                                               <a href="personal-details/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
                                             <!-- INFO CARD -->                
                                             <div class="card py-2 mb-4">
                                                 <div class="card-body">
@@ -160,16 +161,132 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <!-- END OF INFO CARD -->
+                                              <!-- END OF INFO CARD -->
                                         </div>
                                 </div>
                             </div>
-        
+
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">                               
+                                    <div class="profile-content">
+                                        <div class="profile-content-inner">
+                                            <h2>Education</h2>
+                                               <a href="education/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
+                                            <!-- EDUCATION -->
+                                             <div class="card py-2 mb-4">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">                                                
+                                                        <div class="col-md-12">
+                                                        @if(!is_array($user->seeker->education()))
+                                                        <?php echo $user->seeker->education; ?>
+                                                        @else
+                                                        @forelse($user->seeker->education() as $edu)
+                                                        <div class="row no-gutters justify-content-between edu pb-5">
+                                                            <div class="circle"></div>
+                                                            <div class="col-lg-3 col-12 ml-3">
+                                                                <p>{{ $edu[0] }}</p>
+
+                                                            </div>
+                                                            <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
+                                                                <h6>{{ $edu[1] }}</h6>
+                                                                <p class="orange">{{ $edu[2] }}</p>
+                                                            </div>
+                                                        </div>
+                                                        @empty
+                                                        <p>
+                                                            No education records highlighted.
+                                                        </p>
+                                                        @endforelse
+                                                        @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END OF EDUCATION -->                                          
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"> 
+                                    <div class="profile-content">
+                                        <div class="profile-content-inner">
+                                            <h2>Experience</h2>
+                                               <a href="experience/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
+                                                      <!-- EXPERIENCE -->
+                                                    <div class="card py-2 mb-4">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">                                                  
+                                                                <div class="col-md-12">
+                                                                    @if(!is_array($user->seeker->experience()))
+                                                                    <?php echo $user->seeker->experience; ?>
+                                                                    @else
+                                                                    @forelse($user->seeker->experience() as $emp)
+                                                                    <div class="row no-gutters justify-content-between edu pb-5">
+                                                                        <div class="circle"></div>
+                                                                        <div class="col-lg-3 col-12 ml-3">
+                                                                            <p>{{ $emp[0] }} <?php print isset($emp[5]) && $emp[5] == 'true' ? "<br><b style='color: #500095'>*Current*</b>" : ""; ?></p>
+
+                                                                        </div>
+                                                                        <div class="col-lg-8 col-12 ml-lg-0 ml-md-3">
+                                                                            <h6>{{ $emp[1] }}</h6>
+                                                                            <p class="orange">{{ $emp[2] }} to {{ $emp[3] }}</p>
+                                                                            <p>{{ $emp[4] }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    @empty
+                                                                    <p>
+                                                                        No experience records have been highlighted
+                                                                    </p>
+                                                                    @endforelse
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END OF EXPERIENCE -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                             
+                             
+
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"> 
+                                        <div class="profile-content">
+                                            <div class="profile-content-inner">
+                                            <h2>Skills</h2>
+                                               <a href="skills/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
+                                                      <!-- SKILLS -->
+                                                    <div class="card py-2 mb-4">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">                                                  
+                                                                <div class="col-md-12">
+                                                                    <h5>
+                                                                    @forelse($user->seeker->skills as $s)
+                                                                    <span class="badge badge-secondary">{{ $s->skill->name }}</span>
+                                                                    @empty
+                                                                    <p>No skills highlighted</p>
+                                                                    @endforelse
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END OF SKILLS -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                               
+                                   
+
+                            </div>
                         </div>
                     </div>
-                  </div>
-            </div>
-        </div>
+                </div>
+            </div>        
+        
         <!-- End Dashboard -->
 	<!-- End Dashboard -->
 
