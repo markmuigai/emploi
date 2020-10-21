@@ -18,3 +18,6 @@ Route::group(['prefix' => 'job-seekers',  'middleware' => 'seeker'], function(){
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// CV Review routes
+Route::resource('cv-review', 'CVReviewController');

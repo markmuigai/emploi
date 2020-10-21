@@ -165,7 +165,7 @@
             </div>
             @include('v2.components.blogs')<br>
             <div class="d-flex justify-content-center">
-                <a class="text-center cmn-btn" href="/blog">
+                <a class="text-`center cmn-btn" href="/blog">
                     View All Blogs
                     <i class='bx bx-book-reader'></i>
                 </a>
