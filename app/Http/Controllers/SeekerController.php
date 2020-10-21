@@ -42,7 +42,7 @@ class SeekerController extends Controller
             ->with('posts',Auth::user()->seeker->featuredPosts())
             ->with('blogs',Blog::recent(20));
     }
-
+    
     public function coaching(Request $request)
     {
         return view('seekers.coaching');

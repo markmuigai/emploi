@@ -507,7 +507,7 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             $error = '';
 
             if (app()->environment() === 'production') {
-                Notification::send(User::first(),new ContactReceived('EXCLUSIVE PLACEMENT: '.$r->name.' with phone '.$r->phone_number.' has requested for Interview Coaching'));
+                Notification::send(User::first(),new ContactReceived('EXCLUSIVE PLACEMENT: '.$r->name.' with phone '.$r->phone_number.' has requested for Exclusive Placement'));
             }
         }
         else
