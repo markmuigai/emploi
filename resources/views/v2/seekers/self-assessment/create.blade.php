@@ -1,5 +1,5 @@
-@extends('v2.layouts.app')
-
+@extends('v2.layouts.self-review')
+@section('title','Emploi :: Self Assessment' )
 @section('content')
     <!-- Navbar -->
     @include('v2.components.jobseeker.navbar')
@@ -10,8 +10,8 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div id="left_form">
-                            <h2>Registration</h2>
-                            <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+                            <h2>Title e.g Numeric Test</h2>
+                            <p>Question Goes here?</p>
                             <a href="index.html#0" id="more_info" data-toggle="modal" data-target="#more-info"><i class="pe-7s-info"></i></a>
                         </div>
                     </div>
@@ -32,12 +32,12 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" name="firstname" class="form-control required" placeholder="First name">
+                                                    <input type="text" name="firstname" class="form-control" placeholder="First name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" name="lastname" class="form-control required" placeholder="Last name">
+                                                    <input type="text" name="lastname" class="form-control" placeholder="Last name">
                                                 </div>
                                             </div>
                                         </div>
@@ -46,7 +46,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="email" name="email" class="form-control required" placeholder="Your Email">
+                                                    <input type="email" name="email" class="form-control" placeholder="Your Email">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -79,7 +79,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="address" class="form-control required" placeholder="Address">
+                                                    <input type="text" name="address" class="form-control" placeholder="Address">
                                                 </div>
                                             </div>
                                             <!-- /col-sm-12 -->
@@ -88,12 +88,12 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" name="city" class="form-control required" placeholder="City">
+                                                    <input type="text" name="city" class="form-control" placeholder="City">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <input type="text" name="zip_code" class="form-control required" placeholder="Zip code">
+                                                    <input type="text" name="zip_code" class="form-control" placeholder="Zip code">
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <div class="styled-select">
-                                                        <select class="required" name="country">
+                                                        <select class=" name="country">
                                                             <option value="" selected>Select your country</option>
                                                             <option value="Europe">Europe</option>
                                                             <option value="Asia">Asia</option>
@@ -123,7 +123,7 @@
                                             <textarea name="additional_message" class="form-control" style="height:150px;" placeholder="Hello world....write your messagere here!"></textarea>
                                         </div>
                                         <div class="form-group terms">
-                                            <input name="terms" type="checkbox" class="icheck required" value="yes">
+                                            <input name="terms" type="checkbox" class="icheck" value="yes">
                                             <label>Please accept <a href="index.html#" data-toggle="modal" data-target="#terms-txt">terms and conditions</a> ?</label>
                                         </div>
                                     </div>

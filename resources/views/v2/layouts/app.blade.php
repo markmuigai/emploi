@@ -30,13 +30,9 @@
         <!-- select2 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 
-        <!-- Self Review Styling -->
-        <link href="{{asset('survey-assets/css/style.css')}}" rel="stylesheet">
-        <link href="{{asset('survey-assets/css/responsive.css')}}" rel="stylesheet">
-        <link href="{{asset('survey-assets/css/skins/square/grey.css')}}" rel="stylesheet">
-        <title>Welcome to Emploi - The Premier Online Job Placement Platform in Africa</title>
-
         <link rel="icon" sizes="512x512" href="{{ asset('images/favicon.png') }}">   
+
+        <title>@yield('title')</title>
 
     </head>
     <body>
@@ -95,16 +91,6 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <!-- Custom JS -->
         <script src="{{asset('assets-v2/js/custom.js')}}"></script>
-        <!-- Self Review Scripts-->
-        <!-- Common script -->
-        <script src="js/common_scripts_min.js"></script>
-        <!-- Wizard script -->
-        <script src="js/registration_wizard_func.js"></script>
-        <!-- Menu script -->
-        <script src="js/velocity.min.js"></script>
-        <script src="js/main.js"></script>
-        <!-- Theme script -->
-        <script src="js/functions.js"></script>
 
         <!--js in blade-->
         @yield('js')

@@ -77,12 +77,12 @@
                     
                         </ul>
                     </div>
-                    <div class="d-flex justify-content-left my-3">
-                        <a class="text-`center cmn-btn" href="/v2/cv-review/create">
+                    <div class="my-2">
+                        <a class="text-center cmn-btn mt-2" href="/v2/cv-review/create">
                             CV Review
                             <i class='bx bx-book-content' ></i>
                         </a>
-                        <a class="text-`center cmn-btn mx-3" href="/v2/self-assessment/create">
+                        <a class="text-center cmn-btn mt-2 mx-3" href="/v2/self-assessment/create">
                             Self Assessment
                             <i class='bx bx-stats'></i>
                         </a>
