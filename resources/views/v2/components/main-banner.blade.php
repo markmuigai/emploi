@@ -4,10 +4,6 @@
         <div class="banner-content two three">
             <div class="d-table">
                 <div class="d-table-cell">
-                    <p>
-                        We aggregate all the jobs for you at one stop and we provide 
-                        you with the best placement tools and support you need to land your dream job
-                    </p>
                     <h1>Blast Off <span>Your Career</span></h1>
                     <div class="banner-form-area">
                         <form method="get" action="/vacancies/search" class="text-center">
@@ -80,6 +76,16 @@
                             </li>
                     
                         </ul>
+                    </div>
+                    <div class="d-flex justify-content-left my-3">
+                        <a class="text-`center cmn-btn" href="/v2/cv-review/create">
+                            CV Review
+                            <i class='bx bx-book-content' ></i>
+                        </a>
+                        <a class="text-`center cmn-btn mx-3" href="/v2/self-assessment/create">
+                            Self Assessment
+                            <i class='bx bx-stats'></i>
+                        </a>
                     </div>
                     <div class="register-area">
                         <div class="container">
