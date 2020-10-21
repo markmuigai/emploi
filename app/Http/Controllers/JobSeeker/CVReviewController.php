@@ -18,13 +18,13 @@ class CVReviewController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for uploading the CV
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('v2.seekers.cv-review.create');
     }
 
     /**
