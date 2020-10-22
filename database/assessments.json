@@ -18,10 +18,10 @@
       "Cannot say" : 0    
     },    
     "You've been working in the same place for the past three years and have managed to work your way up. Lately, you have been feeling that you have reached your potential in the company so you start pursuing options for advancing your career in other companies. You are now in the midst of negotiations for a new position. Rumours that you are leaving have spread in your current work place.What would you do and why? Choose ONE option" : {
-    "Since the rumour is already out, you update all your acquaintances in the organisation that you are in the midst of negotiations for a new position. This may even encourage your directors to promote you within the company": 0,
-    "Because the rumour is out you update your manager and only him about your intention of leaving. Since you are still an employee there, you keep working normally": 1,
-    "Since the rumour is already out and you will probably leave, you invest a little less in your work and a bit more in attaining the new position": 0,
-    "ince it is only a rumour, you don't update anyone until you actually hand in your notice. Nothing has been decided yet": 0
+      "Since the rumour is already out, you update all your acquaintances in the organisation that you are in the midst of negotiations for a new position. This may even encourage your directors to promote you within the company": 0,
+      "Because the rumour is out you update your manager and only him about your intention of leaving. Since you are still an employee there, you keep working normally": 1,
+      "Since the rumour is already out and you will probably leave, you invest a little less in your work and a bit more in attaining the new position": 0,
+      "Since it is only a rumour, you don't update anyone until you actually hand in your notice. Nothing has been decided yet": 0
     
     },
     "In the past week, you notice that Felix has been reading a newspaper during work while the supervisor is out of the office. Last week the supervisor was absent a lot- and Felix seems to be reading while he should be completing his tasks.What would you do first?":{
@@ -63,7 +63,7 @@
       "Cannot say" : 0
     }
   },
-  "Hard" : {
+  "hard" : {
     "Choose the word that is most nearly OPPOSITE to the word in capital letters. LENGTHEN" : {
       "abdicate" : 0,
       "truncate" : 1,
