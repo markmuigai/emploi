@@ -26,7 +26,6 @@ class CVReviewController extends Controller
      */
     public function create()
     {
-        dd(parseCV('/home/markmuigai/Desktop/emploi/public/storage/cv-reviews/Kirarit_David_CV.pdf'));
         return view('v2.seekers.cv-review.create');
     }
 
@@ -44,11 +43,7 @@ class CVReviewController extends Controller
         // Store CV
         $path = public_path()."/storage/".$request->file('cv')->storeAs('cv-reviews', $name);
 
-        dd($path);
-
-        // Parse CV
-        $text = parseCV($path);
-
+        dd(parseCV($path));
 
         // Parse CV
         // return $request->file('cv');

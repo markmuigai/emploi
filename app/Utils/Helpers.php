@@ -7,8 +7,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
  * Parse CV
  */
 function parseCV($path){
-
-    $arg = "/usr/bin/python3 ". getcwd()."/app/Python/cv-parser.py {$path}";
+    $arg = "/usr/bin/python3 ". base_path()."/app/Python/cv-parser.py {$path}";
 
     // return $arg;
     // Call symphony
