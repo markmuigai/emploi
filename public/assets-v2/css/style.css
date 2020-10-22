@@ -1108,7 +1108,7 @@ button:focus {
 /*-- End Jobs --*/
 /*-- Explore --*/
 .explore-area {
-  background-image: url("../img/home-one/explore-bg.jpg");
+  background-image: url("../../images/homepage-cv.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
