@@ -365,7 +365,7 @@ button:focus {
 
 .banner-content h1 {
   color: #221668;
-  font-size: 70px;
+    
   margin-bottom: 25px;
   max-width: 710px;
 }
@@ -4536,7 +4536,7 @@ button:focus {
 /*----- End Home Demo Three CSS -----*/
 /*----- About CSS -----*/
 .page-title-area {
-  background-image: url("../../images/bg1.jpeg");
+  background-image: linear-gradient(to right,#000,rgba(81,81,81,.2)), url("../../images/bg1.jpeg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -8105,4 +8105,34 @@ h4,h3{
   word-wrap: break-word;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.cv-review-banner h1{
+  font-size: 50px;
+}
+.cv-review-banner span{
+    color: #e15419
+}
+
+.cv-review-banner   .ldBar path.mainline {
+  stroke-width: 10;
+  stroke: #09f;
+  stroke-linecap: round;
+}
+
+.cv-review-banner .ldBar-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  text-shadow: 0 0 3px #fff;
+}
+
+.cv-review-banner input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  cursor: pointer;
 }
