@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Question;
+
 class AssessmentSeeder extends Seeder
 {
     /**
@@ -13,7 +15,7 @@ class AssessmentSeeder extends Seeder
     {
         // Get the data from the included
         // .json file
-        $difficlty_levels= json_decode(file_get_contents(
+        $difficulty_levels= json_decode(file_get_contents(
             database_path('assessments.json')
         ));
 
@@ -28,14 +30,14 @@ class AssessmentSeeder extends Seeder
             foreach($questions as $question => $choices){
                 $question = Question::create([
                     'title' => $question,
-                    'difficulty_level' => $difficlty_level
+                    'difficulty_level' => $difficulty_level
                 ]);
 
                 // Create the choices for each question
                 foreach($choices as $choice => $isAnswer){
                     $question->choices()->create([
-                        'choice' => $choice,
-                        'isAnswer' => $isAnswer
+                        'values' => $choice,
+                        'correct_value' => $isAnswer
                     ]);
                 }
             }
