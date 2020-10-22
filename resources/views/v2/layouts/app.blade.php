@@ -29,6 +29,8 @@
         <link rel="stylesheet" href="{{asset('assets-v2/css/responsive.css')}}">
         <!-- select2 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+        <!-- loading bar -->
+        <link rel="stylesheet" type="text/css" href="{{asset('assets-v2/css/loading-bar.min.css')}}"/>
 
         <link rel="icon" sizes="512x512" href="{{ asset('images/favicon.png') }}">   
 
@@ -91,6 +93,8 @@
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
         <!-- Custom JS -->
         <script src="{{asset('assets-v2/js/custom.js')}}"></script>
+        <!--Loading Bar-->
+        <script type="text/javascript" src="{{asset('assets-v2/js/loading-bar.min.js')}}"></script>
 
         <!--js in blade-->
         @yield('js')

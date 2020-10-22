@@ -6,17 +6,29 @@
     <!-- End Navbar -->
         <!-- Resume -->
         <!-- Page Title -->
-        <div class="page-title-area">
+        <div class="page-title-area cv-review-banner">
             <div class="d-table">
                 <div class="d-table-cell">
-                    <div class="container">
+                    <div class="container pt-5 mt-5">
                         <div class="row text-white">
-                            <div class="col-md-8">
-                                <p>Resume Check: Instantly Check Your Resume for 30+ Issues</p>
+                            <div class="col-md-6 pt-5">
+                                <h1>Automatic <span>CV review</span></h1>
+                                <h2>Instantly Check Your Resume for Issues</h2>
+                                <form id="review-cv-form" method="POST" action="{{route('v2.cv-review.store')}}" enctype="multipart/form-data">
+                                    @csrf
+                                    <label for="review-cv" class="custom-file-upload cmn-btn my-3">
+                                        Review Your CV
+                                        <i class='bx bx-upload'></i>
+                                    </label>
+                                    <input id="review-cv" name="cv" type="file"/>
+                                </form>
                             </div>
-                            <div class="col-md-4">
-                                <h2>Automatic CV Review</h2>
-                                <button class="btn btn-primary">Upload CV</button>
+                            <div class="col-md-6 pt-5 d-flex justify-content-center">
+                                <div
+                                class="ldBar label-center"
+                                data-value="35"
+                                data-preset="circle"
+                              ></div>
                             </div>
                         </div>
                     </div>
@@ -167,4 +179,13 @@
         </div>
         <!-- End Resume -->
 
+@endsection
+
+@section('js')
+    <script>
+        $('#review-cv').change(function(){
+            console.log('hey');
+            $('#review-cv-form').submit();
+        })
+    </script>
 @endsection
