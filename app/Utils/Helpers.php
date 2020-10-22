@@ -6,9 +6,13 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 /**
  * Parse CV
  */
-function parseCV(){
+function parseCV($path){
+
+    $arg = "/usr/bin/python3 ". getcwd()."/app/Python/cv-parser.py {$path}";
+
+    // return $arg;
     // Call symphony
-    $process = new Process(['/usr/bin/python3', getcwd().'/app/Python/cv-parser.py']);
+    $process = new Process($arg);
     $process->run();
     
     // Check for exceptions
@@ -18,4 +22,7 @@ function parseCV(){
 
     // Return json object
     return $data = $process->getOutput();
+
+    // $arg = "/usr/bin/python3 ". getcwd()."/app/Python/cv-parser.py $path";
+    // return exec($arg);
 }

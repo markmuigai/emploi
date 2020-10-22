@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\JobSeeker;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CVReviewController extends Controller
 {
@@ -24,19 +26,36 @@ class CVReviewController extends Controller
      */
     public function create()
     {
+        dd(parseCV('/home/markmuigai/Desktop/emploi/public/storage/cv-reviews/Kirarit_David_CV.pdf'));
         return view('v2.seekers.cv-review.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Reivew uploaded CV
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // Get file name
+        $name = $request->file('cv')->getClientOriginalName();
+
+        // Store CV
+        $path = public_path()."/storage/".$request->file('cv')->storeAs('cv-reviews', $name);
+
+        dd($path);
+
+        // Parse CV
+        $text = parseCV($path);
+
+
+        // Parse CV
+        // return $request->file('cv');
+        // dd($request->file('cv')->path());
         //
+
+        return redirect()->back();
     }
 
     /**
