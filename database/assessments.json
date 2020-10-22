@@ -1,0 +1,85 @@
+{
+  "easy": {
+    "A class of 19 students had an average of 80 on a certain exam. A new student joined the class and received 90 on the exam. What is the new class average?" : {
+      "80.5" : 0,
+      "82": 0,
+      "83.5" : 0,
+      "84.7" : 0,
+      "85" : 1
+    },
+    "Based on the two given premises above the line, determine whether the conclusion below is logically correct or incorrect. \n No man is infallible. A priest is a man. No priest is infallible." : {
+      "Correct" : 1,
+      "Incorrect" : 0
+    },
+    "Sidney is older than Rachel. Rachel and Beatrice are both older than Tina. Elena is not the youngest. Who is the youngest of the five" : {
+      "Rachel" : 0,
+      "Tina" : 1,
+      "Elena" : 0,
+      "Cannot say" : 0
+    }
+  },
+  "medium" : {
+    "A person who spends money responsible way is (a):" : {
+      "SKINFLINT": 0,
+      "FRUGAL": 1,
+      "SPENDTHRIFT": 0,
+      "THRIFTY": 0
+    },
+    "What is the next number in the sequence? 11, 44, 99, ?" : {
+      "133" : 1,
+      "176" : 0,
+      "113" : 0,
+      "111" : 0
+    },
+    "Identify the missing number in the sequence: 29, 31, ? , 41" : {
+      "36" : 0,
+      "37" : 1,
+      "33" : 0,
+      "35" : 0
+    },
+    "65% of 600 is?" : {
+      "290" : 0,
+      "230" : 0,
+      "390" : 1,
+      "360" : 0
+    },
+    "Sidney is older than Rachel. Rachel and Beatrice are both older than Tina. Elena is not the youngest. Who is the youngest of the five?" : {
+      "Rachel" : 1,
+      "Tina" : 0,
+      "Elena" : 0,
+      "Cannot say" : 0
+    }
+  },
+  "Hard" : {
+    "Choose the word that is most nearly OPPOSITE to the word in capital letters. LENGTHEN" : {
+      "abdicate" : 0,
+      "truncate" : 1,
+      "elongate" : 0,
+      "resist" : 0
+    },
+    "A group of 3 numbers has an average of 17. The first two numbers are 12 and 19. What is the third number?" : {
+      "17" : 0,
+      "19" : 0,
+      "20" : 1,
+      "23" : 0
+    },
+    "If 5 persons can execute 15 items in a checklist in 10 days, how many days will 15 persons take to execute 5 items in the checklist?" : {
+      "Between 1 and 2 days" : 1,
+      "Between 3 and 4 dasy" : 0,
+      "Greater than 5 days" : 0,
+      "Between 5 and 6 days" : 0
+    },
+    "The square root of 0.0121 is?" : {
+      "0.11" : 1,
+      "0.011" : 0,
+      "0.00011" : 0,
+      "0.000011" : 0
+    },
+    "Identify the next number in the following sequence: 25, 49, 97, ?" : {
+      "159" : 0,
+      "179" : 0,
+      "139" : 0,
+      "193" : 1
+    }
+  }
+}
