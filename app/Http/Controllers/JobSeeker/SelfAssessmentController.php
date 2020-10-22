@@ -4,6 +4,7 @@ namespace App\Http\Controllers\JobSeeker;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Question;
 
 class SelfAssessmentController extends Controller
 {
@@ -24,8 +25,10 @@ class SelfAssessmentController extends Controller
      */
     public function create()
     {
+        $questions=Question::all();
         // Return view
-        return view('v2.seekers.self-assessment.create');
+        return view('v2.seekers.self-assessment.create')
+                  ->with('questions', $questions);
     }
 
     /**
@@ -36,7 +39,13 @@ class SelfAssessmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
+          $user=Auth::user();
+
+         $request->validate([
+            'optional_message'   =>  ['string']
+        ]);
+
     }
 
     /**
