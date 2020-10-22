@@ -10,7 +10,7 @@ class Choice extends Model
         'question_id', 'values', 'correct value'
     ];
 
-    public function questions()
+    public function question()
     {
         return $this->belongsTo('App\Question');
     }
