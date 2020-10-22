@@ -478,24 +478,24 @@ class RawDataSeeder extends Seeder
             Industry::create([ 'name' => 'Graduate Jobs', 'slug' => 'graduate-jobs' ]);//39
     
     
-            // Country::create([ 'name' => 'Kenya','code' => 'KE', 'prefix' => '254','currency' => 'KES' ]);
-            // Country::create([ 'name' => 'Uganda','code' => 'UG', 'prefix' => '256','currency' => 'UGX' ]);
-            // Country::create([ 'name' => 'Tanzania','code' => 'TZ', 'prefix' => '255','currency' => 'TSH' ]);
-            // Country::create([ 'name' => 'Rwanda','code' => 'RW', 'prefix' => '250','currency' => 'RWF' ]);
+            Country::create([ 'name' => 'Kenya','code' => 'KE', 'prefix' => '254','currency' => 'KES' ]);
+            Country::create([ 'name' => 'Uganda','code' => 'UG', 'prefix' => '256','currency' => 'UGX' ]);
+            Country::create([ 'name' => 'Tanzania','code' => 'TZ', 'prefix' => '255','currency' => 'TSH' ]);
+            Country::create([ 'name' => 'Rwanda','code' => 'RW', 'prefix' => '250','currency' => 'RWF' ]);
     
-            // Location::create([ 'name' => 'Nairobi','country_id' => 1]);
-            // Location::create([ 'name' => 'Mombasa','country_id' => 1]);
-            // Location::create([ 'name' => 'Kisumu','country_id' => 1]);
+            Location::create([ 'name' => 'Nairobi','country_id' => 1]);
+            Location::create([ 'name' => 'Mombasa','country_id' => 1]);
+            Location::create([ 'name' => 'Kisumu','country_id' => 1]);
     
-            // Location::create([ 'name' => 'Kampala','country_id' => 2]);
-            // Location::create([ 'name' => 'Gulu','country_id' => 2]);
+            Location::create([ 'name' => 'Kampala','country_id' => 2]);
+            Location::create([ 'name' => 'Gulu','country_id' => 2]);
     
-            // Location::create([ 'name' => 'Dar es Salaam','country_id' => 3]);
-            // Location::create([ 'name' => 'Mwanza','country_id' => 3]);
-            // Location::create([ 'name' => 'Arusha','country_id' => 3]);
-            // Location::create([ 'name' => 'Dodoma','country_id' => 3]);
+            Location::create([ 'name' => 'Dar es Salaam','country_id' => 3]);
+            Location::create([ 'name' => 'Mwanza','country_id' => 3]);
+            Location::create([ 'name' => 'Arusha','country_id' => 3]);
+            Location::create([ 'name' => 'Dodoma','country_id' => 3]);
     
-            // Location::create([ 'name' => 'Kigali','country_id' => 4]);
+            Location::create([ 'name' => 'Kigali','country_id' => 4]);
     
             Permission::create([ 'role' => 'super-admin','home' => '/desk' ]);
             Permission::create([ 'role' => 'admin','home' => '/admin/panel' ]);
