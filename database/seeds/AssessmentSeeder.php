@@ -24,6 +24,7 @@ class AssessmentSeeder extends Seeder
          * For the first level, the key is the difficulty level and the values are the questions
          * permissions.
          */
+
         foreach($difficulty_levels as $difficulty_level => $questions)
         {
             // Create the questions
@@ -36,7 +37,7 @@ class AssessmentSeeder extends Seeder
                 // Create the choices for each question
                 foreach($choices as $choice => $isAnswer){
                     $question->choices()->create([
-                        'values' => $choice,
+                        'value' => $choice,
                         'correct_value' => $isAnswer
                     ]);
                 }
