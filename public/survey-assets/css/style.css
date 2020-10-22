@@ -432,12 +432,7 @@ button.submit:before {
 .ui-widget-header a {
     color: #222;
 }
-#top-wizard {
-    margin-left: -30px;
-}
-#middle-wizard {
-    padding: 45px 45px 30px 15px;
-}
+
 #bottom-wizard {
     text-align: right;
     position: absolute;
@@ -1467,4 +1462,8 @@ input.qtyminus {
       padding-left: 15px;
       padding-right: 15px;
     }
+  }
+
+  .right-form{
+    padding: 70px 50px 30px;
   }
