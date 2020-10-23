@@ -44,7 +44,7 @@
             </div>
         </div>
 <!--What we check start-->
-    <section class="work-area py-5 pb-70">
+    <section class="work-area cv-review-details py-5 pb-70">
         <div class="container">
             <div class="section-title">
                 <h2 style="text-align: center">What we Check</h2>
