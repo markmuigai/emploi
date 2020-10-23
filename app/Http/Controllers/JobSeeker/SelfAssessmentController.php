@@ -87,4 +87,12 @@ class SelfAssessmentController extends Controller
     {
         //
     }
+
+    /**
+     * Show questions based on parameters
+     */
+    public function filterAssessments(Request $request)
+    {
+        return $request->all();
+    }
 }
