@@ -23,12 +23,14 @@ class SelfAssessmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($payload)
     {
-        $questions=Question::all();
+        $questions = Question::all();
+
         // Return view
-        return view('v2.seekers.self-assessment.create')
-                  ->with('questions', $questions);
+        return view('v2.seekers.self-assessment.create',[
+            'questions' => $questions
+        ]);
     }
 
     /**
