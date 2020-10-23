@@ -62,6 +62,7 @@
         @include('v2.components.copyright')
         <!-- End Copyright -->
 
+        @yield('modal')
         <!-- Essential JS -->
         <script src="{{asset('assets-v2/js/jquery-3.5.1.min.js')}}"></script>
         <script src="{{asset('assets-v2/js/popper.min.js')}}"></script>
