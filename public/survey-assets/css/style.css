@@ -382,7 +382,7 @@ button.submit {
     font-weight: 400;
     outline: 0;
     text-align: center;
-    background: #409fff;
+    background: #500095;
     position: relative;
     font-size: 15px;
     -webkit-border-radius: 3px;
@@ -409,7 +409,7 @@ button.submit {
     padding: 10px 30px 10px 20px;
 }
 button[disabled] {
-    display: none;
+    display: none !important;
 }
 /* button.backward:before {
     content: "\34";
@@ -1466,4 +1466,27 @@ input.qtyminus {
 
   .right-form{
     padding: 70px 50px 30px;
+  }
+
+  button.submit-custom{
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+    -webkit-transition: background 0.5s ease;
+    -o-transition: background 0.5s ease;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 400;
+    outline: 0;
+    text-align: center;
+    background: #500095;
+    position: relative;
+    font-size: 15px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 1;
+    padding: 10px 30px;
   }
