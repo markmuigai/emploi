@@ -628,7 +628,7 @@ class RawDataSeeder extends Seeder
             // 'remember_token' => Str::random(10),
             // ]);
             // $adminPerm = UserPermission::create([ 'user_id' => $admin->id, 'permission_id' => 2 ]);
-            // Jurisdiction::create([ 'user_permission_id' => $adminPerm->id, 'country_id' => 1 ]);
+            Jurisdiction::create([ 'user_permission_id' => 2, 'country_id' => 1 ]);
     
             VacancyType::create([ 'slug' => 'full-time', 'name' => 'Full-time']);
             VacancyType::create([ 'slug' => 'part-time', 'name' => 'Part-time']);
