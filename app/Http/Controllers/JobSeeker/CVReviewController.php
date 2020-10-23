@@ -24,9 +24,11 @@ class CVReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('v2.seekers.cv-review.create');
+        return view('v2.seekers.cv-review.create',[
+            'reviewResults' => $request->reviewResults
+        ]);
     }
 
     /**
@@ -43,14 +45,21 @@ class CVReviewController extends Controller
         // Store CV
         $path = public_path()."/storage/".$request->file('cv')->storeAs('cv-reviews', $name);
 
-        dd(parseCV($path));
+        try {
+            // Get cv json
+            $json = parseCV($path); 
 
-        // Parse CV
-        // return $request->file('cv');
-        // dd($request->file('cv')->path());
-        //
+            // Get Score
+            $score = reviewCV($json);
 
-        return redirect()->back();
+        } catch (\Throwable $th) {
+            // Fails if document is too long or in he wrong format
+            $score = 5;
+        }
+
+        return redirect()->route('v2.cv-review.create',[
+            'reviewResults' => $score
+        ]);
     }
 
     /**
