@@ -78,7 +78,7 @@
                         </ul>
                     </div>
                     <div class="my-2">
-                        <a class="text-center cmn-btn mt-2" href="/v2/cv-review/create">
+                        <a class="text-center cmn-btn mt-2" href="{{Route('v2.cv-review.create', ['reviewResults' => 70])}}">
                             CV Review
                             <i class='bx bx-book-content' ></i>
                         </a>
