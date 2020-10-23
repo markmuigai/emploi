@@ -25,7 +25,7 @@ class SelfAssessmentController extends Controller
      */
     public function create()
     {
-        $questions=Question::where('id', 1)->get();
+        $questions=Question::all();
         // Return view
         return view('v2.seekers.self-assessment.create')
                   ->with('questions', $questions);
@@ -38,14 +38,9 @@ class SelfAssessmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        return $request->all();
-          $user=Auth::user();
-
-         $request->validate([
-            'optional_message'   =>  ['string']
-        ]);
-
+    {   
+        $v = $request->choices;
+         return $v;
     }
 
     /**

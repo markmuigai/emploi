@@ -14,8 +14,7 @@
                                 <div id="progressbar"></div>
                             </div>
                             <!-- /top-wizard -->
-                
-                            <form method="POST" name="" id="wrapped"  action="/self-assessment" enctype="multipart/form-data">
+                            <form method="POST"  name="" action="/v2/self-assessment" enctype="multipart/form-data">
                                 @csrf
                                  
                                 <input id="website" name="website" type="text" value="">
@@ -36,7 +35,7 @@
                                                 <h3 class="main_question"><strong>{{ $question->id }}</strong>Select the right answer</h3>
                                                 <div class="col-md-12">
                                                     @forelse($question->choices as $c)
-                                                    <input type="radio" name="choices" id="{{ $c->id }}">  {{ $c->value }}<br>
+                                                    <input type="radio" name="choices[]" value="{{ $c->value }}" > {{ $c->value }}<br>
                                                     @empty
                                                     @endforelse
                                                 </div>                                 
@@ -46,13 +45,15 @@
                                     @endforeach                              
                 
                         
-                                </div>
+                                </div>                              
                                 <!-- /middle-wizard -->
                                 <div id="bottom-wizard">
                                     <button type="button" name="backward" class="backward">Backward </button>
                                     <button type="button" name="forward" class="forward">Forward</button>
-                                    <button type="submit" name="process" class="submit">Submit</button>
+
+                                 <!--    <button type="submit" name="process" class="submit">Submit</button> -->
                                 </div>
+                                      <input type="submit" class="btn btn-primary" name="" value="Submit">
                              
                                 <!-- /bottom-wizard -->
                             </form>                                            
