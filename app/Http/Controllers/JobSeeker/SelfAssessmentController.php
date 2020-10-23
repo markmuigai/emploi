@@ -25,7 +25,7 @@ class SelfAssessmentController extends Controller
      */
     public function create()
     {
-        $questions=Question::all();
+        $questions=Question::where('id', 1)->get();
         // Return view
         return view('v2.seekers.self-assessment.create')
                   ->with('questions', $questions);
