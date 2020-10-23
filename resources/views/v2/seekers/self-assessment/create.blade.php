@@ -14,14 +14,13 @@
                                 <div id="progressbar"></div>
                             </div>
                             <!-- /top-wizard -->
-                            <form method="POST"  name="" action="/v2/self-assessment" enctype="multipart/form-data">
+                            <form method="POST" action="{{Route('v2.self-assessment.store')}}" enctype="multipart/form-data">
                                 @csrf
                                  
                                 <input id="website" name="website" type="text" value="">
                                 <!-- Leave for security protection, read docs for details -->
                                 <div id="middle-wizard">
-
-                                    @foreach($questions as $question)
+                                    @foreach($questions as $key => $question)
                                     <div class="step">                                         
                                         <div class="row">                                                      
                                             <div class="col-lg-5">
@@ -32,10 +31,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-7 right-form">
-                                                <h3 class="main_question"><strong>{{ $question->id }}</strong>Select the right answer</h3>
+                                                <h3 class="main_question"><strong>{{($key+1)."/".$questions->count()}}</strong>Select the right answer</h3>
                                                 <div class="col-md-12">
                                                     @forelse($question->choices as $c)
-                                                    <input type="radio" name="choices[]" value="{{ $c->value }}" > {{ $c->value }}<br>
+                                                    <input type="radio" name="choices[{{$question->id}}][]" value="{{ $c->value }}" > {{ $c->value }}<br>
                                                     @empty
                                                     @endforelse
                                                 </div>                                 
@@ -43,18 +42,13 @@
                                         </div>                                      
                                     </div>
                                     @endforeach                              
-                
-                        
                                 </div>                              
                                 <!-- /middle-wizard -->
                                 <div id="bottom-wizard">
-                                    <button type="button" name="backward" class="backward">Backward </button>
-                                    <button type="button" name="forward" class="forward">Forward</button>
-
-                                 <!--    <button type="submit" name="process" class="submit">Submit</button> -->
+                                    <button type="button" name="backward" class="backward">Previous</button>
+                                    <button type="button" name="forward" class="forward">Next</button>
+                                    <button type="submit" class="submit-custom">Submit</button>
                                 </div>
-                                      <input type="submit" class="btn btn-primary" name="" value="Submit">
-                             
                                 <!-- /bottom-wizard -->
                             </form>                                            
                         </div>
