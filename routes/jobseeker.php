@@ -34,4 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cv-review', 'CVReviewController');
 
 // Self Assessment routes
-ROute::resource('self-assessment', 'SelfAssessmentController');
+Route::resource('self-assessment', 'SelfAssessmentController');
+
+// Filter assessment questions based on paramenters
+Route::post('self-assessment/filter', 'SelfAssessmentController@filterAssessments')->name('self-assessment.filter') ;
