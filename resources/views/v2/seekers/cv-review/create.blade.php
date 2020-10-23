@@ -14,21 +14,29 @@
                             <div class="col-md-6 pt-5">
                                 <h1>Automatic <span>CV review</span></h1>
                                 <h2>Instantly Check Your Resume for Issues</h2>
-                                <form id="review-cv-form" method="POST" action="{{route('v2.cv-review.store')}}" enctype="multipart/form-data">
-                                    @csrf
-                                    <label for="review-cv" class="custom-file-upload cmn-btn my-3">
-                                        Review Your CV
-                                        <i class='bx bx-upload'></i>
-                                    </label>
-                                    <input id="review-cv" name="cv" type="file"/>
-                                </form>
+                                <h5>Review our suggestions to see what you can fix.</h5>
                             </div>
-                            <div class="col-md-6 pt-5 d-flex justify-content-center">
-                                <div
-                                class="ldBar label-center"
-                                data-value="35"
-                                data-preset="circle"
-                              ></div>
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <div class="card cv-result text-center">
+                                    <h3>Your Results</h3>
+                                    <div class="d-flex justify-content-center my-3">
+                                        <div
+                                        class="ldBar label-center w-50"
+                                        data-value="80"
+                                        data-preset="fan"
+                                        style="width: 89px; height: 89px;"
+                                        ></div>
+                                    </div>
+                                    <h4>CV STRENGTH</h4>
+                                    <form id="review-cv-form" method="POST" action="{{route('v2.cv-review.store')}}" enctype="multipart/form-data">
+                                        @csrf
+                                        <label for="review-cv" class="custom-file-upload cmn-btn my-3">
+                                            Review your CV
+                                            <i class='bx bx-upload'></i>
+                                        </label>
+                                        <input id="review-cv" name="cv" type="file"/>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

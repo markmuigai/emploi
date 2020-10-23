@@ -30,7 +30,7 @@
         <!-- select2 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
         <!-- loading bar -->
-        <link rel="stylesheet" type="text/css" href="{{asset('assets-v2/css/loading-bar.min.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('assets-v2/css/loading-bar.css')}}"/>
 
         <link rel="icon" sizes="512x512" href="{{ asset('images/favicon.png') }}">   
 
