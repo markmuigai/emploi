@@ -57,9 +57,7 @@ class CVReviewController extends Controller
             $score = 5;
         }
 
-        return redirect()->route('v2.cv-review.create',[
-            'reviewResults' => $score
-        ]);
+         return view('v2.seekers.cv-review.show',['reviewResults'=>$score]);
     }
 
     /**

@@ -31,6 +31,8 @@ function parseCV($path){
  */
 function reviewCV($cvJson)
 {
+    // dd($cvJson);
+    
     // Convert parse cv to collection
     $cvObject = collect(json_decode($cvJson));
 
