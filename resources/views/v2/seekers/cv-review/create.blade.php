@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-md-6 d-flex justify-content-center">
                                 <div class="card cv-result text-center">
-                                    <h3>Your Results</h3>
+                                    <h3>Avarage Scores</h3>
                                     <div class="d-flex justify-content-center my-3">
                                         <div
                                         class="ldBar label-center w-50"
