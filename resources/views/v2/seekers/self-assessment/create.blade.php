@@ -47,9 +47,9 @@
                                 </div>                              
                                 <!-- /middle-wizard -->
                                 <div id="bottom-wizard">
-                                    <button id="backward" type="button" name="backward" class="backward">Previous</button>
-                                    <button id="forward" type="button" name="forward" class="forward">Next</button>
-                                    <button id="submit" type="submit"  class="submit-custom">Submit</button>
+                                    <button type="button" id="backward" name="backward" class="backward">Previous</button>
+                                    <button type="button" id="forward" name="forward" class="forward">Next</button>
+                                    <button type="submit" class="submit-custom" id="submitBtn">Submit</button>
                                 </div>
                                 <!-- /bottom-wizard -->
                             </form>                                            
@@ -64,23 +64,40 @@
 
 @section('js')
     <script>
-        var max = {!! json_encode($questions->count()) !!};
+        $().ready(function(){
 
-        var counter = 1
-        
-        $("#backward").click(function() {
-            counter--
+            var max = {!! json_encode($questions->count()) !!};
+
+            var counter = 1
             
-            $('#submit').css('display', 'none')
-        });
+            $("#backward").click(function() {
+                counter--
+                
+                $('#submitBtn').css('display', 'none')
+            });
 
-        $("#forward").click(function() {
-            if(counter==(max-1)){
-                counter++
-                $('#submit').css('display', 'inline-block')
-            }else{
-                counter++
+            $("#forward").click(function() {
+                if(counter==(max-1)){
+                    console.log(counter)
+                    counter++
+                    $('#submitBtn').css('display', 'inline-block')
+                }else{
+                    console.log(counter)
+                    counter++
+                }
+            });
+
+            var submit_clicked = false;
+
+            $('#submitBtn').click(function(){
+                    submit_clicked = true;
+                });
+
+            window.onbeforeunload = function() {
+                if (submit_clicked === false){
+                return "Are you sure you want to leave? Changes will not be saved!";
+                }
             }
         });
-    </script>
+</script>
 @endsection
