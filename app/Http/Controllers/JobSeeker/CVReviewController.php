@@ -57,7 +57,7 @@ class CVReviewController extends Controller
             $score = 5;
         }
 
-         return view('v2.seekers.cv-review.show',['reviewResults'=>$score]);
+        return view('v2.seekers.cv-review.show',['reviewResults'=>$score]);
     }
 
     /**

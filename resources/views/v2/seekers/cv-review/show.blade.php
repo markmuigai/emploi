@@ -18,24 +18,17 @@
                             </div>
                             <div class="col-md-6 d-flex justify-content-center">
                                 <div class="card cv-result text-center">
-                                    <h3>Your Results</h3>
+                                    <h3>Your Results</h3>                                  
                                     <div class="d-flex justify-content-center my-3">
                                         <div
                                         class="ldBar label-center w-50"
-                                        data-value="{{$reviewResults}}"
+                                        data-value="{{ $reviewResults }}"
                                         data-preset="fan"
                                         style="width: 89px; height: 89px;"
                                         ></div>
-                                    </div>
+                                    </div>                                                                   
                                     <h4>CV STRENGTH</h4>
-                                    <form id="review-cv-form" method="POST" action="{{route('v2.cv-review.store')}}" enctype="multipart/form-data">
-                                        @csrf
-                                        <label for="review-cv" class="custom-file-upload cmn-btn my-3">
-                                            Review your CV
-                                            <i class='bx bx-upload'></i>
-                                        </label>
-                                        <input id="review-cv" name="cv" type="file"/>
-                                    </form>
+                                    <a href="/job-seekers/summit" class="btn btn-orange">Fix my CV</a>
                                 </div>
                             </div>
                         </div>
@@ -48,6 +41,7 @@
         <div class="container">
             <div class="section-title text-center">
                 <h2>Areas to Improve</h2>
+                @if(Auth::user())
                 <p>We suggest improvements in the following areas:</p>
             </div>
             <div class="row">
@@ -94,9 +88,12 @@
                     </div>
                 </div>
             </div>
-            <a href="/job-seekers/summit" class="btn btn-orange">Fix Your CV</a>
+            @else
+            <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Login to view improvement suggestions</a>  
+            @endif
          </div>
     </section>
+  
     <!--What we check end-->
 
 @endsection
