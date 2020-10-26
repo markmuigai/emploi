@@ -49,7 +49,7 @@
                                 <div id="bottom-wizard">
                                     <button type="button" name="backward" class="backward">Previous</button>
                                     <button type="button" name="forward" class="forward">Next</button>
-                                    <button type="submit" class="submit-custom">Submit</button>
+                                    <button type="submit" class="submit-custom" id="submitBtn">Submit</button>
                                 </div>
                                 <!-- /bottom-wizard -->
                             </form>                                            
@@ -60,4 +60,19 @@
             </div><!-- /Form_container -->
            
         </main>
+<script type="text/javascript">
+        $().ready(function(){
+        var submit_clicked = false;
+
+        $('#submitBtn').click(function(){
+                submit_clicked = true;
+            });
+
+        window.onbeforeunload = function() {
+            if (submit_clicked === false){
+            return "Are you sure you want to leave? Changes will not be saved!";
+        }
+    }
+});
+</script>
 @endsection
