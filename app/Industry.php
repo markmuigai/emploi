@@ -74,4 +74,12 @@ class Industry extends Model
                     ->limit($counter)
                     ->get();    
     }
+
+    /**
+     * Industry and difficulty level one to one relationship 
+     */
+    public function difficultyLevel()
+    {
+        return $this->hasOne('App\DifficultyRating');
+    }
 }
