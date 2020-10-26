@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\JobSeeker;
 
+use App\Industry;
+use App\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Question;
 
 class SelfAssessmentController extends Controller
 {
@@ -23,13 +24,15 @@ class SelfAssessmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($payload)
+    public function create(Request $request)
     {
-        $questions = Question::all();
+        // Get industry and fetch questions based on user profile
+        $questions = Industry::findOrFail($request->payload[0])->getAssessmentQuestions($request->payload[1]);
 
+        // TODO: Remove array padding
         // Return view
         return view('v2.seekers.self-assessment.create',[
-            'questions' => $questions
+            'questions' => $questions->shuffle()
         ]);
     }
 
@@ -95,6 +98,8 @@ class SelfAssessmentController extends Controller
      */
     public function filterAssessments(Request $request)
     {
-        return $request->all();
+        return redirect()->route('v2.self-assessment.create',[
+            'payload' => [$request->experience, $request->industry]
+        ]);
     }
 }

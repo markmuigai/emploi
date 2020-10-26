@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Watson\Rememberable\Rememberable;
-use Carbon\Carbon;
 use App\Post;
+use Carbon\Carbon;
+use Watson\Rememberable\Rememberable;
+use Illuminate\Database\Eloquent\Model;
 
 class Industry extends Model
 {
@@ -81,5 +81,44 @@ class Industry extends Model
     public function difficultyLevel()
     {
         return $this->hasOne('App\DifficultyRating');
+    }
+
+    /**
+     * Return questions based on industry and yrs of exp
+     */
+    public function getAssessmentQuestions($exp)
+    {
+        // TODO: Update difficulty ratios to 6:4 
+        $allLvls = collect(['easy','medium', 'hard']);
+
+        // Get industry difficulty rating
+        $lvl = $this->difficultyLevel->difficulty_level;
+
+        // Add questions that are more difficult by one level
+        $rank = $allLvls->search($lvl);
+
+        // Get higher level
+        $newLvl = $allLvls->get($rank+1);
+
+        // Get questions based on months of experience
+        if($exp <= 6){
+            // Return all questions on the same level
+            return Question::getByDifficulty($lvl)->get()->random(3);
+            
+        }elseif($exp >6 && $exp <=36){
+            // Get 6 questions in the industry level
+            $base_questions = Question::getByDifficulty($lvl)->get()->random(2);
+
+            // Add 4 questions that are more difficult by one level
+            return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(2))->flatten();
+        }else{
+            // More than 3 years experience
+            // Get 4 questions in the industry level
+            $base_questions = Question::getByDifficulty($lvl)->get()->random(2);
+
+            // Add 6 questions that are more difficult by one level
+            return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(2))->flatten();
+        }
+
     }
 }

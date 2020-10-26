@@ -14,4 +14,12 @@ class Question extends Model
     {
         return $this->hasMany('App\Choice');
     }
+
+    /**
+     * Get question based on difficulty
+     */
+    public function scopeGetByDifficulty($query, $level)
+    {
+        return $query->where('difficulty_level', $level);
+    }
 }
