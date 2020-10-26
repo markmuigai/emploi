@@ -16,7 +16,7 @@ class CreateDifficultyRatingsTable extends Migration
         Schema::create('difficulty_ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('industry_id');
-            $table->string('difficulty_level');
+            $table->enum('difficulty_level', ['easy','medium','hard']);
             $table->timestamps();
         });
     }
