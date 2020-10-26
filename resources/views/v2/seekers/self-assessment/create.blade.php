@@ -3,7 +3,7 @@
 @section('content')
     <!-- Navbar -->
     
-    <h4 class="text-center pt-100   ">Self Assessment</h4>
+    <h3 class="text-center pt-100">Self Assessment</h3>
     <!-- End Navbar -->
         <!-- Resume -->
         <main>
@@ -47,9 +47,9 @@
                                 </div>                              
                                 <!-- /middle-wizard -->
                                 <div id="bottom-wizard">
-                                    <button type="button" name="backward" class="backward">Previous</button>
-                                    <button type="button" name="forward" class="forward">Next</button>
-                                    <button type="submit" class="submit-custom">Submit</button>
+                                    <button id="backward" type="button" name="backward" class="backward">Previous</button>
+                                    <button id="forward" type="button" name="forward" class="forward">Next</button>
+                                    <button id="submit" type="submit"  class="submit-custom">Submit</button>
                                 </div>
                                 <!-- /bottom-wizard -->
                             </form>                                            
@@ -60,4 +60,27 @@
             </div><!-- /Form_container -->
            
         </main>
+@endsection
+
+@section('js')
+    <script>
+        var max = {!! json_encode($questions->count()) !!};
+
+        var counter = 1
+        
+        $("#backward").click(function() {
+            counter--
+            
+            $('#submit').css('display', 'none')
+        });
+
+        $("#forward").click(function() {
+            if(counter==(max-1)){
+                counter++
+                $('#submit').css('display', 'inline-block')
+            }else{
+                counter++
+            }
+        });
+    </script>
 @endsection
