@@ -16,6 +16,48 @@
       "Tina" : 1,
       "Elena" : 0,
       "Cannot say" : 0    
+    },
+    "In the past week, you notice that Felix has been reading a newspaper during work while the supervisor is out of the office. Last week the supervisor was absent a lot- and Felix seems to be reading while he should be completing his tasks.What would you do first?":{
+      "Talk to Felix. Explain that meeting team deadlines is important, and that by reading the newspaper he is preventing your team from reaching goals.": 1,
+      "Don’t intervene. This is between Felix and the supervisor.": 0,
+      "Talk to the supervisor. He should be aware of Felix not giving enough attention to his tasks.": 0,
+      "Circulate an email regarding work ethics and productivity- in order for your team to be more effective in the future.": 0 
+    },
+    "If a=1 and b=2, what is a+b?" : {
+      "12" : 0,
+      "3" : 1,
+      "4" : 0,
+      "10" : 0
+    },
+    "Insect : Desease :: War : ?" : {
+      "Army" : 0,
+      "Defeat" : 0,
+      "Arsenal" : 0,
+      "Destruction" : 1
+    },
+    "Interest : Money Lender :: Salary : ?" : {
+      "Employees" : 1, 
+      "Zamindar" : 0,  
+      "Workers" : 0,      
+      "Prisoners" : 0
+    },
+    "Sickness : Health :: Happiness : ?" : {
+      "Medicine" : 0,   
+      "Sorrow" : 1,    
+      "Comfort" : 0,     
+      "Misery" : 0
+    },
+    "HOSPITAL is related to TREATMENT in the same way SCHOOL is related to:" : {
+      "Education" : 1,   
+      "Student" : 0,      
+      "Teacher" : 0,     
+      "Books" : 0
+    },
+    "Country: President :: State : ?" : {
+      "Chief Minister" : 0,      
+      "Prime Minister" : 0,      
+      "Speaker" : 0,      
+      "Governor" : 1
     }
   },
   "medium" : {
@@ -48,6 +90,37 @@
       "Tina" : 0,
       "Elena" : 0,
       "Cannot say" : 0
+    },
+    "If x+2=5, what is the value of x?" : {
+      "7" : 0,
+      "0.4" : 0,
+      "3" : 1,
+      "2.5" : 0,
+      "10" :0
+    },
+    "Maxine lives further up the hill than Andrew. Paul lives further up the hill than Maxine. Which one them lives furthest up the hill?" :{
+      "Maxine" : 0,
+      "Paul" : 1,
+      "Andrew" : 0
+    },
+    "Each of the following are alike in a certain way so form a group. Which of the following does not belong to that group?" : {
+      "Mind" : 1,   
+      "Ear" : 0,
+      "Leg" : 0,
+      "Hand" : 0,      
+      "Eye" : 0
+    },
+    "MONSOON is related to SEASON in the same way APRIL is related to?" : {
+      "Spring" : 0,
+      "Autumn" : 0,
+      "Winter" : 0,
+      "Month" : 1
+    },
+    "Wind : Hurricane" : {
+      "Clouds: Rain" : 1,      
+      "Sky : Universe" : 0,    
+      "Thunder : Lighting" : 0,     
+      "Water: Life" : 0
     }
   },
   "hard" : {
@@ -80,6 +153,37 @@
       "179" : 0,
       "139" : 0,
       "193" : 1
+    },
+    "In the equation 2x+3=4}2x+3=4, solve for x." : {
+      "4" : 0,
+      "10" : 0,
+      "0.5" : 1,
+      "1.5" :0
+    },
+    "Which of the following is different from the others?" : {
+      "Sphere" : 0,
+      "Cube" : 0,
+      "Circle" : 1,
+      "Pyramid" : 0
+    },
+    "Whist out jogging Mark can cover a distance of 6 miles in 30 minutes. How many miles could he cover if he jogged for 60 minutes?" :{
+      "13" : 0, 
+      "12" : 1,
+      "15" : 0,
+      "17" : 0
+    },
+    "If South-East becomes North and South becomes North-East and all the rest directions are changed in the same manner, what will be the direction for West" : {
+       
+     "North-East" : 0,
+     "North-West" : 0,
+     "South-East" : 1,
+     "South-West" :0
+    },
+    "Four people witnessed a mugging. Each gave a different description of the mugger. Which description is probably right?" : {
+     "He was average height, thin, and middle-aged." : 0,
+     "He was tall, thin, and middle-aged." : 0,
+     "He was tall, thin, and young." : 1,
+     "He was tall, of average weight, and middle-aged." : 0
     }
   }
 }
