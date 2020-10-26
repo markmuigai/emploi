@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             PostGroupJobSeeder::class,
             PostSeeder::class,
             SeekerSeeder::class,
-            AssessmentSeeder::class
+            AssessmentSeeder::class,
+            DifficultyRatingSeeder::class
         ]);
     }
 }

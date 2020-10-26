@@ -22,7 +22,6 @@ class AssessmentSeeder extends Seeder
         /**
          * Loop through the .json object and get each key value pair.
          * For the first level, the key is the difficulty level and the values are the questions
-         * permissions.
          */
 
         foreach($difficulty_levels as $difficulty_level => $questions)
