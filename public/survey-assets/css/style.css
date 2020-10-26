@@ -31,7 +31,7 @@ body {
     background: #e4edf2;
     font-size: 16px;
     line-height: 1.5;
-    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-family: "Quicksand", sans-serif;
     color: #555;
 }
 h1,
@@ -317,7 +317,7 @@ footer ul li a {
 #form_container {
     width: 1000px;
     min-height: 460px;
-    margin: 120px auto 30px;
+    margin: 30px auto 30px;
 }
 #left_form {
     background-color: #f60;
@@ -1490,3 +1490,29 @@ input.qtyminus {
     line-height: 1;
     padding: 10px 30px;
   }
+
+  /*----- Default CSS -----*/
+body {
+    font-family: "Poppins", sans-serif;
+    color: #5f5656;
+    background-color: #fff;
+    font-size: 15px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Quicksand", sans-serif;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  .btn-login{padding:.25rem 1rem;border-radius:20px;border:2px solid}
+.btn-white{background:0 0;color:#fff;border-color:#fff}
+.btn-white:hover{background:#fff;color:#e15419}
+
+.btn-orange,.btn-orange-alt{border-color:#e15419}
+.btn-orange{background:#e15419;color:#fff}
+.btn-orange-alt{background:0 0;color:#e15419}
+.btn-orange-alt:hover,.btn-orange:hover{border-color:#b84514;background:#b84514;color:#fff}
+.btn-orange-alt:focus,.btn-orange:focus{border-color:#ed895e;background:#ed895e}
+
+.btn-register:hover{background:0 0;color:#fff;border-color:#fff; background-color: #fff;}

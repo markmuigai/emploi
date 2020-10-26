@@ -2,13 +2,15 @@
 @section('title','Emploi :: Self Assessment' )
 @section('content')
     <!-- Navbar -->
-    @include('v2.components.jobseeker.navbar')
+    
+    <h4 class="text-center pt-100   ">Self Assessment</h4>
     <!-- End Navbar -->
         <!-- Resume -->
         <main>
             <div id="form_container">
                 <div class="row">
                     <div class="col-lg-12">
+                        @include('v2.components.jobseeker.navbar')
                         <div id="wizard_container">
                             <div id="top-wizard">
                                 <div id="progressbar"></div>
