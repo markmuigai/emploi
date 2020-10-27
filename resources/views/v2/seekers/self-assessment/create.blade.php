@@ -16,9 +16,8 @@
                                 <div id="progressbar"></div>
                             </div>
                             <!-- /top-wizard -->
-                            <form method="POST" action="{{Route('v2.self-assessment.store')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{Route('v2.self-assessment.store', ['email' => request()->email])}}" enctype="multipart/form-data">
                                 @csrf
-                                 
                                 <input id="website" name="website" type="text" value="">
                                 <!-- Leave for security protection, read docs for details -->
                                 <div id="middle-wizard">

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\JobSeeker;
 
+use App\User;
 use App\Industry;
-use App\Question;
+use App\Performance;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,6 +29,7 @@ class SelfAssessmentController extends Controller
     {
         // Get industry and fetch questions based on user profile
         $questions = Industry::findOrFail($request->payload[0])->getAssessmentQuestions($request->payload[1]);
+        $email =$request->email;
 
         // TODO: Remove array padding
         // Return view
@@ -43,9 +45,31 @@ class SelfAssessmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        $v = $request->choices;
-         return $v;
+    {    
+        $request->validate([
+            'email'  =>  ['required', 'string', 'email','max:50'],
+        ]);
+        
+        $collection = collect($request->choices);
+        $results = $count->flatten();
+   
+  }
+     
+
+        $user = User::where('email',$request->email)->first();
+       
+        Performance::Create([
+            'user_id' => $user->id,
+            'email' => $request->email,
+            'name' => $user->name,               
+            'question' => $request->questions,
+            'choice' =>$choice,
+            'difficulty_level' => $request->difficulty_level,
+            'optional_message' => $request->optional_message
+
+        ]);
+
+
     }
 
     /**
@@ -99,7 +123,8 @@ class SelfAssessmentController extends Controller
     public function filterAssessments(Request $request)
     {
         return redirect()->route('v2.self-assessment.create',[
-            'payload' => [$request->experience, $request->industry]
+            'payload' => [$request->experience, $request->industry],
+            'email' => $request->email
         ]);
     }
 }
