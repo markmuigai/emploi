@@ -18,11 +18,9 @@ class CreatePerformancesTable extends Migration
             $table->integer('assessment_count')->default(1);
             $table->integer('user_id')->nullable();
             $table->string('email',100);
-            $table->string('name',100)->nullable(); 
-            $table->string('question')->nullable();
-            $table->string('choice');
+            $table->integer('question_id')->nullable();
+            $table->integer('choice_id');
             $table->boolean('correct');
-            $table->enum('difficulty_level', ['easy','medium','hard'])->nullable();
             $table->string('optional_message')->nullable();
             $table->timestamps();
         });

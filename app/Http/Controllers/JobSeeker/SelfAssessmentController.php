@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\JobSeeker;
 
 use App\User;
+use App\Choice;
 use App\Industry;
 use App\Performance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SelfAssessmentController extends Controller
@@ -17,7 +19,8 @@ class SelfAssessmentController extends Controller
      */
     public function index()
     {
-        //
+        // Show assessment
+        return view('v2.seekers.self-assessment.index');
     }
 
     /**
@@ -50,26 +53,33 @@ class SelfAssessmentController extends Controller
             'email'  =>  ['required', 'string', 'email','max:50'],
         ]);
         
-        $collection = collect($request->choices);
-        $results = $count->flatten();
-   
-  }
-     
+        DB::transaction(function () use($request) {
+            $user = User::where('email',$request->email)->first();
+        
+            // dd($request->choices);
+            foreach($request->choices as $question_id => $choice_id)
+            {
+                // dd(Choice::find((int)$choice_id[0])->correct_value);
+                // Check if user has been assessed before 
+                // Fetch choice
+                $performance = Performance::create([
+                    'user_id' => $user ? $user->id : null,
+                    'assessment_count' => Performance::getAssessmentCountForUser($request->email),
+                    'email' => $request->email,           
+                    'question_id' => $question_id,
+                    'choice_id' => (int)$choice_id[0],
+                    'correct' => Choice::find((int)$choice_id[0])->correct_value,
+                    'optional_message' => $request->optional_message
+                ]);
 
-        $user = User::where('email',$request->email)->first();
-       
-        Performance::Create([
-            'user_id' => $user->id,
-            'email' => $request->email,
-            'name' => $user->name,               
-            'question' => $request->questions,
-            'choice' =>$choice,
-            'difficulty_level' => $request->difficulty_level,
-            'optional_message' => $request->optional_message
+                // dd($performance->toArray());
 
+            }
+        });
+
+        return redirect()->route('v2.self-assessment.index', [
+            'email' => $request->email
         ]);
-
-
     }
 
     /**
@@ -78,9 +88,9 @@ class SelfAssessmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**
