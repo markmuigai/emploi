@@ -39,14 +39,16 @@ This files table contents are outlined below>>>>>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 /*----- Default CSS -----*/
 body {
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: 'Raleway',sans-serif;
   color: #5f5656;
   background-color: #fff;
   font-size: 15px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Quicksand", sans-serif;
+  /* font-family: "Quicksand", sans-serif; */
+  font-family: "Raleway", sans-serif;
   line-height: 1.4;
   font-weight: 700;
 }
@@ -2842,7 +2844,7 @@ button:focus {
 
 .categories-area .nav-pills a.active {
   color: #e15419;
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .categories-area .col-lg-4 {
@@ -2852,7 +2854,7 @@ button:focus {
 
 .categories-area .cat-item {
   margin-bottom: 30px;
-  border: 2px dashed #e15419;
+  border: 1px dashed #e15419;
   position: relative;
   border-radius: 5px;
   padding: 20px 10px 20px 60px;
@@ -2871,7 +2873,7 @@ button:focus {
   bottom: 0;
   right: 0;
   border-radius: 5px;
-  /* background-color: #e1541991; */
+  background-color: #e1541991;
   border-radius: 50% 50% 0 50%;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -8165,4 +8167,8 @@ h4,h3{
 
 .cv-review-details .work-item{
   height: 160px !important;
+}
+
+.categories-area a{
+  font-size: 14px;
 }
