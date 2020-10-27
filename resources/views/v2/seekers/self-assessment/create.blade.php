@@ -3,7 +3,7 @@
 @section('content')
     <!-- Navbar -->
     
-    <h4 class="text-center pt-100   ">Self Assessment</h4>
+    <h3 class="text-center pt-100">Self Assessment</h3>
     <!-- End Navbar -->
         <!-- Resume -->
         <main>
@@ -46,8 +46,8 @@
                                 </div>                              
                                 <!-- /middle-wizard -->
                                 <div id="bottom-wizard">
-                                    <button type="button" name="backward" class="backward">Previous</button>
-                                    <button type="button" name="forward" class="forward">Next</button>
+                                    <button type="button" id="backward" name="backward" class="backward">Previous</button>
+                                    <button type="button" id="forward" name="forward" class="forward">Next</button>
                                     <button type="submit" class="submit-custom" id="submitBtn">Submit</button>
                                 </div>
                                 <!-- /bottom-wizard -->
@@ -59,19 +59,44 @@
             </div><!-- /Form_container -->
            
         </main>
-<script type="text/javascript">
-        $().ready(function(){
-        var submit_clicked = false;
+@endsection
 
-        $('#submitBtn').click(function(){
-                submit_clicked = true;
+@section('js')
+    <script>
+        $().ready(function(){
+
+            var max = {!! json_encode($questions->count()) !!};
+
+            var counter = 1
+            
+            $("#backward").click(function() {
+                counter--
+                
+                $('#submitBtn').css('display', 'none')
             });
 
-        window.onbeforeunload = function() {
-            if (submit_clicked === false){
-            return "Are you sure you want to leave? Changes will not be saved!";
-        }
-    }
-});
+            $("#forward").click(function() {
+                if(counter==(max-1)){
+                    console.log(counter)
+                    counter++
+                    $('#submitBtn').css('display', 'inline-block')
+                }else{
+                    console.log(counter)
+                    counter++
+                }
+            });
+
+            var submit_clicked = false;
+
+            $('#submitBtn').click(function(){
+                    submit_clicked = true;
+                });
+
+            window.onbeforeunload = function() {
+                if (submit_clicked === false){
+                return "Are you sure you want to leave? Changes will not be saved!";
+                }
+            }
+        });
 </script>
 @endsection

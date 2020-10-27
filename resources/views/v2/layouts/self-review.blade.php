@@ -76,5 +76,7 @@
 
 	<script src="{{asset('assets-v2/js/jquery.meanmenu.js')}}"></script>
 
+	@yield('js')
+
 </body>
 </html>

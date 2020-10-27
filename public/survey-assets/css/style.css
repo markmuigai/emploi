@@ -1476,7 +1476,7 @@ input.qtyminus {
     -moz-transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
     -o-transition: background 0.5s ease;
-    display: inline-block;
+    display: none;
     cursor: pointer;
     font-weight: 400;
     outline: 0;
@@ -1495,7 +1495,7 @@ input.qtyminus {
 body {
     font-family: "Poppins", sans-serif;
     color: #5f5656;
-    background-color: #fff;
+    /* background-color: #fff; */
     font-size: 15px;
   }
   
