@@ -1516,3 +1516,7 @@ body {
 .btn-orange-alt:focus,.btn-orange:focus{border-color:#ed895e;background:#ed895e}
 
 .btn-register:hover{background:0 0;color:#fff;border-color:#fff; background-color: #fff;}
+
+#forward, #backward{
+    display: none;
+}

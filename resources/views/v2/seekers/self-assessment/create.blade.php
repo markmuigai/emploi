@@ -35,7 +35,7 @@
                                                 <h3 class="main_question"><strong>{{($key+1)."/".$questions->count()}}</strong>Select the right answer</h3>
                                                 <div class="col-md-12">
                                                     @forelse($question->choices as $c)
-                                                    <input type="radio" name="choices[{{$question->id}}][]" value={{ $c->id }}> {{ $c->value }}<br>
+                                                    <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}> {{ $c->value }}<br>
                                                     @empty
                                                     @endforelse
                                                 </div>                                 
@@ -64,6 +64,16 @@
 @section('js')
     <script>
         $().ready(function(){
+            $('#forward').attr('disabled',true);
+
+            $('.assessment-choice').click(function() {
+                $('#forward').css('display', 'inline-block')
+            });
+
+            $('.assessment-choice').on('change', function () {
+                $('#forward').prop('disabled', !$(this).val());
+            }).trigger('change');
+
 
             var max = {!! json_encode($questions->count()) !!};
 
@@ -81,6 +91,7 @@
                     counter++
                     $('#submitBtn').css('display', 'inline-block')
                 }else{
+                    $('#forward').css('display', 'none')
                     console.log(counter)
                     counter++
                 }
