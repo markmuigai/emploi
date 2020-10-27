@@ -35,7 +35,7 @@
                                                 <h3 class="main_question"><strong>{{($key+1)."/".$questions->count()}}</strong>Select the right answer</h3>
                                                 <div class="col-md-12">
                                                     @forelse($question->choices as $c)
-                                                    <input type="radio" name="choices[{{$question->id}}][]" value="{{ $c->value }}" > {{ $c->value }}<br>
+                                                    <input type="radio" name="choices[{{$question->id}}][]" value={{ $c->id }}> {{ $c->value }}<br>
                                                     @empty
                                                     @endforelse
                                                 </div>                                 
