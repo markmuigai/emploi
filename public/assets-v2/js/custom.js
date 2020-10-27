@@ -368,8 +368,8 @@ jQuery(function ($) {
 	// $("html").niceScroll();	
 	// $(".list").niceScroll();
 
-	$("html").niceScroll({
-		cursorcolor:"#e15419",
-		cursorwidth:"16px"
-	  });
+	// $("html").niceScroll({
+	// 	cursorcolor:"#e15419",
+	// 	cursorwidth:"16px"
+	//   });
 }(jQuery));
