@@ -2332,7 +2332,7 @@ button:focus {
 /*-- End Navbar --*/
 /*-- Banner --*/
 .banner-area.two {
-  background-color: #dffedb;
+  background-color: #e15419;
   overflow: hidden;
 }
 
@@ -2713,7 +2713,7 @@ button:focus {
 /*-- End Company --*/
 /*-- Explore --*/
 .explore-area.two {
-  background-color: #dffedb;
+  background-color: #e15419;
   background-image: unset;
 }
 
@@ -2852,7 +2852,7 @@ button:focus {
 
 .categories-area .cat-item {
   margin-bottom: 30px;
-  border: 2px dashed #dffedb;
+  border: 2px dashed #e15419;
   position: relative;
   border-radius: 5px;
   padding: 20px 10px 20px 60px;
@@ -2871,7 +2871,7 @@ button:focus {
   bottom: 0;
   right: 0;
   border-radius: 5px;
-  background-color: #dffedb;
+  /* background-color: #e1541991; */
   border-radius: 50% 50% 0 50%;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
@@ -3009,7 +3009,7 @@ button:focus {
   height: 370px;
   left: 0;
   top: 0;
-  background-color: #dffedb;
+  background-color: #e15419;
   z-index: -1;
 }
 
@@ -3042,7 +3042,7 @@ button:focus {
 
 .job-area.two .job-item .job-right ul li a:hover {
   color: #e15419;
-  background-color: #dffedb;
+  background-color: #e15419;
 }
 
 .job-area.two .feature-top-right span {
@@ -3168,7 +3168,7 @@ button:focus {
 }
 
 .candidate-item {
-  border: 2px dashed #dffedb;
+  border: 2px dashed #e15419;
   padding: 25px 25px 25px;
   border-radius: 5px;
   position: relative;
@@ -3404,7 +3404,7 @@ button:focus {
 /*-- End Blog --*/
 /*-- Register --*/
 .register-area {
-  background-color: #dffedb;
+  background-color: #e15419;
   padding-top: 50px;
   padding-bottom: 20px;
 }

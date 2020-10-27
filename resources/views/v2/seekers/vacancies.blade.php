@@ -13,181 +13,179 @@
                     @include('v2.components.sidebar.jobseeker')
                 </div>
 
-                <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">               
-                    <!-- Filter -->
-                    <div class="job-filter-area pt-2">
-                        <div class="container">
-                            <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="form-group">
-                                            <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="form-group">
-                                            <select name="industries[]">
-                                                <option>All Industries</option>
-                                                @forelse($industries as $ind)
-                                                <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
-                                                    {{ $ind->name }}
-                                                </option>
-                                                    @empty
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="form-group">
-                                            <select>
-                                                <option>All Locations</option>
-                                                @forelse($locations as $l)
-                                                <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
-                                                    {{ $l->name.', '.$l->country->code }}
-                                                </option>
-                                                @empty
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="form-group">
-                                            <select>
-                                                <option value="">All Vacancy Types</option>
-                                                @forelse($vacancyTypes as $l)
-                                                <option value="{{ $l->id }}" {{ isset($search_vtype) && $search_vtype == $l->id ? 'selected=""' : '' }}>
-                                                    {{ $l->name }}
-                                                </option>
-                                                @empty
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="form-group">
-                                            <select>
-                                                <option>Positions Available</option>
-                                                @for($i=1; $i<=200;$i++ ) <option value="{{ $i }}">{{ $i }}</option>
-                                                @endfor
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="form-group">
-                                            <select>
-                                                <option>All Education Levels</option>
-                                                @forelse ($educationLevels as $el)
-                                                    <option>{{$el->name}}</option>    
-                                                @empty
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="form-group">
-                                            <select>
-                                                <option>Experience</option>
-                                                <option value="0">No Experience Required</option>
-                                                <option value="6">6 month Experience</option>
-                                                <option value="12">1 year Experience</option>
-                                                <option value="24">2 years Experience</option>
-                                                <option value="36">3 years Experience</option>
-                                                <option value="48">4 years Experience</option>
-                                                <option value="60">5 years Experience</option>
-                                                <option value="72">6 years Experience</option>
-                                                <option value="84">7 years Experience</option>
-                                                <option value="96">8 years Experience</option>
-                                                <option value="108">9 years Experience</option>
-                                                <option value="120">10 years Experience</option>
-                                                <option value="132">11 years Experience</option>
-                                                <option value="144">12 years Experience</option>
-                                                <option value="156">13 years Experience</option>
-                                                <option value="168">14 years Experience</option>
-                                                <option value="180">15 years Experience</option>
-                                                <option value="192">16 years Experience</option>
-                                                <option value="204">17 years Experience</option>
-                                                <option value="216">18 years Experience</option>
-                                                <option value="228">19 years Experience</option>
-                                                <option value="240">20 years Experience</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-3">
-                                        <button type="submit" class="btn cmn-btn">
-                                            Search
-                                            <i class='bx bx-search-alt'></i>
-                                        </button>
-                                    </div>
+                <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">   
+                    <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col-md-7">
+                                <div class="sorting-menu mt-3 float-left">
+                                    <ul> 
+                                        <li class="filter" data-filter="all">All</li>
+                                        <li class="filter" data-filter=".o">Recommended</li>
+                                        {{-- @if (auth()->user())
+                                            <li class="filter" data-filter=".o">Recommended</li>
+                                        @else
+                                            <li class="filter" data-toggle="modal" data-target="#promptLogin">Recommended</li>
+                                        @endif --}}
+                                        <li class="filter" data-filter=".o">Internship</li>
+                                        <li class="filter" data-filter=".o">Full Time</li>
+                                        <li class="filter" data-filter=".o">Part Time</li>
+                                    </ul>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- End Filter -->
-
-                    <!-- Showing -->
-                    <div class="job-showing-area">
-                        <div class="container">
-                            <h4>Showing 1 - 8 of 11 results</h4>
-                            <div class="showing">
-                                <div class="row">
-                                    <div class="col-sm-6 col-lg-6">
-                                        <div class="left">
+                            </div>
+                            <div class="col-md-5">
+                                <a class="text-center float-right cmn-btn mb-4" data-toggle="collapse" href="#advancedFilter" role="button" aria-expanded="false" aria-controls="advancedFilter">
+                                    Select Advanced Filters
+                                    <i class='bx bx-filter'></i>
+                                </a>    
+                            </div>
+                        </div>   
+                    </div>  
+                    <div class="collapse" id="advancedFilter">
+                        <!-- Filter -->
+                        <div class="job-filter-area pt-2">
+                            <div class="container">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
-                                                <select>
-                                                    <option>Newest</option>
-                                                    <option>Another option</option>
-                                                    <option>A option</option>
-                                                    <option>Potato</option>
+                                                <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="form-group">
+                                                <select name="industries[]">
+                                                    <option>All Industries</option>
+                                                    @forelse($industries as $ind)
+                                                    <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
+                                                        {{ $ind->name }}
+                                                    </option>
+                                                        @empty
+                                                    @endforelse
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>All Locations</option>
+                                                    @forelse($locations as $l)
+                                                    <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
+                                                        {{ $l->name.', '.$l->country->code }}
+                                                    </option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option value="">All Vacancy Types</option>
+                                                    @forelse($vacancyTypes as $l)
+                                                    <option value="{{ $l->id }}" {{ isset($search_vtype) && $search_vtype == $l->id ? 'selected=""' : '' }}>
+                                                        {{ $l->name }}
+                                                    </option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>Positions Available</option>
+                                                    @for($i=1; $i<=200;$i++ ) <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>All Education Levels</option>
+                                                    @forelse ($educationLevels as $el)
+                                                        <option>{{$el->name}}</option>    
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-3">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>Experience</option>
+                                                    <option value="0">No Experience Required</option>
+                                                    <option value="6">6 month Experience</option>
+                                                    <option value="12">1 year Experience</option>
+                                                    <option value="24">2 years Experience</option>
+                                                    <option value="36">3 years Experience</option>
+                                                    <option value="48">4 years Experience</option>
+                                                    <option value="60">5 years Experience</option>
+                                                    <option value="72">6 years Experience</option>
+                                                    <option value="84">7 years Experience</option>
+                                                    <option value="96">8 years Experience</option>
+                                                    <option value="108">9 years Experience</option>
+                                                    <option value="120">10 years Experience</option>
+                                                    <option value="132">11 years Experience</option>
+                                                    <option value="144">12 years Experience</option>
+                                                    <option value="156">13 years Experience</option>
+                                                    <option value="168">14 years Experience</option>
+                                                    <option value="180">15 years Experience</option>
+                                                    <option value="192">16 years Experience</option>
+                                                    <option value="204">17 years Experience</option>
+                                                    <option value="216">18 years Experience</option>
+                                                    <option value="228">19 years Experience</option>
+                                                    <option value="240">20 years Experience</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-3">
+                                            <button type="submit" class="btn cmn-btn">
+                                                Search
+                                                <i class='bx bx-search-alt'></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-6 col-lg-6">
-                                        <div class="right">
-                                            <ul>
-                                                <li>
-                                                    <a href="employers.html#">
-                                                        <i class='bx bx-dots-horizontal'></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="employers.html#">
-                                                        <i class='bx bx-menu'></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End Filter -->
+                    </div>
+
+                    <!-- Jobs -->
+                    <div class="categories-area pt-2 pb-70">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                            <div id="container" class="row">
+                                                @foreach($posts as $post)
+                                                <div class="col-sm-6 col-lg-4 mix o">
+                                                    <div class="cat-item">
+                                                        <h3>
+                                                            <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
+                                                        </h3>
+                                                        <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
+                                                            Posted {{ $post->since }}
+                                                        </span>
+                                                        <a class="link" href="index-2.html#">
+                                                            <i class="flaticon-right-arrow"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                {{$posts->links()}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- End Showing -->
-
-                    <!-- Jobs -->
-                    <section class="job-area pb-100">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-lg-12 py-5">
-                                    <div class="sorting-menu">
-                                        <ul> 
-                                        <li class="filter" data-filter="all">All</li>
-                                        <li class="filter" data-filter=".p">My Bookmarks</li>
-                                        <li class="filter" data-filter=".u">Recommended</li>
-                                        <li class="filter" data-filter=".m">Internship</li>
-                                        <li class="filter" data-filter=".n">Full Time</li>
-                                        <li class="filter" data-filter=".o">Part Time</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            @include('v2.components.jobseeker.vacancies')
-                            <div class="job-browse">
-                                <p>A tons of top tech jobs are waiting for you. <a href="jobs.html">Browse all jobs</a></p>
-                            </div>
-                        </div>
-                    </section>
                     <!-- End Jobs -->
                 </div>
             </div>
@@ -199,4 +197,26 @@
 @section('js')
     <script>
     </script>
+@endsection
+
+@section('modal')
+<div class="modal fade" id="promptLogin" tabindex="-1" role="dialog" aria-labelledby="promptLoginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="promptLoginLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
