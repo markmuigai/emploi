@@ -167,7 +167,9 @@
                                                         <h3>
                                                             <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
                                                         </h3>
-                                                        <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span>
+                                                        <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
+                                                            Posted {{ $post->since }}
+                                                        </span>
                                                         <a class="link" href="index-2.html#">
                                                             <i class="flaticon-right-arrow"></i>
                                                         </a>
