@@ -16,7 +16,23 @@
                 <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">   
                     <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
                     <div class="container">
-                        <div class="row justify-content-end">
+                        <div class="row justify-content-between">
+                            <div class="col-md-7">
+                                <div class="sorting-menu mt-3 float-left">
+                                    <ul> 
+                                        <li class="filter" data-filter="all">All</li>
+                                        <li class="filter" data-filter=".o">Recommended</li>
+                                        {{-- @if (auth()->user())
+                                            <li class="filter" data-filter=".o">Recommended</li>
+                                        @else
+                                            <li class="filter" data-toggle="modal" data-target="#promptLogin">Recommended</li>
+                                        @endif --}}
+                                        <li class="filter" data-filter=".o">Internship</li>
+                                        <li class="filter" data-filter=".o">Full Time</li>
+                                        <li class="filter" data-filter=".o">Part Time</li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="col-md-5">
                                 <a class="text-center float-right cmn-btn mb-4" data-toggle="collapse" href="#advancedFilter" role="button" aria-expanded="false" aria-controls="advancedFilter">
                                     Select Advanced Filters
@@ -144,9 +160,9 @@
                                 <div class="col-lg-12">
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <div class="row">
+                                            <div id="container" class="row">
                                                 @foreach($posts as $post)
-                                                <div class="col-sm-6 col-lg-4">
+                                                <div class="col-sm-6 col-lg-4 mix o">
                                                     <div class="cat-item">
                                                         <h3>
                                                             <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
@@ -179,4 +195,26 @@
 @section('js')
     <script>
     </script>
+@endsection
+
+@section('modal')
+<div class="modal fade" id="promptLogin" tabindex="-1" role="dialog" aria-labelledby="promptLoginLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="promptLoginLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
