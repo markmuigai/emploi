@@ -7,7 +7,7 @@
 
     <!-- Jobs -->
     <div class="job-area-list dashboard-area mt-1 ptb-100">
-        <div class="container">
+        <div class="container-fluid px-4">
             <div class="row">
                 <div class="col-lg-3">
                     @include('v2.components.sidebar.jobseeker')
@@ -16,30 +16,7 @@
                 <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">   
                     <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
                     <div class="container">
-                        <div class="row justify-content-between">
-                            <div class="col-md-7">
-                                <div class="sorting-menu mt-3 float-left">
-                                    <ul> 
-                                        <li class="filter" data-filter="all">All</li>
-                                        <li class="filter" data-filter=".o">Recommended</li>
-                                        {{-- @if (auth()->user())
-                                            <li class="filter" data-filter=".o">Recommended</li>
-                                        @else
-                                            <li class="filter" data-toggle="modal" data-target="#promptLogin">Recommended</li>
-                                        @endif --}}
-                                        <li class="filter" data-filter=".o">Internship</li>
-                                        <li class="filter" data-filter=".o">Full Time</li>
-                                        <li class="filter" data-filter=".o">Part Time</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <a class="text-center float-right cmn-btn mb-4" data-toggle="collapse" href="#advancedFilter" role="button" aria-expanded="false" aria-controls="advancedFilter">
-                                    Select Advanced Filters
-                                    <i class='bx bx-filter'></i>
-                                </a>    
-                            </div>
-                        </div>   
+ 
                     </div>  
                     <div class="collapse" id="advancedFilter">
                         <!-- Filter -->
@@ -155,9 +132,53 @@
 
                     <!-- Jobs -->
                     <div class="categories-area pt-2 pb-70">
-                        <div class="container">
+                        <div class="container-fluid">
+                            <div class="row justify-content-end">
+                                <div class="col-md-6">
+                                    <div class="sorting-menu mt-3 float-left">
+                                        <ul> 
+                                            <li class="filter" data-filter="all">All</li>
+                                            <li class="filter" data-filter=".o">Recommended</li>
+                                            {{-- @if (auth()->user())
+                                                <li class="filter" data-filter=".o">Recommended</li>
+                                            @else
+                                                <li class="filter" data-toggle="modal" data-target="#promptLogin">Recommended</li>
+                                            @endif --}}
+                                            <li class="filter" data-filter=".o">Internship</li>
+                                            <li class="filter" data-filter=".o">Full Time</li>
+                                            <li class="filter" data-filter=".o">Part Time</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="text-center float-right cmn-btn mb-4" data-toggle="collapse" href="#advancedFilter" role="button" aria-expanded="false" aria-controls="advancedFilter">
+                                        Select Advanced Filters
+                                        <i class='bx bx-filter'></i>
+                                    </a>    
+                                </div>
+                            </div>  
                             <div class="row">
-                                <div class="col-lg-12">
+                                <div class="col-lg-2">
+                                    <h4>Filter By</h4>
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="index-2.html#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                            <i class="flaticon-placeholder"></i>
+                                            My Location
+                                            <i class="flaticon-right-arrow two"></i>
+                                        </a>
+                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="index-2.html#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                            <i class="flaticon-resume"></i>
+                                            My Industry
+                                            <i class="flaticon-right-arrow two"></i>
+                                        </a>
+                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="index-2.html#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                            <i class="flaticon-pencil"></i>
+                                            Skills
+                                            <i class="flaticon-right-arrow two"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10">
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div id="container" class="row">
