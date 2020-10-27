@@ -215,11 +215,4 @@
         </div>
     </section>
     <!-- End Testimonial -->
-
-    <!-- Featured -->
-
-    @include('v2.components.featured-employers')                
-  
-    <!-- End Featured Employers -->
-
 @endsection

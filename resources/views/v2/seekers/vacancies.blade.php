@@ -213,6 +213,12 @@
         </div>
     </div>
     <!-- End Jobs -->
+
+        <!-- Featured -->
+
+        @include('v2.components.featured-employers')                
+  
+        <!-- End Featured Employers -->
 @endsection
 
 @section('js')
