@@ -96,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main>
         <!-- SIDEBAR -->
-        <div class="container pb-4">
+        <div class="container-fluid">
             <div class="row pt-5">
                 <div class="col-md-3 d-md-block d-none">
                     <div class="sidebar">

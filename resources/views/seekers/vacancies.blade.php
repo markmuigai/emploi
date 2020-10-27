@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 		font-size: 28px;
 		font-family: cursive;
 		color: #E15419;
-		animation: blink 1s linear infinite;
+		animation: blink 2s linear infinite;
 	}
   @keyframes blink{
   0%{opacity: 0;}
