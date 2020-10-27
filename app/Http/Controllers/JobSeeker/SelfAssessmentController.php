@@ -19,7 +19,8 @@ class SelfAssessmentController extends Controller
      */
     public function index()
     {
-        //
+        // Show assessment
+        return view('v2.seekers.self-assessment.index');
     }
 
     /**
@@ -76,7 +77,9 @@ class SelfAssessmentController extends Controller
             }
         });
 
-        return redirect()->back();
+        return redirect()->route('v2.self-assessment.index', [
+            'email' => $request->email
+        ]);
     }
 
     /**
@@ -85,9 +88,9 @@ class SelfAssessmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**
