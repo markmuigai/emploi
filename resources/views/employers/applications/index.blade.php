@@ -80,12 +80,12 @@ $last_rsi = [];
             <div class="card-body text-center">
                 <h4>Actions</h4>
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger" title="Role Suitability Index Model"><i class="far fa-file-alt"></i> Shortlist</a>
+                    <a href="/employers/applications/{{ $post->slug }}/rsi" class="btn btn-sm btn-danger" title="Job Score Model"><i class="far fa-file-alt"></i> Job Score</a>
                     <p>
                         @if(!$post->hasModelSeeker())
-                        <small  title="Role Suitability Index Model">Create an RSI Model to shortlist candidates.</small>
+                        <small  title="Role Suitability Index Model">Create an Job Score Model to shortlist candidates.</small>
                         @else
-                        <small title="Role Suitability Index Model">Edit your RSI Model.</small>
+                        <small title="Role Suitability Index Model">Edit your Job Score Model.</small>
                         @endif
                     </p>
                     @if($post->status == 'active')

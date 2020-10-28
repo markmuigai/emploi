@@ -36,7 +36,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                         @if($app->user->seeker->featured != 0)
                             <?php $rsi =  $app->user->seeker->getRsi($app->post); ?>
-                            <a class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="right"  title="Your Role Suitability Index for {{ $app->post->title }} is {{ $rsi }}%">RSI {{ $rsi }}%</a>
+                            <a class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="right"  title="Your Role Suitability Index for {{ $app->post->title }} is {{ $rsi }}%">Job Score {{ $rsi }}%</a>
                         @else
                             <a class="fa fa-bar-chart" href="/job-seekers/services#featured_seeker"  data-toggle="tooltip" data-placement="right"  title="Purchase Featured Package to see how your application scores"></a>
 
