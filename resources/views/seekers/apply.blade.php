@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <p><strong>Location: </strong>{{ $post->location->name }}, {{ $post->location->country->name }}</p>
                 <p><strong>Apply by: </strong>{{ $post->deadline }}</p>
                 <p><strong>Education Requirements: </strong>{{ $post->education_requirements }}, {{ $post->industry->name }}</p>
-                <p><strong>Experience: </strong>{{ $post->experience_requirements }}</p>
+                <p><strong>Experience: </strong>{{ $post->experience_requirements }} months</p>
                 <p><strong>Salary: </strong>{{ $post->monthlySalary() }}</p>
                 <p><strong>Number of Openings: </strong>{{ $post->positions }}</p>
             </div>
