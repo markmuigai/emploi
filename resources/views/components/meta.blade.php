@@ -74,10 +74,8 @@
 
 
 <!-- END PWA -->
-
-
-
-<script data-ad-client="ca-pub-9948474979900683" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- <script data-ad-client="ca-pub-9948474979900683" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script data-ad-client="ca-pub-1190977631366836" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 
