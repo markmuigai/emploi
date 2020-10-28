@@ -1,5 +1,7 @@
 @extends('v2.layouts.app')
 
+@section('title','Welcome to Emploi - The Premier Online Job Placement Platform in Africa')
+
 @section('content')
     <!-- Navbar -->
     @include('v2.components.guest.navbar')
