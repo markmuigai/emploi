@@ -27,18 +27,24 @@ class Performance extends Model
     }
 
     /**
-     * Get the n.o of times a user will have done an assessment after completing one
+     * Get performance scores associated with an email
      */
-    public function scopeAssessmentCountForUser($query, $email)
+    public function scopeAssessmentsForUser($query, $email)
     {
-        // Get assessment results for the associated email
-        $results = $query->where('email', $email)->get();
+        return $query->where('email', $email)->get();
+    }
 
-        // If they have never been assessed
-        if($results->isEmpty()){
-            return 1;            
-        }else{
-            return $results->pluck('assessment_count')->max()+1;
-        }
+    /**
+     * Get assessments for a certain count
+     */
+    public function scopeLatestAssessment($query, $email)
+    {
+        // All performance records for a user
+        $allAssessments = Performance::assessmentsForUser($email);
+
+        // Get the latest assessment
+        $latest = $allAssessments->pluck('assessment_count')->max();
+
+        return $query->where('email', $email)->where('assessment_count', $latest)->get();
     }
 }
