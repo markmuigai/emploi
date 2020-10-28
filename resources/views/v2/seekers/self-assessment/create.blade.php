@@ -42,11 +42,12 @@
 @section('js')
     <script>
         $().ready(function(){
-            //carousel
+            // Intitalize carousel
             $('.assessment-carousel').carousel({
                 interval: false
             })
 
+            // Disable next
             $('.assessment-choice').click(function() {
                 $('#forward').css('display', 'inline-block')
             });
@@ -67,6 +68,7 @@
                 if(event.direction == 'left'){
                     console.log('next')
                     $('#backward').css('display', 'inline-block')
+                    $('#forward').css('display', 'none')
 
                     if(counter==(max-1)){
                         console.log(counter)
@@ -91,17 +93,17 @@
                 }    
             })
 
-            // var submit_clicked = false;
+            var submit_clicked = false;
 
-            // $('#submitBtn').click(function(){
-            //         submit_clicked = true;
-            //     });
+            $('#submitBtn').click(function(){
+                    submit_clicked = true;
+                });
 
-            // window.onbeforeunload = function() {
-            //     if (submit_clicked === false){
-            //     return "Are you sure you want to leave? Changes will not be saved!";
-            //     }
-            // }
+            window.onbeforeunload = function() {
+                if (submit_clicked === false){
+                return "Are you sure you want to leave? Changes will not be saved!";
+                }
+            }
         });
 </script>
 @endsection
