@@ -6082,6 +6082,10 @@ button:focus {
 .candidate-item.two .left .cmn-link {
   margin-top: 10px;
 }
+  
+  .featured_links a:hover{
+      background: #e1541991;
+  }
 
 .candidate-item.two .left .cmn-link a:hover {
   color: #e15419;
