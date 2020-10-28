@@ -281,8 +281,8 @@
                                                 <h4>Top Trending Vacancies</h4>
                                                 <ul>
                                                     @foreach($posts as $post)
-                                                    @if($post->featured == 'true') 
-                                                    <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                               
+                                                    @if($post->featured == 'true')
+                                                    <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                              
                                                     @endif
                                                     @endforeach
                                                 </ul>
