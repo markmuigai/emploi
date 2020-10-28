@@ -13,11 +13,99 @@
             <div class="row">
                 <div class="col-lg-3">
                     @include('v2.components.sidebar.jobseeker')
-                </div>
+                </div>           
 
-                <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">   
+                    <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">                    
+                      
+                    <button class="btn btn-success"><a href="{{Route('v2.cv-review.create', ['reviewResults' => 72])}}"><span style="color: white"> CV Review</i></span></a></button>
+                    @auth
+                     <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
+                    @endauth
+                    @guest
+                    <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
+                        
+                    @endguest
+         
                     <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
-                    <div class="container">
+              
+                        @section('modal')
+                        <div class="modal fade" id="selfAssessmentModal" tabindex="-1" role="dialog" aria-labelledby="selfAssessmentModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                  <h4 class="text-center mt-4">
+                                      Select your details
+                                  </h4>
+                                <div class="modal-body">
+                                  <form method="POST" action="{{route('v2.self-assessment.filter')}}">
+                                    @csrf
+                                    <div class="job-filter-area pt-2">
+                                        <div class="container">
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-lg-12">
+                                                        @guest
+                                                            <div class="form-group">
+                                                                <input type="email" name="email" required=""  class="form-control" maxlength="50" placeholder="Enter your email address" >
+                                                            </div>
+                                                        @endguest
+                                                    </div>
+                                                    <div class="col-sm-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <select name="industry">
+                                                                <option>Select Your Industry</option>
+                                                                @foreach(\App\Industry::active() as $i)
+                                                                    <option value="{{ $i->id }}">{{ $i->name }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <select name="experience">
+                                                                <option>Your Experience Level</option>
+                                                                <option value="0">No Experience Required</option>
+                                                                <option value="6">6 month Experience</option>
+                                                                <option value="12">1 year Experience</option>
+                                                                <option value="24">2 years Experience</option>
+                                                                <option value="36">3 years Experience</option>
+                                                                <option value="48">4 years Experience</option>
+                                                                <option value="60">5 years Experience</option>
+                                                                <option value="72">6 years Experience</option>
+                                                                <option value="84">7 years Experience</option>
+                                                                <option value="96">8 years Experience</option>
+                                                                <option value="108">9 years Experience</option>
+                                                                <option value="120">10 years Experience</option>
+                                                                <option value="132">11 years Experience</option>
+                                                                <option value="144">12 years Experience</option>
+                                                                <option value="156">13 years Experience</option>
+                                                                <option value="168">14 years Experience</option>
+                                                                <option value="180">15 years Experience</option>
+                                                                <option value="192">16 years Experience</option>
+                                                                <option value="204">17 years Experience</option>
+                                                                <option value="216">18 years Experience</option>
+                                                                <option value="228">19 years Experience</option>
+                                                                <option value="240">20 years Experience</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-lg-12">
+                                                        <button type="submit" class="btn cmn-btn">
+                                                            Proceed to Assessment
+                                                            <i class='bx bx-search-alt'></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        @endsection
+                    <div class="container">     
  
                     </div>  
                     <div class="collapse" id="advancedFilter">
@@ -152,7 +240,10 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+
+                                <div class="col-md-4">                                              
+
+                                    <a href=""></a>
                                     <a class="text-center float-right cmn-btn mb-4" data-toggle="collapse" href="#advancedFilter" role="button" aria-expanded="false" aria-controls="advancedFilter">
                                         Select Advanced Filters
                                         <i class='bx bx-filter'></i>
@@ -160,6 +251,7 @@
                                 </div>
                             </div>  
                             <div class="row">
+                                @guest
                                 <div class="col-lg-2">
                                     <h4>Filter By</h4>
                                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -180,7 +272,24 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-10">
+                                @endguest
+                                <div class="col-lg-9">
+                                    <!-- FEATURED VACANCIES -->
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <div class="col-12 col-lg-8">
+                                                <h4>Top Trending Vacancies</h4>
+                                                <ul>
+                                                    @foreach($posts as $post)
+                                                    @if($post->featured == 'true') 
+                                                    <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                               
+                                                    @endif
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div id="container" class="row">
@@ -249,3 +358,4 @@
     </div>
   </div>
 @endsection
+
