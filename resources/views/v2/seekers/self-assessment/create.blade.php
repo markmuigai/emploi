@@ -47,14 +47,15 @@
                 interval: false
             })
 
-            // Disable next
-            $('.assessment-choice').click(function() {
-                $('#forward').css('display', 'inline-block')
-            });
-
             var max = {!! json_encode($questions->count()) !!};
 
             var counter = 1
+
+            // Disable next
+            $('.assessment-choice').click(function() {
+                if(counter!==(max))
+                    $('#forward').css('display', 'inline-block')
+            });
 
             $("#backward").click(function() {
                 $('.assessment-carousel').carousel('prev')
