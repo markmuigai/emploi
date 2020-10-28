@@ -33,11 +33,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/" style="color: white">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about" style="color: white">About Us</a>
-          </li>
+       
           <li class="nav-item active">
             <a class="nav-link" href="/employers/publish" style="color: white">Advertise</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/employers/paas" style="color: white">PaaS</a>
+          </li>
+          
+
+          <li class="nav-item">
+            <a class="dropdown-item" href="/employers/premium-recruitment" style="color: white">{{ __('jobs.p_recruit') }}</a>
           </li>
           @guest
           <li class="nav-item">
