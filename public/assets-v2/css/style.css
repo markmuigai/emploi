@@ -8172,3 +8172,12 @@ h4,h3{
 .categories-area a{
   font-size: 14px;
 }
+
+/* assessmen buttons */
+#backward, #submitBtn{
+  display: none;
+}
+
+.assessment-section .carousel-item{
+  height: 170px;
+}
