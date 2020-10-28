@@ -20,7 +20,10 @@ class SelfAssessmentController extends Controller
     public function index()
     {
         // Show assessment
-        return view('v2.seekers.self-assessment.index');
+        return view('v2.seekers.self-assessment.index',[
+            'score' => Performance::LatestAssessment('markmuigai@gmail.com')->where('correct',1)->count(),
+            'performances' => Performance::LatestAssessment('markmuigai@gmail.com')
+        ]);
     }
 
     /**
@@ -54,8 +57,20 @@ class SelfAssessmentController extends Controller
         ]);
         
         DB::transaction(function () use($request) {
+            // Get user
             $user = User::where('email',$request->email)->first();
-        
+
+            // Fetch previous assessments for an email
+            $perfs = Performance::where('email', $request->email)->get();
+
+            // If they have never been assessed
+            if($perfs->isEmpty()){
+                $assessment_count = 1;            
+            }else{
+                // Round up 
+                $assessment_count = Collect($perfs)->last()->assessment_count + 1;
+            }
+
             // dd($request->choices);
             foreach($request->choices as $question_id => $choice_id)
             {
@@ -64,7 +79,7 @@ class SelfAssessmentController extends Controller
                 // Fetch choice
                 $performance = Performance::create([
                     'user_id' => $user ? $user->id : null,
-                    'assessment_count' => Performance::assessmentCountForUser($request->email),
+                    'assessment_count' => $assessment_count,
                     'email' => $request->email,           
                     'question_id' => $question_id,
                     'choice_id' => (int)$choice_id[0],
