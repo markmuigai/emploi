@@ -28,7 +28,7 @@
                                     </div>
                                 </div><br>
                         <h5>
-                            RSI 
+                            Job Score 
                             <?php
                                 if(!isset($last_rsi))
                                     $last_rsi = [];
