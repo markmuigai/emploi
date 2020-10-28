@@ -106,11 +106,16 @@ class Industry extends Model
             return Question::getByDifficulty($lvl)->get()->random(10);
             
         }elseif($exp >6 && $exp <=36){
-            // Get 6 questions in the industry level
-            $base_questions = Question::getByDifficulty($lvl)->get()->random(6);
-
-            // Add 4 questions that are more difficult by one level
-            return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(4))->flatten();
+            // Get all the hard questions since there is no higher level
+            if($lvl = 'hard'){
+                return $base_questions = Question::getByDifficulty($lvl)->get()->random(10);
+            }else{
+                // Get 6 questions in the industry level
+                $base_questions = Question::getByDifficulty($lvl)->get()->random(6);
+                
+                // Add 4 questions that are more difficult by one level
+                return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(4))->flatten();
+            }
         }else{
             // More than 3 years experience
             // Get 4 questions in the industry level

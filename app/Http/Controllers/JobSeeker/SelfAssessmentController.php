@@ -64,7 +64,7 @@ class SelfAssessmentController extends Controller
                 // Fetch choice
                 $performance = Performance::create([
                     'user_id' => $user ? $user->id : null,
-                    'assessment_count' => Performance::getAssessmentCountForUser($request->email),
+                    'assessment_count' => Performance::assessmentCountForUser($request->email),
                     'email' => $request->email,           
                     'question_id' => $question_id,
                     'choice_id' => (int)$choice_id[0],
