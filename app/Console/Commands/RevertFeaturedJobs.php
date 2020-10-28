@@ -72,7 +72,9 @@ class RevertFeaturedJobs extends Command
                 ->where('slug', '!=', 'sales-advisors-wanted-urgently-apply-now')
                 ->where('slug', '!=', 'financial-advisors-needed')
                 ->where('slug', '!=', 'sales-advisors-wanted-urgently-apply-now')
-                ->where('slug', '!=', 'graphic-designer-needed ')         
+                ->where('slug', '!=', 'graphic-designer-needed ')
+                ->where('slug', '!=', 'marketing-officers-2-positions-wanted-in-nairobi-apply-here')
+                ->where('slug', '!=', 'ongoing-recruitment-check-it-out-and-apply-now')        
                 ->get();
 
         
