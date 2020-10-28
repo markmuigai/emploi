@@ -11,6 +11,22 @@ class Performance extends Model
     ];
 
     /**
+     * Get the associated question
+     */
+    public function question()
+    {
+        return $this->belongsTo('App\Question');
+    }
+
+    /**
+     * Get the selected choice
+     */
+    public function selectedChoice()
+    {
+        return $this->belongsTo('App\Choice','choice_id');
+    }
+
+    /**
      * Get the n.o of times a user will have done an assessment after completing one
      */
     public function scopeAssessmentCountForUser($query, $email)
