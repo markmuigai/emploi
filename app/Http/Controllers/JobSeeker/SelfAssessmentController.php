@@ -31,7 +31,7 @@ class SelfAssessmentController extends Controller
     public function create(Request $request)
     {
         // Get industry and fetch questions based on user profile
-        $questions = Industry::findOrFail($request->payload[0])->getAssessmentQuestions($request->payload[1]);
+        $questions = Industry::findOrFail($request->payload['industry'])->getAssessmentQuestions($request->payload['experience']);
         $email =$request->email;
 
         // TODO: Remove array padding
@@ -133,7 +133,10 @@ class SelfAssessmentController extends Controller
     public function filterAssessments(Request $request)
     {
         return redirect()->route('v2.self-assessment.create',[
-            'payload' => [$request->experience, $request->industry],
+            'payload' => [
+                'experience' => $request->experience,
+                'industry' => $request->industry
+            ],
             'email' => $request->email
         ]);
     }
