@@ -179,6 +179,22 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-10">
+                                    <!-- FEATURED VACANCIES -->
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <div class="col-12 col-lg-8">
+                                                <h4>Top Trending Vacancies</h4>
+                                                <ul>
+                                                    @foreach($posts as $post)
+                                                    @if($post->featured == 'true') 
+                                                    <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                               
+                                                    @endif
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div id="container" class="row">
