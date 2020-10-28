@@ -158,6 +158,7 @@
                                 </div>
                             </div>  
                             <div class="row">
+                                @guest
                                 <div class="col-lg-2">
                                     <h4>Filter By</h4>
                                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -178,7 +179,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-10">
+                                @endguest
+                                <div class="col-lg-9">
                                     <!-- FEATURED VACANCIES -->
                                     <div class="card mb-4">
                                         <div class="card-body">
