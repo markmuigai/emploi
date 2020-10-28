@@ -22,4 +22,12 @@ class Question extends Model
     {
         return $query->where('difficulty_level', $level);
     }
+
+    /**
+     * Get the correct choice for a question
+     */
+    public function correctChoice()
+    {
+        return $this->choices->where('correct_value', 1)->first();
+    }
 }
