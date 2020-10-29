@@ -296,6 +296,11 @@
                                                 @foreach($posts as $post)
                                                 <div class="col-sm-6 col-lg-4 mix o">
                                                     <div class="cat-item">
+                                                        <span id="vacancies-image">
+                                                            <a href="/vacancies/{{ $post->slug }}">
+                                                                <img src="{{ asset($post->imageUrl) }}" alt="{{ $post->title }}">
+                                                            </a>
+                                                        </span>
                                                         <h3>
                                                             <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
                                                         </h3>

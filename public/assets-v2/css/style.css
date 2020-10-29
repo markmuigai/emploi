@@ -6100,6 +6100,11 @@ button:focus {
   width: 100%;
 }
 
+#vacancies-image a img{
+  width: 40px;
+  height: 40px;
+}
+
 /*----- End Candidates CSS -----*/
 /*----- Candidate Details CSS -----*/
 .page-title-area.two .left.two {
