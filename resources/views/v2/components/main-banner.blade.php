@@ -77,6 +77,36 @@
                     
                         </ul>
                     </div>
+                    <div class="register-area">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-4 col-lg-4">
+                                    <div class="register-item">
+                                        <h3>
+                                            <span class="odometer">20000</span>+ 
+                                        </h3>
+                                        <p>Jobs</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-lg-4">
+                                    <div class="register-item">
+                                        <h3>
+                                            <span class="odometer" >30000</span>+ 
+                                        </h3>
+                                        <p>Candidates</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-lg-4">
+                                    <div class="register-item">
+                                        <h3>
+                                            <span class="odometer">1000</span>+ 
+                                        </h3>
+                                        <p>Companies</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
