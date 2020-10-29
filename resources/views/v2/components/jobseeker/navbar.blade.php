@@ -57,7 +57,6 @@
                         @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                         @else
                             <li class="nav-item">
-                                <span class="tooltip-span two">New</span>
                                 <a href="index-3.html#" class="nav-link dropdown-toggle">{{ __('other.job_seekers') }} <i class='bx bx-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
