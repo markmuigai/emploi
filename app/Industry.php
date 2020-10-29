@@ -96,7 +96,6 @@ class Industry extends Model
         // Add questions that are more difficult by one level
         $rank = $allLvls->search($lvl);
 
-        if($rank = 'hard')
         // Get higher level
         $newLvl = $allLvls->get($rank+1);
 

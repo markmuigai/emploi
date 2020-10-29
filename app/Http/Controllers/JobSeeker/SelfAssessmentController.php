@@ -67,16 +67,13 @@ class SelfAssessmentController extends Controller
             if($perfs->isEmpty()){
                 $assessment_count = 1;            
             }else{
-                // Round up 
+                // Get their most recent assessment_count + 1
                 $assessment_count = Collect($perfs)->last()->assessment_count + 1;
             }
 
-            // dd($request->choices);
             foreach($request->choices as $question_id => $choice_id)
             {
-                // dd(Choice::find((int)$choice_id[0])->correct_value);
-                // Check if user has been assessed before 
-                // Fetch choice
+                // Create performance record
                 $performance = Performance::create([
                     'user_id' => $user ? $user->id : null,
                     'assessment_count' => $assessment_count,
@@ -86,9 +83,6 @@ class SelfAssessmentController extends Controller
                     'correct' => Choice::find((int)$choice_id[0])->correct_value,
                     'optional_message' => $request->optional_message
                 ]);
-
-                // dd($performance->toArray());
-
             }
         });
 
