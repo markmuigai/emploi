@@ -3694,9 +3694,10 @@ button:focus {
 }
 
 .banner-content.three {
-  height: 749px;
+  height: 550px;
   max-width: 800px;
-  padding-top: 140px;
+  padding-top: 100px;
+  padding-left: 30px;
 }
 
 .banner-content.three p {
