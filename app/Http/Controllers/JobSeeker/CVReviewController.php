@@ -55,12 +55,15 @@ class CVReviewController extends Controller
         // Store CV
         $path = $prefix.$request->file('cv')->store('cv-reviews');
 
-        if($request->file('cv')->extension() == 'pdf'){
-            $rawCV = Pdf::getText($path);
-        }else{
-            // Get cv json
-            $rawCV = parseCV($path); 
-        }
+        // if($request->file('cv')->extension() == 'pdf'){
+        //     $rawCV = Pdf::getText($path);
+        // }else{
+        //     // Get cv json
+        //     $rawCV = parseCV($path); 
+        // }
+
+        // Get cv json
+        $rawCV = parseCV($path); 
 
         // Get Formatted cv
         $cleanCV = cleanCV($rawCV);
