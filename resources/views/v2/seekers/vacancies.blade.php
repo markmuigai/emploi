@@ -228,15 +228,11 @@
                                     <div class="sorting-menu mt-3 float-left">
                                         <ul> 
                                             <li class="filter" data-filter="all">All</li>
-                                            <li class="filter" data-filter=".o">Recommended</li>
-                                            {{-- @if (auth()->user())
+                                            @if (auth()->user())
                                                 <li class="filter" data-filter=".o">Recommended</li>
                                             @else
-                                                <li class="filter" data-toggle="modal" data-target="#promptLogin">Recommended</li>
-                                            @endif --}}
-                                            <li class="filter" data-filter=".o">Internship</li>
-                                            <li class="filter" data-filter=".o">Full Time</li>
-                                            <li class="filter" data-filter=".o">Part Time</li>
+                                                <li class="filter" data-filter=".o"><a href="/login">Recommended</a></li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
