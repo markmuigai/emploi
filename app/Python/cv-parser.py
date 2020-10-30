@@ -1,16 +1,9 @@
-from pyresparser import ResumeParser
-import pathlib
-import nltk
-import spacy
 import sys
 import json
-
-# nltk.download('stopwords')
+import textract
 
 path = sys.argv[1]
 
-# path = f'{pathlib.Path.cwd()}' + '/app/Python/Sample CVs/alice_cv.pdf'
-data = ResumeParser(path).get_extracted_data()
+print(textract.process(path))
 
-print(json.dumps(data))
 

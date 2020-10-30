@@ -88,7 +88,6 @@ class Industry extends Model
      */
     public function getAssessmentQuestions($exp)
     {
-        // TODO: Update difficulty ratios to 6:4 
         $allLvls = collect(['easy','medium', 'hard']);
 
         // Get industry difficulty rating
@@ -117,12 +116,16 @@ class Industry extends Model
                 return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(4))->flatten();
             }
         }else{
+            if($lvl = 'hard'){
+                return $base_questions = Question::getByDifficulty($lvl)->get()->random(10);
+            }else{
             // More than 3 years experience
             // Get 4 questions in the industry level
             $base_questions = Question::getByDifficulty($lvl)->get()->random(4);
 
             // Add 6 questions that are more difficult by one level
             return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(6))->flatten();
+            }
         }
 
     }
