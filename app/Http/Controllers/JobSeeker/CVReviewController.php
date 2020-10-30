@@ -6,6 +6,7 @@ use Spatie\PdfToText\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class CVReviewController extends Controller
@@ -41,7 +42,13 @@ class CVReviewController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        //validate uploaded CV
+        $request->validate([
+                'cv'  =>  ['mimes:doc,pdf,docx'] 
+            ]);
+
+
         // Get file prefix dynamically
         $prefix = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
 
@@ -61,6 +68,9 @@ class CVReviewController extends Controller
         // Get score
         $result = reviewCV($cleanCV);
 
+        //delete CV after parsing
+        File::delete($path);
+        
         // dd($result->toArray());
         return redirect()->route('v2.cv-review.index',[
             'result'=> $result->toArray()

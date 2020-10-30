@@ -36,3 +36,5 @@
 @endif
 @guest
 @endguest
+
+@include('components.ads.vertical_responsive')
