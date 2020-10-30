@@ -407,6 +407,30 @@ class PostsController extends Controller
                 }
             }
 
+            if(isset($request->position))
+            {  
+               {
+                    $search_pos = $request->position;
+                    $params .= " AND positions = ".$request->position." ";
+                }
+            }
+
+            if(isset($request->educationLevel))
+            {   
+               {
+                    $search_el = $request->educationLevel;
+                    $params .= " AND education_requirements = ".$request->educationLevel." ";
+                }
+            }
+
+            if(isset($request->experience))
+            {
+               {
+                    $search_exp = $request->experience;
+                    $params .= " AND experience_requirements = ".$request->experience." ";
+                }
+            }
+
             if(isset($request->q))
             {
                 //$str = $params == "" ? "WHERE title like \"%".$request->q."%\"" : ", title like \"%".$request->q."%\"";

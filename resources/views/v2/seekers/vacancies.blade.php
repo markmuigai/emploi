@@ -160,8 +160,9 @@
                                         </div>
                                         <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
-                                                <select>
-                                                    <option>Positions Available</option>
+                                                <select class="selectpicker" name="position" data-live-search="true">
+                                                    <option value="">Positions Available</option>
+
                                                     @for($i=1; $i<=200;$i++ ) <option value="{{ $i }}">{{ $i }}</option>
                                                     @endfor
                                                 </select>
@@ -169,10 +170,12 @@
                                         </div>
                                         <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
-                                                <select>
-                                                    <option>All Education Levels</option>
-                                                    @forelse ($educationLevels as $el)
-                                                        <option>{{$el->name}}</option>    
+                                                <select class="selectpicker" name="educationLevel" data-live-search="true">
+                                                    <option value="">All Education Levels</option>
+                                                    @forelse ($educationLevels as $el)                                           
+                                                    <option value="{{ $el->id }}" {{ isset($search_el) && $search_el == $el->id ? 'selected=""' : '' }}>
+                                                        {{ $el->name }}
+                                                    </option>
                                                     @empty
                                                     @endforelse
                                                 </select>
@@ -180,8 +183,8 @@
                                         </div>
                                         <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
-                                                <select>
-                                                    <option>Experience</option>
+                                                 <select class="selectpicker" name="experience" data-live-search="true">
+                                                    <option value="">Experience</option>
                                                     <option value="0">No Experience Required</option>
                                                     <option value="6">6 month Experience</option>
                                                     <option value="12">1 year Experience</option>
