@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\JobSeeker;
 
+use Spatie\PdfToText\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -47,8 +48,12 @@ class CVReviewController extends Controller
         // Store CV
         $path = $prefix.$request->file('cv')->store('cv-reviews');
 
-        // Get cv json
-        $rawCV = parseCV($path); 
+        if($request->file('cv')->extension() == 'pdf'){
+            $rawCV = Pdf::getText($path);
+        }else{
+            // Get cv json
+            $rawCV = parseCV($path); 
+        }
 
         // Get Formatted cv
         $cleanCV = cleanCV($rawCV);
