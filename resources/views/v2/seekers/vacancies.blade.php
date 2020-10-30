@@ -112,7 +112,7 @@
                         <!-- Filter -->
                         <div class="job-filter-area pt-2">
                             <div class="container">
-                                <form>
+                                <form method="get" class="form-row" action="{{ url('v2/vacancies/search') }}"> 
                                     <div class="row">
                                         <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
@@ -289,7 +289,7 @@
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div id="container" class="row">
-                                                @foreach($posts as $post)
+                                                @forelse($posts as $post)
                                                 <div class="col-sm-6 col-lg-4 mix o">
                                                     <div class="cat-item">
                                                         <span id="vacancies-image">
@@ -308,10 +308,17 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                                @endforeach
+                                                     @empty
+                                            <div class="col-md-6">                                          
+                                                <p>No job posts found</p>
+                                            </div>
+                                            @endforelse
                                             </div>
                                             <div class="row justify-content-center">
-                                                {{$posts->links()}}
+                                            @if(isset($search))
+                                            @else
+                                            {{ $posts->links() }}
+                                            @endif
                                             </div>
                                         </div>
                                     </div>

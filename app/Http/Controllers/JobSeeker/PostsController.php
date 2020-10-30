@@ -428,7 +428,7 @@ class PostsController extends Controller
             for($i=0; $i<count($results); $i++)
                 $posts[] = Post::findOrFail($results[$i]->id);
 
-            return view('seekers.vacancies')
+            return view('v2.seekers.vacancies')
                     ->with('industries',$industries)
                     ->with('locations',$locations)
                     ->with('vacancyTypes',$vacancyTypes)
@@ -439,12 +439,13 @@ class PostsController extends Controller
                     ->with('search_location',$search_location)
                     ->with('search_vtype',$search_vtype)
                     ->with('search_ind',$search_ind)
-                    ->with('search_query',$search_query);
+                    ->with('search_query',$search_query)
+                    ->with('educationLevels',EducationLevel::all());
         }
 
         if($match)
         {
-            return view('seekers.vacancies')
+            return view('v2.seekers.vacancies')
                         ->with('industries',$industries)
                         ->with('locations',$locations)
                         ->with('vacancyTypes',$vacancyTypes)
