@@ -14,9 +14,11 @@ class CVReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('v2.seekers.cv-review.index',[
+            'result' => collect(request()->result)
+        ]);
     }
 
     /**
@@ -39,25 +41,25 @@ class CVReviewController extends Controller
      */
     public function store(Request $request)
     {
-        // Get file name
-        $name = $request->file('cv')->getClientOriginalName();
+        // Get file prefix dynamically
+        $prefix = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
 
         // Store CV
-        $path = public_path()."/storage/".$request->file('cv')->storeAs('cv-reviews', $name);
+        $path = $prefix.$request->file('cv')->store('cv-reviews');
 
-        try {
-            // Get cv json
-            $json = parseCV($path); 
+        // Get cv json
+        $rawCV = parseCV($path); 
 
-            // Get Score
-            $score = reviewCV($json);
+        // Get Formatted cv
+        $cleanCV = cleanCV($rawCV);
 
-        } catch (\Throwable $th) {
-            // Fails if document is too long or in he wrong format
-            $score = 5;
-        }
+        // Get score
+        $result = reviewCV($cleanCV);
 
-        return view('v2.seekers.cv-review.show',['reviewResults'=>$score]);
+        // dd($result->toArray());
+        return redirect()->route('v2.cv-review.index',[
+            'result'=> $result->toArray()
+        ]);
     }
 
     /**
