@@ -134,7 +134,7 @@
                                         </div>
                                         <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
-                                                <select>
+                                                <select class="selectpicker" data-live-search="true" name="location">
                                                     <option>All Locations</option>
                                                     @forelse($locations as $l)
                                                     <option value="{{ $l->id }}" {{ isset($search_location) && $search_location == $l->id ? 'selected=""' : '' }}>
