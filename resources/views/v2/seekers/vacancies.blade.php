@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
-                                                <select name="industries[]">
+                                                <select class="selectpicker" data-live-search="true" name="industry">
                                                     <option>All Industries</option>
                                                     @forelse($industries as $ind)
                                                     <option value="{{ $ind->id }}" {{ isset($search_ind) && $search_ind == $ind->id ? 'selected=""' : '' }}>
