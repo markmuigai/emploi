@@ -29,22 +29,81 @@ function parseCV($path){
 /**
  * Review CV and assign a score
  */
-function reviewCV($cvJson)
+function cleanCV($cvText)
 {
-    // dd($cvJson);
+    // Remove first 2 characters ('b)
+    $cvText = str_replace(substr($cvText,0,2), '', $cvText);
+
+    // Remove line breaks (\n)
+    $formattedText = str_replace('\n', ' ', $cvText);
+
+    // Remove tab spaces (\n)
+    $formattedText = str_replace('\t', '', $formattedText);
+
+    // Get all string positions of vertical tabs shortcodes (e.g \x086)
+    $offset = 0;
+    $allpos = array();
+    while (($pos = strpos($formattedText, '\x', $offset)) !== FALSE) {
+        $offset   = $pos + 1;
+        $allpos[] = $pos;
+    }
+
+    // Replace the vertical tabs with 4 unique characters to prevent losing data between iterations
+    foreach($allpos as $pos)
+    {
+        $formattedText = str_replace(substr($formattedText, $pos, 4), '~~~~', $formattedText);
+    }
+
+    // Remove unique characters
+    $formattedText = str_replace('~~~~', '', $formattedText);
+
+    return $formattedText;
+}
+
+/**
+ * Review cv based on existence of keywords e.g sections
+ */
+function reviewCV($cvText)
+{
+    // dd($cvText);
+    // dd(strpos(strtolower($cvText), 'responsibilities'));
+
+    $keywords = [
+        'personal information',
+        'skills',
+        'education',
+        'responsibilities',
+        'achievements',
+        'experience',
+        'training'
+    ];
+
+    // Capture whether a section exists
+    $score = collect();
     
-    // Convert parse cv to collection
-    $cvObject = collect(json_decode($cvJson));
+    // Store mixing section names
+    $recommendations = collect();
 
-    // dd($cvObject);
+    // Store final result
+    $result = collect();
 
-    // Get n.o of sections(keys) with content
-    $existingKeys = $cvObject->filter(function($key){
-        return $key != null || $key !=0; 
-    })->count();
-    
-    // Get total n.o sections
-    $totalkeys = $cvObject->keys()->count();
+    foreach($keywords as $keyword)
+    {
+        // Check if a section is missing
+        if(strpos(strtolower($cvText), $keyword) == false){
+            $sectionExists = 0;
 
-    return ceil(($existingKeys/$totalkeys)*100);
+            // Add missing section to recommendations
+            $recommendations->push($keyword);
+        }else{
+            $sectionExists = 1;
+        }
+
+        $score->push($sectionExists);
+    }
+
+    $result->put('score', ceil(($score->sum()/count($keywords))*100));
+    $result->put('recommendations', $recommendations);
+
+    return $result;
 }
