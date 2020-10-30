@@ -9,11 +9,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Dashboard')
 
-<a href="/employers/rate-card" class="btn btn-orange-alt"  data-placement="left">Our Packages</a>
-<a href="/employers/dashboard/top-candidates" class="btn btn-orange"  data-placement="left">Hire Top Candidates</a>
- @if(Auth::user()->email == 'jobs@emploi.co')
-<a href="/employers/dashboard/applications" class="btn btn-orange-alt"  data-placement="left">View Applications</a>
-@endif
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-3  px-0 col-sm-8">
+                    <a href="/employers/rate-card" class="btn btn-orange-alt my-1"  data-placement="left">Our Packages</a>
+                </div>
+                <div class="col-md-4  px-0 col-sm-8">
+                    <a href="/employers/dashboard/top-candidates" class="btn btn-orange my-1"  data-placement="left">Hire Top Candidates</a>
+                </div>
+                <div class="col-md-4 px-0  col-sm-8">
+                    @if(Auth::user()->email == 'jobs@emploi.co')
+                    <a href="/employers/dashboard/applications" class="btn btn-orange-alt my-1"  data-placement="left">View Applications</a>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="card my-2 recents">
     <div class="card-body row">
         <div class="col-md-7">

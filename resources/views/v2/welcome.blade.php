@@ -10,6 +10,7 @@
     @include('v2.components.main-banner')
 
     <!-- Who we are -->
+    <div class="card">
     <div class="new-area pt-100 pb-70">
         <div class="container text-center">
             <div class="about-content">
@@ -29,6 +30,7 @@
             </div>
         </div>
     </div>
+</div>
     <!-- End Who we are -->
 
     <!-- CV Editing -->

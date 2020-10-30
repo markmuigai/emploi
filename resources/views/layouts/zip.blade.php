@@ -48,7 +48,7 @@
           </li>
           @guest
           <li class="nav-item">
-            <a class="nav-link" href="/employers/services" style="color: white;">Services</a>
+            <a class="nav-link" href="/employers/services" style="color: white;">All Services</a>
           </li>
           @else
               <li class="nav-item">

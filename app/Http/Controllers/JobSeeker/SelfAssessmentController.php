@@ -21,8 +21,8 @@ class SelfAssessmentController extends Controller
     {
         // Show assessment
         return view('v2.seekers.self-assessment.index',[
-            'score' => Performance::LatestAssessment('markmuigai@gmail.com')->where('correct',1)->count(),
-            'performances' => Performance::LatestAssessment('markmuigai@gmail.com')
+            'score' => Performance::LatestAssessment(request()->email)->where('correct',1)->count(),
+            'performances' => Performance::LatestAssessment(request()->email)
         ]);
     }
 

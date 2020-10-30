@@ -10,15 +10,13 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <div class="container p-4">
-                            <h4 class="text-center">My Self Assessment Results</h4>
-                            <div class="row justify-content-end">
-                                <div class="col-md-4">
-                                    <a class="text-center float-right cmn-btn mb-4" href="#" role="button">
-                                        View Previous Scores
-                                        <i class='bx bx-filter'></i>
-                                    </a>                                  
-                                </div>
-                            </div>
+                            <h4 class="text-center">My Self Assessment Results</h4><br>
+                            @guest
+                            <div class="text-center">
+                            <p><a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>  or  <a href="/join" class="btn btn-orange-alt">Register</a> To View Your Results</p>
+                            </div>                             
+                            @endguest
+                            @if(auth::user())
                             <div class="container shadow p-3 mb-5 bg-white rounded px-5">
                                 <div class="row d-flex justify-content-between">
                                     <div class="col-md-4">
@@ -57,6 +55,7 @@
                                     </div>
                                 @endforeach
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

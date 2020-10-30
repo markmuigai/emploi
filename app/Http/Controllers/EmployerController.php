@@ -783,7 +783,7 @@ class EmployerController extends Controller
                     ->distinct('user_id')
                     ->where('status','rejected')
                     ->orderBy('id','DESC')
-                    ->paginate(20);
+                    ->paginate(10);
                 return view('employers.applications.rejected')
                     ->with('pool',$rejects)
                     ->with('post',$post);
@@ -794,14 +794,14 @@ class EmployerController extends Controller
                     ->distinct('user_id')
                     ->where('status','active')
                     ->orderBy('id','DESC')
-                    ->paginate(20);
+                    ->paginate(10);
                 return view('employers.applications.unrejected')
                     ->with('pool',$unrejected)
                     ->with('post',$post);
                 break;
 
             default:
-                $applications = JobApplication::where('post_id',$post->id)->orderBy('id','DESC')->paginate(20);
+                $applications = JobApplication::where('post_id',$post->id)->orderBy('id','DESC')->paginate(10);
 
                 return view('employers.applications.index')
                     ->with('pool',$applications)

@@ -56,7 +56,6 @@
                         @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                         @else
                             <li class="nav-item">
-                                <span class="tooltip-span two">New</span>
                                 <a href="index-3.html#" class="nav-link dropdown-toggle">{{ __('other.job_seekers') }} <i class='bx bx-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
@@ -78,33 +77,12 @@
                             </li>
                         @endif
                         @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-                        @else
-                            <li class="nav-item">
-                                <a href="index-3.html#" class="nav-link dropdown-toggle">{{ __('jobs.employers') }}<i class='bx bx-chevron-down'></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="/employers/browse" class="nav-link">{{ __('jobs.browse_cvs') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/publish" class="nav-link">{{ __('jobs.advert_jobs') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/premium-recruitment" class="nav-link">{{ __('jobs.p_recruit') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/paas" class="nav-link">PaaS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/e-club" class="nav-link">E-Club</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/services" class="nav-link">{{ __('other.a_services') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/companies/create" class="nav-link">{{ __('other.add_comp') }}</a>
-                                    </li>
-                                </ul>
-                            </li>
+                        @else                               
+                        <li class="nav-item dropdown">                  
+                                <li class="nav-item">
+                                <span class="tooltip-span two">New</span>
+                            <a class="nav-link" href="/employers/publish">Employers</a>
+                        </li> 
                         @endif
                         @if(isset(Auth::user()->id))
                         <!-- <li class="nav-item">

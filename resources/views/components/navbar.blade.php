@@ -114,29 +114,10 @@
                 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                 @else
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ __('jobs.employers') }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <!-- <a class="dropdown-item" href="/employers/dashboard">Dashboard</a> -->
-                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-                        <a class="dropdown-item" href="/employers/browse">{{ __('jobs.browse_cvs') }}</a>
-                        @endif
-                        <a class="dropdown-item" href="/employers/publish">{{ __('jobs.advert_jobs') }}</a>
-                        <a class="dropdown-item" href="/employers/premium-recruitment">{{ __('jobs.p_recruit') }}</a>
-                        <a class="dropdown-item" href="/employers/paas">PaaS</a>
-                        <a class="dropdown-item" href="/employers/e-club">E-Club</a>
-                        <a class="dropdown-item" href="/employers/services">{{ __('other.a_services') }}</a>
-                        @guest
-                        @else
-                        <a class="dropdown-item" href="/companies/create">{{ __('other.add_comp') }}</a>
-                        @endguest
-                        
-                        
-                    </div>
-                </li>
-              
+                <li class="nav-item dropdown">                  
+                        <li class="nav-item">
+                    <a class="nav-link" href="/employers/publish">Employers</a>
+                </li>                
                 @endif
 
                 @if(isset(Auth::user()->id) && Auth::user()->role == 'super-admin')
