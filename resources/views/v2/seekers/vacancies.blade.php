@@ -147,7 +147,7 @@
                                         </div>
                                         <div class="col-sm-6 col-lg-3">
                                             <div class="form-group">
-                                                <select>
+                                                <select class="selectpicker" name="vacancyType" data-live-search="true">
                                                     <option value="">All Vacancy Types</option>
                                                     @forelse($vacancyTypes as $l)
                                                     <option value="{{ $l->id }}" {{ isset($search_vtype) && $search_vtype == $l->id ? 'selected=""' : '' }}>
