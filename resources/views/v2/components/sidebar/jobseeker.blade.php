@@ -1,33 +1,38 @@
-@auth
+<?php
+ $user=Auth::user();
+ ?>
+@if(isset($user) && $user->role == 'seeker')
 <div class="profile-item">
-    <img src="{{asset('assets-v2/img/dashboard1.jpg')}}" height="100px" alt="Dashboard">
-    <h2>Tom Henry</h2>
-    <span>Web Developer</span>
+     <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="circle-img w-50 h-50" alt="{{ $user->name }}">
+    <h2>{{ $user->getName() }}</h2>
+    <span></span>
 </div>
 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="dashboard.html#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-        <i class='bx bx-user'></i>
-        My Profile
-    </a>
-    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="dashboard.html#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+    <a class="nav-link active" id="v-pills-home-tab"  href="/profile"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
-            <i class='bx bxs-inbox'></i>
-            Applied Jobs
+            <i class='bx bx-user'></i>
+            My Profile
         </div>
     </a>
-    <a href="single-resume.html">
+    <a class="nav-link" id="v-pills-messages-tab"  href="/profile/applications"  aria-controls="v-pills-messages" aria-selected="false">
+        <div class="profile-list">
+            <i class='bx bxs-inbox'></i>
+            Applications
+        </div>
+    </a>
+    <a href="/storage/resumes/{{ $user->seeker->resume }}">
         <div class="profile-list">
             <i class='bx bx-note'></i>
             My Resume
         </div>
     </a>
-    <a  href="login.html">
+     <a  href="/logout">
         <div class="profile-list">
             <i class='bx bx-log-out'></i>
             Logout
         </div>
     </a>
 </div>
-@endauth
+@endif
 @guest
 @endguest
