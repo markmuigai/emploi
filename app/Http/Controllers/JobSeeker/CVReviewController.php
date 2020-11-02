@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\JobSeeker;
 
+use Validator;
 use Spatie\PdfToText\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,10 +42,10 @@ class CVReviewController extends Controller
      */
     public function store(Request $request)
     {   
-        //validate uploaded CV
-        $request->validate([
-                'cv'  =>  ['mimes:doc,pdf,docx'] 
-            ]);
+        // Custom validator
+        $validator = Validator::make($request->all(), [
+            'cv'  =>  ['mimes:doc,pdf,docx'] 
+        ]);
 
 
         // Get file prefix dynamically
@@ -60,8 +61,24 @@ class CVReviewController extends Controller
         //     $rawCV = parseCV($path); 
         // }
 
-        // Get cv json
+        // Get cv text
         $rawCV = parseCV($path); 
+
+        // Append to custom validation 
+        if($rawCV == 'incorrect password'){
+            // After validation hook
+            $validator->after(function ($validator) {
+                $validator->errors()->add('cv', 'Upload an unlocked pdf');
+            });
+        }
+
+        // Exit if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
 
         // Get Formatted cv
         $cleanCV = cleanCV($rawCV);
