@@ -39,15 +39,21 @@
 <!--What we check start-->
     <section class="work-area cv-review-details py-5 pb-70">
         <div class="container shadow p-3 mb-5 bg-white rounded px-5">
-            <div class="section-title text-center">
-                <div class="ml-3">
-                    Ensure your CV has the following keywords:
-                    @foreach ($result->get('recommendations') as $rec)
-                        <h5>{{ucfirst($rec)}}</h5>
-                    @endforeach
+            @if (empty($result->get('recommendations')))
+                <h4 class="mb-5 text-success text-center">
+                    Your CV looks good!
+                </h4>
+            @else
+                <div class="section-title text-center">
+                    <div class="ml-3">
+                        Ensure your CV has the following keywords:
+                        @foreach ($result->get('recommendations') as $rec)
+                            <h5>{{ucfirst($rec)}}</h5>
+                        @endforeach
+                    </div>
+                    <h2 style="text-align: center">What we Check</h2>
                 </div>
-                <h2 style="text-align: center">What we Check</h2>
-            </div>
+            @endif
             <div class="row">
                 <div class="col-sm-6 col-lg-6">                
                     <div class="work-item">
@@ -93,7 +99,7 @@
                 </div>
             </div>        
             <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Login to view improvement suggestions</a> 
-         </div>
+        </div>
     </section>
   
     <!--What we check end-->
