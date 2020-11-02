@@ -84,8 +84,9 @@ class Seeker extends Model
         $counter = $counter < 1 ? 1 : $counter;
         $indId = $this->user->seeker->industry_id;
         $locId = $this->user->seeker->location_id;
+        $exp = $this->user->seeker->education_level_id;
 
-        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND location_id = $locId) ORDER BY id DESC LIMIT $counter";
+        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND location_id = $locId)  OR (education_requirements = $exp) ORDER BY id DESC LIMIT $counter";
         $results = DB::select($sql);
 
         $posts = [];
