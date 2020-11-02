@@ -51,30 +51,55 @@
                                 <span>Trending Keywords:</span>
                             </li>
                             <li>
-                                <a href="/vacancies/sales">Sales Jobs</a>
+                                <strong>
+                                    <a href="/vacancies">Latest Job Vacancies</a>
+                                </strong>
                             </li>
                             <li>
-                                <a href="/vacancies/it-and-telecoms">IT & Telecoms</a>
+                                <strong>
+                                    <a href="/vacancies/it-and-telecoms">Companies Hiring</a>
+                                </strong>
                             </li>
                             <li>
-                                <a href="/vacancies/hr">Human Resource</a>
+                                <strong>
+                                    <a href="/vacancies/hr">Jobs In Kenya</a>
+                                </strong>
                             </li>
                             <li>
-                                <a href="/vacancies/admin">Office and Admin Jobs</a>
+                                <strong>
+                                    <a href="/vacancies/admin">Part-time Jobs</a>
+                                </strong>
                             </li>
                             <li>
-                                <a href="/vacancies/accounting">Accounting Jobs</a>
+                                <strong>
+                                    <a href="/vacancies/accounting">Full-time Jobs</a>
+                                </strong>
                             </li>
                             <li>
-                                <a href="/vacancies/government">Government Jobs</a>
+                                <strong>
+                                    <a href="/vacancies/government">Government Jobs</a>
+                                </strong>
                             </li>
                             <li>
-                                <a href="/vacancies/graduate-jobs">Graduate Jobs</a>
+                                <strong>
+                                    <a href="/vacancies/government">Free Sample CVs</a>
+                                </strong>
                             </li>
                             <li>
-                                <a href="/vacancies/healthcare">Healthcare & Pharmaceutical</a>
+                                <strong>
+                                    <a href="/vacancies/graduate-jobs">Career Tips</a>
+                                </strong>
                             </li>
-                    
+                            <li>
+                                <strong>
+                                    <a href="/vacancies/healthcare">Sales Jobs</a>
+                                </strong>
+                            </li>
+                            <li>
+                                <strong>
+                                    <a href="/vacancies/healthcare">NGO Jobs</a>
+                                </strong>
+                            </li>
                         </ul>
                     </div>
                     <div class="register-area">
