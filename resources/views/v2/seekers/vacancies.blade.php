@@ -309,6 +309,9 @@ $user=Auth()->user();
                                                         <h3>
                                                             <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
                                                         </h3>
+                                                        @if($post->featured == 'true')
+                                                        <span class="bx bx-star"> FEATURED</span>
+                                                        @endif
                                                         <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
                                                             Posted {{ $post->since }}
                                                         </span>
