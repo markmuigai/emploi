@@ -148,29 +148,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                          <h5 style="text-align: center">Trending Opportunities</h5>
                             <ul >                           
                                 <li>
-                                    <a href="/vacancies/it-and-telecoms">Companies Hiring</a>
+                                    <a href="companies?hiring=true">Companies Hiring</a>
                                 </li>
                                 <li>
-                                    <a href="/vacancies/hr">Jobs In Kenya</a>
+                                    <a href="/vacancies/kenya">Jobs In Kenya</a>
 
                                 </li>
                                 <li>
-                                    <a href="/vacancies/admin">Part-time Jobs</a>
+                                    <a href="/vacancies/part-time">Part-time Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="/vacancies/accounting">Full-time Jobs</a>
+                                    <a href="/vacancies/full-time">Full-time Jobs</a>
                                 </li>
                                 <li>
                                     <a href="/vacancies/government">Government Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="/vacancies/graduate-jobs">Accounting Jobs</a>
+                                    <a href="/vacancies/accounting">Accounting Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="/vacancies/healthcare">Sales Jobs</a>
+                                    <a href="/vacancies/sales">Sales Jobs</a>
                                 </li>
                                 <li>
-                                    <a href="/vacancies/healthcare">NGO Jobs</a>
+                                    <a href="/vacancies/ngo">NGO Jobs</a>
                                 </li>
                             </ul>
                         </div>
