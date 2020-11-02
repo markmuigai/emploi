@@ -71,15 +71,6 @@ class Seeker extends Model
         return '#';
     }
 
-    public function getRecommendedJobs(){
-     
-        $vacancies = Post::where('industry_id',$this->user->seeker->industry_id)
-                    ->where('status','active')
-                    ->orderBy('created_at','DESC')
-                    ->get();
-            return $vacancies;
-    }
-
     public function getRecommendedPosts($counter = 6){
         $counter = $counter < 1 ? 1 : $counter;
         $indId = $this->user->seeker->industry_id;
