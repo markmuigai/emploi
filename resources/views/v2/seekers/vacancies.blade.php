@@ -1,5 +1,6 @@
 <?php
 $user=Auth()->user();
+if(isset($user) && $user->role == 'seeker')
     $recommended = $user->seeker->getRecommendedPosts();
 ?>
 
@@ -348,6 +349,7 @@ $user=Auth()->user();
                     <!-- End Jobs -->
                     
                 <!--     Recommended Vacancies modal-->
+                 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                     <div class="modal fade" id="recommendedJobsModal" tabindex="-1" role="dialog" aria-labelledby="recommendedJobsModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
@@ -401,6 +403,7 @@ $user=Auth()->user();
                             </div>
                           </div>
                         </div>
+                       @endif
                       <!--   End of Recommended Vacancies modal -->
         
                 </div>
