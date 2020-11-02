@@ -1,3 +1,9 @@
+<?php
+$user=Auth()->user();
+    $recommended = $user->seeker->getRecommendedPosts();
+?>
+
+
 @extends('v2.layouts.app')
 
 @section('title','Emploi :: '.$title)

@@ -71,6 +71,31 @@ class Seeker extends Model
         return '#';
     }
 
+    public function getRecommendedJobs(){
+     
+        $vacancies = Post::where('industry_id',$this->user->seeker->industry_id)
+                    ->where('status','active')
+                    ->orderBy('created_at','DESC')
+                    ->get();
+            return $vacancies;
+    }
+
+    public function getRecommendedPosts($counter = 6){
+        $counter = $counter < 1 ? 1 : $counter;
+        $indId = $this->user->seeker->industry_id;
+        $locId = $this->user->seeker->location_id;
+
+        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND location_id = $locId) ORDER BY id DESC LIMIT $counter";
+        $results = DB::select($sql);
+
+        $posts = [];
+        for ($i=0; $i < count($results); $i++) { 
+            $posts[] = Post::find($results[$i]->id);
+        }
+        return $posts;
+
+    }
+
     public static function disableFeaturedUserByUserId($user_id){
         $seeker = Seeker::where('user_id',$user_id)->first();
         if(isset($seeker->id))
