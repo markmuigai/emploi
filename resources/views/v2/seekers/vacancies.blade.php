@@ -1,3 +1,9 @@
+<?php
+$user=Auth()->user();
+    $recommended = $user->seeker->getRecommendedPosts();
+?>
+
+
 @extends('v2.layouts.app')
 
 @section('title', $title .' :: Emploi')
@@ -232,7 +238,7 @@
                                         <ul> 
                                             <li class="filter" data-filter="all">All</li>
                                             @if (auth()->user())
-                                                <li class="filter" data-filter=".o">Recommended</li>
+                                                <li class="filter" data-filter="all"><a href="#" data-toggle="modal" data-target="#recommendedJobsModal">Recommended</i></a></li>
                                             @else
                                                 <li class="filter" data-filter=".o"><a href="/login">Recommended</a></li>
                                             @endif
@@ -310,6 +316,9 @@
                                                         <h3>
                                                             <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
                                                         </h3>
+                                                        @if($post->featured == 'true')
+                                                        <span class="bx bx-star"> FEATURED</span>
+                                                        @endif
                                                         <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
                                                             Posted {{ $post->since }}
                                                         </span>
@@ -337,6 +346,63 @@
                         </div>
                     </div>
                     <!-- End Jobs -->
+                    
+                <!--     Recommended Vacancies modal-->
+                    <div class="modal fade" id="recommendedJobsModal" tabindex="-1" role="dialog" aria-labelledby="recommendedJobsModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <h4 class="text-center mt-4">
+                                Recommended Vacancies
+                              </h4>
+                            <div class="modal-body">
+                            @if(count($recommended) > 0)
+                                @forelse($recommended as $p)
+                                <div class="card mx-4 m-md-2 m-lg-4" >
+                                    <div class="card-body">
+                                        <a href="/vacancies/{{ $p->slug }}">
+                                            <div class="d-flex justify-content-center mb-3">
+                                                <img src="{{ asset('images/500g.png') }}" data-src="{{ asset($p->imageUrl) }}" class="lazy"  alt="{{ $p->title }}" />
+                                            </div>
+                                        </a>
+                                        <p class="badge badge-secondary">{{ $p->positions }} Position{{ $p->positions == 1 ? '' : 's' }}</p>
+                                        <a href="/vacancies/{{ $p->slug }}">
+                                            <h5>{{ $p->getTitle(true) }}</h5>
+                                        </a>
+                                        <p>
+                                            <a href="/vacancies/{{ $p->location->name }}" title="View Vacancies in {{ $p->location->name }}">
+                                                <i class="fas fa-map-marker-alt orange"></i> {{ $p->location->name }}
+                                            </a>
+                                        </p>
+                                        <p>
+                                            {{ $post->since }}
+                                        </p>
+                                        <p>
+                                            
+                                            <button class="btn btn-orange-alt" data-toggle="modal" data-target="#postModal{{ $p->id }}"><i class="fas fa-share-alt"></i> </button>
+                                            <a href="/vacancies/{{ $p->slug }}" class="btn btn-orange">View</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                @include('components.post-share-modal')
+                                @empty
+                                @endforelse
+
+                                <div class="card mx-4 m-md-2 m-lg-4" >
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-center mb-3">
+                                            <img src="{{ asset('images/500g.png') }}" class="lazy"  alt="View More Vacancies" />
+                                        </div>
+                                        <p class="badge badge-secondary">{{ count($post->industry->activePosts()) }} Vacancies</p>
+                                        <h5> Vacancies in {{ $post->industry->name }}</h5>
+                                        <a href="/vacancies/{{ $post->industry->slug }}" class="btn btn-orange">View and Apply</a>
+                                    </div>
+                                </div>
+                            @endif
+                            </div>
+                          </div>
+                        </div>
+                      <!--   End of Recommended Vacancies modal -->
+        
                 </div>
             </div>
         </div>
