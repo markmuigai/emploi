@@ -30,9 +30,11 @@
                                     <h4>CV STRENGTH</h4>
                                     <form id="review-cv-form" method="POST" action="{{route('v2.cv-review.store')}}" enctype="multipart/form-data">
                                         @csrf
-                                        @error('cv')
-                                            <span class="text-danger">Only pdf, doc and docx formats accepted</span>
-                                        @enderror
+                                        @if ($errors->any())
+                                            @foreach ($errors->all() as $error)
+                                                <span class="text-danger">{{$error}}</span>
+                                            @endforeach
+                                        @endif
                                         <label for="review-cv" class="custom-file-upload cmn-btn my-3">
                                             Review your CV
                                             <i class='bx bx-upload'></i>
