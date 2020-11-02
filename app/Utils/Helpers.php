@@ -16,6 +16,13 @@ function parseCV($path){
     
     // Check for exceptions
     if (!$process->isSuccessful()) {
+        // Get error message string
+        $error = (new ProcessFailedException($process))->getMessage();
+
+        if(strpos(strtolower($error), 'incorrect password') == true){
+            return 'incorrect password';
+        }
+
         throw new ProcessFailedException($process);
     }
 
@@ -107,3 +114,7 @@ function reviewCV($cvText)
 
     return $result;
 }
+
+/**
+ * Test CVs
+ */
