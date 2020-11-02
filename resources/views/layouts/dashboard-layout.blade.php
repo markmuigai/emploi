@@ -144,17 +144,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         <!-- GUEST SIDEBAR -->
                         @else
-                        <div class="card">
-                         <h5 style="text-align: center">{{ __('jobs.top_industries') }}</h5>
+                        <div class="card guest-sidebar py-3">
+                         <h5 style="text-align: center">Trending Opportunities</h5>
                             <ul >                           
-                                <li><a href="/vacancies/sales">Sales Jobs</a></li>
-                                <li><a href="/vacancies/it-and-telecoms">IT & Telecoms</a></li>
-                                <li><a href="/vacancies/hr">Human Resource</a></li>
-                                <li><a href="/vacancies/admin">Office and Admin Jobs</a></li>
-                                <li><a href="/vacancies/accounting">Accounting Jobs</a></li>
-                                <li><a href="/vacancies/government">Government Jobs</a></li>
-                                <li><a href="/vacancies/graduate-jobs">Graduate Jobs</a></li>
-                                <li><a href="/vacancies/healthcare">Healthcare & Pharmaceutical</a></li>
+                                <li>
+                                    <a href="/vacancies/it-and-telecoms">Companies Hiring</a>
+                                </li>
+                                <li>
+                                    <a href="/vacancies/hr">Jobs In Kenya</a>
+
+                                </li>
+                                <li>
+                                    <a href="/vacancies/admin">Part-time Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="/vacancies/accounting">Full-time Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="/vacancies/government">Government Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="/vacancies/graduate-jobs">Accounting Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="/vacancies/healthcare">Sales Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="/vacancies/healthcare">NGO Jobs</a>
+                                </li>
                             </ul>
                         </div>
                             @include('components.social-auth')

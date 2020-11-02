@@ -294,7 +294,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     <div class="card-body">
                                         <h5 class="card-title">{{ __('jobs.j_vacays') }}</h5>
                                         <p class="card-text">
-                                        {{ __('jobs.j_vacays_txt') }} fdgfdg</p>
+                                        {{ __('jobs.j_vacays_txt') }} </p>
                                     </div>
                                     <div class="card-footer">
                                         <span id="featured-vacancies"></span>
