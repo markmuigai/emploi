@@ -47,7 +47,7 @@ class Kernel extends ConsoleKernel
         //     if (app()->environment() === 'production')
         //         \App\Jurisdiction::first()->notify(new \App\Notifications\SystemError($message));
         // });
-        $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('info@emploi.co')->environments(['production']);
+        $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
         $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
         // $schedule->command('command:SendVacancyEmails')->cron('0 0 * * 2,6')->emailOutputOnFailure('info@emploi.co');
         $schedule->command('command:SendVacancyEmails')->weeklyOn(5, '01:00')->emailOutputOnFailure('david@emploi.co');
