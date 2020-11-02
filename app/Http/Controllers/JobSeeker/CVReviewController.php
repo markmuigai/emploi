@@ -28,11 +28,9 @@ class CVReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        return view('v2.seekers.cv-review.create',[
-            'reviewResults' => $request->reviewResults
-        ]);
+        return view('v2.seekers.cv-review.create');
     }
 
     /**

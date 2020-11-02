@@ -17,7 +17,7 @@
 
                     <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">                    
                       
-                    <button class="btn btn-success"><a href="{{Route('v2.cv-review.create', ['reviewResults' => 70])}}"><span style="color: white"> CV Review</i></span></a></button>
+                    <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> CV Review</i></span></a></button>
                     @auth
                      <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
                     @endauth

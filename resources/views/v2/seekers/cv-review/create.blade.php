@@ -22,7 +22,7 @@
                                     <div class="d-flex justify-content-center my-3">
                                         <div
                                         class="ldBar label-center w-50"
-                                        data-value="{{$reviewResults}}"
+                                        data-value="{{isset($reviewResults) ? $reviewResults : 70 }}"
                                         data-preset="fan"
                                         style="width: 89px; height: 89px;"
                                         ></div>
