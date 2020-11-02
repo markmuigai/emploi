@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: '.$title)
+@section('title', $title .' :: Emploi')
 
 @section('description')
 Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
   100%{opacity: 1;}
   }
 </style>
-<h5 class="orange">Get all the latest jobs in one place and apply.</h5>
+<h5 class="orange">Get all the latest vacancies in one place and apply.</h5>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}"> 
      <div class="col-lg-2 col-md-6 py-2">         
         <div class="nav-item dropdown">
@@ -90,7 +90,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 
 <div class="blink pt-4 mb-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get One Month Free Golden Club Membership Now!!</span></a></div>
-
 <!-- FEATURED VACANCIES -->
 <div class="card mb-4">
     <div class="card-body">

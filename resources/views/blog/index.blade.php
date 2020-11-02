@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title',$pageTitle)
+@section('title', $pageTitle)
 
 @section('description')
 Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
@@ -8,12 +8,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 @section('content')
 <div class="container py-5">
-    <h2 class="orange" style="text-align: center">{{ $pageTitle }}</h2>    
+    <h2 class="orange" style="text-align: center">Career Tips and Business Trends</h2>    
     <h5 style="text-align: center;">Get information and inspiration to help you achieve your career goals.</h5><br>
     <div class="row justify-content-between">
         <div class="col-lg-6 col-md-6 text-right">
             <form action="/blog/search" class="form-row">
-                <input type="text" name="q" required="" class="form-control col-9" placeholder="Search Blogs" value="{{ isset($q) ? $q : '' }}">
+                <input type="text" name="q" required="" class="form-control col-8 mr-2" placeholder="Search Blogs" value="{{ isset($q) ? $q : '' }}">
                 <button type="submit" class="btn btn-orange col-3">Search</button>
             </form>
         </div>

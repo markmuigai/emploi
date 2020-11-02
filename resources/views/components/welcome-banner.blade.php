@@ -1,5 +1,5 @@
 
-<h1>{{ __('other.blast_off') }}</h1>
+<h2><strong>{{ __('other.blast_off') }}</strong></h2>
 <p>{{ $line }}</p>
 <?php
 $subcat = '';

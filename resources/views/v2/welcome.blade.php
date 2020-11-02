@@ -1,6 +1,6 @@
 @extends('v2.layouts.app')
 
-@section('title','Welcome to Emploi - The Premier Online Job Placement Platform in Africa')
+@section('title','Latest Job Vacancies - Companies Hiring and Job Advertisements :: Welcome to Emploi')
 
 @section('content')
     <!-- Navbar -->
@@ -15,7 +15,9 @@
         <div class="container text-center">
             <div class="about-content">
                 <div class="section-title">
-                    <span class="sub-title">Explore New Life</span>
+                    <strong>
+                        <span class="sub-title">Career Opportunities</span>
+                    </strong>
                     <h2>{{ __('other.who_r_we') }}?</h2>
                 </div>
                 <p style="font-size: 1rem">{{ __('other.who_r_we_txt') }}</p>
@@ -38,7 +40,9 @@
         <div class="container">
             <div class="explore-item">
                 <div class="section-title">
-                    <span class="sub-title">Explore New Life</span>
+                    <strong>
+                        <span class="sub-title">CV Writing Services</span>
+                    </strong>
                     <h2>Put Your Cv In Front Of Great Employers</h2>
                 </div>
                 <ul>

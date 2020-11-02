@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: Companies')
+@section('title','Companies Hiring :: Emploi')
 
 @section('description')
 Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.

@@ -36,7 +36,7 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog.index')
-                ->with('pageTitle','Emploi Career Center')
+                ->with('pageTitle','Career Tips and Business Trends :: Emploi Blog')
                 ->with('blogs',Blog::where('status','active')->orderBy('id','desc')->paginate(13));
     }
 

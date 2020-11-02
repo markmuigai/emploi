@@ -1,6 +1,6 @@
 @extends('layouts.general-layout')
 
-@section('title','Welcome to Emploi - The Premier Online Job Placement Platform in Africa')
+@section('title','Latest Job Vacancies - Companies Hiring and Job Advertisements :: Welcome to Emploi')
 
 @section('description')
 Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
@@ -156,7 +156,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
         <div class="content">
 
-            <?php $line= "We aggregate all the jobs for you at one stop and we provide you with the best placement tools and support you need to land your dream job" ?>
+            
+            <?php $line= "We aggregate all the latest vacancies for you at one stop, providing you with the best job placement tools and the career tips you need to land your dream job" ?>
 
             @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
             @include('components.welcome-banner')
@@ -293,7 +294,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     <div class="card-body">
                                         <h5 class="card-title">{{ __('jobs.j_vacays') }}</h5>
                                         <p class="card-text">
-                                        {{ __('jobs.j_vacays_txt') }} </p>
+                                        {{ __('jobs.j_vacays_txt') }} fdgfdg</p>
                                     </div>
                                     <div class="card-footer">
                                         <span id="featured-vacancies"></span>
