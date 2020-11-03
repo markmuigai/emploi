@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-lg-4 mix o">
+<div class="col-sm-6 col-lg-4 mix {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
     <div class="cat-item">
         <span id="vacancies-image">
             <a href="/vacancies/{{ $post->slug }}">
