@@ -33,9 +33,13 @@ class SelfAssessmentController extends Controller
      */
     public function create(Request $request)
     {
-        // Get industry and fetch questions based on user profile
-        $questions = Industry::findOrFail($request->payload['industry'])->getAssessmentQuestions($request->payload['experience']);
-        $email =$request->email;
+        if(auth()->user() && auth()->user()->role == 'seeker'){
+            $questions = Industry::findOrFail(auth()->user()->seeker->industry_id)
+                                    ->getAssessmentQuestions((auth()->user()->seeker->years_experience)*12);   
+        }else{
+            // Get industry and fetch questions based on user profile
+            $questions = Industry::findOrFail($request->payload['industry'])->getAssessmentQuestions($request->payload['experience']);   
+        }
 
         // TODO: Remove array padding
         // Return view
@@ -52,16 +56,16 @@ class SelfAssessmentController extends Controller
      */
     public function store(Request $request)
     {    
-        $request->validate([
-            'email'  =>  ['required', 'string', 'email','max:50'],
-        ]);
-        
-        DB::transaction(function () use($request) {
-            // Get user
-            $user = User::where('email',$request->email)->first();
+        if(auth()->user() && auth()->user()->role == 'seeker'){
+            $email = auth()->user()->email;
 
+        }else{
+            $email = $request->email;
+        }
+
+        DB::transaction(function () use($request, $email) {
             // Fetch previous assessments for an email
-            $perfs = Performance::where('email', $request->email)->get();
+            $perfs = Performance::where('email', $email)->get();
 
             // If they have never been assessed
             if($perfs->isEmpty()){
@@ -75,9 +79,9 @@ class SelfAssessmentController extends Controller
             {
                 // Create performance record
                 $performance = Performance::create([
-                    'user_id' => $user ? $user->id : null,
+                    'user_id' => null,
                     'assessment_count' => $assessment_count,
-                    'email' => $request->email,           
+                    'email' => $email,           
                     'question_id' => $question_id,
                     'choice_id' => (int)$choice_id[0],
                     'correct' => Choice::find((int)$choice_id[0])->correct_value,
@@ -87,7 +91,7 @@ class SelfAssessmentController extends Controller
         });
 
         return redirect()->route('v2.self-assessment.index', [
-            'email' => $request->email
+            'email' => $email
         ]);
     }
 
@@ -141,12 +145,17 @@ class SelfAssessmentController extends Controller
      */
     public function filterAssessments(Request $request)
     {
+        if(auth()->user() && auth()->user()->role == 'seeker'){
+            $email = auth()->user()->email;
+        }else{
+            $email = $request->email;
+        }
         return redirect()->route('v2.self-assessment.create',[
             'payload' => [
                 'experience' => $request->experience,
                 'industry' => $request->industry
             ],
-            'email' => $request->email
+            'email' => $email
         ]);
     }
 }

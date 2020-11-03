@@ -18,13 +18,11 @@
                     <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">                    
                       
                     <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> CV Review</i></span></a></button>
-                    @auth
+                    @if (auth()->user() && auth()->user()->role == 'seeker')
                         <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
-                    @endauth
-                    @guest
+                    @else
                         <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
-                    @endguest
-         
+                    @endif
                     <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
                     <!-- Jobs -->
                     <div class="categories-area pt-2 pb-70">
