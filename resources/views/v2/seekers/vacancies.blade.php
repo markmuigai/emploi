@@ -87,7 +87,7 @@
                                                             </li>
                                                         </a>
                                                     @endif
-                                                    <li class="filter" data-filter=".m">Saved</li>
+                                                    <li class="filter" data-filter=".saved">Saved</li>
                                                     <li class="filter" data-filter=".internships">Internships</li>
                                                 </ul>
                                             </div>
@@ -112,6 +112,30 @@
                                                     <p>No job posts found</p>
                                                 </div>
                                                 @endforelse
+                                                @guest
+                                                <div class="text-center">
+                                                    <div class="mix recommended">
+                                                        <p>
+                                                            <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
+                                                            or  
+                                                            <a href="/join" class="btn btn-orange-alt">Register</a>
+                                                            To view better recommendations
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                @endguest
+                                                @guest
+                                                <div class="text-center">
+                                                    <div class="mix saved">
+                                                        <p>
+                                                            <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
+                                                            or  
+                                                            <a href="/join" class="btn btn-orange-alt">Register</a>
+                                                            To save jobs for later
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                @endguest
                                             </div>
                                             <div class="row justify-content-center">
                                             @if(isset($search))
@@ -144,9 +168,5 @@
     @include('v2.components.modals.self-assessment')
 @endsection
 
-@section('js')
-    <script>
-    </script>
-@endsection
 
 
