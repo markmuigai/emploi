@@ -41,3 +41,6 @@ Route::post('self-assessment/filter', 'SelfAssessmentController@filterAssessment
 
 // Recommended Jobs
 Route::resource('recommendation', 'RecommendationController');
+
+// Favourite a job
+Route::resource('favourite', 'FavouriteController');
