@@ -26,6 +26,12 @@
             My Resume
         </div>
     </a>
+    <a href="self-assessment?email={{ $user->email }}">
+        <div class="profile-list">
+            <i class='bx bx-envelope'></i>
+           My Assessment Result
+        </div>
+    </a>
      <a  href="/logout">
         <div class="profile-list">
             <i class='bx bx-log-out'></i>
