@@ -52,27 +52,27 @@
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies">Latest Job Vacancies</a>
+                                    <a href="v2/vacancies">Latest Job Vacancies</a>
                                 </strong>
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/it-and-telecoms">Companies Hiring</a>
+                                    <a href="companies?hiring=true">Companies Hiring</a>
                                 </strong>
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/hr">Jobs In Kenya</a>
+                                    <a href="/vacancies/kenya">Jobs In Kenya</a>
                                 </strong>
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/admin">Part-time Jobs</a>
+                                    <a href="/vacancies/part-time">Part-time Jobs</a>
                                 </strong>
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/accounting">Full-time Jobs</a>
+                                    <a href="/vacancies/full-time">Full-time Jobs</a>
                                 </strong>
                             </li>
                             <li>
@@ -82,22 +82,22 @@
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/government">Free Sample CVs</a>
+                                    <a href="/job-seekers/cv-templates">Free Sample CVs</a>
                                 </strong>
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/graduate-jobs">Career Tips</a>
+                                    <a href="/blog">Career Tips</a>
                                 </strong>
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/healthcare">Sales Jobs</a>
+                                    <a href="/vacancies/sales">Sales Jobs</a>
                                 </strong>
                             </li>
                             <li>
                                 <strong>
-                                    <a href="/vacancies/healthcare">NGO Jobs</a>
+                                    <a href="/vacancies/ngo">NGO Jobs</a>
                                 </strong>
                             </li>
                         </ul>
