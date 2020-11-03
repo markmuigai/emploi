@@ -5967,7 +5967,7 @@ button:focus {
 }
 
 .job-filter-area .form-group .nice-select .list {
-  /* width: 100%; */
+  width: 100%;
   display: block;
 }
 
