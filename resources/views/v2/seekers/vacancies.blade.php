@@ -320,12 +320,30 @@ if(isset($user) && $user->role == 'seeker')
                                                         @if($post->featured == 'true')
                                                         <span class="bx bx-star"> FEATURED</span>
                                                         @endif
+
                                                         <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
                                                             Posted {{ $post->since }}
                                                         </span>
                                                         <a class="link" href="index-2.html#">
                                                             <i class="flaticon-right-arrow"></i>
                                                         </a>
+
+                                                      @if(Auth::user() && Auth::user()->hasMarkedSave())
+                                                        <span style="cursor: pointer">
+                                                            <span  id="user-save-{{ auth()->user()->id }}" slug="{{$post->slug}}" username="{{auth()->user()->username}}" user_name="{{ auth()->user()->getName() }}"><span class="bx bxs-heart">Unsave</span></span>
+                                                        </span>
+
+                                                        @else
+                                                            <span style="cursor: pointer">
+                                                                <span id="user-save-{{ auth()->user()->id }}" slug="{{$post->slug}}" username="{{auth()->user()->username}}" user_name="{{ auth()->user()->getName() }}"><span class="bx bx-heart">save</span></span>
+                                                            </span>                            
+                                                        @endif
+
+                                      <!--                   @if(Auth::user() && Auth::user()->hasMarkedSave())
+                                                        <a href="#"><span class="bx bxs-heart">Unsave</span></a>                                                    
+                                                        @else
+                                                        <a href="#"><span class="bx bx-heart">save</span></a>
+                                                        @endif -->
                                                     </div>
                                                 </div>
                                                      @empty
@@ -445,4 +463,14 @@ if(isset($user) && $user->role == 'seeker')
     </div>
   </div>
 @endsection
+
+<script type="text/javascript">
+    $().ready(function(){        
+    $('#user-save-{{ auth()->user()->id }}').click(function(){
+        slug = $(this).attr('slug');
+        
+    });
+
+});
+</script>
 
