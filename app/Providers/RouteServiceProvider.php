@@ -45,6 +45,9 @@ class RouteServiceProvider extends ServiceProvider
         // Job seeker routes
         $this->mapJobSeekerRoutes();
 
+            // Admin routes
+        $this->mapAdminRoutes();
+
         // Auth v2 routes
         $this->mapAuthV2Routes();
     }
@@ -121,8 +124,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAdminRoutes()
     {
         Route::prefix('v2')
-             ->middleware('admin')
-             ->name('v2.')
+             ->middleware('web')
              ->namespace('App\Http\Controllers\Admin')
              ->group(base_path('routes/admin.php'));
     }
