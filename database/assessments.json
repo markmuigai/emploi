@@ -53,11 +53,17 @@
       "Teacher" : 0,     
       "Books" : 0
     },
-    "Country: President :: State : ?" : {
+    "Country: President :: County : ?" : {
       "Chief Minister" : 0,      
       "Prime Minister" : 0,      
       "Speaker" : 0,      
       "Governor" : 1
+    },
+    "Four of the following are alike in some way: Tuberculosis, Pnuemonia, Arthritis, Malaria, Cholera. Which word from the list is different?" : {
+      "Typhoid." : 0,   
+      "Arthritis." : 1,    
+      "Malaria." : 0,   
+      "Cholera." : 0
     }
   },
   "medium" : {
@@ -121,6 +127,12 @@
       "Sky : Universe" : 0,    
       "Thunder : Lighting" : 0,     
       "Water: Life" : 0
+    },
+    "A doctor with a PhD is a doctor of what?" : {
+      "Philosophy" : 1,
+      "Psychology" : 0,
+      "Phrenology" : 0,
+      "Physical Therapy" : 0
     }
   },
   "hard" : {
@@ -184,6 +196,12 @@
      "He was tall, thin, and middle-aged." : 0,
      "He was tall, thin, and young." : 1,
      "He was tall, of average weight, and middle-aged." : 0
+    },
+    "Expertise is to Proficiency, as Lenience is to?" : {
+      "Joy." : 0,
+      "Mercy." : 1,
+      "Generosity." : 0,
+      "Casualness." : 0
     }
-  }
+  } 
 }
