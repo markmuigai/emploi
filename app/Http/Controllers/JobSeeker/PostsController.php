@@ -62,6 +62,21 @@ class PostsController extends Controller
 
     public function index(Request $request)
     {
+        // Get recommended jobs
+        if(auth()->user() && auth()->user()->role == 'seeker'){
+            $query = auth()->user()->seeker->recommendedPosts();
+
+            if(!empty($query)){
+                $recommendedJobs = $query->get()->pluck('id');
+            }
+        }elseif(!empty($request->parameters)){
+            $recommendedJobs = Post::where('industry_id', $request->parameters['industry'])
+                            ->where('location_id', $request->parameters['location'])
+                            ->get()->pluck('id');
+        }else{
+            $recommendedJobs = collect();
+        }
+
         $title = "Latest Vacancies in \t" .date("Y");
         $query = isset($request->q) ? $request->q : "";
         $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
@@ -74,7 +89,8 @@ class PostsController extends Controller
             'vacancyTypes' => VacancyType::all(),
             'title' => $title,
             'posts' => $posts,
-            'educationLevels' => EducationLevel::all()
+            'educationLevels' => EducationLevel::all(),
+            'recommendedJobs' => $recommendedJobs
         ]);
     }
 
@@ -622,6 +638,17 @@ class PostsController extends Controller
             $post->save();
         }
         return redirect()->back();
+    }
+
+    /**
+     * Filter recommended jobs
+     */
+    public function getRecommendedParameters()
+    {
+        // dd($request->all());
+        return redirect()->route('vacancies.index',[
+            'recommendedParameters' => $request->all()
+        ]);
     }
 
 }
