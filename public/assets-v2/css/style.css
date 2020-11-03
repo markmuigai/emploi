@@ -8197,6 +8197,10 @@ h4,h3{
   height: 180px;
 }
 
-  .bx {
+/* .bx {
     color: green;
+} */
+
+.save-icon{
+  cursor: pointer;
 }
