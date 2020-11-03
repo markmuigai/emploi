@@ -478,6 +478,19 @@ class Post extends Model implements Feedable
                     ->get();
     }
 
+    /**
+     * Has many likes
+     */
+    public function savedPosts(){
+        return $this->hasMany('App\UserSavedPost', 'post_id');
+    }
 
+    /**
+     * Check if post is saved by user
+     */
+    public function savedByUser($userID){
+        $post = $this->savedPosts->where('user_id', $userID)->first(); 
+        return $post ? $post->status : false;
+    }
 
 }
