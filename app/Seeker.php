@@ -88,6 +88,16 @@ class Seeker extends Model
 
     }
 
+    /**
+     * Get recommended posts from parameters
+     */
+    public function recommendedPosts($parameters)
+    {
+        return Post::where('industry_id', $this->industry_id)
+                ->where('location_id', $this->location_id)
+                ->orWhere('education_requirements', $this->location_id);
+    }
+
     public static function disableFeaturedUserByUserId($user_id){
         $seeker = Seeker::where('user_id',$user_id)->first();
         if(isset($seeker->id))
