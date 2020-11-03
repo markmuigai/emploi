@@ -133,6 +133,12 @@
       "Psychology" : 0,
       "Phrenology" : 0,
       "Physical Therapy" : 0
+    },
+    "Question 4: What does the Q in IQ stand for?" : {
+      "Quantity." : 0,  
+      "Quorum." : 0,    
+      "Quality." : 0,
+      "Quotient" : 1
     }
   },
   "hard" : {
@@ -202,6 +208,11 @@
       "Mercy." : 1,
       "Generosity." : 0,
       "Casualness." : 0
+    },
+    "Substances that have a definite size and shape, and vibrating particles that are close together are:" : {
+      "Liquids" : 0,
+      "Gases" : 0,
+      "Solid" : 1
     }
   } 
 }
