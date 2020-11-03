@@ -70,15 +70,15 @@ class HomeController extends Controller
         }
         switch ($user->role) {
             case 'employer':
-                return redirect('/v2/employers/dashboard');
+                return redirect('/employers/dashboard');
                 break;
 
             case 'admin':
-                return redirect('/v2/admin/panel');
+                return redirect('/admin/panel');
                 break;
 
             case 'super-admin':
-                return redirect('/v2/desk/admins');
+                return redirect('/desk/admins');
                 break;
 
             case 'seeker':
@@ -86,7 +86,7 @@ class HomeController extends Controller
                 break;
             case 'guest':
                 if($user->canUseBloggingPanel())
-                    return redirect('/v2/my-blogs');
+                    return redirect('/my-blogs');
                 return view('guests.choose');
             default:
                 return redirect('/v2/');
