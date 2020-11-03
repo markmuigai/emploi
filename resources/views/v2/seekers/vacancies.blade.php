@@ -1,10 +1,3 @@
-<?php
-$user=Auth()->user();
-if(isset($user) && $user->role == 'seeker')
-    $recommended = $user->seeker->getRecommendedPosts();
-?>
-
-
 @extends('v2.layouts.app')
 
 @section('title', $title .' :: Emploi')
@@ -59,7 +52,7 @@ if(isset($user) && $user->role == 'seeker')
                                     </div>
                                 </div>
                                 @endguest
-                                <div class="col-lg-9">
+                                <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
                                     <!-- FEATURED VACANCIES -->
                                     <div class="card mb-4">
                                         <div class="card-body">
@@ -87,21 +80,17 @@ if(isset($user) && $user->role == 'seeker')
                                             <div class="sorting-menu mt-3 float-left">
                                                 <ul> 
                                                     <li class="filter" data-filter="all">All</li>
-                                                    <a href="#" class="mr-3" data-toggle="modal" data-target="#recommendedModal">
-                                                        <li>
-                                                        Recommended
-                                                        </li>
-                                                    </a>
-
-                                                    @if (auth()->user())
-                                                        <li class="filter" data-filter=".recommended">Recommended</li>
+                                                    @if (auth()->user() || !empty(request()->parameters))
+                                                        <li class="filter" data-filter=".recommended">Recommended</li>   
                                                     @else
-                                                        
+                                                        <a href="#" class="mr-3" data-toggle="modal" data-target="#recommendedModal">
+                                                            <li>
+                                                            Recommended
+                                                            </li>
+                                                        </a>
                                                     @endif
                                                     <li class="filter" data-filter=".m">Saved</li>
-                                                    @if (auth()->user())
-                                                        <li class="filter" data-filter="all"><a href="#" data-toggle="modal" data-target="#recommendedJobsModal">Recommended</i></a></li>
-                                                    @endif
+                                                    <li class="filter" data-filter=".internships">Internships</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -145,21 +134,19 @@ if(isset($user) && $user->role == 'seeker')
     </div>
     <!-- End Jobs -->
 
-        <!-- Featured -->
+    <!-- Featured -->
+    @include('v2.components.featured-employers')                
+    <!-- End Featured Employers -->
 
-        @include('v2.components.featured-employers')                
-  
-        <!-- End Featured Employers -->
+@endsection
+
+@section('modal')
+    @include('v2.components.modals.recommender-parameters')
+
+    @include('v2.components.modals.self-assessment')
 @endsection
 
 @section('js')
     <script>
     </script>
-@endsection
-
-@section('modal')
-@include('v2.components.modals.recommender-parameters')
-
-    @include('v2.components.modals.self-assessment')
-
 @endsection
