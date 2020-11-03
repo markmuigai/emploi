@@ -71,27 +71,27 @@ class Seeker extends Model
         return '#';
     }
 
-    public function getRecommendedPosts($counter = 6){
-        $counter = $counter < 1 ? 1 : $counter;
-        $indId = $this->user->seeker->industry_id;
-        $locId = $this->user->seeker->location_id;
-        $exp = $this->user->seeker->education_level_id;
+    // public function getRecommendedPosts($counter = 6){
+    //     $counter = $counter < 1 ? 1 : $counter;
+    //     $indId = $this->user->seeker->industry_id;
+    //     $locId = $this->user->seeker->location_id;
+    //     $exp = $this->user->seeker->education_level_id;
 
-        $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND location_id = $locId)  OR (education_requirements = $exp) ORDER BY id DESC LIMIT $counter";
-        $results = DB::select($sql);
+    //     $sql = "SELECT id FROM posts WHERE (industry_id = $indId AND status = 'active' AND location_id = $locId)  OR (education_requirements = $exp) ORDER BY id DESC LIMIT $counter";
+    //     $results = DB::select($sql);
 
-        $posts = [];
-        for ($i=0; $i < count($results); $i++) { 
-            $posts[] = Post::find($results[$i]->id);
-        }
-        return $posts;
+    //     $posts = [];
+    //     for ($i=0; $i < count($results); $i++) { 
+    //         $posts[] = Post::find($results[$i]->id);
+    //     }
+    //     return $posts;
 
-    }
+    // }
 
     /**
      * Get recommended posts from parameters
      */
-    public function recommendedPosts($parameters)
+    public function recommendedPosts()
     {
         return Post::where('industry_id', $this->industry_id)
                 ->where('location_id', $this->location_id)
