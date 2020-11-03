@@ -38,3 +38,6 @@ Route::resource('self-assessment', 'SelfAssessmentController');
 
 // Filter assessment questions based on paramenters
 Route::post('self-assessment/filter', 'SelfAssessmentController@filterAssessments')->name('self-assessment.filter') ;
+
+// Recommended Jobs
+Route::resource('recommendation', 'RecommendationController');
