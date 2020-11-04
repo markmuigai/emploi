@@ -1,5 +1,7 @@
 @extends('v2.layouts.app')
-@section('title','Emploi :: Self Assessment' )
+
+@section('title','Self Assessment :: Emploi')
+
 @section('content')
     <!-- Navbar -->
     @include('v2.components.jobseeker.navbar')    
