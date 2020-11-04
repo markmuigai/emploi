@@ -7,14 +7,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Self-assessment Questions')
+@section('page_title', 'Self-assessment Results')
 <div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-12">
             <div class="row justify-content-end">
-                <div class="col-md-3 my-2">
-                    <a href="{{route('assessments.create')}}" class="btn btn-success">
-                        Add question
+                <div class="col-md-6 my-2">
+                    <a href="" class="btn btn-success">
+                        Add assessment
+                    </a>
+                    <a href="{{Route('assessments.index')}}" class="btn btn-success">
+                        View All Assessment Questions
                     </a>
                 </div>
             </div>
@@ -22,22 +25,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                        <th style="width: 500px;" scope="col">Question</th>
-                        <th scope="col">Level</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Recent Score</th>
                         <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($questions as $question)
+                        @foreach ($emailsAssessed as $email)
                         <tr>
-                            <td>{{$question->title}}</td>
-                            <td>{{$question->difficulty_level}}</td>
+                            <td>{{$email}}</td>
+                            <td>{{App\Performance::recentScore($email)}}\10</td>
                             <td>
-                                <a href="" class="btn btn-primary">
-                                    View Choices
-                                </a>
-                                <a href="" class="btn btn-danger">
-                                    Disable
+                                <a href="/v2/self-assessment?email={{ $email }}" class="btn btn-primary">
+                                    View Detailed Results
                                 </a>
                             </td>
                         </tr>

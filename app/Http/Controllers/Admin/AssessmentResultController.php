@@ -2,49 +2,47 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Question;
 use App\Performance;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
-class AssessmentController extends Controller
+class AssessmentResultController extends Controller
 {
     /**
-     * Display a listing of the assessment.
+     * Display a listing of the assessment result
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('v2.admin.assessments.index',[
-            'questions' => Question::all()
+        return view('v2.admin.assessmentResults.index',[
+            'emailsAssessed' => Performance::emailsAssessed()
         ]);
     }
 
     /**
-     * Show the form for creating a new assessment.
+     * Show the form for creating a new assessment result
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('v2.admin.assessments.create');
+        //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created assessment resultin storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //
     }
 
     /**
-     * Display the specified assessment.
+     * Display the specified assessment result
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -55,7 +53,7 @@ class AssessmentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified assessment.
+     * Show the form for editing the specified assessment result
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -66,7 +64,7 @@ class AssessmentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified assessment resultin storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -78,7 +76,7 @@ class AssessmentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified assessment resultfrom storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

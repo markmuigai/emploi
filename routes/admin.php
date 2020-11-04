@@ -70,6 +70,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::get('cv-builder', 'AdminController@CvBuilder');
 
-    Route::get('/assessments','AssessmentController@assessments');
+    Route::resource('assessments','AssessmentController');
+
+    Route::resource('assessmentResults','AssessmentResultController');
 
 });
