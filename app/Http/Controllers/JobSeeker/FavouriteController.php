@@ -36,14 +36,9 @@ class FavouriteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->postId); 
-
         // Check if the user_post record exists i.e has liked/unliked beifre
         $previous = UserSavedPost::where('user_id', auth()->user()->id)
                         ->where('post_id', $request->postId)->first();
-
-
-        // dd($previous->toArray());  
 
         if($previous == null){
             UserSavedPost::create([
@@ -58,7 +53,7 @@ class FavouriteController extends Controller
             ]);
         }
 
-        return redirect()->route('v2.vacancies.index');
+        return response()->json(['success'=>'Post saved successfully']);
     }
 
     /**
