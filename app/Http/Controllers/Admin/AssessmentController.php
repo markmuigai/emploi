@@ -86,7 +86,7 @@ class AssessmentController extends Controller
     }
 
 
-    public function assessments()
+    public function assessmentResults()
     {
        $perf= Performance::all()->unique('email');
        return view('v2.admin.assessments.index',[
