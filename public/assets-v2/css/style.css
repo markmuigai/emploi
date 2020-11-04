@@ -8204,3 +8204,8 @@ h4,h3{
 .save-icon{
   cursor: pointer;
 }
+
+.categories-area .cat-item .save-text{
+  display: inline !important;
+  font-size: 13px;
+}
