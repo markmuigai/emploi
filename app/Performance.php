@@ -19,6 +19,14 @@ class Performance extends Model
     }
 
     /**
+     * Get the associated users performance
+     */
+    public static function performanceFor($email)
+    {
+        return User::where('email', $email)->first();
+    }
+
+    /**
      * Get the selected choice
      */
     public function selectedChoice()
@@ -37,7 +45,7 @@ class Performance extends Model
     /**
      * Get assessments for a certain count
      */
-    public function scopeLatestAssessment($query, $email)
+    public static function scopeLatestAssessment($query, $email)
     {
         // All performance records for a user
         $allAssessments = Performance::assessmentsForUser($email);
@@ -46,5 +54,21 @@ class Performance extends Model
         $latest = $allAssessments->pluck('assessment_count')->max();
 
         return $query->where('email', $email)->where('assessment_count', $latest)->get();
+    }
+
+    /**
+     * Get most recent score
+     */
+    public static function recentScore($email)
+    {
+        return Performance::latestAssessment($email)->where('correct',1)->count();
+    }
+
+    /**
+     * Get all emails that have done an assessment
+     */
+    public static function emailsAssessed()
+    {
+        return Performance::all()->unique('email')->pluck('email');
     }
 }
