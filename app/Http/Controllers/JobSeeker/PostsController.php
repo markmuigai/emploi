@@ -71,7 +71,7 @@ class PostsController extends Controller
             }
         }elseif(!empty($request->parameters)){
             $recommendedJobs = Post::where('industry_id', $request->parameters['industry'])
-                            ->where('location_id', $request->parameters['location'])
+                            ->orWhere('location_id', $request->parameters['location'])
                             ->get()->pluck('id');
         }else{
             $recommendedJobs = collect();
