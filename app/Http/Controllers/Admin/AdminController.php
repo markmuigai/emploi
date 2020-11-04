@@ -1560,8 +1560,7 @@ class AdminController extends Controller
     {
        $perf= Performance::all()->unique('email');
        return view('v2.admin.assessments.index',[
-            'perf' => $perf,
-   
+            'perf' => $perf
         ]);
     }
 
