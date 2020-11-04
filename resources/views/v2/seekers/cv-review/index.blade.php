@@ -1,5 +1,7 @@
 @extends('v2.layouts.app')
 
+@section('title','Free CV Review :: Emploi')
+
 @section('content')
     <!-- Navbar -->
     @include('v2.components.guest.navbar')
