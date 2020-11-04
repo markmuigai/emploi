@@ -42,6 +42,7 @@ use App\ExclusivePlacement;
 use App\Coaching;
 use App\PartTimer;
 use App\CvBuilder;
+use App\Performance;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1553,6 +1554,15 @@ class AdminController extends Controller
                     ->paginate(10);
             return view('admins.cv-builder.index')
                 ->with('cv',$cv);  
+    }
+
+    public function assessments()
+    {
+       $perf= Performance::all()->unique('email');
+       return view('v2.admin.assessments.index',[
+            'perf' => $perf,
+   
+        ]);
     }
 
 }
