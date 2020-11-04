@@ -2,31 +2,34 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
+use App\Question;
 use App\Performance;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class AssessmentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the assessment.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('v2.admin.assessments.index',[
+            'questions' => Question::all()
+        ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new assessment.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('v2.admin.assessments.create');
     }
 
     /**
@@ -37,11 +40,11 @@ class AssessmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified assessment.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -52,7 +55,7 @@ class AssessmentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified assessment.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -83,14 +86,5 @@ class AssessmentController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-
-    public function assessmentResults()
-    {
-       $perf= Performance::all()->unique('email');
-       return view('v2.admin.assessments.index',[
-            'perf' => $perf
-        ]);
     }
 }
