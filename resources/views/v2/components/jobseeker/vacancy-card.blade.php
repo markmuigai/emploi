@@ -1,7 +1,7 @@
 @if (auth()->user() == null)
     <div class="col-sm-6 col-lg-4 mix {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
 @else
-    <div class="col-sm-6 col-lg-4 mix {{$post->savedByUser(auth()->user()->id) ? 'saved' : ''}}
+    <div id ="append-save-{{$post->id}}" class="col-sm-6 col-lg-4 mix {{$post->savedByUser(auth()->user()->id) ? 'saved' : ''}}
 {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
 @endif
     <div class="cat-item">
@@ -22,20 +22,21 @@
                 @endif
             </div>
             <div class="col-md-5">
-                <form id="save-post-{{$post->id}}" action="{{ route('v2.favourite.store',['postId' => $post->id]) }}" method="post">
-                    @csrf
-                    @if (auth()->user() && $post->savedByUser(auth()->user()->id) == 1)
-                        <span class="save-icon text-success" data-id="{{$post->id}}">
-                            <i class='bx bxs-heart'></i>
+                @if (auth()->user() && $post->savedByUser(auth()->user()->id) == 1)
+                    <span class="save-icon text-success" data-id="{{$post->id}}">
+                        <i id="heart-icon-{{$post->id}}" class='bx bxs-heart'></i>
+                        <span class="save-text" id="save-text-{{$post->id}}">
                             Unsave
                         </span>
-                    @else
-                        <span class="save-icon" data-id="{{$post->id}}">
-                            <i class='bx bx-heart'></i>
+                    </span>
+                @else
+                    <span class="save-icon" data-id="{{$post->id}}">
+                        <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
+                        <span class="save-text" id="save-text-{{$post->id}}">
                             Save
-                        </span>    
-                    @endif
-                </form>
+                        </span>
+                    </span>    
+                @endif
             </div>
         </div>
         <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
@@ -53,10 +54,39 @@
             console.log( "ready!" );
             
             $(".save-icon").click(function() {
-                postID = $(this).attr("data-id");
+                let _token   = $('meta[name="csrf-token"]').attr('content');
+                let postID = $(this).attr("data-id");
 
-                console.log(postID)
-                $('#save-post-'+postID).submit()
+                $.ajax({
+                    url: "/v2/favourite",
+                    type:"POST",
+                    data:{
+                        _token: _token,
+                        postId:postID
+                    },
+                    success:function(response){
+                        // Toggle elements
+                        if($('#append-save-'+postID).hasClass("saved")){
+                            // append saved class
+                            $('#append-save-'+postID).removeClass('saved')
+
+                            // Change icon
+                            $('#heart-icon-'+postID).attr('class','bx bx-heart')
+
+                            // Change text
+                            $('#save-text-'+postID).text("Save");
+                        }else{
+                            // append saved class
+                            $('#append-save-'+postID).addClass('saved')
+
+                            // Change icon
+                            $('#heart-icon-'+postID).attr('class','bx bxs-heart')
+
+                            // Change text
+                            $('#save-text-'+postID).text("Unsave");
+                        }   
+                    },
+                });
             });
         });
     </script>
