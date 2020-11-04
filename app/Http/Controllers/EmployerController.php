@@ -1444,7 +1444,28 @@ class EmployerController extends Controller
 
         }
         // if($user->role != 'seeker')
-        {
+
+         $e = EmployerSubscription::where('email',$request->email)->first();
+         //check if joined eclub before
+         if(isset($e))
+         {
+                $js = EmployerSubscription::create([
+                'user_id' => $user->id,
+                'name' => $request->firstname. ' ' .$request->lastname,
+                'phone_number' => $request->phone_number,
+                'email' => $user->email
+            ]);
+
+            if(isset($js->id)){
+                  if (app()->environment() === 'production'){
+                    Notification::send(EmployerSubscription::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$js->name.' with contact details  '.$js->email.' and  '.$js->phone_number.'  has submitted subscription for E-Club Membership.'));
+                }         
+            return redirect('/checkout?product=e_club');  
+            }         
+         }
+         else
+
+        {   // free one month eclub for first time users
             $es = EmployerSubscription::create([
                 'user_id' => $user->id,
                 'name' => $request->firstname. ' ' .$request->lastname,
@@ -1455,30 +1476,7 @@ class EmployerController extends Controller
             if(isset($es->id)){
                   if (app()->environment() === 'production')
                     Notification::send(EmployerSubscription::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
-                
-            //     $invoice = Invoice::create([
-            //     'slug' => Invoice::generateUniqueSlug(11),
-            //     'first_name' => $request->firstname,
-            //     'last_name' => $request->lastname,
-            //     'phone_number' => isset($request->phone_number) ? $request->phone_number : null,
-            //     'email' => $user->email,
-            //     'description' => 'Payment for eClub Membership',
-            //     'sub_total' => 5500.00
-            // ]);
-            //     if(isset($invoice->id))
-            // {
-            //     $message = 'Invoice '.$invoice->slug.' totalling to  Ksh '.$invoice->sub_total.' created on Emploi. Customer: '.$invoice->first_name.', email: '.$invoice->email;
-            //     $invoice->remind('email');
-            // }
-
-            // if(isset($es->id))
-            // {
-            //     if (app()->environment() === 'production'){
-            //         $invoice->notify(new InvoiceCreated($message));
-            //         Notification::send(Employer::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->first_name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
-            //     }
-
-            // }
+    
             $user->employer->activateFreeEclub();
 
         }
@@ -1692,7 +1690,7 @@ class EmployerController extends Controller
            Notification::send(EmployerSubscription::first(),new PaasSubscribed($candidate->user->name.' has been selected by employer '.$employer->name.' for PaaS Task '));
         }
 
-        return Redirect::back()->with('hired','Hired Successfully!');
+        return redirect()->back()->with('hired','Hired Successfully!');
     }
         
     
