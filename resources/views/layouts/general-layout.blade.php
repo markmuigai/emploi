@@ -149,6 +149,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Custom JS -->
     <script src="{{asset('js/custom.js')}}" ></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+    @yield('js')
 </body>
  
 </html>

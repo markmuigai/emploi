@@ -184,7 +184,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     opacity: 0;
 }
 </style>
-    
 
 <div class="container pb-0 pb-lg-4 ">
     <div class="row">
@@ -338,12 +337,10 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
             </div>
 
             
-        </div>
-
-
-        
+        </div>      
         
     </div>
+
     <br id="advertise-form"><br>
     @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
     <div class="row">   
@@ -391,6 +388,30 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
     @endif
 
+    <section>
+      <div class="modal fade pt-4" id="stawiModal">
+        <div class="modal-dialog modal-dialog-centered pt-4">
+          <div class="modal-content">
+              <div class="modal-text">
+                <button type="button" class="close d-flex pr-3 pt-2" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-header h4">Do you want to fill open positions in your company??</div>
+              <div class="modal-header">
+                <p>
+                  Consider purchasing our Stawi plan and get your vacancy filled more faster.
+                  Purchase our Stawi plan and get your vacancies filled faster and affordably.
+                  Call us on <strong>0702 068 282</strong> for more information.
+                </p>                
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+@section('js')
 <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
     setTimeout(function() {
@@ -403,3 +424,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
    document.getElementById("button1").disabled = false;
  }
 </script>
+
+<script>
+  $(document).ready(function(){
+   setTimeout(function(){
+       $('#stawiModal').modal('show');
+   }, 20000);
+  });
+  
+</script>
+@endsection
