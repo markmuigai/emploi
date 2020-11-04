@@ -138,7 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/emails" role="tab" aria-controls="v-pills-messages" aria-selected="false">Send emails <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/invoices" role="tab" aria-controls="v-pills-messages" aria-selected="false">Invoices <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/paas-applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Paas Applications <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/assessments" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assessments <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/assessmentResults" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assessments <i class="fas fa-chevron-right"></i></a>
                         </div>
 
                         <!-- END OF ADMIN SIDEBAR -->
@@ -335,6 +335,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ asset('js/online-monitor-2.js') }}" async="" defer=""></script>
 
     @include('components.exit-popup')
+    @yield('js')
 </body>
 
 </html>
