@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Question;
 use App\Performance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 
@@ -18,7 +19,7 @@ class AssessmentController extends Controller
     public function index()
     {
         return view('v2.admin.assessments.index',[
-            'questions' => Question::all()
+            'questions' => Question::orderBy('created_at', 'desc')->get()
         ]);
     }
 
@@ -40,7 +41,33 @@ class AssessmentController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        DB::transaction(function () use($request){
+            foreach($request->questions as $questionData){
+                $question = Question::create([
+                    'title' => $questionData['title'],
+                    'difficulty_level' => $questionData['level']
+                ]);
+
+                // Get key of the correct choice
+                foreach($questionData['choices'] as $key => $choice){
+                    // Check if choice is the correct value
+                    $correctKey = (int)$questionData['correct'];
+
+                    if($key == $correctKey){
+                        $value = 1;
+                    }else{
+                        $value = 0;
+                    }
+
+                    $question->choices()->create([
+                        'value' => $choice,
+                        'correct_value' => $value
+                    ]);
+                }   
+            }
+        });
+
+        return redirect()->route('assessments.index');
     }
 
     /**
