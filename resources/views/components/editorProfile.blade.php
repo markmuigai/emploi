@@ -21,6 +21,9 @@
     <div class="col-md-4 col-12 text-md-right text-left">
         <p>
             <a href="mailto:{{ $editor->user->email }}" class="orange">{{ $editor->user->email }}</a> <br>
+            @if($editor->user->role == 'seeker')
+                <a href="tel:{{ $editor->user->seeker->phone_number }}">{{ $editor->user->seeker->phone_number }}</a><br>
+            @endif
             Status: {{ $editor->status }}
         </p>
         <hr>
