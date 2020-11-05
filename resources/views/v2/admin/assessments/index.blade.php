@@ -33,12 +33,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <td>{{$question->title}}</td>
                             <td>{{$question->difficulty_level}}</td>
                             <td>
-                                <a href="" class="btn btn-primary">
+                                <a class="btn btn-primary" data-toggle="collapse" 
+                                    href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
                                     View Choices
                                 </a>
                                 <a href="" class="btn btn-danger">
                                     Disable
                                 </a>
+                            </td>
+                        </tr>
+                        <tr class="collapse" id="viewChoice-{{$question->id}}">
+                            <td colspan="3">
+                                @foreach ($question->choices as $key => $choice)
+                                    @if ($choice->correct_value == 1)
+                                        <p>{{($key+1).') '.$choice->value}}
+                                            <span class="ml-1 badge badge-success">Correct</span>
+                                        </p>
+                                    @else
+                                        <p>{{($key+1).') '.$choice->value}} </p>
+                                    @endif
+                                @endforeach
                             </td>
                         </tr>
                         @endforeach
