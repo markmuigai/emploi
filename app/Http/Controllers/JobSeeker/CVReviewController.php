@@ -42,6 +42,10 @@ class CVReviewController extends Controller
      */
     public function store(Request $request)
     {   
+        if($request->cv->getType() == false){
+            return redirect()->back()->withErrors(['Your file exceeds 4mb max size']);
+        }
+        
         // Custom validator
         $validator = Validator::make($request->all(), [
             'cv'  =>  ['mimes:doc,pdf,docx'] 
