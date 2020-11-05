@@ -273,12 +273,12 @@ class AdminController extends Controller
             {
                 if($first)
                 {
-                    $keywords = "education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%'";
+                    $keywords = "current_position LIKE '%".$request->keywords."%' OR public_name LIKE '%".$request->keywords."%' OR  education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%'";
                     $first = false;
                 }
                 else
                 {
-                    $keywords = "AND ( education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%')";
+                    $keywords = "AND ( current_position LIKE '%".$request->keywords."%' OR public_name LIKE '%".$request->keywords."%' OR education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%')";
                 }
                 
             }
