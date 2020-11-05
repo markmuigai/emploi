@@ -74,4 +74,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::resource('assessmentResults','AssessmentResultController');
 
+    Route::resource('cvTests', 'cvTestController');
+
 });
