@@ -12,11 +12,10 @@
                         <form>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-12">
-                                    @guest
-                                        <div class="form-group">
-                                            <input type="email" name="email" required=""  class="form-control" maxlength="50" placeholder="Enter your email address" >
-                                        </div>
-                                    @endguest
+                                    
+                                    <div class="form-group">
+                                        <input type="email" name="email" required=""  class="form-control" maxlength="50" placeholder="Enter your email address" >
+                                    </div>
                                 </div>
                                 <div class="col-sm-12 col-lg-12">
                                     <div class="form-group">
