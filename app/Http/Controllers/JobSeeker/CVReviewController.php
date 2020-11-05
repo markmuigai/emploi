@@ -47,19 +47,11 @@ class CVReviewController extends Controller
             'cv'  =>  ['mimes:doc,pdf,docx'] 
         ]);
 
-
         // Get file prefix dynamically
         $prefix = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
 
         // Store CV
         $path = $prefix.$request->file('cv')->store('cv-reviews');
-
-        // if($request->file('cv')->extension() == 'pdf'){
-        //     $rawCV = Pdf::getText($path);
-        // }else{
-        //     // Get cv json
-        //     $rawCV = parseCV($path); 
-        // }
 
         // Get cv text
         $rawCV = parseCV($path); 
