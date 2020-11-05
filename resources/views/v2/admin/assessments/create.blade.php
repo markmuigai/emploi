@@ -20,20 +20,58 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div id="innerDivRow0">
                                     <div class="form-group">
                                         <label for="question">Question</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="questions[0][title]" rows="3">{{ old('title') ?: '' }}</textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="questions[0][title]" rows="3" required>{{ old('title') ?: '' }}</textarea>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <select id="inputRating" name="questions[0][level]" class="form-control">
+                                              <option selected>Choose Difficulty Level</option>
+                                              <option value="easy">Easy</option>
+                                              <option value="medium">Medium</option>
+                                              <option value="hard">Hard</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <label for="choice">Add choices</label>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input class="form-control mt-1" type="text" name="questions[0][choices][0]" id="">
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="questions[0][correct]" id="exampleRadios1" value="0" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Correct
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
                                                 <input class="form-control mt-1" type="text" name="questions[0][choices][1]" id="">
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="questions[0][correct]" id="exampleRadios1" value="1" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Correct
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input class="form-control mt-1" type="text" name="questions[0][choices][2]" id="">
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="questions[0][correct]" id="exampleRadios1" value="2" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Correct
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
                                                 <input class="form-control mt-1" type="text" name="questions[0][choices][3]" id="">
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="questions[0][correct]" id="exampleRadios1" value="3" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Correct
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -72,18 +110,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             // Update choices fields 
             clone.find('input[name="questions[0][choices][0]"]').attr('name', 'questions['+ $('.clonerow').length +'][choices][0]');
-
-            // Update choices fields 
             clone.find('input[name="questions[0][choices][1]"]').attr('name', 'questions['+ $('.clonerow').length +'][choices][1]');
-
-            // Update choices fields 
             clone.find('input[name="questions[0][choices][2]"]').attr('name', 'questions['+ $('.clonerow').length +'][choices][2]');
-
-            // Update choices fields 
             clone.find('input[name="questions[0][choices][3]"]').attr('name', 'questions['+ $('.clonerow').length +'][choices][3]');
+
+            // Update correct fields
+            clone.find('input[name="questions[0][correct]"]').attr('name', 'questions['+ $('.clonerow').length +'][correct]');
+            clone.find('input[name="questions[0][correct]"]').attr('name', 'questions['+ $('.clonerow').length +'][correct]');
+            clone.find('input[name="questions[0][correct]"]').attr('name', 'questions['+ $('.clonerow').length +'][correct]');
+            clone.find('input[name="questions[0][correct]"]').attr('name', 'questions['+ $('.clonerow').length +'][correct]');
 
             // Update title field
             clone.find('textarea[name="questions[0][title]"]').attr('name', 'questions['+ $('.clonerow').length +'][title]');
+
+            // Update level field
+            clone.find('select[name="questions[0][level]"]').attr('name', 'questions['+ $('.clonerow').length +'][level]');
 
             // Append clone to parent container
             $('#container').append(clone);
@@ -99,48 +140,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         // Function to delete question row on button click
         function DeleteClone(deletebutton){
-
-            // Delete the row and its children
-            $(deletebutton).parent().remove()
-
-        }
-
-        function choiceClone(clonebutton) {
-            // Row to clone
-            var row = $(clonebutton).parent(),
-
-            // Inital row 
-            original = $('#divRow0'),
-            
-            // Clone function 
-            clone = $(original).clone(true, true);
-
-            // Update id of parent row 
-            clone.find('#divRow0').prop('id', 'divRow' + $('.clonerow').length);
-
-            // // Update id of child row 
-            clone.find('#innerDivRow0').prop('id', 'innerDivRow' + $('.clonerow').length);
-
-            // Update name field 
-            clone.find('input[name="questions[0][choices][0]"]').attr('name', 'testimonials['+ $('.clonerow').length +'][choices]');
-
-            // Update title field
-            clone.find('textarea[name="questions[0][title]"]').attr('name', 'questions['+ $('.clonerow').length +'][title]');
-
-            // Append clone to parent container
-            $('#container').append(clone);
-
-            // length variable
-            length = $('.clonerow').length
-
-            console.log($('#innerDivRow' + (length-1)));
-            // Append a remove questions button
-            $('#innerDivRow' + (length-1)).append("<button type='button' class='btn btn-danger' onclick='DeleteClone(this)'>Remove question</button>")
-
-        }
-
-        // Function to delete question row on button click
-        function deleteChoiceClone(deletebutton){
 
             // Delete the row and its children
             $(deletebutton).parent().remove()
