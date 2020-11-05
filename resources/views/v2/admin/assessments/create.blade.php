@@ -79,7 +79,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="float-right btn btn-primary">
+                        <button type="submit" class="float-right btn btn-primary" id="btnSubmit">
                             Submit
                         </button>
                     </form>
@@ -145,5 +145,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             $(deletebutton).parent().remove()
 
         }
+    </script>
+
+    <script>
+    $().ready(function(){
+
+        var submit_clicked = false;
+
+        $('#btnSubmit').click(function(){
+                submit_clicked = true;
+            });
+
+        window.onbeforeunload = function() {
+            if (submit_clicked === false){
+            return "Are you sure you want to leave? Changes will not be saved!";
+            }
+        }
+    });
     </script>
 @endsection
