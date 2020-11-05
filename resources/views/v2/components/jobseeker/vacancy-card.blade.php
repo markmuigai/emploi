@@ -30,12 +30,21 @@
                         </span>
                     </span>
                 @else
-                    <span class="save-icon" data-id="{{$post->id}}">
-                        <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
-                        <span class="save-text" id="save-text-{{$post->id}}">
-                            Save
-                        </span>
-                    </span>    
+                    @if (auth()->user())
+                        <span class="save-icon" data-id="{{$post->id}}">
+                            <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
+                            <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="save for later">
+                                Save
+                            </span>
+                        </span> 
+                    @else
+                        <span class="save-icon" data-id="{{$post->id}}">
+                            <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
+                            <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="login to save for later">
+                                Save
+                            </span>
+                        </span> 
+                    @endif   
                 @endif
             </div>
         </div>
@@ -88,6 +97,10 @@
                     },
                 });
             });
+
+            //toggle save vacancy message on hover
+            $('[data-toggle="tooltip"]').tooltip();
+
         });
     </script>
 @endsection  
