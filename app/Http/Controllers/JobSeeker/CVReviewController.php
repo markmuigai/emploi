@@ -51,6 +51,13 @@ class CVReviewController extends Controller
             'cv'  =>  ['mimes:doc,pdf,docx'] 
         ]);
 
+        // Exit if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         // Get file prefix dynamically
         $prefix = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
 
