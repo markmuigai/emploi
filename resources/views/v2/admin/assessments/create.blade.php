@@ -24,8 +24,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-4">
-                                            <select id="inputRating" name="questions[0][level]" class="form-control">
-                                              <option selected>Choose Difficulty Level</option>
+                                            <select id="inputRating" name="questions[0][level]" class="form-control" required="">
+                                              <option value="">Choose Difficulty Level</option>
                                               <option value="easy">Easy</option>
                                               <option value="medium">Medium</option>
                                               <option value="hard">Hard</option>
