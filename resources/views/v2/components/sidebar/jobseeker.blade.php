@@ -40,7 +40,20 @@
     </a>
 </div>
 @endif
-@guest
-@endguest
+@if (auth()->user() && auth()->user()->role != 'seeker')
+<div class="profile-item">
+     <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="circle-img w-50 h-50" alt="{{ $user->name }}">
+    <h2>{{ $user->getName() }}</h2>
+    <span></span>
+</div>
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-home-tab"  href="/profile"  aria-controls="v-pills-home" aria-selected="true">
+        <div class="profile-list">
+            <i class='bx bx-user'></i>
+            My Profile
+        </div>
+    </a>
+</div>
+@endif  
 
 @include('components.ads.vertical_responsive')

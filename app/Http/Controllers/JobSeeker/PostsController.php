@@ -468,6 +468,22 @@ class PostsController extends Controller
             for($i=0; $i<count($results); $i++)
                 $posts[] = Post::findOrFail($results[$i]->id);
 
+
+                // Get recommended jobs
+            if(auth()->user() && auth()->user()->role == 'seeker'){
+                $query = auth()->user()->seeker->recommendedPosts();
+
+                if(!empty($query)){
+                    $recommendedJobs = $query->get()->pluck('id');
+                }
+            }elseif(!empty($request->parameters)){
+                $recommendedJobs = Post::where('industry_id', $request->parameters['industry'])
+                                ->orWhere('location_id', $request->parameters['location'])
+                                ->get()->pluck('id');
+            }else{
+                $recommendedJobs = collect();
+            }
+
             return view('v2.seekers.vacancies')
                     ->with('industries',$industries)
                     ->with('locations',$locations)
@@ -480,7 +496,8 @@ class PostsController extends Controller
                     ->with('search_vtype',$search_vtype)
                     ->with('search_ind',$search_ind)
                     ->with('search_query',$search_query)
-                    ->with('educationLevels',EducationLevel::all());
+                    ->with('educationLevels',EducationLevel::all())
+                    ->with('recommendedJobs', $recommendedJobs);
         }
 
         if($match)

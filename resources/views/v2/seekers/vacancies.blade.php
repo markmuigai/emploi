@@ -13,6 +13,24 @@
             <div class="row">
                 <div class="col-lg-3">
                     @include('v2.components.sidebar.jobseeker')
+                       @if (auth()->user() && auth()->user()->role == 'seeker')                
+                       <br><br> <h4 class="heading-filter ml-4">Filter By</h4>
+                       <div class="sorting-menu float-left">
+                            <ul> 
+                                <li class="filter pb-2 ml-4" data-filter=".{{auth()->user()->seeker->location->country_id}}">
+                                    <i class="bx bxs-location-plus"></i>  My Country
+                                    <i class="flaticon-right-arrow two"></i></li><hr>
+
+                                <li class="filter pb-2 ml-4" data-filter=".{{auth()->user()->seeker->location_id}}">
+                                    <i class="flaticon-placeholder"></i>  My Location
+                                 <i class="flaticon-right-arrow two"></i></li><hr>
+
+                                <li class="filter pb-2 ml-4" data-filter=".{{auth()->user()->seeker->industry_id}}">
+                                    <i class="flaticon-resume"></i>  My Industry
+                                  <i class="flaticon-right-arrow two"></i></li><hr>                           
+                            </ul>                  
+                        </div>                 
+                        @endif
                 </div>           
 
                     <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">                    
@@ -31,22 +49,23 @@
                                 @guest
                                 <div class="col-lg-2">
                                     <h4>Filter By</h4>
-                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="index-2.html#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                      <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                            <i class="bx bxs-location-plus"></i>
+                                            My Country
+                                            <i class="flaticon-right-arrow two"></i>
+                                        </a>
+                                   
+                                        <a class="nav-link" id="v-pills-home-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-home" aria-selected="false">
                                             <i class="flaticon-placeholder"></i>
                                             My Location
                                             <i class="flaticon-right-arrow two"></i>
                                         </a>
-                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="index-2.html#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                        <a class="nav-link" id="v-pills-profile-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                                             <i class="flaticon-resume"></i>
                                             My Industry
                                             <i class="flaticon-right-arrow two"></i>
-                                        </a>
-                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="index-2.html#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                            <i class="flaticon-pencil"></i>
-                                            Skills
-                                            <i class="flaticon-right-arrow two"></i>
-                                        </a>
+                                        </a>                                      
                                     </div>
                                 </div>
                                 @endguest

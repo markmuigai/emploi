@@ -1,7 +1,7 @@
 @if (auth()->user() == null)
     <div class="col-sm-6 col-lg-4 mix {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
 @else
-    <div id ="append-save-{{$post->id}}" class="col-sm-6 col-lg-4 mix {{$post->savedByUser(auth()->user()->id) ? 'saved' : ''}}
+    <div id ="append-save-{{$post->id}}" class="{{$post->location_id}} {{$post->industry_id}} {{$post->location->country}} col-sm-6 col-lg-4 mix {{$post->savedByUser(auth()->user()->id) ? 'saved' : ''}}
 {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
 @endif
     <div class="cat-item">
@@ -30,12 +30,21 @@
                         </span>
                     </span>
                 @else
-                    <span class="save-icon" data-id="{{$post->id}}">
-                        <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
-                        <span class="save-text" id="save-text-{{$post->id}}">
-                            Save
-                        </span>
-                    </span>    
+                    @if (auth()->user())
+                        <span class="save-icon" data-id="{{$post->id}}">
+                            <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
+                            <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="save for later">
+                                Save
+                            </span>
+                        </span> 
+                    @else
+                        <span class="save-icon" data-id="{{$post->id}}">
+                            <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
+                            <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="login to save for later">
+                                Save
+                            </span>
+                        </span> 
+                    @endif   
                 @endif
             </div>
         </div>
@@ -88,6 +97,10 @@
                     },
                 });
             });
+
+            //toggle save vacancy message on hover
+            $('[data-toggle="tooltip"]').tooltip();
+
         });
     </script>
 @endsection  
