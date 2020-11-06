@@ -20,7 +20,10 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             SeekerSeeder::class,
             AssessmentSeeder::class,
-            DifficultyRatingSeeder::class
+            DifficultyRatingSeeder::class,
+            RefereeSeeder::class,
+            JobApplicationReferee::class,
+            SeekerJobSeeder::class
         ]);
     }
 }
