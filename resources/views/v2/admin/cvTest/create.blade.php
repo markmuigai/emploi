@@ -17,6 +17,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @csrf
                         <label for="files">Select CVs:</label>
                         <input type="file" id="files" name="files[]" multiple><br><br>
+                        <p>(Select files of less than 4mb size)</p>
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <span class="text-danger">{{$error}}</span>
+                            @endforeach
+                        @endif
                         <button type="submit" class="float-right btn btn-primary">
                             Submit
                         </button>
