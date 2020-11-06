@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Add assessments ')
+@section('page_title', 'CV Testing')
 <div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-12">
@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <form action="{{route('cvTests.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="files">Select CVs:</label>
-                        <input type="file" id="files" name="files" multiple><br><br>
+                        <input type="file" id="files" name="files[]" multiple><br><br>
                         <button type="submit" class="float-right btn btn-primary">
                             Submit
                         </button>
