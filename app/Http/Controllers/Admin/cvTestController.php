@@ -155,4 +155,14 @@ class cvTestController extends Controller
     {
         //
     }
+
+    /**
+     * Delete all CV Tests
+     */
+    public function deleteAll()
+    {
+        CVTest::truncate();
+
+        return redirect()->back();
+    }
 }
