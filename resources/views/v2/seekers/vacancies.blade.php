@@ -13,6 +13,26 @@
             <div class="row">
                 <div class="col-lg-3">
                     @include('v2.components.sidebar.jobseeker')
+                       @if (auth()->user() && auth()->user()->role == 'seeker')                
+                       <br><br> <h4>Filter By</h4>
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="nav-link active" id="v-pills-home-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                    <i class="flaticon-placeholder"></i>
+                                    My Location
+                                    <i class="flaticon-right-arrow two"></i>
+                                </a>
+                                <a class="nav-link" id="v-pills-profile-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                    <i class="flaticon-resume"></i>
+                                    My Industry
+                                    <i class="flaticon-right-arrow two"></i>
+                                </a>
+                                <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                    <i class="flaticon-pencil"></i>
+                                    Skills
+                                    <i class="flaticon-right-arrow two"></i>
+                                </a>
+                            </div>                   
+                        @endif
                 </div>           
 
                     <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">                    
