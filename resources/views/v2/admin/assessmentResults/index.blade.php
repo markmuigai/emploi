@@ -19,28 +19,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
             <div class="card align-items-center px-2 shadow mb-5 bg-white rounded">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                        <th scope="col">Email</th>
-                        <th scope="col">Recent Score</th>
-                        <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($emailsAssessed as $email)
-                        <tr>
-                            <td>{{$email}}</td>
-                            <td>{{App\Performance::recentScore($email)}}\10</td>
-                            <td>
-                                <a href="/v2/self-assessment?email={{ $email }}" class="btn btn-primary">
-                                    View Detailed Results
-                                </a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                @if ($emailsAssessed->isEmpty())
+                    <h4 class="text-center m-5">
+                        No assessment results available
+                    </h4>
+                @else
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                            <th scope="col">Email</th>
+                            <th scope="col">Recent Score</th>
+                            <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($emailsAssessed as $email)
+                            <tr>
+                                <td>{{$email}}</td>
+                                <td>{{App\Performance::recentScore($email)}}\10</td>
+                                <td>
+                                    <a href="/v2/self-assessment?email={{ $email }}" class="btn btn-primary">
+                                        View Detailed Results
+                                    </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @endif
             </div>
         </div>
     </div>
