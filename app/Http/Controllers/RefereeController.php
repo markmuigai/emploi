@@ -35,6 +35,9 @@ class RefereeController extends Controller
     		}
     		
     	}
+        if(isset(Auth::user()->id) && Auth::user()->role != 'admin')
+             
+        auth()->logout();
         //dd($r->seeker->industry->industrySkills);
     	return view('referees.assess')
                 ->with('skills',$r->seeker->industry->industrySkills)
