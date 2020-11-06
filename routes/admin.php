@@ -76,4 +76,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::resource('cvTests', 'cvTestController');
 
+    Route::post('cvTests/deleteAll', 'cvTestController@deleteAll')->name('cvTests.deleteAll');
+
 });
