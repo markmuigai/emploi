@@ -1,7 +1,7 @@
 @if (auth()->user() == null)
     <div class="col-sm-6 col-lg-4 mix {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
 @else
-    <div id ="append-save-{{$post->id}}" class="col-sm-6 col-lg-4 mix {{$post->savedByUser(auth()->user()->id) ? 'saved' : ''}}
+    <div id ="append-save-{{$post->id}}" class="{{$post->location_id}} {{$post->industry_id}} {{$post->location->country}} col-sm-6 col-lg-4 mix {{$post->savedByUser(auth()->user()->id) ? 'saved' : ''}}
 {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
 @endif
     <div class="cat-item">

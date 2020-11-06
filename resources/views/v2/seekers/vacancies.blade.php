@@ -15,23 +15,21 @@
                     @include('v2.components.sidebar.jobseeker')
                        @if (auth()->user() && auth()->user()->role == 'seeker')                
                        <br><br> <h4>Filter By</h4>
-                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active" id="v-pills-home-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                                    <i class="flaticon-placeholder"></i>
-                                    My Location
-                                    <i class="flaticon-right-arrow two"></i>
-                                </a>
-                                <a class="nav-link" id="v-pills-profile-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                                    <i class="flaticon-resume"></i>
-                                    My Industry
-                                    <i class="flaticon-right-arrow two"></i>
-                                </a>
-                                <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                    <i class="flaticon-pencil"></i>
-                                    Skills
-                                    <i class="flaticon-right-arrow two"></i>
-                                </a>
-                            </div>                   
+                       <div class="sorting-menu mr-4 float-left">
+                            <ul> 
+                                <li class="filter" data-filter=".{{auth()->user()->seeker->location->country_id}}">
+                                    <i class="bx bxs-location-plus"></i>  My Country
+                                    <i class="flaticon-right-arrow two"></i></li><br>
+
+                                <li class="filter" data-filter=".{{auth()->user()->seeker->location_id}}">
+                                    <i class="flaticon-placeholder"></i>  My Location
+                                 <i class="flaticon-right-arrow two"></i></li><br>
+
+                                <li class="filter" data-filter=".{{auth()->user()->seeker->industry_id}}">
+                                    <i class="flaticon-resume"></i>  My Industry
+                                  <i class="flaticon-right-arrow two"></i></li> <br>                           
+                            </ul>                  
+                        </div>                 
                         @endif
                 </div>           
 
