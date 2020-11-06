@@ -49,7 +49,13 @@
                                 @guest
                                 <div class="col-lg-2">
                                     <h4>Filter By</h4>
-                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                      <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                            <i class="bx bxs-location-plus"></i>
+                                            My Country
+                                            <i class="flaticon-right-arrow two"></i>
+                                        </a>
+                                   
                                         <a class="nav-link active" id="v-pills-home-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-home" aria-selected="true">
                                             <i class="flaticon-placeholder"></i>
                                             My Location
@@ -59,12 +65,7 @@
                                             <i class="flaticon-resume"></i>
                                             My Industry
                                             <i class="flaticon-right-arrow two"></i>
-                                        </a>
-                                        <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-                                            <i class="flaticon-pencil"></i>
-                                            Skills
-                                            <i class="flaticon-right-arrow two"></i>
-                                        </a>
+                                        </a>                                      
                                     </div>
                                 </div>
                                 @endguest
