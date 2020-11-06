@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Validator;
+use App\CVTest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class cvTestController extends Controller
 {
@@ -14,7 +18,9 @@ class cvTestController extends Controller
      */
     public function index()
     {
-        return view('v2.admin.cvTest.index');
+        return view('v2.admin.cvTest.index',[
+            'cvTests' => CVTest::orderBy('created_at', 'desc')->get()
+        ]);
     }
 
     /**
@@ -35,52 +41,74 @@ class cvTestController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        foreach($request->cv as $cv){
-            // Custom validator
-            $validator = Validator::make($request->all(), [
-                'cv'  =>  ['mimes:doc,pdf,docx'] 
-            ]);
+        foreach($request->all()['files'] as $cv){
+            $name = $cv->getClientOriginalName();
 
+            if($cv->getType() == false){
+                CVTest::create([
+                    'name' => $name,
+                    'output' => 'Your file exceeds 4mb max size',
+                    'cvText' => '',
+                    'score' => 0
+                ]);
+
+                continue;
+            }
+            
+            $allowedExtensions = collect(['doc', 'pdf', 'docx']);
+
+            // Exit if validation fails
+            if ($allowedExtensions->search($cv->extension()) == false) {
+                CVTest::create([
+                    'name' => $name,
+                    'output' => 'The cv must be a file of type: doc, pdf, docx',
+                    'cvText' => '',
+                    'score' => 0
+                ]);
+
+                continue;
+            }
+    
             // Get file prefix dynamically
             $prefix = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
-
+    
             // Store CV
-            $path = $prefix.$request->file('cv')->store('cv-reviews');
-
+            $path = $prefix.$cv->store('cv-reviews');
+    
             // Get cv text
             $rawCV = parseCV($path); 
-
+    
             // Append to custom validation 
             if($rawCV == 'incorrect password'){
                 // After validation hook
-                $validator->after(function ($validator) {
-                    $validator->errors()->add('cv', 'Upload an unlocked pdf');
-                });
+                CVTest::create([
+                    'name' => $name,
+                    'output' => 'Upload an unlocked pdf',
+                    'cvText' => '',
+                    'score' => 0
+                ]);
+                
+                continue;
             }
-
-            // Exit if validation fails
-            if ($validator->fails()) {
-                return redirect()->back()
-                            ->withErrors($validator)
-                            ->withInput();
-            }
-
 
             // Get Formatted cv
             $cleanCV = cleanCV($rawCV);
-
+    
             // Get score
             $result = reviewCV($cleanCV);
+    
+            CVTest::create([
+                'name' => $name,
+                'output' => 'CV Parsed Successfully',
+                'cvText' => $cleanCV,
+                'score' => $result->get('score')
+            ]);
 
             //delete CV after parsing
             File::delete($path);
-            
-            // dd($result->toArray());
-            return redirect()->route('v2.cv-review.index',[
-                'result'=> $result->toArray()
-            ]);
         }
+
+        return redirect()->route('cvTests.index');
     }
 
     /**
