@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
     {
             if ($exception instanceof \Illuminate\Http\Exceptions\PostTooLargeException) {
 
-                return redirect()->back();
+                return redirect()->back()->withError($exception->getMessage())->withInput();
             }
 
             return parent::render($request, $exception);
