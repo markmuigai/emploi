@@ -14,18 +14,18 @@
                 <div class="col-lg-3">
                     @include('v2.components.sidebar.jobseeker')
                        @if (auth()->user() && auth()->user()->role == 'seeker')                
-                       <br><br> <h4>Filter By</h4>
-                       <div class="sorting-menu mr-4 float-left">
+                       <br><br> <h4 class="heading-filter ml-5">Filter By</h4>
+                       <div class="sorting-menu float-left">
                             <ul> 
-                                <li class="filter" data-filter=".{{auth()->user()->seeker->location->country_id}}">
+                                <li class="filter pb-2 ml-5" data-filter=".{{auth()->user()->seeker->location->country_id}}">
                                     <i class="bx bxs-location-plus"></i>  My Country
                                     <i class="flaticon-right-arrow two"></i></li><br>
 
-                                <li class="filter" data-filter=".{{auth()->user()->seeker->location_id}}">
+                                <li class="filter pb-2 ml-5" data-filter=".{{auth()->user()->seeker->location_id}}">
                                     <i class="flaticon-placeholder"></i>  My Location
                                  <i class="flaticon-right-arrow two"></i></li><br>
 
-                                <li class="filter" data-filter=".{{auth()->user()->seeker->industry_id}}">
+                                <li class="filter pb-2 ml-5" data-filter=".{{auth()->user()->seeker->industry_id}}">
                                     <i class="flaticon-resume"></i>  My Industry
                                   <i class="flaticon-right-arrow two"></i></li> <br>                           
                             </ul>                  
@@ -56,7 +56,7 @@
                                             <i class="flaticon-right-arrow two"></i>
                                         </a>
                                    
-                                        <a class="nav-link active" id="v-pills-home-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                        <a class="nav-link" id="v-pills-home-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-home" aria-selected="false">
                                             <i class="flaticon-placeholder"></i>
                                             My Location
                                             <i class="flaticon-right-arrow two"></i>
