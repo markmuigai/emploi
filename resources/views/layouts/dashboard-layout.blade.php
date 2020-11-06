@@ -96,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- MAIN CONTENT FOR EMPLOYER -->
     <main>
         <!-- SIDEBAR -->
-        <div class="container-fluid">
+        <div class="container-fluid" style="min-height: 80vh;">
             <div class="row pt-5">
                 <div class="col-md-3 d-md-block d-none">
                     <div class="sidebar">
@@ -139,6 +139,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/invoices" role="tab" aria-controls="v-pills-messages" aria-selected="false">Invoices <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/paas-applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Paas Applications <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/assessmentResults" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assessments <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/cvTests" role="tab" aria-controls="v-pills-messages" aria-selected="false">CV Review Tester<i class="fas fa-chevron-right"></i></a>
+                            
                         </div>
 
                         <!-- END OF ADMIN SIDEBAR -->
