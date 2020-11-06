@@ -13,10 +13,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-12">
             <div class="row justify-content-end">
                 <div class="col-md-3 my-2">
-                    <a href="{{route('cvTests.create')}}" class="btn btn-success">
+                    <a href="{{route('cvTests.create')}}" class="btn btn-success float-right">
                         Test CV Review
                     </a>
                 </div>
+                @if ($cvTests->isNotEmpty())
+                    <div class="col-md-3 my-2">
+                        <form style="display: inline-block" action="{{route('cvTests.deleteAll')}}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger float-left">
+                                Delete Test results
+                            </button>
+                        </form>
+                    </div>
+                @endif
             </div>
             <div class="card px-2 shadow mb-5 bg-white rounded">
                 @if ($cvTests->isEmpty())
