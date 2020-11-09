@@ -559,8 +559,8 @@ class HomeController extends Controller
         }
 
         $caption = $user->name." has listed you as a referee. Provide your assessment.";
-        $contents = "Emploi is a sourcing platform linking employers and job seekers. <strong>".$user->name."</strong> has included you as one of their professional referee. <br>
-        As such, your assessment on their professional skills and abilities will be higly valued.
+        $contents = "Emploi is a sourcing platform linking employers and job seekers. <strong>".$user->name."</strong> has included you as one of their professional referees. <br>
+        As such, your assessment on their professional skills and abilities will be highly valued.
         <br>
 
         Provide assessment of ".$user->seeker->public_name." by following the link below <br>
