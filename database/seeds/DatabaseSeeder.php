@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             AssessmentSeeder::class,
             DifficultyRatingSeeder::class,
             RefereeSeeder::class,
-            JobApplicationReferee::class,
+            JobApplicationRefereeSeeder::class,
             SeekerJobSeeder::class
         ]);
     }
