@@ -27,6 +27,12 @@
                         <p><strong>Location:</strong> {{ $referee->seeker->location->name }}</p>
                         @endif
                         <p><strong>Submitted:</strong>  {{ $referee->seeker->user->updated_at->diffForHumans() }} </p>
+                        <div class="col-md-12">
+                        	@if($referee->seeker->objective)
+	                            <p class=" mb-4" style="
+	                            padding: 20px;"> {{ $referee->seeker->objective }}</p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,12 +41,7 @@
                     Referee Details
                 </div>
                 <div class="row" style="padding: 15px 30px">
-                    <div class="col-md-12">
-                        @if($referee->seeker->objective)
-                            <p class=" mb-4" style="
-                            padding: 20px;"> {{ $referee->seeker->objective }}</p>
-                        @endif
-
+                    <div class="col-md-12">                    
                         <div class="row" style=" width: 100%">
                             <div class="col-md-7">
                                 <h4>REFEREE</h4> 
