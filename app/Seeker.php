@@ -421,6 +421,9 @@ class Seeker extends Model
     public function getRsi($post){
         //return $this->getPlainRsi($post);
         $perc = 0;
+        if(isset($this->industry_id) && $this->industry_id == $post->industry_id) {
+               $perc += 4;
+        }
 
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
             return $perc;
