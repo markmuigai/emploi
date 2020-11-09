@@ -81,7 +81,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     // Download pdf
     Route::post('referee-form/download/{slug}', 'RefereeReportController@download')->name('refereeForm.download');
 
-    // Test
+    // View sample pdf layout
     Route::get('referee-form/view', 'RefereeReportController@show')->name('refereeForm.show');
+
+    // Search for referee
+    Route::post('referee/search', 'RefereeController@search')->name('referee.search');
 
 });
