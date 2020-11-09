@@ -78,4 +78,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::post('cvTests/deleteAll', 'cvTestController@deleteAll')->name('cvTests.deleteAll');
 
+    // Download pdf
+    Route::post('referee-form/download/{slug}', 'RefereeReportController@download')->name('refereeForm.download');
+
+    // Test
+    Route::get('referee-form/view', 'RefereeReportController@show')->name('refereeForm.show');
+
 });

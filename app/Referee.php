@@ -39,4 +39,9 @@ class Referee extends Model
     public function seekerIndustrySkills(){
         return $this->hasMany(SeekerIndustrySkill::class);
     }
+
+    // Fetch seeker by slug
+    public static function getBySlug($slug){
+        return Referee::where('slug',$slug)->firstOrFail();
+    }
 }

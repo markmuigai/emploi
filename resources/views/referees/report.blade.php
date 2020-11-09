@@ -11,16 +11,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="container-fluid">
     <div class="card shadow p-1 bg-white rounded px-5">
-        {{-- <div class="row justify-content-end">
+        <div class="row justify-content-between">
             <div class="col-md-3 my-2">
-                <a href="#" class="btn btn-success float-right">
-                    Download Report
-                </a>
+                <h6 class="my-3">Updated: {{ $referee->updated_at->diffForHumans() }} </h6>
             </div>
-        </div> --}}
-        <div class="row mt-5">
+            <div class="col-md-6 my-2">
+                {{-- <a href="{{route('refereeForm.show')}}" class="btn btn-primary">
+                    Test PDF
+                </a> --}}
+                <form action="{{route('refereeForm.download',[
+                    'slug' => $referee->slug
+                    ])}}" method="post">
+                    @csrf
+                <button type="submit" class="btn btn-success float-right">
+                    Download Report
+                </button>
+            </form>
+            </div>
+        </div>
+        <div class="row mt-2">
             <div class="col-md-12">
-                    <h6>Updated: {{ $referee->updated_at->diffForHumans() }} </h6>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card mb-3">
