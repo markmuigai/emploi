@@ -30,17 +30,27 @@
                     </div>
                 </div>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Objective
+                </div>
+                <div class="row">
+                    <div class="col-md-8" style="padding: 15px 30px">
+                        @if($referee->seeker->objective)
+                            <p class=" mb-4" style="
+                            padding: 20px;"> {{ $referee->seeker->objective }}</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Referee Details
                 </div>
                 <div class="row" style="padding: 15px 30px">
-                    <div class="col-md-12">
-                        @if($referee->seeker->objective)
-                            <p class=" mb-4" style="
-                            padding: 20px;"> {{ $referee->seeker->objective }}</p>
-                        @endif
-
+                    <div class="col-md-12">                    
                         <div class="row" style=" width: 100%">
                             <div class="col-md-7">
                                 <h4>REFEREE</h4> 

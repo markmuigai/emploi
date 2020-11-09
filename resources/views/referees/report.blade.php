@@ -45,7 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                     <div class="row justify-content-center">
                                         <div class="col-md-8" style="text-align: center;">
-                                            <br>
+                                            <br>                                         
                                             <h4 class="font-weight-strong">{{ $referee->seeker->user->name }}</h4>
                                             <p><strong>Industry:</strong> {{ $referee->seeker->industry->name }}</p>
                                             @if(isset($referee->seeker->location_id))
@@ -64,11 +64,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     Referee Details
                                 </h4>
                             </div>
-                            <div class="card-body px-2">
-                                @if($referee->seeker->objective)
-                                    <p class="text-center mb-4"> {{ $referee->seeker->objective }}</p>
-                                @endif
-                        
+                            <div class="card-body px-2">                          
                                 <div class="row" style=" width: 100%">
                                     <div class="col-md-7" style="text-align: center; ">
                                         <h4>REFEREE</h4> 
@@ -90,6 +86,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                     </div>
                 </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Objective</h4>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            @if($referee->seeker->objective)
+                                <p class="text-center mb-4"> {{ $referee->seeker->objective }}</p>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="card">
                     <div class="card-header">
                         <h4 class="text-center">Assessment</h4>

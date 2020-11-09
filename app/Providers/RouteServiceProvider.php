@@ -48,6 +48,9 @@ class RouteServiceProvider extends ServiceProvider
             // Admin routes
         $this->mapAdminRoutes();
 
+           // employer routes
+        $this->mapEmployerRoutes();
+
         // Auth v2 routes
         $this->mapAuthV2Routes();
     }
@@ -127,6 +130,23 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('web', 'admin')
              ->namespace('App\Http\Controllers\Admin')
              ->group(base_path('routes/admin.php'));
+    }
+
+
+        /**
+     * Define admin routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapEmployerRoutes()
+    {
+        Route::prefix('v2')
+             ->middleware('web', 'employer')
+             ->name('v2.')
+             ->namespace('App\Http\Controllers\Employer')
+             ->group(base_path('routes/employer.php'));
     }
 
     /**
