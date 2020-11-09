@@ -3374,3 +3374,7 @@ p.sm_1 {
         background-size: 184%;
     }
 }
+
+ul.trending-vacancies{
+    list-style-type: none;
+}
