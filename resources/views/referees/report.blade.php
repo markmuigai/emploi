@@ -20,6 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div> --}}
         <div class="row mt-5">
             <div class="col-md-12">
+                    <h6>Updated: {{ $referee->updated_at->diffForHumans() }} </h6>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card mb-3">
