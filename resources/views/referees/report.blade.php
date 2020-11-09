@@ -86,11 +86,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                     </div>
                 </div>
+                
                 <div class="card">
-                    <div class="card-body">
-                        @if($referee->seeker->objective)
-                            <p class="text-center mb-4"> {{ $referee->seeker->objective }}</p>
-                        @endif
+                    <div class="card-header">
+                        <h4 class="text-center">Objective</h4>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            @if($referee->seeker->objective)
+                                <p class="text-center mb-4"> {{ $referee->seeker->objective }}</p>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 
