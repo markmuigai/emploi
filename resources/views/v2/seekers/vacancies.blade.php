@@ -21,11 +21,11 @@
                                     <i class="bx bxs-location-plus"></i>  My Country
                                     <i class="flaticon-right-arrow two"></i></li><hr>
 
-                                <li class="filter pb-2 ml-4" data-filter=".{{(auth()->user()->seeker->location_id)}}">
+                                <li class="filter pb-2 ml-4" data-filter=".{{isset(auth()->user()->seeker->location_id)}}">
                                     <i class="flaticon-placeholder"></i>  My Location
                                  <i class="flaticon-right-arrow two"></i></li><hr>
 
-                                <li class="filter pb-2 ml-4" data-filter=".{{isset(auth()->user()->seeker->industry_id)}}">
+                                <li class="filter pb-2 ml-4" data-filter=".{{auth()->user()->seeker->industry_id}}">
                                     <i class="flaticon-resume"></i>  My Industry
                                   <i class="flaticon-right-arrow two"></i></li><hr>                           
                             </ul>                  
