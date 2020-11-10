@@ -56,6 +56,7 @@ class SelfAssessmentController extends Controller
      */
     public function store(Request $request)
     {    
+        // dd($request->questions);
         if(auth()->user() && auth()->user()->role == 'seeker'){
             $email = auth()->user()->email;
 
@@ -75,18 +76,52 @@ class SelfAssessmentController extends Controller
                 $assessment_count = Collect($perfs)->last()->assessment_count + 1;
             }
 
-            foreach($request->choices as $question_id => $choice_id)
-            {
-                // Create performance record
-                $performance = Performance::create([
-                    'user_id' => null,
-                    'assessment_count' => $assessment_count,
-                    'email' => $email,           
-                    'question_id' => $question_id,
-                    'choice_id' => (int)$choice_id[0],
-                    'correct' => Choice::find((int)$choice_id[0])->correct_value,
-                    'optional_message' => $request->optional_message
-                ]);
+            // If they have attempted any question
+            if(isset($request->choices)){
+                // questions done
+                $questionsDone = array_keys($request->choices);
+
+                foreach($request->choices as $question_id => $choice_id)
+                {
+                    // Create performance record
+                    $performance = Performance::create([
+                        'user_id' => null,
+                        'assessment_count' => $assessment_count,
+                        'email' => $email,           
+                        'question_id' => $question_id,
+                        'choice_id' => (int)$choice_id[0],
+                        'correct' => Choice::find((int)$choice_id[0])->correct_value,
+                        'optional_message' => $request->optional_message
+                    ]);
+                }
+            }else{
+                $questionsDone = [];
+            }
+
+            // questions assigned
+            $questionsAssigned = $request->questions;
+
+            // unattemped questions
+            $blank = array_diff($questionsAssigned, $questionsDone);
+
+            // dd(
+            //     $questionsAssigned, $questionsDone,
+            //     array_diff($questionsAssigned, $questionsDone)
+            // );
+
+            // Null scores for questions that have not been attempted
+            if(isset($blank)){
+                foreach($blank as $blank){
+                    $performance = Performance::create([
+                        'user_id' => null,
+                        'assessment_count' => $assessment_count,
+                        'email' => $email,           
+                        'question_id' => $blank,
+                        'choice_id' => 0,
+                        'correct' => 0,
+                        'optional_message' => $request->optional_message
+                    ]);
+                };
             }
         });
 
