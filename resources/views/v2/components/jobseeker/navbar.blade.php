@@ -27,13 +27,13 @@
                                     <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="favourite-jobs.html" class="nav-link">Favourite Jobs</a>
+                                    <a href="/vacancies/featured" class="nav-link">Featured Jobs</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="post-a-job.html" class="nav-link">Post A Job</a>
+                                    <a href="/post-a-job" class="nav-link">Post A Job</a>
                                 </li>
                             </ul>
                         </li>
@@ -127,7 +127,7 @@
                                     <a class="nav-link" href="/v2/home"><strong>{{ __('other.dashboard') }}</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/v2/profile">{{ __('other.profile') }}</a>
+                                    <a class="nav-link" href="/profile">{{ __('other.profile') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/v2/logout">{{ __('auth.logout') }}</a>
