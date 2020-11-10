@@ -56,7 +56,12 @@ class AdminController extends Controller
     public function referees(Request $request)
     {
               
-        $referees = Referee::orderBy('created_at','DESC')->paginate(12);
+        $referees = Referee::Where('name','like','%'.$request->q.'%')
+                        ->orWhere('email','like','%'.$request->q.'%') 
+                        ->orWhere('organization','like','%'.$request->q.'%')
+                        ->orWhere('status','like','%'.$request->q.'%')  
+                        ->orderBy('created_at','DESC')
+                        ->paginate(12);
         return view('admins.referees')
                     ->with('referees',$referees);
                    

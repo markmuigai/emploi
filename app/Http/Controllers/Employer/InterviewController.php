@@ -35,7 +35,7 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // invite shortlisted candidate for an interview
     }
 
     /**
