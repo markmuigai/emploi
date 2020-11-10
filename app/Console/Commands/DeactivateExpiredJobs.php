@@ -48,7 +48,7 @@ class DeactivateExpiredJobs extends Command
         {
             $post = $posts[$i];
 
-            $post->status = 'inactive';
+            $post->status = 'closed';
             $post->save();
         }
     }
