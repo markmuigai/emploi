@@ -11,6 +11,8 @@ Advertise on Emploi and reach an audience of 100k+, get access to Premium Shortl
 $user = isset(Auth::user()->id) ? Auth::user() : false;
 ?>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
 <style>
   .blink{
 		padding: 10px;	
@@ -21,7 +23,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 		font-size: 28px;
 		font-family: cursive;
 		color: #E15419;
-		animation: blink 1s linear infinite;
+		animation: blink 2s linear infinite;
 	}
   @keyframes blink{
     0%{opacity: 0;}
@@ -29,6 +31,27 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     100%{opacity: 1;}
     }
 </style>
+
+<style>
+  .banner{
+    margin: 0;
+    padding: 0;
+    background: url(../images/advertise_here.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 27vh;
+  }
+
+  .banner a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #E87341;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 2s;
+  }
+ </style>
 <!-- index-block1 -->
 <div class="w3l-index-block1">
   <div class="content py-5">
@@ -55,7 +78,14 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </div>
 
-<div class="blink pt-4"><a href="/post-a-job" style="text-decoration: none;"><span class="span">Free Job Advertisement for new employers. 20% discount for all employers.</span></a></div>
+  <div class="container container-fluid pb-4">
+      <a href="#">
+          <div class="banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s">    
+
+          </div>
+      </a>
+  </div>
+
 
 <!-- //index-block1 -->
 <!-- index-block2 -->
@@ -99,6 +129,13 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 <!-- /index-block2 -->
+
+    <div class="blink pt-4">
+      <a href="/post-a-job" style="text-decoration: none;">
+        <span class="span">Free Job Advertisement for new employers. 20% discount for all employers.</span>
+      </a>
+    </div>
+
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3">
   <div class="section-info py-5">
