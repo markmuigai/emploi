@@ -11,8 +11,17 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-sm-12">
                 <div class="container shadow p-3 mb-5 bg-white rounded px-5">
-                    <h5 class="py-2">Select the correct answer</h5>
-                    <form method="POST" action="{{Route('v2.self-assessment.store', ['email' => request()->email])}}" enctype="multipart/form-data">
+                    <div class="row justify-content-between">
+                        <div class="col-md-6">
+                            <h5 class="py-2">Select the correct answer</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 id="assessmentTimer" class="text-danger float-right">
+                                
+                            </h4>
+                        </div>
+                    </div>
+                    <form id="assessmentForm" method="POST" action="{{Route('v2.self-assessment.store', ['email' => request()->email, 'questions' => $questions->pluck('id')->toArray()])}}" enctype="multipart/form-data">
                         @csrf
                         <div id="carouselExampleControls" id="assessment-carousel" class="carousel assessment-carousel slide" data-ride="carousel">
                             <div class="carousel-inner mb-5">
@@ -44,6 +53,36 @@
 @section('js')
     <script>
         $().ready(function(){
+            var dt = new Date();
+            dt.setMinutes( dt.getMinutes() + 10 );
+            // Set the date we're counting down to
+            var countDownDate = dt.getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="assessmentTimer"
+            document.getElementById("assessmentTimer").innerHTML = minutes + "m " + seconds + "s ";
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("assessmentForm").submit()
+            }
+            }, 1000);
+
             // Intitalize carousel
             $('.assessment-carousel').carousel({
                 interval: false

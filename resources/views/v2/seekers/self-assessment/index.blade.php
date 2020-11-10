@@ -54,7 +54,11 @@
                                         <div class="row mb-3">
                                             @if ($perf->correct == 0)
                                             <div class="col-md-4">
-                                                Selected: {{$perf->selectedChoice->value}}
+                                                @if ($perf->choice_id == 0)
+                                                    No answer given
+                                                @else
+                                                    Selected: {{$perf->selectedChoice->value}}
+                                                @endif
                                             </div>
                                             @endif
                                             <div class="col-md-4">
