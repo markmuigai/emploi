@@ -65,7 +65,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <a href="/join" class="btn btn-orange px-5">Sign Up</a>
 </h5>
 
-@include('components.ads.responsive')
+@if($agent->isMobile())
+    @include('components.ads.responsive')
+@else            
+    @include('components.ads.flat_728x90')
+@endif
 
  <script> 
     // Change the type of input to password or text 
