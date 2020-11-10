@@ -129,7 +129,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <a href="/login" class="btn btn-orange px-5">{{ __('auth.login') }}</a>
 </h5>
 
-@include('components.ads.responsive')
-
+<div class="mt-5">
+    @include('components.ads.responsive')
+</div>
 
 @endsection
