@@ -100,30 +100,28 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 @endforelse 
             </div>  
             <div class="row">
-                <div class="my-2">
-                    @include('components.ads.flat')
-                </div> 
+                <?php $adsCounter++; ?>
+                @if($adsCounter %3 == 0)
+                    <div class="row mb-4">
+                        <div class="card-body" style="padding: 0px; height: 89px">
+                            @if($agent->isMobile())
+                                @include('components.ads.mobile_400x350')
+                            @else            
+                                @include('components.ads.flat_728x90')
+                            @endif
+                        </div>
+                    </div>  
+                @endif
+                @if($adsCounter == 4)
+                    <div class=" col-md-10 offset-md-1">
+                        <div class="card my-2">
+                            <a href="/refer">
+                                <img src="/images/promotions/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
+                            </a>
+                        </div>
+                    </div>
+                @endif
             </div>   
-                {{-- <div class="card my-2">
-                    @include('components.ads.flat')
-                </div>       --}}
-            <?php $adsCounter++; ?>
-            {{-- @if($adsCounter %3 == 0)
-                <div class="col-lg-4 col-md-6">
-                    <div class="card my-2">
-                        @include('components.ads.responsive')
-                    </div>
-                </div>
-            @endif --}}
-            {{-- @if($adsCounter == 4)
-                <div class=" col-md-10 offset-md-1">
-                    <div class="card my-2">
-                        <a href="/refer">
-                            <img src="/images/promotions/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
-                        </a>
-                    </div>
-                </div>
-            @endif --}}
         @empty
             <div class="col-12">
               <div class="card">
