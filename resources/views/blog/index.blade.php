@@ -31,72 +31,76 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
     </div>
 
-    <?php $adsCounter=0; ?>        
-    @forelse($blogs->chunk(3) as $blogChunk)
-        <div class="row">
-            @forelse ($blogChunk as $blog)
-                <div class="col-lg-4 col-md-6">
-                    <div class="card my-2">
-                        <div class="card-body">
-                            <div class="blog-image lazy mb-2" data-bg="url({{ asset($blog->imageUrl) }})"></div>
-                            <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
-                            <div class="d-flex">
-                                <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
-                            </div>
-                            <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
-                            <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
-                            <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
-                            <hr>
-                            <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}"><i class="fas fa-share-alt"></i> Share</button>
-                            <!-- SHARE MODAL -->
-                            @include('components.share-modal')
-
-                            <span style="float: right;">
-                                <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
-                                @if($likes == 1)
-                                    <b>1 Like</b>
-                                @else
-                                    {{ $likes }} <b>Likes</b>
-                                @endif 
-
-                                |
-                                
-                                @guest
-                                    <a href="/login" title="Login to Like">Login to Like</a>
-                                @else
-                                    @if(Auth::user()->hasLiked('blog',$blog->id))
-
-                                        <a href="/likes/blog/{{ $blog->slug }}" style="color: #500095" title="Unlike Blog">
-                                            <i class="fa fa-thumbs-up"></i> Unlike
-                                        </a>
-                                    @else
-                                        <a href="/likes/blog/{{ $blog->slug }}" title="Like Blog">
-                                            <i class="fa fa-thumbs-up"></i> Like
-                                        </a>
-                                    @endif
-                                @endguest
-                                
-                            <!--  <form method="POST" action="blog/comment/{$id}">
-                                        @csrf
-                                    
-
-                                            <div class="form-group">
-                                            <textarea id="comment" rows="2" class="form-control" name="comment" placeholder="Write a comment" required autofocus></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                            <button type="submit" class="btn btn-success btn-sm btn-block">Comment</button>
-                                            </div>
-                                </form>  -->
-
-                            </span>
-                            <!-- END OF SHARE MODAL -->
+    <div class="row">
+        <?php $adsCounter=0; ?>        
+        @forelse($blogs as $blog)
+            <div class="col-lg-4 col-md-6">
+                <div class="card my-2">
+                    <div class="card-body">
+                        <div class="blog-image lazy mb-2" data-bg="url({{ asset($blog->imageUrl) }})"></div>
+                        <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
+                        <div class="d-flex">
+                            <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
                         </div>
+                        <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
+                        <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
+                        <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                        <hr>
+                        <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}"><i class="fas fa-share-alt"></i> Share</button>
+                        <!-- SHARE MODAL -->
+                        @include('components.share-modal')
+
+                        <span style="float: right;">
+                            <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
+                            @if($likes == 1)
+                                <b>1 Like</b>
+                            @else
+                                {{ $likes }} <b>Likes</b>
+                            @endif 
+
+                            |
+                            
+                            @guest
+                                <a href="/login" title="Login to Like">Login to Like</a>
+                            @else
+                                @if(Auth::user()->hasLiked('blog',$blog->id))
+
+                                    <a href="/likes/blog/{{ $blog->slug }}" style="color: #500095" title="Unlike Blog">
+                                        <i class="fa fa-thumbs-up"></i> Unlike
+                                    </a>
+                                @else
+                                    <a href="/likes/blog/{{ $blog->slug }}" title="Like Blog">
+                                        <i class="fa fa-thumbs-up"></i> Like
+                                    </a>
+                                @endif
+                            @endguest
+                            
+                        <!--  <form method="POST" action="blog/comment/{$id}">
+                                    @csrf
+                                
+
+                                        <div class="form-group">
+                                        <textarea id="comment" rows="2" class="form-control" name="comment" placeholder="Write a comment" required autofocus></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                        <button type="submit" class="btn btn-success btn-sm btn-block">Comment</button>
+                                        </div>
+                            </form>  -->
+
+                        </span>
+                        <!-- END OF SHARE MODAL -->
                     </div>
                 </div>
-            @empty
-                
-            @endforelse 
-        </div>  
+            </div>
+        @empty
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <p>No blogs found</p>
+                </div>
+            </div>
+        </div>
+        @endforelse 
         <?php $adsCounter++; ?>
         @if($adsCounter %3 == 0)
             <div class="row mb-4">
@@ -118,16 +122,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>
         @endif
-    @empty
-        <div class="col-12">
-            <div class="card">
-            <div class="card-body text-center">
-                <p>No blogs found</p>
-            </div>
-            </div>
-        </div>
-    @endforelse
-
+    </div>
     <div class="row">
         <div class=" col-md-12">
             <div class="card my-2">
