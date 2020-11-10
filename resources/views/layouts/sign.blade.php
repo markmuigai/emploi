@@ -85,8 +85,10 @@
             </div>
                 
             @else            
-                <div class="col-md-6">
-                    @yield('content')
+                <div class="col-md-8 d-flex justify-content-center">
+                    <div style="width: 728px;">
+                        @yield('content')
+                    </div>
                 </div>
             @endif
         </div>
