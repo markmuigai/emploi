@@ -94,8 +94,8 @@ class Seeker extends Model
     public function recommendedPosts()
     {
         return Post::where('industry_id', $this->industry_id)
-                ->orWhere('location_id', $this->location_id)
-                ->orWhere('education_requirements', $this->location_id);
+                // ->orWhere('location_id', $this->location_id)
+                ->orWhere('education_requirements', $this->education_level_id);
     }
 
     public static function disableFeaturedUserByUserId($user_id){
