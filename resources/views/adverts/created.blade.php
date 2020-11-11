@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <b>Your advertisment has been created successfully.</b></p>
     </div>
     <div class="row bottom_grids pt-md-3">
-      <div class="col-lg-4 col-md-6 mt-5">
+      <div class="col-lg-6 col-md-6 mt-5">
         <div class="s-block">
           <a href="/employers/rate-card" class="d-block p-lg-4 p-3">
             <h3 class="my-3">Make Payment</h3>
@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
           
         </div>
       </div> -->
-      <div class="col-lg-4 mt-5">
+      <div class="col-lg-6 mt-5">
         <div class="s-block">
           <a href="#blog-single.html" class="d-block p-lg-4 p-3">
             <h3 class="my-3">Contact Us</h3>
