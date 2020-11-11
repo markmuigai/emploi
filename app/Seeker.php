@@ -916,7 +916,9 @@ class Seeker extends Model
     
                if($this->user->hasVerified()){
 
-               $contents  ="<p>Is your profile failing to get hits by employers? Subscribe to yearly Spotlight package at a free one month discount today and increase your profile visibilty for employers to see and shortlist you easily<a href='https://bit.ly/3bbM00b'> Subscribe.</a></p>";  
+                $contents ="<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING HIRED</p> 
+                            <p>Click <a href='https://bit.ly/3fqEkrD'> here</a> to have your CV done to perfection at no cost.</p>
+                                <br><br>";  
 
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
     
