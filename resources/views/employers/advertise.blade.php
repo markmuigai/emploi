@@ -94,18 +94,18 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
               <h4 class="modal-title">Advertise here</h4>
               </div>
                 <div class="modal-body">               
-                      <form action="/employers/publish" method="POST">
+                      <form  method="post" action="/employers/publish"  enctype="multipart/form-data">
                           @csrf                              
                           <div class="form-group">
-                              <label for="">Your Name</label>
+                              <label for="">Your Name<strong class="text-danger">*</strong></label>
                               <input type="text" name="name" value="{{ $user ? $user->name : '' }}" required="" class="form-control" placeholder="" maxlength="50">
                           </div>
                           <div class="form-group">
-                              <label for="">Phone Number</label>
+                              <label for="">Phone Number<strong class="text-danger">*</strong></label>
                               <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
                           </div>
                           <div class="form-group">
-                              <label for="">Email Address</label>
+                              <label for="">Email Address<strong class="text-danger">*</strong></label>
                               <input type="email" name="email" value="{{ $user ? $user->email : '' }}" required="" class="form-control" placeholder="" maxlength="50">
                           </div>
                           <div class="form-group">
@@ -120,13 +120,11 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                           <div class="text-center">                 
                                 
                               <input type="submit" class="btn btn-success" value="Submit">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             
                           </div>                                               
                       </form>
-                    <div class="modal-footer">
-                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                   </div>
-                </div>                         
+                  </div>                         
             </div>                  
         </div>
     </div>
