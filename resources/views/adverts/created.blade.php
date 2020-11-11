@@ -16,12 +16,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       <h3 class="head">Advertisement Created</h3>
       <p class="my-3 head"> 
         Hello {{ $advert->name }},<br>
-        <b>Your advertisment has been created successfully.</b>  We've also created an employer account for you to edit listing, view applicants and shortlist. Check your email for verification!</p>
+        <b>Your advertisment has been created successfully.</b></p>
     </div>
     <div class="row bottom_grids pt-md-3">
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="#blog-single.html" class="d-block p-lg-4 p-3">
+          <a href="/employers/rate-card" class="d-block p-lg-4 p-3">
             <h3 class="my-3">Make Payment</h3>
             <p class="">Our recruitment tools are solid and your organization will recoup this investment in time savings and efficiency in the long run</p>
           </a>
