@@ -179,7 +179,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     </div>
 
 <!-- content-with-photo17 -->
-<section class="w3l-index-block3">
+<section class="w3l-index-block3 premium-recruitement">
   <div class="section-info py-5">
     <div class="container py-md-3">
       <div class="row cwp17-two align-items-center">
@@ -303,12 +303,12 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
    </div>
  </div>
 <!-- content-with-photo17 -->
-<section class="w3l-index-block7 py-5">
+<section class="w3l-index-block7 py-5 great-features">
   <div class="container py-md-3">
     <div class="row cwp17-two align-items-center">
       <div class="col-md-6 cwp17-text">
         <h2>Great features app
-            that everyone Love</h2>
+            that everyone Loves</h2>
         <p>We enhance communication between employers and job seekers by configuring and automating responses giving your organization a professional outlook and giving job seekers appropriate feedback to advance their careers. Founded in 2017 as Jobsikaz and later rebranding to Emploi in 2019, we our goal is to impact 5 million job seekers in Africa by 2025. </p>
         <a href="/about">Read more about us &raquo;</a>
       </div>
@@ -329,7 +329,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       <div class="row">
         <div class="col-md-10 mx-auto">
           <div class="owl-one owl-carousel owl-theme">
-          	<div class="item">
+          	<div class="item bg-white">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
                   <img src="{{asset('images/testimonials/paul.jpeg')}}" class="img-fluid rounded" alt="Paul - WorkPay">
@@ -338,7 +338,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <div class="name">- Paul - WorkPay</div>
               </div>
             </div>
-            <div class="item">
+            <div class="item bg-white">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
                   <img src="/images/avatar.png" class="img-fluid rounded" alt="Calvin Njoroge, Director – Quality Car Imports">
@@ -347,7 +347,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <div class="name">- Calvin Njoroge, Director – Quality Car Imports</div>
               </div>
             </div>
-            <div class="item">
+            <div class="item bg-white">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
                   <img src="{{asset('images/testimonials/elijah.jpeg')}}" class="img-fluid rounded" alt="Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes">
@@ -356,7 +356,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                 <div class="name">- Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes</div>
               </div>
             </div>
-            <div class="item">
+            <div class="item bg-white">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
                   <img src="{{asset('images/testimonials/sandra.webp')}}" class="img-fluid rounded" alt="Sandra Eshitemi – Employer">

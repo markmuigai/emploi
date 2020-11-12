@@ -9877,7 +9877,7 @@ h4.sub-title {
     line-height: 40px; } }
 
 /*-- features15 block --*/
-.w3l-index-block4 .features-bg {
+.w3l-index-block4 .features-bg, .testimonials {
   background: var(--light-bg-color); }
 
 .w3l-index-block4 .feature-unit {
@@ -9950,7 +9950,7 @@ h4.sub-title {
     line-height: 70px; } }
 
 .w3l-index-block5 .slider-info {
-  max-width: 95%;
+  /* max-width: 95%; */
   margin: 0 auto;
   border-radius: var(--card-curve);
   padding: 3rem;
@@ -11528,4 +11528,19 @@ img.mfp-img {
     font-size: 28px;
     line-height: 28px; } }
 
+  .premium-recruitement{
+    background: linear-gradient(140deg,#8900ff 0,#500095 60%);
+  }
+
+  .great-features{
+    background: linear-gradient(140deg,#500095  0,#8900ff 60%);
+  }
+
+  .premium-recruitement  p, .great-features p{
+    color: #ffffff !important;
+  }
+
+  .premium-recruitement h2, .great-features h2{
+    color: #e15419 !important;
+  }
 /*# sourceMappingURL=style-starter.css.map */

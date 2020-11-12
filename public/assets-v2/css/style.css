@@ -4483,7 +4483,7 @@ button:focus {
 /*-- Blog --*/
 .blog-area.three {
   /* background-image: #fafafa; */
-  background-color: #191918;
+  background: linear-gradient(140deg,#8900ff 0,#500095 60%);
   background-size: contain  ;
   background-position: center center;
   background-repeat: no-repeat;
