@@ -29,7 +29,7 @@
                                     <a herf="#" class="nav-link">Favourite Jobs</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
+                                    <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
                                 </li>
                                 <li class="nav-item">
                                     <a herf="#" class="nav-link">Post A Job</a>
@@ -119,3 +119,7 @@
         </div>
     </div>
 </div>
+
+@section('modal')
+    @include('v2.components.modals.self-assessment')
+@endsection
