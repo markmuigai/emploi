@@ -105,7 +105,7 @@
                                     <a class="nav-link" href="/v2/home"><strong>{{ __('other.dashboard') }}</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/v2/profile">{{ __('other.profile') }}</a>
+                                    <a class="nav-link" href="/profile">{{ __('other.profile') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/v2/logout">{{ __('auth.logout') }}</a>
