@@ -1,6 +1,6 @@
   
     <?php
-        $blogs = \App\Blog::where('status','active')->take(3)->get();
+        $blogs = \App\Blog::where('status','active')->orderBy('id', 'desc')->take(3)->get();
     ?>
     <!-- Blogs -->
 
