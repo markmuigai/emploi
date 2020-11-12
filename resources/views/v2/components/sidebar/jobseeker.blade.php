@@ -20,12 +20,12 @@
             Applications
         </div>
     </a>
-    <a href="/storage/resumes/{{ $user->seeker->resume }}">
+<!--     <a href="/storage/resumes/{{ $user->seeker->resume }}">
         <div class="profile-list">
             <i class='bx bx-note'></i>
             My Resume
         </div>
-    </a>
+    </a> -->
     <a href="self-assessment?email={{ $user->email }}">
         <div class="profile-list">
             <i class='bx bx-envelope'></i>

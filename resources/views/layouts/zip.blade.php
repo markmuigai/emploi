@@ -94,7 +94,7 @@
 @endif
 <!-- index-block8 -->
 <section class="w3l-index-block8 py-5">
-  <div class="container py-md-3 text-center">
+  <div class="container shadow rounded py-md-3 text-center">
     <div class="heading text-center mx-auto">
       <h3 class="head">Have questions? We're here to help. </h3>
     </div>
