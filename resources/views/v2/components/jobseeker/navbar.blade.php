@@ -26,9 +26,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/vacancies/featured" class="nav-link">Featured Jobs</a>
-                                </li>
+                           <!--      <li class="nav-item">
+                                    <a href="vacancies" class="nav-link">My Saved Jobs</a>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
                                 </li>
