@@ -420,13 +420,19 @@ class Seeker extends Model
 
     public function getRsi($post){
         //return $this->getPlainRsi($post);
+
+        //set percentage value of RSI score to zero
         $perc = 0;
+
+        //adds the 4 to a percentage value and assigns the result to $perc
         if(isset($this->industry_id) && $this->industry_id == $post->industry_id) {
                $perc += 4;
         }
 
+        //return $perc if jobseeker has incomplete profile(cv and education level missing) or post has no model seeker
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
             return $perc;
+
         $model = $post->modelSeeker;
 
         $total = 
@@ -554,6 +560,7 @@ class Seeker extends Model
 
         }
 
+        //check industry and experience match
         if($this->industry_id == $model->post->industry_id)//experience
         {
             if($this->years_experience == $model->experience_duration)
@@ -672,7 +679,7 @@ class Seeker extends Model
         
         
         
-        //referee feedback 
+        //referee feedback from assessment report
         if(count($this->jobApplicationReferees) > 0)
         {
             $performance = array();
@@ -916,7 +923,9 @@ class Seeker extends Model
     
                if($this->user->hasVerified()){
 
-               $contents  ="<p>Is your profile failing to get hits by employers? Subscribe to yearly Spotlight package at a free one month discount today and increase your profile visibilty for employers to see and shortlist you easily<a href='https://bit.ly/3bbM00b'> Subscribe.</a></p>";  
+                $contents ="<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING HIRED</p> 
+                            <p>Click <a href='https://bit.ly/3fqEkrD'> here</a> to have your CV done to perfection at no cost.</p>
+                                <br><br>";  
 
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
     

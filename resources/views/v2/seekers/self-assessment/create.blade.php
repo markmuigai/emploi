@@ -142,7 +142,7 @@
                 });
 
             window.onbeforeunload = function() {
-                if (submit_clicked === false){
+                if (submit_clicked === false && distance > 0 ){
                 return "Are you sure you want to leave? Changes will not be saved!";
                 }
             }

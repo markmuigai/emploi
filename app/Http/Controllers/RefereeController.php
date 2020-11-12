@@ -174,7 +174,7 @@ class RefereeController extends Controller
 
 	        $caption = $r->name." has submitted referee feedback.";
 	        $contents = $r->name." has provided feedback as you had listed them as your referee. This information will be used by current and future employers looking to hire you. <br>
-	        Ensure your profile is up to date to increase your hireablity.
+	        Ensure your profile is up to date to increase your hireability.
 	        <br><br>
 
 	       Thank you for choosing Emploi.
