@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Employer;
 
-use App\Http\Controllers\Controller;
+use App\JobApplication;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class InterviewController extends Controller
 {
@@ -25,6 +26,9 @@ class InterviewController extends Controller
     public function create()
     {
         //
+        return view('v2.employer.interview.create',[
+            'application' =>  JobApplication::findOrFail(request()->application),
+        ]);
     }
 
     /**
@@ -36,6 +40,7 @@ class InterviewController extends Controller
     public function store(Request $request)
     {
         // invite shortlisted candidate for an interview
+        return $request->all();
     }
 
     /**
