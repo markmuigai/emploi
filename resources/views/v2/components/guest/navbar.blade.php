@@ -26,7 +26,7 @@
                                     <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a herf="#" class="nav-link">Favourite Jobs</a>
+                                    <a href="/login" class="nav-link">Saved Jobs</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
