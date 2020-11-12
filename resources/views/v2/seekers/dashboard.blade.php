@@ -26,17 +26,17 @@
                             <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="dashboard.html#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                                 <div class="profile-list">                               
                                     <i class='bx bxs-inbox'></i>
-                                    <a href="profile/applications">
+                                    <a href="/profile/applications">
                                     Applied Jobs
-                                </a>
+                                    </a>
                                 </div>
                             </a>
-                            <a href="#">
+                         <!--    <a href="#">
                                 <div class="profile-list">
                                     <i class='bx bx-note'></i>
                                     My Resume
                                 </div>
-                            </a>
+                            </a> -->
                             <a href="/v2/vacancies">
                                 <div class="profile-list">
                                     <i class='bx bx-task'></i>
@@ -61,9 +61,9 @@
                         <div class="tab-content" id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 <div class="profile-content">
+                                       <a href="/profile/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
                                         <div class="profile-content-inner">
-                                            <h2>Basic Info</h2>
-                                               <a href="personal-details/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
+                                            <h2>Basic Info</h2>                                            
                                             <!-- INFO CARD -->                
                                             <div class="card py-2 mb-4">
                                                 <div class="card-body">
@@ -171,7 +171,7 @@
                                     <div class="profile-content">
                                         <div class="profile-content-inner">
                                             <h2>Education</h2>
-                                               <a href="education/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
+                                            <!--    <a href="education/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a> -->
                                             <!-- EDUCATION -->
                                              <div class="card py-2 mb-4">
                                                 <div class="card-body">
@@ -213,7 +213,7 @@
                                     <div class="profile-content">
                                         <div class="profile-content-inner">
                                             <h2>Experience</h2>
-                                               <a href="experience/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
+                                          <!--      <a href="experience/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a> -->
                                                       <!-- EXPERIENCE -->
                                                     <div class="card py-2 mb-4">
                                                         <div class="card-body">
@@ -257,7 +257,7 @@
                                         <div class="profile-content">
                                             <div class="profile-content-inner">
                                             <h2>Skills</h2>
-                                               <a href="skills/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a>
+                                      <!--          <a href="skills/edit" class="btn btn-orange" style="float: right;"><i class="fas fa-edit"></i> Edit</a> -->
                                                       <!-- SKILLS -->
                                                     <div class="card py-2 mb-4">
                                                         <div class="card-body">
