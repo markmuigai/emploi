@@ -27,21 +27,23 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <h4>Selected Candidates</h4>
         <div class="row">
             @forelse($post->candidates as $c)
-            <div class="col-md-4 my-3 mx-1 py-5 border">
-                <div class="row justify-content-center">
-                    <img src="{{ asset($c->seeker->user->getPublicAvatarUrl()) }}" class="circle-img" alt="{{ $c->seeker->user->name }}">
-                </div>
-                <div class="row justify-content-center">
-                    <a href="/employers/browse/{{ $c->seeker->user->username }}" class="orange d-block">{{ $c->seeker->user->name }}</a>
-                </div>
-                <div class="row justify-content-center">
-                    <p>RSI {{ $c->seeker->getRsi($post) }}%</p>
-                </div>
-                <div class="row justify-content-center">
-                    <p>{{ $post->location->country->currency }} {{ $c->monthly_salary }} P.M.</p>
-                </div>
-                <div class="row justify-content-center">
-                    <a href="#" class="btn btn-primary">Interview Evaluation Form</a>
+            <div class="col-md-4">
+                <div class="border my-3 py-5">
+                    <div class="row justify-content-center">
+                        <img src="{{ asset($c->seeker->user->getPublicAvatarUrl()) }}" class="circle-img" alt="{{ $c->seeker->user->name }}">
+                    </div>
+                    <div class="row justify-content-center">
+                        <a href="/employers/browse/{{ $c->seeker->user->username }}" class="orange d-block">{{ $c->seeker->user->name }}</a>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p>RSI {{ $c->seeker->getRsi($post) }}%</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <p>{{ $post->location->country->currency }} {{ $c->monthly_salary }} P.M.</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <a href="#" class="btn btn-primary">Interview Evaluation Form</a>
+                    </div>
                 </div>
             </div>
             @empty
