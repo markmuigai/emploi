@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'RSI Rating')
+@section('page_title', 'Job Score Rating')
 
 <div class="container">
     <div class="card">
@@ -17,7 +17,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <a href="/employers/applications/{{ $application->post->slug }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Applications</a>
                     {{ $application->user->name }}
                     <div style="float: right;">
-                        <small>RSI {{ $application->user->seeker->getRsi($application->post) }}%</small>
+                        <small>Job Score {{ $application->user->seeker->getRsi($application->post) }}%</small>
                         
                     </div>
                 </h2>
