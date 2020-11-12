@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-layout')
 
-@section('title','Emploi :: '.$post->getTitle() )
+@section('title',$post->getTitle().' :: Emploi' )
 @section('description')
 {{ $post->brief }}
 @endsection
