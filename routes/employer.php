@@ -97,4 +97,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::post('/employers/applications/{slug}/{applicationId}/rsi/company-sizes', 'EmployerController@saveCosizes');
 
     Route::get('/employers/browse/{username}/request-cv', 'EmployerController@cvRequest');
+
+    // Interview invite
+    Route::resource('interviews', 'InterviewController');
 });
