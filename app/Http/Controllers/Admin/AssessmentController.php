@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Choice;
 use App\Question;
 use App\Performance;
 use Illuminate\Http\Request;
@@ -89,7 +90,9 @@ class AssessmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('v2.admin.assessments.edit',[
+            'question' => Question::findOrFail($id)
+        ]);
     }
 
     /**
@@ -101,7 +104,35 @@ class AssessmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        DB::transaction(function () use($request, $id){
+            $question = Question::findOrFail($id);
+
+            $question->update([
+                'title' => $request->title,
+                'difficulty_level' => $request->level
+            ]);
+
+            foreach($request->choices as $id => $choice_value){
+                $choice = Choice::findOrFail($id);
+
+                // Check if choice is the correct value
+                $correctKey = (int)$request->correct;
+
+                if($id == $correctKey){
+                    $value = 1;
+                }else{
+                    $value = 0;
+                }
+                
+                $choice->update([
+                    'value' => $choice_value,
+                    'correct_value' => $value
+                ]);
+            }
+        });
+
+        return redirect()->route('assessments.index');
     }
 
     /**
