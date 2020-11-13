@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </td>
                         </tr>
                         <tr class="collapse" id="viewText-{{$test->id}}">
-                            <td colspan="3">
+                            <td colspan="4">
                                 <p>{{$test->cvText}}</p>
                             </td>
                         </tr>
