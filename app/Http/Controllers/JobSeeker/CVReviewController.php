@@ -4,12 +4,15 @@ namespace App\Http\Controllers\JobSeeker;
 
 use Validator;
 use App\CVReviewResult;
+use App\Seeker;
 use Spatie\PdfToText\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+
+use App\Notifications\EditingRequest;
 
 class CVReviewController extends Controller
 {
@@ -115,6 +118,11 @@ class CVReviewController extends Controller
             //delete CV after parsing
             File::delete($path);
         });
+
+         //send slack notification
+          if (app()->environment() === 'production') {        
+            Seeker::first()->notify(new EditingRequest($name.' reviewed CV using auto review'));
+        }  
         
         // dd($result->toArray());
         return redirect()->route('v2.cv-review.index',[
