@@ -35,10 +35,10 @@
                                 @else
                                                      
                                 <li class="nav-item">
-                                    <a href="#" data-toggle="modal" data-target="#slfAssessmentModal" class="nav-link">Self Assessment</a>
+                                    <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
                                 </li>
                                 @endif
-                                
+
                                 <li class="nav-item">
                                     <a href="/employers/publish" class="nav-link">Post A Job</a>
                                 </li>
