@@ -365,11 +365,4 @@ class User extends Authenticatable
         }
         return $total;
     }
-
-    public function hasMarkedSave(){
-        if ($this->id == 2) {
-           return true;
-        }
-    return false;
-    }
 }
