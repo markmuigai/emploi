@@ -34,7 +34,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($emailsAssessed as $email)
+                            @foreach ($emailsAssessed as $key => $email)
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$email}}</td>
