@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\JobSeeker;
 
 use Validator;
+use App\CVReviewResult;
 use Spatie\PdfToText\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -58,6 +59,9 @@ class CVReviewController extends Controller
                         ->withInput();
         }
 
+        // Get cv file name
+        $name = $request->file('cv')->getClientOriginalName();
+
         // Get file prefix dynamically
         $prefix = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
 
@@ -82,15 +86,35 @@ class CVReviewController extends Controller
                         ->withInput();
         }
 
-
         // Get Formatted cv
         $cleanCV = cleanCV($rawCV);
 
         // Get score
         $result = reviewCV($cleanCV);
 
-        //delete CV after parsing
-        File::delete($path);
+        DB::transaction(function () use($name, $cleanCV, &$result, $path){
+            // Store score
+            $reviewResult = CVReviewResult::create([
+                'name' => $name,
+                'output' => 'CV Parsed Successfully',
+                'cvText' => $cleanCV,
+                'score' => $result->get('score')
+            ]);
+
+            // dd($result->toArray());
+            // Store recommendations
+            if($result->get('recommendations')->isNotEmpty()){
+                foreach($result->get('recommendations') as $rec){
+                    // Store recommendations
+                    $reviewResult->recommendations()->create([
+                        'name' => $rec,
+                    ]);
+                }
+            }
+
+            //delete CV after parsing
+            File::delete($path);
+        });
         
         // dd($result->toArray());
         return redirect()->route('v2.cv-review.index',[
