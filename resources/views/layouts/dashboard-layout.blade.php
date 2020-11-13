@@ -299,6 +299,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @include('components.invite')
     <!-- END OF INVITE FRIENDS -->
 
+    <!-- MODALS -->
+    @yield('modals')
+    <!-- END OF MODALS -->
+    
     <!-- INLINE SCRIPTS -->
     <script type="text/javascript">
         // Post a Job Alternative
