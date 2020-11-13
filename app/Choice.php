@@ -14,4 +14,16 @@ class Choice extends Model
     {
         return $this->belongsTo('App\Question');
     }
+
+    /**
+     * Check if choice is the correct value
+     */
+    public function isCorrect()
+    {
+        if($this->correct_value == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
