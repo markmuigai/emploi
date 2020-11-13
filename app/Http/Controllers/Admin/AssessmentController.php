@@ -48,10 +48,9 @@ class AssessmentController extends Controller
                     'difficulty_level' => $questionData['level']
                 ]);
 
-                dd($questionData['choices']);
                 // Get key of the correct choice
                 foreach($questionData['choices'] as $key => $choice){
-                    if(isset($questionData['choices'])){
+                    if(isset($choice)){
                         // Check if choice is the correct value
                         $correctKey = (int)$questionData['correct'];
 
