@@ -102,7 +102,7 @@ class Performance extends Model
        // Find the difference between today and the last assessment done
        $difference = $time->diffInDays($now);
        
-      if ($difference > 14) {
+      if ($difference > 7) {
           return true;
       }
       return false;       
