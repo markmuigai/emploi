@@ -15,8 +15,9 @@ class CVKeywordController extends Controller
      */
     public function index()
     {
-        // Show all keywords
-
+        return view('v2.admin.cvReview.cvKeywords.index',[
+            'keywords' => CVKeyword::all()
+        ]);
     }
 
     /**
@@ -26,7 +27,7 @@ class CVKeywordController extends Controller
      */
     public function create()
     {
-        // Create a keyword form
+        //
     }
 
     /**
@@ -46,6 +47,28 @@ class CVKeywordController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -54,7 +77,7 @@ class CVKeywordController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
