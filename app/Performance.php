@@ -79,6 +79,14 @@ class Performance extends Model
      */
     public static function canDoAssessment($email)
     {   
+        //check if a user has ever done assessment before
+        $created = Performance::where('email',$email)->first(); 
+
+        //if never done before return true(can do asssessment)     
+        if(!isset($created->id)){
+            return true;
+        }
+
          // All performance records for a user
         $allAssessments = Performance::assessmentsForUser($email);
 
