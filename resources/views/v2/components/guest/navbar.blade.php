@@ -25,14 +25,14 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
                                 </li>
+                               <!--  <li class="nav-item">
+                                    <a href="v2/login" class="nav-link">My Saved Jobs</a>
+                                </li> -->
                                 <li class="nav-item">
-                                    <a herf="#" class="nav-link">Favourite Jobs</a>
+                                    <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a herf="#" class="nav-link">Post A Job</a>
+                                    <a href="/employers/publish" class="nav-link">Post A Job</a>
                                 </li>
                             </ul>
                         </li>
@@ -119,3 +119,7 @@
         </div>
     </div>
 </div>
+
+@section('modal')
+    @include('v2.components.modals.self-assessment')
+@endsection

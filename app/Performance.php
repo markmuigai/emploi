@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Performance extends Model
 {
@@ -70,5 +71,32 @@ class Performance extends Model
     public static function emailsAssessed()
     {
         return Performance::all()->unique('email')->pluck('email');
+    }
+
+    
+      /**
+     * Get those eligible to do assessment
+     */
+    public static function canDoAssessment($email)
+    {   
+         // All performance records for a user
+        $allAssessments = Performance::assessmentsForUser($email);
+
+        // Get the latest assessment
+        $latest = $allAssessments->pluck('assessment_count')->max();
+
+        // Get the latest date assessment was done
+       $time=Performance::Where('assessment_count', $latest)->pluck('created_at')->max();
+
+        // Get the current date
+       $now=Carbon::now();
+
+       // Find the difference between today and the last assessment done
+       $difference = $time->diffInDays($now);
+       
+      if ($difference > 14) {
+          return true;
+      }
+      return false;       
     }
 }
