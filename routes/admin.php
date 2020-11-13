@@ -80,8 +80,11 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::post('cvTests/deleteAll', 'cvTestController@deleteAll')->name('cvTests.deleteAll');
 
-    // Monitor CV Reviews
+    // CV Reviews
     Route::resource('cvReviews', 'CVReviewController');
+
+    // CV Keywords
+    Route::resource('CVKeywords', 'CVKeywordController');
 
     // Download pdf
     Route::post('referee-form/download/{slug}', 'RefereeReportController@download')->name('refereeForm.download');
