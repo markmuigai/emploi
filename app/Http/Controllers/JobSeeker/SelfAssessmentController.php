@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\JobSeeker;
 
+use Auth;
 use App\User;
 use App\Choice;
 use App\Industry;
@@ -32,15 +33,30 @@ class SelfAssessmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
-        if(auth()->user() && auth()->user()->role == 'seeker'){
-            $questions = Industry::findOrFail(auth()->user()->seeker->industry_id)
-                                    ->getAssessmentQuestions((auth()->user()->seeker->years_experience)*12);   
-        }else{
-            // Get industry and fetch questions based on user profile
-            $questions = Industry::findOrFail($request->payload['industry'])->getAssessmentQuestions($request->payload['experience']);   
-        }
+    {   
+        $user=Auth::user();
 
+        if(auth()->user() && auth()->user()->role == 'seeker'){
+
+            if (Performance::canDoAssessment($user->email)) {
+            $questions = Industry::findOrFail(auth()->user()->seeker->industry_id)
+                                        ->getAssessmentQuestions((auth()->user()->seeker->years_experience)*12);   
+            }
+            else{
+               return view('v2.seekers.self-assessment.cannot',[
+                            'email' => $user->email]);
+            }
+            
+        }else
+
+            if (Performance::canDoAssessment(request()->email)) {
+             // Get industry and fetch questions based on user profile
+                $questions = Industry::findOrFail($request->payload['industry'])->getAssessmentQuestions($request->payload['experience']);   
+            }
+            else{
+               return view('v2.seekers.self-assessment.cannot',[
+                           'email' => request()->email]);
+            }
         // TODO: Remove array padding
         // Return view
         return view('v2.seekers.self-assessment.create',[
