@@ -42,6 +42,7 @@ class cvTestController extends Controller
     public function store(Request $request)
     {
         foreach($request->all()['files'] as $cv){
+            // Get cv file name
             $name = $cv->getClientOriginalName();
 
             if($cv->getType() == false){

@@ -27,6 +27,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Email</th>
                             <th scope="col">Recent Score</th>
                             <th scope="col">Actions</th>
@@ -35,6 +36,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tbody>
                             @foreach ($emailsAssessed as $email)
                             <tr>
+                                <td>{{$key+1}}</td>
                                 <td>{{$email}}</td>
                                 <td>{{App\Performance::recentScore($email)}}\10</td>
                                 <td>

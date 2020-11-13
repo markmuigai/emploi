@@ -70,13 +70,18 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::get('cv-builder', 'AdminController@CvBuilder');
 
+    // Assessments
     Route::resource('assessments','AssessmentController');
 
     Route::resource('assessmentResults','AssessmentResultController');
 
+    // CV Test results
     Route::resource('cvTests', 'cvTestController');
 
     Route::post('cvTests/deleteAll', 'cvTestController@deleteAll')->name('cvTests.deleteAll');
+
+    // Monitor CV Reviews
+    Route::resource('cvReviews', 'CVReviewController');
 
     // Download pdf
     Route::post('referee-form/download/{slug}', 'RefereeReportController@download')->name('refereeForm.download');
