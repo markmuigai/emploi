@@ -56,14 +56,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     CV Text
                                 </a>
                                 <a class="btn btn-primary" data-toggle="collapse" 
-                                    href="#viewText-{{$review->id}}" role="button" aria-expanded="false" aria-controls="viewText-{{$review->id}}">
+                                    href="#viewRecommendations-{{$review->id}}" role="button" aria-expanded="false" aria-controls="viewRecommendations-{{$review->id}}">
                                     Recommendations
                                 </a>
                             </td>
                         </tr>
                         <tr class="collapse" id="viewText-{{$review->id}}">
-                            <td colspan="4">
+                            <td colspan="5">
                                 <p>{{$review->cvText}}</p>
+                            </td>
+                        </tr>
+                        <tr class="collapse" id="viewRecommendations-{{$review->id}}">
+                            <td colspan="5">
+                                    Ensure your CV has the following keywords:
+                                <ul class="list-inline">
+                                    @foreach ($review->recommendations as $key => $rec)
+                                        <li class="list-inline-item">
+                                            <strong>
+                                                {{($key + 1).') '.ucfirst($rec->name)}}
+                                            </strong>
+                                        </li>
+                                    @endforeach
+                                  </ul>
                             </td>
                         </tr>
                         @endforeach
