@@ -40,7 +40,7 @@ class CVKeywordController extends Controller
     {
         // Store a new keyword in db
         CVKeyword::create([
-            'name' => $request->name
+            'name' => $request->keyword
         ]);
 
         return redirect()->back();
@@ -77,7 +77,11 @@ class CVKeywordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        CVkeyword::findOrFail($keyword)->update([
+            'name' => $request->name
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -86,10 +90,9 @@ class CVKeywordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CVkeyword $keyword)
+    public function destroy($keyword)
     {
-        // Delete a keyword
-        $keyword->delete();
+        CVkeyword::findOrFail($keyword)->delete();
 
         return redirect()->back();
     }

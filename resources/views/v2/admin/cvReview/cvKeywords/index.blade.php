@@ -7,13 +7,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Keywords used for CV review')
+@section('page_title', 'Manage keywords used for CV review')
     <div class="container-fluid mb-5">
         <div class="row justify-content-end">
             <div class="col-md-3 my-2">
-                <a href="" class="btn btn-success float-right">
-                    Add keyword
-                </a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addKeyword">
+                    Add Keyword
+                </button>
             </div>
         </div>
         <div class="row">
@@ -33,17 +34,41 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{$key+1}}</td>
                                 <td>{{ucfirst($keyword->name)}}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="#">
+                                    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateKeyword">
                                         Update
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        Delete
-                                    </a>
+                                      </button> --}}
+                                    <form style="display: inline-block" action="{{route('CVKeywords.destroy', ['CVKeyword' => $keyword])}}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit"class="btn btn-danger">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('modals')
+    <!-- Add Keyword Modal -->
+    <div class="modal fade" id="addKeyword" tabindex="-1" aria-labelledby="addKeywordLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form" action="{{route('CVKeywords.store')}}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label for="keyword">Enter Keyword</label>
+                        <input class="form-control" type="text" name="keyword" id="">
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Add Keyword</button>
+                    </form>
                 </div>
             </div>
         </div>
