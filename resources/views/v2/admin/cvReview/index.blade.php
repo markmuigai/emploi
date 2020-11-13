@@ -12,9 +12,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="row">
         <div class="col-md-12">
             <div class="row justify-content-end">
-                <div class="col-md-3 my-2">
+                <div class="col-md-5 my-2">
                     <a href="/v2/admin/cvTests" class="btn btn-success float-right">
                         CV Review Tester
+                    </a>
+                    <a href="/v2/admin/CVKeywords" class="btn btn-success float-right">
+                        Manage Keywords 
                     </a>
                 </div>
             </div>
