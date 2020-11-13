@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-sm-12 card shadow p-3 mb-5 px-5">
                 <div class="container bg-white rounded px-5">
-                 <p class="danger">Please note that you will be legible for another assessment after 1 week since your last assessment.</p>                 
+                 <p class="danger">Please note that you will be legible for another assessment after 1 week after your last assessment.</p>                 
                 </div>
                 <div class="text-center">
                     <a href="/v2/self-assessment?email={{ $email }}" class="btn btn-primary">                       

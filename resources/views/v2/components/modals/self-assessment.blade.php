@@ -19,8 +19,8 @@
                                 </div>
                                 <div class="col-sm-12 col-lg-12">
                                     <div class="form-group">
-                                        <select name="industry">
-                                            <option>Select Your Industry</option>
+                                        <select name="industry" required="">
+                                            <option value="">Select Your Industry</option>
                                             @foreach(\App\Industry::active() as $i)
                                                 <option value="{{ $i->id }}">{{ $i->name }}
                                                 </option>
@@ -30,8 +30,8 @@
                                 </div>
                                 <div class="col-sm-12 col-lg-12">
                                     <div class="form-group">
-                                        <select name="experience">
-                                            <option>Your Experience Level</option>
+                                        <select name="experience" required="">
+                                            <option value="">Your Experience Level</option>
                                             <option value="0">No Experience Required</option>
                                             <option value="6">6 month Experience</option>
                                             <option value="12">1 year Experience</option>
