@@ -15,7 +15,7 @@
                             <h4 class="text-center">My Self Assessment Results</h4><br>
                             @guest
                                 <div class="text-center">
-                                    <h5>Your Latest Assessement Score: {{$score}}/{{$performances->count()}}</h5>
+                                    <h5>{{ request()->email }}: &nbsp&nbsp  {{$score}}/{{$performances->count()}}</h5>
                                     <p>
                                         <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
                                         or  
@@ -28,7 +28,7 @@
                                 <div class="container shadow p-3 mb-5 bg-white rounded px-5">
                                     <div class="row d-flex justify-content-between">
                                         <div class="col-md-6">
-                                            <h5>Your Latest Assessement</h5>
+                                            <h5>{{ auth::user()->name }}</h5>
                                         </div>
                                         <div class="col-md-4">
                                             <h5>Score: {{$score}}/{{$performances->count()}}</h5>

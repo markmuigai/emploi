@@ -70,11 +70,20 @@ class Performance extends Model
      */
     public static function emailsAssessed()
     {
-        return Performance::all()->unique('email')->pluck('email');
+        return Performance::all()->sortByDesc('id')->unique('email')->pluck('email');
     }
 
-    
-      /**
+    /**
+     * Get recent scores for all emails which have been assessed 
+     */
+    public static function recentScoresAvg(){
+        // return Performance::emailsAssessed();
+        return ceil(Performance::emailsAssessed()->map(function($email){
+            return Performance::recentScore($email);
+        })->avg());
+    }
+
+    /**
      * Get those eligible to do assessment
      */
     public static function canDoAssessment($email)

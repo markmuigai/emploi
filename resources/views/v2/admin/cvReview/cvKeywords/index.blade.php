@@ -9,6 +9,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Manage keywords used for CV review')
     <div class="container-fluid mb-5">
+        <a href="{{ url()->previous() }}" class="btn btn-primary">
+            <i class="fa fa-arrow-left"></i> Back
+        </a>
         <div class="row justify-content-end">
             <div class="col-md-3 my-2">
                 <!-- Button trigger modal -->

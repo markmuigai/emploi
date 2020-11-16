@@ -33,15 +33,20 @@
                         @endif
                 </div>           
 
-                    <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">                    
-                      
-                    <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> CV Review</i></span></a></button>
-                    @if (auth()->user() && auth()->user()->role == 'seeker')
-                        <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
-                    @else
-                        <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
-                    @endif
-                    <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
+                    <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">
+                        <div class="container pt-3 pb-3">                  
+                              
+                            <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> CV Review</i></span></a></button>
+                            @if (auth()->user() && auth()->user()->role == 'seeker')
+                                <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
+                            @else
+                                <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
+                            @endif
+                        </div>
+
+                    <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
+                    <h3 style="text-align: center">Get all the latest jobs in one place and apply.</h3>
+                    </div>
                     <!-- Jobs -->
                     <div class="categories-area pt-2 pb-70">
                         <div class="container-fluid"> 

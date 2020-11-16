@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Performance;
 use Illuminate\Http\Request;
+use App\Utils\CollectionHelper;
 use App\Http\Controllers\Controller;
 
 class AssessmentResultController extends Controller
@@ -16,7 +17,8 @@ class AssessmentResultController extends Controller
     public function index()
     {
         return view('v2.admin.assessmentResults.index',[
-            'emailsAssessed' => Performance::emailsAssessed()
+            'emailsAssessed' => CollectionHelper::paginate(Performance::emailsAssessed(),10),
+            'avg' => Performance::recentScoresAvg(),
         ]);
     }
 

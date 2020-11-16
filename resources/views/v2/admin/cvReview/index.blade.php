@@ -10,7 +10,42 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'CV Reviews')
 <div class="container-fluid mb-5">
     <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4>
+                        <p>CV Reviews done:</p>
+                        {{$count}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4>
+                        <p>Average score:</p>
+                        {{$avg}}%
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4>
+                        <p>Most missing keyword: </p>
+                        {{ucfirst($missingKeyword)}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
+            <a href="/admin" class="btn btn-primary">
+                <i class="fa fa-arrow-left"></i> Back
+            </a>
             <div class="row justify-content-end">
                 <div class="col-md-5 my-2">
                     <a href="/v2/admin/cvTests" class="btn btn-success float-right">
@@ -34,6 +69,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <th scope="col">Name</th>
                         <th scope="col">Output</th>
                         <th scope="col">Score</th>
+                        <th scope="col">Created</th>
                         <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -52,35 +88,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         {{$review->output}}</td>        
                                     </span>
                                 @endif
-                            <td>{{$review->score}}</td>
+                            <td>{{$review->score}}%</td>
+                            <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>
-                                <a class="btn btn-primary" data-toggle="collapse" 
-                                    href="#viewText-{{$review->id}}" role="button" aria-expanded="false" aria-controls="viewText-{{$review->id}}">
-                                    CV Text
+                                <a href="/v2/admin/cvReviews/{{ $review->id }}" class="btn btn-success">
+                                    View Detailed results
                                 </a>
-                                <a class="btn btn-primary" data-toggle="collapse" 
-                                    href="#viewRecommendations-{{$review->id}}" role="button" aria-expanded="false" aria-controls="viewRecommendations-{{$review->id}}">
-                                    Recommendations
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="collapse" id="viewText-{{$review->id}}">
-                            <td colspan="5">
-                                <p>{{$review->cvText}}</p>
-                            </td>
-                        </tr>
-                        <tr class="collapse" id="viewRecommendations-{{$review->id}}">
-                            <td colspan="5">
-                                    Ensure your CV has the following keywords:
-                                <ul class="list-inline">
-                                    @foreach ($review->recommendations as $key => $rec)
-                                        <li class="list-inline-item">
-                                            <strong>
-                                                {{($key + 1).') '.ucfirst($rec->name)}}
-                                            </strong>
-                                        </li>
-                                    @endforeach
-                                  </ul>
                             </td>
                         </tr>
                         @endforeach
@@ -88,6 +101,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </table>
                 @endif
             </div>
+                {{ $cvReviews->links() }}
         </div>
     </div>
 </div>
