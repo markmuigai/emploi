@@ -16,7 +16,8 @@ class AssessmentResultController extends Controller
     public function index()
     {
         return view('v2.admin.assessmentResults.index',[
-            'emailsAssessed' => Performance::emailsAssessed()
+            'emailsAssessed' => Performance::emailsAssessed(),
+            'avg' => Performance::recentScoresAvg(),
         ]);
     }
 
