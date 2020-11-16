@@ -69,6 +69,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <th scope="col">Name</th>
                         <th scope="col">Output</th>
                         <th scope="col">Score</th>
+                        <th scope="col">Created</th>
                         <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -88,6 +89,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </span>
                                 @endif
                             <td>{{$review->score}}%</td>
+                            <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>
                                 <a href="/v2/admin/cvReviews/{{ $review->id }}" class="btn btn-success">
                                     View Detailed results
