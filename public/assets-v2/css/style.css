@@ -2249,7 +2249,7 @@ button:focus {
 .copyright-area .copyright-item p {
   margin-bottom: 0;
   text-align: right;
-  color: #000 !important;
+  color: #656565 !important;
 }
 
 .copyright-area .copyright-item p a {
@@ -4515,7 +4515,7 @@ button:focus {
 }
 
 .footer-item.three .footer-logo ul li span {
-  color: #212529;
+  color: #656565;
 }
 
 .footer-item.three .footer-service ul li a {
@@ -8214,6 +8214,7 @@ h4,h3{
 .footer-item.three h3{
   color: #656565 !important;
 }
+
 
  #paas{
         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/paas.jpg); 
