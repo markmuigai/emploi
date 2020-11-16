@@ -12,6 +12,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <a href="{{ url()->previous() }}" class="btn btn-primary">
        <i class="fa fa-arrow-left"></i> Back
     </a>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4>
+                        <p>Assessments Done:</p>
+                        {{$emailsAssessed->count()}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4>
+                        <p>Average score:</p>
+                        {{$avg}}/10
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="row justify-content-end">
