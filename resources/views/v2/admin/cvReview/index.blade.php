@@ -43,6 +43,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="row">
         <div class="col-md-12">
+            <a href="/admin" class="btn btn-primary">
+                <i class="fa fa-arrow-left"></i> Back
+            </a>
             <div class="row justify-content-end">
                 <div class="col-md-5 my-2">
                     <a href="/v2/admin/cvTests" class="btn btn-success float-right">
@@ -96,6 +99,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </table>
                 @endif
             </div>
+                {{ $cvReviews->links() }}
         </div>
     </div>
 </div>
