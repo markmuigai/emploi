@@ -3605,7 +3605,7 @@ button:focus {
 /*-- End Navbar --*/
 /*-- Banner --*/
 .banner-area.three {
-  background:linear-gradient(to right,#000,rgba(81,81,81,.5)),url(../../images/bg1.jpeg);background-repeat:no-repeat;background-size:cover;
+  background:linear-gradient(to right,#000,rgba(81,81,81,.5)),url(../../images/home-bg.jpg);background-repeat:no-repeat;background-size:cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
