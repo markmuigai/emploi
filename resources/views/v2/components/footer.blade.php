@@ -4,9 +4,6 @@
             <div class="col-sm-6 col-lg-4">
                 <div class="footer-item three">
                     <div class="footer-logo">
-                        <a class="logo" href="index.html">
-                            <img src="{{ asset('images/logo-alt.png') }}" alt="Emploi Logo" height="45px"/>
-                        </a>
                         <ul>
                             <li>
                                 <span>Address: </span>

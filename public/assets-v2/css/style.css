@@ -2193,7 +2193,7 @@ button:focus {
 /*-- End Footer --*/
 /*-- Copyright --*/
 .copyright-area {
-  background-color: #e6e6e6;
+  background-color: #f2f2f2 !important;
   padding-top: 25px;
   padding-bottom: 25px;
 }
@@ -2249,6 +2249,7 @@ button:focus {
 .copyright-area .copyright-item p {
   margin-bottom: 0;
   text-align: right;
+  color: #000 !important;
 }
 
 .copyright-area .copyright-item p a {
@@ -3370,8 +3371,8 @@ button:focus {
 }
 
 .testimonial-area .testimonial-item p {
-  font-size: 22px;
-  margin-bottom: 35px;
+  font-size: 18px;
+/*  margin-bottom: 35px;*/
   color: #64607c;
 }
 
@@ -4498,7 +4499,7 @@ button:focus {
 /*-- End Blog --*/
 /*-- Footer --*/
 .footer-area.three {
-  background-color: #191918;
+  background-color: #e4e4e4;
 }
 
 .footer-item.three h3 {
@@ -4506,23 +4507,23 @@ button:focus {
 }
 
 .footer-item.three .footer-logo ul li {
-  color: #afadad;
+  color: #212529;
 }
 
 .footer-item.three .footer-logo ul li a {
-  color: #afadad;
+  color: #212529;
 }
 
 .footer-item.three .footer-logo ul li span {
-  color: #e15419;
+  color: #212529;
 }
 
 .footer-item.three .footer-service ul li a {
-  color: #afadad;
+  color: #212529;
 }
 
 .footer-item.three .footer-newsletter p {
-  color: #afadad;
+  color: #212529;
 }
 
 /*-- End Footer --*/
@@ -8209,3 +8210,83 @@ h4,h3{
   display: inline !important;
   font-size: 13px;
 }
+
+.footer-item.three h3{
+  color: #656565 !important;
+}
+
+ #paas{
+        background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/paas.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+
+        
+
+    }
+    
+    #summit{
+         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/summit.jpg); 
+        background-size: cover;
+        background-position: relative;
+        min-height: 300px;
+        color: white;
+
+
+    }
+
+    #spotlight{
+         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/spotlight.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+
+
+    }
+
+    #pro{
+         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/pro.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+    }
+
+     #seeker_paas{
+        background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/paas.jpg); 
+        background-size: cover;
+        background-position: relative;
+        min-height: 300px;
+        color: white;
+        
+
+    }
+    
+    #seeker_summit{
+         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/summit.jpg); 
+        background-size: cover;
+        background-position: relative;
+        min-height: 300px;
+        color: white;
+
+    }
+
+    #seeker_spotlight{
+         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/spotlight.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+
+    }
+
+    #seeker_pro{
+         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/pro2.jpg); 
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+        color: white;
+
+    }
