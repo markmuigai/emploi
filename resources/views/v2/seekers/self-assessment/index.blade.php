@@ -15,7 +15,7 @@
                             <h4 class="text-center">My Self Assessment Results</h4><br>
                             @guest
                                 <div class="text-center">
-                                    <h5>Your Latest Assessement Score: {{$score}}/{{$performances->count()}}</h5>
+                                    <h5>{{ request()->email }}: &nbsp&nbsp  {{$score}}/{{$performances->count()}}</h5>
                                     <p>
                                         <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
                                         or  
