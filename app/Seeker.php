@@ -910,7 +910,7 @@ class Seeker extends Model
                         ->get();
 
         $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(10))
-                    ->where('industry_id',$this->user->seeker->industry_id)
+                    ->where('industry_id',$this->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
                     ->get();        
@@ -925,13 +925,13 @@ class Seeker extends Model
 
                 $contents ="<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING HIRED</p> 
                             <p>Click <a href='https://bit.ly/3fqEkrD'> here</a> to have your CV done to perfection at no cost.</p>
-                                <br><br>";  
+                                <br>";  
 
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
     
                 $contents  .= '<p style= "background:orange; color:white">';
 
-                $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
+                $contents .="Here are the Latest Vacancies in <b>".$this->industry->name.",</b> Apply Now.<br>";
                 $contents .= '</p>';
 
 
