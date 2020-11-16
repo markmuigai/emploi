@@ -71,6 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </table>
                 @endif
             </div>
+            {{ $questions->links() }}
         </div>
     </div>
 </div>
