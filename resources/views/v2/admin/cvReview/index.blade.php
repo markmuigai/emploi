@@ -99,6 +99,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </table>
                 @endif
             </div>
+                {{ $cvReviews->links() }}
         </div>
     </div>
 </div>

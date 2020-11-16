@@ -13,7 +13,7 @@ class CVReviewController extends Controller
      */
     public function index(){
         return view('v2.admin.cvReview.index',[
-            'cvReviews' => CVReviewResult::with('recommendations')->orderBy('id','DESC')->get(),
+            'cvReviews' => CVReviewResult::with('recommendations')->orderBy('id','DESC')->paginate(15),
             'count' => CVReviewResult::all()->count(),
             'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
             'missingKeyword' => CVReviewResult::missingKeyword()
