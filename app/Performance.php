@@ -70,7 +70,7 @@ class Performance extends Model
      */
     public static function emailsAssessed()
     {
-        return Performance::all()->unique('email')->pluck('email');
+        return Performance::all()->sortByDesc('id')->unique('email')->pluck('email');
     }
 
     
