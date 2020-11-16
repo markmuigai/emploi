@@ -224,7 +224,8 @@
     </section>
     <!-- End Testimonial -->
 
-    <br>
+<!-- our product-->
+<br>
 @if(Auth::user())
 <section class="container-fluid container">
     <div class="row">
@@ -330,7 +331,8 @@
           </div>
           
       </div>
-
 </section>
 @endif
+<!-- End of our products-->
+
 @endsection
