@@ -113,31 +113,31 @@ $user = Auth::user();
 	}
 </style>
 <div class="card-deck">
-    <div class="card seeker-analytics">
+    <div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your job applications summary">
         <div class="card-body text-center">
             <h1 class="white" id="blur">88</h1>
             <p>Applications</p>
         </div>
     </div>
-     <div class="card seeker-analytics">
+     <div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to view your shortlist summary">
         <div class="card-body text-center">
             <h1 class="white" id="blur">8</h1>
             <p>Shortlisted</p>
         </div>
 	</div>
-	 <div class="card seeker-analytics">
+	 <div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your job application rejection summary">
         <div class="card-body text-center">
            <h1 class="white" id="blur">88</h1>
             <p>Rejected</p>
         </div>
 	</div>
-	<div class="card seeker-analytics">
+	<div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your vacancies summary">
         <div class="card-body text-center">
             <h1 class="white" id="blur">88</h1><br>
             <p>{{ $user->seeker->industry->name }} Vacancies</p>
         </div>
     </div>
-	<div class="card seeker-analytics">
+	<div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your profile views summary">
         <div class="card-body text-center">
            <h1 class="white" id="blur">88</h1>
             <p>Profile Views</p>
@@ -299,5 +299,10 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 @include('components.ads.responsive')
 
 @endif
+
+<script type="text/javascript">
+  //toggle buy spotlight message on hover
+    $('[data-toggle="tooltip"]').tooltip();
+</script>
 
 @endsection
