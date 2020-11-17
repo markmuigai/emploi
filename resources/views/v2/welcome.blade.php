@@ -229,7 +229,7 @@
 @if(Auth::user())
 <section class="container-fluid container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="card shadow" id="paas">
             <div class="card-body">
               <h2 class="card-title pb-2">PaaS</h2>
@@ -240,7 +240,7 @@
                 </div>       
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="card shadow" id="summit">
             <div class="card-body">
               <h2 class="card-title pb-2">Career Summit</h2>
@@ -252,7 +252,7 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <div class="card shadow" id="spotlight">
               <div class="card-body">
                 <h2 class="card-title pb-2">Spotlight</h2>
@@ -264,7 +264,7 @@
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-6 mb-4">
             <div class="card shadow" id="pro">
               <div class="card-body">
                 <h2 class="card-title pb-2">Pro Package</h2>
