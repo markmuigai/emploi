@@ -73,7 +73,12 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     // Assessments
     Route::resource('assessments','AssessmentController');
 
-    Route::resource('assessmentResults','AssessmentResultController');
+    // Assessment Results
+    Route::get('assessmentResults', 'AssessmentResultController@index')->name('assessmentResults.index');
+
+    Route::get('assessmentResults/show', 'AssessmentResultController@show')->name('assessmentResults.show');
+
+    // Route::resource('assessmentResults','AssessmentResultController');
 
     // CV Test results
     Route::resource('cvTests', 'cvTestController');

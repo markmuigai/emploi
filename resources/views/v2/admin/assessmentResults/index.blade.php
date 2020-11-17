@@ -65,7 +65,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{$email}}</td>
                                 <td>{{App\Performance::recentScore($email)}}\10</td>
                                 <td>
-                                    <a href="/v2/self-assessment?email={{ $email }}" class="btn btn-primary">
+                                    <a href="{{route('assessmentResults.show', ['email' => $email])}}" class="btn btn-primary">
                                         View Detailed Results
                                     </a>
                                 </td>
