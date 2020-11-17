@@ -126,4 +126,9 @@ class Blog extends Model
     public function getShareWhatsappLinkAttribute(){
        return "whatsapp://send?text=Read ".$this->title.' Blog on Emploi\'s Career Centre. '.url('/blog/'.$this->slug);
     }
+
+    public function formattedCreatedAt()
+    {
+        return Carbon::parse($this->created_at)->toFormattedDateString();
+    }
 }
