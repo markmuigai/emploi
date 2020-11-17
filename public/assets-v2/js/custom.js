@@ -175,7 +175,7 @@ jQuery(function ($) {
 				items: 2,
 			},
 			1100:{
-				items: 5,
+				items: 4,
 			}
 		}
 	});
