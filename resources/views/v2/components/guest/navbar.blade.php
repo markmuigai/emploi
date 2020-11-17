@@ -89,7 +89,7 @@
                         <li class="nav-item dropdown">                  
                                 <li class="nav-item">
                                 <span class="tooltip-span two">New</span>
-                            <a class="nav-link" href="/employers/publish">Employers</a>
+                            <a class="nav-link" href="/employers/publish">For Employers</a>
                         </li> 
                         @endif
                         @if(isset(Auth::user()->id))
