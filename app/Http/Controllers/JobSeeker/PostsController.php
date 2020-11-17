@@ -81,8 +81,8 @@ class PostsController extends Controller
         $query = isset($request->q) ? $request->q : "";
         $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
             ->where('status','!=','inactive')
-            ->orderBy('created_at','DESC')
             ->orderBy('featured', 'DESC')
+            ->orderBy('created_at','DESC')
             ->paginate(21)->onEachSide(3);
         return view('v2.seekers.vacancies',[
             'industries' => Industry::active(),

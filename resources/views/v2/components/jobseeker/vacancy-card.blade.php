@@ -25,7 +25,7 @@
                 @if (auth()->user() && $post->savedByUser(auth()->user()->id) == 1)
                     <span class="save-icon text-success" data-id="{{$post->id}}">
                         <i id="heart-icon-{{$post->id}}" class='bx bxs-heart'></i>
-                        <span class="save-text" id="save-text-{{$post->id}}">
+                        <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="remove from saved">
                             Unsave
                         </span>
                     </span>

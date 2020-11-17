@@ -122,13 +122,13 @@ class Seeker extends Model
     }
 
     public function isBeingViewedBy(User $user){
-        $seeker = Seeker::where('user_id',$this->user->seeker->user_id)->increment('view_count');
+        $seeker = Seeker::where('user_id',$this->user_id)->increment('view_count');
         if($this->canGetNotification())
         {
             $jobs = [];
             if($user->role == 'admin')
             {
-                $caption = "An recruiter on Emploi has viewed your profile";
+                $caption = "A recruiter on Emploi has viewed your profile";
                 $contents = $user->name.", an Emploi Recruitor, has viewed your profile, and may consider you for positions they are recruiting internally or for clients. ";
             }
             elseif($user->role == 'employer')
@@ -163,7 +163,7 @@ class Seeker extends Model
                 if($days_since > 30)
                 {
                     $opportunities = true;
-                    $messages[] = "<b>You have an old Resume!</b> Your Resume was uploaded $days_since ago, and it is important to update it. Include new achievements and check if outdated information is present."; 
+                    $messages[] = "<b>You have an old Resume!</b> Your Resume was uploaded $days_since days ago, and it is important to update it. Include new achievements and check if outdated information is present."; 
                 }
             }
             if(!$this->age)
@@ -217,9 +217,13 @@ class Seeker extends Model
                 for($i=0; $i<count($messages); $i++)
                     $contents .= "<li>".$messages[$i]."</li>";
                 $contents .= "</ol>";
+
+                $contents .="<br>Click <a href='".url('/profile/edit')."'>here</a> to update your profile.";
             }
 
-            $contents .= "<br> We offer <a href='".url('/job-seekers/summit')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
+            $contents .="<br> View your <a href='".url('/job-seekers/dashboard')."'>profile performance summary</a>.";
+
+            $contents .= "<br><br> We offer <a href='".url('/job-seekers/summit')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
             
             //return $contents;
 

@@ -40,29 +40,37 @@ $user = Auth::user();
 </style>
 <div class="card-deck">
     <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
-            <p>Applications</p>
-        </div>
+    	<a href="/profile/applications">
+	        <div class="card-body text-center">
+	            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
+	            <p>Applications</p>
+	        </div>
+        </a>
     </div>
      <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
-            <p>Shortlisted</p>
-        </div>
+     	<a href="/profile/applications">
+	        <div class="card-body text-center">
+	            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
+	            <p>Shortlisted</p>
+	        </div>
+        </a>
 	</div>
 	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
-            <p>Rejected</p>
-        </div>
+	 	<a href="/profile/applications">
+	        <div class="card-body text-center">
+	            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
+	            <p>Rejected</p>
+	        </div>
+        </a>
 	</div>
-	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
-            <p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
-    </div>
-</div>
+	<div class="card seeker-analytics">
+		<a href="/vacancies/{{ $user->seeker->industry->slug }}">
+				<div class="card-body text-center">
+				<h1 class="white">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
+				<p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
+			</div>
+		</a>
+	</div>
 	<div class="card seeker-analytics">
         <div class="card-body text-center">
             <h1 class="white">{{ $user->seeker->view_count }}</h1>
