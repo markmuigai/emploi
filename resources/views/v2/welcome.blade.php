@@ -103,41 +103,6 @@
                     </a>
                 </div>
             </div>
-                <div class="section-title">
-                    <h2>{{ __('other.o_serv') }} for <span style="color:#e15419"> employers</span></h2>
-                </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <a href="/employers/browse">
-                        <div class="work-item">
-                            <i class="flaticon-comment"></i>
-                            <span>04</span>
-                            <h3>Talent Database</h3>
-                            <p>Search tens of thousands of qualified CVs for quick shortlisting, direct contact and hire.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="/employers/publish">
-                        <div class="work-item">
-                            <i class="flaticon-comment"></i>
-                            <span>05</span>
-                            <h3>Advertise Jobs</h3>
-                            <p>Reach an audience of 100k+ subscribers, utilize advanced recruitment tools and candidate ranking algorithm.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="/employers/services">
-                        <div class="work-item">
-                            <i class="flaticon-comment"></i>
-                            <span>06</span>
-                            <h3>Recruitment Process Outsourcing</h3>
-                            <p>Use our talent database and powerful search-sort-assess-score engine to cut down your recruitment workload by up to 70% and your costs by up to 65%.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
     </section>
     <!-- End Our Services -->
