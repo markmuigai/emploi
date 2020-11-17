@@ -78,8 +78,15 @@ $user = Auth::user();
         </div>
     </div>
 </div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
  @endif
+
+  @if($user->seeker->featured == 1)
+  <br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
+  @endif
+  
+  @if($user->seeker->featured == 2)
+  <br><h5 class="orange" style="text-align: center;">You are currently on yearly spotlight plan</h5>
+  @endif
 
  @if($user->seeker->featured == 0)
 <br><h4 align="center">Profile Performance Summary</h4><br>
