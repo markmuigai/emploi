@@ -71,7 +71,7 @@
         <!-- cookie -->
 
         <!-- Preloader -->
-        @include('v2.components.preloader')
+        {{-- @include('v2.components.preloader') --}}
         <!-- End Preloader -->
 
         @yield('content')
