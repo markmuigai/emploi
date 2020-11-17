@@ -134,7 +134,7 @@
     <section class="blog-area three pt-5 pb-3">
         <div class="container">
             <div class="section-title three">
-                <h2>Blog & News</h2>
+                <h2>Blog & News 1</h2>
             </div>
             @include('v2.components.blogs')<br>
             <div class="d-flex justify-content-center">
@@ -146,6 +146,48 @@
         </div>
     </section>
     <!-- End Blog -->
+
+
+        <!-- Location -->
+        <section class="location-area pb-70 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <h2>Blog & News 2</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="location-slider owl-theme owl-carousel">
+                    <?php
+                        $blogs = \App\Blog::where('status','active')->orderBy('created_at', 'desc')->take(6)->get();
+                    ?>
+                    @foreach ($blogs as $b)
+                        <div class="location-item">
+                            <div class="top">
+                                <a href="/blog/{{ $b->slug }}">
+                                    <img src="https://emploi.co/storage/blogs/1601901614.jpg" alt="">
+                                    {{-- <img src="/storage/blogs/{{ $b->image1 }}" alt="{{ $b->title }}"> --}}
+                                </a>
+                            </div>
+                            <span>{{$b->postedOn}}</span>
+                            <h3>
+                                <a href="/blog/{{ $b->slug }}">{{ $b->title }}</a>
+                            </h3>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a class="text-`center cmn-btn" href="/blog">
+                        View All Blogs
+                        <i class='bx bx-book-reader'></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- End Location -->
 
     <!-- Testimonial -->
     {{-- <section class="testimonial-area pt-5 pb-100">

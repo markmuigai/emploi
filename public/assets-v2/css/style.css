@@ -1465,6 +1465,10 @@ button:focus {
 
 /*-- End Company --*/
 /*-- Location --*/
+.location-area{
+  /* padding: 0 100px; */
+}
+
 .location-area .owl-prev {
   position: absolute;
   top: 40%;
@@ -1548,8 +1552,8 @@ button:focus {
 .location-item {
   background-color: #f9f9f9;
   border-radius: 5px;
-  border: 1px dashed #cdcdcd;
-  padding: 15px;
+  /* border: 1px dashed #cdcdcd;
+  padding: 15px; */
   position: relative;
   margin-bottom: 30px;
   z-index: 1;
