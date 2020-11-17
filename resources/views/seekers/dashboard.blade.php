@@ -9,6 +9,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Dashboard')
 
+    <style>
+      #blur {
+        font-size: 40px;
+        color: transparent;
+        text-shadow: 0 0 12px #fff;
+      }
+  </style>
 
 <?php
 $user = Auth::user();
@@ -108,36 +115,36 @@ $user = Auth::user();
 <div class="card-deck">
     <div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+            <h1 class="white" id="blur">88</h1>
             <p>Applications</p>
         </div>
     </div>
      <div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+            <h1 class="white" id="blur">8</h1>
             <p>Shortlisted</p>
         </div>
 	</div>
 	 <div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+           <h1 class="white" id="blur">88</h1>
             <p>Rejected</p>
         </div>
 	</div>
-	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white"> </h1>
-            <p>Vacancies</p>
-    </div>
-</div>
 	<div class="card seeker-analytics">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+            <h1 class="white" id="blur">88</h1><br>
+            <p>{{ $user->seeker->industry->name }} Vacancies</p>
+        </div>
+    </div>
+	<div class="card seeker-analytics">
+        <div class="card-body text-center">
+           <h1 class="white" id="blur">88</h1>
             <p>Profile Views</p>
         </div>
     </div>
 </div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Purchase spotlight plan to view your profile performance summary</a></h5>
+<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Purchase spotlight plan to unlock your profile performance summary</a></h5>
  @endif
 
 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
