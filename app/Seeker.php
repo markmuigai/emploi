@@ -128,7 +128,7 @@ class Seeker extends Model
             $jobs = [];
             if($user->role == 'admin')
             {
-                $caption = "An recruiter on Emploi has viewed your profile";
+                $caption = "A recruiter on Emploi has viewed your profile";
                 $contents = $user->name.", an Emploi Recruitor, has viewed your profile, and may consider you for positions they are recruiting internally or for clients. ";
             }
             elseif($user->role == 'employer')
