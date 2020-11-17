@@ -2016,7 +2016,7 @@
     margin-right: 8px;
   }
   .navbar-light .navbar-brand, .navbar-light .navbar-brand:hover {
-    max-width: 115px;
+    /* max-width: 115px; */
   }
   .side-nav .job-right i {
     display: none;
