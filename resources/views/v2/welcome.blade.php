@@ -108,7 +108,7 @@
     <!-- End Our Services -->
 
     <!-- Featured Jobs -->
-    <section class="company-area two pb-100">
+    <section class="company-area two pb-2">
         <div class="container-fluid">
             <div class="section-title two">
                 <h2>{{ __('jobs.f_jobs') }}</h2>
@@ -131,10 +131,10 @@
     <!-- End Featured Jobs -->
 
     <!-- Blog -->
-    <section class="blog-area three pt-100 pb-70">
+    <section class="blog-area three pt-5 pb-3">
         <div class="container">
             <div class="section-title three">
-                <h2 class="text-white">Blog & News</h2>
+                <h2>Blog & News</h2>
             </div>
             @include('v2.components.blogs')<br>
             <div class="d-flex justify-content-center">

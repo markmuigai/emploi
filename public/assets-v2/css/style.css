@@ -4483,8 +4483,7 @@ button:focus {
 /*-- End Client --*/
 /*-- Blog --*/
 .blog-area.three {
-  /* background-image: #fafafa; */
-  background: linear-gradient(140deg,#8900ff 0,#500095 60%);
+  /* background: linear-gradient(140deg,#8900ff 0,#500095 60%); */
   background-size: contain  ;
   background-position: center center;
   background-repeat: no-repeat;
@@ -6735,6 +6734,7 @@ button:focus {
 }
 
 .blog-details-area .details-item .details-date .date-inner {
+  height: 120px;
   background-color: #f8e8e9;
   border: 1px dashed #e15419;
   border-radius: 5px;
@@ -6790,7 +6790,7 @@ button:focus {
 }
 
 .blog-details-area .details-item .details-date .date-inner a i {
-  line-height: 110px;
+  line-height: 125px;
 }
 
 .blog-details-area .details-item .details-date .date-inner a:hover {
@@ -8294,4 +8294,8 @@ h4,h3{
 
     .company-slider{
       padding: 0 100px;
+    }
+
+    .company-area.two{
+      /* background: linear-gradient(140deg,#2f224f 0,#500095 60%); */
     }
