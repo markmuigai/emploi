@@ -67,7 +67,7 @@
     <!-- Our Services -->
     <section class="work-area py-5 pb-70">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title text-center">
                 <span class="sub-title">What we offer</span>
                 <h2>{{ __('other.o_serv') }} for<span style="color:#e15419"> job seekers</span></h2>
             </div>
@@ -148,7 +148,7 @@
     <!-- End Blog -->
 
     <!-- Testimonial -->
-    <section class="testimonial-area pt-5 pb-100">
+    {{-- <section class="testimonial-area pt-5 pb-100">
         <div class="container">
             <div class="section-title two text-center">
                 <h2>Testimonials</h2>
@@ -186,13 +186,13 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- End Testimonial -->
 
 <!-- our product-->
 <br>
 @if(Auth::user())
-<section class="container-fluid container">
+<section class="container my-5">
     <div class="row">
         <div class="col-md-6 mb-4">
           <div class="card shadow" id="paas">
