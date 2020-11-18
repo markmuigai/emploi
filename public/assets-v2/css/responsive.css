@@ -601,10 +601,10 @@
   /*----- Home Demo Three CSS -----*/
   /*-- Navbar --*/
   .side-nav.three .login-left {
-    color: #172f47;
+    color: #500095;
   }
   .side-nav.three .login-left i {
-    color: #172f47;
+    color: #500095;
   }
   /*-- End Navbar --*/
   /*-- Banner --*/
@@ -2028,7 +2028,7 @@
     line-height: 45px;
   }
   .main-nav .container-fluid {
-    padding-left: 15px;
+    padding-left: 45px;
     padding-right: 15px;
   }
   .side-nav .login-left {
@@ -2087,7 +2087,7 @@
 
 @media only screen and (max-width: 991px) {
   .mean-container .mean-bar {
-    background-color: #172f47;
+    background-color: #500095;
   }
   .mobile-nav .logo {
     top: 10px;

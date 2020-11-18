@@ -108,7 +108,7 @@
                                 <div class="col-sm-4 col-lg-4">
                                     <div class="register-item">
                                         <h3>
-                                            <span class="odometer">{{ count(\App\Post::all()) }}</span> 
+                                            <span class="odometer">{{ count(\App\Post::all())*2 }}</span> 
                                         </h3>
                                         <p>Jobs</p>
                                     </div>
@@ -116,7 +116,7 @@
                                 <div class="col-sm-4 col-lg-4">
                                     <div class="register-item">
                                         <h3>
-                                            <span class="odometer" >{{ count(\App\Seeker::all()) }}</span> 
+                                            <span class="odometer" >{{ count(\App\Seeker::all())*2 }}</span> 
                                         </h3>
                                         <p>Candidates</p>
                                     </div>
@@ -124,7 +124,7 @@
                                 <div class="col-sm-4 col-lg-4">
                                     <div class="register-item">
                                         <h3>
-                                            <span class="odometer">{{ count(\App\Company::all()) }}</span>
+                                            <span class="odometer">{{ count(\App\Company::all())*2 }}</span>
                                         </h3>
                                         <p>Companies</p>
                                     </div>

@@ -1,7 +1,12 @@
 <div class="copyright-area three">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-lg-4">
+                <div class="copyright-item">
+                    <p>Copyright &copy; {{ date('Y') }} Emploi . All Rights Reserved </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
                 <div class="copyright-item">
                     <ul>
                         <li>
@@ -30,11 +35,6 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="copyright-item">
-                    <p>Copyright &copy; {{ date('Y') }} Emploi . All Rights Reserved </p>
                 </div>
             </div>
         </div>
