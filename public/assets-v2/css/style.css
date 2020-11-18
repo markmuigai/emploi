@@ -1402,8 +1402,8 @@ button:focus {
 
 .company-item .top span {
   display: inline-block;
-  color: #e15419;
-  background-color: #ffe4e6;
+  color: #28A745;
+  background-color: #28a7455c;
   border-radius: 5px;
   padding: 4px 10px;
   font-size: 12px;
@@ -3628,7 +3628,7 @@ button:focus {
 /*-- End Navbar --*/
 /*-- Banner --*/
 .banner-area.three {
-  background:linear-gradient(to right,#000,rgba(81,81,81,.5)),url(../../images/home-bg.jpg);background-repeat:no-repeat;background-size:cover;
+  background:linear-gradient(to bottom right,#000,rgba(81,81,81,.5)),url(../../images/home-bg.jpg);background-repeat:no-repeat;background-size:cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -8246,7 +8246,7 @@ h4,h3{
         background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/paas.jpg); 
         background-size: cover;
         background-position: center;
-        min-height: 300px;
+        height: 200px;
         color: white;
 
         
@@ -8257,7 +8257,7 @@ h4,h3{
          background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/summit.jpg); 
         background-size: cover;
         background-position: relative;
-        min-height: 300px;
+        height: 200px;
         color: white;
 
 
@@ -8267,7 +8267,7 @@ h4,h3{
          background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/spotlight.jpg); 
         background-size: cover;
         background-position: center;
-        min-height: 300px;
+        height: 200px;
         color: white;
 
 
@@ -8277,7 +8277,7 @@ h4,h3{
          background:linear-gradient(to right,#515151,rgba(81,81,81,.3)),url(/images/products/pro.jpg); 
         background-size: cover;
         background-position: center;
-        min-height: 300px;
+        height: 200px;
         color: white;
     }
 
@@ -8285,7 +8285,7 @@ h4,h3{
         background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/paas.jpg); 
         background-size: cover;
         background-position: relative;
-        min-height: 300px;
+        height: 200px;
         color: white;
         
 
@@ -8295,7 +8295,7 @@ h4,h3{
          background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/summit.jpg); 
         background-size: cover;
         background-position: relative;
-        min-height: 300px;
+        height: 200px;
         color: white;
 
     }
@@ -8304,7 +8304,7 @@ h4,h3{
          background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/spotlight.jpg); 
         background-size: cover;
         background-position: center;
-        min-height: 300px;
+        height: 200px;
         color: white;
 
     }
@@ -8313,7 +8313,7 @@ h4,h3{
          background:linear-gradient(#500095 60%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,149,.3)),url(/images/products/pro2.jpg); 
         background-size: cover;
         background-position: center;
-        min-height: 300px;
+        height: 200px;
         color: white;
 
     }
@@ -8356,4 +8356,12 @@ h4,h3{
         display: block !important;
         margin-left: 30px;
       }
+    }
+
+    #forEmployers{
+      font-style: italic;
+      display: inline-block;
+      color: #28A745 !important;
+      font-weight: 600;
+      border-bottom: 1px solid #28A745;
     }
