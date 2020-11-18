@@ -7,6 +7,22 @@
     @include('v2.components.jobseeker.navbar')
     <!-- End Navbar -->
 
+<style>
+  .banner{
+    margin: 0;
+    padding: 0;
+    background: #E15419;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 5vh;
+  }
+
+  .banner a{
+    text-decoration: none;
+    transition: 2s;
+  }
+ </style>
     <!-- Jobs -->
     <div class="job-area-list dashboard-area mt-1 ptb-100">
         <div class="container-fluid px-4">
@@ -54,11 +70,12 @@
                                 @guest
                                 <div class="col-lg-2">
                                     <div style="width: 100%">
-                                        </div><br><br><br>
-                                        <a href="/job-seekers/free-cv-review">
-                                        <img style="width: 100%" src="/images/free-cv-review.png" alt="Get a Free CV Review Today"> 
-                                        </a>    
-                                        <br><br>
+                                        <br><br><br>                                                                               
+                                        <div class="banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s">                                   
+                                            <a href="#" data-toggle="modal" data-target="#advertModal" class="text-center"><h5>Advertise Here</h5></a>  
+                                        </div>
+                                    </div>
+                                    <br><br>
                                     <h4>Filter By</h4>
                                      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                       <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
@@ -199,6 +216,51 @@
         </div>
     </div>
     <!-- End Jobs -->
+
+      <!-- Advert Modal -->
+    <div class="modal fade" id="advertModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title">Advertise here</h4>
+              </div>
+                <div class="modal-body">               
+                      <form  method="post" action="/employers/publish"  enctype="multipart/form-data">
+                          @csrf                              
+                          <div class="form-group">
+                              <label for="">Your Name<strong class="text-danger">*</strong></label>
+                              <input type="text" name="name" required="" class="form-control" placeholder="" maxlength="50">
+                          </div>
+                          <div class="form-group">
+                              <label for="">Phone Number<strong class="text-danger">*</strong></label>
+                              <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
+                          </div>
+                          <div class="form-group">
+                              <label for="">Email Address<strong class="text-danger">*</strong></label>
+                              <input type="email" name="email" required="" class="form-control" placeholder="" maxlength="50">
+                          </div>
+                          <div class="form-group">
+                              <label for="">Job Title</label>
+                              <input type="text" name="title" maxlength="100" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label for="description">Job Description</label>
+                              <input type="text" name="" name="description" class="form-control">
+                          </div>                  
+
+                          <div class="text-center">                 
+                                
+                              <input type="submit" class="btn btn-success" value="Submit">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            
+                          </div>                                               
+                      </form>
+                  </div>                         
+            </div>                  
+        </div>
+    </div>
+  <!-- Advert Modal End-->
+
 
     <!-- Featured -->
     @include('v2.components.featured-employers')                
