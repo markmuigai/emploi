@@ -2614,6 +2614,10 @@ button:focus {
 
 /*-- End Support --*/
 /*-- Company --*/
+.company-area.two{
+  /* box-shadow: 0 0 5px 0 rgba(200,200,200,.5) !important; */
+}
+
 .company-area.two .section-title {
   text-align: center;
 }
@@ -8345,4 +8349,11 @@ h4,h3{
       line-height: 45px; */
       -webkit-transition: 0.5s all ease;
       transition: 0.5s all ease;
+    }
+
+    @media (min-width: 768px){
+      .navbar-expand-md .navbar-collapse {
+        display: block !important;
+        margin-left: 30px;
+      }
     }
