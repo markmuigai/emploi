@@ -11,7 +11,7 @@
 
     <!-- Who we are -->
     <div class="card">
-    <div class="new-area pt-100 pb-70">
+    <div class="new-area pt-4 pb-1">
         <div class="container text-center">
             <div class="about-content">
                 <div class="section-title">
@@ -133,7 +133,7 @@
     <!-- End Featured Jobs -->
 
     <!-- Blog -->
-    <section class="blog-area three pt-5 pb-3">
+    <section class="blog-area three pt-3 pb-3">
         <div class="container">
             <div class="section-title three">
                 <h2>Blog & News 1</h2>
@@ -151,7 +151,7 @@
 
 
         <!-- Location -->
-        <section class="location-area pb-70 mt-5">
+        <section class="location-area pb-3 mt-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
