@@ -103,7 +103,7 @@
                                         <div class="card-body">
                                             <div class="col-12 col-lg-12">
                                                 <div class="row">
-                                                    <div class="col-md-8">
+                                                    <div class="col-md-6">
                                                         <h4>Top Trending Vacancies</h4>
                                                         <ul>
                                                             @foreach($posts as $post)
@@ -112,6 +112,27 @@
                                                             @endif
                                                             @endforeach
                                                         </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <style>
+                                                            div.cjjobbox{
+                                                              
+                                                              width: 345px ;
+                                                              background-color: #FFFFFF ;
+                                                              /* border-style: solid ; */
+                                                              /* border-width: 1px ; */
+                                                              border-color: #919294 ;
+                                                              /* font-family: Arial, sans-serif ; */
+                                                              /* font-size: 13px ; */
+                                                              color: #E15419;
+                                                              text-align: left;
+                                                            }
+
+                                                           </style>
+                                                           <div class="cjjobbox">
+                                                           <script type="text/javascript" src="https://www.careerjet.co.ke/partners/js_jobbox.html?s=&l=Kenya&n=5&lid=119809&nfr=1&ntt=1">
+                                                           </script>
+                                                           </div>                   
                                                     </div>
                                                     <div class="col-md-5">
                                                         @include('components.ads.responsive')
