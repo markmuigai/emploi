@@ -30,4 +30,12 @@ class Question extends Model
     {
         return $this->choices->where('correct_value', 1)->first();
     }
+
+    /**
+     * Get the associated image
+     */
+    public function images()
+    {
+        return $this->hasMany('App\QuestionImage', 'question_id');
+    }
 }

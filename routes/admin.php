@@ -73,6 +73,11 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     // Assessments
     Route::resource('assessments','AssessmentController');
 
+    // Diagramatic assessments
+    Route::get('image-assessments/create', 'DiagramAssessmentController@create')->name('image-assessments.create');;
+
+    Route::post('image-assessments', 'DiagramAssessmentController@store')->name('image-assessments.store');;
+
     // Assessment Results
     Route::get('assessmentResults', 'AssessmentResultController@index')->name('assessmentResults.index');
 
