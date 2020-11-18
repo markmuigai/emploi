@@ -168,8 +168,8 @@
                         <div class="location-item">
                             <div class="top">
                                 <a href="/blog/{{ $b->slug }}">
-                                    <img src="https://emploi.co/storage/blogs/1601901614.jpg" alt="">
-                                    {{-- <img src="/storage/blogs/{{ $b->image1 }}" alt="{{ $b->title }}"> --}}
+                             <!--        <img src="https://emploi.co/storage/blogs/1601901614.jpg" alt=""> -->
+                                    <img src="/storage/blogs/{{ $b->image1 }}" alt="{{ $b->title }}">
                                 </a>
                             </div>
                             <span>{{$b->postedOn}}</span>
