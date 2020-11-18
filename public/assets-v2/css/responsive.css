@@ -601,10 +601,10 @@
   /*----- Home Demo Three CSS -----*/
   /*-- Navbar --*/
   .side-nav.three .login-left {
-    color: #172f47;
+    color: #500095;
   }
   .side-nav.three .login-left i {
-    color: #172f47;
+    color: #500095;
   }
   /*-- End Navbar --*/
   /*-- Banner --*/
@@ -2087,7 +2087,7 @@
 
 @media only screen and (max-width: 991px) {
   .mean-container .mean-bar {
-    background-color: #172f47;
+    background-color: #500095;
   }
   .mobile-nav .logo {
     top: 10px;
