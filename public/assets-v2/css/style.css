@@ -421,10 +421,18 @@ button:focus {
   height: 50px;
   border: 0;
   font-size: 15px;
-  font-weight: 800px;
+  font-weight: 800;
   padding-left: 30px;
   border-right: 1px solid #5f5656;
   border-radius: 0;
+}
+
+.banner-content .banner-form-area span{
+  font-weight: 800;
+}
+
+.banner-content .banner-form-area li{
+  font-weight: 800;
 }
 
 .banner-content .banner-form-area .form-group .form-control:focus {
@@ -1586,7 +1594,7 @@ button:focus {
   bottom: 0;
   background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(0deg, black 0%, rgba(255, 255, 255, 0) 100%);
-  opacity: .60;
+  /* opacity: .60; */
 }
 
 .location-item .top a img {
@@ -8224,7 +8232,7 @@ h4,h3{
   color: #656565 !important;
 }
 
-.footer-item.three a{
+.footer-item.three a , .footer-item.three span{
   color: #656565 !important;
 }
 
@@ -8309,6 +8317,6 @@ h4,h3{
       padding: 0 100px;
     }
 
-    .company-area.two{
-      /* background: linear-gradient(140deg,#2f224f 0,#500095 60%); */
+    .btn{
+      font-weight: 800;
     }
