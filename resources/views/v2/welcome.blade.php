@@ -47,7 +47,7 @@
                 </div>
                 <ul>
                     <li>
-                        <a class="left-btn" href="about.html#">
+                        <a class="left-btn" href="/job-seekers/summit">
                             Request For Professional CV Editing
                             <i class="flaticon-upload"></i>
                         </a>
