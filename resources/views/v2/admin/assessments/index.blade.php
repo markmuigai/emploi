@@ -15,9 +15,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <i class="fa fa-arrow-left"></i> Back
             </a>
             <div class="row justify-content-end">
-                <div class="col-md-3 my-2">
-                    <a href="{{route('assessments.create')}}" class="btn btn-success">
-                        Add question
+                <div class="col-md-7 my-2">
+                    <a href="{{route('assessments.create')}}" class="btn btn-success float-right">
+                        Add bulk text questions
+                    </a>
+                    <a href="{{route('image-assessments.create')}}" class="btn btn-success float-right">
+                        Add diagramatic questions
                     </a>
                 </div>
             </div>

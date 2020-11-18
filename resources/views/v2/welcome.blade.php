@@ -71,7 +71,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="card shadow rounded">
+                <div class="card shadow rounded mb-2">
                     <div class="card-body text-center">
                         <i class="flaticon-verify"></i>
                         <h4>{{ __('jobs.cv_edit') }}</h4>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow rounded">
+                <div class="card shadow rounded mb-2">
                     <div class="card-body text-center">
                         <i class="flaticon-file"></i>
                         <h3>{{ __('jobs.f_seeker') }}</h3>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow rounded">
+                <div class="card shadow rounded mb-2">
                     <div class="card-body text-center">
                         <i class="flaticon-comment"></i>
                         <h3>{{ __('jobs.j_vacays') }}</h3>

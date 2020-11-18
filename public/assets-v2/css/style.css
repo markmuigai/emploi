@@ -4629,7 +4629,8 @@ button:focus {
 }
 
 .cmn-btn {
-  background-color: #e15419;
+  /* background-color: #e15419; */
+  background-color: #1f7933;
   color: #fff;
   height: 50px;
   padding-top: 0;
@@ -4650,7 +4651,8 @@ button:focus {
   padding-right: 12px;
   font-size: 20px;
   color: #fff;
-  background-color: #b34314;
+  /* background-color: #b34314; */
+  background-color: #215c24;
   position: absolute;
   top: 0;
   right: 0;
@@ -8318,8 +8320,10 @@ h4,h3{
 
     }
 
-    .company-slider{
-      padding: 0 100px;
+    @media only screen and (min-width: 1199px) and (max-width: 1300px) {
+      .company-slider{
+        padding: 0 100px;
+      }
     }
 
     .btn{
