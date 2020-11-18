@@ -83,7 +83,7 @@ class PostsController extends Controller
             ->where('status','!=','inactive')
             ->orderBy('featured', 'DESC')
             ->orderBy('created_at','DESC')
-            ->paginate(21)->onEachSide(3);
+            ->paginate(30)->onEachSide(3);
         return view('v2.seekers.vacancies',[
             'industries' => Industry::active(),
             'locations' => Location::active(),
