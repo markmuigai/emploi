@@ -8321,3 +8321,28 @@ h4,h3{
     .btn{
       font-weight: 800;
     }
+
+    .seeker-services .card{
+      box-shadow: 0 5px 15px rgba(0,0,0,.3) !important;
+    }
+
+    .seeker-services p{
+      min-height: 100px;
+    }
+
+    .seeker-services .btn-primary{
+      background-color: #500095 !important;
+    }
+
+    .seeker-services i{
+      display: inline-block;
+      font-weight: 500;
+      color: #e15419;
+      font-size: 45px;
+      /* position: absolute;
+      top: 30px;
+      right: 30px;
+      line-height: 45px; */
+      -webkit-transition: 0.5s all ease;
+      transition: 0.5s all ease;
+    }

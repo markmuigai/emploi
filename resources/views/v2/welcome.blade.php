@@ -64,51 +64,53 @@
     </section>
     <!-- End CV Editing -->
 
-    <!-- Our Services -->
-    <section class="work-area py-5 pb-70">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="sub-title">What we offer</span>
-                <h2>{{ __('other.o_serv') }} for<span style="color:#e15419"> job seekers</span></h2>
+    <div class="container-fluid seeker-services my-5 px-5">
+        <div class="section-title text-center">
+            <span class="sub-title">What we offer</span>
+            <h2>{{ __('other.o_serv') }} for<span style="color:#e15419"> job seekers</span></h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow rounded">
+                    <div class="card-body text-center">
+                        <i class="flaticon-verify"></i>
+                        <h4>{{ __('jobs.cv_edit') }}</h4>
+                        <p>{{ __('jobs.cv_edit_txt') }}</p>
+                        <a href="/job-seekers/summit" class="btn btn-primary rounded-pill">
+                            Request For CV Editing
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <a href="/job-seekers/summit">
-                        <div class="work-item">
-                            <i class="flaticon-verify"></i>
-                            <span>01</span>
-                            <h3>{{ __('jobs.cv_edit') }}</h3>
-                            <p>{{ __('jobs.cv_edit_txt') }}</p>
-                        </div>
-                    </a>
+            <div class="col-md-4">
+                <div class="card shadow rounded">
+                    <div class="card-body text-center">
+                        <i class="flaticon-file"></i>
+                        <h3>{{ __('jobs.f_seeker') }}</h3>
+                        <p class="description">{{ __('jobs.f_seeker_txt') }}</p>
+                        <a href="/job-seekers/services" class="btn btn-primary rounded-pill">
+                            View Job Seeker Services
+                        </a>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="/job-seekers/services">
-                        <div class="work-item">
-                            <i class="flaticon-file"></i>
-                            <span>02</span>
-                            <h3>{{ __('jobs.f_seeker') }}</h3>
-                            <p>{{ __('jobs.f_seeker_txt') }}</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="/v2/vacancies">
-                        <div class="work-item">
-                            <i class="flaticon-comment"></i>
-                            <span>03</span>
-                            <h3>{{ __('jobs.j_vacays') }}</h3>
-                            <p>{{ __('jobs.j_vacays_txt') }}</p>
-                        </div>
-                    </a>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow rounded">
+                    <div class="card-body text-center">
+                        <i class="flaticon-comment"></i>
+                        <h3>{{ __('jobs.j_vacays') }}</h3>
+                        <p>{{ __('jobs.j_vacays_txt') }}</p>
+                        <a href="/v2/vacancies" class="btn btn-primary rounded-pill">
+                            Browse Vacancies
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End Our Services -->
+    </div>
 
     <!-- Featured Jobs -->
-    <section class="company-area two pb-2">
+    <section class="company-area two mt-5 pb-2">
         <div class="container-fluid">
             <div class="section-title two">
                 <h2>{{ __('jobs.f_jobs') }}</h2>
