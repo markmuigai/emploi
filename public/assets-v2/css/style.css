@@ -3777,8 +3777,9 @@ button:focus {
 }
 
 .banner-content.three .register-area .register-item p {
-  color: #babab9;
+  color: #ffff;
   font-size: 15px;
+  font-weight: 800;
 }
 
 /*-- End Banner --*/
