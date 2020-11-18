@@ -65,8 +65,8 @@ class PostsController extends Controller
         $title = "Latest Vacancies in \t" .date("Y");
         $query = isset($request->q) ? $request->q : "";
         $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
-            ->where('status','!=','inactive')
-            ->orderBy('featured', 'DESC')
+            ->where('status','active')
+            ->orderBy('featured','DESC')
             ->orderBy('created_at','DESC')
             ->paginate(15)->onEachSide(3);
         return view('seekers.vacancies')
