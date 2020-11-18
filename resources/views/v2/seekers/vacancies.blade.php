@@ -53,6 +53,12 @@
                             <div class="row">
                                 @guest
                                 <div class="col-lg-2">
+                                    <div style="width: 100%">
+                                        </div><br><br><br>
+                                        <a href="/job-seekers/free-cv-review">
+                                        <img style="width: 100%" src="/images/free-cv-review.png" alt="Get a Free CV Review Today"> 
+                                        </a>    
+                                        <br><br>
                                     <h4>Filter By</h4>
                                      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                       <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
@@ -129,14 +135,28 @@
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div id="container" class="row">
+                                                <?php $adsCounter = 0; ?>
+                                         
                                                 @forelse($posts as $post)
                                                     @include('v2.components.jobseeker.vacancy-card')
+
+                                                    <?php $adsCounter++; ?>
+                                                    @if($adsCounter % 12 == 0 || $adsCounter == 1 && $adsCounter != 12)
+                                                    <div class="card">                                                        
+                                                        @if($agent->isMobile())
+                                                        @include('components.ads.mobile_400x350')
+                                                        @else            
+                                                        @include('components.ads.flat_728x90')
+                                                        @endif                                                      
+                                                    </div>
+                                                    @endif
                                                 @empty
                                                 <div class="col-md-6">                                          
                                                     <p>No job posts found</p>
                                                 </div>
                                                 @endforelse
-                                                @guest
+                                                @guest                                         
+                                           
                                                 <div class="text-center">
                                                     <div class="mix recommended">
                                                         <p>
