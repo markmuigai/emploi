@@ -158,14 +158,14 @@
                                                     @include('v2.components.jobseeker.vacancy-card')
 
                                                     <?php $adsCounter++; ?>
-                                                    @if($adsCounter % 12 == 0 || $adsCounter == 1 && $adsCounter != 12)
-                                                    <div class="card">                                                        
+                                                    @if($adsCounter % 13 == 0 || $adsCounter == 1)
+                                                                                                  
                                                         @if($agent->isMobile())
                                                         @include('components.ads.mobile_400x350')
                                                         @else            
                                                         @include('components.ads.flat_728x90')
                                                         @endif                                                      
-                                                    </div>
+                                          
                                                     @endif
                                                 @empty
                                                 <div class="col-md-6">                                          
