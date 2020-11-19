@@ -67,7 +67,7 @@
     <div class="container-fluid seeker-services my-5 px-5">
         <div class="section-title text-center">
             <span class="sub-title">What we offer</span>
-            <h2>{{ __('other.o_serv') }} for<span style="color:#e15419"> job seekers</span></h2>
+            <h2>Job Seeker Services</h2>
         </div>
         <div class="row">
             <div class="col-md-4">
