@@ -102,6 +102,23 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="my-2">
+                        <a class="text-center cmn-btn mt-2" href="{{Route('v2.cv-review.create', ['reviewResults' => 72])}}">
+                            CV Review
+                            <i class='bx bx-book-content' ></i>
+                        </a>
+                        @if (auth()->user() && auth()->user()->role == 'seeker')
+                            <a class="text-center cmn-btn mt-2 mx-3" href="{{route('v2.self-assessment.create')}}">
+                                Self Assessment
+                                <i class='bx bx-stats'></i>
+                            </a>
+                        @else
+                            <a class="text-center cmn-btn mt-2 mx-3" type="button" data-toggle="modal" data-target="#selfAssessmentModal">
+                                Self Assessment
+                                <i class='bx bx-stats'></i>
+                            </a>
+                        @endif
+                    </div>
                     <div class="register-area">
                         <div class="container">
                             <div class="row">
@@ -139,3 +156,6 @@
 </div>
 <!-- End Banner -->
 
+@section('modal')
+    @include('v2.components.modals.self-assessment')
+@endsection
