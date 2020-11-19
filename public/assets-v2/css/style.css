@@ -35,11 +35,11 @@ This files table contents are outlined below>>>>>
 ** - Preloader CSS
 ** - Back To Top CSS
 */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
-
+/*@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');*/
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 /*----- Default CSS -----*/
 body {
-  font-weight: 700 !important;
+/*  font-weight: 700 !important;*/
   font-family: 'Raleway',sans-serif;
   color: #5f5656;
   background-color: #fff;
