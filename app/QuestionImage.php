@@ -9,7 +9,7 @@ class QuestionImage extends Model
     protected $fillable =[
         'path',
         'question_id',
-        'type'
+        'correct_value'
     ];
 
     /**
