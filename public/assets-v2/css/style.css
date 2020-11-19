@@ -3533,7 +3533,7 @@ button:focus {
 
 .main-nav.three nav .navbar-nav .nav-item a{
   color: #fff;
-  font-weight: 800;
+/*  font-weight: 800;*/
 }
 
 .main-nav a.nav-link{
@@ -3550,7 +3550,7 @@ button:focus {
 
 .main-nav.three nav .navbar-nav .nav-item .dropdown-menu li a {
   color: #fff;
-  font-weight: 800;
+/*  font-weight: 800;*/
 }
 
 .main-nav.three nav .navbar-nav .nav-item .dropdown-menu li a:before {
@@ -3783,7 +3783,7 @@ button:focus {
 .banner-content.three .register-area .register-item p {
   color: #ffff;
   font-size: 15px;
-  font-weight: 800;
+/*  font-weight: 800;*/
 }
 
 /*-- End Banner --*/
@@ -4312,7 +4312,7 @@ button:focus {
 
 .pricing-item .middle h4 .span-right {
   font-size: 15px;
-  font-weight: 800;
+/*  font-weight: 800;*/
 }
 
 .pricing-item .middle h4 .span-left {
@@ -4834,7 +4834,7 @@ button:focus {
 
 .job-area-list .job-list-item li a {
   display: inline-block;
-  font-weight: 800;
+/*  font-weight: 800;*/
   font-size: 16px;
   color: #221668;
   margin-right: 25px;
@@ -4914,7 +4914,7 @@ button:focus {
   transition: 0.5s all ease;
   padding: 10px;
   height: 45px;
-  font-weight: 800;
+/*  font-weight: 800;*/
   margin-top: 10px;
 }
 
