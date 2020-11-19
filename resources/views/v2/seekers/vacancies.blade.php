@@ -185,7 +185,7 @@
                                                     @include('v2.components.jobseeker.vacancy-card')
 
                                                     <?php $adsCounter++; ?>
-                                                    @if($adsCounter % 13 == 0 || $adsCounter == 1)
+                                                    @if($adsCounter % 9 == 0 || $adsCounter == 1  && $adsCounter != 1)
                                                                                                   
                                                         @if($agent->isMobile())
                                                         @include('components.ads.mobile_400x350')
