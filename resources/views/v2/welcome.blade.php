@@ -43,7 +43,7 @@
                     <strong>
                         <span class="sub-title">CV Writing Services</span>
                     </strong>
-                    <h2>Put Your Cv In Front Of Great Employers</h2>
+                    <h2>Entice employers with a competent CV</h2>
                 </div>
                 <ul>
                     <li>
