@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Question extends Model
 {   
@@ -18,9 +19,11 @@ class Question extends Model
     /**
      * Get question based on difficulty
      */
-    public function scopeGetByDifficulty($query, $level)
+    public static function GetByDifficulty($level)
     {
-        return $query->where('difficulty_level', $level);
+        return Question::whereDoesntHave('image', function (Builder $query) use($level) {
+            $query->where('difficulty_level', $level);
+        });
     }
 
     /**
@@ -34,8 +37,8 @@ class Question extends Model
     /**
      * Get the associated image
      */
-    public function images()
+    public function image()
     {
-        return $this->hasMany('App\QuestionImage', 'question_id');
+        return $this->hasOne('App\QuestionImage', 'question_id');
     }
 }
