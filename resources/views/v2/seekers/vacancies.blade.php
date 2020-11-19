@@ -9,13 +9,10 @@
 
 <style>
   .banner{
-    margin: 0;
-    padding: 0;
     background: purple;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 5vh;
+    height: 10vh;
+    display: flex;
+    align-items: center
   }
 
   .banner a{
@@ -27,6 +24,7 @@
     color: #fff;
     font-weight: 900;
     text-align: center;
+    margin: 0;
   }
  </style>
     <!-- Jobs -->
@@ -77,7 +75,7 @@
                                 <div class="col-lg-2">
                                     <div style="width: 100%">
                                         <br><br><br>                                                                               
-                                        <div class="banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s">                                   
+                                        <div class="banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s px-1">                                   
                                             <a href="#" data-toggle="modal" data-target="#advertModal"><h5>ADVERTISE HERE</h5></a>  
                                         </div>
                                     </div>
