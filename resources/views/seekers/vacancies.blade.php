@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
   100%{opacity: 1;}
   }
 </style>
-<h5 class="orange">Get all the latest vacancies in one place and apply.</h5>
+<h5 class="orange">Get all the latest jobs at one stop and apply.</h5>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}"> 
      <div class="col-lg-2 col-md-6 py-2">         
         <div class="nav-item dropdown">

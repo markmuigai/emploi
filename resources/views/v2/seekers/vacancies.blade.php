@@ -65,7 +65,7 @@
                         </div>
 
                     <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
-                    <h3 style="text-align: center">Get all the latest jobs in one place and apply.</h3>
+                    <h3 style="text-align: center">Get all the latest jobs at one stop and apply.</h3>
                     </div>
                     <!-- Jobs -->
                     <div class="categories-area pt-2 pb-70">
