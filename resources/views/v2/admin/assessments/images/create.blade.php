@@ -24,7 +24,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </div>
                         <div class="form-group">
                             <label for="questionImage">Question Image</label>
-                            <input type="file" class="form-control-file" id="questionImage" name="image">
+                            <input type="file" class="form-control-file" id="questionImage" name="image" required="">
                         </div>
                         <img src="" id="previewQuestion" height="auto" width="500px">
                         <div class="form-row mt-3">
@@ -57,8 +57,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select id="inputRating" name="level" class="form-control">
-                                      <option>Choose Difficulty Level</option>
+                                    <select id="inputRating" name="level" class="form-control" required="">
+                                      <option value="">Choose Difficulty Level</option>
                                       <option value="easy">Easy</option>
                                       <option value="medium">Medium</option>
                                       <option value="hard">Hard</option>
