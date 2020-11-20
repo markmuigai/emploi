@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Add assessments ')
+@section('page_title', 'Edit assessment')
 <div class="container-fluid mb-5">
     <div class="row justify-content-between">
         <div class="col-md-4">

@@ -11,6 +11,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>All Questions</p>
+                                {{$questions->count()}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>Diagram questions</p>
+                                {{$withImg}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>Text only questions</p>
+                                {{($questions->count()) -$withImg }}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <a href="{{ url()->previous() }}" class="btn btn-primary">
                 <i class="fa fa-arrow-left"></i> Back
             </a>

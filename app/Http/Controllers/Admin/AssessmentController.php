@@ -20,7 +20,8 @@ class AssessmentController extends Controller
     public function index()
     {
         return view('v2.admin.assessments.index',[
-            'questions' => Question::orderBy('created_at', 'desc')->paginate(10)
+            'questions' => Question::orderBy('created_at', 'desc')->paginate(10),
+            'withImg' => Question::has('image')->get()->count()
         ]);
     }
 
