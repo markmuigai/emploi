@@ -78,7 +78,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::post('image-assessments', 'DiagramAssessmentController@store')->name('image-assessments.store');
     Route::get('image-assessments/{id}/edit', 'DiagramAssessmentController@edit')->name('image-assessments.edit');
     Route::put('image-assessments/{id}', 'DiagramAssessmentController@update')->name('image-assessments.update');
-    Route::delete('image-assessments/{id}', 'DiagramAssessmentController@delete')->name('image-assessments.destroy');
+    Route::delete('image-assessments/{id}', 'DiagramAssessmentController@destroy')->name('image-assessments.destroy');
 
     // Assessment Results
     Route::get('assessmentResults', 'AssessmentResultController@index')->name('assessmentResults.index');

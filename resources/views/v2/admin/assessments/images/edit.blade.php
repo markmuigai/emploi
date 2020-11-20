@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
              </a>
         </div>
         <div class="col-md-4">
-            <form action="{{ route('image-assessments.destroy', ['id' => $question->id]) }}">
+            <form action="{{ route('image-assessments.destroy', [$question->id]) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger float-right">
