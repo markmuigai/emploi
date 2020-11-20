@@ -70,7 +70,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         @empty
         <div class="text-center">
-            <p>No Job Seekers have been saved</p>
+            <p>No CV has been requested</p>
         </div>
         @endforelse
         <!-- END OF JOB CARD -->

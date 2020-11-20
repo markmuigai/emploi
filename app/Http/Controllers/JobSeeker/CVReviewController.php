@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\JobSeeker;
 
 use Validator;
-use App\CVReviewResult;
 use App\Seeker;
+use App\CVReviewResult;
 use Spatie\PdfToText\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

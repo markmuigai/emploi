@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class DiagramAssessmentController extends Controller
 {
@@ -35,7 +38,28 @@ class DiagramAssessmentController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        DB::transaction(function () use($request){
+            // dd($request->all()); 
+            // Create question
+            $question = Question::create([
+                'title' => $request->title,
+                'difficulty_level' => $request->level
+            ]);
+
+            // Store Image with question id as the name
+            $path = $request->file('image')->storeAs(
+                'assessments', $question->id
+            );
+
+            // Create question image record
+            $question->image()->create([
+                'path' => $path,
+                'correct_value' => $request->correct
+            ]);
+
+        });
+
+        return redirect()->route('assessments.index');
     }
 
     /**

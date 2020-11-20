@@ -16,41 +16,40 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-12">
             <div class="card px-2 shadow mb-5 bg-white rounded">
                 <div class="card-body">
-                    <form runat="server" action="{{route('image-assessments.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('image-assessments.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="questionImage">Question Image</label>
-                            <input type="file" class="form-control-file" id="questionImage" name="questionImage">
+                            <label for="question">Question</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="title" rows="3" required>What comes next?</textarea>
                         </div>
-                        <img src="" id="previewQuestion" height="400px">
                         <div class="form-group">
-                            <label for="choicesImage">Choices Image</label>
-                            <input type="file" class="form-control-file" id="choicesImage" name="choicesImage">
+                            <label for="questionImage">Question Image</label>
+                            <input type="file" class="form-control-file" id="questionImage" name="image">
                         </div>
-                        <img src="" id="previewChoice" height="400px">
+                        <img src="" id="previewQuestion" height="auto" width="500px">
                         <div class="form-row mt-3">
                             <div class="col-md-6">
                                 <p class="mt-2">Select the correct option</p>
                                 <div class="form-check mr-3">
-                                    <input class="form-check-input" type="radio" name="correct" id="exampleRadios1" value="0" checked>
+                                    <input class="form-check-input" type="radio" name="correct" value="a">
                                     <label class="form-check-label" for="exampleRadios1">
                                         A
                                     </label>
                                 </div>
                                 <div class="form-check mr-3">
-                                    <input class="form-check-input" type="radio" name="correct" id="exampleRadios1" value="0" checked>
+                                    <input class="form-check-input" type="radio" name="correct" value="b">
                                     <label class="form-check-label" for="exampleRadios1">
                                         B
                                     </label>
                                 </div>
                                 <div class="form-check mr-3">
-                                    <input class="form-check-input" type="radio" name="correct" id="exampleRadios1" value="0" checked>
+                                    <input class="form-check-input" type="radio" name="correct" value="c">
                                     <label class="form-check-label" for="exampleRadios1">
                                         C
                                     </label>
                                 </div>
                                 <div class="form-check mr-3">
-                                    <input class="form-check-input" type="radio" name="correct" id="exampleRadios1" value="0" checked>
+                                    <input class="form-check-input" type="radio" name="correct" value="d">
                                     <label class="form-check-label" for="exampleRadios1">
                                         D
                                     </label>
@@ -58,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select id="inputRating" name="difficultyLevel" class="form-control">
+                                    <select id="inputRating" name="level" class="form-control">
                                       <option>Choose Difficulty Level</option>
                                       <option value="easy">Easy</option>
                                       <option value="medium">Medium</option>

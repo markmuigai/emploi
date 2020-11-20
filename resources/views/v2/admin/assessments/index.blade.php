@@ -47,13 +47,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <a href="{{route('assessments.edit', [$question])}}" class="btn btn-success">
                                         Edit
                                     </a>
+                                    @if (isset($question->image))
+                                    <a class="btn btn-primary" data-toggle="collapse" 
+                                        href="#viewImage-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewImage-{{$question->id}}">
+                                        View Image
+                                    </a>
+                                    @else
                                     <a class="btn btn-primary" data-toggle="collapse" 
                                         href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
                                         View Choices
                                     </a>
-                                    <a href="" class="btn btn-danger">
+                                    @endif
+                                    {{-- <a href="" class="btn btn-danger">
                                         Disable
-                                    </a>
+                                    </a> --}}
                                 </td>
                             </tr>
                             <tr class="collapse" id="viewChoice-{{$question->id}}">
@@ -67,6 +74,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             <p>{{($key+1).') '.$choice->value}} </p>
                                         @endif
                                     @endforeach
+                                </td>
+                            </tr>
+                            <tr class="collapse" id="viewImage-{{$question->id}}">
+                                <td colspan="3">
+                                    @isset($question->image)
+                                        <img src="/storage/assessments/{{$question->id}}" height="auto" width="500px" alt="">
+                                    @endisset
                                 </td>
                             </tr>
                             @endforeach

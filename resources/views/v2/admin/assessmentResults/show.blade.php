@@ -54,20 +54,37 @@
                                                 </span>
                                             </div>
                                         </div>
+                                    @if (isset($perf->question->image))
+                                        <div class="row mb-3">
+                                            <img src="/storage/assessments/{{$perf->question->id}}" height="auto" width="400px" alt="">
+                                            @if ($perf->correct == 0)
+                                                <div class="col-md-4">
+                                                    @php
+                                                        $options = collect(['a','b','c','d']);
+                                                    @endphp
+                                                        Selected: {{$options->get($perf->choice_id)}}
+                                                </div>
+                                            @endif
+                                            <div class="col-md-4">
+                                                Correct choice: {{$perf->question->image->correct_value}}
+                                            </div>
+                                        </div>
+                                    @else
                                         <div class="row mb-3">
                                             @if ($perf->correct == 0)
-                                            <div class="col-md-4">
-                                                @if ($perf->choice_id == 0)
-                                                    No answer given
-                                                @else
-                                                    Selected: {{$perf->selectedChoice->value}}
-                                                @endif
-                                            </div>
+                                                <div class="col-md-4">
+                                                    @if ($perf->choice_id == 0)
+                                                        No answer given
+                                                    @else
+                                                        Selected: {{$perf->selectedChoice->value}}
+                                                    @endif
+                                                </div>
                                             @endif
                                             <div class="col-md-4">
                                                 Correct choice: {{$perf->question->correctChoice()->value}}
                                             </div>
                                         </div>
+                                    @endif
                                     @endforeach
                                 </div>
                             @endif
