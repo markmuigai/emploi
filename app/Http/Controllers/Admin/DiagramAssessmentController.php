@@ -46,9 +46,8 @@ class DiagramAssessmentController extends Controller
                 'difficulty_level' => $request->level
             ]);
 
-            // Store Image with question id as the name
             $path = $request->file('image')->storeAs(
-                'assessments', $question->id
+                'public/assessments/', $question->id
             );
 
             // Create question image record
