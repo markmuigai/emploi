@@ -145,6 +145,19 @@ class AssessmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::transaction(function () use($id){
+            // Fetch question 
+            $question = Question::findOrFail($id);
+
+            // Delete question choices
+            foreach($question->choices as $choice){
+                $choice->delete();
+            }
+
+            // Delete question
+            $question->delete();
+        });
+
+        return redirect()->route('assessments.index');
     }
 }
