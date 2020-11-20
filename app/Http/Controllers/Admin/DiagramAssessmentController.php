@@ -94,7 +94,22 @@ class DiagramAssessmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::transaction(function () use($request, $id){
+            $question = Question::findOrFail($id);
+
+            // Update question record
+            $question->update([
+                'title' => $request->title,
+                'difficulty_level' => $request->level
+            ]);
+
+            // Update image record
+            $question->image()->update([
+                'correct_value' => $request->correct
+            ]);
+        });
+
+        return redirect()->route('assessments.index');
     }
 
     /**
@@ -105,6 +120,10 @@ class DiagramAssessmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        $question->delete();
+
+        return redirect()->route('assessments.index');
     }
 }

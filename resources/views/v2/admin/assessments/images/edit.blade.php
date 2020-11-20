@@ -29,41 +29,51 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="col-md-12">
             <div class="card px-2 shadow mb-5 bg-white rounded">
                 <div class="card-body">
-                    <form action="{{route('assessments.update',[$question])}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('image-assessments.update',[$question])}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        @method('PATCH')
+                        @method('PUT')
                         <div class="form-group">
                             <label for="question">Question</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="title" rows="3" required>{{ $question->title ?: '' }}</textarea>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label for="level">Choose new Difficulty Level</label>
-                                <select id="inputRating" name="level" class="form-control" required="">
-                                  <option {{$question->difficulty_level == 'easy' ? 'selected' : '' }}  value="easy">Easy</option>
-                                  <option {{$question->difficulty_level == 'medium' ? 'selected' : '' }} value="medium">Medium</option>
-                                  <option {{$question->difficulty_level == 'hard' ? 'selected' : '' }}  value="hard">Hard</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label for="level">Choose new Difficulty Level</label>
+                            <select id="inputRating" name="level" class="form-control" required="">
+                                <option {{$question->difficulty_level == 'easy' ? 'selected' : '' }}  value="easy">Easy</option>
+                                <option {{$question->difficulty_level == 'medium' ? 'selected' : '' }} value="medium">Medium</option>
+                                <option {{$question->difficulty_level == 'hard' ? 'selected' : '' }}  value="hard">Hard</option>
+                            </select>
                         </div>
-                        <label for="choice">Add choices</label>
                         <div class="row">
                             <div class="col-md-6">
-                                @foreach ($question->choices as $choi => $choice)
-                                    <div class="form-group">
-                                        <input class="form-control mt-1" type="text" name="{{'choices['. $choice->id.']'}}.[]" value="{{$choice->value}}">
-                                    </div>
-                                    <div class="form-check">
-                                        @if ($choice->isCorrect())
-                                            <input class="form-check-input" type="radio" name="correct" id="exampleRadios1" value="{{$choice->id}}" checked>
-                                        @else
-                                        <input class="form-check-input" type="radio" name="correct" id="exampleRadios1" value="{{$choice->id}}">
-                                        @endif
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Correct
-                                        </label>
-                                    </div>
-                                @endforeach
+                                <img src="/storage/assessments/{{$question->id}}" height="auto" width="400px" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mt-2">Select the correct option</p>
+                                <div class="form-check mr-3">
+                                    <input {{$question->image->correct_value == 'a' ? 'checked' : '' }} class="form-check-input" type="radio" name="correct" value="a">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        a
+                                    </label>
+                                </div>
+                                <div class="form-check mr-3">
+                                    <input {{$question->image->correct_value == 'b' ? 'checked' : '' }} class="form-check-input" type="radio" name="correct" value="b">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        b
+                                    </label>
+                                </div>
+                                <div class="form-check mr-3">
+                                    <input {{$question->image->correct_value == 'c' ? 'checked' : '' }} class="form-check-input" type="radio" name="correct" value="c">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        c
+                                    </label>
+                                </div>
+                                <div class="form-check mr-3">
+                                    <input {{$question->image->correct_value == 'd' ? 'checked' : '' }} class="form-check-input" type="radio" name="correct" value="d">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        d
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="float-right btn btn-primary" id="btnSubmit">
