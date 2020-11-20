@@ -49,7 +49,7 @@ class DiagramAssessmentController extends Controller
             // Store Image with question id as the name
             $path = $request->file('image')->storeAs(
                 'assessments', $question->id
-            );
+            ); 
 
             // Create question image record
             $question->image()->create([
@@ -81,7 +81,9 @@ class DiagramAssessmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('v2.admin.assessments.images.edit', [
+            'question' => Question::findorFail($id)
+        ]);
     }
 
     /**

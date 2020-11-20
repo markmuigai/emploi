@@ -44,19 +44,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{$question->title}}</td>
                                 <td>{{$question->difficulty_level}}</td>
                                 <td>
-                                    <a href="{{route('assessments.edit', [$question])}}" class="btn btn-success">
-                                        Edit
-                                    </a>
                                     @if (isset($question->image))
-                                    <a class="btn btn-primary" data-toggle="collapse" 
-                                        href="#viewImage-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewImage-{{$question->id}}">
-                                        View Image
-                                    </a>
+                                        <a href="{{route('image-assessments.edit', [$question])}}" class="btn btn-success">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="collapse" 
+                                            href="#viewImage-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewImage-{{$question->id}}">
+                                            View Image
+                                        </a>
                                     @else
-                                    <a class="btn btn-primary" data-toggle="collapse" 
-                                        href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
-                                        View Choices
-                                    </a>
+                                        <a href="{{route('assessments.edit', [$question])}}" class="btn btn-success">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="collapse" 
+                                            href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
+                                            View Choices
+                                        </a>
                                     @endif
                                     {{-- <a href="" class="btn btn-danger">
                                         Disable
