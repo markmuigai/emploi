@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+use Auth;
+
 class Performance extends Model
 {
        protected $fillable = [
@@ -89,10 +91,27 @@ class Performance extends Model
     public static function canDoAssessment($email)
     {   
         //check if a user has ever done assessment before
-        $created = Performance::where('email',$email)->first(); 
+        $created = Performance::where('email',$email)->first();
+
+        //get logged in user
+        $user=Auth::user(); 
 
         //if never done before return true(can do asssessment)     
         if(!isset($created->id)){
+            return true;
+        }
+
+            //if on pro plan return true(can do asssessment)     
+        if(isset($user->seeker->id))
+           if($user->seeker->featured == -1)
+        {
+            return true;
+        }
+
+            //if on spotlight plan return true(can do asssessment)     
+        if(isset($user->seeker->id))
+           if($user->seeker->featured >= 1)
+        {
             return true;
         }
 
