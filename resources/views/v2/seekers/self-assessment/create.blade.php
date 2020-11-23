@@ -13,7 +13,6 @@
                 <div class="container shadow p-3 mb-5 bg-white rounded px-5">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                            <h5 class="py-2">Select the correct answer</h5>
                         </div>
                         <div class="col-md-4">
                             <h4 id="assessmentTimer" class="text-danger float-right">
@@ -25,8 +24,25 @@
                         @csrf
                         <div id="carouselExampleControls" id="assessment-carousel" class="carousel assessment-carousel slide" data-ride="carousel">
                             <div class="carousel-inner mb-5">
+                                <div class="carousel-item active p-2">
+                                    <h4>Instructions</h4>
+                                    <p>
+                                        Our Self assessment uses an aptitude test to test an indivudual's reasoning capacity in
+                                        different aspects.
+                                        <span class="text-danger">
+                                            You have 10 minutes to complete 10 questions.
+                                        </span>
+                                        <ul>
+                                            <li>Select the correct choice to be able to proceed to the next question</li>
+                                            <li>Once you have answered a question, you will be able to go back to change your previous answer.</li>
+                                            <li>Do not refresh your browser as this may interfere with your test.</li>
+                                        </ul>
+                                    </p>
+                                    
+                                </div>
+                                
                                 @foreach($questions as $key => $question)
-                                <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
+                                <div class="carousel-item">
                                     <div class="ml-3">
                                         @if (isset($question->image))
                                             <div class="row">
@@ -75,6 +91,7 @@
                             </div>
                         </div>
                         <div class="py-3">
+                            <button id="start" onclick="startAssessment()" type="button" class="btn btn-primary forward">Start Assessment</button>
                             <button type="button" id="backward" name="backward" class="btn btn-primary backward">Previous</button>
                             <button type="button" id="forward" name="forward" class="btn btn-primary forward">Next</button>
                             <button type="submit" class="btn btn-success submit-custom" id="submitBtn">Submit</button>
@@ -89,42 +106,12 @@
 @section('js')
     <script>
         $().ready(function(){
-            var dt = new Date();
-            dt.setMinutes( dt.getMinutes() + 10 );
-            // Set the date we're counting down to
-            var countDownDate = dt.getTime();
-
-            // Update the count down every 1 second
-            var x = setInterval(function() {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the element with id="assessmentTimer"
-            document.getElementById("assessmentTimer").innerHTML = minutes + "m " + seconds + "s ";
-
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("assessmentForm").submit()
-            }
-            }, 1000);
-
             // Intitalize carousel
             $('.assessment-carousel').carousel({
                 interval: false
             })
 
-            var max = {!! json_encode($questions->count()) !!};
+            var max = {!! json_encode($questions->count() + 1) !!};
 
             var counter = 1
 
@@ -183,5 +170,44 @@
                 }
             }
         });
+
+        function startAssessment(){
+            // Show first question
+            $('.assessment-carousel').carousel('next')
+
+            // Hide start assessment button
+            $('#start').css('display', 'none')
+
+            // Start timer
+            var dt = new Date();
+            dt.setMinutes( dt.getMinutes() + 10 );
+            // Set the date we're counting down to
+            var countDownDate = dt.getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="assessmentTimer"
+            document.getElementById("assessmentTimer").innerHTML = minutes + "m " + seconds + "s ";
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("assessmentForm").submit()
+            }
+            }, 1000);
+        }
 </script>
 @endsection
