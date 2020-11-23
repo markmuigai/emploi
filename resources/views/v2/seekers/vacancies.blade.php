@@ -106,18 +106,17 @@
                                     <div class="card mb-4">
                                         <div class="card-body">
                                             <div class="col-12 col-lg-12">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <h4>Top Trending Vacancies</h4>
-                                                        <ul>
-                                                            @foreach($posts as $post)
-                                                            @if($post->featured == 'true')
-                                                            <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                              
-                                                            @endif
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6">
+                                                <div class="col-md-12">
+                                                    <h4>Top Trending Vacancies</h4>
+                                                    <ul>
+                                                        @foreach($posts as $post)
+                                                        @if($post->featured == 'true')
+                                                        <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                              
+                                                        @endif
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                         <!--            <div class="col-md-6">
                                                         <style>
                                                             div.cjjobbox{
                                                               
@@ -137,12 +136,11 @@
                                                            <script type="text/javascript" src="https://www.careerjet.co.ke/partners/js_jobbox.html?s=&l=Kenya&n=5&lid=119809&nfr=1&ntt=1">
                                                            </script>
                                                            </div>                   
-                                                    </div>
+                                                    </div> -->
                                                     <div class="col-md-5">
                                                         @include('components.ads.responsive')
                                                     </div>
                                                 </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="row justify-content-between">
