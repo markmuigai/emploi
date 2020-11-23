@@ -15,12 +15,11 @@
                             <h4 class="text-center">My Self Assessment Results</h4><br>
                             @guest
                                 <div class="text-center">
-                                    <h5>{{ request()->email }}: &nbsp&nbsp  {{$score}}/{{$performances->count()}}</h5>
                                     <p>
                                         <a href="/login" class="btn btn-orange">{{ __('auth.login') }}</a>
                                         or  
                                         <a href="/join" class="btn btn-orange-alt">Register</a>
-                                        To view Your detailed Results
+                                        To view Your Results
                                     </p>
                                 </div>                             
                             @endguest

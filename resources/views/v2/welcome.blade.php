@@ -15,9 +15,6 @@
         <div class="container text-center">
             <div class="about-content">
                 <div class="section-title">
-                    <strong>
-                        <span class="sub-title">Career Opportunities</span>
-                    </strong>
                     <h2>{{ __('other.who_r_we') }}?</h2>
                 </div>
                 <p style="font-size: 1rem">{{ __('other.who_r_we_txt') }}</p>
@@ -66,7 +63,6 @@
 
     <div class="container-fluid seeker-services my-5 px-5">
         <div class="section-title text-center">
-            <span class="sub-title">What we offer</span>
             <h2>Job Seeker Services</h2>
         </div>
         <div class="row">
