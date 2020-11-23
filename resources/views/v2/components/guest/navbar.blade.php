@@ -84,14 +84,6 @@
                                 </ul>
                             </li>
                         @endif
-                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-                        @else                               
-                        <li class="nav-item dropdown">                  
-                                <li class="nav-item">
-                                <span class="tooltip-span two">New</span>
-                            <a id="forEmployers" class="nav-link" href="/employers/publish">For Employers</a>
-                        </li> 
-                        @endif
                         @if(isset(Auth::user()->id))
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
@@ -105,7 +97,7 @@
                             </li>
                         @endif
                         @auth
-                        <li class="nav-item">
+                        <li id="profile-menu-item" class="nav-item">
                             <img src="{{ Auth::user()->getPublicAvatarUrl() }}" height="30px" class="profile-avatar mp-3" alt="Profile">
                             <i class='bx bx-chevron-down text-white'></i>
                             <ul class="dropdown-menu">
@@ -121,6 +113,14 @@
                             </ul>
                         </li>
                         @endauth
+                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
+                        @else                               
+                            <li class="nav-item dropdown">                  
+                                    <li class="nav-item">
+                                    <span class="tooltip-span two">New</span>
+                                <a id="forEmployers" class="nav-link" href="/employers/publish">For Employers</a>
+                            </li> 
+                        @endif
                     </ul>
                 </div>
             </nav>
