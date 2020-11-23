@@ -133,12 +133,12 @@
     <!-- End Featured Jobs -->
 
     <!-- Blog -->
-    <section class="blog-area three pt-3 pb-3">
+<!--     <section class="blog-area three pt-3 pb-3">
         <div class="container">
             <div class="section-title three">
                 <h2>Blog & News 1</h2>
             </div>
-            @include('v2.components.blogs')<br>
+
             <div class="d-flex justify-content-center">
                 <a class="text-`center cmn-btn" href="/blog">
                     View All Blogs
@@ -146,17 +146,17 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- End Blog -->
 
 
-        <!-- Location -->
+        <!-- Blogs 2 -->
         <section class="location-area pb-3 mt-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="section-title text-center">
-                            <h2>Blog & News 2</h2>
+                            <h2>Blog & News</h2>
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Location -->
+        <!-- End Blogs 2 -->
 
     <!-- Testimonial -->
     {{-- <section class="testimonial-area pt-5 pb-100">
