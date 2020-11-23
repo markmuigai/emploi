@@ -6,6 +6,7 @@ use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class DiagramAssessmentController extends Controller
@@ -69,7 +70,7 @@ class DiagramAssessmentController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**
@@ -80,7 +81,9 @@ class DiagramAssessmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('v2.admin.assessments.images.edit', [
+            'question' => Question::findorFail($id)
+        ]);
     }
 
     /**
@@ -92,7 +95,22 @@ class DiagramAssessmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::transaction(function () use($request, $id){
+            $question = Question::findOrFail($id);
+
+            // Update question record
+            $question->update([
+                'title' => $request->title,
+                'difficulty_level' => $request->level
+            ]);
+
+            // Update image record
+            $question->image()->update([
+                'correct_value' => $request->correct
+            ]);
+        });
+
+        return redirect()->route('assessments.index');
     }
 
     /**
@@ -103,6 +121,23 @@ class DiagramAssessmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::transaction(function () use($id){
+            // Fetch question 
+            $question = Question::findOrFail($id);
+
+            // Fetch image record
+            $questionImage = $question->image;
+
+            // Delete image
+            File::delete(public_path().'/storage/'.$questionImage->path);
+
+            // Delete image record
+            $questionImage->delete();
+
+            // Delete question record
+            $question->delete();
+        });
+
+        return redirect()->route('assessments.index');
     }
 }
