@@ -103,7 +103,7 @@ class PostsController extends Controller
     {
         //return $request->all();
         $request->validate([
-            'image'    =>  ['mimes:png,jpg,jpeg','max:51200']
+            'image'    =>  ['mimes:png,jpg,jpeg','max:102']
         ]);
         if(isset($request->image))
         {

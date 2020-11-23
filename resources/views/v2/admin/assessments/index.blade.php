@@ -11,6 +11,38 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>All Questions</p>
+                                {{$questions->count()}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>Diagram questions</p>
+                                {{$withImg}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>Text only questions</p>
+                                {{($questions->count()) -$withImg }}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <a href="{{ url()->previous() }}" class="btn btn-primary">
                 <i class="fa fa-arrow-left"></i> Back
             </a>
@@ -44,19 +76,22 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{$question->title}}</td>
                                 <td>{{$question->difficulty_level}}</td>
                                 <td>
-                                    <a href="{{route('assessments.edit', [$question])}}" class="btn btn-success">
-                                        Edit
-                                    </a>
                                     @if (isset($question->image))
-                                    <a class="btn btn-primary" data-toggle="collapse" 
-                                        href="#viewImage-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewImage-{{$question->id}}">
-                                        View Image
-                                    </a>
+                                        <a href="{{route('image-assessments.edit', [$question])}}" class="btn btn-success">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="collapse" 
+                                            href="#viewImage-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewImage-{{$question->id}}">
+                                            View Image
+                                        </a>
                                     @else
-                                    <a class="btn btn-primary" data-toggle="collapse" 
-                                        href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
-                                        View Choices
-                                    </a>
+                                        <a href="{{route('assessments.edit', [$question])}}" class="btn btn-success">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="collapse" 
+                                            href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
+                                            View Choices
+                                        </a>
                                     @endif
                                     {{-- <a href="" class="btn btn-danger">
                                         Disable
