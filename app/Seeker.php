@@ -467,7 +467,7 @@ class Seeker extends Model
 
         //return $perc if jobseeker has incomplete profile(cv and education level missing) or post has no model seeker
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
-            return $perc;
+            return round($perc);
 
         $model = $post->modelSeeker;
 
@@ -833,7 +833,7 @@ class Seeker extends Model
 
         
 
-        return round($perc,2);
+        return round($perc);
     }
 
     public function calculateProfileCompletion()
