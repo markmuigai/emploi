@@ -486,6 +486,8 @@ class AdminController extends Controller
         if(isset($request->q))
         {
             $employers = Employer::where('name','like','%'.$request->q.'%')
+                    ->orWhere('company_name','like','%'.$request->q.'%')
+                    ->orWhere('contact_phone','like','%'.$request->q.'%')
                     ->where('name','not like','%sex%')->where('name','not like','%fuck%')->where('name','not like','%http%')->where('name','not like','%adult%')->where('name','not like','%crypto%')->where('name','not like','%free%')->where('name','not like','%$%')->where('name','not like','%dating%')
                     ->orderBy('created_at','DESC')
                     ->paginate(20);
