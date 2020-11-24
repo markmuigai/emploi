@@ -14,7 +14,7 @@
             <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
         </h3>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 @if($post->featured == 'true')
                 <span class="badge badge-pill badge-success mx-1">
                     <i class="bx bx-star"> </i>Featured
