@@ -32,7 +32,7 @@
                                             <h5>{{ auth::user()->name }}</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <h5>Score: {{$score}}/{{$performances->count()}}</h5>
+                                            <h5>Score: {{ $score/$performances->count() *100 }}%</h5>
                                         </div>
                                     </div>
                                     @foreach ($performances as $key => $perf)
