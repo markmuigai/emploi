@@ -20,6 +20,7 @@ use App\Blog;
 use App\SeekerSubscription;
 use App\Task;
 use App\PartTimer;
+use App\Performance;
 
 use Watson\Rememberable\Rememberable;
 use App\Jobs\EmailJob;
@@ -446,12 +447,18 @@ class Seeker extends Model
         return false;
     }
 
-
+    //function to calculate the value of job score(rsi)
     public function getRsi($post){
-        //return $this->getPlainRsi($post);
-
         //set percentage value of RSI score to zero
         $perc = 0;
+
+        //check if user has any assessmnent done before
+        $assessment_result=Performance::where('email', $this->user->email)->first();
+            if(isset($assessment_result->id)){
+
+                //add the assessment score to his/her job score 
+                $perc += Performance::recentScore($this->user->email);
+            }
 
         //adds the 4 to a percentage value and assigns the result to $perc
         if(isset($this->industry_id) && $this->industry_id == $post->industry_id) {
