@@ -44,7 +44,10 @@
                                             <i class='bx bx-upload'></i>
                                         </label>
                                         @else
-                                        <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-primary">Login to review your CV</a>
+                                        <a href="/login?redirectToUrl={{ url()->current() }}" class="cmn-btn">
+                                            Login to review your CV
+                                            <i class='bx bx-user-plus' ></i>
+                                        </a>
                                         @endif
                                         <input id="review-cv" name="cv" type="file"/>
                                     </form>
