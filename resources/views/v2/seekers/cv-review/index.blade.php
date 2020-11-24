@@ -13,11 +13,14 @@
                 <div class="d-table-cell">
                     <div class="container pt-5 mt-5">
                         <div class="row text-white">
-                            <div class="col-md-6 pt-5">
+                            <div class="col-md-6 review-banner pt-5">
                                 <h1>Automatic <span>CV review</span></h1>
                                 <h2>Instantly Check Your Resume for Issues</h2>
                                 <h5>Review our suggestions to see what you can fix.</h5>
-                                           <a href="/job-seekers/summit" class="btn btn-primary">Fix my CV</a>
+                                <a class="cmn-btn my-3" href="/job-seekers/summit">
+                                    Fix my CV
+                                    <i class='bx bx-wrench'></i>
+                                </a>
                             </div>
                             <div class="col-md-6 d-flex justify-content-center">
                                 <div class="card cv-result text-center">
@@ -36,7 +39,7 @@
                                     @if(Auth()->user())
                                     <a href="#suggestions" class="btn btn-primary">View improvement suggestions</a>
                                     @else
-                                    <button class="btn btn-orange-alt"><a href="/login">Login</a> or <a href="/register">Register</a> to view results</a>
+                                    <button class="btn btn-orange-alt mt-4"><a href="/login">Login</a> or <a href="/register">Register</a> to view results</a>
                                     @endif
                                 </div>
                             </div>
