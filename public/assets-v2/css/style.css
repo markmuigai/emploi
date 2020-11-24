@@ -8365,7 +8365,13 @@ h4,h3{
     #forEmployers{
       font-style: italic;
       display: inline-block;
-      color: #28A745 !important;
+      /* color: #28A745 !important; */
       font-weight: 600;
-      border-bottom: 1px solid #28A745;
+      padding-left: 9px;;
+      /* border-bottom: 1px solid #28A745; */
+      border-left: 2px solid #fff;
+    }
+
+    #profile-menu-item{
+      padding: 13px 0px !important;
     }
