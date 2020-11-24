@@ -63,8 +63,16 @@ class Performance extends Model
      * Get most recent score
      */
     public static function recentScore($email)
-    {
-        return Performance::latestAssessment($email)->where('correct',1)->count();
+    {   
+        //First element in the collection with email , $email
+        $user=Performance::Where('email',$email)->first();
+        
+        //check if email is there
+        if(isset($user->id))        
+            return Performance::latestAssessment($email)->where('correct',1)->count();
+
+        else
+            return NULL;
     }
 
     /**
@@ -130,7 +138,7 @@ class Performance extends Model
        // Find the difference between today and the last assessment done
        $difference = $time->diffInDays($now);
        
-      if ($difference > 7) {
+      if ($difference > 1825) {
           return true;
       }
       return false;       

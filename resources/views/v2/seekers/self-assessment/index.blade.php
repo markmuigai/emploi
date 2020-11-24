@@ -13,6 +13,8 @@
                     <div class="col-md-10">
                         <div class="container p-4">
                             <h4 class="text-center">My Self Assessment Results</h4><br>
+                            @if(App\Performance::recentScore(request()->email) != NULL)
+                                                
                             @guest
                                 <div class="text-center">
                                     <p>
@@ -83,6 +85,13 @@
                                     @endif
                                     @endforeach
                                 </div>
+                            @endif
+                            @else
+                            <div class="container shadow p-3 mb-5 bg-white rounded px-5">
+                                <div class="text-center"><p>No assessment found. Click the link below to do an assessment which will boost your chances of landing your dream job.</p>
+                                    <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
+                                </div>
+                            </div>
                             @endif
                         </div>
                     </div>
