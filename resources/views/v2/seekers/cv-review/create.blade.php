@@ -37,10 +37,15 @@
                                                 <span class="text-danger">{{$error}}</span>
                                             @endforeach
                                         @endif
+
+                                        @if(Auth::user())
                                         <label for="review-cv" class="custom-file-upload cmn-btn my-3">
                                             Review your CV
                                             <i class='bx bx-upload'></i>
                                         </label>
+                                        @else
+                                        <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-primary">Login to review your CV</a>
+                                        @endif
                                         <input id="review-cv" name="cv" type="file"/>
                                     </form>
                                 </div>
