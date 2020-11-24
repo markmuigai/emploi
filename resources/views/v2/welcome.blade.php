@@ -231,61 +231,6 @@
 
 <!-- our product-->
 <br>
-@if(Auth::user())
-<section class="container my-5">
-    <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card shadow" id="paas">
-            <div class="card-body">
-              <h2 class="card-title pb-2">PaaS</h2>
-              <h5 class="card-text"> Get qualified part time professionals on demand.</h5>
-            </div>
-                 <div class="card-footer">
-                     <a href="/job-seekers/paas" class="btn btn-orange">Visit Page</a>
-                </div>       
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card shadow" id="summit">
-            <div class="card-body">
-              <h2 class="card-title pb-2">Career Summit</h2>
-              <h5 class="card-text">Get coaching and support that will get you a job where you will thrive not just survive.</h5>
-            </div>
-            <div class="card-footer">
-                <a href="/job-seekers/summit" class="btn btn-orange">Visit Page</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mb-4">
-            <div class="card shadow" id="spotlight">
-              <div class="card-body">
-                <h2 class="card-title pb-2">Spotlight</h2>
-                <h5 class="card-text">Get to appear top in all search lists.</h5>
-              </div>
-              <div class="card-footer">
-                  <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-4">
-            <div class="card shadow" id="pro">
-              <div class="card-body">
-                <h2 class="card-title pb-2">Pro Package</h2>
-                <h5 class="card-text">Get real-time notification updates.</h5>
-              </div>
-              <div class="card-footer">
-                  <a href="/job-seekers/services" class="btn btn-orange">Visit Page</a>
-              </div>
-            </div>
-          </div>
-          
-      </div>
-
-</section>
-
-@else
 <section class="container-fluid container">
     <div class="row">
         <div class="col-md-6 mb-4">
@@ -337,7 +282,6 @@
           
       </div>
 </section>
-@endif
 <!-- End of our products-->
 
 @endsection
