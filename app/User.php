@@ -365,4 +365,11 @@ class User extends Authenticatable
         }
         return $total;
     }
+
+    /**
+     * Get cv recommendations
+     */
+    public function cvReviewResults(){
+        return $this->hasMany('App\CVReviewResult');
+    }
 }

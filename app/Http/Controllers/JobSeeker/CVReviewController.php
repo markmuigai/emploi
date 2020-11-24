@@ -25,7 +25,7 @@ class CVReviewController extends Controller
     public function index(Request $request)
     {
         return view('v2.seekers.cv-review.index',[
-            'result' => collect(request()->result)
+            'result' => auth()->user()->cvReviewResults->last()
         ]);
     }
 
@@ -100,6 +100,7 @@ class CVReviewController extends Controller
             // Store score
             $reviewResult = CVReviewResult::create([
                 'name' => $name,
+                'user_id' => auth()->user()->id,
                 'output' => 'CV Parsed Successfully',
                 'cvText' => $cleanCV,
                 'score' => $result->get('score')
@@ -126,9 +127,7 @@ class CVReviewController extends Controller
         }  
         
         // dd($result->toArray());
-        return redirect()->route('v2.cv-review.index',[
-            'result'=> $result->toArray()
-        ]);
+        return redirect()->route('v2.cv-review.index');
     }
 
     /**

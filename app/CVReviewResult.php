@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CVReviewResult extends Model
 {
     protected $fillable = [
-        'name', 'output', 'cvText', 'score'
+        'name', 'output', 'cvText', 'score', 'user_id'
     ];
 
     /**

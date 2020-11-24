@@ -29,7 +29,7 @@
                                         @if(Auth()->user())
                                         <div
                                         class="ldBar label-center w-50"
-                                        data-value="{{ $result->get('score') }}"
+                                        data-value="{{ $result->score }}"
                                         data-preset="fan"
                                         style="width: 89px; height: 89px;"
                                         ></div>
@@ -53,14 +53,20 @@
    <br  id="suggestions">
     <section class="work-area cv-review-details py-5 pb-70">
         <div class="container shadow p-3 mb-5 bg-white rounded px-5">
-            @if (empty($result->get('recommendations'))) 
+            @if (empty($result->recommendations)) 
             @else
-                <div class="section-title text-center">
+                <div class="section-title">
                     <div class="ml-3">
-                        Improve on the following areas
-                        @foreach ($result->get('recommendations') as $rec)
-                            <h5>{{ucfirst($rec)}}</h5>
-                        @endforeach
+                        <h4>
+                            Improve on the following areas
+                        </h4>
+                        <ol>
+                            @foreach ($result->recommendations as $rec)
+                            <li>
+                                {{$rec->name}}
+                            </li>
+                            @endforeach
+                        </ol>
                     </div>
                     <h2 style="text-align: center">What we Check</h2>
                 </div>
