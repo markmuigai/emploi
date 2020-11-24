@@ -1046,6 +1046,22 @@
     padding-top: 20px;
     padding-bottom: 20px;
   }
+
+  .review-banner{
+    padding-top: 0px !important;
+  }
+
+  .cv-result{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px dashed #fe4a55;
+    /* background-color: #f8e8e9; */
+    text-align: center;
+    padding: 22px 30px 25px;
+    margin-bottom: 28px;
+    margin-top: 1px;
+    background: linear-gradient(to right,#000,rgba(81,81,81,.2));
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
