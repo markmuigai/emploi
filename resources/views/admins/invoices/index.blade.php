@@ -7,7 +7,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('content')
-@section('page_title', 'Invoicesff')
+@section('page_title', 'Invoices')
 <?php
 $title=isset($title) ? $title : 'Emploi Invoices';
 ?>
@@ -59,19 +59,6 @@ $title=isset($title) ? $title : 'Emploi Invoices';
                             <a href="/admin/invoices/{{ $invoice->slug }}" class="btn btn-sm btn-default">show</a>
                         </p>
                     </div>
-
-                  <!--   test  -->
-                    <?php
-                    $user = App\User::where('email',$invoice->email)->first();
-                    ?>
-                     @if(isset($user->id) && $user->role == 'seeker')
-                    <a href="#" style="float: right;" class="btn btn-orange-alt">Registered</a>
-                     @endif
-                     @if(!isset($user->id))
-                    <p class="orange" style="float: right">Not registered</p>
-                     @endif
-                   <!--   end of test -->
-
                 </div>
                 <hr>
             @empty
