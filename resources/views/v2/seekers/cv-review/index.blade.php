@@ -54,13 +54,10 @@
     <section class="work-area cv-review-details py-5 pb-70">
         <div class="container shadow p-3 mb-5 bg-white rounded px-5">
             @if (empty($result->get('recommendations'))) 
-                <h4 class="mb-5 text-success text-center">
-                    Your CV looks good!
-                </h4>
             @else
                 <div class="section-title text-center">
                     <div class="ml-3">
-                        Ensure your CV has the following keywords:
+                        Improve on the following areas
                         @foreach ($result->get('recommendations') as $rec)
                             <h5>{{ucfirst($rec)}}</h5>
                         @endforeach

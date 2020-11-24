@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <h4>
                         <span class="badge badge-pill badge-primary my-2">Score: {{$review->score}}%</span>
                     </h4>
-                    <p>Your CV is missing the following keywords:</p>
+                    <p>Improve on the following areas:</p>
                     @foreach ($review->recommendations as $key => $rec)
                         <li class="list-inline-item">
                             <strong>

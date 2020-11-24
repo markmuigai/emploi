@@ -6,6 +6,7 @@ use Validator;
 use App\Seeker;
 use App\CVReviewResult;
 use Spatie\PdfToText\Pdf;
+use App\CVImprovementArea;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -104,15 +105,15 @@ class CVReviewController extends Controller
                 'score' => $result->get('score')
             ]);
 
-            // dd($result->toArray());
+            // Get recommendations
+            $recommendations = CVImprovementArea::recommend($result->get('score'));
+
             // Store recommendations
-            if($result->get('recommendations')->isNotEmpty()){
-                foreach($result->get('recommendations') as $rec){
-                    // Store recommendations
-                    $reviewResult->recommendations()->create([
-                        'name' => $rec,
-                    ]);
-                }
+            foreach($recommendations as $rec){
+                // Store recommendations
+                $reviewResult->recommendations()->create([
+                    'name' => $rec->name,
+                ]);
             }
 
             //delete CV after parsing
