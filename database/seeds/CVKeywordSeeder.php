@@ -3,7 +3,7 @@
 use App\CVKeyword;
 use Illuminate\Database\Seeder;
 
-class CVKeywordsSeeder extends Seeder
+class CVKeywordSeeder extends Seeder
 {
     /**
      * Run the database seeds.
