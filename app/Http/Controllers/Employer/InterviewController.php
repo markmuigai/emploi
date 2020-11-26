@@ -26,7 +26,7 @@ class InterviewController extends Controller
     public function create()
     {
         //
-        return view('v2.employer.interview.create',[
+        return view('v2.employers.interview.create',[
             'application' =>  JobApplication::findOrFail(request()->application),
         ]);
     }
