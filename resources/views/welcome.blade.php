@@ -214,6 +214,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="about">
     <div class="container">
 
+        <h4 class="orange"><marquee>Emploi new look coming soon</marquee></h4>
+
         <div class="card pb-5">
             <div class="card-body text-center">
                 <h2 class="orange">{{ __('other.who_r_we') }}?</h2>
