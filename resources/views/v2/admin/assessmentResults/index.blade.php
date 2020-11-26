@@ -9,6 +9,31 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Self-assessment Results')
 <div class="container-fluid mb-5">
+    <a href="{{ url()->previous() }}" class="btn btn-primary">
+       <i class="fa fa-arrow-left"></i> Back
+    </a>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4>
+                        <p>Assessments Done:</p>
+                        {{$emailsAssessed->count()}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4>
+                        <p>Average score:</p>
+                        {{$avg}}/10
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="row justify-content-end">
@@ -27,18 +52,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Email</th>
                             <th scope="col">Recent Score</th>
                             <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($emailsAssessed as $email)
+                            @foreach ($emailsAssessed as $key => $email)
                             <tr>
+                                <td>{{$key+1}}</td>
                                 <td>{{$email}}</td>
                                 <td>{{App\Performance::recentScore($email)}}\10</td>
                                 <td>
-                                    <a href="/v2/self-assessment?email={{ $email }}" class="btn btn-primary">
+                                    <a href="{{route('assessmentResults.show', ['email' => $email])}}" class="btn btn-primary">
                                         View Detailed Results
                                     </a>
                                 </td>
@@ -48,6 +75,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </table>
                 @endif
             </div>
+            {{ $emailsAssessed->links() }}
         </div>
     </div>
 </div>

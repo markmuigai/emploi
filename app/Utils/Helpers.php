@@ -75,15 +75,8 @@ function reviewCV($cvText)
     // dd($cvText);
     // dd(strpos(strtolower($cvText), 'responsibilities'));
 
-    $keywords = [
-        'personal information',
-        'skills',
-        'education',
-        'responsibilities',
-        'achievements',
-        'experience',
-        'training'
-    ];
+    // Get keywords to be searched for in cv text
+    $keywords = App\CVKeyword::all()->pluck('name');
 
     // Capture whether a section exists
     $score = collect();

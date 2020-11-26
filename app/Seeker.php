@@ -20,6 +20,7 @@ use App\Blog;
 use App\SeekerSubscription;
 use App\Task;
 use App\PartTimer;
+use App\Performance;
 
 use Watson\Rememberable\Rememberable;
 use App\Jobs\EmailJob;
@@ -117,18 +118,43 @@ class Seeker extends Model
         return false;
     }
 
+    public function getRemainingProductDays()
+    { 
+        //fetch all orders for this user
+        $orders = $this->user->orders;
+
+        //if any order is found continue
+        if($orders){
+
+                   //loop through all orders
+                   for($i=0; $i<count($orders); $i++)
+                    {
+                        for($k=0; $k<count($orders[$i]->productOrders); $k++)
+                        {
+                            $productOrder = $orders[$i]->productOrders[$k];
+
+                            //fetch only active spotlight product
+                            if($productOrder->product->slug == 'spotlight' && $productOrder->contents != null && $productOrder->contents != 'completed')
+                        
+                                //return the remaining days
+                                return now()->diffInDays(Carbon::parse($productOrder->contents), false);
+                        }
+                    }
+                }
+    }
+
     public function testFeatured(){
         // 
     }
 
     public function isBeingViewedBy(User $user){
-        $seeker = Seeker::where('user_id',$this->user->seeker->user_id)->increment('view_count');
+        $seeker = Seeker::where('user_id',$this->user_id)->increment('view_count');
         if($this->canGetNotification())
         {
             $jobs = [];
             if($user->role == 'admin')
             {
-                $caption = "An recruiter on Emploi has viewed your profile";
+                $caption = "A recruiter on Emploi has viewed your profile";
                 $contents = $user->name.", an Emploi Recruitor, has viewed your profile, and may consider you for positions they are recruiting internally or for clients. ";
             }
             elseif($user->role == 'employer')
@@ -163,7 +189,7 @@ class Seeker extends Model
                 if($days_since > 30)
                 {
                     $opportunities = true;
-                    $messages[] = "<b>You have an old Resume!</b> Your Resume was uploaded $days_since ago, and it is important to update it. Include new achievements and check if outdated information is present."; 
+                    $messages[] = "<b>You have an old Resume!</b> Your Resume was uploaded $days_since days ago, and it is important to update it. Include new achievements and check if outdated information is present."; 
                 }
             }
             if(!$this->age)
@@ -217,9 +243,13 @@ class Seeker extends Model
                 for($i=0; $i<count($messages); $i++)
                     $contents .= "<li>".$messages[$i]."</li>";
                 $contents .= "</ol>";
+
+                $contents .="<br>Click <a href='".url('/profile/edit')."'>here</a> to update your profile.";
             }
 
-            $contents .= "<br> We offer <a href='".url('/job-seekers/summit')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
+            $contents .="<br> View your <a href='".url('/job-seekers/dashboard')."'>profile performance summary</a>.";
+
+            $contents .= "<br><br> We offer <a href='".url('/job-seekers/summit')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
             
             //return $contents;
 
@@ -417,12 +447,18 @@ class Seeker extends Model
         return false;
     }
 
-
+    //function to calculate the value of job score(rsi)
     public function getRsi($post){
-        //return $this->getPlainRsi($post);
-
         //set percentage value of RSI score to zero
         $perc = 0;
+
+        //check if user has any assessmnent done before
+        $assessment_result=Performance::where('email', $this->user->email)->first();
+            if(isset($assessment_result->id)){
+
+                //add the assessment score to his/her job score 
+                $perc += Performance::recentScore($this->user->email);
+            }
 
         //adds the 4 to a percentage value and assigns the result to $perc
         if(isset($this->industry_id) && $this->industry_id == $post->industry_id) {
@@ -431,7 +467,7 @@ class Seeker extends Model
 
         //return $perc if jobseeker has incomplete profile(cv and education level missing) or post has no model seeker
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
-            return $perc;
+            return round($perc);
 
         $model = $post->modelSeeker;
 
@@ -797,7 +833,7 @@ class Seeker extends Model
 
         
 
-        return round($perc,2);
+        return round($perc);
     }
 
     public function calculateProfileCompletion()
@@ -910,7 +946,7 @@ class Seeker extends Model
                         ->get();
 
         $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(10))
-                    ->where('industry_id',$this->user->seeker->industry_id)
+                    ->where('industry_id',$this->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
                     ->get();        
@@ -925,13 +961,13 @@ class Seeker extends Model
 
                 $contents ="<p style= 'background:orange; color:white; text-align:center'>FREE CV REVIEW!! INCREASE YOUR CHANCES OF GETTING HIRED</p> 
                             <p>Click <a href='https://bit.ly/3fqEkrD'> here</a> to have your CV done to perfection at no cost.</p>
-                                <br><br>";  
+                                <br>";  
 
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
     
                 $contents  .= '<p style= "background:orange; color:white">';
 
-                $contents .="Here are the Latest Vacancies in <b>".$this->user->seeker->industry->name.",</b> Apply Now.<br>";
+                $contents .="Here are the Latest Vacancies in <b>".$this->industry->name.",</b> Apply Now.<br>";
                 $contents .= '</p>';
 
 

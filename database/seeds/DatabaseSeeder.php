@@ -23,7 +23,9 @@ class DatabaseSeeder extends Seeder
             DifficultyRatingSeeder::class,
             RefereeSeeder::class,
             JobApplicationRefereeSeeder::class,
-            SeekerJobSeeder::class
+            SeekerJobSeeder::class,
+            CVkeyword::class,
+            CVImprovementArea::class
         ]);
     }
 }

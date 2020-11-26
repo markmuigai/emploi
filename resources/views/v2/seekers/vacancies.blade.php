@@ -7,6 +7,26 @@
     @include('v2.components.jobseeker.navbar')
     <!-- End Navbar -->
 
+<style>
+  .banner{
+    background: purple;
+    height: 10vh;
+    display: flex;
+    align-items: center
+  }
+
+  .banner a{
+    text-decoration: none;
+    transition: 2s;
+  }
+
+  .banner h5{
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+  }
+ </style>
     <!-- Jobs -->
     <div class="job-area-list dashboard-area mt-1 ptb-100">
         <div class="container-fluid px-4">
@@ -33,21 +53,33 @@
                         @endif
                 </div>           
 
-                    <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">                    
-                      
-                    <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> CV Review</i></span></a></button>
-                    @if (auth()->user() && auth()->user()->role == 'seeker')
-                        <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
-                    @else
-                        <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
-                    @endif
-                    <h3 class="text-center my-4">Get all the latest jobs in one place and apply.</h3>
+                    <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">
+                        <div class="container pt-3 pb-3">                  
+                              
+                            <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> CV Review</i></span></a></button>
+                            @if (auth()->user() && auth()->user()->role == 'seeker')
+                                <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
+                            @else
+                                <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
+                            @endif
+                        </div>
+
+                    <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
+                    <h3 style="text-align: center">Get all the latest jobs at one stop and apply.</h3>
+                    </div>
                     <!-- Jobs -->
                     <div class="categories-area pt-2 pb-70">
                         <div class="container-fluid"> 
                             <div class="row">
                                 @guest
                                 <div class="col-lg-2">
+                                    <div style="width: 100%">
+                                        <br><br><br>                                                                               
+                                        <div class="banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s px-1">                                   
+                                            <a href="#" data-toggle="modal" data-target="#advertModal"><h5>ADVERTISE HERE</h5></a>  
+                                        </div>
+                                    </div>
+                                    <br><br>
                                     <h4>Filter By</h4>
                                      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                       <a class="nav-link" id="v-pills-messages-tab" href="/login?redirectToUrl={{ url()->current() }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">
@@ -70,28 +102,6 @@
                                 </div>
                                 @endguest
                                 <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
-                                    <!-- FEATURED VACANCIES -->
-                                    <div class="card mb-4">
-                                        <div class="card-body">
-                                            <div class="col-12 col-lg-12">
-                                                <div class="row">
-                                                    <div class="col-md-8">
-                                                        <h4>Top Trending Vacancies</h4>
-                                                        <ul>
-                                                            @foreach($posts as $post)
-                                                            @if($post->featured == 'true')
-                                                            <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                              
-                                                            @endif
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        @include('components.ads.responsive')
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row justify-content-between">
                                         <div class="col-md-6">
                                             <div class="sorting-menu mt-3 float-left">
@@ -123,7 +133,7 @@
 
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <div id="container" class="row">
+                                            <div id="container" class="row">                                         
                                                 @forelse($posts as $post)
                                                     @include('v2.components.jobseeker.vacancy-card')
                                                 @empty
@@ -131,7 +141,51 @@
                                                     <p>No job posts found</p>
                                                 </div>
                                                 @endforelse
-                                                @guest
+                                                <!-- FEATURED VACANCIES -->
+                                                <div class="container-fluid">
+                                                    <div class="card mb-4">
+                                                        <div class="card-body">
+                                                            <div class="col-12 col-lg-12">
+                                                                <div class="col-md-12">
+                                                                    <h4>Top Trending Vacancies</h4>
+                                                                    <ul>
+                                                                        @foreach($posts as $post)
+                                                                        @if($post->featured == 'true')
+                                                                        <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                              
+                                                                        @endif
+                                                                        @endforeach
+                                                                    </ul>
+                                                                </div>
+                                                         <!--            <div class="col-md-6">
+                                                                        <style>
+                                                                            div.cjjobbox{
+                                                                              
+                                                                              width: 345px ;
+                                                                              background-color: #FFFFFF ;
+                                                                              /* border-style: solid ; */
+                                                                              /* border-width: 1px ; */
+                                                                              border-color: #919294 ;
+                                                                              /* font-family: Arial, sans-serif ; */
+                                                                              /* font-size: 13px ; */
+                                                                              color: #E15419;
+                                                                              text-align: left;
+                                                                            }
+
+                                                                           </style>
+                                                                           <div class="cjjobbox">
+                                                                           <script type="text/javascript" src="https://www.careerjet.co.ke/partners/js_jobbox.html?s=&l=Kenya&n=5&lid=119809&nfr=1&ntt=1">
+                                                                           </script>
+                                                                           </div>                   
+                                                                    </div> -->
+                                                                    <div class="col-md-5">
+                                                                        @include('components.ads.responsive')
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @guest                                         
+                                           
                                                 <div class="text-center">
                                                     <div class="mix recommended">
                                                         <p>
@@ -174,6 +228,51 @@
         </div>
     </div>
     <!-- End Jobs -->
+
+      <!-- Advert Modal -->
+    <div class="modal fade" id="advertModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title">Advertise here</h4>
+              </div>
+                <div class="modal-body">               
+                      <form  method="post" action="/employers/publish"  enctype="multipart/form-data">
+                          @csrf                              
+                          <div class="form-group">
+                              <label for="">Your Name<strong class="text-danger">*</strong></label>
+                              <input type="text" name="name" required="" class="form-control" placeholder="" maxlength="50">
+                          </div>
+                          <div class="form-group">
+                              <label for="">Phone Number<strong class="text-danger">*</strong></label>
+                              <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
+                          </div>
+                          <div class="form-group">
+                              <label for="">Email Address<strong class="text-danger">*</strong></label>
+                              <input type="email" name="email" required="" class="form-control" placeholder="" maxlength="50">
+                          </div>
+                          <div class="form-group">
+                              <label for="">Job Title</label>
+                              <input type="text" name="title" maxlength="100" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                              <label for="description">Job Description</label>
+                              <input type="text" name="" name="description" class="form-control">
+                          </div>                  
+
+                          <div class="text-center">                 
+                                
+                              <input type="submit" class="btn btn-success" value="Submit">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            
+                          </div>                                               
+                      </form>
+                  </div>                         
+            </div>                  
+        </div>
+    </div>
+  <!-- Advert Modal End-->
+
 
     <!-- Featured -->
     @include('v2.components.featured-employers')                

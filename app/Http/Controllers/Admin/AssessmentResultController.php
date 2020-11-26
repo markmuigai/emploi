@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Performance;
 use Illuminate\Http\Request;
+use App\Utils\CollectionHelper;
 use App\Http\Controllers\Controller;
 
 class AssessmentResultController extends Controller
@@ -16,7 +18,8 @@ class AssessmentResultController extends Controller
     public function index()
     {
         return view('v2.admin.assessmentResults.index',[
-            'emailsAssessed' => Performance::emailsAssessed()
+            'emailsAssessed' => CollectionHelper::paginate(Performance::emailsAssessed(),10),
+            'avg' => Performance::recentScoresAvg(),
         ]);
     }
 
@@ -47,9 +50,14 @@ class AssessmentResultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // Show assessment
+        return view('v2.admin.assessmentResults.show',[
+            'score' => Performance::recentScore(request()->email),
+            'performances' => Performance::LatestAssessment(request()->email),
+            'user' => User::where('email', request()->email)->get()
+        ]);
     }
 
     /**

@@ -601,16 +601,18 @@
   /*----- Home Demo Three CSS -----*/
   /*-- Navbar --*/
   .side-nav.three .login-left {
-    color: #172f47;
+    color: #500095;
   }
   .side-nav.three .login-left i {
-    color: #172f47;
+    color: #500095;
   }
   /*-- End Navbar --*/
   /*-- Banner --*/
   .banner-area.three {
     padding-bottom: 65px;
+    padding-top: 90px !important;
   }
+
   .banner-area.three .banner-shape-three img {
     position: relative;
     bottom: 0;
@@ -621,6 +623,7 @@
   .banner-content.three {
     height: 100%;
     padding-top: 0;
+    padding-left: 0;
   }
   .banner-content.three .register-area {
     margin-top: 30px;
@@ -1042,6 +1045,22 @@
   .job-area-list .job-list-right .jecto-contact .bottom {
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+
+  .review-banner{
+    padding-top: 0px !important;
+  }
+
+  .cv-result{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px dashed #fe4a55;
+    /* background-color: #f8e8e9; */
+    text-align: center;
+    padding: 22px 30px 25px;
+    margin-bottom: 28px;
+    margin-top: 1px;
+    background: linear-gradient(to right,#000,rgba(81,81,81,.2));
   }
 }
 
@@ -2016,7 +2035,7 @@
     margin-right: 8px;
   }
   .navbar-light .navbar-brand, .navbar-light .navbar-brand:hover {
-    max-width: 115px;
+    /* max-width: 115px; */
   }
   .side-nav .job-right i {
     display: none;
@@ -2028,7 +2047,7 @@
     line-height: 45px;
   }
   .main-nav .container-fluid {
-    padding-left: 15px;
+    padding-left: 45px;
     padding-right: 15px;
   }
   .side-nav .login-left {
@@ -2087,7 +2106,7 @@
 
 @media only screen and (max-width: 991px) {
   .mean-container .mean-bar {
-    background-color: #172f47;
+    background-color: #500095;
   }
   .mobile-nav .logo {
     top: 10px;

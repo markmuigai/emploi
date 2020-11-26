@@ -14,7 +14,7 @@
             <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
         </h3>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 @if($post->featured == 'true')
                 <span class="badge badge-pill badge-success mx-1">
                     <i class="bx bx-star"> </i>Featured
@@ -25,7 +25,7 @@
                 @if (auth()->user() && $post->savedByUser(auth()->user()->id) == 1)
                     <span class="save-icon text-success" data-id="{{$post->id}}">
                         <i id="heart-icon-{{$post->id}}" class='bx bxs-heart'></i>
-                        <span class="save-text" id="save-text-{{$post->id}}">
+                        <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="remove from saved">
                             Unsave
                         </span>
                     </span>

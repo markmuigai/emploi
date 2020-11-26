@@ -12,13 +12,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <div class="card about">
         <div class="card-body text-center">
             <h2 class="orange">About Us</h2>
-            <h5>Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.</h5>
-        
-            <p>At the core of our systems is a vacancy – job seeker matching engine powered by algorithms for job seeker assessment and ranking together with advanced recruitment process management tools.</p>
-            <p>
-                One of the most interesting puzzles about the East African job market is the time it takes for an employer to fill a position, given the high unemployment rates in the region. In a mission to understand the puzzle and go beyond
-                the easier narrative of “unemployable graduates”, we discovered the unintended reason behind the inability of employers and job seekers to find each other as quickly, efficiently and as affordably as possible.
-            </p>
+                <p>Emploi is a software as a service (SAAS) enabled market-placed platform for integrated talent acquisition, talent management and growth. This basically means that our clients rent usage of the software to solve their specific needs.</p>
+                <p>It is a technology platform streamlining talent acquisition and management for growing companies through a smart recruitment and management engine.</p>
+                <p>Emploi also addresses job seekers’ career progression needs by providing a mixture of technological tools and personalized career services to fast-track their landing of opportunities that match their competencies.</p>
             <a href="/join" class="btn btn-orange mt-3 px-4">Sign Me Up</a>
             <a href="/employers/services" class="btn btn-default mt-3 px-4">Employer Services</a>
             <a href="/job-seekers/services" class="btn btn-orange mt-3 px-4">Job Seeker Services</a>

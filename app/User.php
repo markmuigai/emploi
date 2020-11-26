@@ -366,10 +366,10 @@ class User extends Authenticatable
         return $total;
     }
 
-    public function hasMarkedSave(){
-        if ($this->id == 2) {
-           return true;
-        }
-    return false;
+    /**
+     * Get cv recommendations
+     */
+    public function cvReviewResults(){
+        return $this->hasMany('App\CVReviewResult');
     }
 }

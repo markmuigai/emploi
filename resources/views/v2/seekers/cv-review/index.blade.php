@@ -13,24 +13,34 @@
                 <div class="d-table-cell">
                     <div class="container pt-5 mt-5">
                         <div class="row text-white">
-                            <div class="col-md-6 pt-5">
+                            <div class="col-md-6 review-banner pt-5">
                                 <h1>Automatic <span>CV review</span></h1>
                                 <h2>Instantly Check Your Resume for Issues</h2>
                                 <h5>Review our suggestions to see what you can fix.</h5>
+                                <a class="cmn-btn my-3" href="/job-seekers/summit">
+                                    Fix my CV
+                                    <i class='bx bx-wrench'></i>
+                                </a>
                             </div>
                             <div class="col-md-6 d-flex justify-content-center">
                                 <div class="card cv-result text-center">
                                     <h3>Your Results</h3>                                  
                                     <div class="d-flex justify-content-center my-3">
+                                        @if(Auth()->user())
                                         <div
                                         class="ldBar label-center w-50"
-                                        data-value="{{ $result->get('score') }}"
+                                        data-value="{{ $result->score }}"
                                         data-preset="fan"
                                         style="width: 89px; height: 89px;"
                                         ></div>
+                                        @endif
                                     </div>                                                                   
                                     <h4>CV STRENGTH</h4>
-                                    <a href="/job-seekers/summit" class="btn btn-orange">Fix my CV</a>
+                                    @if(Auth()->user())
+                                    <a href="#suggestions" class="btn btn-primary">View improvement suggestions</a>
+                                    @else
+                                    <button class="btn btn-orange-alt mt-4"><a href="/login">Login</a> or <a href="/register">Register</a> to view results</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -39,19 +49,24 @@
             </div>
         </div>
 <!--What we check start-->
+   @if(Auth()->user())
+   <br  id="suggestions">
     <section class="work-area cv-review-details py-5 pb-70">
         <div class="container shadow p-3 mb-5 bg-white rounded px-5">
-            @if (empty($result->get('recommendations')))
-                <h4 class="mb-5 text-success text-center">
-                    Your CV looks good!
-                </h4>
+            @if (empty($result->recommendations)) 
             @else
-                <div class="section-title text-center">
+                <div class="section-title">
                     <div class="ml-3">
-                        Ensure your CV has the following keywords:
-                        @foreach ($result->get('recommendations') as $rec)
-                            <h5>{{ucfirst($rec)}}</h5>
-                        @endforeach
+                        <h4>
+                            Improve on the following areas
+                        </h4>
+                        <ol>
+                            @foreach ($result->recommendations as $rec)
+                            <li>
+                                {{$rec->name}}
+                            </li>
+                            @endforeach
+                        </ol>
                     </div>
                     <h2 style="text-align: center">What we Check</h2>
                 </div>
@@ -99,10 +114,14 @@
                         <p>Make it easy for an employer who could like to contact you.</p>
                     </div>
                 </div>
-            </div>        
-            <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Login to view improvement suggestions</a> 
+            </div>      
         </div>
     </section>
+    @else<br>
+    <div class="container shadow p-3 mb-5 bg-white rounded px-5 text-center">
+        <a href="/login?redirectToUrl={{ url()->current() }}" class="btn btn-orange">Login to view improvement suggestions</a>
+    </div>
+    @endif 
   
     <!--What we check end-->
 

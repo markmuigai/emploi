@@ -26,12 +26,18 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/vacancies/featured" class="nav-link">Featured Jobs</a>
-                                </li>
+                           <!--      <li class="nav-item">
+                                    <a href="vacancies" class="nav-link">My Saved Jobs</a>
+                                </li> -->
+                                @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                                 <li class="nav-item">
                                     <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
                                 </li>
+                                @else
+                                <li class="nav-item">
+                                    <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
+                                </li>
+                                @endif
                                 <li class="nav-item">
                                     <a href="/post-a-job" class="nav-link">Post A Job</a>
                                 </li>
@@ -77,35 +83,6 @@
                                 </ul>
                             </li>
                         @endif
-                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-                        @else
-                            <li class="nav-item">
-                                <a href="index-3.html#" class="nav-link dropdown-toggle">{{ __('jobs.employers') }}<i class='bx bx-chevron-down'></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="/employers/browse" class="nav-link">{{ __('jobs.browse_cvs') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/publish" class="nav-link">{{ __('jobs.advert_jobs') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/premium-recruitment" class="nav-link">{{ __('jobs.p_recruit') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/paas" class="nav-link">PaaS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/e-club" class="nav-link">E-Club</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/employers/services" class="nav-link">{{ __('other.a_services') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/companies/create" class="nav-link">{{ __('other.add_comp') }}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
                         @if(isset(Auth::user()->id))
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
@@ -119,7 +96,7 @@
                             </li>
                         @endif
                         @auth
-                        <li class="nav-item">
+                        <li id="profile-menu-item" class="nav-item">
                             <img src="{{ Auth::user()->getPublicAvatarUrl() }}" height="30px" class="profile-avatar mp-3" alt="Profile">
                             <i class='bx bx-chevron-down text-white'></i>
                             <ul class="dropdown-menu">
@@ -135,9 +112,21 @@
                             </ul>
                         </li>
                         @endauth
+                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
+                        @else                               
+                            <li class="nav-item dropdown">                  
+                                    <li class="nav-item">
+                                    <span class="tooltip-span two">New</span>
+                                <a id="forEmployers" class="nav-link" href="/employers/publish">For Employers</a>
+                            </li> 
+                        @endif
                     </ul>
                 </div>
             </nav>
         </div>
     </div>
 </div>
+
+@section('modal')
+    @include('v2.components.modals.self-assessment')
+@endsection

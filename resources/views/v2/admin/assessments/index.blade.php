@@ -11,10 +11,48 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>All Questions</p>
+                                {{$questions->count()}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>Diagram questions</p>
+                                {{$withImg}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>
+                                <p>Text only questions</p>
+                                {{($questions->count()) -$withImg }}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ url()->previous() }}" class="btn btn-primary">
+                <i class="fa fa-arrow-left"></i> Back
+            </a>
             <div class="row justify-content-end">
-                <div class="col-md-3 my-2">
-                    <a href="{{route('assessments.create')}}" class="btn btn-success">
-                        Add question
+                <div class="col-md-7 my-2">
+                    <a href="{{route('assessments.create')}}" class="btn btn-success float-right">
+                        Add bulk text questions
+                    </a>
+                    <a href="{{route('image-assessments.create')}}" class="btn btn-success float-right">
+                        Add diagramatic questions
                     </a>
                 </div>
             </div>
@@ -38,13 +76,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{$question->title}}</td>
                                 <td>{{$question->difficulty_level}}</td>
                                 <td>
-                                    <a class="btn btn-primary" data-toggle="collapse" 
-                                        href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
-                                        View Choices
-                                    </a>
-                                    <a href="" class="btn btn-danger">
+                                    @if (isset($question->image))
+                                        <a href="{{route('image-assessments.edit', [$question])}}" class="btn btn-success">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="collapse" 
+                                            href="#viewImage-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewImage-{{$question->id}}">
+                                            View Image
+                                        </a>
+                                    @else
+                                        <a href="{{route('assessments.edit', [$question])}}" class="btn btn-success">
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-primary" data-toggle="collapse" 
+                                            href="#viewChoice-{{$question->id}}" role="button" aria-expanded="false" aria-controls="viewChoice-{{$question->id}}">
+                                            View Choices
+                                        </a>
+                                    @endif
+                                    {{-- <a href="" class="btn btn-danger">
                                         Disable
-                                    </a>
+                                    </a> --}}
                                 </td>
                             </tr>
                             <tr class="collapse" id="viewChoice-{{$question->id}}">
@@ -60,11 +111,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     @endforeach
                                 </td>
                             </tr>
+                            <tr class="collapse" id="viewImage-{{$question->id}}">
+                                <td colspan="3">
+                                    @isset($question->image)
+                                        <img src="/storage/assessments/{{$question->id}}" height="auto" width="500px" alt="">
+                                    @endisset
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
                 @endif
             </div>
+            {{ $questions->links() }}
         </div>
     </div>
 </div>

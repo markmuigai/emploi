@@ -55,6 +55,11 @@ class BlogController extends Controller
         if(!$user->canUseBloggingPanel())
             return abort(403);
 
+        $request->validate([
+            'image1'    =>  ['mimes:png,jpg,jpeg','max:102'],
+            'image2'    =>  ['mimes:png,jpg,jpeg','max:102']
+        ]);
+
         $featured_image = $request->file('featured_image');
         $featured_image_url = time() . '.' . $featured_image->getClientOriginalExtension();
         $storage_path = storage_path().'/app/public/blogs/'.$featured_image_url;

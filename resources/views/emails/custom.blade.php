@@ -174,10 +174,10 @@
                     </tr>
 
                     <?php
-                        if(!isset($banner) || $banner == '/images/email-banner.jpg')
+                        if(!isset($banner) || $banner == '/images/emailbanner.jpg')
                         {
                             $banner = rand(0,5);
-                            $banner = 0 ? 'email-banner.jpg' : 'email-banner-'.$banner.'.jpg';
+                            $banner = 0 ? 'emailbanner.jpg' : 'emailbanner-'.$banner.'.jpg';
                             $banner = '/images/'.$banner;
                         }
                         

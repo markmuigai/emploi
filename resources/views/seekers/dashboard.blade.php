@@ -9,6 +9,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Dashboard')
 
+    <style>
+      #blur {
+        font-size: 40px;
+        color: transparent;
+        text-shadow: 0 0 12px #fff;
+      }
+  </style>
 
 <?php
 $user = Auth::user();
@@ -40,29 +47,37 @@ $user = Auth::user();
 </style>
 <div class="card-deck">
     <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
-            <p>Applications</p>
-        </div>
+    	<a href="/profile/applications">
+	        <div class="card-body text-center">
+	            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->get()) }}</h1>
+	            <p>Applications</p>
+	        </div>
+        </a>
     </div>
      <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
-            <p>Shortlisted</p>
-        </div>
+     	<a href="/profile/applications">
+	        <div class="card-body text-center">
+	            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'shortlisted')->get()) }}</h1>
+	            <p>Shortlisted</p>
+	        </div>
+        </a>
 	</div>
 	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
-            <p>Rejected</p>
-        </div>
+	 	<a href="/profile/applications">
+	        <div class="card-body text-center">
+	            <h1 class="white">{{ count(\App\JobApplication::Where('user_id',$user->id)->Where('status', 'rejected')->get()) }}</h1>
+	            <p>Rejected</p>
+	        </div>
+        </a>
 	</div>
-	 <div class="card seeker-analytics">
-        <div class="card-body text-center">
-            <h1 class="white">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
-            <p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
-    </div>
-</div>
+	<div class="card seeker-analytics">
+		<a href="/vacancies/{{ $user->seeker->industry->slug }}">
+				<div class="card-body text-center">
+				<h1 class="white">{{ count(\App\Post::Where('industry_id',$user->seeker->industry_id)->Where('status','active')->get()) }}</h1>
+				<p>{{ $user->seeker->industry->name }} <br>Vacancies</p>
+			</div>
+		</a>
+	</div>
 	<div class="card seeker-analytics">
         <div class="card-body text-center">
             <h1 class="white">{{ $user->seeker->view_count }}</h1>
@@ -70,9 +85,16 @@ $user = Auth::user();
         </div>
     </div>
 </div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
- @endif
+@endif
 
+@if($user->seeker->featured >= 1 && $user->seeker->getRemainingProductDays() < 30)
+ 	<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Upgrade your spotlight plan with yearly payment to win one month free</a></h5>
+@endif
+
+@if($user->seeker->featured >= 1 && $user->seeker->getRemainingProductDays() > 30)
+   	<br><h5 class="alert alert-success" style="text-align: center;">You have {{  $user->seeker->getRemainingProductDays() }} remaining spotlight plan days</h5>
+@endif
+ 
  @if($user->seeker->featured == 0)
 <br><h4 align="center">Profile Performance Summary</h4><br>
 <style>
@@ -91,38 +113,38 @@ $user = Auth::user();
 	}
 </style>
 <div class="card-deck">
-    <div class="card seeker-analytics">
+    <div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your job applications summary">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+            <h1 class="white" id="blur">88</h1>
             <p>Applications</p>
         </div>
     </div>
-     <div class="card seeker-analytics">
+     <div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to view your shortlist summary">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+            <h1 class="white" id="blur">8</h1>
             <p>Shortlisted</p>
         </div>
 	</div>
-	 <div class="card seeker-analytics">
+	 <div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your job application rejection summary">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+           <h1 class="white" id="blur">88</h1>
             <p>Rejected</p>
         </div>
 	</div>
-	 <div class="card seeker-analytics">
+	<div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your vacancies summary">
         <div class="card-body text-center">
-            <h1 class="white"> </h1>
-            <p>Vacancies</p>
+            <h1 class="white" id="blur">88</h1><br>
+            <p>{{ $user->seeker->industry->name }} Vacancies</p>
+        </div>
     </div>
-</div>
-	<div class="card seeker-analytics">
+	<div class="card seeker-analytics" data-toggle="tooltip"  title="Purchase spotlight plan to unlock your profile views summary">
         <div class="card-body text-center">
-            <h1 class="white"></h1>
+           <h1 class="white" id="blur">88</h1>
             <p>Profile Views</p>
         </div>
     </div>
 </div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Purchase spotlight plan to view your profile performance summary</a></h5>
+<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Purchase spotlight plan to unlock your profile performance summary</a></h5>
  @endif
 
 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
@@ -277,5 +299,10 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 @include('components.ads.responsive')
 
 @endif
+
+<script type="text/javascript">
+  //toggle buy spotlight message on hover
+    $('[data-toggle="tooltip"]').tooltip();
+</script>
 
 @endsection

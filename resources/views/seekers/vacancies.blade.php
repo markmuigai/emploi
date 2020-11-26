@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
   100%{opacity: 1;}
   }
 </style>
-<h5 class="orange">Get all the latest vacancies in one place and apply.</h5>
+<h5 class="orange">Get all the latest jobs at one stop and apply.</h5>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}"> 
      <div class="col-lg-2 col-md-6 py-2">         
         <div class="nav-item dropdown">
@@ -93,39 +93,38 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <!-- FEATURED VACANCIES -->
 <div class="card mb-4">
     <div class="card-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>Top Trending Vacancies</h4>
-                    <ul class="trending-vacancies" style="list-style-type: none;">
-                        @foreach($posts as $post)
-                            @if($post->featured == 'true') 
-                                <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                               
-                            @endif
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <style>
-                        div.cjjobbox{
-                          
-                          width: 345px ;
-                          background-color: #FFFFFF ;
-                          /* border-style: solid ; */
-                          /* border-width: 1px ; */
-                          border-color: #919294 ;
-                          /* font-family: Arial, sans-serif ; */
-                          /* font-size: 13px ; */
-                          color: #E15419;
-                          text-align: left;
-                        }
-
-                       </style>
-                       <div class="cjjobbox">
-                       <script type="text/javascript" src="https://www.careerjet.co.ke/partners/js_jobbox.html?s=&l=Kenya&n=5&lid=119809&nfr=1&ntt=1">
-                       </script>
-                       </div>                   
-                </div>
+            <div class="col-md-12">
+                <h4>Top Trending Vacancies</h4>
+                <ul class="trending-vacancies" style="list-style: dot">
+                    @foreach($posts as $post)
+                        @if($post->featured == 'true') 
+                            <li><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                               
+                        @endif
+                    @endforeach
+                </ul>
             </div>
+    <!--         <div class="col-md-6">
+                <style>
+                    div.cjjobbox{
+                      
+                      width: 345px ;
+                      background-color: #FFFFFF ;
+                      /* border-style: solid ; */
+                      /* border-width: 1px ; */
+                      border-color: #919294 ;
+                      /* font-family: Arial, sans-serif ; */
+                      /* font-size: 13px ; */
+                      color: #E15419;
+                      text-align: left;
+                    }
+
+                   </style>
+                   <div class="cjjobbox">
+                   <script type="text/javascript" src="https://www.careerjet.co.ke/partners/js_jobbox.html?s=&l=Kenya&n=5&lid=119809&nfr=1&ntt=1">
+                   </script>
+                   </div>                   
+            </div> -->
+       
     </div>
 </div>
 <!-- JOB CARD -->

@@ -71,7 +71,7 @@
         <!-- cookie -->
 
         <!-- Preloader -->
-        @include('v2.components.preloader')
+        {{-- @include('v2.components.preloader') --}}
         <!-- End Preloader -->
 
         @yield('content')
@@ -118,7 +118,7 @@
         <script src="{{asset('assets-v2/js/custom.js')}}"></script>
         <!--Loading Bar-->
         <script type="text/javascript" src="{{asset('assets-v2/js/loading-bar.min.js')}}"></script>
-
+        <script src="http://malsup.github.com/jquery.form.js"></script> 
         <!--js in blade-->
         @yield('js')
     </body>

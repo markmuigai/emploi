@@ -11,6 +11,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-12">
+        <a href="{{ url()->previous() }}" class="btn btn-primary">
+            <i class="fa fa-arrow-left"></i> Back
+        </a>
             <div class="row justify-content-end">
                 <div class="col-md-3 my-2">
                     <a href="{{route('cvTests.create')}}" class="btn btn-success float-right">
@@ -66,7 +69,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </td>
                         </tr>
                         <tr class="collapse" id="viewText-{{$test->id}}">
-                            <td colspan="3">
+                            <td colspan="4">
                                 <p>{{$test->cvText}}</p>
                             </td>
                         </tr>

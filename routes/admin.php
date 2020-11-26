@@ -70,13 +70,33 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     Route::get('cv-builder', 'AdminController@CvBuilder');
 
+    // Assessments
     Route::resource('assessments','AssessmentController');
 
-    Route::resource('assessmentResults','AssessmentResultController');
+    // Diagramatic assessments
+    Route::get('image-assessments/create', 'DiagramAssessmentController@create')->name('image-assessments.create');
+    Route::post('image-assessments', 'DiagramAssessmentController@store')->name('image-assessments.store');
+    Route::get('image-assessments/{id}/edit', 'DiagramAssessmentController@edit')->name('image-assessments.edit');
+    Route::put('image-assessments/{id}', 'DiagramAssessmentController@update')->name('image-assessments.update');
+    Route::delete('image-assessments/{id}', 'DiagramAssessmentController@destroy')->name('image-assessments.destroy');
 
+    // Assessment Results
+    Route::get('assessmentResults', 'AssessmentResultController@index')->name('assessmentResults.index');
+
+    Route::get('assessmentResults/show', 'AssessmentResultController@show')->name('assessmentResults.show');
+
+    // Route::resource('assessmentResults','AssessmentResultController');
+
+    // CV Test results
     Route::resource('cvTests', 'cvTestController');
 
     Route::post('cvTests/deleteAll', 'cvTestController@deleteAll')->name('cvTests.deleteAll');
+
+    // CV Reviews
+    Route::resource('cvReviews', 'CVReviewController');
+
+    // CV Keywords
+    Route::resource('CVKeywords', 'CVKeywordController');
 
     // Download pdf
     Route::post('referee-form/download/{slug}', 'RefereeReportController@download')->name('refereeForm.download');

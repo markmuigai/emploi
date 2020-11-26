@@ -139,7 +139,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/invoices" role="tab" aria-controls="v-pills-messages" aria-selected="false">Invoices <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/paas-applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Paas Applications <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/assessmentResults" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assessments <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/cvTests" role="tab" aria-controls="v-pills-messages" aria-selected="false">CV Review Tester<i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/cvReviews" role="tab" aria-controls="v-pills-messages" aria-selected="false">CV Reviews<i class="fas fa-chevron-right"></i></a>
                             
                         </div>
 
@@ -221,13 +221,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         
 
                         <div class="row">
-                            @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
+                    <!--         @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
                             <a href="/messages" class="btn btn-purple mr-1 my-1" dusk="create-new-post"><i class="fas fa-comments"></i> Messages ({{ count(\App\Message::Where('to_id',Auth::user()->id)->Where('seen',0)->get()) }})</a>
                             @endif
 
                             @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->isOnPaas())
                             <a href="/inbox" class="btn btn-purple mr-1 my-1" dusk="create-new-post"><i class="fas fa-comments"></i> Messages ({{ count(\App\Message::Where('to_id',Auth::user()->id)->Where('seen',0)->get())}})</a>
-                            @endif
+                            @endif -->
 
                             @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                             <a href="/employers/request-paas" class="btn btn-orange-alt mr-2 my-1" >Request PartTimer</a>
@@ -299,6 +299,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @include('components.invite')
     <!-- END OF INVITE FRIENDS -->
 
+    <!-- MODALS -->
+    @yield('modals')
+    <!-- END OF MODALS -->
+    
     <!-- INLINE SCRIPTS -->
     <script type="text/javascript">
         // Post a Job Alternative

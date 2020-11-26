@@ -1,12 +1,9 @@
-<footer class="footer-area three pt-100 pb-70">
+<footer class="footer-area three pt-5 pb-2">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-4">
                 <div class="footer-item three">
                     <div class="footer-logo">
-                        <a class="logo" href="index.html">
-                            <img src="{{ asset('images/logo-alt.png') }}" alt="Emploi Logo" height="45px"/>
-                        </a>
                         <ul>
                             <li>
                                 <span>Address: </span>

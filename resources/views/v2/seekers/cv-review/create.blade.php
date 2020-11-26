@@ -13,13 +13,13 @@
                 <div class="d-table-cell">
                     <div class="container pt-5 mt-5">
                         <div class="row text-white">
-                            <div class="col-md-6 pt-5">
+                            <div class="col-md-6 review-banner pt-5">
                                 <h1>Automatic <span>CV review</span></h1>
                                 <h2>Instantly Check Your Resume for Issues</h2>
                                 <h5>Review our suggestions to see what you can fix.</h5>
                             </div>
                             <div class="col-md-6 d-flex justify-content-center">
-                                <div class="card cv-result text-center">
+                                <div id="scoreCard" class="card cv-result text-center">
                                     <h3>Average Scores</h3>
                                     <div class="d-flex justify-content-center my-3">
                                         <div
@@ -37,12 +37,29 @@
                                                 <span class="text-danger">{{$error}}</span>
                                             @endforeach
                                         @endif
+
+                                        @if(Auth::user())
                                         <label for="review-cv" class="custom-file-upload cmn-btn my-3">
                                             Review your CV
                                             <i class='bx bx-upload'></i>
                                         </label>
+                                        @else
+                                        <a href="/login?redirectToUrl={{ url()->current() }}" class="cmn-btn">
+                                            Login to review your CV
+                                            <i class='bx bx-user-plus' ></i>
+                                        </a>
+                                        @endif
                                         <input id="review-cv" name="cv" type="file"/>
                                     </form>
+                                </div>
+                                <div id="pendingCard" class="card cv-result text-center d-none">
+                                    <h3>Just a moment</h3>
+                                    <div class="d-flex justify-content-center my-3">
+                                        <div class="spinner-border text-primary text-center" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <h4>Reviewing CV...</h4>
                                 </div>
                             </div>
                         </div>
@@ -107,10 +124,18 @@
 @endsection
 
 @section('js')
-    <script>
-        $('#review-cv').change(function(){
-            console.log('hey');
+<script>
+    $('#review-cv').change(function(){
+        // Hide score card
+        $('#scoreCard').addClass('d-none')
+
+        // Show pending card
+        $('#pendingCard').removeClass('d-none')
+
+        // submit after 5 seconds
+        setTimeout(function() {
             $('#review-cv-form').submit();
-        })
-    </script>
+        }, 2000);
+    });
+</script>
 @endsection
