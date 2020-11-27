@@ -198,7 +198,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <div style="margin-left: 50px; color: white">
             <h1 >Summit Plan</h1>
              <p style="font-size:18px;">Coaching and support that gets you a job<br>where you will thrive not just survive.</p>
-            <a href="/job-seekers/free-cv-review" class="btn btn-orange">Request Free CV Review</a>
+          <a href="#" class="btn btn-orange" data-toggle="modal" data-target="#myModal1"> Request CV Editing</a>
         </div>          
 </div><br>
 
@@ -308,7 +308,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
       </div>
     </div>
     <div class="container row pb-4">
-         <a href="/job-seekers/free-cv-review" class="btn btn-white" style="background-color: #500094; margin: 0 auto;">Request For Free CV Review</a>
+        <a href="#" class="btn btn-orange" data-toggle="modal" data-target="#myModal"> Request CV Editing</a>
     </div>
   </section>
 
