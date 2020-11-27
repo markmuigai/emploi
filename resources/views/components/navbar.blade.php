@@ -69,7 +69,7 @@
                 @else
                 @endif
                <li class="nav-item">
-                    <a class="nav-link" href="/vacancies">{{ __('jobs.vacancies') }}</a>
+                    <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
                 </li>                
                 <li class="nav-item">
                     @guest
