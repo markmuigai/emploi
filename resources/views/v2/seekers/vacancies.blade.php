@@ -73,10 +73,9 @@
                             <div class="row">
                                 @guest
                                 <div class="col-lg-2">
-                                    <div style="width: 100%">
-                                        <br><br><br>                                                                               
-                                        <div class="banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s px-1">                                   
-                                            <a href="#" data-toggle="modal" data-target="#advertModal"><h5>ADVERTISE HERE</h5></a>  
+                                    <div style="width: 100%">      
+                                        <div class="d-flex justify-content-center banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s px-1">                                   
+                                            <a href="#" data-toggle="modal" data-target="#advertModal"><h5 class="text-center">ADVERTISE HERE</h5></a>  
                                         </div>
                                     </div>
                                     <br><br>
