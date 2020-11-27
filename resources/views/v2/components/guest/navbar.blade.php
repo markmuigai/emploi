@@ -40,7 +40,7 @@
                                 @endif
 
                                 <li class="nav-item">
-                                    <a href="/employers/publish" class="nav-link">Post A Job</a>
+                                    <a href="/post-a-job" class="nav-link">Post A Job</a>
                                 </li>
                             </ul>
                         </li>
