@@ -768,13 +768,13 @@ class EmployerController extends Controller
 
         switch ($endpoint) {
             case 'shortlisted':
-                return view('employers.applications.shortlisted')
+                return view('v2.employers.applications.shortlisted')
                     ->with('pool',$post->shortlisted)
                     ->with('post',$post);
                 break;
 
             case 'selected':
-                return view('employers.applications.selected')
+                return view('v2.employers.applications.selected')
                     ->with('pool',$post->selected)
                     ->with('post',$post);
                 break;
@@ -785,7 +785,7 @@ class EmployerController extends Controller
                     ->where('status','rejected')
                     ->orderBy('id','DESC')
                     ->paginate(10);
-                return view('employers.applications.rejected')
+                return view('v2.employers.applications.rejected')
                     ->with('pool',$rejects)
                     ->with('post',$post);
                 break;
@@ -796,7 +796,7 @@ class EmployerController extends Controller
                     ->where('status','active')
                     ->orderBy('id','DESC')
                     ->paginate(10);
-                return view('employers.applications.unrejected')
+                return view('v2.employers.applications.unrejected')
                     ->with('pool',$unrejected)
                     ->with('post',$post);
                 break;
@@ -804,7 +804,7 @@ class EmployerController extends Controller
             default:
                 $applications = JobApplication::where('post_id',$post->id)->orderBy('id','DESC')->paginate(10);
 
-                return view('employers.applications.index')
+                return view('v2.employers.applications.index')
                     ->with('pool',$applications)
                     ->with('post',$post);
                 break;
@@ -815,7 +815,7 @@ class EmployerController extends Controller
 
         if($post->company->user_id == Auth::user()->id)
         {
-            return view('employers.applications')
+            return view('v2.employers.applications')
                 ->with('shortlist',$shortlist)
                 ->with('post',$post);
         }
