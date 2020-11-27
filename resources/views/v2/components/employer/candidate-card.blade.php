@@ -6,7 +6,7 @@
             </a>
         </span>
         <h3>
-            <a href="/vacancies/{{$a->slug}}/">{{ $a->user->name }}</a>
+            <a href="/employers/browse/{{ $a->user->username }}">{{ $a->user->name }}</a>
         </h3>
         <div class="row">
             <div class="col-md-7">
