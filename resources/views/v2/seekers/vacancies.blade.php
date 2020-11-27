@@ -147,14 +147,20 @@
                                                         <div class="card-body">
                                                             <div class="col-12 col-lg-12">
                                                                 <div class="col-md-12">
-                                                                    <h4>Top Trending Vacancies</h4>
-                                                                    <ul>
+                                                                    <h4 class="text-center">Top Trending Vacancies</h4>
+                                                                    <div class="row">                                              
                                                                         @foreach($posts as $post)
                                                                         @if($post->featured == 'true')
-                                                                        <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br></li>                              
+                                                                            <div class="col-md-6">
+                                                                                <ul>           
+                                                                                    <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>                              
                                                                         @endif
                                                                         @endforeach
-                                                                    </ul>
+                                                                    
+                                                                    </div>
                                                                 </div>
                                                          <!--            <div class="col-md-6">
                                                                         <style>

@@ -11,7 +11,7 @@ class WelcomeController extends Controller
 {
     public function index(Request $request)
     {
-        return view('welcome')
+        return view('v2/welcome')
                 ->with('posts',Post::featured(20))
                 ->with('locations',Location::top());
     }

@@ -20,6 +20,36 @@
                 </div>       
             </div>
         </div>
+
+         <div class="container-fluid seeker-services my-5 px-5">
+            <h3 class="orange text-center">Why You Need Self Assessment</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow rounded mb-2">
+                        <div class="card-body text-center">
+                            <i class="flaticon-verify"></i>
+                            <h6>Increase your job score ranking</h6><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow rounded mb-2">
+                        <div class="card-body text-center">
+                               <i class="flaticon-verify"></i>    
+                               <h6>Highlight your key competencies</h6><br>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow rounded mb-2">
+                        <div class="card-body text-center">
+                            <i class="flaticon-verify"></i>
+                            <h6>Instant feedback and customized recommendations</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

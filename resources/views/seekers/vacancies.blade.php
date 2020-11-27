@@ -89,7 +89,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </form> 
 
 
-<div class="blink pt-4 mb-4"><a href="/job-seekers/register-paas" style="text-decoration: none;"><span class="span">Get One Month Free Golden Club Membership Now!!</span></a></div>
+<div class="blink pt-4 mb-4"><a href="#" style="text-decoration: none;"><span class="span">Emploi new look coming soon</span></a></div>
 <!-- FEATURED VACANCIES -->
 <div class="card mb-4">
     <div class="card-body">
