@@ -1,59 +1,38 @@
 <?php
  $user=Auth::user();
  ?>
-@if(isset($user) && $user->role == 'seeker')
-<div class="profile-item">
-     <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="circle-img w-50 h-50" alt="{{ $user->name }}">
-    <h2>{{ $user->getName() }}</h2>
-    <span></span>
-</div>
-<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+@if(isset($user) && $user->role == 'employer')
+<div class="nav flex-column nav-pills border rounded" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <a class="nav-link active" id="v-pills-home-tab"  href="/profile"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
-            <i class='bx bx-user'></i>
             My Profile
         </div>
     </a>
-    <a class="nav-link" id="v-pills-messages-tab"  href="/profile/applications"  aria-controls="v-pills-messages" aria-selected="false">
+    <a class="nav-link" id="v-pills-home-tab"  href="/employers/jobs"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
-            <i class='bx bxs-inbox'></i>
-            Applications
+            Jobs
         </div>
     </a>
-<!--     <a href="/storage/resumes/{{ $user->seeker->resume }}">
+    <a class="nav-link" id="v-pills-home-tab"  href="/employers/browse"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
-            <i class='bx bx-note'></i>
-            My Resume
-        </div>
-    </a> -->
-    <a href="self-assessment?email={{ $user->email }}">
-        <div class="profile-list">
-            <i class='bx bx-envelope'></i>
-           My Assessment Result
+            Browse Candidates
         </div>
     </a>
-     <a  href="/logout">
+    <a class="nav-link" id="v-pills-home-tab"  href="/employers/saved"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
-            <i class='bx bx-log-out'></i>
-            Logout
+            Saved Profiles
+        </div>
+    </a>
+    <a class="nav-link" id="v-pills-home-tab"  href="/employers/paas-dash"  aria-controls="v-pills-home" aria-selected="true">
+        <div class="profile-list">
+            Management Dashboard
+        </div>
+    </a>
+    <a class="nav-link" id="v-pills-home-tab"  href="/employers/cv-requests"  aria-controls="v-pills-home" aria-selected="true">
+        <div class="profile-list">
+            Requested Profiles
         </div>
     </a>
 </div>
 @endif
-@if (auth()->user() && auth()->user()->role != 'seeker')
-<div class="profile-item">
-     <img src="{{ $user->avatar ? '/storage/avatars/'.$user->avatar : '/images/avatar.png' }}" class="circle-img w-50 h-50" alt="{{ $user->name }}">
-    <h2>{{ $user->getName() }}</h2>
-    <span></span>
-</div>
-<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <a class="nav-link active" id="v-pills-home-tab"  href="/profile"  aria-controls="v-pills-home" aria-selected="true">
-        <div class="profile-list">
-            <i class='bx bx-user'></i>
-            My Profile
-        </div>
-    </a>
-</div>
-@endif  
-
 @include('components.ads.vertical_responsive')

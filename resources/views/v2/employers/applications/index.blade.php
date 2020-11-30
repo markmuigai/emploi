@@ -37,8 +37,8 @@
     <div class="job-area-list dashboard-area mt-1 ptb-100">
         <div class="container-fluid px-2">
             <div class="row">
-                <div class="col-lg-2">
-                    {{-- @include('v2.components.sidebar.employer') --}}               
+                <div class="col-lg-2 pt-5">
+                    @include('v2.components.sidebar.employer')               
                 </div>           
                  <div class="col-lg-10 jobs-form">
                     <!-- Jobs -->
