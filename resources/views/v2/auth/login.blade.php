@@ -39,6 +39,9 @@
                                 </div>
                                 <button type="submit" name="button" class="btn">{{ __('auth.login') }}</button>
                             </form>
+
+                            <br>
+                            <h5>Don't have an account? Register <a href="/join">here</a></h5>
                         </div>
 
                     </div>
