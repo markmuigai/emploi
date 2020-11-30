@@ -18,8 +18,12 @@
             </div>
         </div>
         <span>
-            Posted {{ $a->created_at->diffForHumans() }}
+            Applied {{ $a->created_at->diffForHumans() }}
         </span>
+        <div class="row my-2">
+            <a href="#" class="btn btn-success rounded-pill">Send Assessment</a>
+            <a href="#" class="btn btn-primary ml-2 rounded-pill">Shortlist</a>
+        </div>
         <a class="link" href="index-2.html#">
             <i class="flaticon-right-arrow"></i>
         </a>
