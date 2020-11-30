@@ -213,6 +213,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-body">
+                @if($perf !=0)
+                <h4>Assessment Score: {{ $perf*10 }}%</h4>
+                @endif
+            </div>
+        </div>
     </div>
 </div>
 
