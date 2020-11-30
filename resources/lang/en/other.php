@@ -9,7 +9,7 @@ return [
     'a_locs' => 'All Locations',
     'search' => 'Search',
     'who_r_we' => 'Who Are We',
-    'who_r_we_txt' => 'Emploi is a job placement platform that does it right and does it fast. The Job placement platform combines candidate pre-assessment with recruitment process management tools to facilitate fast and accurate vacancy - job seeker placement.',
+    'who_r_we_txt' => 'Emploi is a technology platform streamlining talent acquisition and management for growing companies through a smart recruitment and management engine. We also address job seekers’ career progression needs by providing a mixture of technological tools and personalized career services to fast-track their landing of opportunities that match their competencies.',
     'm_abt_us' => 'More About Us',
     'o_serv' => 'Our Services',
     'o_serv_txt' => 'We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vacancies through job boards.',

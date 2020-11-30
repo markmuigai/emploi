@@ -82,7 +82,7 @@ class HomeController extends Controller
                 break;
 
             case 'seeker':
-                return redirect('/v2/job-seekers/dashboard');
+                return redirect('/job-seekers/dashboard');
                 break;
             case 'guest':
                 if($user->canUseBloggingPanel())

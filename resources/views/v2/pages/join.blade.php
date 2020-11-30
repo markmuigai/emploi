@@ -30,7 +30,7 @@
                                 <p>Already have an account?</p>
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-md-5">
-                                        <a href="/login" class="btn btn-orange">Log in here</a>
+                                        <a href="/v2/login" class="btn btn-orange">Log in here</a>
                                     </div>
                                     <div class="col-md-1">
                                         <p>or</p>
