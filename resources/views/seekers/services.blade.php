@@ -180,7 +180,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <h5 class="plan-title">
                        Pro
                     </h5>
-                    <div class="plan-cost"><span class="plan-price">Ksh. 49</span><span class="plan-type">/ <br>Month</span></div>
+                    <div class="plan-cost"><span class="plan-price">Ksh. 159</span><span class="plan-type">/ <br>Month</span></div>
                     <ul class="plan-features">
                         <li>All free plan benefits</li>
                         <li>Notifications when;</li>
@@ -205,7 +205,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <h5 class="plan-title">
                      Spotlight
                     </h5>
-                    <div class="plan-cost"><span class="plan-price">Ksh. 159</span><span class="plan-type">/ Month</span></div>
+                    <div class="plan-cost"><span class="plan-price">Ksh. 259</span><span class="plan-type">/ Month</span></div>
                     <ul class="plan-features">
                         <li><i class="ion-checkmark"> </i>All PRO benefits</li>
                         <li><i class="ion-checkmark"> </i> Rank first in all search lists</li>
