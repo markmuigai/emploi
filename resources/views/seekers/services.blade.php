@@ -170,7 +170,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li><i class="ion-checkmark"> </i><a href="/job-seekers/cv-builder">Free CV builder</a></li>
                         <li><i class="ion-checkmark"> </i><a href="#"> Access Career advice</a></li>                 
                         <li><i class="ion-checkmark"> </i><a href="/job-seekers/cv-templates">  Downloadable CV templates with advice</a></li>
-                        <li><i class="ion-checkmark"> </i><i class="#"> </i><a href="/vacancies">Profile Accessible to 100’s of employers</a></li><br><br>
+                        <li><i class="ion-checkmark"> </i><i class="#"> </i><a href="/vacancies">Profile Accessible to 100’s of employers</a></li>
+                        <li><i class="ion-checkmark"> </i><i class="#"> </i><a href="/">1 self assessment</a></li>
                     </ul><br>
                     <div class="plan-select"><a href="/join" class="btn btn-primary"> JOIN</a></div>
               </div>
@@ -186,7 +187,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li><i class="ion-checkmark"></i>You’re shorlisted</li>
                         <li><i class="ion-checkmark"></i>Your profile is viewed</li>
                         <li><i class="ion-checkmark"></i>Your CV is requested</li>
-                    </ul><br><br><br><br>
+                        <li><i class="ion-checkmark"></i>Multiple self assessments</li>
+                        <li><i class="ion-checkmark"></i>Recommendations on self assessment improvement areas</li>
+                    </ul>
                     <form method="POST" action="/checkout">
                         <div class="plan-select">
                         @csrf
