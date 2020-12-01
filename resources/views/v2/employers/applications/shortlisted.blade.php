@@ -50,8 +50,14 @@
                                         <div class="col-md-12">
                                             <div class="sorting-menu mt-3 float-left">
                                                 <ul> 
-                                                    <li class="filter" data-filter="all">1.All Applications</li>
-                                                    <li class="filter" data-filter=".recommended">2.Shortlisted</li>   
+                                                    <a href="/v2/employers/applications/{{ $post->slug }}">
+                                                        <li class="filter" data-filter="false">
+                                                            1.All Applications
+                                                        </li>
+                                                    </a>
+                                                    <li class="filter" data-filter="all">
+                                                        2. Shortlisting
+                                                    </li>   
                                                     <li class="filter" data-filter=".saved">3.Manage Interviews</li>
                                                     <li class="filter" data-filter=".internships">4.Manage Referees</li>
                                                     <li class="filter" data-filter=".internships">5.Select Candidates</li>
@@ -62,17 +68,10 @@
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                             <div id="container" class="row">   
-                                                <?php  $kk=0; $shown = []; ?>   
-                                                @forelse($post->featuredApplications as $a)
-                                                    @include('v2.components.employer.candidate-card')
-                                                    <?php $shown[] = $a->id; ?>
-                                                @empty
-                                                @endforelse
+                                                <?php  $kk=0; ?>   
                                                                                 
                                                 @forelse($pool as $a)
-                                                    @if(array_search($a->id, $shown) === false)
-                                                        @include('v2.components.employer.candidate-card')
-                                                    @endif
+                                                    @include('v2.components.employer.candidate-card')
                                                 @empty
                                                     <div class="card mb-4">
                                                         <div class="card-body">
@@ -82,11 +81,6 @@
                                                         </div>
                                                     </div>
                                                 @endforelse
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    {{ $pool->links() }}
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
