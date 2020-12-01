@@ -62,8 +62,8 @@ class ShortlistSeekerController extends Controller
 
 
         }
-        return redirect('v/employers/applications/'.$post->slug);
-        return view('v2/employers.dashboard.message')
+        return redirect('/v2/employers/applications/'.$post->slug);
+        return view('v2.employers.dashboard.message')
             ->with('title','An Error Occurred')
             ->with('message','An error occurred while processing your request. Please try again later');
     }
