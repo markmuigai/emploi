@@ -54,6 +54,19 @@
         </div>
     </a>
 </div>
+
+<!--     advertise here -->
+<br><a href="#">
+    <div class="card">
+        <div class="card-header" style="background-color:#554695; color:white;">
+            Advertise Here
+        </div>              
+    </div>
+    <div class="banner shadow-lg animate__animated animate__swing animate__infinite infinite animate__slower 20s mt-4">
+        <h5>Hire on Emploi</h5>
+    </div>
+</a>
+<!--    end advertise here     -->     
 @endif  
 
 @include('components.ads.vertical_responsive')
