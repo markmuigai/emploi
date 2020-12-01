@@ -68,7 +68,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
       </div> -->
       <div class="col-lg-6 mt-5">
         <div class="s-block">
-          <a href="#blog-single.html" class="d-block p-lg-4 p-3">
+          <a href="#" class="d-block p-lg-4 p-3">
             <h3 class="my-3">Contact Us</h3>
             <p class="">One of our representative will get in touch with you shortly to discuss more on this position and how we can help you get quality candidates.</p>
           </a>
