@@ -208,3 +208,21 @@ footer{padding-bottom:4rem}
 .error-page{background:linear-gradient(to right,rgba(80,0,149,.7),rgba(80,0,149,.7)),url(../images/error2.jpg);background-position:left;background-size:contain;color:#fff;height:90vh}
 .error-page .content{width:90%}
 }
+
+    
+    .advertise-here .card{
+    background: linear-gradient(to bottom right,#500095,rgba(81,81,81,.8));
+  }
+
+  .advertise-here .card h1{
+    border: 1px solid #e15419;
+    padding: 10px;
+  }
+
+  .advertise-here .card h1 a{
+    color: #fff;
+  }
+
+  .advertise-here .card h1 a:hover{
+    color: #e15419;
+  }
