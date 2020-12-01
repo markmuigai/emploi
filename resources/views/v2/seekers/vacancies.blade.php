@@ -73,11 +73,6 @@
                             <div class="row">
                                 @guest
                                 <div class="col-lg-2">
-                                    <div style="width: 100%">      
-                                        <div class="d-flex justify-content-center banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s px-1">                                   
-                                            <a href="#" data-toggle="modal" data-target="#advertModal"><h5 class="text-center">ADVERTISE HERE</h5></a>  
-                                        </div>
-                                    </div>
                                     <br><br>
                                     <h4>Filter By</h4>
                                      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -302,6 +297,8 @@
     @include('v2.components.modals.recommender-parameters')
 
     @include('v2.components.modals.self-assessment')
+
+    @include('v2.components.modals.advertise')
 @endsection
 
 
