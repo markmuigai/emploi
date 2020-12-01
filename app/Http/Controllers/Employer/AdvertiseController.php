@@ -25,7 +25,7 @@ class AdvertiseController extends Controller
     public function create()
     {
         // Request ad form
-        return view('employer.advertise.create');
+        return view('v2.employers.advertise.create');
     }
 
     /**
