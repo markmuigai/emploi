@@ -16,9 +16,16 @@ class ShortlistSeekerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $slug)
     {
-        //
+        $post = Post::where('slug',$slug)->firstOrFail();
+
+        if($post->company->user_id != auth()->user()->id)
+            return abort(403);
+
+        return view('v2.employers.applications.shortlisted')
+        ->with('pool',$post->shortlisted)
+        ->with('post',$post);
     }
 
     /**
