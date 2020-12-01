@@ -56,7 +56,7 @@
 </div>
 
 <!--     advertise here -->
-<br><a href="#">
+<br><a href="/advertise/create">
     <div class="card">
         <div class="card-header" style="background-color:#554695; color:white;">
             Advertise Here

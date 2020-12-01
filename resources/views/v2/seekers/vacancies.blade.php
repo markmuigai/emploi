@@ -95,7 +95,7 @@
                                     </div>
 
                                 <!--     advertise here -->
-                                    <a href="#">
+                                    <a href="/advertise/create">
                                         <div class="card">
                                             <div class="card-header" style="background-color:#554695; color:white;">
                                                 Advertise Here
