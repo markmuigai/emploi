@@ -73,7 +73,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::post('/employers/applications/{slug}/close', 'EmployerController@saveCandidate');
     Route::get('/employers/applications/{slug}/invite', 'EmployerController@invite');
     Route::post('/employers/applications/{slug}/interview', 'EmployerController@interviewCandidate');
-    Route::get('/employers/applications/{slug}/{endpoint}', 'EmployerController@applications');
+    // Route::get('/employers/applications/{slug}/{endpoint}', 'EmployerController@applications');
     // Route::get('/employers/applications/{slug}/share', 'EmployerController@shareJob');
     // Route::post('/employers/applications/{slug}/share', 'EmployerController@shareJobNow');
 
@@ -101,5 +101,9 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     // Interview invite
     Route::resource('interviews', 'InterviewController')->middleware('employer');
     
+    // Shortlist applicant
     Route::get('/employers/shortlist/{slug}/{username}', 'ShortlistSeekerController@store');
+
+    // View shortlisted candidates
+    Route::get('/employers/applications/{slug}/shortlisted', 'ShortlistSeekerController@index');
 });
