@@ -33,6 +33,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 // CV Review routes
 Route::resource('cv-review', 'CVReviewController');
 
+// CV Improvement Area routes
+Route::resource('cv-improvement', 'CVImprovementAreaController');
+
 // Self Assessment routes
 Route::resource('self-assessment', 'SelfAssessmentController');
 
