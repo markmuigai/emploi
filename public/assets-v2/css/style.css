@@ -1474,10 +1474,6 @@ button:focus {
 
 /*-- End Company --*/
 /*-- Location --*/
-.location-area{
-  /* padding: 0 100px; */
-}
-
 .location-area .owl-prev {
   position: absolute;
   top: 40%;
@@ -2613,11 +2609,6 @@ button:focus {
 }
 
 /*-- End Support --*/
-/*-- Company --*/
-.company-area.two{
-  /* box-shadow: 0 0 5px 0 rgba(200,200,200,.5) !important; */
-}
-
 .company-area.two .section-title {
   text-align: center;
 }
