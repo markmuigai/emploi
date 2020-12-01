@@ -4567,7 +4567,7 @@ button:focus {
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-  height: 500px;
+  height: 550px;
 }
 
 .page-title-area:before {
@@ -8186,7 +8186,7 @@ h4,h3{
   border-radius: 5px;
   border: 1px dashed #fe4a55;
   /* background-color: #f8e8e9; */
-  text-align: center;
+  /* text-align: center; */
   padding: 22px 30px 25px;
   margin-bottom: 28px;
   margin-top: 30px;
