@@ -55,6 +55,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <th scope="col">#</th>
                             <th scope="col">Email</th>
                             <th scope="col">Recent Score</th>
+                            <th scope="col">Done</th>
                             <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -64,6 +65,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{$key+1}}</td>
                                 <td>{{$email}}</td>
                                 <td>{{App\Performance::recentScore($email)}}\10</td>
+                                <td>{{App\Performance::daysSince($email)}} days ago</td>
                                 <td>
                                     <a href="{{route('assessmentResults.show', ['email' => $email])}}" class="btn btn-primary">
                                         View Detailed Results
