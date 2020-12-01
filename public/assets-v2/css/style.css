@@ -967,6 +967,17 @@ button:focus {
   margin-right: 30px;
 }
 
+.sorting-menu ul a{
+  list-style-type: none;
+  display: inline-block;
+  color: #7068a3;
+  font-size: 17px;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
 .sorting-menu ul li:last-child {
   margin-right: 0;
 }
