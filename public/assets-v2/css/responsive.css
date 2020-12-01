@@ -686,6 +686,11 @@
   .page-title-area {
     height: 800px;
   }
+
+  .improvement-banner {
+    height: 1050px !important;
+  }
+
   .page-title-area .title-item {
     margin-top: 85px;
   }
