@@ -99,5 +99,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/browse/{username}/request-cv', 'EmployerController@cvRequest');
 
     // Interview invite
-    Route::resource('interviews', 'InterviewController');
+    Route::resource('interviews', 'InterviewController')->middleware('employer');
+    
+    Route::get('/employers/shortlist/{slug}/{username}', 'ShortlistSeekerController@store');
 });
