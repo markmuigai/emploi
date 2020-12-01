@@ -17,12 +17,8 @@
                                 <h1>Automatic <span>CV review</span></h1>
                                 <h2>Instantly Check Your Resume for Issues</h2>
                                 <h5>Review our suggestions to see what you can fix.</h5>
-                                <a class="cmn-btn my-3" href="/job-seekers/summit">
-                                    Fix my CV
-                                    <i class='bx bx-wrench'></i>
-                                </a>
                             </div>
-                            <div class="col-md-6 d-flex justify-content-center">
+                            <div class="col-md-6 col-12 d-flex justify-content-center">
                                 <div class="card cv-result text-center">
                                     <h3>Your Results</h3>                                  
                                     <div class="d-flex justify-content-center my-3">
@@ -37,9 +33,9 @@
                                     </div>                                                                   
                                     <h4>CV STRENGTH</h4>
                                     @if(Auth()->user())
-                                    <a href="#suggestions" class="btn btn-primary">View improvement suggestions</a>
+                                        <a href="{{route('v2.cv-improvement.index')}}" class="btn btn-primary">View improvement suggestions</a>
                                     @else
-                                    <button class="btn btn-orange-alt mt-4"><a href="/login">Login</a> or <a href="/register">Register</a> to view results</a>
+                                        <button class="btn btn-orange-alt mt-4"><a href="/login">Login</a> or <a href="/register">Register</a> to view results</a>
                                     @endif
                                 </div>
                             </div>
@@ -51,26 +47,11 @@
 <!--What we check start-->
    @if(Auth()->user())
    <br  id="suggestions">
-    <section class="work-area cv-review-details py-5 pb-70">
+    <section class="work-area cv-review-details pt-2 pb-70">
         <div class="container shadow p-3 mb-5 bg-white rounded px-5">
-            @if (empty($result->recommendations)) 
-            @else
-                <div class="section-title">
-                    <div class="ml-3">
-                        <h4>
-                            Improve on the following areas
-                        </h4>
-                        <ol>
-                            @foreach ($result->recommendations as $rec)
-                            <li>
-                                {{$rec->name}}
-                            </li>
-                            @endforeach
-                        </ol>
-                    </div>
-                    <h2 style="text-align: center">What we Check</h2>
-                </div>
-            @endif
+            <div class="section-title">
+                <h2 style="text-align: center">What we Check</h2>
+            </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-6">                
                     <div class="work-item">
