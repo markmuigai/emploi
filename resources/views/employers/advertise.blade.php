@@ -58,7 +58,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       <div class="col-md-10 col-sm-12">
         <div class="card border shadow p-3 animate__animated animate__pulse animate__infinite  infinite animate__slow  10s">
           <h1 class="text-center">
-            <a href="#">Click to advertise here</a></h1>
+            <a href="{{route('advertise.create')}}">Click to advertise here</a></h1>
         </div>
       </div>
     </div>
