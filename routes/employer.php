@@ -97,4 +97,6 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::post('/employers/applications/{slug}/{applicationId}/rsi/company-sizes', 'EmployerController@saveCosizes');
 
     Route::get('/employers/browse/{username}/request-cv', 'EmployerController@cvRequest');
+
+    Route::get('assessment-results/show', 'AssessmentResultController@show')->name('assessment-results.show');
 });
