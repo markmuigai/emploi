@@ -37,8 +37,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             <label for="date">Date and Time</label> 
 
                                             <input class="form-control rounded-pill" name="date" type="datetime-local" id="meeting-time"
-                                            name="meeting-time" value="2018-06-12T19:30"
-                                            min="2018-06-07T00:00" max="2018-06-14T00:00">
+                                            name="meeting-time" value="2020-12-01T14:30"
+                                            min="2020-06-07T00:00" max="2022-06-14T00:00">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="modeOfInterview">Mode of Interview</label>
