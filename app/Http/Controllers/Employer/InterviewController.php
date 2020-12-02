@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\Post;
+use App\User;
 use App\JobApplication;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +17,14 @@ class InterviewController extends Controller
      */
     public function index()
     {
-        //
+        $post = Post::where('slug',request()->slug)->firstOrFail();
+
+        if($post->company->user_id != auth()->user()->id)
+            return abort(403);
+
+        return view('v2.employers.interview.index')
+        ->with('pool',$post->shortlisted)
+        ->with('post',$post);
     }
 
     /**
