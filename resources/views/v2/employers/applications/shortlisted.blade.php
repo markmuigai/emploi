@@ -71,7 +71,7 @@
                                                 <?php  $kk=0; ?>   
                                                                                 
                                                 @forelse($pool as $a)
-                                                    @include('v2.components.employer.candidate-card')
+                                                    @include('v2.components.employer.shortlisting.shortlisted-card')
                                                 @empty
                                                     <div class="card mb-4">
                                                         <div class="card-body">
