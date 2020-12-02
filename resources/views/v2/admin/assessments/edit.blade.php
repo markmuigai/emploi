@@ -54,7 +54,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </div>
                         </div>
                         <button type="submit" class="float-right btn btn-primary" id="btnSubmit">
-                            Submit
+                            Update
                         </button>
                     </form>
                 </div>
