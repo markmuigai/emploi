@@ -49,9 +49,18 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        // invite shortlisted candidate for an interview
-        dd(Carbon::parse($request->date));
-        dd($request->all());
+        $appl = JobApplication::findOrFail(request()->application);
+
+        // Store an interview record associated with an application
+        $appl->interview()->create([
+            'date' => $request->date,
+            'description' => $request->description,
+            'type' => $request->type,
+            'modeOfInterview' => $request->modeOfInterview,
+            'location' => $request->location,
+        ]);
+
+        return redirect()->route('v2.interviews.index', [$appl->post->slug]);
     }
 
     /**
