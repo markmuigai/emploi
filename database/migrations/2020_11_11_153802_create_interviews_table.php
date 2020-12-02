@@ -17,8 +17,8 @@ class CreateInterviewsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('job_application_id');
             $table->dateTime('date');
-            $table->longText('description');
-            $table->enum('type', ['preliminary', 'final']);
+            $table->longText('description')->nullable();
+            $table->enum('type', ['preliminary', 'final'])->nullable();
             $table->timestamps();
         });
     }
