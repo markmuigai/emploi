@@ -6,7 +6,7 @@
             </a>
         </span>
         <h3>
-            <a href="/employers/browse/{{ $a->user->username }}">{{ $a->user->name }}</a>
+            <a href="/employers/browse/{{ $a->user->username }}" target="_blank">{{ $a->user->name }}</a>
         </h3>
         <div class="row">
             <div class="col-md-7">
@@ -21,8 +21,7 @@
             Applied {{ $a->created_at->diffForHumans() }}
         </span>
         <div class="row my-2">
-            <a href="#" class="btn btn-success rounded-pill">Send Assessment</a>
-            <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill">Shortlist</a>
+            <a href="#" class="btn btn-success rounded-pill">Invite to Interview</a>
         </div>
         <a class="link" href="index-2.html#">
             <i class="flaticon-right-arrow"></i>
