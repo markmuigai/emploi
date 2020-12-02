@@ -154,6 +154,6 @@ class Performance extends Model
         $date = Carbon::parse($latest->created_at);
         $now = Carbon::now();
 
-        return $date->diffInDays($now);
+        return $date->diffForHumans();
     }
 }
