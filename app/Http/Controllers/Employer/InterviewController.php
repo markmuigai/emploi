@@ -56,11 +56,11 @@ class InterviewController extends Controller
             'date' => $request->date,
             'description' => $request->description,
             'type' => $request->type,
-            'modeOfInterview' => $request->modeOfInterview,
+            'interview_mode' => $request->modeOfInterview,
             'location' => $request->location,
         ]);
 
-        return redirect()->route('v2.interviews.index', [$appl->post->slug]);
+        return redirect()->route('v2.shortlisted.index', ['slug' => $appl->post->slug]);
     }
 
     /**
