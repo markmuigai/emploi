@@ -41,12 +41,13 @@
                     @include('v2.components.sidebar.employer')               
                 </div>           
                  <div class="col-lg-10 jobs-form">
+                    <h3 class="text-center">Manage applicants in different stages of the hiring process</h3>
                     <!-- Jobs -->
-                    <div class="categories-area pt-2 pb-70">
+                    <div class="categories-area pb-70">
                         <div class="container-fluid"> 
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="row my-4">
+                                    <div class="row mb-4">
                                         <div class="col-md-12">
                                             <div class="sorting-menu mt-3 float-left">
                                                 <ul> 
@@ -56,9 +57,13 @@
                                                         </li>
                                                     </a>
                                                     <li class="filter" data-filter="all">
-                                                        2. Shortlisting
+                                                        2. Shortlisted
                                                     </li>   
-                                                    <li class="filter" data-filter=".saved">3.Manage Interviews</li>
+                                                    <a href="{{route('v2.interviews.index', ['slug' => $post->slug])}}">
+                                                        <li class="filter" data-filter="false">
+                                                            3.Manage Interviews
+                                                        </li>
+                                                    </a>
                                                     <li class="filter" data-filter=".internships">4.Manage Referees</li>
                                                     <li class="filter" data-filter=".internships">5.Select Candidates</li>
                                                 </ul>
