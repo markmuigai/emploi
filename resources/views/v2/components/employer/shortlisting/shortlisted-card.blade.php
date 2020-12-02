@@ -21,7 +21,7 @@
             Applied {{ $a->created_at->diffForHumans() }}
         </span>
         <div class="row my-2">
-            <a href="#" class="btn btn-success rounded-pill">Invite to Interview</a>
+            <a href="{{route('v2.interviews.create' , ['application' => $a])}}" class="btn btn-success rounded-pill">Invite to Interview</a>
         </div>
         <a class="link" href="index-2.html#">
             <i class="flaticon-right-arrow"></i>
