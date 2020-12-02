@@ -22,7 +22,7 @@
         </span>
         <div class="row my-2">
             @if ($a->interview()->exists())
-                <a href="#" class="btn btn-success rounded-pill">View Interview Details</a>
+                <a href="{{route('v2.interviews.edit' , [$a])}}" class="btn btn-success rounded-pill">Update Interview Details</a>
             @else
                 <a href="{{route('v2.interviews.create' , ['application' => $a])}}" class="btn btn-primary rounded-pill">Invite to Interview</a>
             @endif
@@ -36,8 +36,6 @@
 @section('js') 
     <script>
         $( document ).ready(function(e) {
-            console.log( "ready!" );
-            
             $(".save-icon").click(function() {
                 let _token   = $('meta[name="csrf-token"]').attr('content');
                 let postID = $(this).attr("data-id");
