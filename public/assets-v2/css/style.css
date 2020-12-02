@@ -8386,3 +8386,13 @@ h4,h3{
     #profile-menu-item{
       padding: 13px 0px !important;
     }
+
+    .interview-mode.nice-select{
+      float: none;
+    }
+
+    .interview-mode.nice-select.open .list{
+      border-radius: 15px;
+      width: 100%;
+      height: 130px;
+    }
