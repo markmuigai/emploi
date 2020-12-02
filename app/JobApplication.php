@@ -196,6 +196,11 @@ class JobApplication extends Model
         return false;
     }
     
-
+    /**
+     * Get interviews for an application
+     */
+    public function interview(){
+        return $this->hasOne('App\Interview', 'job_application_id');
+    }
 
 }
