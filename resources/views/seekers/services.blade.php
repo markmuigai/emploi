@@ -188,7 +188,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         <li><i class="ion-checkmark"></i>Your profile is viewed</li>
                         <li><i class="ion-checkmark"></i>Your CV is requested</li>
                         <li><i class="ion-checkmark"></i>Multiple self assessments</li>
-                        <li><i class="ion-checkmark"></i>Recommendations on self assessment improvement areas</li>
+                        <li><i class="ion-checkmark"></i>Improve your job score ranking</li>
                     </ul>
                     <form method="POST" action="/checkout">
                         <div class="plan-select">
