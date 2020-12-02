@@ -24,7 +24,7 @@ class InterviewController extends Controller
             return abort(403);
 
         return view('v2.employers.interview.index')
-        ->with('pool',$post->shortlisted)
+        ->with('pool',$post->ToInterview)
         ->with('post',$post);
     }
 
@@ -82,7 +82,12 @@ class InterviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $application = JobApplication::findOrFail($id);
+
+        return view('v2.employers.interview.edit',[
+            'application' =>  $application,
+            'interview' => $application->interview
+        ]);
     }
 
     /**
@@ -94,7 +99,17 @@ class InterviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $application = JobApplication::findOrFail($id);
+
+        $application->interview()->update([
+            'date' => $request->date,
+            'description' => $request->description,
+            'type' => $request->type,
+            'interview_mode' => $request->modeOfInterview,
+            'location' => $request->location,
+        ]);
+
+        return redirect()->route('v2.shortlisted.index', ['slug' => $application->post->slug]);
     }
 
     /**
