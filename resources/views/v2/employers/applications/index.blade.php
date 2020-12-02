@@ -55,7 +55,11 @@
                                                     <a href="/v2/employers/applications/{{ $post->slug }}/shortlisted">
                                                         <li class="filter pl-2" data-filter="shortlisted">2.Shortlisted</li>   
                                                     </a>
-                                                    <li class="filter" data-filter=".saved">3.Manage Interviews</li>
+                                                    <a href="{{route('v2.interviews.index', ['slug' => $post->slug])}}">
+                                                        <li class="filter" data-filter="false">
+                                                            3.Manage Interviews
+                                                        </li>
+                                                    </a>
                                                     <li class="filter" data-filter=".internships">4.Manage Referees</li>
                                                     <li class="filter" data-filter=".internships">5.Select Candidates</li>
                                                 </ul>
