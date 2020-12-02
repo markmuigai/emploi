@@ -21,7 +21,11 @@
             Applied {{ $a->created_at->diffForHumans() }}
         </span>
         <div class="row my-2">
-            <a href="{{route('v2.interviews.create' , ['application' => $a])}}" class="btn btn-success rounded-pill">Invite to Interview</a>
+            @if ($a->interview()->exists())
+                <a href="#" class="btn btn-success rounded-pill">View Interview Details</a>
+            @else
+                <a href="{{route('v2.interviews.create' , ['application' => $a])}}" class="btn btn-primary rounded-pill">Invite to Interview</a>
+            @endif
         </div>
         <a class="link" href="index-2.html#">
             <i class="flaticon-right-arrow"></i>
