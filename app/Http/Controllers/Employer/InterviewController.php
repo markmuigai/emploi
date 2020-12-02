@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employer;
 
 use App\Post;
 use App\User;
+use Carbon\Carbon;
 use App\JobApplication;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -49,7 +50,8 @@ class InterviewController extends Controller
     public function store(Request $request)
     {
         // invite shortlisted candidate for an interview
-        return $request->all();
+        dd(Carbon::parse($request->date));
+        dd($request->all());
     }
 
     /**

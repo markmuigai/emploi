@@ -15,6 +15,7 @@ class CreateInterviewsTable extends Migration
     {
         Schema::create('interviews', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('job_application_id');
             $table->dateTime('date');
             $table->longText('description');
             $table->enum('type', ['preliminary', 'final']);
