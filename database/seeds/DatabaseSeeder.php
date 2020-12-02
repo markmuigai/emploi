@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             RefereeSeeder::class,
             JobApplicationRefereeSeeder::class,
             SeekerJobSeeder::class,
-            CVkeyword::class,
-            CVImprovementArea::class
+            CVKeywordSeeder::class,
+            CVImprovementAreasSeeder::class
         ]);
     }
 }
