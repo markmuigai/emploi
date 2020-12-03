@@ -71,6 +71,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <label for="template">{{ __('Template') }}</label>
                 <select class="form-control" name="template" id="template">
                     <option value="custom" selected="selected">Default</option>
+                    <option value="updated" selected="selected">New Look</option>
                     <option value="wanda">Emploi Weekly</option>
                 </select>
             </div>
