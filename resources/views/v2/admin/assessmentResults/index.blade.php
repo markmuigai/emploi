@@ -37,6 +37,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="row">
         <div class="col-md-12">
             <div class="row justify-content-end">
+               <div class="form-group col-md-3 pr-0 my-2">
+               <!--      <form>
+                        <select id="inputRating" name="sortbydate" class="form-control">
+                          <option value="">Select Date Range</option>
+                          <option value="today">Today</option>
+                          <option value="last7">Last 7 days</option>
+                          <option value="thisMonth">This month</option>
+                        </select>
+                    </form> -->
+                </div>
                 <div class="col-md-4 my-2">
                     <a href="{{Route('assessments.index')}}" class="btn btn-success">
                         View All Assessment Questions
@@ -81,4 +91,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+<!-- <script type="text/javascript">
+ 
+    $("#inputRating").change(function() {
+     this.form.submit();
+    });
+
+</script> -->
 @endsection
