@@ -6,6 +6,8 @@
 Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
 @endsection
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
 @section('content')
 <div class="container py-5">
     <h2 class="orange" style="text-align: center">Career Tips and Business Trends</h2>    
@@ -113,28 +115,22 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>  
         @endif
-        @if($adsCounter == 4)
-            <div class="col-md-12">
-                <div class="card my-2">
-                    <a href="/refer">
-                        <img src="/images/promotions/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
-                    </a>
-                </div>
-            </div>
-        @endif
     </div>
-    <div class="row">
-        <div class=" col-md-12">
-            <div class="card my-2">
-                <a href="/refer">
-                    <img src="/images/promotions/cv-editing_refer_banner.jpeg" style="width: 100%" alt="Earn up to Ksh.500 by referring a friend">
-                </a>
+
+    <div class="advertise-here container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-sm-12">
+            <div class="card border shadow p-3 animate__animated animate__pulse animate__infinite  infinite animate__slow  10s">
+              <h1 class="text-center">
+                <a href="{{route('advertise.create')}}">Click to advertise here</a></h1>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+   
     <div>
         {{ $blogs->links() }}
-    </div>
+    </div><br><br>
         <div class="col-md-12" >
             <h4 class="orange" style="text-align: center;">Career Videos</h4>
             <div class="row">

@@ -31,7 +31,8 @@ class LoginController extends Controller
     }
 
     public function showLoginForm(Request $request)
-    {
+    {   
+        return redirect('/v2/login');
         if(isset($request->redirectToUrl))
             $request->session()->put('redirectToUrl', $request->redirectToUrl);
         return view('auth.login');

@@ -44,7 +44,7 @@
                                             <i class='bx bx-upload'></i>
                                         </label>
                                         @else
-                                        <a href="/login?redirectToUrl={{ url()->current() }}" class="cmn-btn">
+                                        <a href="/v2/login?redirectToUrl={{ url()->current() }}" class="cmn-btn">
                                             Login to review your CV
                                             <i class='bx bx-user-plus' ></i>
                                         </a>

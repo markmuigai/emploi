@@ -8,35 +8,31 @@
     <!-- End Navbar -->
         <!-- Resume -->
         <!-- Page Title -->
-        <div class="page-title-area cv-review-banner">
+        <div class="page-title-area cv-review-banner improvement-banner">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container pt-5 mt-5">
                         <div class="row text-white">
-                            <div class="col-md-6 review-banner pt-5">
-                                <h1>Automatic <span>CV review</span></h1>
-                                <h2>Instantly Check Your Resume for Issues</h2>
-                                <h5>Review our suggestions to see what you can fix.</h5>
+                            <div class="col-md-5 review-banner pt-5">
+                                <h1>Areas to <span>Improve</span></h1>
+                                <h2>{{$result->name}} Score {{$result->score}}%</h2>
+                                <a class="cmn-btn my-3" href="/job-seekers/summit">
+                                    Fix my CV
+                                    <i class='bx bx-wrench'></i>
+                                </a>
                             </div>
-                            <div class="col-md-6 col-12 d-flex justify-content-center">
-                                <div class="card cv-result text-center">
-                                    <h3>Your Results</h3>                                  
-                                    <div class="d-flex justify-content-center my-3">
-                                        @if(Auth()->user())
-                                        <div
-                                        class="ldBar label-center w-50"
-                                        data-value="{{ $result->score }}"
-                                        data-preset="fan"
-                                        style="width: 89px; height: 89px;"
-                                        ></div>
-                                        @endif
-                                    </div>                                                                   
-                                    <h4>CV STRENGTH</h4>
-                                    @if(Auth()->user())
-                                        <a href="{{route('v2.cv-improvement.index')}}" class="btn btn-primary">View improvement suggestions</a>
-                                    @else
-                                        <button class="btn btn-orange-alt mt-4"><a href="/login">Login</a> or <a href="/register">Register</a> to view results</a>
-                                    @endif
+                            <div class="col-md-7 d-flex justify-content-center">
+                                <div class="card cv-result">
+                                    <h4>
+                                        Improve on the following areas
+                                    </h4>
+                                    <ol>
+                                        @foreach ($result->recommendations as $rec)
+                                        <li>
+                                            {{$rec->name}}
+                                        </li>
+                                        @endforeach
+                                    </ol>
                                 </div>
                             </div>
                         </div>

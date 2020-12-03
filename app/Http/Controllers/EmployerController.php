@@ -49,6 +49,7 @@ use App\Invoice;
 use App\Task;
 use App\PartTimer;
 use App\LeaveRequest;
+use App\Performance;
 
 use App\Jobs\EmailJob;
 use App\Notifications\VerifyAccount;
@@ -586,8 +587,14 @@ class EmployerController extends Controller
     }
 
     public function viewSeeker(Request $request,$username)
-    {
+    {   
         $user = User::where('username',$username)->firstOrFail();
+
+        //get jobseeker assessment score
+        $assessment_result=Performance::where('email', $user->email)->first();
+        $perf = Performance::recentScore($user->email);
+      
+
         if($user->role == 'seeker')
         {
             if(!$request->session()->has('viewed-seeker-'.$user->seeker->id))
@@ -601,7 +608,9 @@ class EmployerController extends Controller
             return redirect('/admin/seekers/'.$username);
 
         return view('employers.seeker')
-                ->with('user',$user);
+                ->with('user',$user)
+                ->with('perf', $perf);
+
     }
 
     public function dashboard(Request $request)

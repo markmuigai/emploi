@@ -17,6 +17,8 @@ class CVImprovementArea extends Model
             $count = 6;
         }elseif($score <= 60){
             $count = 5;
+        }elseif($score == 100){
+            $count = 2;
         }else{
             $count = 4;
         }

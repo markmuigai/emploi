@@ -143,4 +143,17 @@ class Performance extends Model
       }
       return false;       
     }
+
+    /**
+     * Created at mutator 
+     */
+    public static function daysSince($email){
+        // All performance records for a user
+        $latest = Performance::assessmentsForUser($email)->last();
+
+        $date = Carbon::parse($latest->created_at);
+        $now = Carbon::now();
+
+        return $date->diffForHumans();
+    }
 }

@@ -47,6 +47,7 @@ class CVReviewController extends Controller
      */
     public function store(Request $request)
     {   
+        $user=Auth()->user();
         if($request->cv->getType() == false){
             return redirect()->back()->withErrors(['Your file exceeds 4mb max size']);
         }
@@ -123,7 +124,7 @@ class CVReviewController extends Controller
 
          //send slack notification
           if (app()->environment() === 'production') {        
-            Seeker::first()->notify(new EditingRequest($name.' reviewed CV using auto review'));
+            Seeker::first()->notify(new EditingRequest($user->name.' reviewed CV using auto review'));
         }  
         
         // dd($result->toArray());

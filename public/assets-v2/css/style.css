@@ -1485,10 +1485,6 @@ button:focus {
 
 /*-- End Company --*/
 /*-- Location --*/
-.location-area{
-  /* padding: 0 100px; */
-}
-
 .location-area .owl-prev {
   position: absolute;
   top: 40%;
@@ -2624,11 +2620,6 @@ button:focus {
 }
 
 /*-- End Support --*/
-/*-- Company --*/
-.company-area.two{
-  /* box-shadow: 0 0 5px 0 rgba(200,200,200,.5) !important; */
-}
-
 .company-area.two .section-title {
   text-align: center;
 }
@@ -4578,7 +4569,7 @@ button:focus {
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-  height: 500px;
+  height: 550px;
 }
 
 .page-title-area:before {
@@ -8197,7 +8188,7 @@ h4,h3{
   border-radius: 5px;
   border: 1px dashed #fe4a55;
   /* background-color: #f8e8e9; */
-  text-align: center;
+  /* text-align: center; */
   padding: 22px 30px 25px;
   margin-bottom: 28px;
   margin-top: 30px;
@@ -8395,4 +8386,21 @@ h4,h3{
       border-radius: 15px;
       width: 100%;
       height: 130px;
+    }
+    
+    .advertise-here .card{
+      background: linear-gradient(to bottom right,#500095,rgba(81,81,81,.8));
+    }
+  
+    .advertise-here .card h1{
+      border: 1px solid #e15419;
+      padding: 10px;
+    }
+  
+    .advertise-here .card h1 a{
+      color: #fff;
+    }
+  
+    .advertise-here .card h1 a:hover{
+      color: #e15419;
     }

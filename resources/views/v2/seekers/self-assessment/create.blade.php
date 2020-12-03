@@ -27,7 +27,7 @@
                                 <div class="carousel-item active p-2">
                                     <h4>Instructions</h4>
                                     <p>
-                                        Our Self assessment uses an aptitude test to test an indivudual's reasoning capacity in
+                                        Our Self assessment uses an aptitude test to gauge an individual's reasoning capacity in
                                         different aspects.
                                         <span class="text-danger">
                                             You have 10 minutes to complete 10 questions.

@@ -106,4 +106,5 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
     // View shortlisted candidates
     Route::get('/employers/applications/{slug}/shortlisted', 'ShortlistSeekerController@index')->name('shortlisted.index');
+    Route::get('assessment-results/show', 'AssessmentResultController@show')->name('assessment-results.show');
 });

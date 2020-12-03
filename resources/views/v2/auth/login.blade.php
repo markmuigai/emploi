@@ -39,6 +39,12 @@
                                 </div>
                                 <button type="submit" name="button" class="btn">{{ __('auth.login') }}</button>
                             </form>
+
+                            <br>
+                           <div class="login-para">
+                                <h5><a href="{{ route('password.request') }}" class="orange">Forgot Password?</a></h5>
+                            </div>   
+                            <h5>Don't have an account? Register <a href="/join">here</a></h5>
                         </div>
 
                     </div>

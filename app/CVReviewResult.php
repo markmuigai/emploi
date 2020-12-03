@@ -29,7 +29,10 @@ class CVReviewResult extends Model
      * Get the most popular missing keyword
      */
     public static function missingKeyword(){
-
-        return CVRecommendation::pluck('name')->mode()[0];
+        if(CVRecommendation::all()->isEmpty()){
+            return 'none';
+        }else{
+            return CVRecommendation::pluck('name')->mode()[0];
+        }
     }
 }

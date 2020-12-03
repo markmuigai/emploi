@@ -32,103 +32,37 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
     }
 </style>
 
-<style>
-  .banner{
-    margin: 0;
-    padding: 0;
-    background: url(../images/advertise_here.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 27vh;
-  }
-
-  .banner a{
-    display: inline-block;
-    padding: 10px 20px;
-    background: #E87341;
-    color: #ffffff;
-    text-decoration: none;
-    transition: 2s;
-  }
- </style>
-<!-- index-block1 -->
-<div class="w3l-index-block1">
-  <div class="content py-5">
-    <div class="container">
-      <div class="row align-items-center py-md-5 py-3">
-        <div class="col-md-5 content-left pt-md-0 pt-5">
-          <h3>Post Your Job in Minutes</h3>
-          <p class="mt-3 mb-md-5 mb-4">Advertise & shortlist your job here and take advantage of our superior shortlisting tools.</p>
-
-
-                <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
-                <a href="/employers/register?redirectToUrl={{ url('/employers/publish') }}" class="btn btn-outline-primary mr-2 btn-demo">  Create Account</a><br><br>
-                <a href="/employers/paas" class="btn btn-theme" id="visit-employer-paas" style="width: 300px;background-color:#E15419;">Request for Part Timer <span class="spinner-grow spinner-grow-sm ml-2" role="status" aria-hidden="true"></span></a>
-
-              
-          
+  <!-- index-block1 -->
+  <div class="w3l-index-block1">
+    <div class="content py-5">
+      <div class="container">
+        <div class="row align-items-center py-md-5 py-3">
+          <div class="col-md-5 content-left pt-md-0 pt-5">
+            <h3>Post Your Job in Minutes</h3>
+            <p class="mt-3 mb-md-5 mb-4">Advertise & shortlist your job here and take advantage of our superior shortlisting tools.</p>
+            <a href="/post-a-job" class="btn btn-primary btn-theme" id="post-a-job-in-two-minutes-emploi">Post a Job</a>
+            <a href="/employers/register?redirectToUrl={{ url('/employers/publish') }}" class="btn btn-outline-primary mr-2 btn-demo">  Create Account</a><br><br>
+            <a href="/employers/paas" class="btn btn-theme" id="visit-employer-paas" style="width: 300px;background-color:#E15419;">Request for Part Timer <span class="spinner-grow spinner-grow-sm ml-2" role="status" aria-hidden="true"></span></a>
+          </div>
+          <div class="col-md-7 content-photo mt-md-0 mt-5">
+            <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
+          </div>
         </div>
-        <div class="col-md-7 content-photo mt-md-0 mt-5">
-          <img src="/images/zip/main.jpg" class="img-fluid" alt="main image">
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="advertise-here container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-sm-12">
+        <div class="card border shadow p-3 animate__animated animate__pulse animate__infinite  infinite animate__slow  10s">
+          <h1 class="text-center">
+            <a href="{{route('advertise.create')}}">Click to advertise here</a></h1>
         </div>
       </div>
-      <div class="clear"></div>
     </div>
   </div>
-</div>
-
-  <div class="container container-fluid pb-4">
-      <a href="#" data-toggle="modal" data-target="#advertModal">
-          <div class="banner animate__animated animate__pulse animate__infinite  infinite animate__slow  10s">    
-
-          </div>
-      </a>
-  </div>
-
-  <!-- Advert Modal -->
-    <div class="modal fade" id="advertModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-              <h4 class="modal-title">Advertise here</h4>
-              </div>
-                <div class="modal-body">               
-                      <form  method="post" action="/employers/publish"  enctype="multipart/form-data">
-                          @csrf                              
-                          <div class="form-group">
-                              <label for="">Your Name<strong class="text-danger">*</strong></label>
-                              <input type="text" name="name" value="{{ $user ? $user->name : '' }}" required="" class="form-control" placeholder="" maxlength="50">
-                          </div>
-                          <div class="form-group">
-                              <label for="">Phone Number<strong class="text-danger">*</strong></label>
-                              <input type="text" name="phone_number" value="" class="form-control" placeholder="" maxlength="50">
-                          </div>
-                          <div class="form-group">
-                              <label for="">Email Address<strong class="text-danger">*</strong></label>
-                              <input type="email" name="email" value="{{ $user ? $user->email : '' }}" required="" class="form-control" placeholder="" maxlength="50">
-                          </div>
-                          <div class="form-group">
-                              <label for="">Job Title</label>
-                              <input type="text" name="title" maxlength="100" class="form-control" placeholder="">
-                          </div>
-                          <div class="form-group">
-                              <label for="description">Job Description</label>
-                              <input type="text" name="" name="description" class="form-control">
-                          </div>                  
-
-                          <div class="text-center">                 
-                                
-                              <input type="submit" class="btn btn-success" value="Submit">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            
-                          </div>                                               
-                      </form>
-                  </div>                         
-            </div>                  
-        </div>
-    </div>
-  <!-- Advert Modal End-->
 
 <!-- index-block2 -->
 <section class="w3l-index-block2 py-4">
