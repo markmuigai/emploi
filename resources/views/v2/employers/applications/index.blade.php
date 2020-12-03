@@ -60,8 +60,16 @@
                                                             3.Manage Interviews
                                                         </li>
                                                     </a>
-                                                    <li class="filter" data-filter=".internships">4.Manage Referees</li>
-                                                    <li class="filter" data-filter=".internships">5.Select Candidates</li>
+                                                    <a href="{{route('v2.referees.index', ['slug' => $post->slug])}}">
+                                                        <li class="filter" data-filter="false">
+                                                            4. Manage Referees
+                                                        </li>
+                                                    </a>
+                                                    <a href="/v2/employers/applications/{{$post->slug}}/close">
+                                                        <li class="filter" data-filter="false">
+                                                            5. Select Candidate
+                                                        </li>
+                                                    </a>
                                                 </ul>
                                             </div>
                                         </div>
