@@ -56,7 +56,7 @@
                                                             1.All Applications
                                                         </li>
                                                     </a>
-                                                    <li class="filter" data-filter="all">
+                                                    <li class="filter" data-filter="false">
                                                         2. Shortlisted
                                                     </li>   
                                                     <a href="{{route('v2.interviews.index', ['slug' => $post->slug])}}">
@@ -66,7 +66,7 @@
                                                     </a>
 
                                                     <a href="{{route('v2.referees.index', ['slug' => $post->slug])}}">
-                                                        <li class="filter" data-filter="false">
+                                                        <li class="filter" data-filter="all">
                                                             4. Manage Referees
                                                         </li>
                                                     </a>
@@ -86,7 +86,36 @@
                                                 <?php  $kk=0; ?>   
                                                                                 
                                                 @forelse($pool as $a)
-                                                    @include('v2.components.employer.shortlisting.shortlisted-card')
+                                                <div class="col-sm-6 col-lg-4 mix saved">
+                                                    <div class="cat-item">
+                                                        <span id="vacancies-image">
+                                                            <a href="/vacancies/{{ $a->slug }}">
+                                                                <img src="{{ asset($a->user->getPublicAvatarUrl()) }}" alt="{{ $a->user->name }}">
+                                                            </a>
+                                                        </span>
+                                                        <h3>
+                                                            <a href="/employers/browse/{{ $a->user->username }}" target="_blank">{{ $a->user->name }}</a>
+                                                        </h3>
+                                                        <div class="row">
+                                                            <div class="col-md-7">
+                                                                @if($a->user->seeker->featured > 0)
+                                                                <span class="badge badge-pill badge-success mx-1">
+                                                                    <i class="bx bx-star"> </i>Featured
+                                                                </span>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        <span>
+                                                            Applied {{ $a->created_at->diffForHumans() }}
+                                                        </span>
+                                                        <div class="row my-2">
+                                                            <a class="btn btn-success rounded-pill" href="/v2/employers/applications/{{ $a->post->slug }}/{{ $a->id }}/rsi/referees">Manage Referees</a>                                                           
+                                                        </div>
+                                                        <a class="link" href="index-2.html#">
+                                                            <i class="flaticon-right-arrow"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                                 @empty
                                                     <div class="card mb-4">
                                                         <div class="card-body">
