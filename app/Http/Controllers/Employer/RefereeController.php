@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Employer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Post;
+use App\JobApplication;
+
 class RefereeController extends Controller
 {
     /**
@@ -12,9 +15,16 @@ class RefereeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
-        //
+        $post = Post::where('slug',$slug)->firstOrFail();
+
+        if($post->company->user_id != auth()->user()->id)
+            return abort(403);
+
+        return view('v2.employers.applications.referees.index')
+        ->with('pool',$post->shortlisted)
+        ->with('post',$post);
     }
 
     /**
@@ -44,9 +54,17 @@ class RefereeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+      public function show(Request $request, $slug, $applicationId){
+        $app = JobApplication::findOrFail($applicationId);
+        if(isset($request->toggle))
+        {
+
+            $app->toggleUseReferee($request->toggle);
+        }
+
+        return view('v2.employers.applications.referees.show')
+                    ->with('app',$app);
+        return $request->all();
     }
 
     /**
