@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <form>
                             <select id="inputRating" name="sortbydate" class="form-control">
                               <option value="">Select Date Range</option>
-                              <option value="today">Today</option>
+                              <option value="today">Last 24 hours</option>
                               <option value="last7">Last 7 days</option>
                               <option value="thisMonth">This month</option>
                             </select>

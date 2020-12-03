@@ -19,7 +19,7 @@ class CVReviewController extends Controller
         if(isset($request->sortbydate))
             switch ($request->sortbydate) {
                 case 'today':
-                    $sort_by_date =CVReviewResult::where('created_at', '=', Carbon::today())->pluck('user_id')->toArray();
+                $sort_by_date =CVReviewResult::where('created_at', '>', Carbon::now()->subDays(1))->pluck('user_id')->toArray();
                     // return $sort_by_date;
                     break;
 
