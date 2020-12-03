@@ -9,7 +9,7 @@
 					<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#f5eded"><![endif]-->
 					<div style="background-color:#fff;">
 						<div class="block-grid " style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #fff;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#fff;">
+							<div style="border-collapse: collapse;display: table;width  : 100%;background-color:#fff;">
 								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#fff"><![endif]-->
 								<!--[if (mso)|(IE)]><td align="center" width="755" style="background-color:#fff;width:755px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:20px; padding-bottom:20px;"><![endif]-->
 								<div class="col num12" style="min-width: 320px; max-width: 755px; display: table-cell; vertical-align: top; width: 755px;">
@@ -120,15 +120,23 @@
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 60px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:60px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;">
-													<p style="line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; font-size: 20px; mso-line-height-alt: 30px; margin: 0;"><span style="font-size: 20px;"><strong>Profile Ranking</strong></span></p>
+                                                <div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5; padding:10px 0px ">
+                                                <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;">
+                                                    <center>
+                                                        <p style="line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; font-size: 20px; mso-line-height-alt: 30px; margin: 0;">
+                                                            <span style="font-size: 20px;"><strong>Self Assessment</strong></span>
+                                                        </p>
+                                                    </center>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:5px;padding-right:20px;padding-bottom:5px;padding-left:0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 5px; padding-right: 20px; padding-bottom: 5px; padding-left: 0px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bit.ly/33U8Aaq" style="height:22.5pt; width:97.5pt; v-text-anchor:middle;" arcsize="200%" stroke="false" fillcolor="#ff5e00"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:'Trebuchet MS', sans-serif; font-size:15px"><![endif]--><a href="https://bit.ly/33U8Aaq" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:15px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;"><span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;"><strong>REQUEST NOW</strong></span></span></span></a>
-												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
+											<div class="button-container" align="center" style="padding-top:5px;padding-bottom:5px;padding-left:0px;">
+                                                    <a href="https://bit.ly/33U8Aaq" target="_blank" 
+                                                    style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:15px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;">
+                                                        <span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;">
+                                                        <strong>TAKE TEST</strong>
+                                                        </span></span></span>
+                                                    </a>
 											</div>
 											<!--[if (!mso)&(!IE)]><!-->
 										</div>
@@ -143,18 +151,26 @@
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
 											<!--<![endif]-->
 											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/11-119451_social-network-social-network-icon-transparent-black-hd.png" alt="Icon Return" title="Icon Return" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
+                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+                                                    <img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/11-119451_social-network-social-network-icon-transparent-black-hd.png" alt="Icon Return" title="Icon Return" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 60px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:60px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;">
-													<p style="line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><strong><span style="font-size: 20px;">Real-time analytics</span></strong></p>
+											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5; padding:10px 0px ">
+                                                <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;">
+                                                    <center>
+                                                        <p style="line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><strong><span style="font-size: 20px;">
+                                                            Automatic CV Review</span></strong>
+                                                        </p>
+                                                    </center>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:5px;padding-right:0px;padding-bottom:5px;padding-left:20px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 5px; padding-right: 0px; padding-bottom: 5px; padding-left: 20px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bit.ly/33U8Aaq" style="height:22.5pt; width:97.5pt; v-text-anchor:middle;" arcsize="200%" stroke="false" fillcolor="#ff5e00"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:'Trebuchet MS', sans-serif; font-size:15px"><![endif]--><a href="https://bit.ly/33U8Aaq" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:15px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;"><span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;"><strong>REQUEST NOW</strong></span></span></span></a>
+											<div class="button-container" align="center" style="padding-top:5px;padding-right:0px;padding-bottom:5px;">
+                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 5px; padding-right: 0px; padding-bottom: 5px; padding-left: 20px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bit.ly/33U8Aaq" style="height:22.5pt; width:97.5pt; v-text-anchor:middle;" arcsize="200%" stroke="false" fillcolor="#ff5e00"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:'Trebuchet MS', sans-serif; font-size:15px"><![endif]--><a href="https://bit.ly/33U8Aaq" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:15px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;">
+                                                <span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;">
+                                                    <strong>UPLOAD CV</strong>
+                                                </span></span></span></a>
 												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
 											</div>
 											<!--[if (!mso)&(!IE)]><!-->
@@ -192,13 +208,13 @@
 													</tr>
 												</tbody>
 											</table>
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 5px; padding-left: 5px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
+											
 											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.2;padding-top:5px;padding-right:5px;padding-bottom:5px;padding-left:5px;">
 												<div style="line-height: 1.2; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 14px;">
 													<p style="text-align: center; line-height: 1.2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; font-size: 20px; mso-line-height-alt: 24px; margin: 0;"><span style="font-size: 20px;"><strong>THIS WEEK'S READS</strong></span></p>
 												</div>
 											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
+											
 											<table class="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" role="presentation" valign="top">
 												<tbody>
 													<tr style="vertical-align: top;" valign="top">
@@ -214,172 +230,70 @@
 													</tr>
 												</tbody>
 											</table>
-											<!--[if (!mso)&(!IE)]><!-->
 										</div>
-										<!--<![endif]-->
 									</div>
 								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
 							</div>
 						</div>
-					</div>
-					<div style="background-color:#ffffff;">
-						<div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f8e6d0;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#f8e6d0;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#f8e6d0"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="377" style="background-color:#f8e6d0;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 5px;padding-left: 5px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 5px;padding-left: 5px;" align="center"><![endif]-->
-												<div style="font-size:1px;line-height:5px">&nbsp;</div><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/593440112000002b00be05b9.jpeg" alt="Coffee Shop: Default Image" title="Coffee Shop: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
-												<div style="font-size:1px;line-height:5px">&nbsp;</div>
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td><td align="center" width="377" style="background-color:#f8e6d0;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.2;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
-												<div style="line-height: 1.2; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 14px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong><span style="font-size: 24px;">Coffee Shop</span></strong></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...<a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="https://emploi.co/companies?hiring=true" target="_blank" rel="noopener">Read more</a></span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-							</div>
-						</div>
-					</div>
-					<div style="background-color:#ffffff;">
-						<div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f8e6d0;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#f8e6d0;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#f8e6d0"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="377" style="background-color:#f8e6d0;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 5px;padding-left: 5px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 5px;padding-left: 5px;" align="center"><![endif]-->
-												<div style="font-size:1px;line-height:5px">&nbsp;</div><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/black-businessman-happy-expression_1194-2793.jpg" alt="Kid's Store: Default Image" title="Kid's Store: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
-												<div style="font-size:1px;line-height:5px">&nbsp;</div>
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td><td align="center" width="377" style="background-color:#f8e6d0;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.2;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
-												<div style="line-height: 1.2; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 14px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong><span style="font-size: 24px;">Kid's Clothing Store</span></strong></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. <a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="https://emploi.co/companies?hiring=true" target="_blank" rel="noopener">Read more</a></span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-							</div>
-						</div>
-					</div>
-					<div style="background-color:#ffffff;">
-						<div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f8e6d0;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#f8e6d0;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#f8e6d0"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="377" style="background-color:#f8e6d0;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 5px;padding-left: 5px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 5px;padding-left: 5px;" align="center"><![endif]-->
-												<div style="font-size:1px;line-height:5px">&nbsp;</div><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/concepto-negocio-hombre-negocios-afroamericano-enojado-joven-mientras-que-come-informe-papel-balled-proyecto-fracasado_1258-2107.jpg" alt="Crystals Store: Default Image" title="Crystals Store: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
-												<div style="font-size:1px;line-height:5px">&nbsp;</div>
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td><td align="center" width="377" style="background-color:#f8e6d0;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.2;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
-												<div style="line-height: 1.2; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 14px;">
-													<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong><span style="font-size: 24px;">Crystals Store</span></strong></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. <a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="https://emploi.co/companies?hiring=true" target="_blank" rel="noopener">Read more</a></span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-							</div>
-						</div>
-					</div>
+                    </div>
+                    @php
+                        $blogs = App\Blog::orderBy('created_at','desc')->take(3)->get();
+                    @endphp
+                    @foreach ($blogs as $b)
+                        <div style="background-color:#ffffff;">
+                            <div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f8e6d0;">
+                                <div style="border-collapse: collapse;display: table;width: 100%;background-color:#f8e6d0;">
+                                    <div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
+                                        <div class="col_cont" style="width:100% !important;">
+                                            <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
+                                                <div class="img-container center fixedwidth" align="center" style="padding-right: 5px;padding-left: 5px;">
+                                                    <div style="font-size:1px;line-height:5px">&nbsp;</div>
+                                                        <img class="center fixedwidth" align="center" border="0" src="/storage/blogs/{{ $b->image1 }}" alt="{{$b->title}}" title="Coffee Shop: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
+                                                    <div style="font-size:1px;line-height:5px">&nbsp;</div>
+                                                </div>
+                                                <!--[if (!mso)&(!IE)]><!-->
+                                            </div>
+                                            <!--<![endif]-->
+                                        </div>
+                                    </div>
+                                    <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                                    <!--[if (mso)|(IE)]></td><td align="center" width="377" style="background-color:#f8e6d0;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
+                                    <div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
+                                        <div class="col_cont" style="width:100% !important;">
+                                            <!--[if (!mso)&(!IE)]><!-->
+                                            <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
+                                                <!--<![endif]-->
+                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
+                                                <div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.2;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
+                                                    <div style="line-height: 1.2; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 14px;">
+                                                        <p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 17px; margin: 0;">
+                                                            <strong>
+                                                                <span style="font-size: 24px;">
+                                                                    {{ $b->title }}
+                                                                </span>
+                                                            </strong>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:5px;padding-right:15px;padding-bottom:5px;padding-left:15px;">
+                                                    <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
+                                                        <p style="font-size: 12px; line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">
+                                                            {{preg_replace( "/\r|\n/", "", $b->preview )}}
+                                                            <a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="/blog/{{ $b->slug }}" target="_blank" rel="noopener">Read more</a></span></p>
+                                                    </div>
+                                                </div>
+                                                <!--[if mso]></td></tr></table><![endif]-->
+                                                <!--[if (!mso)&(!IE)]><!-->
+                                            </div>
+                                            <!--<![endif]-->
+                                        </div>
+                                    </div>
+                                    <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                                    <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 					<div style="background-color:#ffffff;">
 						<div class="block-grid " style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#ffffff;">
@@ -436,193 +350,43 @@
 								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
 							</div>
 						</div>
-					</div>
-					<div style="background-color:#ffffff;">
-						<div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f5eded;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#f5eded;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#f5eded"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="377" style="background-color:#f5eded;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/578057-637286211678134954-16x9.jpg" alt="Icon Return" title="Icon Return" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">If you're not totally happy with your order, return it within 30 days and we'll replace or refund in full</span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://emploi.co/vacancies" style="height:25.5pt; width:75pt; v-text-anchor:middle;" arcsize="59%" strokeweight="0.75pt" strokecolor="#8a3b8f" fillcolor="#500095"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Trebuchet MS', sans-serif; font-size:16px"><![endif]--><a href="https://emploi.co/vacancies" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
-												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td><td align="center" width="377" style="background-color:#f5eded;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/578057-637286211678134954-16x9.jpg" alt="Icon Dry Plant" title="Icon Dry Plant" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">Should any hardy plant fail to thrive thereafter, we'll replace free of charge.</span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://emploi.co/vacancies" style="height:25.5pt; width:75pt; v-text-anchor:middle;" arcsize="59%" strokeweight="0.75pt" strokecolor="#8a3b8f" fillcolor="#500095"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Trebuchet MS', sans-serif; font-size:16px"><![endif]--><a href="https://emploi.co/vacancies" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
-												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-							</div>
-						</div>
-					</div>
-					<div style="background-color:#ffffff;">
-						<div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f5eded;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#f5eded;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#f5eded"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="377" style="background-color:#f5eded;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/578057-637286211678134954-16x9.jpg" alt="Icon Return" title="Icon Return" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">If you're not totally happy with your order, return it within 30 days and we'll replace or refund in full</span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://emploi.co/vacancies" style="height:25.5pt; width:75pt; v-text-anchor:middle;" arcsize="59%" strokeweight="0.75pt" strokecolor="#8a3b8f" fillcolor="#500095"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Trebuchet MS', sans-serif; font-size:16px"><![endif]--><a href="https://emploi.co/vacancies" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
-												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td><td align="center" width="377" style="background-color:#f5eded;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/578057-637286211678134954-16x9.jpg" alt="Icon Dry Plant" title="Icon Dry Plant" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">Should any hardy plant fail to thrive thereafter, we'll replace free of charge.</span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://emploi.co/vacancies" style="height:25.5pt; width:75pt; v-text-anchor:middle;" arcsize="59%" strokeweight="0.75pt" strokecolor="#8a3b8f" fillcolor="#500095"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Trebuchet MS', sans-serif; font-size:16px"><![endif]--><a href="https://emploi.co/vacancies" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
-												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-							</div>
-						</div>
-					</div>
-					<div style="background-color:#ffffff;">
-						<div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f5eded;">
-							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#f5eded;">
-								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#f5eded"><![endif]-->
-								<!--[if (mso)|(IE)]><td align="center" width="377" style="background-color:#f5eded;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/578057-637286211678134954-16x9.jpg" alt="Icon Return" title="Icon Return" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">If you're not totally happy with your order, return it within 30 days and we'll replace or refund in full</span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://emploi.co/vacancies" style="height:25.5pt; width:75pt; v-text-anchor:middle;" arcsize="59%" strokeweight="0.75pt" strokecolor="#8a3b8f" fillcolor="#500095"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Trebuchet MS', sans-serif; font-size:16px"><![endif]--><a href="https://emploi.co/vacancies" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
-												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td><td align="center" width="377" style="background-color:#f5eded;width:377px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 15px; padding-top:15px; padding-bottom:15px;"><![endif]-->
-								<div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
-									<div class="col_cont" style="width:100% !important;">
-										<!--[if (!mso)&(!IE)]><!-->
-										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->
-											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/597580_579311/578057-637286211678134954-16x9.jpg" alt="Icon Dry Plant" title="Icon Dry Plant" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
-												<!--[if mso]></td></tr></table><![endif]-->
-											</div>
-											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
-													<p style="font-size: 12px; line-height: 1.5; word-break: break-word; text-align: center; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">Should any hardy plant fail to thrive thereafter, we'll replace free of charge.</span></p>
-												</div>
-											</div>
-											<!--[if mso]></td></tr></table><![endif]-->
-											<div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://emploi.co/vacancies" style="height:25.5pt; width:75pt; v-text-anchor:middle;" arcsize="59%" strokeweight="0.75pt" strokecolor="#8a3b8f" fillcolor="#500095"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:'Trebuchet MS', sans-serif; font-size:16px"><![endif]--><a href="https://emploi.co/vacancies" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
-												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-											</div>
-											<!--[if (!mso)&(!IE)]><!-->
-										</div>
-										<!--<![endif]-->
-									</div>
-								</div>
-								<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-								<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-							</div>
-						</div>
-					</div>
+                    </div>
+                    @php
+                        $posts = App\Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
+                        ->where('status','active')
+                        ->orderBy('featured', 'DESC')
+                        ->orderBy('created_at','DESC')->take(6)->get()
+                    @endphp
+                    @foreach($posts->chunk(2) as $chunk)
+                        <div style="background-color:#ffffff;">
+                            <div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f5eded;">
+                                <div style="border-collapse: collapse;display: table;width: 100%;background-color:#f5eded;">
+                                    @foreach($chunk as $post)
+                                    <div class="col num6" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 372px; width: 377px;">
+                                        <div class="col_cont" style="width:100% !important;">
+                                            <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
+                                                <center>
+                                                    <img height=105px src="{{ asset($post->imageUrl) }}" alt="{{ $post->title }}">
+                                                </center>
+                                                <div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                    <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
+                                                        <center>
+                                                            <h2>
+                                                                <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
+                                                            </h2>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                <div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 					<div style="background-color:#ffffff;">
 						<div class="block-grid " style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #500095;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#500095;">
