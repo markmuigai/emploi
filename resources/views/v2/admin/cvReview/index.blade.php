@@ -46,15 +46,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <a href="/admin" class="btn btn-primary">
                 <i class="fa fa-arrow-left"></i> Back
             </a>
-            <div class="row justify-content-end">
-                <div class="form-group col-md-3 pr-0 my-2">
-                    <select id="inputRating" name="" class="form-control">
-                      <option>Select Date Range</option>
-                      <option value="today">Today</option>
-                      <option value="last7">Last 7 days</option>
-                      <option value="thisMonth">This month</option>
-                    </select>
-                </div>
+            <div class="row justify-content-end">          
+                    <div class="form-group col-md-3 pr-0 my-2">
+                        <form>
+                            <select id="inputRating" name="sortbydate" class="form-control">
+                              <option value="">Select Date Range</option>
+                              <option value="today">Today</option>
+                              <option value="last7">Last 7 days</option>
+                              <option value="thisMonth">This month</option>
+                            </select>
+                        </form>
+                    </div>
                 <div class="col-md-5 pl-0 pr-3 my-2">
                     <a href="/v2/admin/cvTests" class="btn btn-success float-right">
                         CV Review Tester
@@ -113,4 +115,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+ 
+    $("#inputRating").change(function() {
+     this.form.submit();
+    });
+
+</script>
 @endsection
