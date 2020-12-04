@@ -27,7 +27,7 @@
                 <a href="{{route('v2.interviews.create' , ['application' => $a])}}" class="btn btn-primary rounded-pill">Invite to Interview</a>
             @endif
         </div>
-        <a class="link" href="index-2.html#">
+        <a class="link" href="#">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>

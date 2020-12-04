@@ -28,7 +28,7 @@
                 <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill">Shortlist</a>
             @endif
         </div>
-        <a class="link" href="index-2.html#">
+        <a class="link" href="#">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>

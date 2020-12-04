@@ -23,7 +23,7 @@
         <div class="row my-2">
             <a href="#" class="btn btn-success rounded-pill">Submit Interview Score Sheet</a>
         </div>
-        <a class="link" href="index-2.html#">
+        <a class="link" href="#">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>
