@@ -251,7 +251,7 @@
                                             <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
                                                 <div class="img-container center fixedwidth" align="center" style="padding-right: 5px;padding-left: 5px;">
                                                     <div style="font-size:1px;line-height:5px">&nbsp;</div>
-                                                        <img class="center fixedwidth" align="center" border="0" src="/storage/blogs/{{ $b->image1 }}" alt="{{$b->title}}" title="Coffee Shop: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
+                                                        <img class="center fixedwidth" align="center" border="0" src="{{ asset($b->imageUrl) }}" alt="{{$b->title}}" title="Coffee Shop: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
                                                     <div style="font-size:1px;line-height:5px">&nbsp;</div>
                                                 </div>
                                                 <!--[if (!mso)&(!IE)]><!-->
