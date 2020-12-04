@@ -383,24 +383,25 @@
                                                 <div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                     <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
                                                         <center>
-                                                            <h2>
+                                                            <h3>
                                                                 {{  $post->getTitle() }}
-                                                            </h2>
+                                                            </h3>
                                                         </center>
                                                     </div>
                                                 </div>
-                                                <a href="/vacancies/{{$post->slug}}/" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
                                                 <div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                	<a href="https://emploi.co/vacancies/{{$post->slug}}/" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>     
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
                                 </div>
+                                @endforeach
                             </div>
                         </div>
-                    @endforeach
-                    @endif
+                    </div>
+                @endforeach
+                @endif
 					<div style="background-color:#ffffff;">
 						<div class="block-grid " style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #500095;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#500095;">
