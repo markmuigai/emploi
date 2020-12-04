@@ -1,14 +1,10 @@
 @extends('layouts.dashboard-layout')
-
 @section('title','Emploi')
-
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
 @endsection
-
 @section('content')
 @section('page_title', 'Select A Candidate')
-
 <div class="card">
     <div class="card-body text-center">
         <h3 class="orange">{{ $post->title }}</h3>
@@ -43,9 +39,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <p>No candidates have been selected.</p>
         @endforelse
-
-
-
         @if($post->positions > count($post->candidates))
         <hr>
         <h4>Select Candidates</h4>
@@ -70,8 +63,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @else
         <p>All Positions have been filled</p>
         @endif
-
     </div>
 </div>
-
 @endsection

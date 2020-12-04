@@ -967,6 +967,17 @@ button:focus {
   margin-right: 30px;
 }
 
+.sorting-menu ul a{
+  list-style-type: none;
+  display: inline-block;
+  color: #7068a3;
+  font-size: 17px;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
 .sorting-menu ul li:last-child {
   margin-right: 0;
 }
@@ -7811,16 +7822,16 @@ button:focus {
 
 .dashboard-area .nav-pills a {
   color: #221668;
-  font-size: 17px;
+  font-size: 15px;
   margin-bottom: 10px;
   border-bottom: 1px solid #e9e9e9;
   border-radius: 5px;
   display: inline-block;
   margin-bottom: 0;
-  padding-top: 15px;
+  /* padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 10px; */
 }
 
 .dashboard-area .nav-pills a i {
@@ -8367,6 +8378,16 @@ h4,h3{
       padding: 13px 0px !important;
     }
 
+    .interview-mode.nice-select{
+      float: none;
+    }
+
+    .interview-mode.nice-select.open .list{
+      border-radius: 15px;
+      width: 100%;
+      height: 130px;
+    }
+    
     .advertise-here .card{
       background: linear-gradient(to bottom right,#500095,rgba(81,81,81,.8));
     }

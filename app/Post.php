@@ -382,6 +382,14 @@ class Post extends Model implements Feedable
         return $applications;
     }
 
+    public function getToInterviewAttribute(){
+        return JobApplication::where('post_id',$this->id)
+                    ->distinct('user_id')
+                    ->has('interview')
+                    ->orderBy('id','DESC')
+                    ->get();
+    }
+
     public function getSelectedAttribute(){
         return JobApplication::where('post_id',$this->id)
                     ->distinct('user_id')

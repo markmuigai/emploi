@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Employer;
 
-use App\Http\Controllers\Controller;
+use App\Post;
+use App\User;
+use Carbon\Carbon;
+use App\JobApplication;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class InterviewController extends Controller
 {
@@ -14,7 +18,14 @@ class InterviewController extends Controller
      */
     public function index()
     {
-        //
+        $post = Post::where('slug',request()->slug)->firstOrFail();
+
+        if($post->company->user_id != auth()->user()->id)
+            return abort(403);
+
+        return view('v2.employers.interview.index')
+        ->with('pool',$post->ToInterview)
+        ->with('post',$post);
     }
 
     /**
@@ -25,6 +36,9 @@ class InterviewController extends Controller
     public function create()
     {
         //
+        return view('v2.employers.interview.create',[
+            'application' =>  JobApplication::findOrFail(request()->application),
+        ]);
     }
 
     /**
@@ -35,7 +49,18 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        // invite shortlisted candidate for an interview
+        $appl = JobApplication::findOrFail(request()->application);
+
+        // Store an interview record associated with an application
+        $appl->interview()->create([
+            'date' => $request->date,
+            'description' => $request->description,
+            'type' => $request->type,
+            'interview_mode' => $request->modeOfInterview,
+            'location' => $request->location,
+        ]);
+
+        return redirect()->route('v2.shortlisted.index', ['slug' => $appl->post->slug]);
     }
 
     /**
@@ -57,7 +82,12 @@ class InterviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $application = JobApplication::findOrFail($id);
+
+        return view('v2.employers.interview.edit',[
+            'application' =>  $application,
+            'interview' => $application->interview
+        ]);
     }
 
     /**
@@ -69,7 +99,17 @@ class InterviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $application = JobApplication::findOrFail($id);
+
+        $application->interview()->update([
+            'date' => $request->date,
+            'description' => $request->description,
+            'type' => $request->type,
+            'interview_mode' => $request->modeOfInterview,
+            'location' => $request->location,
+        ]);
+
+        return redirect()->route('v2.shortlisted.index', ['slug' => $application->post->slug]);
     }
 
     /**

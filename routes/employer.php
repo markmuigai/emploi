@@ -73,7 +73,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::post('/employers/applications/{slug}/close', 'EmployerController@saveCandidate');
     Route::get('/employers/applications/{slug}/invite', 'EmployerController@invite');
     Route::post('/employers/applications/{slug}/interview', 'EmployerController@interviewCandidate');
-    Route::get('/employers/applications/{slug}/{endpoint}', 'EmployerController@applications');
+    // Route::get('/employers/applications/{slug}/{endpoint}', 'EmployerController@applications');
     // Route::get('/employers/applications/{slug}/share', 'EmployerController@shareJob');
     // Route::post('/employers/applications/{slug}/share', 'EmployerController@shareJobNow');
 
@@ -88,15 +88,35 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/personality', 'EmployerController@inputPers');
     Route::post('/employers/applications/{slug}/{applicationId}/rsi/personality', 'EmployerController@savePers');
 
-    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees', 'EmployerController@referees');
-    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/add', 'EmployerController@addReferee');
-    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/request', 'EmployerController@requestReferee');
-    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/toggle', 'EmployerController@toggleReferees');
+    // Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees', 'EmployerController@referees');
+    // Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/add', 'EmployerController@addReferee');
+    // Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/request', 'EmployerController@requestReferee');
+    // Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/toggle', 'EmployerController@toggleReferees');
 
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/company-sizes', 'EmployerController@cosizes');
     Route::post('/employers/applications/{slug}/{applicationId}/rsi/company-sizes', 'EmployerController@saveCosizes');
 
     Route::get('/employers/browse/{username}/request-cv', 'EmployerController@cvRequest');
 
+    // Interview invite
+    Route::resource('interviews', 'InterviewController');
+    
+    // Shortlist applicant
+    Route::get('/employers/shortlist/{slug}/{username}', 'ShortlistSeekerController@store');
+
+    // View shortlisted candidates
+    Route::get('/employers/applications/{slug}/shortlisted', 'ShortlistSeekerController@index')->name('shortlisted.index');
     Route::get('assessment-results/show', 'AssessmentResultController@show')->name('assessment-results.show');
+
+    // Manage referees
+    Route::get('/employers/applications/{slug}/referees', 'RefereeController@index')->name('referees.index');
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees', 'RefereeController@show');
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/add', 'EmployerController@addReferee');
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/request', 'EmployerController@requestReferee');
+    Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/toggle', 'EmployerController@toggleReferees');
+
+    // Candidate selection
+    Route::get('/employers/applications/{slug}/selection', 'SelectCandidateController@index');
+    // Route::get('/employers/applications/{slug}/close', 'SelectCandidateController@index');
+    // Route::post('/employers/applications/{slug}/close', 'SelectCandidateController@saveCandidate');
 });

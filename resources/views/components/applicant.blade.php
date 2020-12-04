@@ -43,7 +43,7 @@
         </div>
         <hr>
         <div class="row justify-content-between align-items-center">
-            <div class="col-12 col-md-6 col-lg-6">
+            <div class="col-12 col-md-8 col-lg-8">
                 @if($a->status == 'rejected')
                     <strong style="color: red"  data-toggle="tooltip" data-placement="right" title="NO ACTIONS AVAILABLE">REJECTED</strong>
                 @else
@@ -64,11 +64,12 @@
                             </span>                            
                         @endif
                         |
+                        {{-- <a href="{{route('v2.interviews.create', ['application' => $a])}}" class="btn btn-primary">Invite to Interview</a> --}}
                         <a href="#" id="reject-Application-{{ $a->id }}"  data-toggle="tooltip" data-placement="bottom" title="Reject Application" class="text-danger">Reject</a>
                     @endif
                 @endif
             </div>
-            <div class="col-12 col-md-6 col-lg-5 text-md-right">
+            <div class="col-12 col-md-4 col-lg-4 text-md-right">
                 <a class="orange mr-2" href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi"  data-toggle="tooltip" data-placement="bottom" title="Additional Candidate Information">Actions</a>
                 <a href="/employers/browse/{{ $a->user->username }}" target="_blank" class=" btn btn-orange"  data-toggle="tooltip" data-placement="bottom" title="View Profile, CV, about and Skills">View Profile</a>
             </div>
