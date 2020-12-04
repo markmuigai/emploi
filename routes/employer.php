@@ -119,4 +119,9 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/applications/{slug}/selection', 'SelectCandidateController@index');
     // Route::get('/employers/applications/{slug}/close', 'SelectCandidateController@index');
     // Route::post('/employers/applications/{slug}/close', 'SelectCandidateController@saveCandidate');
+
+    // Assessment
+    Route::group(['prefix' => '/employers/applications/{slug}/', 'as' => 'employers.'], function(){
+        Route::resource('assessments', 'AssessmentController');
+    });
 });
