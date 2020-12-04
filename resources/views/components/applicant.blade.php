@@ -64,8 +64,8 @@
                             </span>                            
                         @endif
                         |
-                        <a href="{{route('v2.interviews.create', ['application' => $a])}}" class="btn btn-primary">Invite to Interview</a>
-                        {{-- <a href="#" id="reject-Application-{{ $a->id }}"  data-toggle="tooltip" data-placement="bottom" title="Reject Application" class="text-danger">Reject</a> --}}
+                        {{-- <a href="{{route('v2.interviews.create', ['application' => $a])}}" class="btn btn-primary">Invite to Interview</a> --}}
+                        <a href="#" id="reject-Application-{{ $a->id }}"  data-toggle="tooltip" data-placement="bottom" title="Reject Application" class="text-danger">Reject</a>
                     @endif
                 @endif
             </div>
