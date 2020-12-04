@@ -372,4 +372,15 @@ class User extends Authenticatable
     public function cvReviewResults(){
         return $this->hasMany('App\CVReviewResult');
     }
+
+    /**
+     * Check if a user has done an assessment
+     */
+    public function assessed(){
+        if(Performance::recentScore($this->email) == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
