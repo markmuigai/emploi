@@ -41,7 +41,7 @@
                     @include('v2.components.sidebar.employer')               
                 </div>           
                  <div class="col-lg-10 jobs-form">
-                    <h3 class="text-center">Manage applicants in different stages of the hiring process</h3>
+                    @include('v2.components.employer.shortlisting.dashboard-cards')
                     <!-- Jobs -->
                     <div class="categories-area pb-70">
                         <div class="container-fluid"> 
