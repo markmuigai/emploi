@@ -64,7 +64,7 @@
                         @if(isset(Auth::user()->id) && Auth::user()->role == 'employer')
                         @else
                             <li class="nav-item">
-                                <a href="index-3.html#" class="nav-link dropdown-toggle">{{ __('other.job_seekers') }} <i class='bx bx-chevron-down'></i></a>
+                                <a href="#" class="nav-link dropdown-toggle">{{ __('other.job_seekers') }} <i class='bx bx-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
                                         <a href="/job-seekers/services" class="nav-link">{{ __('other.a_services') }}</a>
