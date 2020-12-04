@@ -108,14 +108,15 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/applications/{slug}/shortlisted', 'ShortlistSeekerController@index')->name('shortlisted.index');
     Route::get('assessment-results/show', 'AssessmentResultController@show')->name('assessment-results.show');
 
-        // manage referees
+    // Manage referees
     Route::get('/employers/applications/{slug}/referees', 'RefereeController@index')->name('referees.index');
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees', 'RefereeController@show');
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/add', 'EmployerController@addReferee');
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/request', 'EmployerController@requestReferee');
     Route::get('/employers/applications/{slug}/{applicationId}/rsi/referees/toggle', 'EmployerController@toggleReferees');
 
-        //select candidate
-    Route::get('/employers/applications/{slug}/close', 'SelectCandidateController@index');
-    Route::post('/employers/applications/{slug}/close', 'SelectCandidateController@saveCandidate');
+    // Candidate selection
+    Route::get('/employers/applications/{slug}/selection', 'SelectCandidateController@index');
+    // Route::get('/employers/applications/{slug}/close', 'SelectCandidateController@index');
+    // Route::post('/employers/applications/{slug}/close', 'SelectCandidateController@saveCandidate');
 });
