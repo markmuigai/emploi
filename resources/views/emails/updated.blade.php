@@ -251,7 +251,7 @@
                                             <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
                                                 <div class="img-container center fixedwidth" align="center" style="padding-right: 5px;padding-left: 5px;">
                                                     <div style="font-size:1px;line-height:5px">&nbsp;</div>
-                                                        <img class="center fixedwidth" align="center" border="0" src="/storage/blogs/{{ $b->image1 }}" alt="{{$b->title}}" title="Coffee Shop: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
+                                                        <img class="center fixedwidth" align="center" border="0" src="{{ asset($b->imageUrl) }}" alt="{{$b->title}}" title="Coffee Shop: Default Image" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 330px; display: block;" width="330">
                                                     <div style="font-size:1px;line-height:5px">&nbsp;</div>
                                                 </div>
                                                 <!--[if (!mso)&(!IE)]><!-->
@@ -282,7 +282,7 @@
                                                     <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
                                                         <p style="font-size: 12px; line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">
                                                             {{preg_replace( "/\r|\n/", "", $b->preview )}}
-                                                            <a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="/blog/{{ $b->slug }}" target="_blank" rel="noopener">Read more</a></span></p>
+                                                            <a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="https://emploi.co/blog/{{ $b->slug }}" target="_blank" rel="noopener">Read more</a></span></p>
                                                     </div>
                                                 </div>
                                                 <!--[if mso]></td></tr></table><![endif]-->
@@ -354,7 +354,7 @@
 							</div>
 						</div>
                     </div>
-	                @php
+                    @php
 					    $user = App\User::where('email',$email)->first();
 					@endphp
 		            
@@ -383,14 +383,13 @@
                                                 <div style="color:#27496d;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                     <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
                                                         <center>
-                                                            <h2>
-                                                                <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
-                                                            </h2>
+                                                            <h3>
+                                                                {{  $post->getTitle() }}
+                                                            </h3>
+                                                                <a href="https://emploi.co/vacancies/{{$post->slug}}/" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #500095; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; width: auto; width: auto; border-top: 1px solid #8a3b8f; border-right: 1px solid #8a3b8f; border-bottom: 1px solid #8a3b8f; border-left: 1px solid #8a3b8f; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:16px;display:inline-block;"><span style="font-size: 16px; line-height: 2; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 32px;">Apply now</span></span></a>
                                                         </center>
                                                     </div>
-                                                </div>
-                                                <div class="button-container" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                                </div>
+                                                </div>                                        
                                             </div>
                                         </div>
                                     </div>
@@ -400,6 +399,7 @@
                         </div>
                     @endforeach
                     @endif
+                
 					<div style="background-color:#ffffff;">
 						<div class="block-grid " style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #500095;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#500095;">
