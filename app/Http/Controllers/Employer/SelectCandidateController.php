@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Employer;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Post;
+use App\User;
+use Carbon\Carbon;
+use App\JobApplication;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SelectCandidateController extends Controller
 {
@@ -16,9 +18,14 @@ class SelectCandidateController extends Controller
      */
  
     public function index(Request $request, $slug){
-        $post = Post::where('slug',$slug)->firstOrFail();
-        return view('employers.close-job')
-                ->with('post',$post);
+        $post = Post::where('slug',request()->slug)->firstOrFail();
+
+        if($post->company->user_id != auth()->user()->id)
+            return abort(403);
+
+        return view('v2.employers.selection.index')
+        ->with('pool',$post->ToInterview)
+        ->with('post',$post);
     }
 
 
