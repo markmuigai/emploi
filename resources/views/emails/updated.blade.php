@@ -282,7 +282,7 @@
                                                     <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #27496d; mso-line-height-alt: 18px;">
                                                         <p style="font-size: 12px; line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><span style="font-size: 12px;">
                                                             {{preg_replace( "/\r|\n/", "", $b->preview )}}
-                                                            <a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="/blog/{{ $b->slug }}" target="_blank" rel="noopener">Read more</a></span></p>
+                                                            <a style="text-decoration: underline; color: #ff5e00;" title="Read more" href="https://emploi.co/blog/{{ $b->slug }}" target="_blank" rel="noopener">Read more</a></span></p>
                                                     </div>
                                                 </div>
                                                 <!--[if mso]></td></tr></table><![endif]-->
