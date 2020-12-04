@@ -65,7 +65,7 @@
                                                             4. Manage Referees
                                                         </li>
                                                     </a>
-                                                    <a href="/v2/employers/applications/{{$post->slug}}/close">
+                                                    <a href="/v2/employers/applications/{{$post->slug}}/selection">
                                                         <li class="filter" data-filter="false">
                                                             5. Select Candidate
                                                         </li>
