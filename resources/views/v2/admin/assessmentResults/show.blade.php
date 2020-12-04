@@ -12,7 +12,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <div class="container p-4">
-                            <a href="{{ url()->previous() }}" class="btn btn-primary mb-3">
+                            <a href="{{ url()->previous() }}" class="btn btn-primary rounded-pill mb-3">
                                 <i class='bx bx-left-arrow-alt'></i>Back
                              </a>
                             <h4 class="text-center">Self Assessment Results</h4><br>
