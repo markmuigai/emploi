@@ -56,7 +56,7 @@
                     <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">
                         <div class="container pt-3 pb-3">                  
                               
-                            <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> CV Review</i></span></a></button>
+                            <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> Automatic CV Review</i></span></a></button>
                             @if (auth()->user() && auth()->user()->role == 'seeker')
                                 <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
                             @else
