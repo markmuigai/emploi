@@ -1,4 +1,4 @@
-<h3 class="text-center my-2">Manage applicants in different stages of the hiring process</h3>
+<h3 class="text-center my-2">{{$post->title}} Shortlisting</h3>
 <div class="row">
     <div class="col-md-6">
         <div class="card p-3 mb-2">
