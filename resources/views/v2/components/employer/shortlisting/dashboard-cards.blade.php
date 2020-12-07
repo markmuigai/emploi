@@ -18,9 +18,7 @@
             <h4>Quick actions</h4>
             <p>Select candidates from our talent database or generate a link to share this vacancy</p>
             <div class="row px-3">
-                <button class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill">
-                    Browse More Candidates
-                </button>
+                <a href="/employers/browse" class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill"> Browse More Candidates</a>
                 <button class="btn btn-success mr-2 mt-1 btn-sm rounded-pill">
                     Share this vacancy
                 </button>
