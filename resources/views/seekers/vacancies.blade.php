@@ -9,24 +9,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('content')
 @section('page_title', $title)
 
-<style>
-    .blink{
-		padding: 10px;	
-    color: white;
-		text-align: center;
-	}
-	.span{
-		font-size: 28px;
-		font-family: cursive;
-		color: #E15419;
-		animation: blink 2s linear infinite;
-	}
-  @keyframes blink{
-  0%{opacity: 0;}
-  50%{opacity: .5;}
-  100%{opacity: 1;}
-  }
-</style>
 <h5 class="orange">Get all the latest jobs at one stop and apply.</h5>
 <form method="get" class="form-row" action="{{ url('/vacancies/search') }}"> 
      <div class="col-lg-2 col-md-6 py-2">         
@@ -87,9 +69,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <hr>
     </div>
 </form> 
-
-
-<div class="blink pt-4 mb-4"><a href="#" style="text-decoration: none;"><span class="span">Emploi new look coming soon</span></a></div>
 <!-- FEATURED VACANCIES -->
 <div class="card mb-4">
     <div class="card-body">
@@ -103,27 +82,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     @endforeach
                 </ul>
             </div>
-    <!--         <div class="col-md-6">
-                <style>
-                    div.cjjobbox{
-                      
-                      width: 345px ;
-                      background-color: #FFFFFF ;
-                      /* border-style: solid ; */
-                      /* border-width: 1px ; */
-                      border-color: #919294 ;
-                      /* font-family: Arial, sans-serif ; */
-                      /* font-size: 13px ; */
-                      color: #E15419;
-                      text-align: left;
-                    }
-
-                   </style>
-                   <div class="cjjobbox">
-                   <script type="text/javascript" src="https://www.careerjet.co.ke/partners/js_jobbox.html?s=&l=Kenya&n=5&lid=119809&nfr=1&ntt=1">
-                   </script>
-                   </div>                   
-            </div> -->
        
     </div>
 </div>
