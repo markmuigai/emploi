@@ -152,7 +152,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div style="margin-left: 50px; color: white">
                 <h1 >Job Seeker Services</h1>
                 <h6>A mix of technology with personalized expert support to <br>fast track your career progress.</h6><br>
-                <a href="#" class="btn btn-orange" data-toggle="modal" data-target="#myModal"> Request CV Editing</a>
+                <a href="{{Route('v2.cv-review.create', ['reviewResults' => 72])}}" class="btn btn-orange"> Automatic CV Review</a>
             </div>           
         </div>
       </div>
