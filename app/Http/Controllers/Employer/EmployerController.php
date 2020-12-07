@@ -842,7 +842,7 @@ class EmployerController extends Controller
         $saved = false;
         if(isset($request->saved))
             $saved = true;
-        return view('employers.dashboard.rsi')
+        return view('v2.employers.dashboard.rsi')
                     ->with('educationLevels',EducationLevel::all())
                     ->with('companySizes',CompanySize::all())
                     ->with('personalities',Personality::orderBy('name')->get())
