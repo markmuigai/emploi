@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                         Paid Spotlight: {{ $spotlight }} <br>
                         E Club: {{ $eclub }} <br>
-                        Self Assessment: {{ $self_assessment/10 }}<br>
+                        Self Assessment: {{ round($self_assessment/10) }}<br>
                     </div>
                     <div class="col-md-6">
                         Adverts: {{ $adverts_count }} <br>
