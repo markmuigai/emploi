@@ -40,6 +40,8 @@ use App\ExclusivePlacement;
 use App\Coaching;
 use App\PartTimer;
 use App\CvBuilder;
+use App\Performance;
+use App\CVReviewResult;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1259,6 +1261,8 @@ class AdminController extends Controller
         $eclub = EmployerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
         $golden_club = SeekerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
         $referral = Referral::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','completed')->count();
+        $cv_review = CVReviewResult::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $self_assessment = Performance::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
         $months = [
             'Jan',
@@ -1319,6 +1323,8 @@ class AdminController extends Controller
         $eclub = EmployerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
         $golden_club = SeekerSubscription::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
         $referral = Referral::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->Where('status','completed')->count();
+        $cv_review = CVReviewResult::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
+        $self_assessment = Performance::whereMonth('created_at',$period->format('m'))->whereYear('created_at',$period->format('Y'))->count();
 
 
         $months = [
@@ -1365,6 +1371,8 @@ class AdminController extends Controller
             ->with('eclub',$eclub)
             ->with('golden_club',$golden_club)
             ->with('referral',$referral)
+            ->with('cv_review', $cv_review)
+            ->with('self_assessment', $self_assessment)
             ;
     }
 
