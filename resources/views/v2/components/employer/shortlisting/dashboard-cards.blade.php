@@ -6,9 +6,9 @@
             <p>By creating an RSI Model, you will be able to rank applicants through different criteria e.g education, experience and skills</p>
             <div class="row">
                 <div class="col-md-6">
-                <button class="btn btn-primary btn-sm rounded-pill">
+                <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="btn btn-primary btn-sm rounded-pill">
                     Generate ranking criteria
-                </button>
+                </a>
                 </div>
             </div>
         </div>
