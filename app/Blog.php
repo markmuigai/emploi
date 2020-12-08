@@ -14,7 +14,7 @@ class Blog extends Model
     public $rememberFor = 30;
 
     protected $fillable = [
-        'user_id', 'blog_category_id', 'title','slug','contents', 'image1','image2','status','views'
+        'user_id', 'blog_category_id', 'title','slug','contents', 'image1','image2','status','views', 'preview'
     ];
 
     public function likes(){
@@ -33,7 +33,7 @@ class Blog extends Model
         return $this->title;
     }
 
-    public function getPreviewAttribute(){
+    public function getshortPreviewAttribute(){
         $max_length = strlen($this->contents);
         if($max_length > 250)
             return strip_tags(substr($this->contents, 0,160).'...');
