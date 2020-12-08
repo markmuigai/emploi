@@ -122,7 +122,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
+                            <div class="text-center">
+                                <h5>Have a Feedback for Us?</h5>
+                                <a href="/contact" class="btn btn-orange">Contact Us</a>
+                            </div>
                     </div>
                 </div>
             </div>
