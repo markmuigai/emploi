@@ -99,7 +99,8 @@ class BlogController extends Controller
             'blog_category_id' => $request->category,
             'image1' => $featured_image_url,
             'image2' => $other_image_url,
-            'status' => $blog_status
+            'status' => $blog_status,
+            'preview' =>$request->preview
         ]);
         if(Auth::user()->role == 'admin')
             return redirect('/admin/blog');
@@ -169,6 +170,7 @@ class BlogController extends Controller
         $blog->blog_category_id = $request->category;
         $blog->contents = $request->contents;
         $blog->status = $request->status;
+        $blog->preview = $request->preview;
 
         Storage::disk('local')->makeDirectory('public/bogs' . $id);
         $storage_path = '/public/blogs/';

@@ -47,6 +47,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @else
             <input type="hidden" name="status" value="{{ $blog->status }}">
             @endif
+            
+            <label for="title">Preview</label>
+            <div class="form-group">
+                <textarea class="form-control" name="preview" required="">{{ $blog->preview }}</textarea>
+            </div>
+
             <div class="form-group">
                 <textarea class="form-control" name="contents" required="" id="contents" rows="10">{{ $blog->contents }}</textarea>
             </div>

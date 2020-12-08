@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToCVReviewResultsTable extends Migration
+class AddPreviewToBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUserIdToCVReviewResultsTable extends Migration
      */
     public function up()
     {
-        Schema::table('c_v_review_results', function (Blueprint $table) {
-            $table->integer('user_id')->nullable();
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->text('preview')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddUserIdToCVReviewResultsTable extends Migration
      */
     public function down()
     {
-        Schema::table('c_v_review_results', function (Blueprint $table) {
-            $table->dropColumn('user_id');
+        Schema::table('blogs', function (Blueprint $table) {
+            $table->dropColumn('preview');
         });
     }
 }
