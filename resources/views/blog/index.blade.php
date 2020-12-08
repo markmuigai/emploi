@@ -45,7 +45,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
                         </div>
                         <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
-                        <p class="truncate">{!!html_entity_decode($blog->preview)!!}</p>
+                        <p class="truncate">{!!html_entity_decode($blog->shortPreview)!!}</p>
                         <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
                         <hr>
                         <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}"><i class="fas fa-share-alt"></i> Share</button>
