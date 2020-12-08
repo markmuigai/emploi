@@ -61,7 +61,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::get('/employers/browse/{username}', 'EmployerController@viewSeeker');
     Route::post('/employers/shortlist', 'EmployerController@applyForUser');
 
-    Route::get('/employers/applications/{slug}/rsi', 'EmployerController@rsi');
+    Route::get('/employers/applications/{slug}/rsi', 'EmployerController@rsi')->name('employers.rsi.show');
     Route::post('/employers/applications/{slug}/rsi', 'EmployerController@saveRsi');
     Route::get('/employers/applications/{slug}/', 'EmployerController@applications');
 

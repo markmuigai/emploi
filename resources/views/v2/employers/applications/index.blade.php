@@ -3,7 +3,8 @@
 @section('title','Emploi :: '.$post->getTitle())
 
 @section('content')
-@section('page_title', $post->title.' Candidates')
+    @section('page_title', $post->title.' Candidates')
+
     <?php
     $last_rsi = [];
     ?>
@@ -11,27 +12,6 @@
     <!-- Navbar -->
     @include('v2.components.jobseeker.navbar')
     <!-- End Navbar -->
-
-    <style>
-        .banner{
-            background: purple;
-            height: 10vh;
-            display: flex;
-            align-items: center
-        }
-
-        .banner a{
-            text-decoration: none;
-            transition: 2s;
-        }
-
-        .banner h5{
-            color: #fff;
-            font-weight: 900;
-            text-align: center;
-            margin: 0;
-        }
-    </style>
 
     <!-- Jobs -->
     <div class="job-area-list dashboard-area mt-1 ptb-100">
@@ -49,6 +29,7 @@
                                 <div class="col-lg-12">
                                     <div class="row mb-4">
                                         <div class="col-md-12">
+                                            {{-- @include('v2.components.tables.employer.applicants') --}}
                                             <div class="sorting-menu mt-3 float-left">
                                                 <ul> 
                                                     <li class="filter" data-filter="all">1.All Applications</li>
@@ -116,5 +97,6 @@
     </div>
     <!-- End Jobs -->
 @endsection
+
 
 

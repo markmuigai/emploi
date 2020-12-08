@@ -51,6 +51,10 @@
         <link rel="stylesheet" href="{{asset('assets-v2/css/responsive.css')}}">
         <!-- select2 CSS -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+
+        @yield('css')
+        <!-- Datatables CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
         <!-- loading bar -->
         <link rel="stylesheet" type="text/css" href="{{asset('assets-v2/css/loading-bar.css')}}"/>
 
@@ -87,6 +91,7 @@
         @yield('modal')
         <!-- Essential JS -->
         <script src="{{asset('assets-v2/js/jquery-3.5.1.min.js')}}"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
         <script src="{{asset('assets-v2/js/popper.min.js')}}"></script>
         <script src="{{asset('assets-v2/js/bootstrap.min.js')}}"></script>
         <!-- Form Validator JS -->

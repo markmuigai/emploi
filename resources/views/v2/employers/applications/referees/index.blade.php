@@ -106,7 +106,14 @@
                                                             </div>
                                                         </div>
                                                         <span>
-                                                            Applied {{ $a->created_at->diffForHumans() }}
+                                                            <?php
+                                                                $rsi=$a->user->seeker->getRsi($post)
+                                                            ?>
+                                                            <span class="text-success d-inline">
+                                                                Job Score 
+                                                                {{ $rsi }}%
+                                                            </span> |
+                                                            Applied {{ $a->created_at->diffForHumans() }}           
                                                         </span>
                                                         <div class="row my-2">
                                                             <a class="btn btn-success rounded-pill" href="/v2/employers/applications/{{ $a->post->slug }}/{{ $a->id }}/rsi/referees">Manage Referees</a>                                                           
