@@ -52,6 +52,11 @@ class CVReviewResult extends Model
         //if never done before return true(can review CV)     
         if(!isset($created->id)){
             return true;
+        }   
+
+        //if role is admin return true(can review CV)     
+        if($user->role =='admin'){
+            return true;
         }
 
         //get last CV review
