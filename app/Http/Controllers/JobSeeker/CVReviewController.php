@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\JobSeeker;
 
 use Validator;
+use App\User;
 use App\Seeker;
 use App\CVReviewResult;
 use Spatie\PdfToText\Pdf;
@@ -50,6 +51,10 @@ class CVReviewController extends Controller
         $user=Auth()->user();
         if($request->cv->getType() == false){
             return redirect()->back()->withErrors(['Your file exceeds 4mb max size']);
+        }
+
+        if(CVReviewResult::canDoReview() == false){
+            return view('v2.seekers.cv-review.cannot')->withErrors(['Please note that you can only do another free CV review after 3 days']);
         }
         
         // Custom validator
