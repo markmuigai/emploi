@@ -721,7 +721,7 @@ class AdminController extends Controller
                 
                 foreach($result as $seeker)
                 {
-                    $user = User::Where('email', '=', 'kevinadera506@gmail.com')->orwhere('email', '=', 'davidkirarit@gmail.com')->orwhere('email', '=', 'markmuigai@gmail.com')->find($seeker->user_id);
+                    $user = User::Where('email','markmuigai@gmail.com')->find($seeker->user_id);
                     if(!isset($user->id))
                         continue;
                     if(User::subscriptionStatus($user->email))
