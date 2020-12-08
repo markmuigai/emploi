@@ -8,6 +8,13 @@
         <h3>
             <a href="/employers/browse/{{ $a->user->username }}" target="_blank">{{ $a->user->name }}</a>
         </h3>
+        <p>
+            <?php
+             $rsi=$a->user->seeker->getRsi($post)
+            ?>
+            Job Score 
+            {{ $rsi }}%
+        </p>
         <div class="row">
             <div class="col-md-7">
                 @if($a->user->seeker->featured > 0)
