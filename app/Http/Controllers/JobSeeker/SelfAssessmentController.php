@@ -21,6 +21,10 @@ class SelfAssessmentController extends Controller
      */
     public function index()
     {
+        if(request()->email !== auth()->user()->email){
+            return abort(403);
+        }
+        
         // Show assessment
         return view('v2.seekers.self-assessment.index',[
             'score' => Performance::recentScore(request()->email),
