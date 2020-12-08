@@ -5,6 +5,8 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+use Auth;
+
 class CVReviewResult extends Model
 {
     protected $fillable = [
@@ -35,4 +37,38 @@ class CVReviewResult extends Model
             return CVRecommendation::pluck('name')->mode()[0];
         }
     }
+
+           /**
+     * Get those eligible to do automatic CV review
+     */
+    public static function canDoReview()
+    {  
+        //get current logged in user
+        $user=Auth::user(); 
+        
+        //check if a user has ever done cv review before
+        $created = CVReviewResult::where('user_id', $user->id)->first();       
+
+        //if never done before return true(can review CV)     
+        if(!isset($created->id)){
+            return true;
+        }
+
+        //get last CV review
+        $last = CVReviewResult::where('user_id', $user->id)->latest('created_at')->first();
+
+        $last_time = $last->created_at;
+
+        // Get the current date
+       $now=Carbon::now();
+
+       // Find the difference between today and the last CV review done
+       $difference = $last_time->diffInDays($now);
+       
+      if ($difference > 2) {
+          return true;
+      }
+      return false;
+    }    
+
 }
