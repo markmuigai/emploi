@@ -26,7 +26,7 @@ class BlogController extends Controller
         //$blogger = Blogger::findOrFail($id);
         if(!$user->canUseBloggingPanel())
             return abort(403);
-        $blogs = Blog::where('user_id',$user->id)->paginate(20);
+        $blogs = Blog::where('user_id',$user->id)->orderBy('created_at', 'DESC')->paginate(20);
         return view('admins.bloggers.show')
                 ->with('blogger',$user->blogger)
                 ->with('blogs',$blogs);
