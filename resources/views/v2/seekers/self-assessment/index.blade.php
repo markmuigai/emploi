@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="container-fluid p-4">
+                        <div class="container-fluid py-4">
                             <h4 class="text-center">My Self Assessment Results</h4><br>
                             @if(App\Performance::recentScore(request()->email) != NULL)
                                                 
@@ -27,7 +27,7 @@
                             @endguest
                             @if(auth::user())
                             <div class="row justify-content-center">
-                                <div class="col-12 col-md-10">
+                                <div class="col-12 col-md-12">
                                     <div class="container-fluid shadow p-3 mb-3 bg-white rounded px-5">
                                         <div class="row d-flex justify-content-between">
                                             <div class="col-md-6">
@@ -98,7 +98,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="container-fluid seeker-services px-5">
+                        <div class="container-fluid seeker-services">
                             <h3 class="orange text-center">Why You Need Self Assessment</h3>
                             <div class="row">
                                 <div class="col-md-4">
