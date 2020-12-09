@@ -2,7 +2,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="card p-3 mb-2">
-            <h4>Job score criteria</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Job score criteria</h4>
+                </div>
+                <div class="col-md-6 px-0">
+                    <a class="mt-2 badge badge-pill badge-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        More info<i class='bx bx-info-circle'></i>
+                    </a>  
+                </div>
+            </div>
             <p>By creating an RSI Model, you will be able to rank applicants through different criteria e.g education, experience and skills</p>
             <div class="row">
                 <div class="col-md-6">
@@ -15,7 +24,16 @@
     </div>
     <div class="col-md-6">
         <div class="card p-3">
-            <h4>Quick actions</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Quick actions</h4>
+                </div>
+                <div class="col-md-6 px-0">
+                    <a class="mt-2 badge badge-pill badge-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        More info<i class='bx bx-info-circle'></i>
+                    </a>  
+                </div>
+            </div>
             <p>Select candidates from our talent database or generate a link to share this vacancy</p>
             <div class="row px-3">
                 <a href="{{route('v2.browse-candidates.index', ['post' => $post])}}" class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill"> Browse More Candidates</a>
