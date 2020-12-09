@@ -20,7 +20,7 @@ class BrowseCandidatesController extends Controller
     public function index(Request $request)
     {
         //errors exist
-        $seekers = Seeker::orderBy('featured')->paginate(10);
+        $seekers = Seeker::orderBy('featured')->paginate(12);
         $title = "Browse Job Seekers";
         //$location = isset($request->location_id) ? " OR location_id = ".$request->location_id : '';
         $industry = isset($request->industry) ? Industry::where('slug',$request->industry)->firstOrFail() : '';
@@ -72,7 +72,7 @@ class BrowseCandidatesController extends Controller
         }
         //$results = DB::select($arr);
 
-        $seekers = Seeker::whereIn('id',$arr)->orderBy('featured','DESC')->paginate(10)->appends(request()->query());
+        $seekers = Seeker::whereIn('id',$arr)->orderBy('featured','DESC')->paginate(12)->appends(request()->query());
         //dd($seekers);
 
         return view('v2.employers.browse-candidates.index',[
