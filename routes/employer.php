@@ -124,4 +124,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::group(['prefix' => '/employers/applications/{slug}/', 'as' => 'employers.'], function(){
         Route::resource('assessments', 'AssessmentController');
     });
+
+    // Talent Database
+    Route::resource('browse-candidates', 'BrowseCandidatesController');
 });
