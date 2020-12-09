@@ -17,10 +17,12 @@ class BrowseCandidatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
+        // dd($request->all());
         //errors exist
-        $seekers = Seeker::orderBy('featured')->paginate(10);
+        $post =Post::where('id', $id)->first();
+        $seekers = Seeker::orderBy('featured')->paginate(12);
         $title = "Browse Job Seekers";
         //$location = isset($request->location_id) ? " OR location_id = ".$request->location_id : '';
         $industry = isset($request->industry) ? Industry::where('slug',$request->industry)->firstOrFail() : '';
@@ -72,8 +74,8 @@ class BrowseCandidatesController extends Controller
         }
         //$results = DB::select($arr);
 
-        $seekers = Seeker::whereIn('id',$arr)->orderBy('featured','DESC')->paginate(10)->appends(request()->query());
-        //dd($seekers);
+        $seekers = Seeker::whereIn('id',$arr)->orderBy('featured','DESC')->paginate(12)->appends(request()->query());
+        // dd($seekers);
 
         return view('v2.employers.browse-candidates.index',[
             'seekers' => $seekers,
@@ -83,7 +85,7 @@ class BrowseCandidatesController extends Controller
             'industry' => $industry ? $industry : '',
             'query' => $request->q,
             'title' => $title,
-            'post' => Post::findOrFail(request()->post)
+            'post' =>$post           
         ]);
     }
 

@@ -126,8 +126,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     });
 
     // Talent Database
-    Route::resource('browse-candidates', 'BrowseCandidatesController');
-
     // Shortlisting Bulk actions
     Route::resource('bulk-actions', 'BulkActionsController');
+    Route::get('browse-candidates/{id}', 'BrowseCandidatesController@index');
+    // Route::resource('browse-candidates', 'BrowseCandidatesController');
 });
