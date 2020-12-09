@@ -22,6 +22,7 @@
                 </div>           
                  <div class="col-lg-10 jobs-form">
                     <h3 class="text-center my-2">Find {{$post->title}} from our Talent Database</h3>
+                    @include('v2.components.employer.browse.filter') 
                     <!-- Jobs -->
                     <div class="categories-area pb-70">
                         <div class="container-fluid"> 
