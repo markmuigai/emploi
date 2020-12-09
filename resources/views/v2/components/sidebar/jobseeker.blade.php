@@ -26,13 +26,13 @@
             My Resume
         </div>
     </a> -->
-    <a href="self-assessment?email={{ $user->email }}">
+    <a class="nav-link" href="self-assessment?email={{ $user->email }}">
         <div class="profile-list">
             <i class='bx bx-envelope'></i>
            My Assessment Result
         </div>
     </a>
-     <a  href="/logout">
+     <a class="nav-link" href="/logout">
         <div class="profile-list">
             <i class='bx bx-log-out'></i>
             Logout
@@ -62,7 +62,7 @@
             Advertise Here
         </div>              
     </div>
-    <div class="banner shadow-lg animate__animated animate__swing animate__infinite infinite animate__slower 20s mt-4">
+    <div class="d-flex justify-content-center banner shadow-lg animate__animated animate__swing animate__infinite infinite animate__slower 20s mt-4">
         <h5>Hire on Emploi</h5>
     </div>
 </a>
