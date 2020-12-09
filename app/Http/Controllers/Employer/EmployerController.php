@@ -1433,9 +1433,6 @@ class EmployerController extends Controller
             'user_id' => $user->id,
             'permission_id' => 3
         ]);
-        if (isset($emp->id)) {
-            $emp->user->employer->activateFreeStawi();
-        }
         
         $caption = "Thank you for registering your profile on Emploi as an Employer";
         $contents = "Here are your login credentials for Emploi: <br>
@@ -1592,11 +1589,6 @@ class EmployerController extends Controller
             'user_id' => $user->id,
             'permission_id' => 3
         ]);
-
-        if (isset($emp->id)) {
-            $emp->user->employer->activateFreeStawi();
-        }
-
 
         $caption = "Thank you for registering your profile on Emploi as an Employer";
         $contents = "Here are your login credentials for Emploi: <br>

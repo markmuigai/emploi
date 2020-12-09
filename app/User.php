@@ -211,11 +211,11 @@ class User extends Authenticatable
             $this->employer->sendWelcomeEmail();
            
         }
-        if($this->role == 'employer')
-        {
-            $this->employer->activateFreeStawi(); 
-        }    
-        return true;
+        // if($this->role == 'employer')
+        // {
+        //     $this->employer->activateFreeStawi(); 
+        // }    
+        // return true;
     }
 
     public static function subscriptionStatus($email){
