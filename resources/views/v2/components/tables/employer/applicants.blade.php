@@ -1,7 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card my-3">
+            <div class="card-body">
+                <form class="form-inline">
+                    <select class=" my-1 mr-sm-2">
+                      <option selected>Select an action</option>
+                      <option value="1">Send Assessment</option>
+                      <option value="2">Shortlist</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary my-1">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
 <table id="allApplicants" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th>Bulk Actions</th>
+            <th>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </div>
+            </th>
             <th>Name</th>
             <th>Job Score</th>
             <th>Age</th>
@@ -29,11 +49,6 @@
                     <a href="{{route('v2.assessment-results.show', ['email' => $a->user->email])}}" class="btn btn-primary rounded-pill">Assessments</a>
                 @else
                     <a href="{{route('v2.employers.assessments.create', [$post->slug])}}" class="btn btn-success rounded-pill">Send Assessment</a>
-                @endif
-                @if ($a->status == 'shortlisted')
-                    <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill disabled">Shortlisted</a>
-                @else
-                    <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill">Shortlist</a>
                 @endif
             </td>
         </tr>
