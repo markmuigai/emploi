@@ -29,7 +29,6 @@
                                 <div class="col-lg-12">
                                     <div class="row mb-4">
                                         <div class="col-md-12">
-                                            {{-- @include('v2.components.tables.employer.applicants') --}}
                                             <div class="sorting-menu mt-3 float-left">
                                                 <ul> 
                                                     <li class="filter" data-filter="all">1.All Applications</li>
