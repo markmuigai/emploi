@@ -232,8 +232,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                       <h5 class="plan-title">
                                         Solo
                                       </h5>
-                                    <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                    <div class="plan-cost"><strike><span class="plan-price">KES 2500</span></strike><span class="plan-price"><br> KES 2,000</span><span class="plan-type">/ <br>Month</span></div>
+                                  <!--   <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div> -->
+                                    <div class="plan-cost"><span class="plan-price">KES 2500</span><span class="plan-type">/ <br>Month</span></div>
                                     <ul class="plan-features">               
                                           <li><i class="ion-checkmark"> </i>1 Job Advert posted for 30 days</li>
                                           <li><i class="ion-checkmark"> </i>Shared to social media pages</li>
@@ -252,8 +252,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                       <h5 class="plan-title">
                                          Solo Plus
                                       </h5>
-                                      <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                      <div class="plan-cost"><strike><span class="plan-price">KES 4750</span></strike><span class="plan-price"><br> KES 3,800</span><span class="plan-type">/ <br>Month</span></div>
+                                      <div class="plan-cost"><span class="plan-price">KES 4750</span><span class="plan-type">/ <br>Month</span></div>
                                       <ul class="plan-features">
                                           <li><i class="ion-checkmark"></i>2-4 job Adverts posted for 30 days</li>
                                           <li><i class="ion-checkmark"></i>Shared to Social media pages</li>
@@ -272,9 +271,8 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                     <h5 class="plan-title">
                                     Stawi
                                     </h5>
-                                    <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                    <div class="plan-cost"><strike><span class="plan-price">KES 7000</span></strike><br><span class="plan-price">KES 5,600
-                                  </span><span class="plan-type">/ Month</span></div>
+                                    <div class="plan-cost align-items-right orange"></div>
+                                    <div class="plan-cost"><span class="plan-price">KES 7000</span><span class="plan-type">/ Month</span></div>
                                         <ul class="plan-features">
                                         <li><i class="ion-checkmark"> </i>All in Solo</li>
                                         <li><i class="ion-checkmark"> </i>Search talent database</li>
@@ -295,9 +293,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
                                       <h5 class="plan-title">
                                        Infinity
                                       </h5>
-                                    <div class="plan-cost align-items-right orange"><span class="plan-price1">20% Off</span></div>
-                                    <div class="plan-cost"><strike><span class="plan-price">KES 9025</span></strike><br><span class="plan-price">KES 7,220
-                                    </span><span class="plan-type">/ Month</span></div>
+                                    <div class="plan-cost"><span class="plan-price">KES 9025</span><span class="plan-type">/ Month</span></div>
                                       <ul class="plan-features">
                                           <li><i class="ion-checkmark"> </i>More than 4 job Adverts posted for 30 days</li>
                                           <li><i class="ion-checkmark"> </i>Shared to Social media pages</li>

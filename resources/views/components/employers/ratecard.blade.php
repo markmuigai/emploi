@@ -8,7 +8,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
 @section('page_title', 'Our Packages')
-<style type="text/css">
+<!-- <style type="text/css">
     .blink_text {
 
     animation:1s blinker linear infinite;
@@ -35,16 +35,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
      50% { opacity: 0.0; }
      100% { opacity: 1.0; }
      }
-</style>
+</style> -->
 <div class="card-deck text-center card flex-column">
     <div class="col-md-12">
-        <h3 class="orange pt-2 text-center" id="charges">Our Packages, <span class="blink_text">Now 20% Off</span></h3>
+        <h3 class="orange pt-2 text-center" id="charges">Our Packages</span></h3>
     </div>
     <div class="card">
         <div class="card-body d-flex flex-column justify-content-center">            
-            <h1><del>Kshs <br>2,500</del></h1>
+         <!--    <h1><del>Kshs <br>2,500</del></h1> -->
             <p>SOLO</p>
-            <div class="orange">20%  Discount</div>
+    <!--         <div class="orange">20%  Discount</div> -->
                     <h1>Kshs 2,000</h1>
             <ul class="tick">
                 <li>1 Job Advert posted for 30 days</li>
@@ -62,10 +62,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="card">
         <div class="card-body d-flex flex-column justify-content-center">
-            <h1><del>Kshs <br>4,750</del></h1>
+<!--             <h1><del>Kshs <br>4,750</del></h1> -->
             <p>SOLO PLUS</p>
-            <div class="orange">20%  Discount</div>
-                    <h1>Kshs 3,800</h1>
+            <h1>Kshs 3,800</h1>
             <ul class="tick">
                 <li>2-4 Job Adverts posted for 30 days</li>
                 <li>Shared to Social media pages</li>
@@ -82,10 +81,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="card">
         <div class="card-body d-flex flex-column justify-content-center">
-            <h1><del>Kshs 9,025</del></h1>
             <p>INFINITY</p>
-            <div class="orange">20%  Discount</div>
-                    <h1>Kshs 7,220</h1>
+            <h1>Kshs 7,220</h1>
             <ul class="tick">
                 <li>More than 4 job Adverts posted for 30 days</li>
                 <li>Shared to Social media pages</li>
@@ -102,10 +99,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="card">
         <div class="card-body d-flex flex-column justify-content-center">
-            <h1><del>Kshs 7,000</del></h1>
             <p>STAWI</p>
-            <div class="orange">20%  Discount</div>
-                    <h1>Kshs 5,600</h1>
+            <h1>Kshs 5,600</h1>
             <ul class="tick">
                 <li>All   in Solo</li>
                 <li>Search talent database</li>
@@ -124,10 +119,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
     <div class="card">
         <div class="card-body d-flex flex-column justify-content-center">
-            <h1><del>Kshs 1,000</del></h1>
             <p>FEATURED COMPANY</p>
-            <div class="orange">20%  Discount</div>
-                    <h1>Kshs 800</h1>
+            <h1>Kshs 800</h1>
             <ul class="tick">
                <li>Featured on our main page</li>
                <li>Featured on one vacancy notification email</li>
