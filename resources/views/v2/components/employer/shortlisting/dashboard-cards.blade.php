@@ -17,7 +17,7 @@
                 <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill">
                     Generate ranking criteria
                 </a>
-                <a href="{{route('v2.browse-candidates.index', ['post' => $post])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill"> Browse More Candidates</a>
+                <a href="{{route('v2.browse-candidates.index', ['id' => $post])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill"> Browse More Candidates</a>
             </div>
         </div>
     </div>
