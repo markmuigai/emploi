@@ -7,18 +7,17 @@
                     <h4>Job score criteria</h4>
                 </div>
                 <div class="col-md-6 px-0">
-                    <a class="mt-2 badge badge-pill badge-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="mt-2 badge badge-pill badge-secondary" data-toggle="collapse" href="#collapseRSI" role="button" aria-expanded="false" aria-controls="collapseExample">
                         More info<i class='bx bx-info-circle'></i>
                     </a>  
                 </div>
             </div>
-            <p>By creating an RSI Model, you will be able to rank applicants through different criteria e.g education, experience and skills</p>
-            <div class="row">
-                <div class="col-md-6">
-                <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="btn btn-primary btn-sm rounded-pill">
+            <p class="collapse" id="collapseRSI">By creating an RSI Model, you will be able to rank applicants through different criteria e.g education, experience and skills</p>
+            <div class="row px-3">
+                <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill">
                     Generate ranking criteria
                 </a>
-                </div>
+                <a href="{{route('v2.browse-candidates.index', ['post' => $post])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill"> Browse More Candidates</a>
             </div>
         </div>
     </div>
@@ -29,14 +28,14 @@
                     <h4>Quick actions</h4>
                 </div>
                 <div class="col-md-6 px-0">
-                    <a class="mt-2 badge badge-pill badge-secondary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="mt-2 badge badge-pill badge-secondary" data-toggle="collapse" href="#collapseActions" role="button" aria-expanded="false" aria-controls="collapseExample">
                         More info<i class='bx bx-info-circle'></i>
                     </a>  
                 </div>
             </div>
-            <p>Select candidates from our talent database or generate a link to share this vacancy</p>
+            <p class="collapse" id="collapseActions">Select candidates from our talent database or generate a link to share this vacancy</p>
             <div class="row px-3">
-                <a href="{{route('v2.browse-candidates.index', ['post' => $post])}}" class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill"> Browse More Candidates</a>
+                <a href="{{route('v2.bulk-actions.index', ['post' => $post])}}" class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill"> Bulk Actions</a>
                 <button class="btn btn-success mr-2 mt-1 btn-sm rounded-pill" data-toggle="modal" data-target="#shareVacancy">
                     Share this vacancy
                 </button>
