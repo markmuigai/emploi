@@ -25,7 +25,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     >{{ $i->name }}</option>
                 @empty
                 @endforelse
-            </select> </div>
+            </select>
+        </div>
         <div class="form-group col-md-4">
             <select name="location" class="custom-select">
                 <option value="">All Locations</option>
