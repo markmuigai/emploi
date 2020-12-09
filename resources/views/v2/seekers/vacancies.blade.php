@@ -101,7 +101,7 @@
                                                 Advertise Here
                                             </div>              
                                         </div>
-                                        <div class="banner shadow-lg animate__animated animate__swing animate__infinite infinite animate__slower 20s mt-4">
+                                        <div class="d-flex justify-content-center banner shadow-lg animate__animated animate__swing animate__infinite infinite animate__slower 20s mt-4">
                                             <h5>Hire on Emploi</h5>
                                         </div>
                                     </a>
