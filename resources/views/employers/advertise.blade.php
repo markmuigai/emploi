@@ -11,27 +11,6 @@ Advertise on Emploi and reach an audience of 100k+, get access to Premium Shortl
 $user = isset(Auth::user()->id) ? Auth::user() : false;
 ?>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-
-<style>
-  .blink{
-		padding: 10px;	
-    color: white;
-		text-align: center;
-	}
-	.span{
-		font-size: 28px;
-		font-family: cursive;
-		color: #E15419;
-		animation: blink 2s linear infinite;
-	}
-  @keyframes blink{
-    0%{opacity: 0;}
-    50%{opacity: .5;}
-    100%{opacity: 1;}
-    }
-</style>
-
   <!-- index-block1 -->
   <div class="w3l-index-block1">
     <div class="content py-5">
@@ -105,12 +84,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
   </div>
 </section>
 <!-- /index-block2 -->
-
-    <div class="blink pt-4">
-      <a href="/post-a-job" style="text-decoration: none;">
-        <span class="span">Free Job Advertisement for new employers. 20% discount for all employers.</span>
-      </a>
-    </div>
 
 <!-- content-with-photo17 -->
 <section class="w3l-index-block3 premium-recruitement">

@@ -7,7 +7,7 @@
 			<div class="col-md-12">
 				<br><br><br>
 				<p>
-					Emploi is posting vacancies at a 20% discount for all the companies.<br>
+					Emploi job advertising for all the companies.<br>
 				</p>
 				<p>
 					Employers can <a class="orange" href="/post-a-job">fill this form</a>, write to us at <a class="orange" href="mailto:info@emploi.co">info@emploi.co</a> or call us on <a class="orange" href="tel:+254702068282">0702 068 282</a> to have their vacancy posted. 

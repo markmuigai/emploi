@@ -157,23 +157,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       display: inline;
     }
 
-    .blink{
-		padding: 10px;	
-    color: white;
-		text-align: center;
-	}
-	.span{
-		font-size: 28px;
-		font-family: cursive;
-		color: #500095;
-		animation: blink 1s linear infinite;
-	}
-  @keyframes blink{
-  0%{opacity: 0;}
-  50%{opacity: .5;}
-  100%{opacity: 1;}
-  }
-
   #g-recaptcha-response {
     display: block !important;
     position: absolute;
@@ -238,8 +221,6 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 
             <div class="card-deck text-center row">
                 <div class="col-sm-12">
-                  <div class="blink pt-4"><a style="text-decoration: none;"><span class="span"><u>One month free job post for new employers plus a 20% discount for all employers</u></span></a></div>
-
                     <h3 class="orange pt-3 pb-4 text-center" id="charges">Our Charges</h3>
                 </div>
 

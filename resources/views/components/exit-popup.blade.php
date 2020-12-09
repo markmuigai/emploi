@@ -165,11 +165,7 @@
 		    <!-- Modal content-->
 			<div class="modal-content px-3 pt-3">
 				<div class="modal-body">
-				<div class="modal-header">					
-					<h5 class="orange" style="text-align: center">
-						Get a <span class="blink_text">20% Discount</span> on your job advertisements.
-					</h5>
-			
+				<div class="modal-header">			
 				</div>
 				 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeekerServices">
 	                <i class="fas fa-times" aria-hidden="true"></i>
@@ -180,7 +176,7 @@
 	                        <div class="card-body">
 	                            <h6  style="text-align: center;">Benefits</h6>
 	                            <ul>
-	                            	<li>Advertise cheaply with a 20% discount on all our advertisement packages</li>
+	                            	<li>Advertise cheaply</li>
 	                                <li>Get your job advertisement viewed by tens of thousands of job seekers</li>
 	                                <li>Receive qualified applications from the first day</li>
 	                                <li>Easily shortlist or reject applications with professional response templates</li>
