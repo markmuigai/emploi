@@ -63,7 +63,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             </textarea>
                                           </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary mt-3">
+                                    <button type="submit" class="btn btn-primary mt-3 rounded-pill">
                                         Update Schedule 
                                     </button>
                                 </form>
