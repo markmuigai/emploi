@@ -51,7 +51,7 @@
         <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
             Posted {{ $post->since }}
         </span>
-        <a class="link" href="index-2.html#">
+        <a class="link" href="/vacancies/{{ $post->slug }}">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>
