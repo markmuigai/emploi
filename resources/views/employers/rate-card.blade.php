@@ -73,7 +73,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card col-md-4">
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="purple">STAWI</h5>
-                <h1 class="orange">Kshs. 6,999</h1>
+                <h1 class="orange">Kshs. 7,000</h1>
                 <div>
                     <hr>
                 </div>

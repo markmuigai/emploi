@@ -45,7 +45,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
          <!--    <h1><del>Kshs <br>2,500</del></h1> -->
             <p>SOLO</p>
     <!--         <div class="orange">20%  Discount</div> -->
-                    <h1>Kshs 2,000</h1>
+                    <h1>Kshs 2,500</h1>
             <ul class="tick">
                 <li>1 Job Advert posted for 30 days</li>
                 <li>Shared to social media pages</li>
@@ -64,7 +64,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="card-body d-flex flex-column justify-content-center">
 <!--             <h1><del>Kshs <br>4,750</del></h1> -->
             <p>SOLO PLUS</p>
-            <h1>Kshs 3,800</h1>
+            <h1>Kshs 4,750</h1>
             <ul class="tick">
                 <li>2-4 Job Adverts posted for 30 days</li>
                 <li>Shared to Social media pages</li>
@@ -82,7 +82,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card">
         <div class="card-body d-flex flex-column justify-content-center">
             <p>INFINITY</p>
-            <h1>Kshs 7,220</h1>
+            <h1>Kshs 9,025</h1>
             <ul class="tick">
                 <li>More than 4 job Adverts posted for 30 days</li>
                 <li>Shared to Social media pages</li>
@@ -100,7 +100,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card">
         <div class="card-body d-flex flex-column justify-content-center">
             <p>STAWI</p>
-            <h1>Kshs 5,600</h1>
+            <h1>Kshs 7,000</h1>
             <ul class="tick">
                 <li>All   in Solo</li>
                 <li>Search talent database</li>
