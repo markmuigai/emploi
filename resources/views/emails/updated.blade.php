@@ -17,6 +17,9 @@
 										<!--[if (!mso)&(!IE)]><!-->
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:20px; padding-bottom:20px; padding-right: 0px; padding-left: 0px;">
 											<!--<![endif]-->
+											<span style="margin-left: 20px">
+												Hello<strong>{{ ' '.$name }}</strong>,
+											</span>
 											<div class="img-container center fullwidthOnMobile autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><a href="https://emploi.co/" target="_blank" style="outline:none" tabindex="-1"></a>
 												<!--[if mso]></td></tr></table><![endif]-->
@@ -114,10 +117,7 @@
 									<div class="col_cont" style="width:100% !important;">
 										<!--[if (!mso)&(!IE)]><!-->
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
-											<!--<![endif]-->									
-
-											Hello<strong>{{ ' '.$name }}</strong>,
-											
+											<!--<![endif]-->								
 											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="/images/email-templates/assessment.png" alt="self assessment" title="self assessment" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
 												<!--[if mso]></td></tr></table><![endif]-->
