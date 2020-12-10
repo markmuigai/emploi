@@ -156,4 +156,24 @@ class Performance extends Model
 
         return $date->diffForHumans();
     }
+
+    /**
+     * Get performance records for date range 
+     */
+    public static function getByDate($dateRange){
+        // Get the latest assessment record for each assessed email
+        return Performance::emailsAssessed()->filter(function($email) use($dateRange){
+            switch ($dateRange) {
+                case 'today':
+                    return Carbon::parse(Performance::latestAssessment($email)->last()->created_at)->toDateString() 
+                    == Carbon::today()->toDateString();
+                case 'last7':
+                    return Performance::latestAssessment($email)->last()->created_at > Carbon::now()->subDays(7);
+                case 'thisMonth':
+                    return Performance::latestAssessment($email)->last()->created_at > Carbon::now()->subDays(30);
+                default:
+                    break;
+            }
+        });
+    }
 }
