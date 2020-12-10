@@ -48,6 +48,7 @@ class AssessmentResultController extends Controller
       //   }
         return view('v2.admin.assessmentResults.index',[
             'emailsAssessed' => CollectionHelper::paginate(Performance::emailsAssessed(),10),
+            'assessments_count' => Performance::emailsAssessed()->count(),
             'avg' => Performance::recentScoresAvg(),
         ]);
     }

@@ -18,7 +18,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body text-center">
                     <h4>
                         <p>Assessments Done:</p>
-                        {{$emailsAssessed->count()}}
+                        {{$assessments_count}}
                     </h4>
                 </div>
             </div>
