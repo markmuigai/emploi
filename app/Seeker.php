@@ -455,22 +455,25 @@ class Seeker extends Model
         //check if user has any assessmnent done before
         $assessment_result=Performance::where('email', $this->user->email)->first();
             if(isset($assessment_result->id)){
-
                 //add the assessment score to his/her job score 
                 $perc += Performance::recentScore($this->user->email);
             }
 
-        //adds the 4 to a percentage value and assigns the result to $perc
+        // If the candidate is in the same industry as the posted job
         if(isset($this->industry_id) && $this->industry_id == $post->industry_id) {
-               $perc += 4;
+            //adds the 4 to a percentage value and assigns the result to $perc
+            $perc += 4;
         }
 
-        //return $perc if jobseeker has incomplete profile(cv and education level missing) or post has no model seeker
+        // if jobseeker has incomplete profile(cv and education level missing) or post has no model seeker
         if(!$this->hasCompletedProfile() || !$post->hasModelSeeker())
+            //return $perc 
             return round($perc);
 
+        // Get the rsi model set by the employer ? 
         $model = $post->modelSeeker;
 
+        // Get the sum of all the rsi model parameters ? 
         $total = 
             $model->education_level_importance + 
             $model->experience_importance + 
@@ -481,37 +484,40 @@ class Seeker extends Model
             $model->company_size_importance +
             $model->feedback_importance;
 
-
-
+        // Get the instance of the seekers job application of a post
         $application = JobApplication::where('user_id',$this->user->id)
                     ->where('post_id',$post->id)
                     ->first();
 
+        // If the interview parameter of the rsi model has been set ? 
         if($model->interview)
         {
-            
+            // TODO: Comment ?
             $interview = $model->interview_importance == 0 ? 0 : $model->interview_importance / $total * 100;
         }
         else
         {
+            // TODO: Comment ?
             $total -= $model->interview_importance;
+
+            // TODO: Comment ?
             $interview = 0;
         }
-            
+         
+        // If the psychometric parameter of the rsi model has been set
         if($model->psychometric)
         {
-            
+            // TODO: Comment ?
             $psy = $model->psychometric_importance == 0 ? 0 : $model->psychometric_importance / $total * 100;
         }
         else
         {
+            // TODO: Comment ?
             $total -= $model->psychometric_importance;
             $psy = 0;
         }
-            
-
         
-
+        // TODO: Comment ?
         $edu = $model->education_level_importance == 0 ? 0 : $model->education_level_importance / $total * 100;
         $exp = $model->experience_importance == 0 ? 0 : $model->experience_importance / $total * 100;
         $skil = $model->skills_importance == 0 ? 0 : $model->skills_importance / $total * 100;
@@ -519,11 +525,13 @@ class Seeker extends Model
         $cosize = $model->company_size_importance == 0 ? 0 : $model->company_size_importance  / $total * 100;
         $ref = $model->feedback_importance == 0 ? 0 : $model->feedback_importance / $total * 100;
 
-
+        // If the jobseeker has applied ?
         if(isset($application->id)) //psychometric
         {
+            // If the psychometric test results have been uploaded
             if(count($application->psychometricTests) > 0)
             {
+                // If the candidate has scored a higher  psychometric store than the rsi model set by emplplyer 
                 if($application->psychometricScore > $model->psychometric_test_score)
                     $perc += $psy;
                 elseif($application->psychometricScore == $model->psychometric_test_score)
@@ -537,7 +545,8 @@ class Seeker extends Model
             }
         }
 
-        if(isset($application->id))//interview
+        // If the interview results have been uploaded
+        if(isset($application->id))
         {
             if(count($application->interviewResults) > 0)
             {
@@ -828,11 +837,6 @@ class Seeker extends Model
 
             
         }
-
-        
-
-        
-
         return round($perc);
     }
 
