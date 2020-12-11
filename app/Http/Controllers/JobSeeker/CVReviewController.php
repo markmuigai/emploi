@@ -114,18 +114,21 @@ class CVReviewController extends Controller
 
             // Get recommendations
             $recommendations = CVImprovementArea::recommend($result->get('score'));
-
-            // Initialize Missing keywords recommendation
-            $missingKeywords = '';
-            foreach($result->get('recommendations') as $keyword){
-                // Concatenate all missing keywords
-                $missingKeywords = $missingKeywords.', '.$keyword;
-            }
     
-            // Store missing keywords string as a recommendation
-            $reviewResult->recommendations()->create([
-                'name' => 'Ensure that your cv has the following sections'.$missingKeywords,
-            ]);
+            if($result->get('recommendations')->isNotEmpty()){
+                // Initialize Missing keywords recommendation
+                $missingKeywords = '';
+
+                foreach($result->get('recommendations') as $keyword){
+                    // Concatenate all missing keywords
+                    $missingKeywords = $missingKeywords.', '.$keyword;
+                }
+
+                // Store missing keywords string as a recommendation
+                $reviewResult->recommendations()->create([
+                    'name' => 'Ensure that your cv has the following sections'.$missingKeywords,
+                ]);
+            }
 
             // Store recommendations
             foreach($recommendations as $rec){
