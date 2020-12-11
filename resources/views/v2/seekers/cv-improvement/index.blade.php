@@ -13,15 +13,15 @@
                 <div class="d-table-cell">
                     <div class="container pt-5 mt-5">
                         <div class="row text-white">
-                            <div class="col-md-5 review-banner pt-5">
-                                <h1>Areas to <span>Improve</span></h1>
-                                <h2>{{$result->name}} Score {{$result->score}}%</h2>
+                            <div class="col-md-3 review-banner pt-5">
+                                <h2>Areas to <span>Improve</span></h2>
+                                <h3>{{$result->name}} Score {{$result->score}}%</h3>
                                 <a class="cmn-btn my-3" href="/job-seekers/summit">
                                     Fix my CV
                                     <i class='bx bx-wrench'></i>
                                 </a>
                             </div>
-                            <div class="col-md-7 d-flex justify-content-center">
+                            <div class="col-md-9 d-flex justify-content-center">
                                 <div class="card cv-result">
                                     <h4>
                                         Improve on the following areas
