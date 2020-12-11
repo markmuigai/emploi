@@ -35,7 +35,7 @@
             </div>
             <p class="collapse" id="collapseActions">Select candidates from our talent database or generate a link to share this vacancy</p>
             <div class="row px-3">
-                <a href="{{route('v2.bulk-actions.index', ['post' => $post])}}" class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill"> Bulk Actions</a>
+                <a href="{{route('v2.bulk-actions.index', ['post' => $post])}}" target="_blank" class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill"> Bulk Actions</a>
                 <button class="btn btn-success mr-2 mt-1 btn-sm rounded-pill" data-toggle="modal" data-target="#shareVacancy">
                     Share this vacancy
                 </button>
