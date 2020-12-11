@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-sm-6 col-lg-12">
                                     <button type="submit" class="btn cmn-btn">
-                                        Proceed to Assessment
+                                        Take Test
                                         <i class='bx bx-search-alt'></i>
                                     </button>
                                 </div>
