@@ -76,42 +76,36 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-4">                
                     <div class="work-item">
-                        <i class="flaticon-verify"></i>
                         <h3>Measurable result</h3>
                         <p>Impress employer by clearly showing what you have achieved.</p>                    
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">                
                     <div class="work-item">
-                        <i class="flaticon-file"></i>
                         <h3>Strong Summary</h3>
                         <p>An overview of your top skills and accomplishments.</p>                    
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">        
                     <div class="work-item">
-                        <i class="flaticon-comment"></i>
                         <h3>Typos</h3>
                         <p>Typos include errors any errors in words, numbers and extra spaces.</p>                    
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">                
                     <div class="work-item">
-                        <i class="flaticon-verify"></i>
                         <h3>Length</h3>
                         <p>You should include enough information without overwhelming ther reader.</p>                    
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-file"></i>
                         <h3>Clear Contact Information</h3>
                         <p>Make it easy for an employer who could like to contact you.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="work-item">
-                        <i class="flaticon-comment"></i>
                         <h3>Formatting</h3>
                         <p>Formmating is the first thing an employer notices in your resume.</p>
                     </div>
