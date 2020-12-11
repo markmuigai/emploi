@@ -47,10 +47,10 @@
             <?php $completed =  $a->user->seeker->calculateProfileCompletion(); ?>
             <td><strong>{{ $completed }}%</strong> complete</td>
             <td>
-                @if ($a->user->assessed())
-                    <a href="{{route('v2.assessment-results.show', ['email' => $a->user->email])}}" class="btn btn-primary rounded-pill">Assessments</a>
+                @if ($a->status == 'shortlisted')
+                    <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill disabled">Shortlisted</a>
                 @else
-                    <a href="{{route('v2.employers.assessments.create', [$post->slug])}}" class="">Send Assessment</a>
+                    <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill">Shortlist</a>
                 @endif
             </td>
         </tr>

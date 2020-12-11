@@ -19,6 +19,17 @@
   /*----- End Default CSS -----*/
   /*----- Home Demo One CSS -----*/
   /*-- Navbar --*/
+  #loginButton{
+    color: #000 !important;
+    border: none;
+  }
+
+  #registerButton{
+    color: #000 !important;
+    background-color: #fff;
+    border: none;
+  }
+
   .side-nav {
     text-align: center;
     padding-top: 7px;
