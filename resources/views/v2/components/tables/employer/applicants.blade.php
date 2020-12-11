@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="card my-3">
+        <div class="card shadow my-3">
             <div class="card-body">
                 <form class="form-inline">
                     <select class=" my-1 mr-sm-2">
@@ -14,7 +14,7 @@
         </div>
     </div>
 </div>
-<table id="allApplicants" class="table table-striped table-bordered" style="width:100%">
+<table id="allApplicants" class="table table-bordered shadow rounded-3" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -23,9 +23,9 @@
                 </div>
             </th>
             <th>Name</th>
+            <th>Email</th>
             <th>Job Score</th>
             <th>Age</th>
-            <th>Time Applied</th>
             <th>Profile</th>
             <th>Actions</th>
         </tr>
@@ -38,17 +38,19 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 </div>
             </td>
-            <td>{{$a->user->name}}</td>
+            <td>
+                <a href="/employers/browse/{{ $a->user->username }}" target="_blank">{{ $a->user->name }}</a>
+            </td>
+            <td>{{ $a->user->email }}</td>
             <td>{{ $a->user->seeker->getRsi($post) }}%</td>
             <td>{{$a->user->seeker->age}}</td>
-            <td>{{ $a->created_at->diffForHumans() }}</td>
             <?php $completed =  $a->user->seeker->calculateProfileCompletion(); ?>
-            <td>Profile; <strong>{{ $completed }}%</strong> complete</td>
+            <td><strong>{{ $completed }}%</strong> complete</td>
             <td>
                 @if ($a->user->assessed())
                     <a href="{{route('v2.assessment-results.show', ['email' => $a->user->email])}}" class="btn btn-primary rounded-pill">Assessments</a>
                 @else
-                    <a href="{{route('v2.employers.assessments.create', [$post->slug])}}" class="btn btn-success rounded-pill">Send Assessment</a>
+                    <a href="{{route('v2.employers.assessments.create', [$post->slug])}}" class="">Send Assessment</a>
                 @endif
             </td>
         </tr>
