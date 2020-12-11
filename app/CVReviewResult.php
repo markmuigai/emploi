@@ -5,6 +5,9 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+use App\CvEditRequest;
+use App\User;
+
 use Auth;
 
 class CVReviewResult extends Model
@@ -37,6 +40,20 @@ class CVReviewResult extends Model
             return CVRecommendation::pluck('name')->mode()[0];
         }
     }
+
+        /**
+     * Get the number of those converted to CV Editing
+     */
+    public static function countConverted(){
+        $collection=CVReviewResult::all();
+        $intersect=CvEditRequest::all();
+
+        $collection = collect(['email']);
+        $intersect = $collection->intersect(['email']);
+
+         return $intersect->count();
+    }
+
 
            /**
      * Get those eligible to do automatic CV review

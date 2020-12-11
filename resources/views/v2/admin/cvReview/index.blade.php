@@ -34,8 +34,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card">
                 <div class="card-body text-center">
                     <h4>
-                        <p>Most missing keyword: </p>
-                        {{ucfirst($missingKeyword)}}
+                        <p>Converted to CV Editing</p>
+                        {{ $countConverted }}
                     </h4>
                 </div>
             </div>
