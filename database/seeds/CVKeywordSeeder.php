@@ -14,7 +14,6 @@ class CVKeywordSeeder extends Seeder
     {
         // cv keywords
         $keywords = [
-            'personal information',
             'skills',
             'education',
             'responsibilities',

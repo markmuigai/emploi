@@ -72,9 +72,6 @@ function cleanCV($cvText)
  */
 function reviewCV($cvText)
 {
-    // dd($cvText);
-    // dd(strpos(strtolower($cvText), 'responsibilities'));
-
     // Get keywords to be searched for in cv text
     $keywords = App\CVKeyword::all()->pluck('name');
 
