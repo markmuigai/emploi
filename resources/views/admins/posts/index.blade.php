@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
             <hr>
         </form>
-        @include('components.ads.responsive')
+   <!--      @include('components.ads.responsive') -->
 
         @forelse($posts as $p)
 
