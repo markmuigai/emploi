@@ -52,20 +52,17 @@
                         </div>                 
                         @endif
                 </div>           
-
-                    <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">
-                        <div class="container pt-3 pb-3">                  
-                              
-                            <button class="btn btn-success"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> Automatic CV Review</i></span></a></button>
-                            @if (auth()->user() && auth()->user()->role == 'seeker')
-                                <button class="btn btn-success"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
-                            @else
-                                <button class="btn btn-success"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
-                            @endif
-                        </div>
-
+                <div class="{{auth()->user() ? 'col-lg-9' : 'col-lg-12' }} jobs-form">
+                    <div class="container pt-3 pb-3">                    
+                        <button class="btn btn-success mb-1"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> Automatic CV Review</i></span></a></button>
+                        @if (auth()->user() && auth()->user()->role == 'seeker')
+                            <button class="btn btn-success mb-1"><a href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Self Assessment</i></span></a></button>
+                        @else
+                            <button class="btn btn-success mb-1"><a href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Self Assessment</i></span></a></button>
+                        @endif
+                    </div>
                     <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
-                    <h3 style="text-align: center">Get all the latest jobs at one stop and apply.</h3>
+                        <h3 style="text-align: center">Get all the latest jobs at one stop and apply.</h3>
                     </div>
                     <!-- Jobs -->
                     <div class="categories-area pt-2 pb-70">
@@ -150,50 +147,21 @@
                                                 @endforelse
                                                 <!-- FEATURED VACANCIES -->
                                                 <div class="container-fluid">
-                                                    <div class="card mb-4">
-                                                        <div class="card-body">
-                                                            <div class="col-12 col-lg-12">
-                                                                <div class="col-md-12">
-                                                                    <h4 class="text-center">Top Trending Vacancies</h4>
-                                                                    <div class="row">                                              
-                                                                        @foreach($posts as $post)
-                                                                        @if($post->featured == 'true')
-                                                                            <div class="col-md-6">
-                                                                                <ul>           
-                                                                                    <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>                              
-                                                                        @endif
-                                                                        @endforeach
-                                                                    
-                                                                    </div>
-                                                                </div>
-                                                         <!--            <div class="col-md-6">
-                                                                        <style>
-                                                                            div.cjjobbox{
-                                                                              
-                                                                              width: 345px ;
-                                                                              background-color: #FFFFFF ;
-                                                                              /* border-style: solid ; */
-                                                                              /* border-width: 1px ; */
-                                                                              border-color: #919294 ;
-                                                                              /* font-family: Arial, sans-serif ; */
-                                                                              /* font-size: 13px ; */
-                                                                              color: #E15419;
-                                                                              text-align: left;
-                                                                            }
-
-                                                                           </style>
-                                                                           <div class="cjjobbox">
-                                                                           <script type="text/javascript" src="https://www.careerjet.co.ke/partners/js_jobbox.html?s=&l=Kenya&n=5&lid=119809&nfr=1&ntt=1">
-                                                                           </script>
-                                                                           </div>                   
-                                                                    </div> -->
-                                                                    <div class="col-md-5">
-                                                                        @include('components.ads.responsive')
-                                                                    </div>
-                                                                </div>
+                                                    <div class="card mb-4 p-2">
+                                                        <div class="col-12 col-lg-12">
+                                                            <h4 class="text-center">Top Trending Vacancies</h4>
+                                                            <div class="row">                                              
+                                                                @foreach($posts as $post)
+                                                                @if($post->featured == 'true')
+                                                                    <div class="col-md-6 px-0">
+                                                                        <ul>           
+                                                                            <li class="featured_links"><a href="/vacancies/{{$post->slug}}/" class="orange">{{  $post->getTitle() }}</a><br>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>                              
+                                                                @endif
+                                                                @endforeach
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
