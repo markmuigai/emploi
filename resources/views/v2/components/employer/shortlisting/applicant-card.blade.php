@@ -28,11 +28,11 @@
             Applied {{ $a->created_at->diffForHumans() }}           
         </span>
         <div class="row my-2">
-            @if ($a->user->assessed())
+            {{-- @if ($a->user->assessed())
                 <a href="{{route('v2.assessment-results.show', ['email' => $a->user->email])}}" class="btn btn-primary rounded-pill">Assessment Results</a>
             @else
                 <a href="{{route('v2.employers.assessments.create', [$post->slug])}}" class="btn btn-success rounded-pill">Send Assessment</a>
-            @endif
+            @endif --}}
             @if ($a->status == 'shortlisted')
                 <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill disabled">Shortlisted</a>
             @else
