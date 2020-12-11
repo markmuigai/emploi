@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="card">
     <div class="card-body">
-        @include('components.ads.responsive')
+<!--         @include('components.ads.responsive') -->
         @if(count($blogs) > 0)
         <p class="row" style="text-align: center;">
             <form style="display: inline;" class=" col-md-10">
