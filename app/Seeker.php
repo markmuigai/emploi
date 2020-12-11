@@ -949,7 +949,7 @@ class Seeker extends Model
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(10))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(15))
                     ->where('industry_id',$this->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
