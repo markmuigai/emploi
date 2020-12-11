@@ -51,7 +51,8 @@ class CVReviewController extends Controller
             'cvReviews' => CVReviewResult::with('recommendations')->orderBy('id','DESC')->paginate(15),
             'count' => CVReviewResult::all()->count(),
             'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
-            'missingKeyword' => CVReviewResult::missingKeyword()
+            'missingKeyword' => CVReviewResult::missingKeyword(),
+            'countConverted' => CVReviewResult::countConverted()
         ]);
     }
 
