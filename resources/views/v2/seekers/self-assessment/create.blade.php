@@ -10,7 +10,7 @@
         <h3 class="text-center my-2">Self Assessment</h3>
         <div class="row justify-content-center">
             <div class="col-md-8 col-sm-12">
-                <div class="container shadow p-3 mb-5 bg-white rounded px-5">
+                <div class="container shadow mb-5 bg-white rounded px-5">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
                         </div>
