@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <input type="text" placeholder="Search here" name="q" required="" class="form-control">
         </form>
         <br>
-        @include('components.ads.responsive')
+  <!--       @include('components.ads.responsive') -->
         @if(session()->has('success'))
             <div class="alert alert-success">
             {{ session()->get('success') }}
