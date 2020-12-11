@@ -6,7 +6,7 @@
                 <div class="d-table-cell">
                     <h1>Blast Off <span>Your Career</span></h1>
                     <div class="banner-form-area">
-                        <form method="get" action="/vacancies/search" class="text-center">
+                        <form method="get" action="/v2/vacancies/search" class="text-center">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
@@ -19,7 +19,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                             <select name="industry" class="main-banner select">
-                                            <option value="-1">All Industries</option>
+                                            <option value="">All Industries</option>
                                             @foreach(\App\Industry::active() as $i)
                                             <option value="{{ $i->id }}">{{ $i->name }}
                                             </option>
@@ -30,7 +30,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <select name="location">
-                                            <option value="-1">All Locations</option>
+                                            <option value="">All Locations</option>
                                             @foreach(\App\Location::active() as $l)
                                             <option value="{{ $l->id }}">{{ $l->name }}
                                             </option>
