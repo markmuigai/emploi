@@ -864,7 +864,7 @@
 		<td valign="top" class="mcnTextContent" style="padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #222222;font-family: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">
 
 		<div style="text-align: center;">
-			<span style="font-size:12px"><em>Copyright © Emploi {{ date('Y') }}, All rights reserved.</em><br>
+			<span style="font-size:12px"><em>Copyright © Emploi {{ date('Y') }}, All rights reserved.</em>  <a href="https://emploi.co/unsubscribe/{{ ' '.$email }}" style="text-align: center;">Click here to unsubscribe</a><br>
 		</span></div>
 
 		</td>

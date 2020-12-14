@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+use Carbon\Carbon;
 use App\Invoice;
 
 class ProInvoiceReminder extends Command
@@ -21,7 +22,8 @@ class ProInvoiceReminder extends Command
     {
         $invoices = Invoice::where('pesapal_transaction_tracking_id',null)
                     ->where('alternative_payment_slug',null)
-                    ->where('sub_total',49.00)
+                    ->where('sub_total',159.00)
+                    ->where('created_at', '>', Carbon::now()->subDays(31))
                     ->get();
         $this->info('Sending an invoice reminder for all unpaid invoices for Pro plan:  '.count($invoices));
 

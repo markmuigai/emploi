@@ -53,8 +53,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('command:SendVacancyEmails')->weeklyOn(6, '01:00')->emailOutputOnFailure('david@emploi.co');
         // $schedule->command('command:RevertFeaturedJobs')->dailyAt('20:00');
         $schedule->command('command:DeactivateExpiredJobs')->dailyAt('08:00');
-        $schedule->command('command:ProInvoiceReminder')->monthlyOn(3, '06:30');
-        $schedule->command('command:SpotlightInvoiceReminder')->monthlyOn(3, '07:30');
+        $schedule->command('command:ProInvoiceReminder')->twiceMonthly(28, 04, '6:00');
+        $schedule->command('command:SpotlightInvoiceReminder')->twiceMonthly(28, 04, '6:00');
         // $schedule->command('command:SendCompleteProfileEmails')->monthlyOn(14, '11:00');
         $schedule->command('command:DeactivateSeekerPaas')->dailyAt('8:30');
         $schedule->command('command:DeactivateEmployerPaas')->dailyAt('9:00');
