@@ -45,63 +45,6 @@
                             </button>
                         </form>
                     </div>
-                    <div class="banner-key">
-                        <ul>
-                            <li>
-                                <span>Trending Keywords:</span>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="v2/vacancies">Latest Job Vacancies</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="companies?hiring=true">Companies Hiring</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/vacancies/kenya">Jobs In Kenya</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/vacancies/part-time">Part-time Jobs</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/vacancies/full-time">Full-time Jobs</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/vacancies/government">Government Jobs</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/job-seekers/cv-templates">Free Sample CVs</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/blog">Career Tips</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/vacancies/sales">Sales Jobs</a>
-                                </strong>
-                            </li>
-                            <li>
-                                <strong>
-                                    <a href="/vacancies/ngo">NGO Jobs</a>
-                                </strong>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="my-2">
                         <a class="text-center cmn-btn mt-2" href="{{Route('v2.cv-review.create', ['reviewResults' => 72])}}">
                             Automatic CV Review
@@ -122,7 +65,7 @@
                     <div class="register-area">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-4 col-lg-4">
+                                <div class="col-sm-3 col-lg-3">
                                     <div class="register-item">
                                         <h3>
                                             <span class="odometer">{{ count(\App\Post::all())*2 }}</span> 
@@ -130,7 +73,7 @@
                                         <p>Jobs</p>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-lg-4">
+                                <div class="col-sm-3 col-lg-3">
                                     <div class="register-item">
                                         <h3>
                                             <span class="odometer" >{{ count(\App\Seeker::all())*2 }}</span> 
@@ -138,12 +81,20 @@
                                         <p>Candidates</p>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 col-lg-4">
+                                <div class="col-sm-3 col-lg-3">
                                     <div class="register-item">
                                         <h3>
                                             <span class="odometer">{{ count(\App\Company::all())*2 }}</span>
                                         </h3>
                                         <p>Companies</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-lg-3">
+                                    <div class="register-item">
+                                        <h3>
+                                            <span class="odometer">7</span>
+                                        </h3>
+                                        <p>Countries</p>
                                     </div>
                                 </div>
                             </div>
