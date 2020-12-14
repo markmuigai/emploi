@@ -264,6 +264,10 @@
 							padding-bottom: 20px;
 							color: #999999;
 							font-family: sans-serif;" class="footer">
+
+                            <a href="https://emploi.co/unsubscribe/{{ ' '.$email }}" style="text-align: center;">Unsubscribe</a>
+                            <br>
+
                             <?php
                             $arr = array();
                             $arr[] = "Emploi's philosophy is to create a single sourcing point for players, with enough tools to help them find each other.";
