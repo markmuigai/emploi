@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Navbar -->
-    @include('v2.components.guest.navbar')
+    @include('v2.components.jobseeker.navbar')
     <!-- End Navbar -->
 
     @include('v2.components.main-banner')
