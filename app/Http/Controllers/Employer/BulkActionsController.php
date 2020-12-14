@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Employer;
 
 use App\Post;
+use Response;
 use App\JobApplication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class BulkActionsController extends Controller
@@ -51,11 +53,29 @@ class BulkActionsController extends Controller
      */
     public function store(Request $request)
     {
-        foreach($request->applications as $app){
+        // foreach($request->applications as $app){
             switch($request->action){
                 case 'shortlist' : 
+                  foreach($request->applications as $app){
+                    // shortlist the selected candidates
+                        DB::table("job_applications")->whereIn('id',explode(",",$app))->update(['status' => 'shortlisted']);
+                    }
+                    // when done commit
+                    DB::commit();
                     return redirect()->back();
+                    break;
                 case 'downloadCV' : 
+                    foreach($request->applications as $app){
+                        $user=DB::table("job_applications")->whereIn('id',explode(",",$app))->get();
+                        // $name=$user->id;
+                        foreach ($user as $n) {
+                            $seeker=DB::table("seekers")->whereIn('id',explode(",",$n->user_id))->pluck('resume');
+
+                            $path =url('/storage/resumes/'.$seeker);
+                            return Response::download($path, 'path');
+                        }
+                   
+                    }
                     return redirect()->back();
                 case 'sendAssessment' : 
                     return redirect()->back();
@@ -63,7 +83,7 @@ class BulkActionsController extends Controller
                     return redirect()->back();
                 case 'sendEmail' :
                     return redirect()->back();
-            }
+      
         }
     }
 
