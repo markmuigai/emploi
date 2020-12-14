@@ -51,7 +51,20 @@ class BulkActionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach($request->applications as $app){
+            switch($request->action){
+                case 'shortlist' : 
+                    return redirect()->back();
+                case 'downloadCV' : 
+                    return redirect()->back();
+                case 'sendAssessment' : 
+                    return redirect()->back();
+                case 'interviewInvite' : 
+                    return redirect()->back();
+                case 'sendEmail' :
+                    return redirect()->back();
+            }
+        }
     }
 
     /**
