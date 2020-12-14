@@ -106,8 +106,4 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     // Search for referee
     Route::post('referee/search', 'RefereeController@search')->name('referee.search');
-
-    Route::get('cv-editing/test', function(){
-        return view ('v2.admin.cv-editing');
-    });
 });
