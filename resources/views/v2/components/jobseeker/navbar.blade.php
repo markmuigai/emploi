@@ -18,30 +18,10 @@
                         <li class="nav-item">
                             <span class="tooltip-span">Hot</span>
                             
-                            <a href="{{Route('v2.vacancies.index')}}" class="nav-link dropdown-toggle {{
+                            <a href="{{Route('v2.vacancies.index')}}" class="nav-link {{
                                 request()->routeIs('v2.vacancies.index') ? 'active' : '' 
                                 }}">Vacancies
-                                <i class='bx bx-chevron-down'></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/v2/vacancies">{{ __('jobs.vacancies') }}</a>
-                                </li>
-                           <!--      <li class="nav-item">
-                                    <a href="vacancies" class="nav-link">My Saved Jobs</a>
-                                </li> -->
-                                @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-                                <li class="nav-item">
-                                    <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
-                                </li>
-                                @else
-                                <li class="nav-item">
-                                    <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
-                                </li>
-                                @endif
-                                <li class="nav-item">
-                                    <a href="/post-a-job" class="nav-link">Post A Job</a>
-                                </li>
-                            </ul>
+                            </a>
                         </li>
                         <li class="nav-item">
                             @guest
@@ -55,7 +35,16 @@
                             @endguest
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog">{{ __('blog.c_centre') }}</a>
+                            <a href="#" class="nav-link dropdown-toggle">Career Centre
+                                <i class='bx bx-chevron-down'></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blog">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/#">Media</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/events">Events</a>
@@ -66,19 +55,22 @@
                                 <a href="#" class="nav-link dropdown-toggle">{{ __('other.job_seekers') }} <i class='bx bx-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="/job-seekers/services" class="nav-link">{{ __('other.a_services') }}</a>
+                                        <a href="/job-seekers/summit" class="nav-link">Professional CV Editing</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/job-seekers/summit" class="nav-link">Career Summit</a>
+                                        <a href="/job-seekers/services" class="nav-link">Job Seeker Packages</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/job-seekers/summit" class="nav-link">Automatic CV Review</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/job-seekers/summit" class="nav-link">Self Assessment</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="/job-seekers/paas" class="nav-link">Golden Club</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/register" class="nav-link">{{ __('jobs.u_cv') }}</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/job-seekers/faqs" class="nav-link">{{ __('other.faqs') }}</a>
+                                        <a href="/job-seekers/faqs" class="nav-link">{{ __('other.faqs') }}</a> 
                                     </li>
                                 </ul>
                             </li>
@@ -89,7 +81,7 @@
                         </li> -->
                         @else
                             <li class="nav-item">
-                                <a href="/v2/login" style="margin-right:0px !important" class="btn btn-login btn-white px-3">{{ __('auth.login') }}</a>
+                                <a href="/v2/login" style="margin-right:0px !important" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.login') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/v2/join" style="padding-left" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.register') }}</a>
@@ -117,7 +109,7 @@
                             <li class="nav-item dropdown">                  
                                     <li class="nav-item">
                                     <span class="tooltip-span two">New</span>
-                                <a id="forEmployers" class="nav-link" href="/employers/publish">For Employers</a>
+                                <a id="forEmployers" class="nav-link" href="/employers/publish">Employers</a>
                             </li> 
                         @endif
                     </ul>

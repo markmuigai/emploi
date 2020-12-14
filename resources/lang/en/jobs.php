@@ -2,7 +2,7 @@
 
 return [
     'vacancies' => 'Vacancies',
-    'whos_hiring' => 'See Who\'s Hiring',
+    'whos_hiring' => 'Companies Hiring',
     'employers' => 'Employers',
     'browse_cvs' => 'Browse Cvs',
     'advert_jobs' => 'Advertise Jobs',
