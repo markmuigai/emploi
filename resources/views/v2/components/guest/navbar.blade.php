@@ -56,7 +56,16 @@
                             @endguest
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog">{{ __('blog.c_centre') }}</a>
+                            <a href="#" class="nav-link dropdown-toggle">Career Centre
+                                <i class='bx bx-chevron-down'></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blog">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/v2/media">Media</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/events">Events</a>
