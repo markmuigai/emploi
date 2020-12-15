@@ -135,4 +135,35 @@ class ShortlistSeekerController extends Controller
     {
         //
     }
+
+    public function reject(Request $request,  $slug, $username)
+
+    {
+        $user = User::where('username',$username)->firstOrFail();
+        $post = Post::where('slug',$slug)->firstOrFail();
+        if($user->seeker->hasApplied($post))
+        {
+            $j = JobApplication::where('user_id',$user->id)->where('post_id',$post->id)->firstOrFail();
+            if($j->status == 'rejected')
+            {
+                $j->status = 'active';
+                $j->save();
+            }
+            else
+            {
+                if($j->status = 'active')
+                {
+                    $j->status = 'rejected';
+                    $j->save();
+                }
+
+            }
+
+        return redirect('/v2/employers/applications/'.$post->slug);
+        return view('v2.employers.dashboard.message')
+            ->with('title','An Error Occurred')
+            ->with('message','An error occurred while processing your request. Please try again later');
+        }
+    }
+
 }
