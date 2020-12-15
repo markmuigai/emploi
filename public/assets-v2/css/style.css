@@ -8396,12 +8396,12 @@ h4,h3{
 
     .btn-login{padding:.25rem 1rem;border-radius:20px;border:2px solid}
   .btn-white{background:0 0;color:#fff;border-color:#fff}
-  .btn-white:hover{background:#fff;color:#e15419 }
+  /* .btn-white:hover{background:#fff;color:#e15419 } */
   
   .btn-orange,.btn-orange-alt{border-color:#e15419}
   .btn-orange{background:#e15419;color:#fff}
   .btn-orange-alt{background:0 0;color:#e15419}
-  .btn-orange-alt:hover,.btn-orange:hover{border-color:#b84514 !important;background:#b84514 !important;color:#fff !important }
+  /* .btn-orange-alt:hover,.btn-orange:hover{border-color:#b84514 !important;background:#b84514 !important;color:#fff !important } */
   .btn-orange-alt:focus,.btn-orange:focus{border-color:#ed895e;background:#ed895e}
   
-  .btn-register:hover{background:0 0;color:#fff !important;border-color:#fff !important; background-color: #fff !important; }
+  .btn-register:hover{background:0 0;color:#fff !important;border-color:#fff !important;   }
