@@ -8,6 +8,7 @@ use App\JobApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BulkActionsController extends Controller
 {
@@ -71,10 +72,11 @@ class BulkActionsController extends Controller
                         foreach ($user as $n) {
                             $seeker=DB::table("seekers")->whereIn('id',explode(",",$n->user_id))->pluck('resume');
 
-                            $path =url('/storage/resumes/'.$seeker);
-                            return Response::download($path, 'path');
+                            // $path =url('/storage/resumes/'.$seeker[0]);
+
+                            $path =url('/storage/resumes/xfj7nQypt4KFHNx8UMeiwPASZaPis8zOEpY9yvJk.pdf');
+                            response()->download($path);
                         }
-                   
                     }
                     return redirect()->back();
                 case 'sendAssessment' : 
