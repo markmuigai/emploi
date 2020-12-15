@@ -5,7 +5,7 @@
             <div class="card shadow my-3">
                 <div class="card-body">
                     <form class="form-inline">
-                        <select id="actions" class="my-1 mr-sm-2" name="action">
+                        <select id="actions" class="my-1 mr-sm-2 rounded-pill" name="action">
                             <option selected>Select an action</option>
                             <option value="shortlist">Shortlist</option>
                             <option value="downloadCV">Download CV</option>
@@ -13,7 +13,7 @@
                             <option value="interviewInvite">Invite to interview</option>
                             <option value="sendEmail">Send Email</option>
                         </select>
-                        <button type="submit" class="btn btn-primary my-1">Submit</button>
+                        <button type="submit" class="btn btn-primary rounded-pill my-1">Submit</button>
                 </div>
             </div>
         </div>
@@ -73,27 +73,30 @@
             </tr>
         </tfoot>
     </table>
-</form>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            ...
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+    <div class="modal fade" id="sendAssessmentModal" tabindex="-1" role="dialog" aria-labelledby="sendAssessmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-body">
+                <h4>Send Email</h4>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" placeholder="" value="Self assessment on emploi.co">
+                  </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Email body</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Dear applicant, Increase your chances of landing the job you applied for by showcasing your skills through our self assessment tool on http://emploi.co/
+                    </textarea>
+                </div>
+                <div class="row m-2">
+                    <button type="button" class="btn btn-secondary rounded-pill mr-2" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary rounded-pill">Submit</button>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
-</div>
+</form>
 
 @section('js')
 <script>
@@ -118,7 +121,7 @@
         let action = $("#actions").val();
         
         if(action == 'sendAssessment'){
-            
+            $('#sendAssessmentModal').modal()
         }
     });
 
