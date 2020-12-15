@@ -109,10 +109,15 @@
                         {{ __('other.job_seekers') }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/job-seekers/services">{{ __('other.a_services') }}</a>
-                        <a class="dropdown-item" href="/job-seekers/summit">Career Summit</a>
-                         <a class="dropdown-item" href="/job-seekers/paas">Golden Club</a>
-                        <a class="dropdown-item" href="/register">{{ __('jobs.u_cv') }}</a>
+                        <a href="/job-seekers/summit" class="dropdown-item">Professional CV Editing</a>
+                        <a href="/job-seekers/services" class="dropdown-item">Job Seeker Packages</a>
+                        <a href="/v2/cv-review/create" class="dropdown-item">Automatic CV Review</a>
+                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
+                            <a href="/v2/self-assessments/create" class="dropdown-item">Self Assessment</a>                      
+                        @else     
+                            <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="dropdown-item">Self Assessment</a>                   
+                        @endif
+                        <a href="/job-seekers/paas" class="dropdown-item">Golden Club</a>  
                         <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
                 </li>
@@ -203,3 +208,5 @@
 </script>
 
 @include('components.search-modal')
+
+@include('v2.components.modals.self-assessment')
