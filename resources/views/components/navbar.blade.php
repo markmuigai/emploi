@@ -112,11 +112,7 @@
                         <a href="/job-seekers/summit" class="dropdown-item">Professional CV Editing</a>
                         <a href="/job-seekers/services" class="dropdown-item">Job Seeker Packages</a>
                         <a href="/v2/cv-review/create" class="dropdown-item">Automatic CV Review</a>
-                        @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
-                            <a href="/v2/self-assessments/create" class="dropdown-item">Self Assessment</a>                      
-                        @else     
-                            <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="dropdown-item">Self Assessment</a>                   
-                        @endif
+                        <a href="/" class="dropdown-item">Self Assessment</a>                        
                         <a href="/job-seekers/paas" class="dropdown-item">Golden Club</a>  
                         <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
