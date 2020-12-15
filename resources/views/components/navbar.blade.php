@@ -86,8 +86,14 @@
 
 
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog">{{ __('blog.c_centre') }}</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Career Center
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/blog">Blogs</a>
+                        <a class="dropdown-item" href="/v2/media">Media</a>
+                    </div>
                 </li>
 
                 </li>
