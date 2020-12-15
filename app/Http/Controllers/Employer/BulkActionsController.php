@@ -72,9 +72,12 @@ class BulkActionsController extends Controller
                         foreach ($user as $n) {
                             $seeker=DB::table("seekers")->whereIn('id',explode(",",$n->user_id))->pluck('resume');
 
-                            // $path =url('/storage/resumes/'.$seeker[0]);
-
-                            $path =url('/storage/resumes/xfj7nQypt4KFHNx8UMeiwPASZaPis8zOEpY9yvJk.pdf');
+                            for($i =0; $i<count($seeker); $i++)
+                            {
+                               $path =url('/storage/resumes/'.$seeker[$i]);
+                            }
+                                             
+                            // $path =url('/storage/resumes/xfj7nQypt4KFHNx8UMeiwPASZaPis8zOEpY9yvJk.pdf');
                             response()->download($path);
                         }
                     }
