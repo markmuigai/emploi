@@ -118,7 +118,6 @@
                             <a href="/" class="dropdown-item">Self Assessment</a>
                         @endif                        
                         <a href="/job-seekers/paas" class="dropdown-item">Golden Club</a>  
-                        <a class="dropdown-item" href="/job-seekers/faqs">{{ __('other.faqs') }}</a>
                     </div>
                 </li>
                 @endif

@@ -9,7 +9,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
 @section('content')
-<div class="container py-5">
+<div class="container-fluid p-5">
     <h2 class="orange" style="text-align: center">Career Tips and Business Trends</h2>    
     <h5 style="text-align: center;">Get information and inspiration to help you achieve your career goals.</h5><br>
     <div class="row justify-content-between">
@@ -34,87 +34,140 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </div>
 
     <div class="row">
-        <?php $adsCounter=0; ?>        
-        @forelse($blogs as $blog)
-            <div class="col-lg-4 col-md-6">
-                <div class="card my-2">
-                    <div class="card-body">
-                        <div class="blog-image lazy mb-2" data-bg="url({{ asset($blog->imageUrl) }})"></div>
-                        <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
-                        <div class="d-flex">
-                            <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
+        <div class="col-md-9">
+            <div class="row">
+                <?php $adsCounter=0; ?>        
+                @forelse($blogs as $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card my-2">
+                            <div class="card-body">
+                                <div class="blog-image lazy mb-2" data-bg="url({{ asset($blog->imageUrl) }})"></div>
+                                <h5><a href="{{ url('blog/'.$blog->slug) }}">{{ $blog->title }}</a></h5>
+                                <div class="d-flex">
+                                    <p><i class="fas fa-user"></i> {{ $blog->user->name }} | <i class="fas fa-calendar-check"></i> {{ $blog->postedOn }}</p>
+                                </div>
+                                <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
+                                <p class="truncate">{!!html_entity_decode($blog->shortPreview)!!}</p>
+                                <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
+                                <hr>
+                                <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}"><i class="fas fa-share-alt"></i> Share</button>
+                                <!-- SHARE MODAL -->
+                                @include('components.share-modal')
+        
+                                <span style="float: right;">
+                                    <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
+                                    @if($likes == 1)
+                                        <b>1 Like</b>
+                                    @else
+                                        {{ $likes }} <b>Likes</b>
+                                    @endif 
+        
+                                    |
+                                    
+                                    @guest
+                                        <a href="/login" title="Login to Like">Login to Like</a>
+                                    @else
+                                        @if(Auth::user()->hasLiked('blog',$blog->id))
+        
+                                            <a href="/likes/blog/{{ $blog->slug }}" style="color: #500095" title="Unlike Blog">
+                                                <i class="fa fa-thumbs-up"></i> Unlike
+                                            </a>
+                                        @else
+                                            <a href="/likes/blog/{{ $blog->slug }}" title="Like Blog">
+                                                <i class="fa fa-thumbs-up"></i> Like
+                                            </a>
+                                        @endif
+                                    @endguest
+                                    
+                                <!--  <form method="POST" action="blog/comment/{$id}">
+                                            @csrf
+                                        
+        
+                                                <div class="form-group">
+                                                <textarea id="comment" rows="2" class="form-control" name="comment" placeholder="Write a comment" required autofocus></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                <button type="submit" class="btn btn-success btn-sm btn-block">Comment</button>
+                                                </div>
+                                    </form>  -->
+        
+                                </span>
+                                <!-- END OF SHARE MODAL -->
+                            </div>
                         </div>
-                        <a href="/blog/{{ $blog->category->slug }}"><span class="badge badge-orange">{{ $blog->category->name }}</span></a>
-                        <p class="truncate">{!!html_entity_decode($blog->shortPreview)!!}</p>
-                        <a href="{{ url('blog/'.$blog->slug) }}" class="orange">Read More</a>
-                        <hr>
-                        <button class="btn btn-orange-alt" data-toggle="modal" data-target="#socialModal{{ $blog->id }}"><i class="fas fa-share-alt"></i> Share</button>
-                        <!-- SHARE MODAL -->
-                        @include('components.share-modal')
-
-                        <span style="float: right;">
-                            <?php $likes = \App\Like::getCount('blog',$blog->id); ?>
-                            @if($likes == 1)
-                                <b>1 Like</b>
-                            @else
-                                {{ $likes }} <b>Likes</b>
-                            @endif 
-
-                            |
-                            
-                            @guest
-                                <a href="/login" title="Login to Like">Login to Like</a>
-                            @else
-                                @if(Auth::user()->hasLiked('blog',$blog->id))
-
-                                    <a href="/likes/blog/{{ $blog->slug }}" style="color: #500095" title="Unlike Blog">
-                                        <i class="fa fa-thumbs-up"></i> Unlike
-                                    </a>
-                                @else
-                                    <a href="/likes/blog/{{ $blog->slug }}" title="Like Blog">
-                                        <i class="fa fa-thumbs-up"></i> Like
-                                    </a>
-                                @endif
-                            @endguest
-                            
-                        <!--  <form method="POST" action="blog/comment/{$id}">
-                                    @csrf
-                                
-
-                                        <div class="form-group">
-                                        <textarea id="comment" rows="2" class="form-control" name="comment" placeholder="Write a comment" required autofocus></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                        <button type="submit" class="btn btn-success btn-sm btn-block">Comment</button>
-                                        </div>
-                            </form>  -->
-
-                        </span>
-                        <!-- END OF SHARE MODAL -->
+                    </div>
+                @empty
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <p>No blogs found</p>
+                        </div>
                     </div>
                 </div>
+                @endforelse 
+                <?php $adsCounter++; ?>
+                @if($adsCounter %3 == 0)
+                    <div class="row mb-4">
+                        <div class="card-body" style="padding: 0px; height: 89px">
+                            @if($agent->isMobile())
+                                @include('components.ads.mobile_400x350')
+                            @else            
+                                @include('components.ads.flat_728x90')
+                            @endif
+                        </div>
+                    </div>  
+                @endif
             </div>
-        @empty
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body text-center">
-                    <p>No blogs found</p>
+        </div>
+        <div class="col-md-3">
+            <div class="card mt-2 mb-3">
+                <div class="card-body">
+                    <h5><a class="text-primary" href="/job-seekers/summit">Professional CV Editing</a></h5>
+                    <p>
+                        For a detailed, targeted, concise and well-presented CV, talk to our CV Editing experts.
+                    </p>
+                </div>
+            </div>
+            <div class="card mt-2 mb-3">
+                <div class="card-body">
+                    <h5><a class="text-primary" href="/job-seekers/cv-builder">Free CV builder</a></h5>
+                    <p>
+                        Create your resume in no time at all!
+                    </p>
+                </div>
+            </div>
+            <div class="card mt-2 mb-3">
+                <div class="card-body">
+                    <h5><a class="text-primary" href="/job-seekers/cv-templates">  Downloadable CV templates with advice</a></h5>
+                    <p>
+                        Choose a resume that suits your professional profile
+                    </p>
+                </div>
+            </div>
+            <div class="card mt-2 mb-3">
+                <div class="card-body">
+                    <h5><a class="text-primary" href="/job-seekers/cv-templates">Exclusive Placement</a></h5>
+                    <p>
+                        Get seen by employers as we rank you on top of the employer search list. We offer exclusive placement services matching your career and Interview
+                        coaching to land your dream job.
+                    </p>
+                </div>
+            </div>
+            <div class="card mt-2 mb-3">
+                <div class="card-body">
+                    <h5>
+                        @if (auth()->user())
+                            <a class="text-primary" href="/v2/self-assessments/create">Self Assessment</a>
+                        @else
+                            <a class="text-primary" href="/">Self Assessment</a>
+                        @endif
+                    </h5>
+                    <p>
+                        Improve your job score ranking with intriguing psychometric tests!
+                    </p>
                 </div>
             </div>
         </div>
-        @endforelse 
-        <?php $adsCounter++; ?>
-        @if($adsCounter %3 == 0)
-            <div class="row mb-4">
-                <div class="card-body" style="padding: 0px; height: 89px">
-                    @if($agent->isMobile())
-                        @include('components.ads.mobile_400x350')
-                    @else            
-                        @include('components.ads.flat_728x90')
-                    @endif
-                </div>
-            </div>  
-        @endif
     </div>
 
     <div class="advertise-here container-fluid">
