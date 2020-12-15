@@ -119,7 +119,7 @@
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
 											<!--<![endif]-->								
 											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="/images/email-templates/assessment.png" alt="self assessment" title="self assessment" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://emploi.co/images/email-templates/assessment.png" alt="self assessment" title="self assessment" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 60px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
@@ -155,7 +155,7 @@
 											<!--<![endif]-->
 											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
                                                 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-                                                    <img class="center fixedwidth" align="center" border="0" src="/images/email-templates/cvReview.png" alt="cv review" title="cv review" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
+                                                    <img class="center fixedwidth" align="center" border="0" src="https://emploi.co/images/email-templates/cvReview.png" alt="cv review" title="cv review" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 60px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
