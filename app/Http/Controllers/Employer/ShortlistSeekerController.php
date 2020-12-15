@@ -67,12 +67,27 @@ class ShortlistSeekerController extends Controller
 
             }
 
-
-        }
         return redirect('/v2/employers/applications/'.$post->slug);
         return view('v2.employers.dashboard.message')
             ->with('title','An Error Occurred')
             ->with('message','An error occurred while processing your request. Please try again later');
+        }
+
+         
+       else{ 
+        $job = JobApplication::create([
+            'user_id' => $user->id,
+            'post_id' => $post->id,
+            'cover' => 'Shortlisted by employer',
+            'status' => 'shortlisted'
+        ]);
+        }
+     
+            return view('employers.dashboard.message')
+                    ->with('title','Shortlist Success')
+                    ->with('message',$user->seeker->public_name.' has been shortlisted for the '.$post->title.' position.');     
+
+   
     }
 
 
