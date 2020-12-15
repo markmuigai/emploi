@@ -76,9 +76,6 @@
                                     <li class="nav-item">
                                         <a href="/job-seekers/paas" class="nav-link">Golden Club</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="/job-seekers/faqs" class="nav-link">{{ __('other.faqs') }}</a> 
-                                    </li>
                                 </ul>
                             </li>
                         @endif
