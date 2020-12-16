@@ -55,45 +55,44 @@ class BulkActionsController extends Controller
     public function store(Request $request)
     {
         // foreach($request->applications as $app){
-            switch($request->action){
-                case 'shortlist' : 
-                  foreach($request->applications as $app){
-                    // shortlist the selected candidates
-                        DB::table("job_applications")->whereIn('id',explode(",",$app))->update(['status' => 'shortlisted']);
-                    }
-                    // when done commit
-                    DB::commit();
-                    return redirect()->back();
-                    break;
-                case 'downloadCV' : 
-                    foreach($request->applications as $app){
-                        $user=DB::table("job_applications")->whereIn('id',explode(",",$app))->get();
-                        // $name=$user->id;
-                        foreach ($user as $n) {
-                            $seeker=DB::table("seekers")->whereIn('id',explode(",",$n->user_id))->pluck('resume');
+        switch($request->action){
+            case 'shortlist' : 
+                foreach($request->applications as $app){
+                // shortlist the selected candidates
+                    DB::table("job_applications")->whereIn('id',explode(",",$app))->update(['status' => 'shortlisted']);
+                }
+                // when done commit
+                DB::commit();
+                return redirect()->back();
+                break;
+            case 'downloadCV' : 
+                foreach($request->applications as $app){
+                    $user=DB::table("job_applications")->whereIn('id',explode(",",$app))->get();
+                    // $name=$user->id;
+                    foreach ($user as $n) {
+                        $seeker=DB::table("seekers")->whereIn('id',explode(",",$n->user_id))->pluck('resume');
 
-                            for($i =0; $i<count($seeker); $i++)
-                            {
-                               $path =url('/storage/resumes/'.$seeker[$i]);
-                            }
-                                             
-                            // $path =url('/storage/resumes/xfj7nQypt4KFHNx8UMeiwPASZaPis8zOEpY9yvJk.pdf');
-                            response()->download($path);
+                        for($i =0; $i<count($seeker); $i++)
+                        {
+                            $path =url('/storage/resumes/'.$seeker[$i]);
                         }
+                                            
+                        // $path =url('/storage/resumes/xfj7nQypt4KFHNx8UMeiwPASZaPis8zOEpY9yvJk.pdf');
+                        response()->download($path);
                     }
-                    return redirect()->back();
-                case 'sendAssessment' : 
-                    // For each applicant
-                    foreach($request->application->user as $user){
-                        // Send email
-                        EmailJob::dispatch('Emploi Recruitement', $user->email, 'Company '.$c->name.' Created', $caption, $contents);
-                    }
-                    return redirect()->back();
-                case 'interviewInvite' : 
-                    return redirect()->back();
-                case 'sendEmail' :
-                    return redirect()->back();
-      
+                }
+                return redirect()->back();
+            case 'sendAssessment' : 
+                // For each applicant
+                foreach($request->application->user as $user){
+                    // Send email
+                    EmailJob::dispatch('Emploi Recruitement', $user->email, 'Company '.$c->name.' Created', $caption, $contents);
+                }
+                return redirect()->back();
+            case 'interviewInvite' : 
+                return redirect()->back();
+            case 'sendEmail' :
+                return redirect()->back();
         }
     }
 
