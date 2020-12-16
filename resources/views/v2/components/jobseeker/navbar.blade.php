@@ -96,6 +96,16 @@
                             <img src="{{ Auth::user()->getPublicAvatarUrl() }}" height="30px" class="profile-avatar mp-3" alt="Profile">
                             <i class='bx bx-chevron-down text-white'></i>
                             <ul class="dropdown-menu">
+                                @if(Auth::user()->role == 'admin')
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/admin/how-to">Admin {{ __('other.faqs') }}</a>
+                                    </li>
+                                @endif
+                                @if(Auth::user()->canUseBloggingPanel())
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/my-blogs">Blogging Panel</a>
+                                    </li>
+                                @endif
                                 <li class="nav-item">
                                     <a class="nav-link" href="/v2/home"><strong>{{ __('other.dashboard') }}</strong></a>
                                 </li>
