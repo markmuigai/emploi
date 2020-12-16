@@ -91,6 +91,7 @@
                     <div class="footer-service">
                         <h3>{{ __('other.menu') }}</h3>
                         <ul>
+                            <li><a href="/job-seekers/faqs">FAQ</a></li>
                             <li><a href="/about">About Us</a></li>
                             <li><a href="/contact">Contact Us</a></li>
                             <li><a href="/terms-and-conditions">Terms and Conditions</a></li>

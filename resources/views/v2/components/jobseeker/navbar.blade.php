@@ -58,7 +58,7 @@
                                         <a href="/job-seekers/summit" class="nav-link">Professional CV Editing</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/job-seekers/services" class="nav-link">Job Seeker Packages</a>
+                                        <a href="/job-seekers/services" class="nav-link">Job Seeker Services</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="/v2/cv-review/create" class="nav-link">Automatic CV Review</a>

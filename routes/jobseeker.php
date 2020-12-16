@@ -47,3 +47,6 @@ Route::resource('recommendation', 'RecommendationController');
 
 // Favourite a job
 Route::resource('favourite', 'FavouriteController');
+
+// Job seeker faqs
+Route::get('/job-seekers/faqs', 'FAQController@index')->name('jobseeker.index');

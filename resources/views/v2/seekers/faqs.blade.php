@@ -1,51 +1,45 @@
-@extends('layouts.dashboard-layout')
+@extends('v2.layouts.app')
 
-@section('title','Emploi :: Job Seeker '. __('other.faqs') )
+@section('title','Help Center :: Emploi')
 
 @section('description')
 Do you have questions? Here are frequently asked questions by Job Seekers.
 @endsection
 
 @section('content')
-@section('page_title', 'Job Seeker '. __('other.faqs') )
-<style type="text/css">
-	.panel-title:hover{
-	    color: #554695;
-  }
-</style>
-<div class="card">
-    <div class="card-body">
-        <div class="container">
-        	<div class="panel-group" id="faqAccordion">
-        		@forelse($faqs as $faq)
-        		<div class="panel panel-default " id="faq{{$faq->id}}">
-		            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question{{$faq->id}}">
-		                 <h4 class="panel-title">
-		                 	<span class="ing" style="cursor: pointer">Q: {{ $faq->title }}</span>
-		             	 </h4>
+    <!-- Navbar -->
+    @include('v2.components.jobseeker.navbar')    
+    <!-- End Navbar -->
 
-		            </div>
-		            <div id="question{{$faq->id}}" class="panel-collapse collapse" style="height: 0px;">
-		                <div class="panel-body">
-		                     <h5><span class="label label-primary" style="color: #500095">Answer</span></h5>
-
-		                    <p style="font-style: italic;">
-		                    	<?php echo $faq->description; ?>
-		                    </p>
-		                </div>
-		            </div>
-		        </div>
-		        @empty
-		        <p>
-		        	Nothing here. Check back later or <a href="/contact" class="orange">Contact Us</a>
-		        </p>
-		        @endforelse
-        	</div>
-        </div>
-        
-    </div>
-</div>
-
-
+	<!-- FAQ -->
+	<div class="pt-5">
+		<div class="container mt-5">
+			<h3 class="text-center my-4">Frequently Asked Questions</h3>
+			<div class="row justify-content-center">
+				<div class="col-lg-12">
+					<div class="faq-content">
+						<ul class="accordion">
+							@forelse($faqs as $faq)
+								<li>
+									<a data-toggle="collapse" href="#collapseDescription-{{$faq->id}}" role="button" aria-expanded="false" aria-controls="collapseDescription-{{$faq->id}}">
+										{{ $faq->title }}
+									</a>
+									<div class="collapse" id="collapseDescription-{{$faq->id}}">
+										<?php echo $faq->description; ?>
+									</div>
+								</li>
+							@empty
+							@endforelse
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="faq-bottom mb-5">
+				<h3>If you don't find your questions or need help</h3>
+				<a href="faq.html#">Contact Us</a>
+			</div>
+		</div>
+	</div>
+	<!-- End FAQ -->
 
 @endsection

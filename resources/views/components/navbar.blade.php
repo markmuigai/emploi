@@ -110,7 +110,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a href="/job-seekers/summit" class="dropdown-item">Professional CV Editing</a>
-                        <a href="/job-seekers/services" class="dropdown-item">Job Seeker Packages</a>
+                        <a href="/job-seekers/services" class="dropdown-item">Job Seeker Services</a>
                         <a href="/v2/cv-review/create" class="dropdown-item">Automatic CV Review</a>                 
                         @if (auth()->user() && auth()->user()->role == 'seeker')
                         <a href="{{route('v2.self-assessment.create')}}" class="dropdown-item">Self Assessment</a>

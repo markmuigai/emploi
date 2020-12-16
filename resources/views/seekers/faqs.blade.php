@@ -39,7 +39,13 @@ Do you have questions? Here are frequently asked questions by Job Seekers.
 		        <p>
 		        	Nothing here. Check back later or <a href="/contact" class="orange">Contact Us</a>
 		        </p>
-		        @endforelse
+				@endforelse
+				<h3 class="text-center mt-5">If you don't find your questions or need help</h3>
+				<center>
+					<a href="/contact" class="btn btn-primary">
+						Contact Us
+					</a>
+				</center>
         	</div>
         </div>
         

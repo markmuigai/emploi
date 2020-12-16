@@ -177,31 +177,36 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
               <ul class="plan-features">   
                 <div class="row">
                   <div class="col-md-6">
-                    <li><i class="ion-checkmark"> </i><a class="text-primary" href="/vacancies">View and apply vacancies</a>
+                    <li><i class="fas fa-city"></i><a class="text-primary" href="/vacancies">View and apply vacancies</a>
                       <p>
                         Get all the latest jobs at one stop and apply.
                       </p>
                     </li>
-                    <li><i class="ion-checkmark"> </i><a class="text-primary" href="/job-seekers/cv-builder">Free CV builder</a>
+                    <li><i class="fas fa-wrench"></i><a class="text-primary" href="/job-seekers/cv-builder">Free CV builder</a>
                       <p>
                         Create your resume in no time at all!
                       </p>
                     </li>
-                    <li><i class="ion-checkmark"> </i><a class="text-primary" href="#"> Access Career advice</a>
+                    <li><i class="fas fa-clipboard-list"> </i><a class="text-primary" href="#"> Access Career advice</a>
                       <p>
                         Instantly Check Your Resume for Issues. Review our suggestions to see what you can fix.
                       </p>
                     </li> 
                   </div>
                   <div class="col-md-6">
-                    <li><i class="ion-checkmark"> </i><a class="text-primary" href="/job-seekers/cv-templates">  Downloadable CV templates with advice</a>
+                    <li><i class="fas fa-file-download"> </i><a class="text-primary" href="/job-seekers/cv-templates">  Downloadable CV templates with advice</a>
                       <p>
                         Choose a resume that suits your professional profile
                       </p>
                     </li>
-                    <li><i class="ion-checkmark"> </i><i class="#"> </i><a class="text-primary" href="/">1 self assessment</a>
+                    <li><i class="fas fa-chart-bar"> </i><i class="#"> </i><a class="text-primary" href="/">1 self assessment</a>
                       <p>
                         Improve your job score ranking with intriguing psychometric tests!
+                      </p>
+                    </li>
+                    <li><i class="fas fa-tasks"> </i><i class="#"> </i><a class="text-primary" href="/cv-review/create">Automatic CV Review</a>
+                      <p>
+                        Instantly Check Your Resume for Issues then review our suggestions to see what you can fix
                       </p>
                     </li>
                   </div>
@@ -272,53 +277,26 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             </div>
         </div>
     </div>
-    <br id="summit"><br><br>
-    <h3 class="orange" style="text-align: center;">Summit Packages</h3>
-    <h5 style="text-align: center;">Take your career to the Summit with Emploi.</h5>
-    <center>
-      <a href="/job-seekers/summit" class="btn btn-primary mb-2">
-        Read More
-      </a>
-    </center>
-    <div class="row justify-content-center">
-        <div class="col-lg-6">
-            <div class="card my-2">
-                <div class="card-body">
-                     <div class="row align-items-center">
-                        <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/cv-editing.png" class="w-100" alt="Experts on CV Editing">
-                        </div>
-                        <div class="col-md-8 col-12">
-                            <h5>Professional CV Editing</h5>
-                            <p>
-                                Recruiters are very busy people. On average, they read your CV in six seconds and thus having a well-designed professional CV is critical for your career growth.
-                            </p><br><br>
-                            <a href="/job-seekers/summit" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>                    
-                </div>
-            </div>
-        </div>  
-        <div class="col-lg-6">
-            <div class="card my-2">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-md-4 col-12 pb-2 pb-md-0">
-                            <img src="/images/premium-placement.png" class="w-100" alt="Premium Placement">
-                        </div>
-                        <div class="col-md-8 col-12">
-                            <h5>Exclusive Placement</h5>
-                            <p>
-                                Get seen by employers as we rank you on top of the employer search list. Get our professional CV Editing services for frequent shortlisting. We offer exclusive placement services matching your career and Interview
-                                coaching   to land your dream job.
-                            </p>
-                            <a href="/job-seekers/summit" class="btn btn-primary">Learn More</a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>               
+    <div class="row justify-content-center my-5">
+      <div class="col-md-6">
+        <h3 class="orange" style="text-align: center;">Summit Packages</h3>
+        <h5 style="text-align: center;">Are your job application efforts proving unfruitful? <br> The Career Summit will land you that interview ASAP!</h5>
+        <center>
+          <a href="/job-seekers/summit" class="btn btn-primary mb-2">
+            Read More
+          </a>
+        </center>
+      </div>
+        <div class="col-md-6">
+          <h3 class="orange" style="text-align: center;">Join our Talent Pool.</h3>
+          <h5 style="text-align: center;">Are you a professional looking for part-time work? <br> A new solution is here for you.</h5>
+          @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
+          @else
+          <center>
+            <a href="/job-seekers/register-paas" class="btn btn-primary mb-2">Join Golden Club</a>
+          </center>
+          @endif     
+        </div>             
     </div>
   <br>
 
