@@ -204,6 +204,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         Improve your job score ranking with intriguing psychometric tests!
                       </p>
                     </li>
+                    <li><i class="fas fa-tasks"> </i><i class="#"> </i><a class="text-primary" href="/cv-review/create">Automatic CV Review</a>
+                      <p>
+                        Instantly Check Your Resume for Issues then review our suggestions to see what you can fix
+                      </p>
+                    </li>
                   </div>
                 </div>                            
               </ul><br>
