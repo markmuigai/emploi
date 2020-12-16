@@ -278,16 +278,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
     </div>
     <div class="row justify-content-center my-5">
-      <div class="col-md-6">
-        <h3 class="orange" style="text-align: center;">Summit Packages</h3>
-        <h5 style="text-align: center;">Are your job application efforts proving unfruitful? <br> The Career Summit will land you that interview ASAP!</h5>
-        <center>
-          <a href="/job-seekers/summit" class="btn btn-primary mb-2">
-            Read More
-          </a>
-        </center>
-      </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
           <h3 class="orange" style="text-align: center;">Join our Talent Pool.</h3>
           <h5 style="text-align: center;">Are you a professional looking for part-time work? <br> A new solution is here for you.</h5>
           @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
