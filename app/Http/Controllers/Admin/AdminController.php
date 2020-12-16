@@ -44,6 +44,7 @@ use App\PartTimer;
 use App\CvBuilder;
 use App\CVReviewResult;
 use App\Performance;
+use App\NewsLetter;
 use App\Jobs\VacancyEmail;
 
 use App\Jobs\EmailJob;
@@ -1055,6 +1056,16 @@ class AdminController extends Controller
                 //         VacancyEmail::dispatch($user->email,$user->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co');
                 // }
                 
+                break;
+                   //send email to those who have subscribed to news letter
+            case 'news-letter':
+                
+                $contacts = NewsLetter::all();
+                for($i=0; $i<count($contacts); $i++)
+                {
+                    $contact = $contacts[$i];
+                    VacancyEmail::dispatch($contact->email,$contact->name, $subject, $caption, $contents,$banner,$template,$attachment1, $attachment2, $attachment3,'info@emploi.co',$url);
+                }
                 break;
 
             case 'employers-list':
