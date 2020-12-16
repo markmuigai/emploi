@@ -6,7 +6,7 @@
     <!-- Navbar -->
     @include('v2.components.jobseeker.navbar')
     <!-- End Navbar -->
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <style>
   .banner{
     background: purple;
@@ -27,6 +27,15 @@
     margin: 0;
   }
  </style>
+
+ <script>
+  $(document).ready(function(){
+   setTimeout(function(){
+       $('#myModal').modal('show');
+   }, 1700);
+  });
+  
+</script>
     <!-- Jobs -->
     <div class="job-area-list dashboard-area mt-1 ptb-100">
         <div class="container-fluid px-4">
@@ -254,6 +263,9 @@
     </div>
   <!-- Advert Modal End-->
 
+<!--     news letter modal -->
+    @include('v2.components.modals.news-letter')
+<!--     End news letter modal -->
 
     <!-- Featured -->
     @include('v2.components.featured-employers')                
@@ -261,12 +273,13 @@
 
 @endsection
 
-@section('modal')
+@section('modal') 
     @include('v2.components.modals.recommender-parameters')
 
     @include('v2.components.modals.self-assessment')
 
     @include('v2.components.modals.advertise')
+   
 @endsection
 
 
