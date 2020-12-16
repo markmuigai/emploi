@@ -83,6 +83,11 @@ class BulkActionsController extends Controller
                     }
                     return redirect()->back();
                 case 'sendAssessment' : 
+                    // For each applicant
+                    foreach($request->application->user as $user){
+                        // Send email
+                        EmailJob::dispatch('Emploi Recruitement', $user->email, 'Company '.$c->name.' Created', $caption, $contents);
+                    }
                     return redirect()->back();
                 case 'interviewInvite' : 
                     return redirect()->back();
