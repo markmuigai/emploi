@@ -27,11 +27,16 @@
             </span>       
         </span>
         <div class="row my-2">
-            @if ($s->user->assessed())
+            @if ($s->status == 'shortlisted')
+                <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $s->user->username }}" class="btn btn-primary ml-2 rounded-pill">Remove from Shortlist</a>
+            @else
+                <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $s->user->username }}" class="btn btn-primary ml-2 rounded-pill">Shortlist</a>
+            @endif
+       <!--      @if ($s->user->assessed())
                 <a href="{{route('v2.assessment-results.show', ['email' => $s->user->email])}}" class="btn btn-primary rounded-pill">Assessment Results</a>
             @else
                 <a href="#" class="btn btn-success rounded-pill">Send Assessment</a>
-            @endif
+            @endif -->
         </div>
         <a class="link" href="#">
             <i class="flaticon-right-arrow"></i>
