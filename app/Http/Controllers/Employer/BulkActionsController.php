@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employer;
 
 use App\Post;
 use Response;
+use App\Jobs\EmailJob;
 use App\JobApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -67,23 +68,30 @@ class BulkActionsController extends Controller
                     break;
                 case 'downloadCV' : 
                     foreach($request->applications as $app){
-                        $user=DB::table("job_applications")->whereIn('id',explode(",",$app))->get();
-                        // $name=$user->id;
-                        foreach ($user as $n) {
-                            $seeker=DB::table("seekers")->whereIn('id',explode(",",$n->user_id))->pluck('resume');
-
-                            for($i =0; $i<count($seeker); $i++)
-                            {
-                               $path =url('/storage/resumes/'.$seeker[$i]);
-                            }
-                                             
-                            // $path =url('/storage/resumes/xfj7nQypt4KFHNx8UMeiwPASZaPis8zOEpY9yvJk.pdf');
+                        $url = JobApplication::findOrFail($app)->user->seeker->resume;                          
+                            $path =url('/storage/resumes/'.$url);
                             response()->download($path);
-                        }
                     }
                     return redirect()->back();
+                    break;
+
                 case 'sendAssessment' : 
+                 foreach($request->applications as $app){
+                    $email = JobApplication::findOrFail($app)->user->email;
+                    $name = JobApplication::findOrFail($app)->user->name;
+                    $job = JobApplication::findOrFail($app)->post->title;                    
+                            
+                        $caption = "Increase your chances of landing ".$job." job you applied";
+                        $contents = "Increase your chances of landing the job you applied for by showcasing your skills through our self assessment tool. Click <a href='".url('/' )."'>here</a> to take assessment.<br><br><br><br>               
+
+                            Thank you for choosing Emploi.
+                                ";
+                        EmailJob::dispatch($name, $email, $job.' job application', $caption, $contents);
+
+                    }
                     return redirect()->back();
+                    break;
+
                 case 'interviewInvite' : 
                     return redirect()->back();
                 case 'sendEmail' :

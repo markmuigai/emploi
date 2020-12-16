@@ -74,7 +74,7 @@
         </tfoot>
     </table>
 
-    <div class="modal fade" id="sendAssessmentModal" tabindex="-1" role="dialog" aria-labelledby="sendAssessmentModalLabel" aria-hidden="true">
+<!--     <div class="modal fade" id="sendAssessmentModal" tabindex="-1" role="dialog" aria-labelledby="sendAssessmentModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-body">
@@ -95,7 +95,7 @@
             </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </form>
 
 @section('js')
@@ -117,13 +117,13 @@
     });
 
     // Show modal if send assessment action is selected
-    $("#actions").change(function(){
-        let action = $("#actions").val();
+    // $("#actions").change(function(){
+    //     let action = $("#actions").val();
         
-        if(action == 'sendAssessment'){
-            $('#sendAssessmentModal').modal()
-        }
-    });
+    //     if(action == 'sendAssessment'){
+    //         $('#sendAssessmentModal').modal()
+    //     }
+    // });
 
 </script>
 @endsection
