@@ -7579,11 +7579,11 @@ button:focus {
   display: block;
   cursor: pointer;
   padding: 15px 15px 15px 18px;
-  border: 1px solid #221668;
+  border: 1px solid #500095;
   font-weight: 500;
   border-radius: 5px;
   font-size: 17px;
-  color: #221668;
+  color: #500095;
 }
 
 .faq-area .faq-content .accordion a:after {
@@ -7598,8 +7598,8 @@ button:focus {
 
 .faq-area .faq-content .accordion a.active {
   color: #fff;
-  background-color: #221668;
-  border: 1px solid #221668;
+  background-color: #500095;
+  border: 1px solid #500095;
 }
 
 .faq-area .faq-content .accordion a.active:after {
@@ -7643,7 +7643,7 @@ button:focus {
 }
 
 .faq-area .faq-bottom h3 {
-  color: #221668;
+  color: #500095;
   font-size: 30px;
   margin-bottom: 15px;
   max-width: 485px;
@@ -7661,7 +7661,7 @@ button:focus {
 }
 
 .faq-area .faq-bottom a:hover {
-  background-color: #221668;
+  background-color: #500095;
 }
 
 /*----- End FAQ CSS -----*/
