@@ -205,6 +205,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::get('blog','AdminController@blog');
     Route::resource('bloggers','BloggersController');
     Route::get('referees','AdminController@referees');
+    Route::get('/referees/{id}/resend', 'RefereeController@resendAssessment');
     Route::get('seekers/{username?}','AdminController@seekers');
     Route::get('paas-seekers/{username?}','AdminController@PaasSeekers');
     Route::get('referee/{slug}','AdminController@viewReport');
