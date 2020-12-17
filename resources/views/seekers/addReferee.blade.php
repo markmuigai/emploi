@@ -51,7 +51,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="pull-right">
                 <button type="button" name="button" class="btn btn-purple" id="add-position">Add Position </button>
             </div>
-            <h4 class="mt-2">My Position at Organization</h4>
+            <h4 class="mt-2"> My position in the organization</h4>
             <div id="positions-at-org"></div>
             <hr>
             <div class="text-right">
