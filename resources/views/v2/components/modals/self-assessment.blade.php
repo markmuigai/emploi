@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="col-sm-12 col-lg-12">
                                     <div class="form-group">
-                                        <select class="form-control" name="industry" required="">
+                                        <select name="industry" required="">
                                             <option value="">Select Your Industry</option>
                                             @foreach(\App\Industry::active() as $i)
                                                 <option value="{{ $i->id }}">{{ $i->name }}
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-sm-12 col-lg-12">
                                     <div class="form-group">
-                                        <select class="form-control" name="experience" required="">
+                                        <select name="experience" required="">
                                             <option value="">Your Experience Level</option>
                                             <option value="0">No Experience Required</option>
                                             <option value="6">6 month Experience</option>
@@ -72,7 +72,3 @@
         </div>
     </div>
 </div>
-
-@section('modal')
-    @include('v2.components.modals.self-assessment')
-@endsection

@@ -199,23 +199,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         Choose a resume that suits your professional profile
                       </p>
                     </li>
-                    <li><i class="fas fa-chart-bar"> </i><i class="#"> </i>
-                      {{-- @if (auth()->user() && auth()->user()->role == 'seeker')
-                          <a class="text-primary" href="{{route('v2.self-assessment.create')}}">
-                              Self Assessment
-                          </a>
-                      @else
-                          <a class="text-primary" type="button" data-toggle="modal" data-target="#selfAssessmentModal">
-                              Self Assessment
-                          </a>
-                      @endif --}}
-                      {{-- <a class="text-primary" href="/">1 self assessment</a> --}}
+                    <li><i class="fas fa-chart-bar"> </i><i class="#"> </i><a class="text-primary" href="/">1 self assessment</a>
                       <p>
                         Improve your job score ranking with intriguing psychometric tests!
                       </p>
                     </li>
-                    <li><i class="fas fa-tasks"> </i><i class="#"> </i>
-                      <a class="text-primary" href="{{Route('v2.cv-review.create', ['reviewResults' => 72])}}">Automatic CV Review</a>
+                    <li><i class="fas fa-tasks"> </i><i class="#"> </i><a class="text-primary" href="/cv-review/create">Automatic CV Review</a>
                       <p>
                         Instantly Check Your Resume for Issues then review our suggestions to see what you can fix
                       </p>
@@ -454,9 +443,4 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     </div>
   </div>
 
-@endsection
-
-
-@section('modal')
-    @include('v2.components.modals.self-assessment')
 @endsection

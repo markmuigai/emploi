@@ -159,9 +159,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                         @if (auth()->user())
                             <a class="text-primary" href="/v2/self-assessments/create">Self Assessment</a>
                         @else
-                            <a class="text-primary" type="button" data-toggle="modal" data-target="#selfAssessmentModal">
-                                Self Assessment
-                            </a>
+                            <a class="text-primary" href="/">Self Assessment</a>
                         @endif
                     </h5>
                     <p>
@@ -169,7 +167,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     </p>
                 </div>
             </div>
-            @include('v2.components.get-help')
         </div>
     </div>
 
@@ -225,8 +222,4 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     @include('components.search-form')
 </div>
 <!-- END OF SEARCH BAR -->
-@endsection
-
-@section('modal')
-    @include('v2.components.modals.self-assessment')
 @endsection
