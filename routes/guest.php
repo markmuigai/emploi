@@ -8,3 +8,6 @@ Route::get('/join', 'ContactController@join');
 
 // media page
 Route::get('/media', 'MediaController@index')->name('index');
+
+// news letter
+Route::resource('/news-letter', 'NewsLetterController');

@@ -17,7 +17,26 @@ use Auth;
 use App\Jobs\EmailJob;
 
 class RefereeController extends Controller
-{
+{   
+    //resend referee assessment
+    public function resendAssessment($id){
+        $r = Referee::where('id',$id)->firstOrFail();
+
+        $caption = $r->seeker->user->name." has listed you as a referee. Provide your assessment.";
+        $contents = "Emploi is a sourcing platform linking employers and job seekers. <strong>".$r->seeker->user->name."</strong> has included you as one of their professional referee. <br>
+        As such, your assessment on their professional skills and abilities will be higly valued.
+        <br>
+
+        Provide assessment of ".$r->seeker->public_name." by following the link below <br>
+        <a href='".url('/referees/'.$r->slug)."'>Provide Assessment (2 minutes)</a> <br><br>
+
+        Thank you for your cooperation towards growing ".$r->seeker->public_name."'s career.
+                ";
+        EmailJob::dispatch($r->name, $r->email, 'Provide Referee Assessment for '.$r->seeker->user->name, $caption, $contents);
+
+        return redirect()->back()->with('message', 'Assessment link resent successfully');
+    }
+
     public function assess($slug){
     	$r = Referee::where('slug',$slug)->firstOrFail();
     	$user = Auth::user();

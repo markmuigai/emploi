@@ -175,12 +175,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 		      			<br>
 						<h4>
 							{{ $p2->title }}
-							<a href="/checkout?product=spotlight" class="btn btn-orange-alt" style="float: right;">Get</a>
+							<a href="/checkout?product=spotlight" class="btn btn-orange-alt" style="float: right;">Buy</a>
 						</h4>
 
 						<?php echo $p2->description; ?>
 						<br>
-						<a href="/checkout?product=spotlight" class="btn btn-orange">Get Package</a>
+						<a href="/checkout?product=spotlight" class="btn btn-orange">Buy Package</a>
 					</div>
 
 				@endif
@@ -197,12 +197,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 		      			<br>
 						<h4>
 							{{ $p2->title }}
-							<a href="/checkout?product=pro" class="btn btn-orange-alt" style="float: right;">Get</a>
+							<a href="/checkout?product=pro" class="btn btn-orange-alt" style="float: right;">Buy</a>
 						</h4>
 
 						<?php echo $p2->description; ?>
 						<br>
-						<a href="/checkout?product=pro" class="btn btn-orange">Get Package</a>
+						<a href="/checkout?product=pro" class="btn btn-orange">Buy Package</a>
 					</div>
 
 				@endif
@@ -222,12 +222,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			      			<br>
 							<h4>
 								{{ $p2->title }}
-								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Buy</a>
 							</h4>
 
 							<?php echo $p2->description; ?>
 							<br>
-							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
+							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Buy Package</a>
 							<span style="float: right;">{{ $p2->getPrice() }}</span>
 						</div>
 
@@ -250,7 +250,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			      			<br>
 							<h4>
 								{{ $p2->title }}
-								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Buy</a>
 							</h4>
 
 							<?php echo $p2->description; ?>
@@ -278,7 +278,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			      			<br>
 							<h4>
 								{{ $p2->title }}
-								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Buy</a>
 							</h4>
 
 							<?php echo $p2->description; ?>
@@ -306,12 +306,12 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 			      			<br>
 							<h4>
 								{{ $p2->title }}
-								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Get</a>
+								<a href="/checkout?product={{$pkg}}" class="btn btn-orange-alt" style="float: right;">Buy</a>
 							</h4>
 
 							<?php echo $p2->description; ?>
 							<br>
-							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Get Package</a>
+							<a href="/checkout?product={{$pkg}}" class="btn btn-orange">Buy Package</a>
 							<span style="float: right;">{{ $p2->getPrice() }}</span>
 						</div>
 

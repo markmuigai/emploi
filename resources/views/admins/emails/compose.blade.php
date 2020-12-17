@@ -23,6 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <option value="employers">Registered Employers</option>
                         <option value="team">Emploi Team</option>
                         <option value="test-users">Test Users</option>
+                        <option value="news-letter">News Letter</option>
                         <option value="employers-list">Employers Mailing List</option>
                         <option value="unregistered-employers">Unregistered Employers</option>
                         <option value="all-employers">Employers & Unregistered Employers</option>
