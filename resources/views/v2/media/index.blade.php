@@ -88,11 +88,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
          <div class="card mt-2 mb-3">
              <div class="card-body">
                  <h5>
-                     @if (auth()->user())
-                         <a class="text-primary" href="/v2/self-assessments/create">Self Assessment</a>
-                     @else
-                         <a class="text-primary" href="/">Self Assessment</a>
-                     @endif
+                    @if (auth()->user())
+                        <a class="text-primary" href="/v2/self-assessments/create">Self Assessment</a>
+                    @else
+                    <a class="text-primary" type="button" data-toggle="modal" data-target="#selfAssessmentModal">
+                        Self Assessment
+                    </a>
+                    @endif
                  </h5>
                  <p>
                      Improve your job score ranking with intriguing psychometric tests!
@@ -103,4 +105,8 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
    </div>
 </div> 
 
+@endsection
+
+@section('modal')
+    @include('v2.components.modals.self-assessment')
 @endsection

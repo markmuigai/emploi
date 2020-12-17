@@ -175,7 +175,7 @@
                         <a class="dropdown-item" href="/admin/how-to">Admin {{ __('other.faqs') }}</a>
                         @endif
                         @if(Auth::user()->canUseBloggingPanel())
-                        <a class="dropdown-item" href="/my-blogs">Blogging Panel</a>
+                            <a class="dropdown-item" href="/my-blogs">Blogging Panel</a>
                         @endif
 
                         <?php
