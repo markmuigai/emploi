@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <input type="text" placeholder="Search here" name="q" required="" class="form-control">
         </form>
         <br>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
         @forelse($employers as $e)
         <div class="row align-items-center">
             <div class=" col-lg-7 col-md-6">

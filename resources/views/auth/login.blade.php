@@ -67,9 +67,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 
 <div class="mt-5">
     @if($agent->isMobile())
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
     @else            
-        @include('components.ads.flat_728x90')
+        {{-- @include('components.ads.flat_728x90') --}}
     @endif
 </div>
 

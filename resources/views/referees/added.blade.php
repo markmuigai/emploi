@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             Thank you for saving <strong>{{ $referee->name }}</strong> as your referee to your profile. An e-mail has been sent for {{ $referee->name }} to provide your assessment, which will be used to boost your rank as employers do their
             shortlisting.
         </p>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
         <p>
             Kindly get in touch with your referee to ensure an assessment is submitted.
         </p>

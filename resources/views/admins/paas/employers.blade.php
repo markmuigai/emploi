@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <input type="text" placeholder="Search here" name="q" required="" class="form-control">
         </form>
         <br> -->
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
         @forelse($employers as $e)
         <?php 
             $c = App\Employer::where('user_id', $e->user_id)->first();

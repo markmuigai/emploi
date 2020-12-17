@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 				While IQ can be a predictor of things such as innovation, experts caution that it does not necessarily guarantee success at the office. However, individuals with higher IQ levels have historically brought more meaningful change to
 				organizations compared to their minors.
 			</p>
-			@include('components.ads.responsive')
+			{{-- @include('components.ads.responsive') --}}
 			<p>
 				Employers are advised to conduct IQ tests on candidates and employees to be in a better positioning when planning human resources
 			</p>

@@ -43,11 +43,11 @@ $last_rsi = [];
                 <!-- JOB CARD -->
                 
                 @forelse($pool as $a)
-                    @include('components.applicant')
+                    {{-- @include('components.applicant')
                     <?php $kk++; ?>
                     @if($kk%3==0)
                         @include('components.ads.responsive')
-                    @endif
+                    @endif --}}
                 @empty
                     <div class="card mb-4">
                         <div class="card-body">

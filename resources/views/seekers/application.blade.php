@@ -33,7 +33,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             @endif
         </p>
 
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
 
         <span class="pull-right">
             @if($app->post->isShortlisted($user->seeker))

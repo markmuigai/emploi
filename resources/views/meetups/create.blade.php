@@ -185,7 +185,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     }, 3000);
 </script>
 
-@include('components.ads.responsive')
+{{-- @include('components.ads.responsive') --}}
 
 
 @endsection

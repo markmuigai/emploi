@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body text-center">
         <form method="POST" action="/employers/applications/{{ $post->slug }}/share">
             @csrf
-            @include('components.ads.responsive')
+            {{-- @include('components.ads.responsive') --}}
             <p>
                 <label>Title</label>
                 <input type="text" name="name" class="form-control" required="" value="{{ $post->title }}">

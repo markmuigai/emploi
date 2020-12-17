@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 <div class="card">
     <div class="card-body text-center">
         <h4 style="color: green">Application Success!</h4>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
         <p>
             Application for {{ $post->title }} was completed successful.
         </p>

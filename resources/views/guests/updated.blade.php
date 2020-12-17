@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>
         Please login to continue.
     </p>
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
 
     <div class="mt-4">
         <a href="/login" class="btn btn-sm btn-orange">{{ __('auth.login') }}</a>

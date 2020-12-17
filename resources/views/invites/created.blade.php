@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div>
             <b>Success!</b> <br>
             Invite has been created successfully.
-            @include('components.ads.responsive')
+            {{-- @include('components.ads.responsive') --}}
             <br>
             <br>
             <p>

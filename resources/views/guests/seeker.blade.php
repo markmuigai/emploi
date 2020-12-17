@@ -91,7 +91,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <a href="/guests/i-am-an-employer" class="btn btn-orange px-5">Create Employer Profile</a>
 </h5>
 
-@include('components.ads.responsive')
+{{-- @include('components.ads.responsive') --}}
 
 
 @endsection

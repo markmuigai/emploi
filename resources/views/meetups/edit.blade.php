@@ -203,7 +203,7 @@ $event = $meetup;
     }, 3000);
 </script>
 
-@include('components.ads.responsive')
+{{-- @include('components.ads.responsive') --}}
 
 
 @endsection

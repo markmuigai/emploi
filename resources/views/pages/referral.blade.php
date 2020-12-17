@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 	      	<div class="clearfix"> </div>
 	      </div>
 	      <br>
-	      @include('components.ads.responsive')
+	      {{-- @include('components.ads.responsive') --}}
 	      <div class="col-md-8 offset-md-2">
 	      	{{ $message }}
 	      </div>

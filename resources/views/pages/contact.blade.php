@@ -71,6 +71,6 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 		</div>
 	</div>
 </div>
-@include('components.ads.responsive')
+{{-- @include('components.ads.responsive') --}}
 @include('components.search-form')
 @endsection

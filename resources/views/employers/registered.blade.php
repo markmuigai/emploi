@@ -16,7 +16,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <p>
         A confirmation e-mail has been sent.
     </p>
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
     <p>
         To log in, your username is <strong>{{ $username }}</strong>
     </p>

@@ -35,7 +35,7 @@ $join_title = Auth::user()->name.', Choose Account Type';
     </div>
     
 
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
 </div>
 
 @endsection

@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="card">
                 <div class="card-body">
                     <h2 class="orange text-center">CV Templates</h2>
-                    @include('components.ads.responsive')
+                    {{-- @include('components.ads.responsive') --}}
                     <ul class="numeric">
                         <li>
                             <h5>Graduate CV Template</h5>

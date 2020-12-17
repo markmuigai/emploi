@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 <div class="d-flex flex-column justify-content-center align-center">
     <p>An error occured while creating your account. Please try again later</p>
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
     <p>If this issue persists, kindly let us know by <a href="/contact" class="orange">contacting us</a>.</p>
 
     <div class="mt-4">

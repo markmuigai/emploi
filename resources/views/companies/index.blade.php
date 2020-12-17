@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @else
 @section('page_title', 'Companies')
 @endif
-@include('components.ads.responsive')
+{{-- @include('components.ads.responsive') --}}
 <div class="row mb-4">
     <?php $adsCounter=0; ?>
     @forelse($companies as $c)
@@ -47,9 +47,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         $adsCounter++;
     ?>
     @if($adsCounter %3 == 0)
-    <div class="col-lg-12 col-md-12 col-12">
+    {{-- <div class="col-lg-12 col-md-12 col-12">
         @include('components.ads.responsive')
-    </div>
+    </div> --}}
     @endif
     
     @empty

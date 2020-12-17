@@ -26,7 +26,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     Status: {{ $blogger->status == 'active' ? 'Active' : 'Inactive' }}
                 </p>
             </div>
-            @include('components.ads.responsive')
+            {{-- @include('components.ads.responsive') --}}
             <div class="col-lg-3 col-md-3">
                 @if(Auth::user()->role == 'admin')
                 <a href="{{ url('/admin/bloggers/'.$blogger->id.'/edit') }}" class="btn btn-sm btn-orange-alt">Edit</a>

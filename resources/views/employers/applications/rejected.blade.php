@@ -56,7 +56,7 @@ $last_rsi = [];
                     @endif
                     <?php $kk++; ?>
                     @if($kk%3==0)
-                        @include('components.ads.responsive')
+                        {{-- @include('components.ads.responsive') --}}
                     @endif
                 @empty
                     <div class="card mb-4">

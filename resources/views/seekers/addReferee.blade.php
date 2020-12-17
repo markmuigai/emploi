@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <input type="number" required="" placeholder="e.g. 2547XXXXXXXX" name="phone_number" class="form-control input-sm" maxlength="50" value="" />
             </div>
 
-            @include('components.ads.responsive')
+            {{-- @include('components.ads.responsive') --}}
 
             <div class="form-group">
                 <label class="control-label" for="email">Email  <b style="color: red" title="Required">*</b></label>

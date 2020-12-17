@@ -178,7 +178,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </div>
 <?php $adsCounter++; ?>
 @if($adsCounter % 4 == 0 || $adsCounter == 1 && $adsCounter != 12)
-<div class="row mb-4">
+{{-- <div class="row mb-4">
     <div class="card-body" style="padding: 0px; height: 89px">
         @if($agent->isMobile())
             @include('components.ads.mobile_400x350')
@@ -186,7 +186,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             @include('components.ads.flat_728x90')
         @endif
     </div>
-</div>  
+</div>   --}}
 @endif
 @if($adsCounter == 12)
 <div style="width: 100%">

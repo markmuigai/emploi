@@ -115,7 +115,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
     </div>
 
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
 
     <h3 class="mt-5 orange text-center" style="display: none">Our Team</h3>
     <div class="card-group" style="display: none">
