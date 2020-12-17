@@ -1482,9 +1482,6 @@ class EmployerController extends Controller
             if(isset($es->id)){
                   if (app()->environment() === 'production')
                     Notification::send(EmployerSubscription::first(),new PaasSubscribed('E-CLUB SUBSCRIPTION: '.$es->name.' with contact details  '.$es->email.' and  '.$es->phone_number.'  has submitted subscription for E-Club Membership.'));
-    
-            $user->employer->activateFreeEclub();
-
         }
             //     if (Auth::guest()) {
             //    return \Redirect::to("/login?redirectToUrl=/checkout?product=e_club");

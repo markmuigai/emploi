@@ -122,7 +122,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
                 <hr>
                 <a href="/admin/events" class="btn btn-sm btn-orange">Events ({{ count(\App\Meetup::where('started_at',NULL)->get()) }})</a>
-                 <a href="/admin/coaching" class="btn btn-sm btn-info">Coaching ({{ count(\App\Coaching::all()) }})</a>
+                <a href="/admin/coaching" class="btn btn-sm btn-info">Coaching ({{ count(\App\Coaching::all()) }})</a>
+
+                <hr>
+                <a href="/v2/admin/news-letter" class="btn btn-sm btn-info">News Letter ({{ count(\App\NewsLetter::all()) }})</a>
 
 
         </div>

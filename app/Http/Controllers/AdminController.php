@@ -1061,7 +1061,7 @@ class AdminController extends Controller
             //send email to those who have subscribed to news letter
             case 'news-letter':
                 
-                $contacts = NewsLetter::all();
+                $contacts = NewsLetter::where('status','active')->get();
                 for($i=0; $i<count($contacts); $i++)
                 {
                     $contact = $contacts[$i];
