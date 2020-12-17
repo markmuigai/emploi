@@ -106,4 +106,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     // Search for referee
     Route::post('referee/search', 'RefereeController@search')->name('referee.search');
+
+    // News Letter
+    Route::resource('/news-letter', 'NewsLetterController');
 });
