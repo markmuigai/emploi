@@ -144,7 +144,13 @@ $user = Auth::user();
         </div>
     </div>
 </div>
-<br><h5 class="orange" style="text-align: center;"><a href="/checkout?product=spotlight">Purchase spotlight plan to unlock your profile performance summary</a></h5>
+<br><h5 style="text-align: center;">Purchase spotlight plan to unlock your profile performance summary</h5>
+<center>
+	<a href="/checkout?product=spotlight" class="btn btn-orange text-center">
+		Purchase Here
+		<i class="fas fa-shopping-cart"></i>
+	</a>
+</center>
  @endif
 
 @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && $user->seeker->isOnPaas())
