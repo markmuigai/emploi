@@ -125,6 +125,15 @@
         <script type="text/javascript" src="{{asset('assets-v2/js/loading-bar.min.js')}}"></script>
         <script src="http://malsup.github.com/jquery.form.js"></script> 
         <!--js in blade-->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154451264-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-154451264-1');
+        </script>
         @yield('js')
     </body>
 </html>
