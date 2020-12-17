@@ -43,7 +43,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <form method="post" action="/vacancies/{{ $post->slug }}/apply">
             @csrf
             <div class="form-group">
-                <label>Cover Letter:</label>
+                <label>Cover Letter: (Outline your credentials why you're interested in this position.)</label>
                 <textarea class="form-control" name="cover" rows="5" id="cover" placeholder="Compose cover letter" required="required"></textarea>
             </div>
 

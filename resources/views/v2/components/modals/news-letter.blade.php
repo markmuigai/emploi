@@ -1,3 +1,4 @@
+@guest
 <section>
   <div class="modal fade pt-4" id="myModal">
     <div class="modal-dialog modal-dialog-centered pt-4">
@@ -26,3 +27,4 @@
     </div>
   </div>
 </section>
+@endguest

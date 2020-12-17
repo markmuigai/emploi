@@ -32,7 +32,7 @@
   $(document).ready(function(){
    setTimeout(function(){
        $('#myModal').modal('show');
-   }, 1700);
+   }, 17000);
   });
   
 </script>

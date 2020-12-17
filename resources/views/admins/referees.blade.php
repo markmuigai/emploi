@@ -15,7 +15,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <input type="text" placeholder="Search here" name="q" required="" class="form-control">
         </form>
         <br>
-        <div class="row">
+            @if(session()->has('message'))
+                <div class="container">
+                    <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                    </div>
+                </div>
+            @endif
+        <div class="row">   
             @forelse($referees as $ref)
             <div class="col-md-6 col-xs-6 text-left row">
                 <div class="card">
@@ -29,7 +36,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <i class="btn btn-primary">View Report</i>
                         </a>
                         @else
-                            <p style="color: red"> Referee has not provided assesment</p>
+                        <p style="color: red"> Referee has not provided assesment
+                            <a href="referees/{{ $ref->id }}/resend">
+                                <i class="btn btn-orange-alt">Resend Assessment</i>
+                            </a>                     
+                        </p>
                         <br>
                         @endif
                     </div>
