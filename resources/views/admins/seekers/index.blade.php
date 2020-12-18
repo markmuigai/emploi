@@ -85,6 +85,17 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </form>
 
+        <form method="GET" action="/v2/admin/seeker-search">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" name="search" class="form-control" placeholder="Search" value="{{ old('search') }}">
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success">Search</button>
+                </div>
+            </div>
+        </form>
+
 <div class="card">
     <div class="card-body">
         @forelse($seekers as $seeker)
