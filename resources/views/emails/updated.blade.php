@@ -68,7 +68,7 @@
 											</table>
 									<div class="img-container center fullwidthOnMobile autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-												<div style="font-size:1px;line-height:20px">&nbsp;</div><a href="https://emploi.co/" target="_blank" style="outline:none" tabindex="-1"> <img class="center fullwidthOnMobile autowidth" align="center" border="0" src="https://emploi.co/images/email-templates/banner.png" alt="Emploi" title="Emploi" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 755px; display: block;" width="755"></a>
+												<div style="font-size:1px;line-height:20px">&nbsp;</div><a href="https://emploi.co/job-seekers/summit" target="_blank" style="outline:none" tabindex="-1"> <img class="center fullwidthOnMobile autowidth" align="center" border="0" src="https://emploi.co/images/email-templates/banner.png" alt="Emploi" title="Emploi" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 755px; display: block;" width="755"></a>
 												<div style="font-size:1px;line-height:20px">&nbsp;</div>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
