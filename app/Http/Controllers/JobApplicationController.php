@@ -57,7 +57,7 @@ class JobApplicationController extends Controller
                 $caption = "You have applied for ".$post->title;
                 $contents = "Your application for the ".$post->title." has been submitted successfully. Your Job Application Id is ".$j->id.". <br>
                 The application has been sent to <strong>".$post->company->name."</strong> for consideration.<br><br>
-                In the meantime, update your profile with your updated CV to rank better against other applicants.
+                In the meantime, update your profile with your updated CV and take a self assessment <a href='".url('/')."'>here</a> to rank better against other applicants.
                 <br>
                 All the best.
                 <br><br>
