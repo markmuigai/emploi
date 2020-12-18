@@ -133,4 +133,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::resource('bulk-actions', 'BulkActionsController');
     Route::get('browse-candidates/{id}', 'BrowseCandidatesController@index')->name('browse-candidates.index');
     // Route::resource('browse-candidates', 'BrowseCandidatesController');
+
+    // Download CV
+    Route::get('/employers/browse/{username}/downloadCV', 'DownloadCVController@downloadCV');
 });
