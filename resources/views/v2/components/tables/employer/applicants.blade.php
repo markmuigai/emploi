@@ -13,7 +13,7 @@
                             <option value="interviewInvite">Invite to interview</option>
                             <option value="sendEmail">Send Email</option>
                         </select>
-                        <button type="submit" class="btn btn-primary rounded-pill my-1">Submit</button>
+                        <button type="submit" class="btn btn-primary rounded-pill my-1" id="submit">Submit</button>
                 </div>
             </div>
         </div>
@@ -115,6 +115,20 @@
             });
         }
     });
+
+//disable submit button when nothing is selected
+$('#submit').prop("disabled", true);
+    $('input:checkbox').click(function() {
+        if ($(this).is(':checked')) {
+            $('#submit').prop("disabled", false);
+                }
+        else{
+            if ($('.checks').filter(':checked').length < 1)
+                {
+                    $('#submit').attr('disabled',true);
+                }
+    }
+});
 
     // Show modal if send assessment action is selected
     // $("#actions").change(function(){
