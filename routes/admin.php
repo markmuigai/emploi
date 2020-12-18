@@ -109,4 +109,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     // News Letter
     Route::resource('/news-letter', 'NewsLetterController');
+
+    //seeker full text search
+    Route::get("/seeker-search","AdminController@seekerSearch");
 });
