@@ -160,7 +160,7 @@
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 60px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
 											<div style="color:#000000;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.5; padding:10px 0px ">
-                                                <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;"><br>
+                                                <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;">
                                                     <center>
                                                         <p style="line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><strong><span style="font-size: 20px;">
                                                             Pro</span></strong>
