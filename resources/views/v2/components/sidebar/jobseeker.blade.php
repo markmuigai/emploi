@@ -69,4 +69,4 @@
 <!--    end advertise here     -->     
 @endif  
 
-@include('components.ads.vertical_responsive')
+{{-- @include('components.ads.vertical_responsive') --}}

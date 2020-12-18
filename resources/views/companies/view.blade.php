@@ -10,13 +10,13 @@
 @section('page_title', $company->name )
 
 <div class="row">
-	<div class="col-md-12">
+	{{-- <div class="col-md-12">
 		@if(!$company->isFeatured())
 			@if(!$agent->isMobile())      
 	            @include('components.ads.flat_728x90')
 	        @endif
 		@endif
-	</div>
+	</div> --}}
 	
 	<div class="col-md-12 col-lg-9">
 		<div class="card">
@@ -133,11 +133,11 @@
 	</div>
 
 	@if($agent->isMobile() && !$shown)      
-	<div class="card my-4 mx-md-0 mr-md-5 mr-md-2 mx-4">
+	{{-- <div class="card my-4 mx-md-0 mr-md-5 mr-md-2 mx-4">
 		<div class="card-body text-center">
 			@include('components.ads.mobile_400x350')
 		</div>
-	</div>
+	</div> --}}
 	<?php $shown = true; ?>
     @endif
 

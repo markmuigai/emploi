@@ -13,7 +13,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <div class="card-body">
         <h4>Create Invite</h4>
         <form method="POST" action="/profile/invites">
-            @include('components.ads.responsive')
+            {{-- @include('components.ads.responsive') --}}
             @csrf
             <div class="form-group">
                 <textarea class="form-control" name="message" required="" id="message" rows="5" placeholder="Add message for your referrals" maxlength="500">{{ Auth::user()->inviteText }}</textarea>

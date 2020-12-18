@@ -35,4 +35,4 @@
     </a>
 </div>
 @endif
-@include('components.ads.vertical_responsive')
+{{-- @include('components.ads.vertical_responsive') --}}

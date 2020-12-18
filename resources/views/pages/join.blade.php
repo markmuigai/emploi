@@ -61,9 +61,9 @@ if(isset($name))
         </p>
     </div>
     @endif
-    <div class="mt-5">
+    {{-- <div class="mt-5">
         @include('components.ads.responsive')
-    </div>
+    </div> --}}
 </div>
 
 @endsection

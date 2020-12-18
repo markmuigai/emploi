@@ -17,7 +17,7 @@ Do you have questions? Here are frequently asked questions by Job Seekers.
     <div class="card-body">
         <div class="container">
         	<div class="panel-group" id="faqAccordion">
-        		@include('components.ads.responsive')
+        		{{-- @include('components.ads.responsive') --}}
         		@forelse($faqs as $faq)
         		<div class="panel panel-default " id="faq{{$faq->id}}">
 		            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question{{$faq->id}}">

@@ -70,7 +70,7 @@
             </div>
         </div>
         @endforeach
-        @include('v2.components.ads.careerjet')
+        {{-- @include('v2.components.ads.careerjet') --}}
     @empty
         <div class="card">
             <div class="card-body text-center">

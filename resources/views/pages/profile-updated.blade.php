@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 <div class="card">
     <div class="card-body text-center">
         <h2>{{ $title }}</h2>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
       	<p>
         	{{ $message }}
         </p>

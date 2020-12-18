@@ -88,7 +88,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
     
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
     <h3 class="orange text-center" id="premium-services">Premium Services</h3>
     
     <div class="row justify-content-center">
@@ -147,7 +147,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
         </div>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
         <div class="col-lg-6">
             <div class="card my-2">
                 <div class="card-body">

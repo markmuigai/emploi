@@ -302,7 +302,7 @@ $posts = \App\Post::where('industry_id',$user->seeker->industry_id)->where('stat
 
 @else
 
-@include('components.ads.responsive')
+{{-- @include('components.ads.responsive') --}}
 
 @endif
 

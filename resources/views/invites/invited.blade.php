@@ -25,7 +25,7 @@
                 <a href="/profile/invites/create" class="btn btn-primary">Create Invite</a>
             @endguest
 
-            @include('components.ads.responsive')
+            {{-- @include('components.ads.responsive') --}}
             
         </div>
     </div>

@@ -104,7 +104,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="text-center">
             <p>No Job Seekers found</p>
         </div>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
     @endif
 </div>
 <div class="card mt-4" id="graph">

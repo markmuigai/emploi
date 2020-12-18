@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    @include('components.ads.responsive')
+                    {{-- @include('components.ads.responsive') --}}
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
                     {{ __('If you did not receive the email') }},

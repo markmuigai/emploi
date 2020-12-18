@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         <p>
             The Invoice <b>{{ $invoice->slug }}</b> was paid successfully.
         </p>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
         <p>
             Here is your tracking code: <strong>{{ $invoice->pesapal_transaction_tracking_id }}</strong>
         </p>
