@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'My Applications')
 
 @if(count($user->applications) > 0)
-<h5>{{ count($user->applications) }} applications</h5>
+<h5>{{ count($user->applications) }} application{{ $user->positions == 1 ? 's' : '' }}</h5>
     @forelse($user->applications as $app)
     <div class="col-lg-12">
         <div class="card my-2">
