@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 use App\Company;
 use App\EducationLevel;
@@ -30,7 +31,21 @@ use App\Mail\CustomVacancyEmail;
 class Seeker extends Model
 {
     use Rememberable, Notifiable;
+    use SearchableTrait;
     public $rememberFor = 2;
+
+     /**
+     * Searchable rules.
+     *
+     * @var array
+     */
+    protected $searchable = [
+        'columns' => [
+            'seekers.public_name' => 10,
+            'seekers.resume_contents' => 5,
+            'seekers.id' => 3,
+        ]
+    ];
     
     protected $fillable = [
         'user_id','public_name', 'gender', 'date_of_birth', 'phone_number','current_position','post_address','years_experience','industry_id','country_id','location_id','education_level_id','objective','resume','featured','education','experience','resume_contents','searching','created_at'
