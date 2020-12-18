@@ -158,7 +158,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </p>
                             @endif
                             <p>
-                                <a href="/v2/employers/browse/{{ $user->username }}/downloadCV" class="btn btn-orange">
+                                <a href={{$user->seeker->resumeUrl}} class="btn btn-orange">
                                     <i class="fas fa-download"></i> Download CV
                                 </a>
                             </p>
