@@ -964,7 +964,7 @@ class Seeker extends Model
                if($this->user->hasVerified()){
 
                 $contents ="<p style= 'background:orange; color:white; text-align:center'>AUTOMATIC CV REVIEW!!</p> 
-                            <p>Click <a href='https://bit.ly/37h3Eyk'> here</a> for instant feedback and customized recommendations for free.</p>
+                            <p>Click <a href='https://bit.ly/3anSY3N'> here</a> for instant feedback and customized recommendations for free.</p>
                                 <br>";  
 
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
