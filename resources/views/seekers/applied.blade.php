@@ -15,7 +15,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p>
             Application for {{ $post->title }} was successful.
         </p>
-         @include('components.ads.responsive')
+         {{-- @include('components.ads.responsive') --}}
         <p>
             You will be notified on your application progress in due time. For further assistance, please do not hesitate to <a class="orange" href="/contact">contact us</a>.
         </p>           

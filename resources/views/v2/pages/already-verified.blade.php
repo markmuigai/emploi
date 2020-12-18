@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     	Hello {{ $user->name }},<br>
     	Your account was verified at {{ $user->email_verified_at }}.
     </p>
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
     <p>
         @guest
         Click <a href="/login">here</a> to log into your account. 

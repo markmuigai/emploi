@@ -130,7 +130,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </h5>
 
 <div class="mt-5">
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
 </div>
 
 @endsection

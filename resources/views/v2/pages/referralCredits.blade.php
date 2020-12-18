@@ -19,7 +19,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				Job seekers who refer more than 3 friends are <b>Featured for Free</b> on Emploi for 1 month. Other prices include <b>Free Airtime</b> and <b>Free Internet Bundles</b>.
 				Redeem referrals can be redeemed on Emploi credits or airtime. Credits are only available to registered users.
 			</p>
-			@include('components.ads.responsive')
+			{{-- @include('components.ads.responsive') --}}
 			<p>
 				To get started, click <b>"Invite Friends" button</b> at the bottom right. Your invitees will be sent an e-mail invite. Once they verify their account, your referral credits will be credited to your account.<br>
 				<br>

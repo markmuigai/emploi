@@ -31,7 +31,7 @@
                     <br>
                 @else
                 @endif
-                <a href="employer-details.html">
+                <a href="/vacancies/{{ $p->slug }}">
                     <i class="flaticon-right-arrow"></i>
                 </a>
             </div>

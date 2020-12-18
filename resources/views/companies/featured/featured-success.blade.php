@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Company Featured')
 <div class="card">
     <div class="card-body text-center">
-    	@include('components.ads.responsive')
+    	{{-- @include('components.ads.responsive') --}}
         <p>
             {{ $company->name }} is featured on emploi for the next {{ \App\Product::where('slug','featured_company')->first()->days_duration }} days. <br>
             Job posts will be highlighted and would rank top in the search.

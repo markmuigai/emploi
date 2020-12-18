@@ -10,7 +10,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('page_title', 'Company Featured')
 <div class="card">
     <div class="card-body text-center">
-    	@include('components.ads.responsive')
+    	{{-- @include('components.ads.responsive') --}}
         <p>
             {{ $company->name }} was not featured on Emploi!<br>
             You have {{ count(Auth::user()->employer->remainingCompanyBoosts()) }} company boost(s) remaining.

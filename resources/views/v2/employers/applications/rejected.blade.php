@@ -51,13 +51,13 @@ $last_rsi = [];
                 @endforelse
                 
                 @forelse($pool as $a)
-                    @if(array_search($a->id, $shown) === false)
+                    {{-- @if(array_search($a->id, $shown) === false)
                         @include('components.applicant')
                     @endif
                     <?php $kk++; ?>
                     @if($kk%3==0)
                         @include('components.ads.responsive')
-                    @endif
+                    @endif --}}
                 @empty
                     <div class="card mb-4">
                         <div class="card-body">

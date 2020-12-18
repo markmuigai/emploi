@@ -698,7 +698,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                      <li>Post placement follow-up and support</li>
                                  </ol>     
 
-                                         @include('components.ads.responsive')
+                                         {{-- @include('components.ads.responsive') --}}
                                      
                                   
                                     <div class="row" style="text-align: center;">

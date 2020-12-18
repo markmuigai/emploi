@@ -124,7 +124,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         @if($adsCounter % 3 == 0)
         <div class="card py-2 mb-4">
             <div class="card-body">
-                @include('components.ads.responsive')
+                {{-- @include('components.ads.responsive') --}}
             </div>
         </div>
         @endif

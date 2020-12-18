@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <hr>
         <div>
             <b>Message</b> <br>
-            @include('components.ads.responsive')
+            {{-- @include('components.ads.responsive') --}}
             {{ $invite->message ? $invite->message : Auth::user()->inviteText }}
             <br>
             <hr>

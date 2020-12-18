@@ -14,7 +14,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <p>
             An error occured that resulted in failure while submitting your message.
         </p>
-        @include('components.ads.responsive')
+        {{-- @include('components.ads.responsive') --}}
         <p>
             Please try again later or contact us through other channels.
         </p>

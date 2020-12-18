@@ -45,7 +45,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 </div>
 <?php $i++; ?>
 @if($i%3==0)
-@include('components.ads.responsive')
+{{-- @include('components.ads.responsive') --}}
 @endif
 @empty
 <div class="card">

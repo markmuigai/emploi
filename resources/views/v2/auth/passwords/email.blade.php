@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             {{ __('Send Password Reset Link') }}
         </button>
     </div>
-    @include('components.ads.responsive')
+    {{-- @include('components.ads.responsive') --}}
 </form>
 
 @endsection

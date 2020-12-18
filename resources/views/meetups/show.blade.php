@@ -133,7 +133,7 @@ $event = $meetup;
     </div>
 </div>
 @include('components.share-event')
-<div class="card mb-4">
+{{-- <div class="card mb-4">
     <div class="card-body">
         @if($agent->isMobile())
             @include('components.ads.mobile_400x350')
@@ -141,7 +141,7 @@ $event = $meetup;
             @include('components.ads.flat_728x90')
         @endif
     </div>
-</div>
+</div> --}}
 
 @endsection
 
