@@ -231,9 +231,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             @endif -->
 
                             @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
-                            @isset($post)
-                            <a href="{{route('v2.bulk-actions.index', ['post' => $post])}}" class="btn btn-orange-alt mr-2 my-1"> Bulk Actions</a>
-                            @endisset
+                            @if (Request::is('employers/applications/*'))
+                                <a href="{{route('v2.bulk-actions.index', ['post' => $post])}}" class="btn btn-orange-alt mr-2 my-1"> Bulk Actions</a>
+                            @endif
                             <a href="/employers/request-paas" class="btn btn-orange-alt mr-2 my-1" >Request PartTimer</a>
                             <a href="/vacancies/create" class="btn btn-orange my-1" dusk="create-new-post"><i class="fas fa-plus"></i> Post A Job</a>
 

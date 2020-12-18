@@ -18,7 +18,9 @@ class DownloadCVController extends Controller
     {
         $user = User::where('username',$username)->firstOrFail();
 
+        return Response::download($user->seeker->resumeUrl, $username);
+
         // Get cv url
-        return Storage::download($user->seeker->resumeUrl, $username);
+        // return Storage::download($user->seeker->resumeUrl, $username);
     }
 }
