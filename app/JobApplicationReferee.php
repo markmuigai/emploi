@@ -27,7 +27,13 @@ class JobApplicationReferee extends Model
         //referee feedback from assessment report
         $perc = 0;
         $seeker = Seeker::where('id', $id)->first();
-        $referee_assessment = JobApplicationReferee::where('seeker_id', $id)->get();
+      $referee_assessment = JobApplicationReferee::where('seeker_id', $id)->get();
+        if(isset($referee_assessment))
+        //add referee count to the final rsi score
+            {
+            $perc += $referee_assessment->count();
+            }
+
         if(isset($referee_assessment) > 0)
         {
             $performance = array();
@@ -70,53 +76,53 @@ class JobApplicationReferee extends Model
                 //     $nohire = true;
             }
             if(!$hire)
-                $perc = $perc * 0.7;
+                $perc = $perc * 0.75;
             // elseif($nohire)
             //     $perc = $perc * 0.85;
 
             //performance
             if($performance >= 90)
-                $perc = $perc * 1.25;
+                $perc = $perc * 1.6;
             elseif($performance>=75)
-                $perc = $perc * 1;
+                $perc = $perc * 1.5;
             elseif($performance>=60)
-                $perc = $perc * 0.75;
+                $perc = $perc * 1.4;
             elseif($performance>=50)
-                $perc = $perc * 0.5;
+                $perc = $perc * 1.3;
             elseif($performance>=30)
-                $perc = $perc * 0.25;
+                $perc = $perc * 1.2;
             else
-                $perc = $perc * 0.1;
+                $perc = $perc * 1.1;
 
 
             //work quality
             if($workQuality >= 90)
-                $perc = $perc * 1.25;
+                $perc = $perc * 1.6;
             elseif($workQuality>=75)
-                $perc = $perc * 1;
+                $perc = $perc * 1.5;
             elseif($workQuality>=60)
-                $perc = $perc * 0.75;
+                $perc = $perc * 1.4;
             elseif($workQuality>=50)
-                $perc = $perc * 0.5;
+                $perc = $perc * 1.3;
             elseif($workQuality>=30)
-                $perc = $perc * 0.25;
+                $perc = $perc * 1.2;
             else
-                $perc = $perc * 0.1;
+                $perc = $perc * 1.1;
 
             //ability to meet targets
 
             if($targets >= 90)
-                $perc = $perc * 1.25;
+                $perc = $perc * 1.6;
             elseif($targets>=75)
-                $perc = $perc * 1;
+                $perc = $perc * 1.5;
             elseif($targets>=60)
-                $perc = $perc * 0.75;
+                $perc = $perc * 1.4;
             elseif($targets>=50)
-                $perc = $perc * 0.5;
+                $perc = $perc * 1.3;
             elseif($targets>=30)
-                $perc = $perc * 0.25;
+                $perc = $perc * 1.2;
             else
-                $perc = $perc * 0.1;
+                $perc = $perc * 1.1;
 
             //discplinary cases
             $gross = false;
@@ -132,13 +138,12 @@ class JobApplicationReferee extends Model
                     $minor = true;
             }
             if($gross)
-                $perc = $perc * 0.5;
+                $perc = $perc * 0.7;
             elseif($mod)
-                $perc = $perc * 0.85;
+                $perc = $perc * 0.8;
             elseif($minor)
-                $perc = $perc * 0.95;
-
-        return $perc;
+                $perc = $perc * 0.9;
         }
+        return $perc;
     }
 }
