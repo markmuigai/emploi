@@ -507,32 +507,30 @@ class Seeker extends Model
         // If the interview parameter of the rsi model has been set ? 
         if($model->interview)
         {
-            // TODO: Comment ?
+            // Find the score according to interview importance as set by employer
             $interview = $model->interview_importance == 0 ? 0 : $model->interview_importance / $total * 100;
         }
         else
         {
-            // TODO: Comment ?
+            // if not set interview parameters
             $total -= $model->interview_importance;
-
-            // TODO: Comment ?
             $interview = 0;
         }
          
         // If the psychometric parameter of the rsi model has been set
         if($model->psychometric)
         {
-            // TODO: Comment ?
+            // Find the score according to psychometrics importance as set by employer
             $psy = $model->psychometric_importance == 0 ? 0 : $model->psychometric_importance / $total * 100;
         }
         else
         {
-            // TODO: Comment ?
+            // if no set psychometric parameters 
             $total -= $model->psychometric_importance;
             $psy = 0;
         }
         
-        // TODO: Comment ?
+        // Find the score according to education level, experience, skills, personality, company size and feedback importance as set by employer
         $edu = $model->education_level_importance == 0 ? 0 : $model->education_level_importance / $total * 100;
         $exp = $model->experience_importance == 0 ? 0 : $model->experience_importance / $total * 100;
         $skil = $model->skills_importance == 0 ? 0 : $model->skills_importance / $total * 100;
@@ -540,15 +538,16 @@ class Seeker extends Model
         $cosize = $model->company_size_importance == 0 ? 0 : $model->company_size_importance  / $total * 100;
         $ref = $model->feedback_importance == 0 ? 0 : $model->feedback_importance / $total * 100;
 
-        // If the jobseeker has applied ?
+        // If the jobseeker has applied for job
         if(isset($application->id)) //psychometric
         {
             // If the psychometric test results have been uploaded
             if(count($application->psychometricTests) > 0)
             {
-                // If the candidate has scored a higher  psychometric store than the rsi model set by emplplyer 
+                // If the candidate has scored a higher  psychometric score than the rsi model set by emplplyer 
                 if($application->psychometricScore > $model->psychometric_test_score)
                     $perc += $psy;
+                // If the candidate has scored a similar psychometric score to the rsi model set by emplplyer 
                 elseif($application->psychometricScore == $model->psychometric_test_score)
                     $perc += $psy * 0.8;
                 else
