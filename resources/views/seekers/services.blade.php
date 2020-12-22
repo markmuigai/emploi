@@ -283,7 +283,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                           <li><i class="ion-checkmark"> </i>Professionally Customized CV and Cover Letter</li>
                           <li><i class="ion-checkmark"> </i>Post Placement follow-up and support</li>   
                           </ul><br>
-                    <div class="plan-select"><a href="#summit" class="btn btn-primary"> SELECT PLAN</a></div>
+                    <div class="plan-select"><a href="/job-seekers/summit" class="btn btn-primary"> SELECT PLAN</a></div>
                 </div>
             </div>
         </div>
