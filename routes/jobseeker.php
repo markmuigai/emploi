@@ -52,4 +52,4 @@ Route::resource('favourite', 'FavouriteController');
 Route::get('/job-seekers/faqs', 'FAQController@index')->name('jobseeker.index');
 
 // Professional CV Editing
-Route::get('/job-seekers/cv-editing/create', 'CVEditingController@create');
+Route::resource('/job-seekers/cv-editing', 'CVEditingController');
