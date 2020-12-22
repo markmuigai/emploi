@@ -48,9 +48,9 @@ See how we are supporting companies and individuals in the fight against COVID-1
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
             <div style="border: 2px solid #500095; padding: 10px;">
-                <a href="https://emploi.co/blog/emerging-issues-in-covid-19-the-exaggerated-stigma-in-history" class="d-block p-lg-4 p-3">
-                <h3 class="my-3">Emerging issues in covid-19; the exaggerated stigma in history</h3>
-                <p class="">The writer here takes us through the emerging issues in covid-19.</p>
+                <a href="https://emploi.co/blog/emploi-20-launch-letter-from-the-ceo" class="d-block p-lg-4 p-3">
+                <h3 class="my-3">Emploi 2.0 Launch; Letter from the C.E.O.</h3>
+                <p class="">We can all agree that this has been a taxing year. The work industry has been one of the most impacted the world over,</p>
               </a>
           </div>
         </div>
