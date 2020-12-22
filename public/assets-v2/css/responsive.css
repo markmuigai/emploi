@@ -695,7 +695,8 @@
   /*----- Home Demo Three CSS -----*/
   /*----- About CSS -----*/
   .page-title-area {
-    height: 800px;
+    height: 500px;
+    padding-top: 0px !important;
   }
 
   .improvement-banner {
