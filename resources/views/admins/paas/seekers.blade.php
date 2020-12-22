@@ -54,7 +54,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <i class="fas fa-download"></i> Download CV
                     </a>
                 </p>
-                @endif
+                @endif<br>
+                <p>Expires: {{ \Carbon\Carbon::parse($seeker->ending)->diffForHumans() }}</p>
             </div>
         </div>
         <hr>

@@ -34,7 +34,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card">
                 <div class="card-body text-center">
                     <h4>
-                        <p>Inactive Subscribers</p>
+                        <p>Inactive Subscribers:</p>
                         {{ $inactive }}
                     </h4>
                 </div>
@@ -59,8 +59,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>                      
                         <th scope="col">Created</th>
+                        <th scope="col">Is registered?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,7 +71,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <td>{{ $subscriber->name }}</td>
                             <td>{{ $subscriber->email }}</td>
                             <td>{{$subscriber->status}}</td>
-                            <td>{{ $subscriber->created_at->diffForHumans() }}</td>                        
+                            <td>{{ $subscriber->created_at->diffForHumans() }}</td>
+                             <?php
+                                $user = App\User::where('email',$subscriber->email)->first();
+                             ?>
+                                @if(isset($user->id))
+                            <td>yes</td>
+                                @else
+                            <td>no</td>
+                                @endif                        
                         </tr>
                         @endforeach
                     </tbody>
