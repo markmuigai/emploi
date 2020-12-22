@@ -270,7 +270,7 @@
             <h2 class="mb-4">
                 Request Professional CV Editing
             </h2>
-            <form method="POST"  enctype="multipart/form-data" action="/cv-editing" class="col-md-8 offset-md-2">
+            <form method="POST"  enctype="multipart/form-data" action="/v2/job-seekers/cv-editing" class="col-md-8 offset-md-2">
             @csrf
 
                 <div class="row">
