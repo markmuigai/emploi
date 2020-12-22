@@ -240,7 +240,7 @@
 						</div>
                     </div>
                     @php
-                        $blogs = App\Blog::orderBy('created_at','desc')->take(3)->get();
+                        $blogs = App\Blog::all()->random(3);
                     @endphp
                     @foreach ($blogs as $b)
                         <div style="background-color:#ffffff;">
