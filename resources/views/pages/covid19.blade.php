@@ -123,10 +123,10 @@ See how we are supporting companies and individuals in the fight against COVID-1
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
           <div style="border: 2px solid #500095; padding: 10px;">
-            <a href="/job-seekers/free-cv-review" class="d-block p-lg-4 p-3">
-              <h3 class="my-3">Free CV Review </h3>
+            <a href="/v2/cv-review/create?reviewResults=72" class="d-block p-lg-4 p-3">
+              <h3 class="my-3">Automatic CV Review </h3>
               <p class="">
-                Get access to our database of job seekers and shortlist, contact and select job seekers with our recruitment tools.<br><br><br><br>
+                Get instant feedback and customized recommendations for free.<br><br><br><br>
               </p>
             </a>
           </div>
