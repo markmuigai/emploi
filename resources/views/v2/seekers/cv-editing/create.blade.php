@@ -280,67 +280,71 @@
             <h2 class="mb-4">
                 Request Professional CV Editing
             </h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>
-                            Name:
-                        </label>
-                        <input type="text" name="name" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->name : old('name') }}">
+            <form method="POST"  enctype="multipart/form-data" action="/cv-editing" class="col-md-8 offset-md-2">
+            @csrf
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Name:
+                            </label>
+                            <input type="text" name="name" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->name : old('name') }}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Phone Number:
+                            </label>
+                            <input type="number" name="phone_number" required="" maxlength="20" class="form-control" value="{{ old('phone_number') }}" placeholder="2547XXXXXXXX" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Email:
+                            </label>
+                            <input type="email" name="email" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->email : old('email') }}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Current CV: <small>.doc, .docx and .pdf - Max 5MB</small>
+                            </label>
+                            <input type="file" name="resume" class="form-control" required="" accept=".pdf, .doc, .docx">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Industry
+                            </label>
+                            <select name="industry" class="form-control">
+                                <option disabled selected value>Select Your Industry</option>
+                                @forelse(\App\Industry::orderBy('name')->get() as $ind)
+                                    <option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Optional Message
+                            </label>
+                            <textarea class="form-control" placeholder="Optional message " maxlength="500" name="message">{{ old('message') }}</textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>
-                            Phone Number:
-                        </label>
-                        <input type="number" name="phone_number" required="" maxlength="20" class="form-control" value="{{ old('phone_number') }}" placeholder="2547XXXXXXXX" required="">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary">Request Service</button>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>
-                            Email:
-                        </label>
-                        <input type="email" name="email" required="" maxlength="50" class="form-control" value="{{ isset(Auth::user()->id) ? Auth::user()->email : old('email') }}">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>
-                            Current CV: <small>.doc, .docx and .pdf - Max 5MB</small>
-                        </label>
-                        <input type="file" name="resume" class="form-control" required="" accept=".pdf, .doc, .docx">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>
-                            Industry
-                        </label>
-                        <select>
-                            <option disabled selected value>Select Your Industry</option>
-                            @forelse(\App\Industry::orderBy('name')->get() as $ind)
-                                <option value="{{ $ind->id }}" {{ old('industry') == $ind->id ? 'selected=""' : '' }}>{{ $ind->name }}</option>
-                            @empty
-                            @endforelse
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label>
-                            Optional Message
-                        </label>
-                        <textarea class="form-control" placeholder="Optional message " maxlength="500" name="message">{{ old('message') }}</textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Request Service</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 
