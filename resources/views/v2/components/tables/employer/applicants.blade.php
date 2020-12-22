@@ -11,7 +11,6 @@
                             <option value="downloadCV">Download CV</option>
                             <option value="sendAssessment">Send Assessment</option>
                             <option value="interviewInvite">Invite to interview</option>
-                            <option value="sendEmail">Send Email</option>
                         </select>
                         <button type="submit" class="btn btn-primary rounded-pill my-1" id="submit">Submit</button>
                 </div>

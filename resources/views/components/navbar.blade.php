@@ -109,7 +109,7 @@
                         {{ __('other.job_seekers') }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="/job-seekers/summit" class="dropdown-item">Professional CV Editing</a>
+                        <a href="/v2/job-seekers/cv-editing/create" class="dropdown-item">Professional CV Editing</a>
                         <a href="/job-seekers/services" class="dropdown-item">Job Seeker Services</a>
                         <a href="/v2/cv-review/create" class="dropdown-item">Automatic CV Review</a>                 
                         @if (auth()->user() && auth()->user()->role == 'seeker')

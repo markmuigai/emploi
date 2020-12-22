@@ -2982,7 +2982,7 @@ button:focus {
 .work-item.two:after {
   position: absolute;
   content: '';
-  bottom: 85px;
+  bottom: 155px;
   right: -16px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
@@ -4564,12 +4564,12 @@ button:focus {
 /*----- End Home Demo Three CSS -----*/
 /*----- About CSS -----*/
 .page-title-area {
-  background-image: linear-gradient(to right,#000,rgba(81,81,81,.2)), url("../../images/bg1.jpeg");
+  background: linear-gradient(to bottom right,#000,rgba(81,81,81,.5)), url("../../images/seeker_services.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-  height: 550px;
+  height: 350px;
 }
 
 .page-title-area:before {
@@ -4579,20 +4579,24 @@ button:focus {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #000;
   opacity: .70;
 }
 
 .page-title-area .title-item {
   position: relative;
   z-index: 1;
-  text-align: center;
   margin-top: 20px;
 }
 
 .page-title-area .title-item h2 {
   color: #fff;
   font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.page-title-area .title-item p {
+  color: #fff;
+  font-size: 20px;
   margin-bottom: 12px;
 }
 
@@ -5953,6 +5957,7 @@ button:focus {
   font-weight: 500;
   -webkit-transition: 0.5s all ease;
   transition: 0.5s all ease;
+  border-color: #e15419 !important;
 }
 
 .post-job-area .post-item .btn:hover {
@@ -8405,3 +8410,58 @@ h4,h3{
   .btn-orange-alt:focus,.btn-orange:focus{border-color:#ed895e;background:#ed895e}
   
   .btn-register:hover{background:0 0;color:#fff !important;border-color:#fff !important;   }
+
+
+  .explore-item.cv-editing p{
+    font-size: 20px;
+  }
+
+  .explore-item.cv-editing ul li{
+    font-size: 18px;
+    color: white;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* text-align: center; */
+  }
+
+  .page-title-area .left-btn {
+    background-color: #fff;
+    color: #221668;
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 65px;
+    border-radius: 5px;
+    line-height: 50px;
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+  }
+
+  .page-title-area .left-btn i {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #e15419;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  .page-title-area .left-btn:hover {
+    color: #fff;
+    background-color: #e15419;
+  }
+
+  .post-item h2{
+    font-size: 40px;
+    color: #221668;
+    margin-bottom: 0;
+  }
