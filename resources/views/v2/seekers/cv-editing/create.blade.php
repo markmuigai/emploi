@@ -149,10 +149,7 @@
                             @csrf
                             <input type="hidden" name="product" value="entry_level_cv_edit">
                             <div class="end">
-                                <a onclick="submit" class="cmn-btn">
-                                    Request
-                                    <i class='bx bx-plus'></i>
-                                </a>
+                                <input type="submit" name="" value="Request" class="btn btn-success ">
                             </div>
                         </form>
                       </div>
@@ -176,10 +173,7 @@
                             @csrf
                             <input type="hidden" name="product" value="mid_level_cv_edit">
                             <div class="end">
-                                <a onclick="submit" class="cmn-btn">
-                                    Request
-                                    <i class='bx bx-plus'></i>
-                                </a>
+                                <input type="submit" name="" value="Request" class="btn btn-success ">
                             </div>
                         </form>
                     </div>
@@ -201,13 +195,10 @@
                           </div>                    
                           <form method="POST" action="/checkout" >
                               @csrf
-                              <input type="hidden" name="product" value="c_change_cv_edit">
-                              <div class="end">
-                                  <a onclick="submit" class="cmn-btn">
-                                      Request
-                                      <i class='bx bx-plus'></i>
-                                  </a>
-                              </div>
+                            <input type="hidden" name="product" value="c_change_cv_edit">
+                            <div class="end">
+                                <input type="submit" name="" value="Request" class="btn btn-success ">
+                            </div>
                           </form>
                       </div>
                   </div>
@@ -239,10 +230,7 @@
                             @csrf
                             <input type="hidden" name="product" value="mgnt_cv_edit">
                             <div class="end">
-                                <a onclick="submit" class="cmn-btn">
-                                    Request
-                                    <i class='bx bx-plus'></i>
-                                </a>
+                                <input type="submit" name="" value="Request" class="btn btn-success ">
                             </div>
                         </form>
                     </div>
@@ -266,10 +254,7 @@
                             @csrf
                             <input type="hidden" name="product" value="s_mgnt_cv_edit">
                             <div class="end">
-                                <a onclick="submit" class="cmn-btn">
-                                    Request
-                                    <i class='bx bx-plus'></i>
-                                </a>
+                                <input type="submit" name="" value="Request" class="btn btn-success ">
                             </div>
                         </form>
                     </div>

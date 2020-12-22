@@ -8465,3 +8465,12 @@ h4,h3{
     color: #221668;
     margin-bottom: 0;
   }
+
+  .end .btn.btn-success{
+        background-color: #1f7933;
+  }
+
+  .end .btn.btn-success:hover{
+      background-color: #e15419;
+      border-color: #e15419; 
+  }
