@@ -307,9 +307,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
       </div>
     </div>
-    <div class="container row pb-4">
+<!--     <div class="container row pb-4">
         <a href="#" class="btn btn-orange" data-toggle="modal" data-target="#myModal"> Request CV Editing</a>
-    </div>
+    </div> -->
   </section>
 
   @include('components.testimonials.cv-edit')
