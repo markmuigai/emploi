@@ -136,14 +136,15 @@
                             <h3>Entry Level</h3>
                             <span>Interns and fresh graduates with less than 1 year experience</span>
                         </div>
-                        <div class="middle">
-                            <h4><span class="span-left">Kshs</span> 1500</span></h4>
-                        </div>
                         <?php
-                        $price = 1500;
-                        $p = \App\Product::where('slug','entry_level_cv_edit')->first();
-                        if(isset($p->id))
+                            $price = 2000;
+                            $p = \App\Product::where('slug','entry_level_cv_edit')->first();
+                            if(isset($p->id))
+                                $price = round($p->price);
                         ?>
+                        <div class="middle">
+                            <h4><span class="span-left">Kshs</span> {{ $price }}</span></h4>
+                        </div>                    
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="entry_level_cv_edit">
@@ -162,14 +163,15 @@
                             <h3>Mid-Level</h3>
                             <span>Averagely 1-5 years’ experience in a reporting-to-a supervisor role</span>
                         </div>
-                        <div class="middle">
-                          <h4><span class="span-left">Kshs</span> 2000</span></h4>
-                        </div>
                         <?php
-                        $price = 2000;
-                        $p = \App\Product::where('slug','mid_level_cv_edit')->first();
-                        if(isset($p->id))
+                            $price = 4000;
+                            $p = \App\Product::where('slug','mid_level_cv_edit')->first();
+                            if(isset($p->id))
+                                $price = round($p->price);
                         ?>
+                        <div class="middle">
+                          <h4><span class="span-left">Kshs</span> {{ $price }}</span></h4>
+                        </div>                   
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="mid_level_cv_edit">
@@ -188,14 +190,15 @@
                               <h3>Career Change CV</h3>
                               <span>Or Promotion seeking CV, Seeks to change a career path i.e. get into another field</span>
                           </div>
-                          <div class="middle">
-                            <h4><span class="span-left">Kshs</span> 4500</span></h4>
-                          </div>
                           <?php
-                          $price = 4500;
-                          $p = \App\Product::where('slug','c_change_cv_edit')->first();
-                          if(isset($p->id))
+                              $price = 6000;
+                              $p = \App\Product::where('slug','c_change_cv_edit')->first();
+                              if(isset($p->id))
+                                $price = round($p->price);
                           ?>
+                          <div class="middle">
+                            <h4><span class="span-left">Kshs</span> {{ $price }}</span></h4>
+                          </div>                    
                           <form method="POST" action="/checkout" >
                               @csrf
                               <input type="hidden" name="product" value="c_change_cv_edit">
@@ -223,14 +226,15 @@
                             <h3>Management Level</h3>
                             <span>Head of Departments.</span>
                         </div>
-                        <div class="middle">
-                            <h4><span class="span-left">Kshs</span> 6000</span></h4>
-                        </div>
                         <?php
-                        $price = 4500;
-                        $p = \App\Product::where('slug','mgnt_cv_edit')->first();
-                        if(isset($p->id))
+                            $price = 6000;
+                            $p = \App\Product::where('slug','mgnt_cv_edit')->first();
+                            if(isset($p->id))
+                                $price = round($p->price);
                         ?>
+                        <div class="middle">
+                            <h4><span class="span-left">Kshs</span> {{ $price }}</span></h4>
+                        </div>                   
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="mgnt_cv_edit">
@@ -249,14 +253,15 @@
                             <h3>Senior Management Level</h3>
                             <span>CEOs, Directors, MD’s</span>
                         </div>
-                        <div class="middle">
-                            <h4><span class="span-left">Kshs</span> 10000</span></h4>
-                        </div>
                         <?php
-                        $price = 4500;
-                        $p = \App\Product::where('slug','s_mgnt_cv_edit')->first();
-                        if(isset($p->id))
+                            $price = 10000;
+                            $p = \App\Product::where('slug','s_mgnt_cv_edit')->first();
+                            if(isset($p->id))
+                                $price = round($p->price);
                         ?>
+                        <div class="middle">
+                            <h4><span class="span-left">Kshs</span> {{ $price }}</span></h4>
+                        </div>                   
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="s_mgnt_cv_edit">
