@@ -55,7 +55,7 @@
                                 <a href="#" class="nav-link dropdown-toggle">{{ __('other.job_seekers') }} <i class='bx bx-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="/job-seekers/summit" class="nav-link">Professional CV Editing</a>
+                                        <a href="/v2/job-seekers/cv-editing/create" class="nav-link">Professional CV Editing</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="/job-seekers/services" class="nav-link">Job Seeker Services</a>
