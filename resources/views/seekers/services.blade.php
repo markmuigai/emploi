@@ -288,18 +288,18 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             </div>
         </div>
     </div>
+    @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->isOnPaas())
+    @else
     <div class="row justify-content-center my-5">
         <div class="col-md-8">
           <h3 class="orange" style="text-align: center;">Join our Talent Pool.</h3>
-          <h5 style="text-align: center;">Are you a professional looking for part-time work? <br> A new solution is here for you.</h5>
-          @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker' && Auth::user()->seeker->isOnPaas())
-          @else
+          <h5 style="text-align: center;">Are you a professional looking for part-time work? <br> A new solution is here for you.</h5>       
           <center>
             <a href="/job-seekers/register-paas" class="btn btn-primary mb-2">Join Golden Club</a>
-          </center>
-          @endif     
+          </center>   
         </div>             
     </div>
+    @endif
   <br>
 
   @include('components.testimonials.cv-edit')<br>
