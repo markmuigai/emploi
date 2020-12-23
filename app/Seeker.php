@@ -613,6 +613,8 @@ class Seeker extends Model
                 {
                     $perc += $edu;
                 }
+
+                //if education level is similar to what is required by employer
                 elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
                 {
                     $perc += $edu * 0.5;
@@ -641,8 +643,9 @@ class Seeker extends Model
             else
                 $perc += $exp;
         }
-
-        if(count($model->modelSeekerSkills) > 0 || $model->other_skills != null && count(json_decode($model->other_skills)) > 0) //skills
+        
+        //skills
+        if(count($model->modelSeekerSkills) > 0 || $model->other_skills != null && count(json_decode($model->other_skills)) > 0) 
         {
 
             $skills_count = $model->skillsWeight;
@@ -657,6 +660,7 @@ class Seeker extends Model
                 }
             }
 
+            //other skills
             if(isset($model->other_skills) && count(json_decode($model->other_skills)) > 0)
             {
                 if( !is_null($this->resume_contents) )
@@ -725,7 +729,7 @@ class Seeker extends Model
             //$perc += $pers;
         }
 
-        //previous company size
+        //previous job seeker company size
         $user_id = $this->user->id;
         $post_id = $post->id;
         $model_co_size = $model->company_size_id;
