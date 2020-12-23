@@ -746,34 +746,43 @@ class Seeker extends Model
 
     public function calculateProfileCompletion()
     {
+        //initialize completed to zero
         $completed = 0;
+        //profile sections
         $profileElements = ['resume', 'education_level_id', 'education', 'years_experience',  'experience', 'phone_number', 'current_position'];
+        //total profile sections
         $total = count($profileElements);
+        //loop through profile sections adding one to completed where not empty
         foreach($profileElements as $element) {
             $completed += !empty($this->{$element}) ? 1 : 0;
         }
-
+        
+        //find the profile completion ratio
         $completed = round($completed / $total * 70); 
+        
 
+        //add 12 to profile completion if a job seeker is featured
         if ($this->user->seeker->featured > 0) 
         {
             $completed = $completed + 12;
         }
         
+        //add 6 to profile completion if a job seeker has indicated location
         if ($this->user->seeker->location_id != NULL) {
             $completed = $completed + 6;
         }
         
+        //add 6 to profile completion if a job seeker has objectives
         if ($this->user->seeker->objective != NULL)
         {
             $completed = $completed + 6;
         }
-
+        //add 6 to profile completion if a job seeker has profile photo
         if ($this->user->avatar != NULL) 
         {
             $completed = $completed + 6;
         }
-
+        //return the final profile percentage
         return $completed;
     }
 
