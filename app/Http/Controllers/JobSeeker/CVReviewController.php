@@ -107,6 +107,7 @@ class CVReviewController extends Controller
             $reviewResult = CVReviewResult::create([
                 'name' => $name,
                 'user_id' => auth()->user()->id,
+                'email' => auth()->user()->email,
                 'output' => 'CV Parsed Successfully',
                 'cvText' => $cleanCV,
                 'score' => $result->get('score')
