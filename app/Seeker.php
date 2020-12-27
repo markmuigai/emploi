@@ -860,13 +860,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(10))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(100))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(10))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(100))
                     ->where('industry_id',$this->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -880,8 +880,8 @@ class Seeker extends Model
     
                if($this->user->hasVerified()){
 
-                $contents ="<p style= 'background:orange; color:white; text-align:center'>AUTOMATIC CV REVIEW!!</p> 
-                            <p>Click <a href='https://bit.ly/3anSY3N'> here</a> for instant feedback and customized recommendations for free.</p>
+                $contents ="<p style= 'background:orange; color:white; text-align:center'>SELF ASSESSMENT!!</p> 
+                            <p>Click <a href='".url('/')."'>here</a> and do assessment which increases your job score ranking, highlight your key competencies among other benefits.</p>
                                 <br>";  
 
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
