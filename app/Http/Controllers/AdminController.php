@@ -342,7 +342,6 @@ class AdminController extends Controller
                         });
                         break;
                     case '1960':
-                        break;
                         $seekers_by_year = Seeker::all()->filter(function($s){
                             $year = Carbon::parse($s->date_of_birth)->year;
                             return $year >= 1960 && $year < 1970;
