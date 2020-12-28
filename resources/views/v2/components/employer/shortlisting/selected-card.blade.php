@@ -21,7 +21,7 @@
             Applied {{ $a->created_at->diffForHumans() }}
         </span>
         <div class="row my-2">
-            <a href="#" class="btn btn-success rounded-pill">Give Job Offer</a>
+            <a href="/v2/employers/applications/{{ $a->post->slug }}/close/{{ $a->user->username }}" class="btn btn-success rounded-pill">Give Job Offer</a>
         </div>
         <a class="link" href="#">
             <i class="flaticon-right-arrow"></i>
