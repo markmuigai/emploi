@@ -278,18 +278,24 @@ class AdminController extends Controller
 
             $keywords ="";
             if(isset($request->keywords))
-            {
-                if($first)
-                {
-                    $keywords = "current_position LIKE '%".$request->keywords."%' OR public_name LIKE '%".$request->keywords."%' OR  education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%'";
-                    $first = false;
-                }
-                else
-                {
-                    $keywords = "AND ( current_position LIKE '%".$request->keywords."%' OR public_name LIKE '%".$request->keywords."%' OR education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%')";
-                }
+            // {
+            //     if($first)
+            //     {
+            //         $keywords = "current_position LIKE '%".$request->keywords."%' OR public_name LIKE '%".$request->keywords."%' OR  education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%'";
+            //         $first = false;
+            //     }
+            //     else
+            //     {
+            //         $keywords = "AND ( current_position LIKE '%".$request->keywords."%' OR public_name LIKE '%".$request->keywords."%' OR education LIKE '%".$request->keywords."%' OR experience LIKE '%".$request->keywords."%' OR resume_contents LIKE '%".$request->keywords."%')";
+            //     }
                 
-            }
+            // }
+            {
+                    $keywords = user::search($request->get('keywords'))->get();  
+            }else{    
+                    $keywords = User::get();
+                }
+
 
             $experience ="";
             if(isset($request->experience))
@@ -388,7 +394,7 @@ class AdminController extends Controller
                 $where = " WHERE ";
             else
                 $where = "";
-            $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $keywords $experience $featured ORDER BY id DESC";
+            $sql = "SELECT * FROM seekers $where $location $industry $gender $phone_number $experience $featured ORDER BY id DESC";
             $results = DB::select($sql);
             $seekers = [];
 
@@ -407,10 +413,19 @@ class AdminController extends Controller
             if(isset($request->dob))
             $newseekers = collect($newseekers)->intersect($seekers_by_year->pluck('user_id'))->toArray();
 
+            if(isset($request->keywords))
+            $newseekers = collect($keywords)->pluck('id')->toArray();
+
             $seekers = Seeker::whereIn('user_id',$newseekers)
                     ->orderBy('id','DESC')
                     ->paginate(20)
                     ->appends(request()->query());
+            $seekers_by_keyword = Seeker::whereIn('user_id',$newseekers)
+                    ->orderBy('id','DESC')
+                    ->paginate(20)
+                    ->appends(request()->query());
+
+                    // return $seekers_by_keyword;
 
             return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
@@ -424,7 +439,8 @@ class AdminController extends Controller
                     ->with('keywords',$request->keywords)
                     ->with('experience',$request->experience)
                     ->with('dob',$request->dob)
-                    ->with('seekers',$seekers);
+                    ->with('seekers',$seekers)
+                    ->with('seekers_by_keyword', $seekers_by_keyword);
         }
         return view('admins.seekers.index')
                     ->with('industries',Industry::orderBy('name')->get())
