@@ -39,7 +39,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 
 <div class="container">
-    <div class="single">
+    <div class="single"><br>
         @include('components.ads.responsive')
 
         <div class="text-center">
