@@ -151,17 +151,15 @@
                                                 @forelse($posts as $post)
                                                     @include('v2.components.jobseeker.vacancy-card')
 
-                                                    <div align="center">
                                                     <?php $adsCounter++; ?>
-                                                        @if($adsCounter % 9 == 0 || $adsCounter == 1  && $adsCounter != 1)
-                                                                                                      
-                                                            @if($agent->isMobile())
-                                                            @include('components.ads.mobile_400x350')
-                                                            @else            
-                                                            @include('components.ads.flat_728x90')
-                                                            @endif               
-                                                        @endif
-                                                    </div>
+                                                       @if($adsCounter % 9 == 0 || $adsCounter == 1  && $adsCounter != 1)
+                                                                                                  
+                                                        @if($agent->isMobile())
+                                                        @include('components.ads.mobile_400x350')
+                                                        @else            
+                                                        @include('components.ads.flat_728x90')
+                                                        @endif               
+                                                    @endif
                                                 @empty
                                                 <div class="col-md-6">                                          
                                                     <p>No job posts found</p>
