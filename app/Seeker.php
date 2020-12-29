@@ -471,7 +471,7 @@ class Seeker extends Model
         $assessment_result=Performance::where('email', $this->user->email)->first();
             if(isset($assessment_result->id)){
                 //add the assessment score to his/her job score 
-                $perc += Performance::recentScore($this->user->email);
+                $perc += Performance::recentScore($this->user->email)/2;
             }
 
         // If the candidate is in the same industry as the posted job
