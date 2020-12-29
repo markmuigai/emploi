@@ -19,8 +19,8 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\DeactivateExpiredJobs',
         'App\Console\Commands\SendCompleteProfileEmails',
         'App\Console\Commands\DeactivateSeekerPaas',
-        'App\Console\Commands\DeactivateEmployerPaas'
-        'App\Console\Commands\SendMassProfileViewedEmail;
+        'App\Console\Commands\DeactivateEmployerPaas',
+        'App\Console\Commands\SendMassProfileViewedEmail'
 
     ];
 
