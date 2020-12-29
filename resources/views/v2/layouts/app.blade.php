@@ -128,6 +128,8 @@
         <!--js in blade-->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154451264-1"></script>
+
+        <script data-ad-client="ca-pub-9948474979900683" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
