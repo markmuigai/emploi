@@ -32,7 +32,7 @@
   $(document).ready(function(){
    setTimeout(function(){
        $('#myModal').modal('show');
-   }, 17000);
+   }, 20000);
   });
   
 </script>
@@ -152,13 +152,13 @@
                                                     @include('v2.components.jobseeker.vacancy-card')                                                    
                                                     <?php $adsCounter++; ?>
                                                         @if($adsCounter % 9 == 0 || $adsCounter == 1  && $adsCounter != 1)
-                                                        <div align="center">                                              
+                                                        <center>                                              
                                                             @if($agent->isMobile())
                                                             @include('components.ads.mobile_400x350')
                                                             @else            
                                                             @include('components.ads.flat_728x90')
                                                             @endif
-                                                        </div>               
+                                                        </center>               
                                                         @endif
                                                 @empty
                                                 <div class="col-md-6">                                          
