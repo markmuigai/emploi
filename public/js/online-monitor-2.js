@@ -1,1 +1,0 @@
-$().ready(function(){navigator.onLine||notify("You are working offline!","error");var n=!1;window.addEventListener("online",function(){n&&(n=!0,notify("Connection re-established!","success"))}),window.addEventListener("offline",function(){n?notify("You are working offline!","error"):notify("Connection to Emploi was lost!","error"),n=!0})});
