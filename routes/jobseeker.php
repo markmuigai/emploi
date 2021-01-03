@@ -53,3 +53,6 @@ Route::get('/job-seekers/faqs', 'FAQController@index')->name('jobseeker.index');
 
 // Professional CV Editing
 Route::resource('/job-seekers/cv-editing', 'CVEditingController');
+
+// About us page
+Route::get('about', 'AboutController@index');
