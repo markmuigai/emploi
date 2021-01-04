@@ -13,7 +13,7 @@ use Auth;
 class CVReviewResult extends Model
 {
     protected $fillable = [
-        'name', 'output', 'cvText', 'score', 'user_id', 'email'
+        'name', 'output', 'cvText', 'score', 'user_id', 'email' ,'path'
     ];
 
     /**
