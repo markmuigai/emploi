@@ -810,7 +810,7 @@ class EmployerController extends Controller
                 break;
 
             default:
-                $applications = JobApplication::where('post_id',$post->id)->orderBy('id','DESC')->paginate(10);
+                $applications = JobApplication::where('post_id',$post->id)->orderBy('created_at','DESC')->paginate(10);
 
                 return view('employers.applications.index')
                     ->with('pool',$applications)
