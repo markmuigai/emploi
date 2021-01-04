@@ -105,11 +105,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a href="/v2/admin/cvReviews/{{ $review->id }}" class="btn btn-success">
                                     View Detailed results
                                 </a>
-                                @isset($review->path)
+                                @if($review->path!='')
                                     <a href="/v2/admin/cv-review/download/{{ $review->id }}" class="btn btn-success">
                                         Download CV
                                     </a>
-                                @endisset
+                                @endif
                             </td>
                         </tr>
                         @endforeach
