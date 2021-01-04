@@ -95,6 +95,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     // CV Reviews
     Route::resource('cvReviews', 'CVReviewController');
 
+    // Download cv for a review result 
+    Route::get('cv-review/download/{id}', 'CVReviewController@downloadCV');
+
     // CV Keywords
     Route::resource('CVKeywords', 'CVKeywordController');
 
