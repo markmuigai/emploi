@@ -89,16 +89,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <td>{{$key+1}}</td>
                             <td>{{$review->name}}</td>
                             <td>{{$review->email}}</td>
-                            <td>
-                                @if ($review->output == 'CV Parsed Successfully')
-                                    <span class="text-success">
-                                        {{$review->output}}</td>        
-                                    </span>
-                                @else
-                                    <span class="text-danger">
-                                        {{$review->output}}</td>        
-                                    </span>
-                                @endif
                             <td>{{$review->score}}%</td>
                             <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>
