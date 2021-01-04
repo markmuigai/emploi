@@ -77,7 +77,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Output</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Score</th>
                         <th scope="col">Created</th>
                         <th scope="col">Actions</th>
@@ -88,6 +88,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$review->name}}</td>
+                            <td>{{$review->email}}</td>
                             <td>
                                 @if ($review->output == 'CV Parsed Successfully')
                                     <span class="text-success">
@@ -104,6 +105,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <a href="/v2/admin/cvReviews/{{ $review->id }}" class="btn btn-success">
                                     View Detailed results
                                 </a>
+                                @isset($review->path)
+                                    <a href="/v2/admin/cv-review/download/{{ $review->id }}" class="btn btn-success">
+                                        Download CV
+                                    </a>
+                                @endisset
                             </td>
                         </tr>
                         @endforeach
