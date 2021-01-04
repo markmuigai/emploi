@@ -65,4 +65,14 @@ class CVReviewController extends Controller
             'review' => CVReviewResult::findOrFail($id)
         ]);
       }
+
+
+      /**
+       * Download CV
+       */
+      public function downloadCV($id){
+        $review = CVReviewResult::findOrFail($id);
+        
+        return response()->download($review->path);
+      }
 }
