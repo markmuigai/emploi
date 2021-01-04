@@ -10,13 +10,13 @@
 @section('page_title', $company->name )
 
 <div class="row">
-	{{-- <div class="col-md-12">
+	<div class="col-md-12">
 		@if(!$company->isFeatured())
 			@if(!$agent->isMobile())      
 	            @include('components.ads.flat_728x90')
 	        @endif
 		@endif
-	</div> --}}
+	</div>
 	
 	<div class="col-md-12 col-lg-9">
 		<div class="card">

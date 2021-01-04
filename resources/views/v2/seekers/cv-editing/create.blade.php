@@ -70,7 +70,7 @@
         <div class="container">
             <div class="explore-item cv-editing">
                 <div class="section-title">
-                    <h2>Why Our Professional CV Editing</h2>
+                    <h2>Why Our Professional CV Editing?</h2>
                     <p>
                         Our Professional CV Editing package increases your chances of landing a face-to-face <br>
                         interview and landing your dream job by 87%.

@@ -13,7 +13,7 @@ use Auth;
 class CVReviewResult extends Model
 {
     protected $fillable = [
-        'name', 'output', 'cvText', 'score', 'user_id'
+        'name', 'output', 'cvText', 'score', 'user_id', 'email'
     ];
 
     /**
@@ -45,13 +45,12 @@ class CVReviewResult extends Model
      * Get the number of those converted to CV Editing
      */
     public static function countConverted(){
-        $collection=CVReviewResult::all();
-        $intersect=CvEditRequest::all();
+        // removes any values from the original collection that are not present in the given collection and return count of the result
+        $collection = CVReviewResult::pluck('email')->unique();
+        $email=CvEditRequest::pluck('email')->unique();
 
-        $collection = collect(['email']);
-        $intersect = $collection->intersect(['email']);
-
-         return $intersect->count();
+        $intersect = $collection->intersect($email);
+        return $intersect->count();
     }
 
 

@@ -120,8 +120,8 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
     // Candidate selection
     Route::get('/employers/applications/{slug}/selection', 'SelectCandidateController@index');
-    // Route::get('/employers/applications/{slug}/close', 'SelectCandidateController@index');
-    // Route::post('/employers/applications/{slug}/close', 'SelectCandidateController@saveCandidate');
+    Route::get('/employers/applications/{slug}/close/{username}', 'SelectCandidateController@show');
+    Route::post('/employers/applications/{slug}/close/{username}', 'SelectCandidateController@store');
 
     // Assessment
     Route::group(['prefix' => '/employers/applications/{slug}/', 'as' => 'employers.'], function(){

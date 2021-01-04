@@ -32,7 +32,7 @@
   $(document).ready(function(){
    setTimeout(function(){
        $('#myModal').modal('show');
-   }, 17000);
+   }, 20000);
   });
   
 </script>
@@ -146,9 +146,20 @@
 
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                            <?php $adsCounter = 0; ?>
                                             <div id="container" class="row">                                         
                                                 @forelse($posts as $post)
-                                                    @include('v2.components.jobseeker.vacancy-card')
+                                                    @include('v2.components.jobseeker.vacancy-card')                                                    
+                                                    <?php $adsCounter++; ?>
+                                                        @if($adsCounter % 9 == 0 || $adsCounter == 1  && $adsCounter != 1)
+                                                        <center>                                              
+                                                            @if($agent->isMobile())
+                                                            @include('components.ads.mobile_400x350')
+                                                            @else            
+                                                            @include('components.ads.flat_728x90')
+                                                            @endif
+                                                        </center>               
+                                                        @endif
                                                 @empty
                                                 <div class="col-md-6">                                          
                                                     <p>No job posts found</p>

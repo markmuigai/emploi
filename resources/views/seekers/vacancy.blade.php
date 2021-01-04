@@ -97,9 +97,9 @@
 
                             </div>
                         </div>
-                        {{-- <div style="width: 100%">
+                        <div style="width: 100%">
                             @include('components.ads.responsive')
-                        </div> --}}
+                        </div>
                         <!-- JOB DESCRIPTION -->
                         <h5 class="pt-3 pb-2">Job Description</h5>
                         <div>
@@ -112,9 +112,9 @@
                             
                             <a class="orange" id="apply-tab-button" href="#apply-tab">View Application Instructions</a>
                         </div>
- <!--                        <div style="width: 100%">
+                        <div style="width: 100%">
                             @include('components.ads.responsive')
-                        </div> -->
+                        </div>
                     </div>
                 </div>
                 <!-- END OF JOB CARD -->

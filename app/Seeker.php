@@ -471,7 +471,7 @@ class Seeker extends Model
         $assessment_result=Performance::where('email', $this->user->email)->first();
             if(isset($assessment_result->id)){
                 //add the assessment score to his/her job score 
-                $perc += Performance::recentScore($this->user->email);
+                $perc += Performance::recentScore($this->user->email)/2;
             }
 
         // If the candidate is in the same industry as the posted job
@@ -613,6 +613,8 @@ class Seeker extends Model
                 {
                     $perc += $edu;
                 }
+
+                //if education level is similar to what is required by employer
                 elseif($this->educationLevel->isSuperiorTo($model->educationLevel) )
                 {
                     $perc += $edu * 0.5;
@@ -641,8 +643,9 @@ class Seeker extends Model
             else
                 $perc += $exp;
         }
-
-        if(count($model->modelSeekerSkills) > 0 || $model->other_skills != null && count(json_decode($model->other_skills)) > 0) //skills
+        
+        //skills
+        if(count($model->modelSeekerSkills) > 0 || $model->other_skills != null && count(json_decode($model->other_skills)) > 0) 
         {
 
             $skills_count = $model->skillsWeight;
@@ -657,6 +660,7 @@ class Seeker extends Model
                 }
             }
 
+            //other skills
             if(isset($model->other_skills) && count(json_decode($model->other_skills)) > 0)
             {
                 if( !is_null($this->resume_contents) )
@@ -725,7 +729,7 @@ class Seeker extends Model
             //$perc += $pers;
         }
 
-        //previous company size
+        //previous job seeker company size
         $user_id = $this->user->id;
         $post_id = $post->id;
         $model_co_size = $model->company_size_id;
@@ -746,34 +750,43 @@ class Seeker extends Model
 
     public function calculateProfileCompletion()
     {
+        //initialize completed to zero
         $completed = 0;
+        //profile sections
         $profileElements = ['resume', 'education_level_id', 'education', 'years_experience',  'experience', 'phone_number', 'current_position'];
+        //total profile sections
         $total = count($profileElements);
+        //loop through profile sections adding one to completed where not empty
         foreach($profileElements as $element) {
             $completed += !empty($this->{$element}) ? 1 : 0;
         }
-
+        
+        //find the profile completion ratio
         $completed = round($completed / $total * 70); 
+        
 
+        //add 12 to profile completion if a job seeker is featured
         if ($this->user->seeker->featured > 0) 
         {
             $completed = $completed + 12;
         }
         
+        //add 6 to profile completion if a job seeker has indicated location
         if ($this->user->seeker->location_id != NULL) {
             $completed = $completed + 6;
         }
         
+        //add 6 to profile completion if a job seeker has objectives
         if ($this->user->seeker->objective != NULL)
         {
             $completed = $completed + 6;
         }
-
+        //add 6 to profile completion if a job seeker has profile photo
         if ($this->user->avatar != NULL) 
         {
             $completed = $completed + 6;
         }
-
+        //return the final profile percentage
         return $completed;
     }
 
@@ -847,13 +860,13 @@ class Seeker extends Model
     public function sendVacancyEmail($channel)     
 
     {       
-        $featured = Post::where('created_at', '>', Carbon::now()->subDays(10))
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(20))
                         ->where('status','active')
                         ->where('featured','true')
                         ->orderBy('id','DESC')
                         ->get();
 
-        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(10))
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(20))
                     ->where('industry_id',$this->industry_id)
                     ->where('status','active')
                     ->orderBy('created_at','DESC')
@@ -867,8 +880,8 @@ class Seeker extends Model
     
                if($this->user->hasVerified()){
 
-                $contents ="<p style= 'background:orange; color:white; text-align:center'>AUTOMATIC CV REVIEW!!</p> 
-                            <p>Click <a href='https://bit.ly/3anSY3N'> here</a> for instant feedback and customized recommendations for free.</p>
+                $contents ="<p style= 'background:orange; color:white; text-align:center'>SELF ASSESSMENT!!</p> 
+                            <p>Click <a href='".url('/')."'>here</a> and do assessment which increases your job score ranking, highlight your key competencies among other benefits.</p>
                                 <br>";  
 
                 $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
@@ -1146,6 +1159,119 @@ class Seeker extends Model
                
         // $perc=$perc+26;
         return round($perc,2);
+    }
+
+    public function sendMassProfileViewedEmail(){
+    //increment profile view counter
+    $seeker = Seeker::where('user_id',$this->user_id)->increment('view_count');
+  
+        //jobseeker with id less than 14000 i.e approx half
+        if($this->id < 14000)
+        {   
+            //administrator
+            $caption = "A recruiter on Emploi has viewed your profile";
+            $contents = "Emploi Administrator, an Emploi Recruitor, has viewed your profile, and may consider you for positions they are recruiting internally or for clients. ";
+        }
+        else
+        {
+            $caption = "An employer on Emploi has viewed your profile";
+            //employer
+            $contents = "Emploi Recruitment, an Employer, has viewed your profile, and may consider you for positions they are recruiting. ";
+        }
+            
+
+        $opportunities = false;
+        $messages = [];
+
+        //when no CV attached
+         if(!$this->resume)
+        {
+            $opportunities = true;
+            $messages[] = "<b style='color: red'>You have not attached a Resume!</b> Without a resume, recruiters and employers disregard your profile. Your profile will also be harder to find and your Role Suitability Score for applications you make is affected negatively."; 
+            
+        }
+        else
+        {   //when 30 days has elapsed since last CV update
+            $days_since = Carbon::parse($this->updated_at)->diff(Carbon::now())->days;
+            if($days_since > 30)
+            {
+                $opportunities = true;
+                $messages[] = "<b>You have an old Resume!</b> Your Resume was uploaded $days_since days ago, and it is important to update it. Include new achievements and check if outdated information is present."; 
+            }
+        }
+
+        //when age is not indicated
+        if(!$this->age)
+        {
+            $opportunities = true;
+            $messages[] = "You have not indicated your age on Emploi. This is crucial as HR personnel are keen on age when hiring."; 
+            
+        }
+
+        //when indicated age is less than 18years
+        elseif($this->age && $this->age < 18)
+        {
+            $opportunities = true;
+            $messages[] = "The age you indicated is below 18. Kindly ensure this is correct as it may reduce your hireability."; 
+        }
+
+        //when phone number is not indicated
+        if(!$this->phone_number)
+        {
+            $opportunities = true;
+            $messages[] = "You have not indicated a valid phone number on your profile. Include this so you can be reached easily."; 
+            
+        }
+
+        //when no experience is indicated
+        if(!$this->years_experience)
+        {
+            $opportunities = true;
+            $messages[] = "You have not indicated your total experience duration. Recruiters are in a rush and want to assess you quickly."; 
+            
+        }
+        
+        //when jobseeker has not indicated location
+        if(!$this->location_id)
+        {
+            $opportunities = true;
+            $messages[] = "Your current location is not indicated on your profile."; 
+            
+        }
+
+        //when jobseeker has indicated that they are not searching
+        if($this->searching == 0)
+        {
+            $opportunities = true;
+            $messages[] = "Your <b>profile indicates you are not looking for a job</b>, change this setting to searching to be considered for positions."; 
+            
+        }
+        
+        //when no profile photo is attached
+        if($this->user->avatar == NULL)
+        {
+            $opportunities = true;
+            $messages[] = "Your have not added a photo to your profile, add a passport size photo of you today to increase your credibility"; 
+            
+        }
+        
+        if($opportunities)
+        {
+            $contents .= "<br>We have some suggestions that may increase your hireability: <ol>";
+            for($i=0; $i<count($messages); $i++)
+                $contents .= "<li>".$messages[$i]."</li>";
+            $contents .= "</ol>";
+
+            $contents .="<br>Click <a href='".url('/profile/edit')."'>here</a> to update your profile.";
+        }
+
+        $contents .="<br> View your <a href='".url('/job-seekers/dashboard')."'>profile performance summary</a>.";
+
+        $contents .= "<br><br> We offer <a href='".url('/v2/job-seekers/cv-editing/create')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
+              
+        
+        EmailJob::dispatch($this->user->name, $this->user->email, 'Profile Viewed', $caption, $contents);
+        return true;
     }
 
 }

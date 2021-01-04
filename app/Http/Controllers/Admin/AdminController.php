@@ -1578,28 +1578,4 @@ class AdminController extends Controller
             return view('admins.cv-builder.index')
                 ->with('cv',$cv);  
     }
-
-     public function mySearch(Request $request)
-    {
-        if($request->has('search')){
-            $users = User::search($request->get('search'))->get();  
-        }else{
-            $users = User::get();
-        }
-
-
-        return view('my-search', compact('users'));
-    }
-
-    public function seekerSearch(Request $request)
-    {
-        if($request->has('search')){
-            $users = user::search($request->get('search'))->get();  
-        }else{
-            $users = User::get();
-        }
-        return $users;
-
-        return view('my-search', compact('users'));
-    }
 }

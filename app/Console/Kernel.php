@@ -19,7 +19,8 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\DeactivateExpiredJobs',
         'App\Console\Commands\SendCompleteProfileEmails',
         'App\Console\Commands\DeactivateSeekerPaas',
-        'App\Console\Commands\DeactivateEmployerPaas'
+        'App\Console\Commands\DeactivateEmployerPaas',
+        'App\Console\Commands\SendMassProfileViewedEmail'
 
     ];
 
@@ -50,7 +51,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('EnableProducts')->twiceDaily(7, 17)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
         $schedule->command('DisableProducts')->twiceDaily(6, 16)->emailOutputOnFailure('david@emploi.co')->environments(['production']);
         // $schedule->command('command:SendVacancyEmails')->cron('0 0 * * 2,6')->emailOutputOnFailure('info@emploi.co');
-        // $schedule->command('command:SendVacancyEmails')->weeklyOn(4, '01:00')->emailOutputOnFailure('david@emploi.co');
+        // $schedule->command('command:SendVacancyEmails')->weeklyOn(5, '01:00')->emailOutputOnFailure('david@emploi.co');
         // $schedule->command('command:RevertFeaturedJobs')->dailyAt('20:00');
         $schedule->command('command:DeactivateExpiredJobs')->dailyAt('08:00');
         $schedule->command('command:ProInvoiceReminder')->twiceMonthly(28, 04, '6:00');
@@ -58,6 +59,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('command:SendCompleteProfileEmails')->monthlyOn(14, '11:00');
         $schedule->command('command:DeactivateSeekerPaas')->dailyAt('8:30');
         $schedule->command('command:DeactivateEmployerPaas')->dailyAt('9:00');
+        $schedule->command('command:SendMassProfileViewedEmail')->weeklyOn(1, '06:30')->emailOutputOnFailure('info@emploi.co');
         
     }
     /**
