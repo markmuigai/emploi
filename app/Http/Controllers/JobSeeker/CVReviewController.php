@@ -76,7 +76,7 @@ class CVReviewController extends Controller
         $prefix = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
 
         // Store CV
-        $path = $prefix.$request->file('cv')->store('cv-reviews');
+        $path = $prefix.$request->file('cv')->storeAs('cv-reviews', str_replace(' ', '_', $name));
 
         // Get cv text
         $rawCV = parseCV($path); 
@@ -110,7 +110,8 @@ class CVReviewController extends Controller
                 'email' => auth()->user()->email,
                 'output' => 'CV Parsed Successfully',
                 'cvText' => $cleanCV,
-                'score' => $result->get('score')
+                'score' => $result->get('score'),
+                'path' => $path
             ]);
 
             // Get recommendations
@@ -138,9 +139,6 @@ class CVReviewController extends Controller
                     'name' => $rec->name,
                 ]);
             }
-
-            //delete CV after parsing
-            File::delete($path);
         });
 
          //send slack notification

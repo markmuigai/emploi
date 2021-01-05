@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body text-center">
                     <h4>
                         <p>Converted to CV Editing</p>
-                        {{ $countConverted }}
+                        {{ $convertedEmails->count() }}
                     </h4>
                 </div>
             </div>
@@ -76,8 +76,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Output</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Converted</th>
                         <th scope="col">Score</th>
                         <th scope="col">Created</th>
                         <th scope="col">Actions</th>
@@ -87,23 +87,27 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @foreach ($cvReviews as $key => $review)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$review->name}}</td>
                             <td>
-                                @if ($review->output == 'CV Parsed Successfully')
-                                    <span class="text-success">
-                                        {{$review->output}}</td>        
-                                    </span>
+                                {{$review->email}}
+                            </td>
+                            <td>
+                                @if ($convertedEmails->search($review->email) == false)
+                                    No
                                 @else
-                                    <span class="text-danger">
-                                        {{$review->output}}</td>        
-                                    </span>
+                                    Yes
                                 @endif
+                            </td>
                             <td>{{$review->score}}%</td>
                             <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>
                                 <a href="/v2/admin/cvReviews/{{ $review->id }}" class="btn btn-success">
                                     View Detailed results
                                 </a>
+                                @if($review->path!='')
+                                    <a href="/v2/admin/cv-review/download/{{ $review->id }}" class="btn btn-success">
+                                        Download CV
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

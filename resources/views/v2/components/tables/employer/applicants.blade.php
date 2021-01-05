@@ -29,7 +29,7 @@
                 <th>Email</th>
                 <th>Job Score</th>
                 <th>Age</th>
-                <th>Profile</th>
+                <th>Applied</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -47,8 +47,7 @@
                 <td>{{ $a->user->email }}</td>
                 <td>{{ $a->user->seeker->getRsi($post) }}%</td>
                 <td>{{ $a->user->seeker->age }}</td>
-                <?php $completed =  $a->user->seeker->calculateProfileCompletion(); ?>
-                <td><strong>{{ $completed }}%</strong> complete</td>
+                <td>{{$a->created_at->diffForHumans()}}</td>
                 <td>
                     @if ($a->status == 'shortlisted')
                         <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill disabled">Shortlisted</a>

@@ -43,7 +43,7 @@ class CVReviewController extends Controller
                 'count' => CVReviewResult::all()->count(),
                 'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
                 'missingKeyword' => CVReviewResult::missingKeyword(),
-                'countConverted' => CVReviewResult::countConverted()
+                'convertedEmails' => CVReviewResult::convertedEmails()
             ]);
           }
 
@@ -53,7 +53,7 @@ class CVReviewController extends Controller
             'count' => CVReviewResult::all()->count(),
             'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
             'missingKeyword' => CVReviewResult::missingKeyword(),
-            'countConverted' => CVReviewResult::countConverted()
+            'convertedEmails' => CVReviewResult::convertedEmails()
         ]);
     }
 
@@ -64,5 +64,15 @@ class CVReviewController extends Controller
         return view('v2.admin.cvReview.show',[
             'review' => CVReviewResult::findOrFail($id)
         ]);
+      }
+
+
+      /**
+       * Download CV
+       */
+      public function downloadCV($id){
+        $review = CVReviewResult::findOrFail($id);
+        
+        return response()->download($review->path);
       }
 }
