@@ -88,13 +88,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>
-                                @if (User::getUserByEmail($review->email) !== null)
-                                    <a href="/admin/seekers/"{{ App\User::getUserByEmail($review->email)->username}} target="_blank">
-                                        {{$review->email}}  
-                                    </a>
-                                @else
-                                    {{$review->email}}
-                                @endif
+                                {{$review->email}}
                             </td>
                             <td>
                                 @if ($convertedEmails->search($review->email) == false)
