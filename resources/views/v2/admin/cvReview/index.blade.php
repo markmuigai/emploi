@@ -77,7 +77,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tr>
                         <th scope="col">#</th>
                         <th scope="col">Email</th>
-                        {{-- <th scope="col">Converted</th> --}}
+                        <th scope="col">Converted</th>
                         <th scope="col">Score</th>
                         <th scope="col">Created</th>
                         <th scope="col">Actions</th>
@@ -88,13 +88,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$review->email}}</td>
-                            {{-- <td>
-                                @if ($convertedEmails->search($email) == 'false')
+                            <td>
+                                @if ($convertedEmails->search($review->email) == 'false')
                                     No
                                 @else
                                     Yes
                                 @endif
-                            </td> --}}
+                            </td>
                             <td>{{$review->score}}%</td>
                             <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>
