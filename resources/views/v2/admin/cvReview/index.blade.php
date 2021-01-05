@@ -35,7 +35,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body text-center">
                     <h4>
                         <p>Converted to CV Editing</p>
-                        {{ $countConverted }}
+                        {{ $convertedEmails->count() }}
                     </h4>
                 </div>
             </div>
@@ -76,8 +76,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Converted</th>
                         <th scope="col">Score</th>
                         <th scope="col">Created</th>
                         <th scope="col">Actions</th>
@@ -87,8 +87,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @foreach ($cvReviews as $key => $review)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$review->name}}</td>
                             <td>{{$review->email}}</td>
+                            <td>
+                                @if ($convertedEmails->search($email) == 'false')
+                                    No
+                                @else
+                                    Yes
+                                @endif
+                            </td>
                             <td>{{$review->score}}%</td>
                             <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>

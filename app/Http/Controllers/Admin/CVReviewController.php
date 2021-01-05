@@ -43,7 +43,7 @@ class CVReviewController extends Controller
                 'count' => CVReviewResult::all()->count(),
                 'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
                 'missingKeyword' => CVReviewResult::missingKeyword(),
-                'countConverted' => CVReviewResult::countConverted()
+                'convertedEmails' => CVReviewResult::convertedEmails()
             ]);
           }
 
@@ -53,7 +53,7 @@ class CVReviewController extends Controller
             'count' => CVReviewResult::all()->count(),
             'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
             'missingKeyword' => CVReviewResult::missingKeyword(),
-            'countConverted' => CVReviewResult::countConverted()
+            'convertedEmails' => CVReviewResult::convertedEmails()
         ]);
     }
 
