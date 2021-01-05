@@ -87,7 +87,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         @foreach ($cvReviews as $key => $review)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$review->email}}</td>
+                            <td>
+                                @if (User::getUserByEmail($email) !== null)
+                                    <a href="admin/seekers/"{{ App\User::getUserByEmail($email)->username}} target="_blank">
+                                        {{$review->email}}  
+                                    </a>
+                                @else
+                                    {{$review->email}}
+                                @endif
+                            </td>
                             <td>
                                 @if ($convertedEmails->search($review->email) == false)
                                     No

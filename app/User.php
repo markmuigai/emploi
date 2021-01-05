@@ -398,4 +398,11 @@ class User extends Authenticatable
             return true;
         }
     }
+
+    /**
+     * Open a user profile given the email
+     */
+    public static function getUserByEmail($email){
+        return User::where('email', $email)->first();
+    }
 }
