@@ -89,7 +89,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <td>{{$key+1}}</td>
                             <td>{{$review->email}}</td>
                             <td>
-                                @if ($convertedEmails->search($review->email) == 'false')
+                                @if ($convertedEmails->search($review->email) == false)
                                     No
                                 @else
                                     Yes
