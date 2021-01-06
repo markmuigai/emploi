@@ -8474,3 +8474,13 @@ h4,h3{
       background-color: #e15419;
       border-color: #e15419; 
   }
+
+  .nav-pills .nav-link.active{
+    color:white !important;
+    background-color: #500095 !important;
+  }
+
+  
+  .nav-pills a{
+    color: #500095 !important;
+  }
