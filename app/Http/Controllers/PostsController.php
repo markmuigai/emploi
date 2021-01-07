@@ -226,7 +226,7 @@ class PostsController extends Controller
                 <br><br>
                 Click <a href='".url('/admin/posts')."'>here </a> to review job post.
                 ";
-                EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', $p->title.' on Emploi', $caption, $contents);
+                // EmailJob::dispatch('Emploi Admin', 'jobapplication389@gmail.com', $p->title.' on Emploi', $caption, $contents);
             }
 
 
