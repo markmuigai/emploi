@@ -115,4 +115,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     //seeker full text search
     Route::get("/seeker-search","AdminController@seekerSearch");
+
+    // Metrics
+    Route::get('/metrics', 'MetricsController@index');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\Utils\CollectionHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -811,10 +812,11 @@ class EmployerController extends Controller
                 break;
 
             default:
-                $applications = JobApplication::where('post_id',$post->id)->orderBy('created_at','DESC')->paginate(12);
+                $applications = JobApplication::where('post_id',$post->id)->orderBy('created_at','DESC')->get();
 
+                // dd($applications);
                 return view('v2.employers.applications.index')
-                    ->with('pool',$applications)
+                    ->with('pool',CollectionHelper::paginate($applications,2))
                     ->with('post',$post);
                 break;
         }
