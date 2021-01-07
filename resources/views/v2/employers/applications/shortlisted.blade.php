@@ -88,11 +88,13 @@
                                                 @forelse($pool as $a)
                                                     @include('v2.components.employer.shortlisting.shortlisted-card')
                                                 @empty
-                                                    <div class="card mb-4">
-                                                        <div class="card-body">
-                                                            <p class="text-center">
-                                                                No applications have been found
-                                                            </p>
+                                                    <div class="col-md-8 justify-content-center">
+                                                        <div class="card shadow mb-4">
+                                                            <div class="card-body">
+                                                                <h5 class="text-center">
+                                                                    No applicants have been shortlisted
+                                                                </h5>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endforelse

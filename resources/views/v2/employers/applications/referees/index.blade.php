@@ -124,11 +124,13 @@
                                                     </div>
                                                 </div>
                                                 @empty
-                                                    <div class="card mb-4">
-                                                        <div class="card-body">
-                                                            <p class="text-center">
-                                                                No applications have been found
-                                                            </p>
+                                                    <div class="col-md-8 justify-content-center">
+                                                        <div class="card shadow mb-4">
+                                                            <div class="card-body">
+                                                                <h5 class="text-center">
+                                                                    No applicants have been found
+                                                                </h5>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 @endforelse
