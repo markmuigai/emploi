@@ -79,7 +79,9 @@ class JobApplicationController extends Controller
 
                 $email = $email == null ? $post->company->user->email : $email;
 
+                if($post->company->user->email != 'jobs@emploi.co'){
                 EmailJob::dispatch($post->company->user->name, $email, 'Application for '.$post->title." Received", $caption, $contents);
+                }
                 //Seeker::first()->notify(new JobApplied('Application for '.$post->title." from ".$user->name." received"));
 
                 if($post->company->email != null){
