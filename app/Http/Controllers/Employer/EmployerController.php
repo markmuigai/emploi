@@ -816,7 +816,7 @@ class EmployerController extends Controller
 
                 // dd($applications);
                 return view('v2.employers.applications.index')
-                    ->with('pool',CollectionHelper::paginate($applications,2))
+                    ->with('pool',CollectionHelper::paginate($applications,12))
                     ->with('post',$post);
                 break;
         }
