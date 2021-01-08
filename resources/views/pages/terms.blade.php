@@ -70,7 +70,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
          <li>Not to utilize any automated systems or means, except for those we provide, during selection or downloading of the Content;</li>
          <li>Not to share out Your password or otherwise allow other people to access the Content. The restrictions on copying, applicable to media, also apply to the Content accessibility as part of this Service.</li>
     </ul>
-      {{-- @include('components.ads.responsive') --}}
+    @include('components.ads.responsive')
 
      <h6 class="pt-3">Respect the privacy of others;</h6>
      <ul>
@@ -168,7 +168,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <p>
        EMPLOI may disable any Content or Service contained in Your Service account for any reason and remove any Content and/or disable copies of any application on Your device to protect the Service, application providers, wireless carriers over whose network You access the Service or any other affected or potentially affected parties.
     </p>
-     {{-- @include('components.ads.responsive') --}}
+    @include('components.ads.responsive')
 
     <h4 class="pt-3">Can I cancel my order?</h4>
     <p>
@@ -222,7 +222,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
        <p>
            The privacy policy (Create a link to the privacy policy) and any additional privacy information made available to You govern the use of data related to You as an individual user or as a representative of an organization. 
        </p>
-       {{-- @include('components.ads.responsive') --}}
+       @include('components.ads.responsive')
 
         <h4 class="pt-3">Confidentiality</h4>
         <p>
