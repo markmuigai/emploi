@@ -136,4 +136,9 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
     // Download CV
     Route::get('/employers/browse/{username}/downloadCV', 'DownloadCVController@downloadCV');
+
+    // Job Applications 
+    Route::group([ 'prefix' => 'employers/jobs/{slug}'], function(){
+        Route::resource('applications', 'ApplicationController');   
+    });
 });
