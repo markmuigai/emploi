@@ -40,7 +40,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="row">
 
                     <div class="col-12 col-md-6 col-lg-8">
-                        <h4><a href="/employers/applications/{{ $post->slug }}">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
+                        <h4><a href="/v2/employers/jobs/{{ $post->slug }}/applications">{{ $post->title }}<span class="badge badge-light">{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }}</span></a></h4>
                         <p><i class="fas fa-map-marker-alt orange"></i> {{ $post->location->country->name }}, {{ $post->location->name }}</p>
                         <p>
 
