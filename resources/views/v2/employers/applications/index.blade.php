@@ -56,18 +56,9 @@
                                     </div>
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <div id="container" class="row">   
-                                                <?php  $kk=0; $shown = []; ?>   
-                                                @forelse($post->featuredApplications as $a)
-                                                    @include('v2.components.employer.shortlisting.applicant-card')
-                                                    <?php $shown[] = $a->id; ?>
-                                                @empty
-                                                @endforelse
-                                                                                
+                                            <div id="container" class="row">                                   
                                                 @forelse($pool as $a)
-                                                    @if(array_search($a->id, $shown) === false)
-                                                        @include('v2.components.employer.shortlisting.applicant-card')
-                                                    @endif
+                                                    @include('v2.components.employer.shortlisting.applicant-card')
                                                 @empty
                                                     <div class="card mb-4">
                                                         <div class="card-body">
