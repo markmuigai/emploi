@@ -27,7 +27,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
      <p>
         If you do not agree with this Policy, do not use our products and services or provide EMPLOI with your personal data.
     </p>
-       {{-- @include('components.ads.responsive') --}}
+    @include('components.ads.responsive')
 
     <h3 class="pt-3">What information do we collect?</h3>
 
@@ -52,7 +52,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <p>
         To continuously improve the Service, we collect information about the computers, phones, or other devices where you install or access our Services, depending on the permissions you've granted.
     </p>
-    {{-- @include('components.ads.responsive') --}}
+    @include('components.ads.responsive')
 
     <h4 class="pt-3">Why Do We Process Personal Data?</h4>
 
@@ -93,7 +93,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </p>
 
     </ul>
-     {{-- @include('components.ads.responsive') --}}
+    @include('components.ads.responsive')
 
       <h4 class="pt-3">Do we share personal data?</h4>
       <P>
@@ -131,7 +131,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                Please consider carefully before disclosing any personal data or other information that might be accessible to other users.
             </p>
         </ul>
-         {{-- @include('components.ads.responsive') --}}
+        @include('components.ads.responsive')
 
         <h4 class="pt-3">Sharing within EMPLOI companies or third parties</h4>
         <p>
@@ -156,7 +156,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                  We may be obligated by mandatory law to disclose your personal data to certain authorities or other third parties, for example, to law enforcement agencies in the countries where we or third parties acting on our behalf operate. We may also disclose and otherwise process your personal data in accordance with applicable law to defend EMPLOI’s legitimate interests, for example, in civil or criminal legal proceedings.
              </p>
         </ul>
-          {{-- @include('components.ads.responsive') --}}
+        @include('components.ads.responsive')
 
         <h4 class="pt-3">How do we enforce privacy and data quality?</h4>
 
