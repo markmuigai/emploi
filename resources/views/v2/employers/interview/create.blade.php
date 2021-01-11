@@ -57,7 +57,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     </div>
                                     <div class="row mt-4">
                                         <div class="form-group col-md-12">
-                                            <label for="interviewDescription">Description</label>
+                                            <label for="interviewDescription">Other Information</label>
                                             <textarea class="form-control" name="description" id="interviewDescription" rows="3"></textarea>
                                           </div>
                                     </div>

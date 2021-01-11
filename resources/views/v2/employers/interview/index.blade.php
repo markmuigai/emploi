@@ -75,23 +75,8 @@
                                         </div>
                                     </div> 
                                     <div class="tab-content" id="v-pills-tabContent">
-                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <div id="container" class="row">   
-                                                <?php  $kk=0;?>     
-                                                @forelse($pool as $a)
-                                                    @include('v2.components.employer.shortlisting.interview-card')
-                                                @empty
-                                                    <div class="col-md-8 justify-content-center">
-                                                        <div class="card shadow mb-4">
-                                                            <div class="card-body">
-                                                                <h5 class="text-center">
-                                                                    No applicants have been invited to an interview
-                                                                </h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforelse
-                                            </div>
+                                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">   
+                                            @include('v2.components.tables.employer.interviewees')
                                         </div>
                                     </div>
                                 </div>
