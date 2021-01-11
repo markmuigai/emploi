@@ -72,28 +72,47 @@
         </tfoot>
     </table>
 
-<!--     <div class="modal fade" id="sendAssessmentModal" tabindex="-1" role="dialog" aria-labelledby="sendAssessmentModalLabel" aria-hidden="true">
+    <div class="modal fade" id="interviewInviteModal" tabindex="-1" role="dialog" aria-labelledby="interviewInviteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-body">
                 <h4>Send Email</h4>
-                <div class="form-group">
-                    <label>Subject</label>
-                    <input type="text" class="form-control" placeholder="" value="Self assessment on emploi.co">
-                  </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Email body</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Dear applicant, Increase your chances of landing the job you applied for by showcasing your skills through our self assessment tool on http://emploi.co/
-                    </textarea>
+                @csrf
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="date">Date and Time</label> 
+                        <input class="form-control rounded-pill" name="date" type="datetime-local" id="meeting-time"
+                        name="meeting-time" value="2020-12-01T14:30"
+                        min="2020-06-07T00:00" max="2022-06-14T00:00">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="modeOfInterview">Mode of Interview</label>
+                        <select id="modeOfInterview" name="modeOfInterview" class="interview-mode rounded-pill">
+                            <option selected>Select...</option>
+                            <option value="online">Online</option>
+                            <option value="physical">Physical</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="row m-2">
-                    <button type="button" class="btn btn-secondary rounded-pill mr-2" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary rounded-pill">Submit</button>
+                <div class="row mt-4">
+                    <div class="form-group col-md-12">
+                        <label for="location">Location</label>
+                        <input type="text" name="location" class="form-control rounded-pill" placeholder="Location">
+                    </div>
                 </div>
+                <div class="row mt-4">
+                    <div class="form-group col-md-12">
+                        <label for="interviewDescription">Other Information</label>
+                        <textarea class="form-control" name="description" id="interviewDescription" rows="3"></textarea>
+                        </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                    Schedule Interview
+                </button>
             </div>
             </div>
         </div>
-    </div> -->
+    </div> 
 </form>
 
 @section('js')
@@ -129,13 +148,13 @@ $('#submit').prop("disabled", true);
 });
 
     // Show modal if send assessment action is selected
-    // $("#actions").change(function(){
-    //     let action = $("#actions").val();
+    $("#actions").change(function(){
+        let action = $("#actions").val();
         
-    //     if(action == 'sendAssessment'){
-    //         $('#sendAssessmentModal').modal()
-    //     }
-    // });
+        if(action == 'interviewInvite'){
+            $('#interviewInviteModal').modal()
+        }
+    });
 
 </script>
 @endsection
