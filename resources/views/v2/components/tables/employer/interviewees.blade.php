@@ -47,7 +47,7 @@
               <td>{{ $a->interview->date}}</td>
               <td>{{ $a->interview->description}}</td>
               <td>
-                <a href="{{route('v2.interviews.edit',[$a->interview->id])}}" class="btn btn-primary rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Update Interview Details"><i class='bx bx-edit'></i></a>
+                <a class="btn btn-primary rounded-pill pt-1" data-toggle="modal" data-target="#updateInterview-{{ $a->interview->id}}"><i class='bx bx-edit'></i></a>
                 <a href="#" class="btn btn-success rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Submit Interview scoresheet"><i class='bx bx-clipboard'></i></a>
                 <a href="#" class="btn btn-danger rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Delete Interview"><i class='bx bxs-trash'></i></a>
               </td>
@@ -95,6 +95,56 @@
       </div>
   </div> -->
 </form>
+
+@foreach($pool as $a)
+    <div class="modal fade" id="updateInterview-{{$a->interview->id}}" tabindex="-1" role="dialog" aria-labelledby="updateInterviewLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4 class="text-center pb-2">Update interview details</h4>
+                    <form action="{{route('v2.interviews.update', [$a])}}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="date">Date and Time</label> 
+                                <input class="form-control rounded-pill" name="date" type="datetime-local" id="meeting-time"
+                                name="meeting-time" value="{{$a->interview->formattedDate()}}"
+                                min="2020-06-07T00:00" max="2022-06-14T00:00">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="modeOfInterview">Mode of Interview</label>
+                                <select id="modeOfInterview" name="modeOfInterview" class="interview-mode rounded-pill">
+                                <option {{$a->interview->interview_mode == 'online' ? 'selected' : ''}} value="online">Online</option>
+                                <option {{$a->interview->interview_mode == 'physical' ? 'selected' : ''}} value="physical">Physical</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="form-group col-md-12">
+                                <label for="location">Location</label>
+                                <input type="text" name="location" class="form-control rounded-pill" placeholder="Location"
+                                value="{{$a->interview->location ?? ''}}">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="form-group col-md-12">
+                                <label for="interviewDescription">Description</label>
+                                <textarea class="form-control" name="description" id="interviewDescription" rows="3">
+                                    {{$a->interview->description ?? ''}}
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="row m-2">
+                            <button type="button" class="btn btn-secondary rounded-pill mr-2" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary rounded-pill">Update Interview</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+@endforeach
 
 @section('js')
 <script>

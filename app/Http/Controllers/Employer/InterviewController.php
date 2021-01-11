@@ -109,7 +109,7 @@ class InterviewController extends Controller
             'location' => $request->location,
         ]);
 
-        return redirect()->route('v2.shortlisted.index', ['slug' => $application->post->slug]);
+        return back();
     }
 
     /**
