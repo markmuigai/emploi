@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Employer;
 use App\Post;
 use App\User;
 use Carbon\Carbon;
+use App\Interview;
 use App\JobApplication;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -118,8 +119,10 @@ class InterviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Interview $interview)
     {
-        //
+        $interview->delete();
+
+        return redirect()->route('v2.interviews.index', ['slug' => $interview->jobApplication->post->slug]);
     }
 }
