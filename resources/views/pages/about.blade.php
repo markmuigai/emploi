@@ -12,9 +12,11 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <div class="card about">
         <div class="card-body text-center">
             <h2 class="orange">About Us</h2>
-                <p>Emploi is a software as a service (SAAS) enabled market-placed platform for integrated talent acquisition, talent management and growth. This basically means that our clients rent usage of the software to solve their specific needs.</p>
-                <p>It is a technology platform streamlining talent acquisition and management for growing companies through a smart recruitment and management engine.</p>
-                <p>Emploi also addresses job seekers’ career progression needs by providing a mixture of technological tools and personalized career services to fast-track their landing of opportunities that match their competencies.</p>
+            <p>Emploi addresses junior level job seekers’ career progression needs bynproviding a mixture of technological skills assessment tools and personalized career services to fast-track their landing of opportunities that match their competencies.</p>
+            <p>Our vision is to be the ultimate talent solutions platform by supporting a job market where employers lack tools for assessing and
+               displaying competencies & skills of young professionals, thereby spending enormous amounts of resources to effectively hire young professionals who meet their job demands in terms of delivery and job stability.
+           </p>
+           <p>Our mission is to impact more than 50 million jobseekers and 5 million businesses in the next 5 years.</p>
             <a href="/join" class="btn btn-orange mt-3 px-4">Sign Me Up</a>
             <a href="/employers/services" class="btn btn-default mt-3 px-4">Employer Services</a>
             <a href="/job-seekers/services" class="btn btn-orange mt-3 px-4">Job Seeker Services</a>
