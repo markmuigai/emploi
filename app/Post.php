@@ -426,8 +426,6 @@ class Post extends Model implements Feedable
         }
         return false;
     }
-
-
     public function getCountryAttribute(){
         return $this->location->country;
     }

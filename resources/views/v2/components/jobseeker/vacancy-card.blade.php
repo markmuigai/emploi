@@ -15,11 +15,13 @@
         </h3>
         <div class="row">
             <div class="col-md-7">
-                @if($post->featured == 'true')
-                <span class="badge badge-pill badge-success mx-1">
-                    <i class="bx bx-star"> </i>Featured
-                </span>
-                @endif
+                <a href="/vacancies/{{ $post->slug }}"> 
+                    @if($post->featured == 'true')
+                    <span class="badge badge-pill badge-success mx-1">
+                        <i class="bx bx-star"> </i>Featured
+                    </span>
+                    @endif
+                </a>
             </div>
             <div class="col-md-5">
                 @if (auth()->user() && $post->savedByUser(auth()->user()->id) == 1)
@@ -48,9 +50,11 @@
                 @endif
             </div>
         </div>
+        <a href="/vacancies/{{ $post->slug }}">
         <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
             Posted {{ $post->since }}
         </span>
+        </a>
         <a class="link" href="/vacancies/{{ $post->slug }}">
             <i class="flaticon-right-arrow"></i>
         </a>
