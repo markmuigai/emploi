@@ -6,6 +6,7 @@ use App\Post;
 use App\User;
 use DateTime;
 use Carbon\Carbon;
+use App\Interview;
 use App\Jobs\EmailJob;
 use App\JobApplication;
 use Illuminate\Http\Request;
@@ -154,8 +155,10 @@ class InterviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Interview $interview)
     {
-        //
+        $interview->delete();
+
+        return redirect()->route('v2.interviews.index', ['slug' => $interview->jobApplication->post->slug]);
     }
 }
