@@ -264,7 +264,7 @@ class Seeker extends Model
 
             $contents .="<br> View your <a href='".url('/job-seekers/dashboard')."'>profile performance summary</a>.";
 
-            $contents .= "<br><br> We offer <a href='".url('/job-seekers/summit')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
+            $contents .= "<br><br> We offer <a href='".url('/v2/job-seekers/cv-editing/create')."'>Professional CV Editing Services</a> which comes with career coaching and interview preparation which are essential when looking for work.";
             
             //return $contents;
 
