@@ -109,7 +109,7 @@ class InterviewController extends Controller
             'location' => $request->location,
         ]);
 
-        return back();
+        return redirect()->route('v2.interviews.index', ['slug' => $application->post->slug]);
     }
 
     /**
