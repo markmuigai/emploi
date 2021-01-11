@@ -21,11 +21,58 @@
             Applied {{ $a->created_at->diffForHumans() }}
         </span>
         <div class="row my-2">
-            <a href="/v2/employers/applications/{{ $a->post->slug }}/close/{{ $a->user->username }}" class="btn btn-success rounded-pill">Give Job Offer</a>
+<!--             <a href="/v2/employers/applications/{{ $a->post->slug }}/close/{{ $a->user->username }}" class="btn btn-success rounded-pill">Give Job Offer</a> -->
+           <!--  <a href="/v2/employers/applications/{{ $a->post->slug }}/close/{{ $a->user->username }}" class="btn btn-success rounded-pill">Give Job Offer</a> -->
+            @if($a->status == 'selected')
+            <button class="btn btn-primary rounded-pill"><a href="#"><span style="color: #fff">Selected</span></a></button>
+            @else
+            <button class="btn btn-success rounded-pill"><a href="#" data-toggle="modal" data-target="#selectCandidateModal-{{ $a->user->id }}"><span style="color: #fff">Give Job Offer</span></a></button>
+            @endif
         </div>
         <a class="link" href="#">
             <i class="flaticon-right-arrow"></i>
         </a>
+    </div>
+</div>
+
+<div class="modal fade" id="selectCandidateModal-{{ $a->user->id }}" tabindex="-1" role="dialog" aria-labelledby="selfAssessmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <h4 class="text-center mt-4">
+                Select Candidate
+            </h4>
+                <div class="modal-body">
+                <form method="POST" action="/v2/employers/applications/{{$a->post->slug}}/close/{{$a->user->username}}">
+                @csrf
+                <div class="job-filter-area pt-2">
+                    <div class="container">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-12" style="display: none">
+                                    <div class="form-group">
+                                      <label>Candidate Name</label>
+                                        <input type="text" class="custom-select" value="{{ $a->user->seeker->id }}" name="seeker_id">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-lg-12">
+                                    <div class="form-group">
+                                    <label>Monthly Salary</label>
+                                    <input type="number" name="monthly_salary" class="form-control" value="{{ $post->monthly_salary }}" required="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-12">
+                                    <button type="submit" class="btn cmn-btn">
+                                        Confirm Candidate
+                                        <i class='bx bx-search-alt'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
     </div>
 </div>
 
