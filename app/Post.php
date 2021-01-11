@@ -426,17 +426,6 @@ class Post extends Model implements Feedable
         }
         return false;
     }
-
-    public function getShortliselectedAttribute(){
-        return JobApplication::where('post_id',$this->id)
-                    ->distinct('user_id')
-                    ->where('status', 'shortlisted')
-                    ->orwhere('status','selected')
-                    ->orderBy('id','DESC')
-                    ->get();
-        }
-
-
     public function getCountryAttribute(){
         return $this->location->country;
     }
