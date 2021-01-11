@@ -7,7 +7,6 @@
                   <form class="form-inline">
                       <select id="actions" class="my-1 mr-sm-2 rounded-pill" name="action">
                           <option selected>Select an action</option>
-                          <option value="update">Update Interview Details</option>
                           <option value="deleteInterview">Delete Interview</option>
                       </select>
                       <button type="submit" class="btn btn-primary rounded-pill my-1" id="submit">Submit</button>
@@ -49,7 +48,7 @@
               <td>
                 <a class="btn btn-primary rounded-pill pt-1" data-toggle="modal" data-target="#updateInterview-{{ $a->interview->id}}"><i class='bx bx-edit'></i></a>
                 <a href="#" class="btn btn-success rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Submit Interview scoresheet"><i class='bx bx-clipboard'></i></a>
-                <a href="#" class="btn btn-danger rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Delete Interview"><i class='bx bxs-trash'></i></a>
+                <a class="btn btn-danger rounded-pill pt-1" data-toggle="modal" data-target="#deleteInterview-{{ $a->interview->id}}"><i class='bx bxs-trash'></i></a>
               </td>
           </tr>
           @empty
@@ -143,6 +142,24 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="deleteInterview-{{$a->interview->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteInterviewLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4 class="text-center pb-2">Update interview details</h4>
+                    <form action="{{route('v2.interviews.destroy', [$a->interview])}}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <P class="pl-3">Confirm deletion of this interview</P>
+                        <div class="row m-2">
+                            <button type="button" class="btn btn-secondary rounded-pill mr-2" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger rounded-pill">Delete Interview</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div> 
 @endforeach
 
@@ -178,14 +195,14 @@ $('#submit').prop("disabled", true);
   }
 });
 
-  // Show modal if send assessment action is selected
-  // $("#actions").change(function(){
-  //     let action = $("#actions").val();
+//   Show modal if send assessment action is selected
+//   $("#actions").change(function(){
+//       let action = $("#actions").val();
       
-  //     if(action == 'sendAssessment'){
-  //         $('#sendAssessmentModal').modal()
-  //     }
-  // });
+//       if(action == 'sendAssessment'){
+//           $('#sendAssessmentModal').modal()
+//       }
+//   });
 
 </script>
 @endsection
