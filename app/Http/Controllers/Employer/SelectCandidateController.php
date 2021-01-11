@@ -27,7 +27,7 @@ class SelectCandidateController extends Controller
             return abort(403);
 
         return view('v2.employers.selection.index')
-        ->with('pool',$post->shortlisted)
+        ->with('pool',$post->Shortliselected)
         ->with('post',$post);
     }
 
