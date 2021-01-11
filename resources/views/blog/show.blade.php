@@ -86,13 +86,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             
                         </span>
                     </p>
-                    {{-- <div style="width: 100%">
+                    <div style="width: 100%">
                         @if($agent->isMobile())
                             @include('components.ads.mobile_400x350')
                         @else            
                             @include('components.ads.flat_728x90')
                         @endif
-                    </div> --}}
+                    </div>
                     <br style="clear: both;">
                     <div class="fb-comments" data-href="{{ url('/blog/'.$blog->slug) }}" data-numposts="6" >
                     </div>
