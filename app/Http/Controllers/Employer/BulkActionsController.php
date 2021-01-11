@@ -93,7 +93,21 @@ class BulkActionsController extends Controller
                     break;
 
                 case 'interviewInvite' : 
-                    return redirect()->back();
+                    foreach($request->applications as $application){
+                        $appl = JobApplication::findOrFail($application);
+
+                        // Store an interview record associated with an application
+                        $appl->interview()->create([
+                            'date' => $request->date,
+                            'description' => $request->description,
+                            'type' => $request->type,
+                            'interview_mode' => $request->modeOfInterview,
+                            'location' => $request->location,
+                        ]);
+                    }
+
+                    return redirect()->route('v2.interviews.index', ['slug' => $appl->post->slug]);
+                    break;
                 case 'sendEmail' :
                     return redirect()->back();
       
