@@ -124,6 +124,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a class="nav-link" id="v-pills-messages-tab" href="/vacancies" role="tab" aria-controls="v-pills-messages" aria-selected="false">Vacancies <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile/applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Applications <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/self-assessment/create" role="tab" aria-controls="v-pills-messages" aria-selected="false">Self Assessment <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/v2/cv-review/create" role="tab" aria-controls="v-pills-messages" aria-selected="false">CV Review <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile/referees" role="tab" aria-controls="v-pills-messages" aria-selected="false">Referees <i class="fas fa-chevron-right"></i></a>
                         </div>
                         <!-- END OF JOB SEEKER SIDEBAR -->
