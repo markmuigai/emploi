@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employer;
 
 use App\Post;
 use Response;
+use Carbon\Carbon;
 use App\Jobs\EmailJob;
 use App\JobApplication;
 use Illuminate\Http\Request;
@@ -104,6 +105,22 @@ class BulkActionsController extends Controller
                             'interview_mode' => $request->modeOfInterview,
                             'location' => $request->location,
                         ]);
+                        if(isset($appl->interview->id)){
+                        $date =  Carbon::parse($request->date)->toDayDateTimeString();
+                        $caption = "Interview Invite for ".$appl->post->title." position";
+                        $contents = "Following your application for the <b>".$appl->post->title."</b> position at <b>".$appl->post->company->name."</b>, you have been invited for an interview on ".$date.".</b>. Kindly take note of the following.<br><br>
+                        Time: ".$date." <br>
+                        Location: ".$appl->interview->location." <br>
+                        Interview Mode: ".$appl->interview->interview_mode." <br>
+                        Additional details: ".$appl->interview->description." <br>
+                        <br>
+                        In case you have any questions, feel free to reply to this email..
+                        <br>
+                        Thank you for choosing Emploi.
+                        <br>
+                        ";
+                        EmailJob::dispatch($appl->user->name, $appl->user->email, "Interview Invite for ".$appl->post->title." position", $caption, $contents);
+                        }
                     }
 
                     return redirect()->route('v2.interviews.index', ['slug' => $appl->post->slug]);
