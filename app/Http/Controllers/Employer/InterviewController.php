@@ -127,6 +127,7 @@ class InterviewController extends Controller
             'type' => $request->type,
             'interview_mode' => $request->modeOfInterview,
             'location' => $request->location,
+            'status' => $request->status,
         ]);
 
         if(isset($application->interview->id)){
@@ -143,6 +144,7 @@ class InterviewController extends Controller
         Thank you for choosing Emploi.
         <br>
         ";
+        if($application->interview->status == 'pending')
         EmailJob::dispatch($application->user->name, $application->user->email, "Updated Interview Invite for ".$application->post->title." position", $caption, $contents);
         }
 
