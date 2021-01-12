@@ -1993,6 +1993,7 @@
   }
   .categories-area .cat-item h3 {
     font-size: 14px;
+    padding-left: 10px;
   }
   .candidate-item img {
     max-width: 225px;

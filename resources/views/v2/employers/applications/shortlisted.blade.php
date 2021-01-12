@@ -2,6 +2,10 @@
 
 @section('title','Emploi :: '.$post->getTitle())
 
+@section('description')
+Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+@endsection
+
 @section('content')
 @section('page_title', $post->title.' Candidates')
     <?php

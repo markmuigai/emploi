@@ -1,5 +1,9 @@
 @extends('v2.layouts.app')
 
+@section('description')
+Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+@endsection
+
 @section('title','Free CV Review :: Emploi')
 
 @section('content')

@@ -63,7 +63,7 @@
                                 <div class="col-sm-6 col-lg-12">
                                     <button type="submit" class="btn cmn-btn">
                                         Confirm Candidate
-                                        <i class='bx bx-search-alt'></i>
+                                        <i class='bx bx-check' ></i>
                                     </button>
                                 </div>
                             </div>
