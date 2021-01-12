@@ -86,13 +86,13 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                             
                         </span>
                     </p>
-                    {{-- <div style="width: 100%">
+                    <div style="width: 100%">
                         @if($agent->isMobile())
                             @include('components.ads.mobile_400x350')
                         @else            
                             @include('components.ads.flat_728x90')
                         @endif
-                    </div> --}}
+                    </div>
                     <br style="clear: both;">
                     <div class="fb-comments" data-href="{{ url('/blog/'.$blog->slug) }}" data-numposts="6" >
                     </div>
@@ -142,7 +142,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <div class="my-5">
                     <div class="card mt-2 mb-3">
                         <div class="card-body">
-                            <h5><a class="text-primary" href="/job-seekers/summit">Professional CV Editing</a></h5>
+                            <h5><a class="text-primary" href="/v2/job-seekers/cv-editing/create">Professional CV Editing</a></h5>
                             <p>
                                 For a detailed, targeted, concise and well-presented CV, talk to our CV Editing experts.
                             </p>
@@ -176,7 +176,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 <div class="card mt-2 mb-3">
                     <div class="card-body">
                         <h5>
-                            @if (auth()->user())
+                           @if (auth()->user() && auth()->user()->role == 'seeker')
                                 <a class="text-primary" href="/v2/self-assessments/create">Self Assessment</a>
                             @else
                             <a class="text-primary" type="button" data-toggle="modal" data-target="#selfAssessmentModal">
