@@ -2,6 +2,10 @@
 
 @section('title', $title .' :: Emploi')
 
+@section('description')
+Emploi is the Leading Platform for Talent Assessment and Matching for SME's in Africa.
+@endsection
+
 @section('content')
     <!-- Navbar -->
     @include('v2.components.jobseeker.navbar')
