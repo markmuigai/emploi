@@ -9,7 +9,6 @@
                             <option selected>Select an action</option>
                             <option value="shortlist">Shortlist</option>
                             <option value="downloadCV">Download CV</option>
-                            <option value="sendAssessment">Send Assessment</option>
                             <option value="interviewInvite">Invite to interview</option>
                         </select>
                         <button type="submit" class="btn btn-primary rounded-pill my-1" id="submit">Submit</button>
