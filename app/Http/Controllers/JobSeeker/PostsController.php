@@ -77,7 +77,7 @@ class PostsController extends Controller
             $recommendedJobs = collect();
         }
 
-        $title = "Latest Vacancies in \t" .date("Y");
+        $title = "Latest Vacancies in \t" .date("F, Y");
         $query = isset($request->q) ? $request->q : "";
         $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
             ->where('status','active')
