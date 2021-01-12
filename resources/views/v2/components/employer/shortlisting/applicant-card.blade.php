@@ -34,15 +34,15 @@
                 <a href="{{route('v2.employers.assessments.create', [$post->slug])}}" class="btn btn-success rounded-pill">Send Assessment</a>
             @endif --}}
             @if ($a->status == 'shortlisted')
-                <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill">Remove from Shortlist</a>
+                <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 mt-1 rounded-pill">Remove from Shortlist</a>
             @else
-                <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 rounded-pill">Shortlist</a>
+                <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 mt-1 rounded-pill">Shortlist</a>
             @endif
 
             @if ($a->status != 'rejected')
-                <a href="/v2/employers/reject/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-danger ml-2 rounded-pill" onclick="return confirm('Are you sure to reject {{ $a->user->name }}?')">Reject</a>
+                <a href="/v2/employers/reject/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-danger ml-2 mt-1 rounded-pill" onclick="return confirm('Are you sure to reject {{ $a->user->name }}?')">Reject</a>
             @else
-                <a href="/v2/employers/reject/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-danger ml-2 rounded-pill disabled">Rejected</a>
+                <a href="/v2/employers/reject/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-danger ml-2 mt-1 rounded-pill disabled">Rejected</a>
             @endif
         </div>
         <a class="link" href="#">
