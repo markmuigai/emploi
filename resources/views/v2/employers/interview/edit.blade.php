@@ -48,12 +48,21 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row mt-4">
-                                        <div class="form-group col-md-12">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
                                             <label for="location">Location</label>
                                             <input type="text" name="location" class="form-control rounded-pill" placeholder="Location"
                                             value="{{$interview->location ?? ''}}">
-                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="status">Status</label>
+                                            <select id="" name="status" class="interview-mode rounded-pill">
+                                              <option {{$interview->status == '' ? 'selected' : ''}} value="{{ $interview->status}}">{{ $interview->status}}</option>
+                                              <option value="pending">pending</option>
+                                              <option value="complete">complete</option>
+                                              <option value="missed">missed</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="row mt-4">
                                         <div class="form-group col-md-12">
