@@ -63,7 +63,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     <a href="/v2/employers/applications/{{ $post->slug }}/shortlisted">
                                                         <li class="filter pl-2" data-filter="shortlisted">2.Shortlisted</li>   
                                                     </a>
-                                                    <li class="filter" data-filter="all">3.Manage Interviews</li>
+                                                    <a href="{{route('v2.interviews.index', ['slug' => $post->slug])}}">
+                                                        <li class="filter" data-filter="all">3.Manage Interviews
+                                                        </li>
+                                                    </a>
+                                                    
                                                     <a href="{{route('v2.referees.index', ['slug' => $post->slug])}}">
                                                         <li class="filter" data-filter="false">
                                                             4. Manage Referees
