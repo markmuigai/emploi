@@ -29,4 +29,20 @@ class Interview extends Model
     {
         return $this->jobApplication->user;
     }
+
+    /**
+     * Get the interview date string format
+     */
+    public function getDateAttribute($value)
+    {
+        return Carbon::parse($value)->toDayDateTimeString();
+    }
+
+    /**
+     * Get the associated interview evaluation
+     */
+    public function evaluation()
+    {
+        return $this->hasOne('App\EvaluationResult', 'interview_id');
+    }
 }
