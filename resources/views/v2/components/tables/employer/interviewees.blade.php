@@ -26,7 +26,7 @@
               <th>Interview Mode</th>
               <th>Location</th>
               <th>Date</th>
-              <th>Other info</th>
+              <th>Status</th>
               <th>Actions</th>
           </tr>
       </thead>
@@ -44,7 +44,7 @@
               <td>{{ $a->interview->interview_mode }}</td>
               <td>{{ $a->interview->location }}</td>
               <td>{{ $a->interview->date}}</td>
-              <td>{{ $a->interview->description}}</td>
+              <td>{{ $a->interview->status}}</td>
               <td>
                 <a class="btn btn-primary rounded-pill pt-1" data-toggle="modal" data-target="#updateInterview-{{ $a->interview->id}}"><i class='bx bx-edit'></i></a>
                 <a href="#" class="btn btn-success rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Submit Interview scoresheet"><i class='bx bx-clipboard'></i></a>
@@ -119,13 +119,24 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="form-group col-md-12">
+
+                        <div class="form-row">
+                            <div class="col-md-6">
                                 <label for="location">Location</label>
                                 <input type="text" name="location" class="form-control rounded-pill" placeholder="Location"
                                 value="{{$a->interview->location ?? ''}}">
                             </div>
+                            <div class="col-md-6">
+                                <label for="status">Status</label>
+                                <select id="" name="status" class="interview-mode rounded-pill">
+                                  <option {{$a->interview->status == '' ? 'selected' : ''}} value="{{ $a->interview->status}}">{{ $a->interview->status}}</option>
+                                  <option value="pending">pending</option>
+                                  <option value="complete">complete</option>
+                                  <option value="missed">missed</option>
+                                </select>
+                            </div>
                         </div>
+
                         <div class="row mt-4">
                             <div class="form-group col-md-12">
                                 <label for="interviewDescription">Description</label>
