@@ -98,8 +98,10 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
     Route::get('/employers/browse/{username}/request-cv', 'EmployerController@cvRequest');
 
-    // Interview invite
-    Route::resource('interviews', 'InterviewController');
+    // Interview Management
+    Route::group([ 'prefix' => 'jobs/{post}'], function(){
+        Route::resource('interviews', 'InterviewController');
+    });
     
     // Shortlist applicant
     Route::get('/employers/shortlist/{slug}/{username}', 'ShortlistSeekerController@store');
@@ -141,4 +143,9 @@ Route::group([ 'middleware' => 'shortlist'], function(){
     Route::group([ 'prefix' => 'employers/jobs/{slug}'], function(){
         Route::resource('applications', 'ApplicationController');   
     });
+});
+
+// Interview Evalulation
+Route::group([ 'prefix' => 'interviews/{interview}/'], function(){
+    Route::resource('interview-evaluations', 'InterviewEvaluationController');
 });
