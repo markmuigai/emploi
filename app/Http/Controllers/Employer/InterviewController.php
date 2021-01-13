@@ -19,10 +19,8 @@ class InterviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Post $post)
     {
-        $post = Post::where('slug',request()->slug)->firstOrFail();
-
         if($post->company->user_id != auth()->user()->id)
             return abort(403);
 
@@ -36,7 +34,7 @@ class InterviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
         //
         return view('v2.employers.interview.create',[
@@ -50,7 +48,7 @@ class InterviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
         $appl = JobApplication::findOrFail(request()->application);
 
@@ -77,7 +75,7 @@ class InterviewController extends Controller
         Thank you for choosing Emploi.
         <br>
         ";
-        EmailJob::dispatch($appl->user->name, $appl->user->email, "Interview Invite for ".$appl->post->title." position", $caption, $contents);
+        // EmailJob::dispatch($appl->user->name, $appl->user->email, "Interview Invite for ".$appl->post->title." position", $caption, $contents);
         }
 
         return redirect()->route('v2.shortlisted.index', ['slug' => $appl->post->slug]);
@@ -100,13 +98,11 @@ class InterviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post, Interview $interview)
     {
-        $application = JobApplication::findOrFail($id);
-
         return view('v2.employers.interview.edit',[
-            'application' =>  $application,
-            'interview' => $application->interview
+            'application' =>  $interview->jobApplication,
+            'interview' => $interview
         ]);
     }
 
@@ -117,11 +113,11 @@ class InterviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post, Interview $interview)
     {
-        $application = JobApplication::findOrFail($id);
+        $application = $interview->JobApplication;
 
-        $application->interview()->update([
+        $interview->update([
             'date' => $request->date,
             'description' => $request->description,
             'type' => $request->type,
@@ -130,25 +126,25 @@ class InterviewController extends Controller
             'status' => $request->status,
         ]);
 
-        if(isset($application->interview->id)){
-        $date =  Carbon::parse($request->date)->toDayDateTimeString();
-        $caption = "Updated Interview Invite for ".$application->post->title." position";
-        $contents = "Your interview invitation for the <b>".$application->post->title."</b> position at <b>".$application->post->company->name."</b> has been updated.</b>. Kindly take note of the new details.<br><br>
-        Time: ".$date." <br>
-        Location: ".$application->interview->location." <br>
-        Interview Mode: ".$application->interview->interview_mode." <br>
-        Additional details: ".$application->interview->description." <br>
-        <br>
-        In case you have any questions, feel free to reply to this email..
-        <br>
-        Thank you for choosing Emploi.
-        <br>
-        ";
-        if($application->interview->status == 'pending')
-        EmailJob::dispatch($application->user->name, $application->user->email, "Updated Interview Invite for ".$application->post->title." position", $caption, $contents);
+        if(isset($interview->id)){
+            $date =  Carbon::parse($request->date)->toDayDateTimeString();
+            $caption = "Updated Interview Invite for ".$application->post->title." position";
+            $contents = "Your interview invitation for the <b>".$application->post->title."</b> position at <b>".$application->post->company->name."</b> has been updated.</b>. Kindly take note of the new details.<br><br>
+            Time: ".$date." <br>
+            Location: ".$interview->location." <br>
+            Interview Mode: ".$interview->interview_mode." <br>
+            Additional details: ".$interview->description." <br>
+            <br>
+            In case you have any questions, feel free to reply to this email..
+            <br>
+            Thank you for choosing Emploi.
+            <br>
+            ";
+            // if($interview->status == 'pending')
+                // EmailJob::dispatch($application->user->name, $application->user->email, "Updated Interview Invite for ".$application->post->title." position", $caption, $contents);
         }
 
-        return redirect()->route('v2.interviews.index', ['slug' => $application->post->slug]);
+        return redirect()->route('v2.interviews.index', ['post' => $interview->jobApplication->post]);
     }
 
     /**
@@ -157,10 +153,10 @@ class InterviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Interview $interview)
+    public function destroy(Post $post, Interview $interview)
     {
         $interview->delete();
 
-        return redirect()->route('v2.interviews.index', ['slug' => $interview->jobApplication->post->slug]);
+        return redirect()->route('v2.interviews.index', ['post' => $interview->jobApplication->post]);
     }
 }
