@@ -17,7 +17,8 @@ class CreateEvaluationResultsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('application_id');
             $table->unsignedInteger('interview_id');
-            $table->unsignedInteger('rating');
+            $table->unsignedInteger('rating')->nullable();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
