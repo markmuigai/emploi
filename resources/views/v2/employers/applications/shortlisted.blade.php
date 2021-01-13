@@ -57,12 +57,14 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                 <ul> 
                                                     <a href="/v2/employers/applications/{{ $post->slug }}">
                                                         <li class="filter" data-filter="false">
-                                                            1.All Applications
+                                                            1.All Applications ({{ count($post->applications) }})
                                                         </li>
                                                     </a>
-                                                    <li class="filter" data-filter="all">
-                                                        2. Shortlisted
-                                                    </li>   
+                                              <!--       <li class="filter" data-filter="all">
+                                                    </li>   --> 
+                                                    <a href="/v2/employers/applications/{{ $post->slug }}/shortlisted">
+                                                        <li class="filter" data-filter="all">2.Shortlisted ({{ count($post->shortlisted) }})</li>   
+                                                    </a>
                                                     <a href="{{route('v2.interviews.index', ['slug' => $post->slug])}}">
                                                         <li class="filter" data-filter="false">
                                                             3.Manage Interviews
