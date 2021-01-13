@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class EvaluationCriteriaResult extends Model
 {
     protected $fillable = [
-        'evaluation_id',
-        'evaulation_criteria_id',
+        'evaluation_result_id',
+        'evaluation_criteria_id',
         'rating',
         'comment'
     ];

@@ -15,10 +15,10 @@ class CreateEvaluationCriteriaResultsTable extends Migration
     {
         Schema::create('evaluation_criteria_results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('evaluation_id');
-            $table->unsignedInteger('evaulation_criteria_id');
+            $table->unsignedInteger('evaluation_result_id');
+            $table->unsignedInteger('evaluation_criteria_id');
             $table->unsignedInteger('rating');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }
