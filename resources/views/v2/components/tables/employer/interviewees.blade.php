@@ -47,7 +47,11 @@
               <td>{{ $a->interview->description}}</td>
               <td>
                 <a class="btn btn-primary rounded-pill pt-1" data-toggle="modal" data-target="#updateInterview-{{ $a->interview->id}}"><i class='bx bx-edit'></i></a>
-                <a href="#" class="btn btn-success rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Submit Interview scoresheet"><i class='bx bx-clipboard'></i></a>
+                @if ($a->interview->evaluation()->exists())
+                    <a href="{{route('v2.interview-evaluations.show', ['interview' => $a->interview, 'interview_evaluation' => $a->interview->evaluation])}}" class="btn btn-success rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="View Interview evaluation"><i class='bx bx-line-chart'></i></a>    
+                @else
+                    <a href="{{route('v2.interview-evaluations.create', ['interview' => $a->interview])}}" class="btn btn-success rounded-pill pt-1" data-toggle="tooltip" data-placement="right" title="Submit Interview evaluation"><i class='bx bx-clipboard'></i></a>
+                @endif
                 <a class="btn btn-danger rounded-pill pt-1" data-toggle="modal" data-target="#deleteInterview-{{ $a->interview->id}}"><i class='bx bxs-trash'></i></a>
               </td>
           </tr>
@@ -101,7 +105,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <h4 class="text-center pb-2">Update interview details</h4>
-                    <form action="{{route('v2.interviews.update', [$a])}}" method="post">
+                    <form action="{{route('v2.interviews.update', ['post' => $post, 'interview' => $a->interview])}}" method="post">
                         @method('PUT')
                         @csrf
                         <div class="form-row">
@@ -129,9 +133,7 @@
                         <div class="row mt-4">
                             <div class="form-group col-md-12">
                                 <label for="interviewDescription">Description</label>
-                                <textarea class="form-control" name="description" id="interviewDescription" rows="3">
-                                    {{$a->interview->description ?? ''}}
-                                </textarea>
+                                <textarea class="form-control" name="description" id="interviewDescription" rows="3">{{$a->interview->description ?? ''}}</textarea>
                             </div>
                         </div>
                         <div class="row m-2">
@@ -148,7 +150,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <h4 class="text-center pb-2">Update interview details</h4>
-                    <form action="{{route('v2.interviews.destroy', [$a->interview])}}" method="post">
+                    <form action="{{route('v2.interviews.destroy', ['post' => $post, 'interview' => $a->interview])}}" method="post">
                         @method('DELETE')
                         @csrf
                         <P class="pl-3">Confirm deletion of this interview</P>

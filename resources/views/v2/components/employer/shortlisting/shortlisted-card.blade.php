@@ -33,9 +33,9 @@
         <div class="row my-2">
             <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 mt-1 rounded-pill">Remove from Shortlist</a>
             @if ($a->interview()->exists())
-                <a href="{{route('v2.interviews.edit' , [$a])}}" class="btn btn-success ml-2 mt-1 rounded-pill">Update Interview Details</a>
+                <a href="{{route('v2.interviews.edit' , ['post' => $post, 'interview' => $a->interview])}}" class="btn btn-success ml-2 mt-1 rounded-pill">Update Interview Details</a>
             @else
-                <a href="{{route('v2.interviews.create' , ['application' => $a])}}" class="btn btn-primary ml-2 rounded-pill">Invite to Interview</a>
+                <a href="{{route('v2.interviews.create' , ['post' => $post, 'application' => $a])}}" class="btn btn-primary ml-2 rounded-pill">Invite to Interview</a>
             @endif
         </div>
         <a class="link" href="#">
