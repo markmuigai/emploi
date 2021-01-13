@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </h4>
                         <div class="row justify-content-center">
                             <div class="col-md-12 shadow p-4">
-                                <form action="{{route('v2.interviews.store', ['application' => $application])}}" method="post">
+                                <form action="{{route('v2.interviews.store', ['post' => $application->post, 'application' => $application])}}" method="post">
                                     @csrf
                                     <div class="form-row">
                                         <div class="col-md-6">

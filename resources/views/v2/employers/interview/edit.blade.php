@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </h4>
                         <div class="row justify-content-center">
                             <div class="col-md-12 shadow p-4">
-                                <form action="{{route('v2.interviews.update', [$application])}}" method="post">
+                                <form action="{{route('v2.interviews.update', ['post' => $application->post, 'interview' => $interview])}}" method="post">
                                     @method('PUT')
                                     @csrf
                                     <div class="form-row">
@@ -67,9 +67,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <div class="row mt-4">
                                         <div class="form-group col-md-12">
                                             <label for="interviewDescription">Other Information</label>
-                                            <textarea class="form-control" name="description" id="interviewDescription" rows="3">
-                                                {{$interview->description ?? ''}}
-                                            </textarea>
+                                            <textarea class="form-control" name="description" id="interviewDescription" rows="3">{{$interview->description ?? ''}}</textarea>
                                           </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-3 rounded-pill">
