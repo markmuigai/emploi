@@ -28,6 +28,7 @@
         "spatie/laravel-cookie-consent": "^2.10",
         "spatie/laravel-feed": "^2.6",
         "spatie/laravel-honeypot": "^1.4",
+        "spatie/laravel-medialibrary": "^8.0.0",
         "spatie/pdf-to-text": "^1.2",
         "watson/rememberable": "^3.2"
     },
