@@ -8381,6 +8381,16 @@ h4,h3{
       width: 100%;
       /* height: 130px; */
     }
+
+    .status-mode.nice-select{
+      float: none;
+    }
+
+    .status-mode.nice-select.open .list{
+      border-radius: 15px;
+      width: 100%;
+      /* height: 130px; */
+    }
     
     .advertise-here .card{
       background: linear-gradient(to bottom right,#500095,rgba(81,81,81,.8));

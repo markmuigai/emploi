@@ -132,11 +132,10 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="status">Status</label>
-                                <select id="" name="status" class="interview-mode rounded-pill">
-                                  <option {{$a->interview->status == '' ? 'selected' : ''}} value="{{ $a->interview->status}}">{{ $a->interview->status}}</option>
-                                  <option value="pending">pending</option>
-                                  <option value="complete">complete</option>
-                                  <option value="missed">missed</option>
+                                 <select id="status" name="status" class="status-mode rounded-pill">
+                                    <option {{$a->interview->status == 'pending' ? 'selected' : ''}} value="pending">pending</option>
+                                    <option {{$a->interview->status == 'complete' ? 'selected' : ''}} value="complete">complete</option>
+                                    <option {{$a->interview->status == 'missed' ? 'selected' : ''}} value="missed">missed</option>
                                 </select>
                             </div>
                         </div>

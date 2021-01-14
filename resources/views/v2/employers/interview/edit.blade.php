@@ -56,11 +56,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         </div>
                                         <div class="col-md-6">
                                             <label for="status">Status</label>
-                                            <select id="" name="status" class="interview-mode rounded-pill">
-                                              <option {{$interview->status == '' ? 'selected' : ''}} value="{{ $interview->status}}">{{ $interview->status}}</option>
-                                              <option value="pending">pending</option>
+                                            <select id="status" name="status" class="status-mode rounded-pill">
+                                     <!--          <option {{$interview->status == '' ? 'selected' : ''}} value="{{ $interview->status}}">{{ $interview->status}}</option> -->
+                               <!--                <option value="pending">pending</option>
                                               <option value="complete">complete</option>
                                               <option value="missed">missed</option>
+                                              value="online">Online</option> -->
+                                                <option {{$interview->status == 'pending' ? 'selected' : ''}} value="pending">pending</option>
+                                                <option {{$interview->status == 'complete' ? 'selected' : ''}} value="complete">complete</option>
+                                                <option {{$interview->status == 'missed' ? 'selected' : ''}} value="missed">missed</option>
                                             </select>
                                         </div>
                                     </div>

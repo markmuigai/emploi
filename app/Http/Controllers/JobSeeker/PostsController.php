@@ -503,13 +503,39 @@ class PostsController extends Controller
 
         if($match)
         {
+
+            // Get recommended jobs
+            if(auth()->user() && auth()->user()->role == 'seeker'){
+                $query = auth()->user()->seeker->recommendedPosts();
+
+                if(!empty($query)){
+                    $recommendedJobs = $query->get()->pluck('id');
+                }
+            }elseif(!empty($request->parameters)){
+                $recommendedJobs = Post::where('industry_id', $request->parameters['industry'])
+                                ->orWhere('location_id', $request->parameters['location'])
+                                ->get()->pluck('id');
+            }else{
+                $recommendedJobs = collect();
+            }
+
             return view('v2.seekers.vacancies')
-                        ->with('industries',$industries)
-                        ->with('locations',$locations)
-                        ->with('vacancyTypes',$vacancyTypes)
-                        ->with('title',$title)
-                        ->with('posts',$posts);
-            return $posts;
+                    ->with('industries',$industries)
+                    ->with('locations',$locations)
+                    ->with('vacancyTypes',$vacancyTypes)
+                    ->with('title',$title)
+            
+                    ->with('posts',$posts)
+                    
+                    ->with('educationLevels',EducationLevel::all())
+                    ->with('recommendedJobs', $recommendedJobs);
+                    
+            // return view('v2.seekers.vacancies')
+            //             ->with('industries',$industries)
+            //             ->with('locations',$locations)
+            //             ->with('vacancyTypes',$vacancyTypes)
+            //             ->with('title',$title)
+            //             ->with('posts',$posts);
         }
 
 
