@@ -53,11 +53,11 @@
                                                 <ul> 
                                                     <a href="/v2/employers/applications/{{ $post->slug }}">
                                                         <li class="filter" data-filter="false">
-                                                            1.All Applications
+                                                            1.All Applications  ({{ count($post->applications) }})
                                                         </li>
                                                     </a>
                                                     <a href="/v2/employers/applications/{{ $post->slug }}/shortlisted">
-                                                        <li class="filter pl-2" data-filter="shortlisted">2.Shortlisted</li>   
+                                                        <li class="filter pl-2" data-filter="shortlisted">2.Shortlisted  ({{ count($post->shortlisted) }})</li>   
                                                     </a>   
                                                     <a href="{{route('v2.interviews.index', ['post' => $post])}}">
                                                         <li class="filter" data-filter="false">
