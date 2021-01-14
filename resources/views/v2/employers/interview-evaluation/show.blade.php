@@ -31,14 +31,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 												<div class="card-body">
 													<div class="row">
 														<div class="col-md-6">
-															<h5>Interviewer email: </h5>
-															<div class="form-group">
-																<input type="email" class="form-control" id="interviewerEmail" name="email" placeholder="Enter Email">
-															</div>
+															<h5>Interviewer email:  {{$evaluationResult->interviewer->email}}</h5>
+															<h5></h5>
 														</div>
 														<div class="col-md-6">
-															<h5>Date of Interview:</h5>
-															<h5>{{$interview->date}}</h5>
+															<h5>Date of Interview:  {{$interview->date}}</h5>
 														</div>
 														<div class="col-md-6">
 															<h5>Candidate Name: {{$interview->jobApplication->user->name}}</h5>
@@ -61,34 +58,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 														<li class="list-group-item">1 - Unsatisfactory</li>
 													</ul>
 													<div class="row">
-														@foreach ($evaluationCriteria as $criteria)
+														@foreach ($evaluationResult->criteriaResults as $criteriaResult)
 														<div class="col-md-8">
 															<p>
-																<strong>{{$criteria->category}} - </strong>
-																{{$criteria->title}}
-															</p>
-														</div>
-														<div class="col-md-4">
-															<div class="form-check form-check-inline">
-																<input class="form-check-input" type="radio" name="ratings[{{$criteria->id}}]" id="criteria-{{$criteria->id}}" value="1">
-																<label class="form-check-label">1</label>
-																</div>
-																<div class="form-check form-check-inline">
-																<input class="form-check-input" type="radio" name="ratings[{{$criteria->id}}]" id="criteria-{{$criteria->id}}" value="2">
-																<label class="form-check-label">2</label>
-																</div>
-																<div class="form-check form-check-inline">
-																<input class="form-check-input" type="radio" name="ratings[{{$criteria->id}}]" id="criteria-{{$criteria->id}}" value="3">
-																<label class="form-check-label">3</label>
-																</div>
-																<div class="form-check form-check-inline">
-																<input class="form-check-input" type="radio" name="ratings[{{$criteria->id}}]" id="criteria-{{$criteria->id}}" value="4">
-																<label class="form-check-label">4</label>
-																</div>
-																<div class="form-check form-check-inline">
-																<input class="form-check-input" type="radio" name="ratings[{{$criteria->id}}]" id="criteria-{{$criteria->id}}" value="5">
-																<label class="form-check-label">5</label>
-																</div>
+																<strong>{{$criteriaResult->criteria->category}} - </strong>
+																{{$criteriaResult->criteria->title}}
+                              </p>
+                              <h4>
+                                {{$criteriaResult->rating}} - {{$criteriaResult->remark()}}
+                              </h4>
 														</div>
 														@endforeach
 													</div>
