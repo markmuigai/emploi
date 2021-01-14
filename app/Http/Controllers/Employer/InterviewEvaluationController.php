@@ -74,7 +74,11 @@ class InterviewEvaluationController extends Controller
      */
     public function show(Interview $interview, $evaluationResult)
     {
-        //
+        return view('v2.employers.interview-evaluation.show',[
+            'evaluationCriteria' => EvaluationCriteria::all(),
+            'interview' => $interview,
+            'evaluationResult' => EvaluationResult::findOrFail($evaluationResult)
+        ]);
     }
 
     /**
