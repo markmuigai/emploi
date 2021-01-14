@@ -25,7 +25,7 @@
                     </div>
                 </th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Uploaded CV?</th>
                 <th>Job Score</th>
                 <th>Age</th>
                 <th>Applied</th>
@@ -43,7 +43,13 @@
                 <td>
                     <a href="/employers/browse/{{ $a->user->username }}" target="_blank">{{ $a->user->name }}</a>
                 </td>
-                <td>{{ $a->user->email }}</td>
+                <td>
+                    @if($a->user->seeker->resume!=null)
+                        <p>Yes</p>
+                    @else
+                        <p>No</p>
+                    @endif
+                </td>
                 <td>{{ $a->user->seeker->getRsi($post) }}%</td>
                 <td>{{ $a->user->seeker->age }}</td>
                 <td>{{$a->created_at->diffForHumans()}}</td>
