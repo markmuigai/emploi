@@ -12,4 +12,20 @@ class EvaluationResult extends Model
         'rating',
         'user_id'
     ];
+
+    /**
+     * Get the associated interviewer
+     */
+    public function interviewer()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    /**
+     * Get the associated evaluation criteria results
+     */
+    public function criteriaResults()
+    {
+        return $this->hasMany('App\EvaluationCriteriaResult', 'evaluation_result_id');
+    }
 }
