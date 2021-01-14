@@ -64,8 +64,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                         2. Shortlisted ({{ count($post->shortlisted) }})
                                                     </li>   
                                                     <a href="{{route('v2.interviews.index', ['post' => $post])}}">
-                                                        <li class="filter" data-filter="false">
-                                                            3.Manage Interviews
+                                                        <li class="filter active" data-filter="false">
+                                                            3.Manage Interviews ({{ count($post->toInterview) }})   
                                                         </li>
                                                     </a>
 

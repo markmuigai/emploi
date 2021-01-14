@@ -61,7 +61,7 @@
                                                     </a>   
                                                     <a href="{{route('v2.interviews.index', ['post' => $post])}}">
                                                         <li class="filter" data-filter="false">
-                                                            3.Manage Interviews
+                                                            3.Manage Interviews ({{ count($post->toInterview) }})
                                                         </li>
                                                     </a>
 

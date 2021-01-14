@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     </a>
                                                     <a href="{{route('v2.interviews.index', ['post' => $post])}}">
                                                         <li class="filter" data-filter="false">
-                                                            3.Manage Interviews
+                                                            3.Manage Interviews ({{ count($post->toInterview) }})
                                                         </li>
                                                     </a>
                                                     <a href="{{route('v2.referees.index', ['slug' => $post->slug])}}">
