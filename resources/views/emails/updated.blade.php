@@ -68,7 +68,7 @@
 											</table>
 									<div class="img-container center fullwidthOnMobile autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-												<div style="font-size:1px;line-height:20px">&nbsp;</div><a href="https://emploi.co/v2/job-seekers/cv-editing/create" target="_blank" style="outline:none" tabindex="-1"> <img class="center fullwidthOnMobile autowidth" align="center" border="0" src="https://emploi.co/images/email-templates/end_year_thank_you_banner.png" alt="Emploi" title="Emploi" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 755px; display: block;" width="755"></a>
+												<div style="font-size:1px;line-height:20px">&nbsp;</div><a href="https://emploi.co/v2/job-seekers/cv-editing/create" target="_blank" style="outline:none" tabindex="-1"> <img class="center fullwidthOnMobile autowidth" align="center" border="0" src="https://emploi.co/images/email-templates/email-banner-3.jpg" alt="Emploi" title="Emploi" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 755px; display: block;" width="755"></a>
 												<div style="font-size:1px;line-height:20px">&nbsp;</div>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
@@ -243,8 +243,7 @@
 						</div>
                     </div>
                     @php
-
-                        $blogs = App\Blog::all()->random(3);
+                        $blogs = App\Blog::orderBy('created_at','desc')->take(3)->get();
                     @endphp
                     @foreach ($blogs as $b)
                         <div style="background-color:#ffffff;">
@@ -358,19 +357,13 @@
 							</div>
 						</div>
                     </div>
+              
                     @php
-					    $user = App\User::where('email',$email)->first();
-					@endphp
-		            
-		            @if(isset($user)) 				
-
-                    @php
-                        $posts =App\Post::where('industry_id', $user->seeker->industry->id) 
-						        ->where('status', 'active')
+                        $posts =App\Post::where('status', 'active')
 								->Orwhere('featured', 'true')
 								->orderBy('id', 'DESC')
 								->orderBy('featured', 'DESC')
-								->limit(6)
+								->limit(8)
 								->get();
                     @endphp
                     @foreach($posts->chunk(2) as $chunk)
@@ -402,8 +395,7 @@
                             </div>
                         </div>
                     @endforeach
-                    @endif
-                
+                    
 					<div style="background-color:#ffffff;">
 						<div class="block-grid " style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #500095;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#500095;">
