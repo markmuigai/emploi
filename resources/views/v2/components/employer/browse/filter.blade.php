@@ -1,7 +1,8 @@
 <!-- Filter -->
 <div class="job-filter-area pt-2">
     <div class="container-fluid">
-        <form method="get" class="form-row" action="#"> 
+        <form method="get" class="form-row" action="{{route('v2.seekers.index')}}"> 
+            @csrf
             <div class="col-sm-6 col-lg-3">
                 <div class="form-group">
                     <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50">
