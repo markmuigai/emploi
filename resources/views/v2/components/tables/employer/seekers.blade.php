@@ -45,10 +45,6 @@
                         </a>
                     @endif
 
-                 <!--    <button class="btn btn-success rounded-pill" data-toggle="tooltip" data-placement="top" title="Save profile">
-                        <i class='bx bxs-heart' ></i>
-                    </button> -->
-
                     <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#saveSeekerModal-{{ $s->user->id }}" title="Save profile">
                        <i class='bx bxs-heart'></i>
                     </a>     
