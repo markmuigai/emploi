@@ -34,9 +34,11 @@
                     @endif
                 </td>
                 <td>
-                    <button class="btn btn-success rounded-pill" data-toggle="tooltip" data-placement="top" title="Shortlist">
-                        <i class='bx bx-check'></i>
-                    </button>
+  
+                   <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#shortlistSeekerModal-{{ $s->user->id }}" title="Shortlist">
+                       <i class='bx bx-check'></i>
+                   </a>     
+
                     <button class="btn btn-success rounded-pill" data-toggle="tooltip" data-placement="top" title="Download CV">
                         <i class='bx bxs-download'></i>
                     </button>
@@ -45,6 +47,51 @@
                     </button>
                 </td>
             </tr>
+            <!-- MODAL -->
+            <div class="modal fade" id="shortlistSeekerModal-{{ $s->user->id }}" tabindex="-1" role="dialog" aria-labelledby="shortlistSeekerModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <h4 class="text-center mt-4">
+                           Shortlist
+                        </h4>
+                            <div class="modal-body">
+                            @if(count(Auth::user()->employer->shortlistingPosts) > 0)
+                            <form method="post" action="/employers/shortlist" class="row">
+                                @csrf  
+                                <div class="job-filter-area pt-2">
+                                    <div class="container">
+                                        <form>
+                                            <div class="row">                              
+                                                <div class="col-sm-12 col-lg-12">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="seeker_id" value="{{ $s->id }}">                     
+                                                        <select class="form-control" name="post_id">
+                                                            @foreach(Auth::user()->employer->shortlistedPosts as $ap)
+                                                            <option value="{{ $ap->id }}">{{ $ap->title }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                              
+                                                <div class="col-sm-6 col-lg-12">
+                                                    <button type="submit" class="btn cmn-btn">
+                                                        Shortlist
+                                                        <i class='bx bx-search-alt'></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>                                
+                                    </div>
+                                </div>
+                            </form>
+                            @else
+                            <p class="text-warning">No job posted yet</p>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+         <!--    END MODAL -->
             @empty
             @endforelse
         </tbody>
@@ -59,7 +106,6 @@
         </tfoot>
     </table>
 </form>
-
 @section('js')
     <script>
         $('#allSeekers').DataTable({
