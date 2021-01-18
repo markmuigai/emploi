@@ -1289,13 +1289,24 @@ class Seeker extends Model
         if(empty($filters)){
             return Seeker::all();
         }
-
-        // Filter by industry
-        return Seeker::all()->filter(function ($seeker) use($filters){
-            return $seeker->industry->slug == $filters['industry'];
-        });
-
-        // Filter by location
+        
+        // Check if locations parameter has been set
+        if(isset($filters['industry']) && isset($filters['location'])){
+            return Seeker::all()->filter(function ($seeker) use($filters){
+                return $seeker->industry->slug == $filters['industry'] &&
+                    $seeker->location->id == (int)$filters['location'];
+            });
+        }elseif(isset($filters['industry'])){
+            // Filter by industry
+            return Seeker::all()->filter(function ($seeker) use($filters){
+                return $seeker->industry->slug == $filters['industry'];
+            });
+        }elseif(isset($filters['location'])  ){
+            // Filter by industry
+            return Seeker::all()->filter(function ($seeker) use($filters){
+                return $seeker->location->id == (int)$filters['location'];
+            });
+        }
 
         // Filter by Education Level
 
