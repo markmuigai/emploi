@@ -70,7 +70,7 @@
                                                     <div class="form-group">
                                                         <input type="hidden" name="seeker_id" value="{{ $s->id }}">                   
                                                         <select class="form-control" name="post_id">
-                                                            @foreach(Auth::user()->employer->shortlistedPosts as $ap)
+                                                            @foreach(Auth::user()->employer->shortlistingPosts as $ap)
                                                             <option value="{{ $ap->id }}">{{ $ap->title }}</option>
                                                             @endforeach
                                                         </select>
