@@ -417,4 +417,4 @@ Route::get('/sitemap/blogs.xml', 'SitemapController@blogs');
 Route::get('/sitemap/companies.xml', 'SitemapController@companies');
 
 // Advertise with us page
-    Route::resource('advertise', 'Employer\AdvertiseController');
+    Route::resource('advertise', 'Employer\AdvertiseController')->middleware('auth');
