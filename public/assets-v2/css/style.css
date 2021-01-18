@@ -8499,3 +8499,9 @@ h4,h3{
     color: #fff !important;
     background-color: #e15419 !important;
 }
+
+.job-filter-area .nice-select .list {
+  width: auto !important;
+  display: block !important;
+  height: 200px;
+}
