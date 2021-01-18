@@ -13,10 +13,17 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 	<a href="/profile/add-referee" class="btn btn-sm btn-orange"><i class="fas fa-plus"></i> Add Referee</a>
 </div>
 <?php $i=1; ?>
+@if(session()->has('message'))
+    <div class="container">
+        <div class="alert alert-success">
+        {{ session()->get('message') }}
+        </div>
+    </div>
+@endif
 @forelse($referees as $ref)
 <div class="card my-3">
 	<div class="card-body">
-		<div class="row">
+	    <div class="row">
 			<div class="col-md-8">
 				<h4>
 					{{ $i.'. '.$ref->name }}
@@ -36,9 +43,16 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 				</p>
 			</div>
 			<div class="col-md-4">
-				<p class="pull-right text-capitalize">
-					Status: {{ $ref->status }}
+				@if($ref->status == 'ready')
+				<p class="text-success">
+					Status: Referee has provided assessment
 				</p>
+				@else
+		         	<p class="text-warning">Status: Assessment not yet provided</p>
+                    <a href="/v2/referees/{{ $ref->id }}/resend">
+                        <i class="btn btn-orange-alt">Resend Referee Link</i>
+                    </a>                     
+                @endif
 			</div>
 		</div>
 	</div>
