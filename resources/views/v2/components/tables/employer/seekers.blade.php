@@ -35,13 +35,16 @@
                 </td>
                 <td>
   
-                   <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#shortlistSeekerModal-{{ $s->user->id }}" title="Shortlist">
+                    <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#shortlistSeekerModal-{{ $s->user->id }}" title="Shortlist">
                        <i class='bx bx-check'></i>
-                   </a>     
+                    </a>     
 
-                    <button class="btn btn-success rounded-pill" data-toggle="tooltip" data-placement="top" title="Download CV">
-                        <i class='bx bxs-download'></i>
-                    </button>
+                    @if($s->user->seeker->resume!=null)
+                        <a href="{{ $s->user->seeker->resumeUrl }}" class="btn btn-success rounded-pill"  data-toggle="tooltip" data-placement="top"  title="Download CV">
+                            <i class='bx bxs-download'></i>
+                        </a>
+                    @endif
+
                     <button class="btn btn-success rounded-pill" data-toggle="tooltip" data-placement="top" title="Save profile">
                         <i class='bx bxs-heart' ></i>
                     </button>
