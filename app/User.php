@@ -412,7 +412,8 @@ class User extends Authenticatable
     public function evaluationResult()
     {
         return $this->applications->map(function($application){
-            return $application->interview->evaluation;
+            if(isset($application->interview))
+                return $application->interview->evaluation;
         })->last();
     }
 }
