@@ -56,3 +56,6 @@ Route::resource('/job-seekers/cv-editing', 'CVEditingController');
 
 // About us page
 Route::get('about', 'AboutController@index');
+
+//resend referee assessment link
+Route::get('/referees/{id}/resend', 'RefereeController@resendLink');

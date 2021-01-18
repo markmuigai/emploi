@@ -69,9 +69,12 @@ class BulkActionsController extends Controller
                     break;
                 case 'downloadCV' : 
                     foreach($request->applications as $app){
-                        $url = JobApplication::findOrFail($app)->user->seeker->resume;  
-                        
-                        response()->download(public_path().'/storage/resumes/'.$url);
+                        $url = JobApplication::findOrFail($app)->user->seeker->resume;
+
+                        $path=public_path().'/storage/resumes/'.$url;
+                        // $headers = ['Content-Type: application/pdf'];                   
+
+                        response()->download($path, $url);
                     }
                     return redirect()->back();
                     break;

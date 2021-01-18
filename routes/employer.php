@@ -130,7 +130,7 @@ Route::group([ 'middleware' => 'shortlist'], function(){
         Route::resource('assessments', 'AssessmentController');
     });
 
-    // Talent Database
+    // Talent Database through a job
     // Shortlisting Bulk actions
     Route::resource('bulk-actions', 'BulkActionsController');
     Route::get('browse-candidates/{id}', 'BrowseCandidatesController@index')->name('browse-candidates.index');
@@ -149,3 +149,6 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 Route::group([ 'prefix' => 'interviews/{interview}/'], function(){
     Route::resource('interview-evaluations', 'InterviewEvaluationController');
 });
+
+// Seekers
+Route::resource('seekers', 'SeekerController');

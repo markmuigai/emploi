@@ -28,6 +28,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <li class="nav-item">
         <a class="nav-link" id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="false">Skills</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" id="evaluation-tab" data-toggle="tab" href="#evaluation" role="tab" aria-controls="evaluation" aria-selected="false">Interview Evaluation</a>
+    </li>
 </ul>
 
 <div class="row">
@@ -117,6 +120,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p>No skills highlighted</p>
                             @endforelse
                         </h5>
+                    </div>
+                </div>
+            </div>
+
+                 <!--    PREVIOUS ASSESSMENT -->
+            <div class="tab-pane fade" id="evaluation" role="tabpanel" aria-labelledby="evaluation-tab">
+                <div class="card py-2 mb-4">
+                    <div class="card-body">
+                        <h4>INTERVIEW EVALUATION</h4>
                     </div>
                 </div>
             </div>
@@ -217,7 +229,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="card-body">
                 @if($perf !=0)
                 <h4>Assessment Score: {{ $perf*10 }}%</h4>
-                <a href="{{route('v2.assessment-results.show', ['email' => $user->email])}}" class="btn btn-orange">View Details</a>
+            <!--     <a href="{{route('v2.assessment-results.show', ['email' => $user->email])}}" class="btn btn-orange">View Details</a> -->
                 @endif
             </div>
         </div>

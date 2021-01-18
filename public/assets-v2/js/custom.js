@@ -364,12 +364,32 @@ jQuery(function ($) {
 		return false;
 	});
 
-	// Nice scroll
-	// $("html").niceScroll();	
-	// $(".list").niceScroll();
+	// Toggle card and table view
+	$('#seekerCardsContainer').css('display', 'none')
 
-	// $("html").niceScroll({
-	// 	cursorcolor:"#e15419",
-	// 	cursorwidth:"16px"
-	//   });
+	// If table view is active
+	$('#toggleCards').on('click', function(){
+		// Show cards
+		$('#seekerCardsContainer').css('display', 'flex')
+
+		// Hide table
+		$('#seekerTableContainer').css('display', 'none')
+
+		// Toggle active classes
+		$('#toggleTable').removeClass('active')
+		$('#toggleCards').addClass('active')
+	}); 
+
+	// If cards view is active
+	$('#toggleTable').on('click', function(){
+		// Show cards
+		$('#seekerCardsContainer').css('display', 'none')
+
+		// Show table
+		$('#seekerTableContainer').css('display', 'inline-block')
+
+		// Toggle active classes
+		$('#toggleCards').removeClass('active')
+		$('#toggleTable').addClass('active')
+	});
 }(jQuery));
