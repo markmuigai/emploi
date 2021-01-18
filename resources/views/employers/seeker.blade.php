@@ -128,7 +128,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <div class="tab-pane fade" id="evaluation" role="tabpanel" aria-labelledby="evaluation-tab">
                 <div class="card py-2 mb-4">
                     <div class="card-body">
-                        <h4>INTERVIEW EVALUATION</h4>
+                        @if (null !== $user->evaluationResult() )
+                            <h4>RECENT INTERVIEW EVALUATION</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Date of Interview: </h5>
+                                    {{$user->evaluationResult()->interview->date}}
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Position: </h5>
+                                    {{$user->evaluationResult()->interview->jobApplication->post->title}}
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                @foreach ($user->evaluationResult()->criteriaResults as $criteriaResult)
+                                <div class="col-md-12">
+                                    <p class="mt-2">
+                                        <strong>{{$criteriaResult->criteria->category}} - </strong>
+                                        {{$criteriaResult->criteria->title}}
+                                    </p>
+                                    <h4>
+                                        {{$criteriaResult->rating}} - {{$criteriaResult->remark()}}
+                                    </h4>
+                                </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <h4 class="text-center">No evaluation submitted yet</h4>
+                        @endif
                     </div>
                 </div>
             </div>
