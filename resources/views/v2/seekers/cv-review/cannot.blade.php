@@ -8,7 +8,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
     <!-- Navbar -->
-    @include('v2.components.guest.navbar')
+    @include('v2.components.jobseeker.navbar')
     <!-- End Navbar -->
         <!-- Resume -->
         <!-- Page Title -->
