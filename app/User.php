@@ -405,4 +405,14 @@ class User extends Authenticatable
     public static function getUserByEmail($email){
         return User::where('email', $email)->first();
     }
+
+    /**
+     * Get the evaluation results for a user
+     */
+    public function evaluationResult()
+    {
+        return $this->applications->map(function($application){
+            return $application->interview->evaluation;
+        })->last();
+    }
 }
