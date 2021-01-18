@@ -5,7 +5,15 @@
             @csrf
             <div class="col-sm-6 col-lg-3">
                 <div class="form-group">
-                    <input type="text" name="q" class="form-control" placeholder="Enter Keyword(s)" value="{{ isset($search_query) ? $search_query : '' }}" maxlength="50">
+                    <select class="selectpicker" name="educationLevel" data-live-search="true">
+                        <option value="">All Education Levels</option>
+                        @forelse ($educationLevels as $el)                                           
+                            <option value="{{ $el->id }}" {{ isset($search_el) && $search_el == $el->id ? 'selected=""' : '' }}>
+                                {{ $el->name }}
+                            </option>
+                        @empty
+                        @endforelse
+                    </select>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">

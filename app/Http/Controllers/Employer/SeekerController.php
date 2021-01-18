@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Employer;
 use App\Seeker;
 use App\Industry;
 use App\Location;
+use App\EducationLevel;
 use Illuminate\Http\Request;
 use App\Utils\CollectionHelper;
 use App\Http\Controllers\Controller;
@@ -19,17 +20,17 @@ class SeekerController extends Controller
     public function index()
     {
         // Check for filters
-        if(empty(request()->all())){
-            $seekers = Seeker::orderBy('featured')->paginate(10);
-        }else{
-            // dd(request()->all());
+        if(isset(request()->industry) || isset(request()->location)){
             $seekers = CollectionHelper::paginate(Seeker::filteredSeekers(request()->all()), 10);
+        }else{
+            $seekers = Seeker::orderBy('featured')->paginate(10);
         }
 
         return view('v2.employers.seekers.index', [
             'seekers' => $seekers,
             'industries' => Industry::all(),
-            'locations' => Location::all()
+            'locations' => Location::all(),
+            'educationLevels' => EducationLevel::all()
         ]);
     }
 
