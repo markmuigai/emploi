@@ -17,7 +17,7 @@
                 @endif
             </div>
         </div>
-        <div class="row my-2">
+        <div class="row my-4">
       <!--       @if ($s->user->assessed())
                 <a href="{{route('v2.assessment-results.show', ['email' => $s->user->email])}}" class="btn btn-primary rounded-pill">Assessment Results</a>
             @else
@@ -25,7 +25,7 @@
             @endif  -->
         
 
-            <a class="btn btn-success rounded-pill ml-1" type="button" data-toggle="modal" data-target="#shortlistSeekerModal-{{ $s->user->id }}" title="Shortlist">
+            <a class="btn btn-success rounded-pill ml-1" type="button" data-toggle="modal" data-target="#shortlistSeekerCardModal-{{ $s->user->id }}" title="Shortlist">
                <i class='bx bx-check'></i>
             </a>     
 
@@ -47,7 +47,7 @@
 </div>
 
             <!--SHORTLIST MODAL -->
-            <div class="modal fade" id="shortlistSeekerModal-{{ $s->user->id }}" tabindex="-1" role="dialog" aria-labelledby="shortlistSeekerModalLabel" aria-hidden="true">
+            <div class="modal fade" id="shortlistSeekerCardModal-{{ $s->user->id }}" tabindex="-1" role="dialog" aria-labelledby="shortlistSeekerCardModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <h4 class="text-center mt-4">
