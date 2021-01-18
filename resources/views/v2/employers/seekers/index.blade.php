@@ -23,13 +23,48 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     <h3 class="text-center my-2">Browse all Candidates </h3>
                     @include('v2.components.employer.browse.filter') 
                     <!-- Jobs -->
+                    <div class="job-showing-area">
+                        <div class="container">
+                            <div class="showing">
+                                <div class="row">
+                                    <div class="col-sm-6 col-lg-6">
+                                        <div class="left">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>All Candidates</option>
+                                                    <option>With uploaded CVs</option>
+                                                    <option>With Self Assessments</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-6">
+                                        <div class="right">
+                                            <ul>
+                                                <li>
+                                                    <a id="toggleCards" href="javascript:void(0)">
+                                                        <i class='bx bx-dots-horizontal'></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a id="toggleTable" href="javascript:void(0)" class="active">
+                                                        <i class='bx bx-menu'></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="categories-area pb-70">
                         <div class="container-fluid"> 
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                            <div id="container" class="row">                                
+                                            <div id="seekerCardsContainer" class="row">                                
                                                 @forelse($seekers as $s)
                                                     @include('v2.components.employer.seeker-card')
                                                 @empty
@@ -42,7 +77,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     </div>
                                                 @endforelse
                                             </div>
-                                            <div class="row">
+                                            <div id="seekerTableContainer" class="">   
+                                                @include('v2.components.tables.employer.seekers')
+                                            </div>      
+                                            <div class="row mt-3">
                                                 <div class="col">
                                                     {{ $seekers->links() }}
                                                 </div>
@@ -61,5 +99,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- End Jobs -->
 @endsection
 
+@section('js')
+    <script>
+        $().ready(function(){
 
+        });
+    </script>
+@endsection
 
