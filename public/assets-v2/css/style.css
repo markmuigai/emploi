@@ -8494,3 +8494,8 @@ h4,h3{
   .nav-pills a{
     color: #500095 !important;
   }
+
+  .job-showing-area .showing .right ul li a.active {
+    color: #fff !important;
+    background-color: #e15419 !important;
+}
