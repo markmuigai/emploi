@@ -2,11 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Nicolaslopezj\Searchable\SearchableTrait;
+
 
 use App\Company;
 use App\EducationLevel;
@@ -1272,5 +1274,31 @@ class Seeker extends Model
         
         EmailJob::dispatch($this->user->name, $this->user->email, 'An employer has viewed your profile', $caption, $contents);
         return true;
+    }
+
+    /**
+     * Get seekers based on filter
+     */
+    public static function filteredSeekers($filters = []){
+        // Remove null values
+        $filters = array_filter($filters);
+
+        // Remove token key
+        unset($filters['_token']);
+
+        if(empty($filters)){
+            return Seeker::all();
+        }
+
+        // Filter by industry
+        return Seeker::all()->filter(function ($seeker) use($filters){
+            return $seeker->industry->slug == $filters['industry'];
+        });
+
+        // Filter by location
+
+        // Filter by Education Level
+
+        // Filter by experience
     }
 }
