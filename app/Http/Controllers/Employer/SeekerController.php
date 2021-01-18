@@ -6,6 +6,7 @@ use App\Seeker;
 use App\Industry;
 use App\Location;
 use Illuminate\Http\Request;
+use App\Utils\CollectionHelper;
 use App\Http\Controllers\Controller;
 
 class SeekerController extends Controller
@@ -17,8 +18,16 @@ class SeekerController extends Controller
      */
     public function index()
     {
+        // Check for filters
+        if(empty(request()->all())){
+            $seekers = Seeker::orderBy('featured')->paginate(10);
+        }else{
+            // dd(request()->all());
+            $seekers = CollectionHelper::paginate(Seeker::filteredSeekers(request()->all()), 10);
+        }
+
         return view('v2.employers.seekers.index', [
-            'seekers' => Seeker::orderBy('featured')->paginate(10),
+            'seekers' => $seekers,
             'industries' => Industry::all(),
             'locations' => Location::all()
         ]);
