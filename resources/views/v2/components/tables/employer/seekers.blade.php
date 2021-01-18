@@ -72,15 +72,14 @@
                                             <div class="row">                              
                                                 <div class="col-sm-12 col-lg-12">
                                                     <div class="form-group">
-                                                        <input type="hidden" name="seeker_id" value="{{ $s->id }}">                     
+                                                        <input type="hidden" name="seeker_id" value="{{ $s->id }}">                   
                                                         <select class="form-control" name="post_id">
                                                             @foreach(Auth::user()->employer->shortlistedPosts as $ap)
                                                             <option value="{{ $ap->id }}">{{ $ap->title }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                </div>
-                              
+                                                </div>                              
                                                 <div class="col-sm-6 col-lg-12">
                                                     <button type="submit" class="btn cmn-btn">
                                                         Shortlist
@@ -117,11 +116,9 @@
                                             <div class="row">                              
                                                 <div class="col-sm-12 col-lg-12">
                                                     <div class="form-group">
-                                                        <input type="hidden" name="seeker_id" value="{{ $s->id }}">                  
-                                                    
+                                                        <input type="hidden" name="seeker_id" value="{{ $s->id }}">                
                                                     </div>
-                                                </div>
-                              
+                                                </div>                              
                                                 <div class="col-sm-6 col-lg-12">
                                                     <button type="submit" class="btn cmn-btn">
                                                         Save
