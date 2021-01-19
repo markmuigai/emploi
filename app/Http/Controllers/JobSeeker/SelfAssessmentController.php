@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\JobSeeker;
 
 use Auth;
+use App\Post;
 use App\User;
 use App\Choice;
 use App\Question;
@@ -39,6 +40,22 @@ class SelfAssessmentController extends Controller
      */
     public function create(Request $request)
     {   
+        // Check if the assessment has been sent by an employer
+        if(isset($request->slug)){
+            // Find post
+            $post = Post::where('slug', $request->slug)->first();
+
+            // Check if the candidate has applied for the post
+            if( null!= auth()->user()->applicationForPost($request->slug) ){
+
+                return view('v2.seekers.self-assessment.create',[
+                    'questions' =>  $post->questions
+                ]);
+            }else{
+                // abort, permission denied
+            }
+        }
+
         $user=Auth::user();
 
         if(auth()->user() && auth()->user()->role == 'seeker'){
@@ -79,7 +96,7 @@ class SelfAssessmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {    
+    {   
         // dd($request->questions);
         if(auth()->user() && auth()->user()->role == 'seeker'){
             $email = auth()->user()->email;
