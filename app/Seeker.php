@@ -1286,31 +1286,49 @@ class Seeker extends Model
         // Remove token key
         unset($filters['_token']);
 
+        // If no filters set but form submitted
         if(empty($filters)){
             return Seeker::all();
         }
         
-        // Check if locations parameter has been set
-        if(isset($filters['industry']) && isset($filters['location'])){
-            return Seeker::all()->filter(function ($seeker) use($filters){
-                return $seeker->industry->slug == $filters['industry'] &&
-                    $seeker->location->id == (int)$filters['location'];
-            });
-        }elseif(isset($filters['industry'])){
-            // Filter by industry
-            return Seeker::all()->filter(function ($seeker) use($filters){
-                return $seeker->industry->slug == $filters['industry'];
-            });
-        }elseif(isset($filters['location'])  ){
-            // Filter by industry
-            return Seeker::all()->filter(function ($seeker) use($filters){
+        // Initial collection to search from
+        $collection = Seeker::all();
+
+        // Create a new seeker instance to enable use of an external method 
+        $seeker = new Seeker;
+
+        foreach($filters as $filter => $filter_value){
+            $results = $seeker->filterCollection($filter, $filter_value, $collection);
+
+            $collection = $results;
+        }
+
+        return $collection;
+    }
+
+    // Dynamic filters
+    public function filterCollection($filter, $filter_value, $collection)
+    {
+        // Also check if a collection has been passed
+        if($filter == 'location' && isset($collection)){
+            return $collection->filter(function ($seeker) use($filter_value){
                 if(isset($seeker->location))
-                return $seeker->location->id == (int)$filters['location'];
+                    // Convert filter value to int first 
+                    return $seeker->location->id == (int)$filter_value;
             });
         }
 
-        // Filter by Education Level
+        if($filter == 'industry' && isset($collection)){
+            return $collection->filter(function ($seeker) use($filter_value){
+                return $seeker->industry->slug == $filter_value;
+            });
+        }
 
-        // Filter by experience
+        if($filter == 'educationLevel' && isset($collection)){
+            return $collection->filter(function ($seeker) use($filter_value){
+                if(isset($seeker->educationLevel))
+                    return $seeker->educationLevel->id == (int)$filter_value;
+            });
+        }
     }
 }
