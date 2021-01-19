@@ -160,6 +160,7 @@ class Seeker extends Model
                 }
     }
 
+    //check if jobseeker has resume
     public function hasResume(){
        if( is_null($this->resume) )
             return false;
