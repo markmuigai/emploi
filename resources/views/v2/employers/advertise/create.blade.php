@@ -38,7 +38,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
 	                    </div>
 	                    <div class="form-group">
 	                        <label for="description">Job Description</label>
-	                        <textarea name="description" id="description" rows="5" class="form-control"></textarea>
+	                        <textarea name="description" id="description" minlength="20" required="" rows="5" class="form-control"></textarea>
 	                    </div>                  
 	                    
 	                    <div class="g-recaptcha"  id="recaptcha"  data-sitekey="6LdLhckZAAAAAAw00q3_UyaksiGoo7hbyjNcQ1it" class="form-control"  data-callback="enableBtn">                      
