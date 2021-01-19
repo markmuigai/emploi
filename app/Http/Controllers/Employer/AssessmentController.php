@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Employer;
 
-use App\Http\Controllers\Controller;
+use App\Post;
+use App\Industry;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AssessmentController extends Controller
 {
@@ -22,10 +24,18 @@ class AssessmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($slug)
     {
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        $questions = Industry::findOrFail($post->industry->id)
+                        ->getAssessmentQuestions(($post->experience_requirements)*12); 
+        
         // Show question
-        return view('v2.employers.assessment.create');
+        return view('v2.employers.assessment.create',[
+            'post' => $post,
+            'questions' => $questions
+        ]);
     }
 
     /**
