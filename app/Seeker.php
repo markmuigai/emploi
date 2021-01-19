@@ -160,6 +160,12 @@ class Seeker extends Model
                 }
     }
 
+    public function hasResume(){
+       if( is_null($this->resume) )
+            return false;
+        return true;
+        }
+
     public function testFeatured(){
         // 
     }
@@ -1325,9 +1331,23 @@ class Seeker extends Model
         }
 
         if($filter == 'educationLevel' && isset($collection)){
-            return $collection->filter(function ($seeker) use($filter_value){
+            return $collection->filter(function () use($filter_value){
                 if(isset($seeker->educationLevel))
                     return $seeker->educationLevel->id == (int)$filter_value;
+            });
+        }
+
+        if($filter == 'sort' && isset($collection)){
+            return $collection->filter(function ($seeker) use($filter_value){
+                //filter by has CV
+                if($filter_value == 'with-cv'){
+                    return $seeker->hasResume() == $filter_value;             
+                }
+                
+                //filter by has self assessment
+                if($filter_value == 'with-assessment'){
+                    return $seeker->user->assessed() == $filter_value;             
+                }      
             });
         }
     }
