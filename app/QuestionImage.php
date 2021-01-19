@@ -19,4 +19,12 @@ class QuestionImage extends Model
     {
         return $this->belongsTo('App\Question');
     }
+
+    /**
+     * Get all possible choices
+     */
+    public function choices()
+    {
+        return collect(['a','b','c','d']);
+    }
 }
