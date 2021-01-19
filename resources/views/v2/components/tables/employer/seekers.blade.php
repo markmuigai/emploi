@@ -6,7 +6,7 @@
                 <th>Name</th>
                 <th>Industry</th>
                 <th>Education Level</th>
-                <th>Location</th>
+                <th>Years Experience</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -27,10 +27,10 @@
                     @endif
                 </td>
                 <td>
-                    @if(isset($s->location))
-                    {{ $s->location->name.', '.$s->location->country->code }}
+                    @if(isset($s->years_experience))
+                        {{ $s->years_experience }} years
                     @else
-                    {{ $s->country->name }}
+                        Not Provided
                     @endif
                 </td>
                 <td>
@@ -139,7 +139,7 @@
                 <th>Name</th>
                 <th>Industry</th>
                 <th>Education Level</th>
-                <th>Location</th>
+                <th>Years Experience</th>
                 <th>Actions</th>
             </tr>
         </tfoot>
