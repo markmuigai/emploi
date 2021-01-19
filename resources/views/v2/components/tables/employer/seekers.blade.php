@@ -6,7 +6,7 @@
                 <th>Name</th>
                 <th>Industry</th>
                 <th>Education Level</th>
-                <th>Years Experience</th>
+                <th>Experience</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -139,7 +139,7 @@
                 <th>Name</th>
                 <th>Industry</th>
                 <th>Education Level</th>
-                <th>Years Experience</th>
+                <th>Experience</th>
                 <th>Actions</th>
             </tr>
         </tfoot>
