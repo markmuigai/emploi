@@ -30,13 +30,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <div class="col-sm-6 col-lg-6">
                                         <div class="left">
                                             <div class="form-group">
-                                                <form>
+                                 <!--                <form>
                                                     <select id="inputSort" name="sort" class="form-control">
-                                                        <option value="">All Candidatesff</option>
+                                                        <option value="">All Candidates</option>
                                                         <option value="with-cv">With uploaded CVs</option>
                                                         <option value="with-assessment">With Self Assessments</option>
                                                     </select>
-                                                </form>
+                                                </form> -->
                                             </div>
                                         </div>
                                     </div>
