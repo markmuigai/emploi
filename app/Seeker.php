@@ -1304,6 +1304,7 @@ class Seeker extends Model
         }elseif(isset($filters['location'])  ){
             // Filter by industry
             return Seeker::all()->filter(function ($seeker) use($filters){
+                if(isset($seeker->location))
                 return $seeker->location->id == (int)$filters['location'];
             });
         }
