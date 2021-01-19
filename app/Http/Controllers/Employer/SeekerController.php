@@ -20,7 +20,7 @@ class SeekerController extends Controller
     public function index()
     {
         // Check for filters
-        if(isset(request()->industry) || isset(request()->location)){
+        if(isset(request()->industry) || isset(request()->location ) || isset(request()->educationLevel)){
             $seekers = CollectionHelper::paginate(Seeker::filteredSeekers(request()->all()), 10);
         }else{
             $seekers = Seeker::orderBy('featured')->paginate(10);
