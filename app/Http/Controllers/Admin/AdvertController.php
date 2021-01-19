@@ -84,8 +84,8 @@ class AdvertController extends Controller
             'name' => $request->name,
             'phone_number' => $request->phone_number,
             'email' => $request->email,
-            'title' => $request->title,
-            'description' => $request->description
+            'title'    =>  ['required','string'],
+            'description' => ['required','string']
         ]);
         $user = User::where('email',$request->email)->first();
         if(!isset($user->id))
