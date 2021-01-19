@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employer;
 
 use App\Post;
 use App\Industry;
+use App\PostQuestion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,10 +29,27 @@ class AssessmentController extends Controller
     {
         $post = Post::where('slug', $slug)->firstOrFail();
 
-        $questions = Industry::findOrFail($post->industry->id)
-                        ->getAssessmentQuestions(($post->experience_requirements)*12); 
+        // Check if questions have been generated for the post
+        if($post->questions->isEmpty()){
+            $questions = Industry::findOrFail($post->industry->id)
+                ->getAssessmentQuestions(($post->experience_requirements)*12); 
+
+
+            // Store questions and post pivot table
+            foreach($questions as $question){
+                PostQuestion::create([
+                    'post_id' => $post->id,
+                    'question_id' => $question->id
+                ]);
+            }
+
+            // Send all applicants for the post with link with post slug parameter
+        }else{
+            // Get the questions which have already been assigned to the job/
+            $questions = $post->questions;
+        }
         
-        // Show question
+        // Show assessment
         return view('v2.employers.assessment.create',[
             'post' => $post,
             'questions' => $questions
