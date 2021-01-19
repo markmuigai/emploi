@@ -4,7 +4,7 @@ return [
 
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
-    'host' => env('MAIL_HOST', 'smtp-relay.sendinblue.com'),
+    'host' => env('MAIL_HOST', 'smtp.sparkpostmail.com'),
 
     'port' => env('MAIL_PORT', 587),
 
