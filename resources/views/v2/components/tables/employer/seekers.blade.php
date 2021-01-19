@@ -39,11 +39,11 @@
                        <i class='bx bx-check'></i>
                     </a>     
 
-                    @if($s->user->seeker->resume!=null)
+           <!--          @if($s->user->seeker->resume!=null)
                         <a href="{{ $s->user->seeker->resumeUrl }}" class="btn btn-success rounded-pill"  data-toggle="tooltip" data-placement="top"  title="Download CV">
                             <i class='bx bxs-download'></i>
                         </a>
-                    @endif
+                    @endif -->
 
                     <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#saveSeekerModal-{{ $s->user->id }}" title="Save profile">
                        <i class='bx bxs-heart'></i>
