@@ -16,7 +16,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-4 col-lg-2">
                 <div class="form-group">
                     <select class="selectpicker" data-live-search="true" name="industry">
                         <option value="">All Industries</option>
@@ -30,7 +30,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-4 col-lg-2">
                 <div class="form-group">
                     <select class="selectpicker" data-live-search="true" name="location">
                         <option value="">All Locations</option>
@@ -45,6 +45,15 @@
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
+                <div class="form-group">
+                    <select class="selectpicker" data-live-search="true" name="sort">
+                        <option value="">All Candidates</option>
+                        <option value="with-cv">With uploaded CVs</option>
+                        <option value="with-assessment">With Self Assessments</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4 col-lg-2">
                 <button type="submit" class="btn cmn-btn">
                     Search
                     <i class='bx bx-search-alt'></i>
