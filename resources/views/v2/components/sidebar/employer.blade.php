@@ -8,7 +8,7 @@
             My Profile
         </div>
     </a>
-    <a class="nav-link {{request()->is('employers/jobs/*') || request()->is('v2/jobs/*') || request()->routeIs('v2.employers*')? 'active' : ''}}" id="v-pills-home-tab"  href="/employers/jobs"  aria-controls="v-pills-home" aria-selected="true">
+    <a class="nav-link {{request()->is('employers/jobs/*') || request()->is('v2/jobs/*') ||  request()->is('v2/employers/*') ? 'active' : ''}}" id="v-pills-home-tab"  href="/employers/jobs"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
             Jobs
         </div>
