@@ -27,6 +27,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <i class='bx bx-left-arrow-alt'></i>Back
                          </a>
                         <h3 class="text-center">Aptitude Test Generated for {{$post->title}}</h3>
+                        @if(Session::has('message'))
+                            <p class="alert alert-info">{{ Session::get('message') }}</p>
+                        @endif
                         <div class="card shadow">
                             <div class="card-body">
                                 @foreach ($questions as $key => $question)
@@ -58,9 +61,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 @else
                                 @endif
                                 @endforeach
-                                <button class="btn btn-success">
+                          <!--       <button class="btn btn-success">
                                     Send Assessment
-                                </button>
+                                </button> -->
+                                <a href="{{route('v2.applications.assessment.send' , ['id' => $post->id])}}" class="btn btn-success">Send Assessment</a>
                             </div>
                         </div>
                     </div>
