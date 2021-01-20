@@ -74,8 +74,8 @@ class AdvertController extends Controller
             'name' => ['required', 'string', 'max:50'],
             'email'  =>  ['required', 'string', 'email','max:50'],
             'phone_number' => [ 'string', 'max:50'],
-            'title'    =>  ['string'],
-            'description' => ['string']
+            'title'    =>  ['required','string'],
+            'description' => ['required','string']
         ]);
        }
 

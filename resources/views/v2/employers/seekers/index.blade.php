@@ -30,11 +30,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     <div class="col-sm-6 col-lg-6">
                                         <div class="left">
                                             <div class="form-group">
-                                                <select>
-                                                    <option>All Candidates</option>
-                                                    <option>With uploaded CVs</option>
-                                                    <option>With Self Assessments</option>
-                                                </select>
+                                 <!--                <form>
+                                                    <select id="inputSort" name="sort" class="form-control">
+                                                        <option value="">All Candidates</option>
+                                                        <option value="with-cv">With uploaded CVs</option>
+                                                        <option value="with-assessment">With Self Assessments</option>
+                                                    </select>
+                                                </form> -->
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +73,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     <div class="card mb-4">
                                                         <div class="card-body">
                                                             <p class="text-center">
-                                                                No applications have been found
+                                                                No jobseekers have been found
                                                             </p>
                                                         </div>
                                                     </div>
@@ -100,10 +102,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @endsection
 
 @section('js')
-    <script>
-        $().ready(function(){
+ <!-- <script type="text/javascript">
+ 
+    $("#inputSort").change(function() {
+     this.form.submit();
+    });
 
-        });
-    </script>
+</script> -->
 @endsection
 
