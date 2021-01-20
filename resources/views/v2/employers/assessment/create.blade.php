@@ -23,6 +23,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                  <div class="col-lg-10 jobs-form">
                     <!-- Jobs -->
                     <div class="categories-area pb-70">
+                        <a href="{{ url()->previous() }}" class="btn btn-primary rounded-pill mb-3">
+                            <i class='bx bx-left-arrow-alt'></i>Back
+                         </a>
                         <h3 class="text-center">Aptitude Test Generated for {{$post->title}}</h3>
                         <div class="card shadow">
                             <div class="card-body">
