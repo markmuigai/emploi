@@ -506,4 +506,14 @@ class Post extends Model implements Feedable
     {
         return $this->belongsToMany('App\Question', 'post_question');
     }
+
+    /**
+     * Get the jobseekers for a post
+     */
+    public function seekers()
+    {
+        return $this->applications->map(function($application){
+            return $application->user->seeker;
+        });
+    }
 }
