@@ -60,6 +60,7 @@ class SelfAssessmentController extends Controller
                 }
             }else{
                 // abort, permission denied
+                return abort(403);
             }
         }
 
