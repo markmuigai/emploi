@@ -1332,9 +1332,9 @@ class Seeker extends Model
         }
 
         if($filter == 'educationLevel' && isset($collection)){
-            return $collection->filter(function () use($filter_value){
-                if(isset($seeker->educationLevel))
-                    return $seeker->educationLevel->id == (int)$filter_value;
+            return $collection->filter(function ($seeker) use($filter_value){
+                if(isset($seeker->education_level_id))
+                    return $seeker->education_level_id == (int)$filter_value;
             });
         }
 
