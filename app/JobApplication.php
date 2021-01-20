@@ -203,4 +203,19 @@ class JobApplication extends Model
         return $this->hasOne('App\Interview', 'job_application_id');
     }
 
+    /**
+     * Get the assessment performance associated with an application
+     */
+    public function performance()
+    {
+        return $this->belongsToMany('App\Performance', 'application_performance', 'application_id', 'performance_id');
+    }
+
+    /**
+     * Get the total score of an applicants assessment
+     */
+    public function score()
+    {
+        return ($this->performance->pluck('correct')->avg())*100;
+    }
 }
