@@ -12,7 +12,7 @@ class Advert extends Model
     public $rememberFor = 30;
 
     protected $fillable = [
-        'name', 'phone_number', 'email','title','description', 'notes','status'
+        // 'name', 'phone_number', 'email','title','description', 'notes','status'
     ];
 
     public function getTitle(){
