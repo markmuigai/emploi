@@ -127,8 +127,9 @@ Route::group([ 'middleware' => 'shortlist'], function(){
 
     // Assessment
     Route::group(['prefix' => '/employers/applications/{slug}/', 'as' => 'employers.'], function(){
-        Route::resource('assessments', 'AssessmentController');
+        Route::resource('assessments', 'AssessmentController');  
     });
+    Route::get('/applications/{id}/assessment/send', 'AssessmentController@sendEmail')->name('applications.assessment.send');
 
     // Talent Database through a job
     // Shortlisting Bulk actions
