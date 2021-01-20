@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Employer;
 
 use App\Post;
+use App\User;
 use App\Industry;
 use App\PostQuestion;
+use App\Jobs\EmailJob;
+use App\JobApplication;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -117,4 +120,29 @@ class AssessmentController extends Controller
     {
         //
     }
+
+    public function sendEmail($id){
+        $app = JobApplication::where('post_id', $id)->get();
+        $post=Post::Where('id', $id)->first();
+
+        foreach ($app as $a){
+            $user = User::Where('id', $a->user_id)->first();
+
+        $caption = "Assessment invitation for ".$post->title;
+        $contents = "Your application for the ".$post->title." was received successfully and we are now at the assessment stage.<br>
+
+                <strong>".$post->company->name."</strong> has invited you to take ".$post->title." assessment.<br><br>
+                Please use the following link to access your test. After clicking the link you will be able to go through instruction then click start the test.<br>
+                  <a href='".url('/v2/self-assessment/create?slug={{ $app->post->slug }}')."'>".$post->title." assessment link</a>.
+                <br>
+                All the best.
+                <br><br>
+                ";
+
+                EmailJob::dispatch($user->name, $user->email, 'Assessment invitation for '.$post->title, $caption, $contents);
+        }
+        return redirect()->back()->with("message", "Assessment has been send to ".$app->count()." candidates");    
+    }
+
+
 }
