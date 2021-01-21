@@ -141,55 +141,63 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
             <div class="col-md-3">
                 <div class="my-5">
                     <div class="card mt-2 mb-3">
-                        <div class="card-body">
-                            <h5><a class="text-primary" href="/v2/job-seekers/cv-editing/create">Professional CV Editing</a></h5>
-                            <p>
-                                For a detailed, targeted, concise and well-presented CV, talk to our CV Editing experts.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card mt-2 mb-3">
-                        <div class="card-body">
-                            <h5><a class="text-primary" href="/job-seekers/cv-builder">Free CV builder</a></h5>
-                            <p>
-                                Create your resume in no time at all!
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card mt-2 mb-3">
-                        <div class="card-body">
-                            <h5><a class="text-primary" href="/job-seekers/cv-templates">  Downloadable CV templates with advice</a></h5>
-                            <p>
-                                Choose a resume that suits your professional profile
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card mt-2 mb-3">
-                        <div class="card-body">
-                            <h5><a class="text-primary" href="/job-seekers/cv-templates">Exclusive Placement</a></h5>
-                            <p>
-                                Get seen by employers as we rank you on top of the employer search list. We offer exclusive placement services matching your career and Interview
-                            coaching to land your dream job.
-                        </p>
-                    </div>
-                </div>
-                <div class="card mt-2 mb-3">
-                    <div class="card-body">
-                        <h5>
-                           @if (auth()->user() && auth()->user()->role == 'seeker')
-                                <a class="text-primary" href="/v2/self-assessments/create">Self Assessment</a>
-                            @else
-                            <a class="text-primary" type="button" data-toggle="modal" data-target="#selfAssessmentModal">
-                                Self Assessment
+                        <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
+                            <a href="/v2/job-seekers/cv-editing/create">
+                                <h5>Professional CV Editing</h5>
+                                <p>
+                                    For a detailed, targeted, concise and well-presented CV, talk to our CV Editing experts.
+                                </p>
                             </a>
-                            @endif
-                        </h5>
-                        <p>
-                            Improve your job score ranking with intriguing psychometric tests!
-                        </p>
+                        </div>
                     </div>
-                </div>
-                @include('v2.components.get-help')
+                    <div class="card mt-2 mb-3">
+                        <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
+                            <a href="/job-seekers/cv-builder">
+                                <h5>Free CV builder</h5>
+                                <p>
+                                    Create your resume in no time at all!
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card mt-2 mb-3">
+                        <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
+                            <a href="/job-seekers/cv-templates">
+                                <h5>Downloadable CV templates with advice</h5>
+                                <p>
+                                    Choose a resume that suits your professional profile
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card mt-2 mb-3">
+                        <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
+                            <a href="/job-seekers/cv-templates">
+                                <h5>Exclusive Placement</h5>
+                                <p>
+                                    Get seen by employers as we rank you on top of the employer search list. We offer exclusive placement services matching your career and Interview
+                                    coaching to land your dream job.
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card mt-2 mb-3">
+                        <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
+                            <h5>
+                                @if (auth()->user() && auth()->user()->role == 'seeker')
+                                    <a href="/v2/self-assessments/create">Self Assessment</a>
+                                @else
+                                <a type="button" data-toggle="modal" data-target="#selfAssessmentModal">
+                                    Self Assessment
+                                </a>
+                                @endif
+                            </h5>
+                            <p>
+                                Improve your job score ranking with intriguing psychometric tests!
+                            </p>
+                        </div>
+                    </div>
+                   @include('v2.components.get-help')
             </div>
         </div>
     </div>
