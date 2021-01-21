@@ -121,7 +121,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
         </div>
         <div class="col-md-3">
             <div class="card mt-2 mb-3">
-                <div class="card-body">
+                <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
                     <a href="/v2/job-seekers/cv-editing/create">
                         <h5>Professional CV Editing</h5>
                         <p>
@@ -131,7 +131,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>
             <div class="card mt-2 mb-3">
-                <div class="card-body">
+                <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
                     <a href="/job-seekers/cv-builder">
                         <h5>Free CV builder</h5>
                         <p>
@@ -141,7 +141,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>
             <div class="card mt-2 mb-3">
-                <div class="card-body">
+                <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
                     <a href="/job-seekers/cv-templates">
                         <h5>Downloadable CV templates with advice</h5>
                         <p>
@@ -151,7 +151,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>
             <div class="card mt-2 mb-3">
-                <div class="card-body">
+                <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
                     <a href="/job-seekers/cv-templates">
                         <h5>Exclusive Placement</h5>
                         <p>
@@ -162,7 +162,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                 </div>
             </div>
             <div class="card mt-2 mb-3">
-                <div class="card-body">
+                <div class="card-body" style="  background: linear-gradient(to right,#500095,rgba(80,0,149,.3)); color: #fff;">
                     <h5>
                         @if (auth()->user() && auth()->user()->role == 'seeker')
                             <a href="/v2/self-assessments/create">Self Assessment</a>
