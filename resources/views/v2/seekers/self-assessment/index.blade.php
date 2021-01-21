@@ -12,7 +12,37 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="container-fluid py-4">
-                            <h4 class="text-center">My Self Assessment Results</h4><br>
+                        <div class="container-fluid seeker-services">
+                            <h4 class="orange text-center">Why You Need Self Assessment</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card shadow rounded mb-2">
+                                        <div class="card-body text-center">
+                                            <i class="flaticon-verify"></i>
+                                            <h6>Increase your job score ranking</h6><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow rounded mb-2">
+                                        <div class="card-body text-center">
+                                               <i class="flaticon-verify"></i>    
+                                               <h6>Highlight your key competencies</h6><br>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow rounded mb-2">
+                                        <div class="card-body text-center">
+                                            <i class="flaticon-verify"></i>
+                                            <h6>Instant feedback and customized recommendations</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+
+                            <h3 class="text-center">My Self Assessment Results</h3><br>
                             @if(App\Performance::recentScore(request()->email) != NULL)
                                                 
                             @guest
@@ -98,35 +128,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="container-fluid seeker-services">
-                            <h3 class="orange text-center">Why You Need Self Assessment</h3>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card shadow rounded mb-2">
-                                        <div class="card-body text-center">
-                                            <i class="flaticon-verify"></i>
-                                            <h6>Increase your job score ranking</h6><br>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card shadow rounded mb-2">
-                                        <div class="card-body text-center">
-                                               <i class="flaticon-verify"></i>    
-                                               <h6>Highlight your key competencies</h6><br>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card shadow rounded mb-2">
-                                        <div class="card-body text-center">
-                                            <i class="flaticon-verify"></i>
-                                            <h6>Instant feedback and customized recommendations</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><br>
+                        <br>
                             <div class="text-center">
                                 <h5>Have a Feedback for Us?</h5>
                                 <a href="/contact" class="btn btn-orange">Contact Us</a>
