@@ -285,4 +285,8 @@ class SelfAssessmentController extends Controller
             'email' => $email
         ]);
     }
+
+    public function about(){
+        return view('v2.seekers.self-assessment.about');
+    }
 }
