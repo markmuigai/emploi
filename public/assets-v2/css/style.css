@@ -4564,7 +4564,7 @@ button:focus {
 /*----- End Home Demo Three CSS -----*/
 /*----- About CSS -----*/
 .page-title-area {
-  background: linear-gradient(to bottom right,#000,rgba(81,81,81,.5)), url("../../images/seeker_services.jpg");
+  background: linear-gradient(#500095 100%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,160,.3)), url("../../images/seeker_services.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
