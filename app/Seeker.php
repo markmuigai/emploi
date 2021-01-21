@@ -1352,4 +1352,49 @@ class Seeker extends Model
             });
         }
     }
+
+    public function sendIndustryVacancyEmail()     
+
+    {       
+        $featured = Post::where('created_at', '>', Carbon::now()->subDays(20))
+                        ->where('status','active')
+                        ->where('featured','true')
+                        ->orderBy('id','DESC')
+                        ->get();
+
+        $vacancies = Post::where('created_at', '>', Carbon::now()->subDays(20))
+                    ->where('industry_id',$this->industry_id)
+                    ->where('status','active')
+                    ->orderBy('created_at','DESC')
+                    ->get();        
+
+         $blogs = Blog::All()
+                       ->random(3);
+         $featuredVacancies = $featured; 
+           
+        {
+
+
+            $caption = "Emploi.co is a smart recruitment engine leveraging data and technology to create instant, accurate matches between candidates and roles.";
+
+            $contents ="Receive greetings from Emploi.<br>
+                        Still in the Human Resource field?<br>
+                        We currently have openings in Human Resource  that might interest you.<br><br>
+
+                        Kindly check the qualifications on  <a href='".url('http://bit.ly/361VSIB')."'>http://bit.ly/361VSIB</a> and <a href='".url('http://bit.ly/3sKsoJ6')."'>http://bit.ly/3sKsoJ6</a> and apply.<br>
+
+                        Find more jobs from Emploi:
+                        View all jobs at <a href='".url('http://bit.ly/2KA5QcR')."'>http://bit.ly/2KA5QcR</a> <br><br><br>                        
+                         ____________________<br>
+
+                        Want to get noticed by Employers?<br>
+                        <a href='".url('http://bit.ly/391szIc')."'>Subscribe to our Spotlight package at only kshs.259</a>";                                                                  
+            
+            if(User::subscriptionStatus($this->user->email)) {    
+            EmailJob::dispatch($this->user->name, $this->user->email, 'Human Resource Vacancies for you', $caption, $contents);
+            return true;
+            }
+        }
+             
+    }
 }
