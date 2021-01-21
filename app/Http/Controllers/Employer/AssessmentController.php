@@ -132,7 +132,7 @@ class AssessmentController extends Controller
         $contents = "Your application for the ".$post->title." was received successfully and we are now at the assessment stage.<br>
 
                 <strong>".$post->company->name."</strong> has invited you to take ".$post->title." assessment.<br><br>
-                Please use the following link to access your test. After clicking the link you will be able to go through instruction then click start the test.<br>
+                Please use the following link below to access your test. After clicking the link you will be able to go through instruction then proceed start the test.<br>
                   <a href='".url('/v2/self-assessment/create?slug={{ $app->post->slug }}')."'>".$post->title." assessment link</a>.
                 <br>
                 All the best.
