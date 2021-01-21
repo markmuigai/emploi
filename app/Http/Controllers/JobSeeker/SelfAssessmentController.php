@@ -23,8 +23,10 @@ class SelfAssessmentController extends Controller
      */
     public function index()
     {
-        if(request()->email !== auth()->user()->email){
-            return abort(403);
+        if(isset(Auth::user()->id)){
+            if(request()->email !== auth()->user()->email){
+                return abort(403);
+            }
         }
         
         // Show assessment
