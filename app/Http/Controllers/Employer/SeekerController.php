@@ -18,13 +18,16 @@ class SeekerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {      
+
         if(isset(request()->post)){
             $post = Post::findOrFail(request()->post);
+            $request->request->add(['industry' => $post->industry->slug]);  
+
         }else{
             $post = [];
-        }
+        }        
 
         // Check for filters
         if(isset(request()->industry) || isset(request()->location ) || isset(request()->educationLevel) || isset(request()->sort)){

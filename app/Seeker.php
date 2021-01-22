@@ -1292,6 +1292,7 @@ class Seeker extends Model
 
         // Remove token key
         unset($filters['_token']);
+        unset($filters['post']);
 
         // If no filters set but form submitted
         if(empty($filters)){
