@@ -55,7 +55,7 @@
                         </h4>
                             <div class="modal-body">
                             @if(count(Auth::user()->employer->shortlistingPosts) > 0)
-                            <form method="post" action="/employers/shortlist" class="row">
+                            <form method="post" action="/employers/shortlist">
                                 @csrf  
                                 <div class="job-filter-area pt-2">
                                     <div class="container">
