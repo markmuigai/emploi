@@ -48,7 +48,7 @@
                     <select class="selectpicker" data-live-search="true" name="sort">
                         <option value="">All Candidates</option>
                         <option value="with-cv">With uploaded CVs</option>
-                        <option value="with-assessment">With Self Assessments</option>
+             <!--            <option value="with-assessment">With Self Assessments</option> -->
                     </select>
                 </div>
             </div>
