@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Employer;
 
+use App\Post;
 use App\Seeker;
 use App\Industry;
 use App\Location;
@@ -19,6 +20,12 @@ class SeekerController extends Controller
      */
     public function index()
     {
+        if(isset(request()->post)){
+            $post = Post::findOrFail(request()->post);
+        }else{
+            $post = [];
+        }
+
         // Check for filters
         if(isset(request()->industry) || isset(request()->location ) || isset(request()->educationLevel) || isset(request()->sort)){
             $seekers = CollectionHelper::paginate(Seeker::filteredSeekers(request()->all()), 10);
@@ -30,7 +37,8 @@ class SeekerController extends Controller
             'seekers' => $seekers,
             'industries' => Industry::all(),
             'locations' => Location::all(),
-            'educationLevels' => EducationLevel::all()
+            'educationLevels' => EducationLevel::all(),
+            'post' => $post
         ]);
     }
 

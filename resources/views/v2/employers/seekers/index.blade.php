@@ -20,7 +20,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @include('v2.components.sidebar.employer')               
                 </div>           
                  <div class="col-lg-10 jobs-form">
-                    <h3 class="text-center my-2">Browse all Candidates </h3>
+                    <h3 class="text-center my-2">
+                        @if(empty($post))
+                            Browse all Candidates 
+                        @else
+                            Get {{$post->title}} candidates from our talent database
+                        @endif
+                    </h3>
                     @include('v2.components.employer.browse.filter') 
                     <!-- Jobs -->
                     <div class="job-showing-area">
