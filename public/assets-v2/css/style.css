@@ -8505,3 +8505,11 @@ h4,h3{
   display: block !important;
   height: 200px;
 }
+
+.about-assessment h4{
+  color: #41a846 !important;
+}
+
+.about-assessment blockquote, .blockquote-footer{
+  color: #e15419 !important;
+}
