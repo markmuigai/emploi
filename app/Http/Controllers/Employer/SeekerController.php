@@ -23,7 +23,8 @@ class SeekerController extends Controller
 
         if(isset(request()->post)){
             $post = Post::findOrFail(request()->post);
-            $request->request->add(['industry' => $post->industry->slug]);  
+            $request->request->add(['industry' => $post->industry->slug]);
+            $request->request->add(['educationLevel' => $post->educationLevel->id]);   
 
         }else{
             $post = [];
