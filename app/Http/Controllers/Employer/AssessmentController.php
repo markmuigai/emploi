@@ -133,7 +133,7 @@ class AssessmentController extends Controller
 
                 <strong>".$post->company->name."</strong> has invited you to take ".$post->title." assessment.<br><br>
                 Please use the following link below to access your test. After clicking the link you will be able to go through instruction then proceed start the test.<br>
-                  <a href='".url('/v2/self-assessment/create?slug={{ $app->post->slug }}')."'>".$post->title." assessment link</a>.
+                  <a href='".url('/v2/self-assessment/create?slug='.$post->slug)."'>".$post->title." assessment link</a>.
                 <br>
                 All the best.
                 <br><br>
@@ -141,7 +141,7 @@ class AssessmentController extends Controller
 
                 EmailJob::dispatch($user->name, $user->email, 'Assessment invitation for '.$post->title, $caption, $contents);
         }
-        return redirect()->back()->with("message", "Assessment has been send to ".$app->count()." candidates");    
+        return redirect()->back()->with("message", "Assessment has been sent to ".$app->count()." candidates");    
     }
 
 
