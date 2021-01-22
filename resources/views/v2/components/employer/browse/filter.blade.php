@@ -22,7 +22,8 @@
                         <option value="">All Industries</option>
                         @forelse($industries as $i)
                             <option value="{{ $i->slug }}" @if(isset($industry->id) && $i->id == $industry->id)
-                            selected=""
+                                {{ isset($request()->industry) && $request->industry->slug == $industry->slug ? 'selected=""' : '' }}
+                               
                             @endif
                             >{{ $i->name }}</option>
                             @empty
