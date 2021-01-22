@@ -8,7 +8,7 @@
                     <select class="selectpicker" name="educationLevel" data-live-search="true">
                         <option value="">All Education Levels</option>
                         @forelse ($educationLevels as $el)                                           
-                            <option value="{{ $el->id }}" {{ isset($search_el) && $search_el == $el->id ? 'selected=""' : '' }}>
+                            <option value="{{$el->id}}" {{ isset(request()->educationLevel) && request()->educationLevel == $el->id ? 'selected' : '' }}>
                                 {{ $el->name }}
                             </option>
                         @empty
@@ -21,10 +21,8 @@
                     <select class="selectpicker" data-live-search="true" name="industry">
                         <option value="">All Industries</option>
                         @forelse($industries as $i)
-                            <option value="{{ $i->slug }}" @if(isset($industry->id) && $i->id == $industry->id)
-                                {{ isset($request()->industry) && $request->industry->slug == $industry->slug ? 'selected=""' : '' }}
-                               
-                            @endif
+                            <option value="{{ $i->slug }}"
+                                {{ isset(request()->industry) && request()->industry == $i->slug ? 'selected' : '' }}
                             >{{ $i->name }}</option>
                             @empty
                         @endforelse
