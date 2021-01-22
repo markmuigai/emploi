@@ -15,6 +15,22 @@
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
+                        @if(isset(Auth::user()->id))
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                        </li> -->
+                        @else
+                            <li class="nav-item">
+                                <strong>
+                                    <a href="/v2/login" style="margin-right:0px !important">{{ __('auth.login') }}</a>
+                                </strong>
+                            </li>
+                            <li class="nav-item">
+                                <strong>
+                                    <a href="/v2/join" style="padding-left">{{ __('auth.register') }}</a>
+                                </strong>
+                            </li>
+                        @endif  
                         <li class="nav-item">
                             <span class="tooltip-span">Hot</span>
                             
@@ -70,18 +86,6 @@
                                         <a href="/job-seekers/paas" class="nav-link">Golden Club</a>
                                     </li>
                                 </ul>
-                            </li>
-                        @endif
-                        @if(isset(Auth::user()->id))
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-                        </li> -->
-                        @else
-                            <li class="nav-item">
-                                <a href="/v2/login" style="margin-right:0px !important" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/v2/join" style="padding-left" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.register') }}</a>
                             </li>
                         @endif
                         @auth
