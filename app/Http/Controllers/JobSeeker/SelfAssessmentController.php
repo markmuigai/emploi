@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\JobSeeker;
 
 use Auth;
+use App\Post;
 use App\User;
 use App\Choice;
 use App\Question;
 use App\Industry;
 use App\Performance;
 use Illuminate\Http\Request;
+use App\ApplicationPerformance;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -21,8 +23,10 @@ class SelfAssessmentController extends Controller
      */
     public function index()
     {
-        if(request()->email !== auth()->user()->email){
-            return abort(403);
+        if(isset(Auth::user()->id)){
+            if(request()->email !== auth()->user()->email){
+                return abort(403);
+            }
         }
         
         // Show assessment
@@ -39,6 +43,29 @@ class SelfAssessmentController extends Controller
      */
     public function create(Request $request)
     {   
+        // Check if the assessment has been sent by an employer
+        if(isset($request->slug)){
+            // Find post
+            $post = Post::where('slug', $request->slug)->first();
+
+            // Check if the candidate has applied for the post
+            if( null!= auth()->user()->applicationForPost($request->slug) ){
+                $application = auth()->user()->applicationForPost($request->slug);
+                // Check if the candidate has already done the assessment
+                if($application->performance->isEmpty()){
+                    return view('v2.seekers.self-assessment.create',[
+                        'questions' =>  $post->questions
+                    ]);
+                }else{
+                    // abort your results have already been submitted!
+                    return abort(403);
+                }
+            }else{
+                // abort, permission denied
+                return abort(403);
+            }
+        }
+
         $user=Auth::user();
 
         if(auth()->user() && auth()->user()->role == 'seeker'){
@@ -79,8 +106,7 @@ class SelfAssessmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {    
-        // dd($request->questions);
+    {   
         if(auth()->user() && auth()->user()->role == 'seeker'){
             $email = auth()->user()->email;
 
@@ -163,6 +189,34 @@ class SelfAssessmentController extends Controller
                     ]);
                 };
             }
+
+            // Check if the assessment has been sent by an employer
+            if(isset($request->slug)){
+                // Find post
+                $post = Post::where('slug', $request->slug)->first();
+
+                // Check if the candidate has applied for the post
+                if( null!= auth()->user()->applicationForPost($request->slug) ){
+                    $application = auth()->user()->applicationForPost($request->slug);
+
+                    // Get the recent assessment records
+                    $scores = Performance::latestAssessment($email);
+
+                    // Create application_performance pivot records
+                    foreach($scores as $score){
+                        ApplicationPerformance::create([
+                            'application_id' => $application->id,
+                            'performance_id' => $score->id
+                        ]);
+                    }
+
+                    return view('v2.seekers.self-assessment.create',[
+                        'questions' =>  $post->questions
+                    ]);
+                }else{
+                    // abort, permission denied
+                }
+            }
         });
 
         return redirect()->route('v2.self-assessment.index', [
@@ -232,5 +286,9 @@ class SelfAssessmentController extends Controller
             ],
             'email' => $email
         ]);
+    }
+
+    public function about(){
+        return view('v2.seekers.self-assessment.about');
     }
 }

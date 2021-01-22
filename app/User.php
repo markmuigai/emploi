@@ -416,4 +416,15 @@ class User extends Authenticatable
                 return $application->interview->evaluation;
         })->last();
     }
+
+    /**
+     * Get a user's application for a specific post
+     */
+    public function applicationForPost($slug)
+    {
+        return $this->applications->filter(function($application) use($slug){
+            if($application->post)
+                return $application->post->slug == $slug;
+        })->last();
+    }
 }

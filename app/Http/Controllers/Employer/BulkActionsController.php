@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Employer;
 
+use File;
 use App\Post;
 use Response;
+use ZipArchive;
 use Carbon\Carbon;
 use App\Jobs\EmailJob;
+use App\Http\Requests;
 use App\JobApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -68,14 +71,53 @@ class BulkActionsController extends Controller
                     return redirect()->back();
                     break;
                 case 'downloadCV' : 
-                    foreach($request->applications as $app){
-                        $url = JobApplication::findOrFail($app)->user->seeker->resume;
+                    // Define Dir Folder
+        	        $public_dir = public_path();
 
-                        $path=public_path().'/storage/resumes/'.$url;
-                        // $headers = ['Content-Type: application/pdf'];                   
+                    // Zip File Name
+                    $zipFileName = 'bulkCV.zip';
 
-                        response()->download($path, $url);
+                    // Create ZipArchive Object 
+                    $zip = new ZipArchive;
+
+                    // Check if 
+                    if ($zip->open($public_dir . '/' . $zipFileName, ZipArchive::CREATE) === TRUE) {
+
+                        $files = File::files(public_path('/storage/resumes/'));
+
+                        // foreach ($files as $key => $value) {
+                        //     $relativeNameInZipFile = basename($value);
+                        //     $zip->addFile($value, $relativeNameInZipFile);
+                        // }
+
+                        // Add each applicant file in ZipArchive
+                        // foreach($request->applications as $app){
+                        //     $application = JobApplication::findOrFail($app);
+
+                        //     $url = $application->user->seeker->resume;
+
+                        //     $path = public_path().'/storage/resumes/'.$url;               
+
+                        //     $zip->addFile($path, $application->user->username);
+                        // }
+
+                        // Close ZipArchive     
+                        $zip->close();
                     }
+
+                    // Set Header
+                    $headers = array(
+                        'Content-Type' => 'application/octet-stream',
+                    );
+
+                    $filetopath = $public_dir.'/'.$zipFileName;
+
+                    // Create Download Response
+                    if(file_exists($filetopath)){
+                        return Storage::download($filetopath);
+                        return response()->download($filetopath);
+                    }
+
                     return redirect()->back();
                     break;
 

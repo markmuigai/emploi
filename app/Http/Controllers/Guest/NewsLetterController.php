@@ -54,13 +54,13 @@ class NewsLetterController extends Controller
                 if(isset($n->id))
                 {
                     
-                    $caption = "News Letter Subscription";
-                    $contents = "You have subscribed successfully to our news letter. This will enable you to receive updates on vacancies and career information. <br><br><br>
+                    $caption = "Newsletter Subscription";
+                    $contents = "You have successfully subscribed to our newsletter. This will enable you to receive updates on vacancies and career information. <br><br><br>
             
 
                     If this was by a mistake you can unsubscribe <a href='".url('/v2/news-letter/'.$n->id.'/edit' )."'>here</a>. Thank you for choosing Emploi.
                             ";
-                    EmailJob::dispatch($request->name, $request->email, 'News Letter Subscription', $caption, $contents);
+                    EmailJob::dispatch($request->name, $request->email, 'Newsletter Subscription', $caption, $contents);
 
                     return redirect()->back(); 
                 }
@@ -74,13 +74,13 @@ class NewsLetterController extends Controller
                
                 if(isset($u->id)){
 
-                    $caption = "News Letter Subscription";
-                    $contents = "You have resubscribed successfully to our news letter. This will enable you to receive updates on vacancies and career information. <br><br><br>
+                    $caption = "Newsletter Subscription";
+                    $contents = "You have successfully resubscribed to our newsletter. This will enable you to receive updates on vacancies and career information. <br><br><br>
             
 
                     If this was by a mistake you can unsubscribe <a href='".url('/v2/news-letter/'.$u->id.'/edit' )."'>here</a>. Thank you for choosing Emploi.
                             ";
-                    EmailJob::dispatch($request->name, $request->email, 'News Letter Subscription', $caption, $contents);
+                    EmailJob::dispatch($request->name, $request->email, 'Newsletter Subscription', $caption, $contents);
 
                     return redirect()->back();
                     } 
@@ -128,7 +128,7 @@ class NewsLetterController extends Controller
         $subscriber->status = 'inactive';
         $subscriber->save();
 
-        return redirect()->back()->with('message', 'You have unsubscribed successfully');
+        return redirect()->back()->with('message', 'You have successfully unsubscribed');
     }
 
     /**

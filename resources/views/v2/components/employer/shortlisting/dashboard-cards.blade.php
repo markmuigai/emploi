@@ -14,7 +14,7 @@
             </div>
             <p class="collapse" id="collapseRSI">By creating an RSI Model, you will be able to rank applicants through different criteria e.g education, experience and skills</p>
             <div class="row px-3">
-                <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill">
+                <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="mr-2 mt-1 btn btn-success btn-sm rounded-pill">
                     Generate ranking criteria
                 </a>
                 <a href="{{route('v2.seekers.index', ['post' => $post])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill"> Browse More Candidates</a>
@@ -35,10 +35,19 @@
             </div>
             <p class="collapse" id="collapseActions">Select candidates from our talent database or generate a link to share this vacancy</p>
             <div class="row px-3">
-                <a href="{{route('v2.bulk-actions.index', ['post' => $post])}}" target="_blank" class="btn btn-primary mr-2 mt-1 btn-sm rounded-pill"> Bulk Actions</a>
+                <a href="{{route('v2.bulk-actions.index', ['post' => $post])}}" target="_blank" class="btn btn-success mr-2 mt-1 btn-sm rounded-pill"> Bulk Actions</a>
                 <button class="btn btn-success mr-2 mt-1 btn-sm rounded-pill" data-toggle="modal" data-target="#shareVacancy">
                     Share this vacancy
                 </button>
+       <!--          @if ($post->questions->isEmpty())
+                    <a href="{{route('v2.employers.assessments.create', ['slug' => $post->slug])}}" class="btn btn-success mr-2 mt-1 btn-sm rounded-pill">
+                        Send Assessment
+                    </a>
+                @else
+                    <a href="{{route('v2.employers.assessments.index', ['slug' => $post->slug])}}" class="btn btn-success mr-2 mt-1 btn-sm rounded-pill">
+                        Assessment Results
+                    </a>
+                @endif -->
             </div>
         </div>
     </div>

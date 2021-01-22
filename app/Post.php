@@ -499,4 +499,21 @@ class Post extends Model implements Feedable
         return $post ? $post->status : false;
     }
 
+    /**
+     * Get the associated questions
+     */
+    public function Questions()
+    {
+        return $this->belongsToMany('App\Question', 'post_question');
+    }
+
+    /**
+     * Get the jobseekers for a post
+     */
+    public function seekers()
+    {
+        return $this->applications->map(function($application){
+            return $application->user->seeker;
+        });
+    }
 }

@@ -112,11 +112,7 @@
                         <a href="/v2/job-seekers/cv-editing/create" class="dropdown-item">Professional CV Editing</a>
                         <a href="/job-seekers/services" class="dropdown-item">Job Seeker Services</a>
                         <a href="/v2/cv-review/create" class="dropdown-item">Automatic CV Review</a>                 
-                        @if (auth()->user() && auth()->user()->role == 'seeker')
-                        <a href="{{route('v2.self-assessment.create')}}" class="dropdown-item">Self Assessment</a>
-                        @else
-                            <a href="/" class="dropdown-item">Self Assessment</a>
-                        @endif                        
+                        <a href="/v2/assessment/about" class="dropdown-item">Self Assessment</a>                      
                         <a href="/job-seekers/paas" class="dropdown-item">Golden Club</a>  
                     </div>
                 </li>

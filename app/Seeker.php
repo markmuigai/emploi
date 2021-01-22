@@ -304,7 +304,7 @@ class Seeker extends Model
         return false;
     }
 
-        public function isOnPaas(){
+    public function isOnPaas(){
         $sp = SeekerSubscription::where('user_id',$this->user->id)
                 ->Where('status', 'active')
                 ->first();
@@ -314,7 +314,7 @@ class Seeker extends Model
         return false;
     }
 
-        public function activateFreeGoldenClub($days = 30){
+    public function activateFreeGoldenClub($days = 30){
         $product = Product::where('slug','golden_club')->first();
         if(isset($product->id))
         {
@@ -1012,7 +1012,7 @@ class Seeker extends Model
     }
 
 
-        public function findRsi(){
+    public function findRsi(){
         //return $this->getPlainRsi($post);
         $perc = 0;
 
@@ -1171,8 +1171,8 @@ class Seeker extends Model
     }
 
     public function sendMassProfileViewedEmail(){
-    //increment profile view counter
-    $seeker = Seeker::where('user_id',$this->user_id)->increment('view_count');
+        //increment profile view counter
+        $seeker = Seeker::where('user_id',$this->user_id)->increment('view_count');
   
         //jobseeker with id less than 14000 i.e approx half
         if($this->id < 14000)
@@ -1332,9 +1332,9 @@ class Seeker extends Model
         }
 
         if($filter == 'educationLevel' && isset($collection)){
-            return $collection->filter(function () use($filter_value){
-                if(isset($seeker->educationLevel))
-                    return $seeker->educationLevel->id == (int)$filter_value;
+            return $collection->filter(function ($seeker) use($filter_value){
+                if(isset($seeker->education_level_id))
+                    return $seeker->education_level_id == (int)$filter_value;
             });
         }
 

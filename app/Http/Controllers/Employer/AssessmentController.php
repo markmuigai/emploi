@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Employer;
 
-use App\Http\Controllers\Controller;
+use App\Post;
+use App\User;
+use App\Industry;
+use App\PostQuestion;
+use App\Jobs\EmailJob;
+use App\JobApplication;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AssessmentController extends Controller
 {
@@ -12,9 +18,15 @@ class AssessmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        // Show assessment
+        return view('v2.employers.assessment.index',[
+            'post' => $post,
+            'seekers' => $post->seekers()
+        ]);
     }
 
     /**
@@ -22,10 +34,35 @@ class AssessmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($slug)
     {
-        // Show question
-        return view('v2.employers.assessment.create');
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        // Check if questions have been generated for the post
+        if($post->questions->isEmpty()){
+            $questions = Industry::findOrFail($post->industry->id)
+                ->getAssessmentQuestions(($post->experience_requirements)*12); 
+
+
+            // Store questions and post pivot table
+            foreach($questions as $question){
+                PostQuestion::create([
+                    'post_id' => $post->id,
+                    'question_id' => $question->id
+                ]);
+            }
+
+            // Send all applicants for the post with link with post slug parameter
+        }else{
+            // Get the questions which have already been assigned to the job/
+            $questions = $post->questions;
+        }
+        
+        // Show assessment
+        return view('v2.employers.assessment.create',[
+            'post' => $post,
+            'questions' => $questions
+        ]);
     }
 
     /**
@@ -83,4 +120,29 @@ class AssessmentController extends Controller
     {
         //
     }
+
+    public function sendEmail($id){
+        $app = JobApplication::where('post_id', $id)->get();
+        $post=Post::Where('id', $id)->first();
+
+        foreach ($app as $a){
+            $user = User::Where('id', $a->user_id)->first();
+
+        $caption = "Assessment invitation for ".$post->title;
+        $contents = "Your application for the ".$post->title." was received successfully and we are now at the assessment stage.<br>
+
+                <strong>".$post->company->name."</strong> has invited you to take ".$post->title." assessment.<br><br>
+                Please use the following link below to access your test. After clicking the link you will be able to go through instruction then proceed start the test.<br>
+                  <a href='".url('/v2/self-assessment/create?slug='.$post->slug)."'>".$post->title." assessment link</a>.
+                <br>
+                All the best.
+                <br><br>
+                ";
+
+                EmailJob::dispatch($user->name, $user->email, 'Assessment invitation for '.$post->title, $caption, $contents);
+        }
+        return redirect()->back()->with("message", "Assessment has been sent to ".$app->count()." candidates");    
+    }
+
+
 }

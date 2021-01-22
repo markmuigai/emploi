@@ -8,7 +8,7 @@
                         <select id="actions" class="my-1 mr-sm-2 rounded-pill" name="action">
                             <option selected>Select an action</option>
                             <option value="shortlist">Shortlist</option>
-                            <option value="downloadCV">Download CV</option>
+                            {{-- <option value="downloadCV">Download CV</option> --}}
                             <option value="interviewInvite">Invite to interview</option>
                         </select>
                         <button type="submit" class="btn btn-primary rounded-pill my-1" id="submit">Submit</button>

@@ -2,6 +2,10 @@
 
 @section('title','Self Assessment :: Emploi')
 
+@section('description')
+Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
+@endsection
+
 @section('content')
     <!-- Navbar -->
     @include('v2.components.jobseeker.navbar')    
@@ -20,7 +24,7 @@
                             </h4>
                         </div>
                     </div>
-                    <form id="assessmentForm" method="POST" action="{{Route('v2.self-assessment.store', ['email' => request()->email, 'questions' => $questions->pluck('id')->toArray()])}}" enctype="multipart/form-data">
+                    <form id="assessmentForm" method="POST" action="{{Route('v2.self-assessment.store', ['slug' => request()->slug, 'email' => request()->email, 'questions' => $questions->pluck('id')->toArray()])}}" enctype="multipart/form-data">
                         @csrf
                         <div id="carouselExampleControls" id="assessment-carousel" class="carousel assessment-carousel slide" data-ride="carousel">
                             <div class="carousel-inner mb-5">
