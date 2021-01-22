@@ -327,13 +327,15 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             {
 
                 $caption = "You have applied for ".$post->title;
-                $contents = "Your application for the ".$post->title." has been submitted successfully. Your Job Application Id is ".$j->id.". <br>
+                $contents = "Your application for ".$post->title." has been successfully submitted.<br>
                 The application has been sent to <strong>".$post->company->name."</strong> for consideration.<br><br>
-                In the meantime, update your profile with your updated CV and take a self assessment <a href='".url('/')."'>here</a> to rank better against other applicants.
+                In the meantime, take a FREE Self Assessment Test  <a href='".url('/v2/assessment/about')."'>here</a> to practice
+                incase your prospective employer sends you one. Preparing and scoring high in a Self Assessment will help you to rank
+                better against other applicants. 
                 <br>
-                All the best.
+                Best wishes.
                 <br><br>
-
+                To update your profile and upload current CV, click <a href='".url('/profile/edit')."'>here</a><br>
                 <a href='".url('/vacancies')."'>Browse Other Vacancies</a>
                 ";
                 EmailJob::dispatch($user->name, $user->email, 'Applied for '.$post->title, $caption, $contents);
