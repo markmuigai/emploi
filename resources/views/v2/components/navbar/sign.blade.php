@@ -30,7 +30,7 @@
                                     <a href="favourite-jobs.html" class="nav-link">Favourite Jobs</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
+                                    <a href="/v2/assessment/about" class="nav-link">Self Assessment</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="post-a-job.html" class="nav-link">Post A Job</a>

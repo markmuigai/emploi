@@ -28,16 +28,9 @@
                                <!--  <li class="nav-item">
                                     <a href="v2/login" class="nav-link">My Saved Jobs</a>
                                 </li> -->
-                                @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                                 <li class="nav-item">
-                                    <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
+                                    <a href="/v2/assessment/about" class="nav-link">Self Assessment</a>
                                 </li>
-                                @else
-                                                     
-                                <li class="nav-item">
-                                    <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
-                                </li>
-                                @endif
 
                                 <li class="nav-item">
                                     <a href="/post-a-job" class="nav-link">Post A Job</a>
@@ -141,7 +134,3 @@
         </div>
     </div>
 </div>
-
-@section('modal')
-    @include('v2.components.modals.self-assessment')
-@endsection

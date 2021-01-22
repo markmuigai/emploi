@@ -63,16 +63,9 @@
                                     <li class="nav-item">
                                         <a href="/v2/cv-review/create" class="nav-link">Automatic CV Review</a>
                                     </li>
-                                    @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                                     <li class="nav-item">
-                                        <a href="/v2/self-assessments/create" class="nav-link">Self Assessment</a>
-                                    </li>
-                                    @else
-                                                         
-                                    <li class="nav-item">
-                                        <a href="#" data-toggle="modal" data-target="#selfAssessmentModal" class="nav-link">Self Assessment</a>
-                                    </li>
-                                    @endif                                
+                                        <a href="/v2/assessment/about" class="nav-link">Self Assessment</a>
+                                    </li>                             
                                     <li class="nav-item">
                                         <a href="/job-seekers/paas" class="nav-link">Golden Club</a>
                                     </li>
@@ -132,7 +125,3 @@
         </div>
     </div>
 </div>
-
-@section('modal')
-    @include('v2.components.modals.self-assessment')
-@endsection
