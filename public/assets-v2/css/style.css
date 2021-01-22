@@ -8514,3 +8514,6 @@ h4,h3{
   color: #e15419 !important;
 }
 
+.banner-form-area .nice-select .list{
+  height: 200px;
+}
