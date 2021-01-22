@@ -18,6 +18,33 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <h5 class="text-muted text-center mb-3">
                 Psychological tests for every career question and personal development
             </h5>
+            <div class="mobile card" style="display: none">
+                <div class="card-body shadow">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class='bx bx-check text-success'></i>
+                            Prepare for employer aptitude tests used in shortlisting
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bx-check text-success'></i>
+                            Increase the chances of landing your dream job
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bx-check text-success'></i>
+                            Highlight your key competencies
+                        </li>
+                        <li class="list-group-item">
+                            <i class='bx bx-check text-success'></i>
+                            Demonstrate your problem solving skills
+                        </li>
+                    </ul> 
+                    @if (auth()->user() && auth()->user()->role == 'seeker')
+                        <a class="btn btn-success d-block mb-1" href="{{route('v2.self-assessment.create')}}"><span style="color: white">  Go to Assessment</i></span></a>
+                    @else
+                        <a class="btn btn-success d-block mb-1" href="#" data-toggle="modal" data-target="#selfAssessmentModal"><span style="color: white">  Go to Assessment</i></span></a>
+                    @endif 
+                </div>
+            </div>  
             <div class="row about-assessment">
                 <div class="col-md-8">
                     <h4>Why our I.Q Test?</h4>
@@ -47,7 +74,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </ol><br>        
                 </div>
                 <div class="col-md-4">
-                    <div class="card shadow">
+                    <div class="card desktop shadow">
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
