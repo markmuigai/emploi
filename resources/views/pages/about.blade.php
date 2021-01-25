@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     <div class="card about">
         <div class="card-body text-center">
             <h2 class="orange">About Us</h2>
-            <p>Emploi addresses junior level job seekers’ career progression needs bynproviding a mixture of technological skills assessment tools and personalized career services to fast-track their landing of opportunities that match their competencies.</p>
+            <p>Emploi addresses junior level job seekers’ career progression needs by providing a mixture of technological skills assessment tools and personalized career services to fast-track their landing of opportunities that match their competencies.</p>
             <p>Our vision is to be the ultimate talent solutions platform by supporting a job market where employers lack tools for assessing and
                displaying competencies & skills of young professionals, thereby spending enormous amounts of resources to effectively hire young professionals who meet their job demands in terms of delivery and job stability.
            </p>
