@@ -11,7 +11,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @if(count($user->applications) > 0)
 <h5>{{ count($user->applications) }} application{{ $user->positions == 1 ? 's' : '' }}</h5>
-    @forelse($user->applications as $app)
+    @forelse($user->applications->sortByDesc('id')  as $app)
     <div class="col-lg-12">
         <div class="card my-2">
             <div class="card-body">
