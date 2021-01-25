@@ -184,7 +184,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             // Start timer
             var dt = new Date();
-            dt.setMinutes( dt.getMinutes() + 10 );
+            dt.setMinutes( dt.getMinutes() + 18 );
             // Set the date we're counting down to
             var countDownDate = dt.getTime();
 
