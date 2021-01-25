@@ -34,7 +34,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         Our Self assessment uses an aptitude test to gauge an individual's reasoning capacity in
                                         different aspects.
                                         <span class="text-danger">
-                                            You have 10 minutes to complete 10 questions.
+                                            You have 15 minutes to complete 18 questions.
                                         </span>
                                         <ul>
                                             <li>Select the correct choice to be able to proceed to the next question</li>
@@ -184,7 +184,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             // Start timer
             var dt = new Date();
-            dt.setMinutes( dt.getMinutes() + 18 );
+            dt.setMinutes( dt.getMinutes() + 15 );
             // Set the date we're counting down to
             var countDownDate = dt.getTime();
 
