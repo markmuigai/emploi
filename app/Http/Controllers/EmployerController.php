@@ -593,6 +593,7 @@ class EmployerController extends Controller
         //get jobseeker assessment score
         $assessment_result=Performance::where('email', $user->email)->first();
         $perf = Performance::recentScore($user->email);
+        $total = Performance::latestAssessment($user->email)->count();
       
 
         if($user->role == 'seeker')
@@ -609,8 +610,8 @@ class EmployerController extends Controller
 
         return view('employers.seeker')
                 ->with('user',$user)
-                ->with('perf', $perf);
-
+                ->with('perf', $perf)
+                ->with('total', $total);
     }
 
     public function dashboard(Request $request)
