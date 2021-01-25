@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Employer;
 use App\Post;
 use App\User;
 use App\Industry;
+use Notification;
+use App\Employer;
 use App\PostQuestion;
 use App\Jobs\EmailJob;
 use App\JobApplication;
 use Illuminate\Http\Request;
+use App\Notifications\AssessmentSent;
 use App\Http\Controllers\Controller;
 
 class AssessmentController extends Controller
@@ -141,7 +144,10 @@ class AssessmentController extends Controller
 
                 EmailJob::dispatch($user->name, $user->email, 'Assessment invitation for '.$post->title, $caption, $contents);
         }
-        return redirect()->back()->with("message", "Assessment has been sent to ".$app->count()." candidates");    
+        if (app()->environment() === 'production')
+            Notification::send(Employer::first(),new AssessmentSent('ASSESSMENT SENT: company: '.$post->company->name. ', position: ' .$post->title.' position'));
+        
+            return redirect()->back()->with("message", "Assessment has been sent to ".$app->count()." candidates");    
     }
 
 
