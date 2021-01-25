@@ -129,10 +129,10 @@ class AssessmentController extends Controller
             $user = User::Where('id', $a->user_id)->first();
 
         $caption = "Assessment invitation for ".$post->title;
-        $contents = "Your application for the ".$post->title." was received successfully and we are now at the assessment stage.<br>
+        $contents = "Your application for the ".$post->title." was successfully received and we are now at the assessment stage.<br>
 
                 <strong>".$post->company->name."</strong> has invited you to take ".$post->title." assessment.<br><br>
-                Please use the following link below to access your test. After clicking the link you will be able to go through instruction then proceed start the test.<br>
+                Please use the following link below to access your test. After clicking the link you will be able to go through instructions then proceed start the test.<br>
                   <a href='".url('/v2/self-assessment/create?slug='.$post->slug)."'>".$post->title." assessment link</a>.
                 <br>
                 All the best.
