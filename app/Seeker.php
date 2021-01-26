@@ -1287,6 +1287,7 @@ class Seeker extends Model
      * Get seekers based on filter
      */
     public static function filteredSeekers($filters = []){
+        
         // Remove null values
         $filters = array_filter($filters);
 
@@ -1328,14 +1329,14 @@ class Seeker extends Model
 
         if($filter == 'industry' && isset($collection)){
             return $collection->filter(function ($seeker) use($filter_value){
-                return $seeker->industry->slug == $filter_value;
+                return $seeker->industry->name == $filter_value;
             });
         }
 
         if($filter == 'educationLevel' && isset($collection)){
             return $collection->filter(function ($seeker) use($filter_value){
                 if(isset($seeker->education_level_id))
-                    return $seeker->education_level_id == (int)$filter_value;
+                    return $seeker->educationLevel->name == $filter_value;
             });
         }
 

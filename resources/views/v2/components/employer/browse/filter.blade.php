@@ -5,28 +5,28 @@
             @csrf
             <div class="col-sm-6 col-lg-3">
                 <div class="form-group">
-                    <select class="selectpicker" name="educationLevel" data-live-search="true">
-                        <option value="">All Education Levels</option>
-                        @forelse ($educationLevels as $el)                                           
-                            <option value="{{$el->id}}" {{ isset(request()->educationLevel) && request()->educationLevel == $el->id ? 'selected' : '' }}>
+                    <input type="text" name="educationLevel" placeholder="{{ isset(request()->educationLevel) ? request()->educationLevel : 'Education Level' }}" class="form-control" name="educationLevel" list="educationLevelList">
+                    <datalist id="educationLevelList">
+                        @forelse ($educationLevels as $el)                                             
+                            <option>
                                 {{ $el->name }}
                             </option>
                         @empty
                         @endforelse
-                    </select>
+                    </datalist>
                 </div>
             </div>
             <div class="col-sm-4 col-lg-2">
                 <div class="form-group">
-                    <select class="selectpicker" data-live-search="true" name="industry">
-                        <option value="">All Industries</option>
-                        @forelse($industries as $i)
-                            <option value="{{ $i->slug }}"
-                                {{ isset(request()->industry) && request()->industry == $i->slug ? 'selected' : '' }}
-                            >{{ $i->name }}</option>
-                            @empty
+                    <input type="text" name="industry" placeholder="{{ isset(request()->industry) ? request()->industry : 'Industry' }}" class="form-control" name="industry" list="industryList">
+                    <datalist id="industryList">
+                        @forelse ($industries as $ind)                                             
+                            <option>
+                                {{ $ind->name }}
+                            </option>
+                        @empty
                         @endforelse
-                    </select>
+                    </datalist>
                 </div>
             </div>
             <div class="col-sm-4 col-lg-2">
