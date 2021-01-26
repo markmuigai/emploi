@@ -6,7 +6,11 @@
                 <th>Name</th>
                 <th>Education Level</th>
                 <th>Experience</th>
-                <th>Score</th>
+                @if (request()->type == 'aptitude')
+                    <th>Score</th>
+                @else
+                    <th>Status</th>
+                @endif
                 <th>Actions</th>
             </tr>
         </thead>
@@ -30,13 +34,23 @@
                         Not Provided
                     @endif
                 </td>
-                <td>
-                    @if ($s->user->applicationForPost($post->slug)->performance->isEmpty())
-                        Pending
-                    @else
-                        {{$s->user->applicationForPost($post->slug)->score()}}%
-                    @endif
-                </td>
+                @if (request()->type == 'aptitude')
+                    <td>
+                        @if ($s->user->applicationForPost($post->slug)->aptitudeTestResults()->isEmpty())
+                            Pending
+                        @else
+                            {{$s->user->applicationForPost($post->slug)->score()}}%
+                        @endif
+                    </td>
+                @else
+                    <td>
+                        @if ($s->user->applicationForPost($post->slug)->personalityTestResults()->isEmpty())
+                            Pending
+                        @else
+                            Submitted
+                        @endif
+                    </td>
+                @endif
                 <td>
                     <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#shortlistSeekerModal-{{ $s->user->id }}" title="Shortlist">
                        <i class='bx bx-check'></i>
@@ -44,6 +58,11 @@
                     <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#saveSeekerModal-{{ $s->user->id }}" title="Save profile">
                        <i class='bx bxs-heart'></i>
                     </a>     
+                    @if (request()->type == 'personality' && $s->user->applicationForPost($post->slug)->personalityTestResults()->isNotEmpty())
+                        <a class="btn btn-success rounded-pill" title="View Personality Test Results">
+                            <i class='bx bxs-user-detail'></i>
+                        </a>     
+                     @endif
                 </td>
             </tr>
             <!--SHORTLIST MODAL -->
@@ -134,7 +153,11 @@
                 <th>Name</th>
                 <th>Education Level</th>
                 <th>Experience</th>
-                <th>Score</th>
+                @if (request()->type == 'aptitude')
+                    <th>Score</th>
+                @else
+                    <th>Status</th>
+                @endif
                 <th>Actions</th>
             </tr>
         </tfoot>
