@@ -416,7 +416,8 @@ class PostsController extends Controller
 
             if(isset($request->industry))
             {
-                $ind = Industry::find($request->industry);
+                $ind = Industry::Where('name', $request->industry)->first();
+                // $ind = Industry::find($request->industry);
                 if(isset($ind->id))
                 {
                     $search_ind = $ind->id;

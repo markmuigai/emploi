@@ -18,13 +18,14 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                            <select name="industry" class="main-banner select">
-                                            <option value="">All Industries</option>
-                                            @foreach(\App\Industry::active() as $i)
-                                            <option value="{{ $i->id }}">{{ $i->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>	
+                                        <input type="text" name="industry" placeholder="{{ isset(request()->industry) ? request()->industry : 'All Industries' }}" class="form-control" name="industry" list="industryList">
+                                            <datalist id="industryList">
+                                                @foreach (\App\Industry::active() as $i)                                             
+                                                    <option>
+                                                        {{ $i->name }}
+                                                    </option>
+                                                @endforeach
+                                            </datalist>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
