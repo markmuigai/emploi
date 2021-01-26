@@ -1364,7 +1364,7 @@ class AdminController extends Controller
 
         }elseif(isset($request->year)){
             $period = now();
-            $focus_year = $period->year;
+            $focus_year = $request->year;
 
             $country = $request->country;     
             $focus_country = $country; 
