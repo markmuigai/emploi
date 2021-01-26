@@ -7,6 +7,7 @@ use App\User;
 use App\Industry;
 use Notification;
 use App\Employer;
+use App\Question;
 use App\PostQuestion;
 use App\Jobs\EmailJob;
 use App\JobApplication;
@@ -43,7 +44,7 @@ class AssessmentController extends Controller
 
         // Check if questions have been generated for the post
         if($post->questions->isEmpty()){
-            $questions = Industry::findOrFail($post->industry->id)
+            $AptitudeQuestions = Industry::findOrFail($post->industry->id)
                 ->getAssessmentQuestions(($post->experience_requirements)*12); 
 
 
@@ -64,7 +65,8 @@ class AssessmentController extends Controller
         // Show assessment
         return view('v2.employers.assessment.create',[
             'post' => $post,
-            'questions' => $questions
+            'AptitudeQuestions' => $questions,
+            'personalityQuestions' => Question::personality()->get()
         ]);
     }
 
