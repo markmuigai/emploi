@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 class Question extends Model
 {   
 	    protected $fillable = [
-        'title', 'difficulty_level'
+        'title', 'difficulty_level', 'type'
     ];
 
     public function choices()
@@ -40,5 +40,21 @@ class Question extends Model
     public function image()
     {
         return $this->hasOne('App\QuestionImage', 'question_id');
+    }
+
+    /**
+     * Fetch aptitude test
+     */
+    public function scopeAptitude($query)
+    {
+        return $query->where('type', 'aptitude');
+    }
+
+    /**
+     * Fetch aptitude test
+     */
+    public function scopePersonality($query)
+    {
+        return $query->where('type','personality');
     }
 }
