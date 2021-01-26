@@ -51,15 +51,26 @@ class SelfAssessmentController extends Controller
             // Check if the candidate has applied for the post
             if( null!= auth()->user()->applicationForPost($request->slug) ){
                 $application = auth()->user()->applicationForPost($request->slug);
+
+                // Get questions
+                if($request->type == 'aptitude'){
+                    $questions = $post->questions;
+                }else{
+                    $questions = Question::personality()->get();
+                }
+
                 // Check if the candidate has already done the assessment
-                if($application->performance->isEmpty()){
+                if($request->type == 'aptitude' && $application->aptitudeTestResults()->isEmpty() ||
+                    $request->type == 'personality' && $application->personalityTestResults()->isEmpty()
+                ){
                     return view('v2.seekers.self-assessment.create',[
-                        'questions' =>  $post->questions
+                        'questions' =>  $questions
                     ]);
                 }else{
                     // abort your results have already been submitted!
                     return abort(403);
                 }
+
             }else{
                 // abort, permission denied
                 return abort(403);
