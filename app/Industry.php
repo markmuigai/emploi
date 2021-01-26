@@ -102,29 +102,29 @@ class Industry extends Model
         // Get questions based on months of experience
         if($exp <= 6){
             // Return all questions on the same level
-            return Question::getByDifficulty($lvl)->get()->random(10);
+            return Question::getByDifficulty($lvl)->aptitude()->get()->random(10);
             
         }elseif($exp >6 && $exp <=36){
             // Get all the hard questions since there is no higher level
             if($lvl = 'hard'){
-                return $base_questions = Question::getByDifficulty($lvl)->get()->random(10);
+                return $base_questions = Question::getByDifficulty($lvl)->aptitude()->get()->random(10);
             }else{
                 // Get 6 questions in the industry level
-                $base_questions = Question::getByDifficulty($lvl)->get()->random(6);
+                $base_questions = Question::getByDifficulty($lvl)->aptitude()->get()->random(6);
                 
                 // Add 4 questions that are more difficult by one level
-                return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(4))->flatten();
+                return $base_questions->push(Question::getByDifficulty($newLvl)->aptitude()->get()->random(4))->flatten();
             }
         }else{
             if($lvl = 'hard'){
-                return $base_questions = Question::getByDifficulty($lvl)->get()->random(10);
+                return $base_questions = Question::getByDifficulty($lvl)->aptitude()->get()->random(10);
             }else{
             // More than 3 years experience
             // Get 4 questions in the industry level
-            $base_questions = Question::getByDifficulty($lvl)->get()->random(4);
+            $base_questions = Question::getByDifficulty($lvl)->aptitude()->get()->random(4);
 
             // Add 6 questions that are more difficult by one level
-            return $base_questions->push(Question::getByDifficulty($newLvl)->get()->random(6))->flatten();
+            return $base_questions->push(Question::getByDifficulty($newLvl)->aptitude()->get()->random(6))->flatten();
             }
         }
 
