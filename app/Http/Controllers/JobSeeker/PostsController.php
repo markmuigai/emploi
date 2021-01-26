@@ -393,8 +393,9 @@ class PostsController extends Controller
             ]);
 
             if(isset($request->location))
-            {
-                $location = Location::find($request->location);
+            {   
+                $location = Location::Where('name', $request->location)->first();
+                // $location = Location::find($request->location);
                 if(isset($location->id))
                 {
                     $search_location = $location->id;

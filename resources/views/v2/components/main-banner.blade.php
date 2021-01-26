@@ -29,13 +29,15 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <select name="location">
-                                            <option value="">All Locations</option>
-                                            @foreach(\App\Location::active() as $l)
-                                            <option value="{{ $l->id }}">{{ $l->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" name="location" placeholder="{{ isset(request()->location) ? request()->location : 'All Locations' }}" class="form-control" name="location" list="locationList">
+                                            <datalist id="locationList">
+                                                @forelse ($locations as $loc)                                             
+                                                    <option>
+                                                        {{ $loc->name }}
+                                                    </option>
+                                                @empty
+                                                @endforelse
+                                            </datalist>
                                     </div>
                                 </div>
                             </div>
