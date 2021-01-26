@@ -1389,34 +1389,34 @@ class AdminController extends Controller
                 $cv_edit_requests = 0;
                     
 
-                $seekers_count = Seeker::where('country_id',$focus_country)->whereYear('created_at',$period->format('Y'))->count();
+                $seekers_count = Seeker::where('country_id',$focus_country)->whereYear('created_at',$focus_year)->count();
 
-                $employers_count = Employer::where('country_id',$focus_country)->whereYear('created_at',$period->format('Y'))->count();
+                $employers_count = Employer::where('country_id',$focus_country)->whereYear('created_at',$focus_year)->count();
 
-                $contacts_count = Contact::whereYear('created_at',$period->format('Y'))->count();
-                $adverts_count = Advert::whereYear('created_at',$period->format('Y'))->count();
-                $blogs_count = Blog::whereYear('created_at',$period->format('Y'))->count();
-                $companies_count = Company::whereYear('created_at',$period->format('Y'))->count();
-                $cv_requests_count = CvRequest::whereYear('created_at',$period->format('Y'))->count();
-                $job_applications_count = JobApplication::whereYear('created_at',$period->format('Y'))->count();
-                $model_seekers_count = ModelSeeker::whereYear('created_at',$period->format('Y'))->count();
-                $posts_count = Post::whereYear('created_at',$period->format('Y'))->count();
-                $referees_count = Referee::whereYear('created_at',$period->format('Y'))->count();
+                $contacts_count = Contact::whereYear('created_at',$focus_year)->count();
+                $adverts_count = Advert::whereYear('created_at',$focus_year)->count();
+                $blogs_count = Blog::whereYear('created_at',$focus_year)->count();
+                $companies_count = Company::whereYear('created_at',$focus_year)->count();
+                $cv_requests_count = CvRequest::whereYear('created_at',$focus_year)->count();
+                $job_applications_count = JobApplication::whereYear('created_at',$focus_year)->count();
+                $model_seekers_count = ModelSeeker::whereYear('created_at',$focus_year)->count();
+                $posts_count = Post::whereYear('created_at',$focus_year)->count();
+                $referees_count = Referee::whereYear('created_at',$focus_year)->count();
 
-                $cv_editors = CvEditor::whereYear('created_at',$period->format('Y'))->count();
-                $cv_edit_requests = CvEditRequest::whereYear('created_at',$period->format('Y'))->count();
-                $faqs = Faq::whereYear('created_at',$period->format('Y'))->count();
-                $featured_seeker = ProductOrder::where('product_id',1)->whereYear('created_at',$period->format('Y'))->count();
-                $seeker_basic = ProductOrder::where('product_id',7)->whereYear('created_at',$period->format('Y'))->count();
+                $cv_editors = CvEditor::whereYear('created_at',$focus_year)->count();
+                $cv_edit_requests = CvEditRequest::whereYear('created_at',$focus_year)->count();
+                $faqs = Faq::whereYear('created_at',$focus_year)->count();
+                $featured_seeker = ProductOrder::where('product_id',1)->whereYear('created_at',$focus_year)->count();
+                $seeker_basic = ProductOrder::where('product_id',7)->whereYear('created_at',$focus_year)->count();
 
-                $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereYear('created_at',$period->format('Y'))->count();
-                $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereYear('created_at',$period->format('Y'))->count();
+                $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereYear('created_at',$focus_year)->count();
+                $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereYear('created_at',$focus_year)->count();
 
-                $eclub = EmployerSubscription::whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
-                $golden_club = SeekerSubscription::whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
-                $referral = Referral::whereYear('created_at',$period->format('Y'))->Where('status','completed')->count();
-                $cv_review = CVReviewResult::whereYear('created_at',$period->format('Y'))->count();
-                $self_assessment = Performance::whereYear('created_at',$period->format('Y'))->count();
+                $eclub = EmployerSubscription::whereYear('created_at',$focus_year)->Where('status','active')->count();
+                $golden_club = SeekerSubscription::whereYear('created_at',$focus_year)->Where('status','active')->count();
+                $referral = Referral::whereYear('created_at',$focus_year)->Where('status','completed')->count();
+                $cv_review = CVReviewResult::whereYear('created_at',$focus_year)->count();
+                $self_assessment = Performance::whereYear('created_at',$focus_year)->count();
 
                 $months = [
                     'Jan',
@@ -1435,6 +1435,10 @@ class AdminController extends Controller
             }
             
             if(!isset($request->country)){
+
+                $period = now();
+                $focus_year = $request->year;
+
                 $seekers_count = 0;
                 $employers_count = 0;
 
@@ -1451,34 +1455,34 @@ class AdminController extends Controller
                 $cv_edit_requests = 0;
                     
 
-                $seekers_count = Seeker::whereYear('created_at',$period->format('Y'))->count();
+                $seekers_count = Seeker::whereYear('created_at',$focus_year)->count();
 
-                $employers_count = Employer::whereYear('created_at',$period->format('Y'))->count();
+                $employers_count = Employer::whereYear('created_at',$focus_year)->count();
 
-                $contacts_count = Contact::whereYear('created_at',$period->format('Y'))->count();
-                $adverts_count = Advert::whereYear('created_at',$period->format('Y'))->count();
-                $blogs_count = Blog::whereYear('created_at',$period->format('Y'))->count();
-                $companies_count = Company::whereYear('created_at',$period->format('Y'))->count();
-                $cv_requests_count = CvRequest::whereYear('created_at',$period->format('Y'))->count();
-                $job_applications_count = JobApplication::whereYear('created_at',$period->format('Y'))->count();
-                $model_seekers_count = ModelSeeker::whereYear('created_at',$period->format('Y'))->count();
-                $posts_count = Post::whereYear('created_at',$period->format('Y'))->count();
-                $referees_count = Referee::whereYear('created_at',$period->format('Y'))->count();
+                $contacts_count = Contact::whereYear('created_at',$focus_year)->count();
+                $adverts_count = Advert::whereYear('created_at',$focus_year)->count();
+                $blogs_count = Blog::whereYear('created_at',$focus_year)->count();
+                $companies_count = Company::whereYear('created_at',$focus_year)->count();
+                $cv_requests_count = CvRequest::whereYear('created_at',$focus_year)->count();
+                $job_applications_count = JobApplication::whereYear('created_at',$focus_year)->count();
+                $model_seekers_count = ModelSeeker::whereYear('created_at',$focus_year)->count();
+                $posts_count = Post::whereYear('created_at',$focus_year)->count();
+                $referees_count = Referee::whereYear('created_at',$focus_year)->count();
 
-                $cv_editors = CvEditor::whereYear('created_at',$period->format('Y'))->count();
-                $cv_edit_requests = CvEditRequest::whereYear('created_at',$period->format('Y'))->count();
-                $faqs = Faq::whereYear('created_at',$period->format('Y'))->count();
-                $featured_seeker = ProductOrder::where('product_id',1)->whereYear('created_at',$period->format('Y'))->count();
-                $seeker_basic = ProductOrder::where('product_id',7)->whereYear('created_at',$period->format('Y'))->count();
+                $cv_editors = CvEditor::whereYear('created_at',$focus_year)->count();
+                $cv_edit_requests = CvEditRequest::whereYear('created_at',$focus_year)->count();
+                $faqs = Faq::whereYear('created_at',$focus_year)->count();
+                $featured_seeker = ProductOrder::where('product_id',1)->whereYear('created_at',$focus_year)->count();
+                $seeker_basic = ProductOrder::where('product_id',7)->whereYear('created_at',$focus_year)->count();
 
-                $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereYear('created_at',$period->format('Y'))->count();
-                $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereYear('created_at',$period->format('Y'))->count();
+                $spotlight = ProductOrder::where('product_id',1)->where('contents','!=', NULL)->whereYear('created_at',$focus_year)->count();
+                $pro = ProductOrder::where('product_id',7)->where('contents','!=', NULL)->whereYear('created_at',$focus_year)->count();
 
-                $eclub = EmployerSubscription::whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
-                $golden_club = SeekerSubscription::whereYear('created_at',$period->format('Y'))->Where('status','active')->count();
-                $referral = Referral::whereYear('created_at',$period->format('Y'))->Where('status','completed')->count();
-                $cv_review = CVReviewResult::whereYear('created_at',$period->format('Y'))->count();
-                $self_assessment = Performance::whereYear('created_at',$period->format('Y'))->count();
+                $eclub = EmployerSubscription::whereYear('created_at',$focus_year)->Where('status','active')->count();
+                $golden_club = SeekerSubscription::whereYear('created_at',$focus_year)->Where('status','active')->count();
+                $referral = Referral::whereYear('created_at',$focus_year)->Where('status','completed')->count();
+                $cv_review = CVReviewResult::whereYear('created_at',$focus_year)->count();
+                $self_assessment = Performance::whereYear('created_at',$focus_year)->count();
 
 
                 $months = [
