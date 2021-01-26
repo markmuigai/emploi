@@ -1323,7 +1323,7 @@ class Seeker extends Model
             return $collection->filter(function ($seeker) use($filter_value){
                 if(isset($seeker->location))
                     // Convert filter value to int first 
-                    return $seeker->location->id == (int)$filter_value;
+                    return $seeker->location->name == $filter_value;
             });
         }
 
