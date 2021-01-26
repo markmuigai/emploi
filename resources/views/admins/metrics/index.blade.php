@@ -26,16 +26,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </select>
                 <br>
                 <label>Year</label>
-                <select class="form-control" name="year">
-                    @for($y = 2014; $y<= Date('Y'); $y++ )
-                    <option value="{{ $y }}" {{ $y == $focus_year ? 'selected=""' : '' }}>{{ $y }}</option>
+                <select class="form-control" name="year" required="">
+                    <option value="" selected>Select Year</option>
+                    @for($y = 2014; $y<= Date('Y'); $y++ )                 
+                    <option value="{{ $y }}">{{ $y }}</option>
                     @endfor
                 </select>
                 <br>
                 <label>Month</label>
                 <select class="form-control" name="month">
+                    <option value="" selected="">Select Month</option>
                     @for($i=0; $i<count($months); $i++)
-                    <option value="{{ $i+1 }}" {{ $i+1 == $focus_month ? 'selected=""' : '' }}>{{ $months[$i] }}</option>
+                    <option value="{{ $i+1 }}" >{{ $months[$i] }}</option>
                     @endfor
                 </select>
                 <br>
@@ -48,7 +50,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             <br>
 
             <div class="col-md-6">
-                <h5>Metrics [ {{ $months[$focus_month-1]}}  {{ $focus_year }}]</h5>
+                @if(!empty($focus_month) && !empty($focus_year))
+                    <h5>{{ $months[$focus_month-1]}}  {{ $focus_year }} Metrics</h5>
+                @elseif(!empty($focus_year))
+                    <h5>{{ $focus_year }} Metrics</h5>
+                @endif
                 <div style="text-align: center;">
                     Job Seekers: {{ $seekers_count }} |
                     Employers: {{ $employers_count }}<br>
