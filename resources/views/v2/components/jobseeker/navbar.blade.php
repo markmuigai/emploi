@@ -81,7 +81,7 @@
                                 <a href="/v2/login" style="margin-right:0px !important" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.login') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/v2/join" style="padding-left" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.register') }}</a>
+                                <a href="/register" style="padding-left" class="btn btn-login btn-orange btn-register btn-outline px-3">{{ __('auth.register') }}</a>
                             </li>
                         @endif
                         @auth

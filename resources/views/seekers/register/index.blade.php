@@ -109,7 +109,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     Have an account?
     <a href="/login" class="btn btn-sm btn-orange-alt px-5">{{ __('auth.login') }}</a>
     or 
-    <a href="/employers/register" class="btn btn-sm btn-orange-alt px-5">Company Registration</a>
+    <a href="/employers/register" class="btn btn-sm btn-orange-alt px-5">Employer Registration</a>
 </h5>
 </div>
 
