@@ -218,4 +218,24 @@ class JobApplication extends Model
     {
         return ($this->performance->pluck('correct')->avg())*100;
     }
+
+    /**
+     * Personality test results
+     */
+    public function personalityTestResults()
+    {
+        return $this->performance->filter(function($perf){
+            return $perf->question->type == 'personality';
+        });
+    }
+
+    /**
+     * Aptitude test results
+     */
+    public function aptitudeTestResults()
+    {
+        return $this->performance->filter(function($perf){
+            return $perf->question->type == 'aptitude';
+        });
+    }
 }
