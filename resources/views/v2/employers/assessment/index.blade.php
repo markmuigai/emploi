@@ -26,7 +26,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <a href="{{ url()->previous() }}" class="btn btn-primary rounded-pill mb-3">
                             <i class='bx bx-left-arrow-alt'></i>Back
                          </a>
-                        <h3 class="text-center">Aptitude Test Resuls for {{$post->title}}</h3>
+                         @if (request()->type == 'aptitude')
+                            <h3 class="text-center">Aptitude Test Results for {{$post->title}}</h3>
+                        @else
+                            <h3 class="text-center">Personality Test Results for {{$post->title}}</h3>
+                        @endif
                         @include('v2.components.tables.employer.assessments')
                     </div>
                     <!-- End Jobs -->
