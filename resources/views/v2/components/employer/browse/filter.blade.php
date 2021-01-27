@@ -31,16 +31,15 @@
             </div>
             <div class="col-sm-4 col-lg-2">
                 <div class="form-group">
-                    <select class="selectpicker" data-live-search="true" name="location">
-                        <option value="">All Locations</option>
-                        @forelse($locations as $i)
-                            <option value="{{ $i->id }}" @if(isset($location) && $i->id == $location)
-                            selected=""
-                            @endif
-                            >{{ $i->name }}</option>
-                        @empty
-                        @endforelse
-                    </select>
+                    <input type="text" name="location" placeholder="{{ isset(request()->location) ? request()->location : 'Location' }}" class="form-control" name="location" list="locationList">
+                        <datalist id="locationList">
+                            @forelse ($locations as $loc)                                             
+                                <option>
+                                    {{ $loc->name }}
+                                </option>
+                            @empty
+                            @endforelse
+                        </datalist>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">

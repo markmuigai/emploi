@@ -393,8 +393,9 @@ class PostsController extends Controller
             ]);
 
             if(isset($request->location))
-            {
-                $location = Location::find($request->location);
+            {   
+                $location = Location::Where('name', $request->location)->first();
+                // $location = Location::find($request->location);
                 if(isset($location->id))
                 {
                     $search_location = $location->id;
@@ -415,7 +416,8 @@ class PostsController extends Controller
 
             if(isset($request->industry))
             {
-                $ind = Industry::find($request->industry);
+                $ind = Industry::Where('name', $request->industry)->first();
+                // $ind = Industry::find($request->industry);
                 if(isset($ind->id))
                 {
                     $search_ind = $ind->id;
