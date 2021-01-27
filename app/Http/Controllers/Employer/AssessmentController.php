@@ -138,7 +138,7 @@ class AssessmentController extends Controller
 
                 <strong>".$post->company->name."</strong> has invited you to take ".$post->title." assessment.<br><br>
                 Please use the following link below to access your test. After clicking the link you will be able to go through instructions then proceed to start the test.<br>
-                  <a href='".url('/v2/self-assessment/create?slug='.$post->slug)."'>".$post->title." assessment link</a>.
+                  <a href='".url('/v2/self-assessment/create?slug='.$post->slug)."&type=aptitude'>".$post->title." assessment link</a>.
                 <br>
                 All the best.
                 <br><br>
