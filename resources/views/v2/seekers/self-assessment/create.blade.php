@@ -30,11 +30,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="carousel-inner mb-5">
                                 <div class="carousel-item active p-2">
                                     <h4>Instructions</h4>
-                                    <p>
-                                        Our Self assessment uses an aptitude test to gauge an individual's reasoning capacity in
-                                        different aspects.
+                                    <p> @if(request()->type == 'personality')
+                                           Our Assessment uses a personality test to measure your characteristic patterns of traits.
+                                        @else
+                                            Our Self assessment uses an aptitude test to gauge an individual's reasoning capacity in
+                                            different aspects.
+                                        @endif
                                         <span class="text-danger">
-                                            You have 15 minutes to complete 18 questions.
+                                            @if(request()->type == 'personality')
+                                                You have 15 minutes to complete 10 personality questions.
+                                            @else
+                                                You have 15 minutes to complete 18 questions.
+                                            @endif
                                         </span>
                                         <ul>
                                             <li>Select the correct choice to be able to proceed to the next question</li>
