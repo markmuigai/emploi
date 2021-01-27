@@ -112,7 +112,27 @@ class SelfAssessmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {  
+        // Check if the assessment has been sent by an employer
+        if(isset($request->slug)){
+            // Find post
+            $post = Post::where('slug', $request->slug)->first();
+
+            // Check if the candidate has applied for the post
+            if( null!= auth()->user()->applicationForPost($request->slug) ){
+                $application = auth()->user()->applicationForPost($request->slug);
+
+                // Check for assessment type and if seeker has attempted before, abort
+                if($request->type == 'aptitude' && $application->aptitudeTestResults()->isNotEmpty() ||
+                    $request->type == 'personality' && $application->personalityTestResults()->isNotEmpty()
+                ){
+                    return abort(403);
+                }
+            }else{
+                $application = null;
+            } 
+        }
+
         if(auth()->user() && auth()->user()->role == 'seeker'){
             $email = auth()->user()->email;
 
@@ -120,8 +140,7 @@ class SelfAssessmentController extends Controller
             $email = $request->email;
         }
 
-        DB::transaction(function () use($request, $email) {
-            // dd($request->all());
+        DB::transaction(function () use($request, $email, $application) {
             // Fetch previous assessments for an email
             $perfs = Performance::where('email', $email)->get();
 
@@ -138,6 +157,9 @@ class SelfAssessmentController extends Controller
                 // questions done
                 $questionsDone = array_keys($request->choices);
 
+                // Intialize scores collection to store results temporarily
+                $scores = collect();
+
                 foreach($request->choices as $question_id => $choice_id)
                 {
                     $question = Question::findOrFail($question_id);
@@ -145,7 +167,7 @@ class SelfAssessmentController extends Controller
                     if(isset($question->image)){
                         // Get choice id
                         $options = collect(['a','b','c','d']);
-                        // dd($choice_id,$question->image->correct_value);
+
                         // choice id is either a,b,c,d
                         // Check if correct value provided
                         if($choice_id == $question->image->correct_value){
@@ -160,6 +182,7 @@ class SelfAssessmentController extends Controller
                         $choice_id = (int)$choice_id[0];
                         $correct = Choice::find($choice_id)->correct_value;
                     }
+
                     // Create performance record
                     $performance = Performance::create([
                         'user_id' => null,
@@ -170,6 +193,8 @@ class SelfAssessmentController extends Controller
                         'correct' => $correct,
                         'optional_message' => $request->optional_message
                     ]);
+
+                    $scores->push($performance);
                 }
             }else{
                 $questionsDone = [];
@@ -193,37 +218,23 @@ class SelfAssessmentController extends Controller
                         'correct' => 0,
                         'optional_message' => $request->optional_message
                     ]);
+
+                    $scores->push($performance);
                 };
             }
 
             // Check if the assessment has been sent by an employer
-            if(isset($request->slug)){
-                // Find post
-                $post = Post::where('slug', $request->slug)->first();
-
-                // Check if the candidate has applied for the post
-                if( null!= auth()->user()->applicationForPost($request->slug) ){
-                    $application = auth()->user()->applicationForPost($request->slug);
-
-                    // Get the recent assessment records
-                    $scores = Performance::latestAssessment($email);
-
-                    // Create application_performance pivot records
-                    foreach($scores as $score){
-                        ApplicationPerformance::create([
-                            'application_id' => $application->id,
-                            'performance_id' => $score->id
-                        ]);
-                    }
-
-                    return view('v2.seekers.self-assessment.create',[
-                        'questions' =>  $post->questions
+            if(isset($application)){
+                // Create application_performance pivot records
+                foreach($scores as $score){
+                    ApplicationPerformance::create([
+                        'application_id' => $application->id,
+                        'performance_id' => $score->id
                     ]);
-                }else{
-                    // abort, permission denied
                 }
             }
         });
+        
         if($request->type == 'personality'){ 
              return redirect('/profile')->with('success', 'Personality test has been successfully submitted');           
         }else{
