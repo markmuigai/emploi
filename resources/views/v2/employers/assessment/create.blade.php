@@ -64,7 +64,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         </div>
                                     </div>
                                 @endforeach
-                                <a href="{{route('v2.applications.assessment.send' , ['id' => $post->id])}}" class="btn btn-success">Send Assessment</a>
+                                <a href="{{route('v2.applications.personality-test.send' , ['id' => $post->id])}}" class="btn btn-success">Send Personality Test</a>
                             </div>
                             <div class="tab-pane fade border p-4 border-top-0" id="nav-aptitude" role="tabpanel" aria-labelledby="nav-aptitude-tab">
                                 @if ($post->questions->isNotEmpty())
