@@ -1,5 +1,6 @@
 <?php
 
+use App\Question;
 use Illuminate\Database\Seeder;
 
 class PersonalityTestSeeder extends Seeder
@@ -33,5 +34,24 @@ class PersonalityTestSeeder extends Seeder
             'I rarely get emotional.',
             'I like to be with lots of witty, amusing people.'
         ];
+
+        foreach($questions as $question){
+            $question = Question::create([
+                'title' => $question,
+                'type' => 'personality',
+                'difficulty_level' => 'easy'    
+            ]);
+            
+            $choices = ['Strongly Agree', 'Agree', 'Disagree', 'Strongly Disagree'];
+
+            foreach($choices as $choice){
+                // Create choices for each question
+                $question->choices()->create([
+                    'value' => $choice,
+                    'correct_value' => 1
+                ]);
+            }
+        }
+
     }
 }
