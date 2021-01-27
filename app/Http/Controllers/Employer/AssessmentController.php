@@ -49,7 +49,7 @@ class AssessmentController extends Controller
 
 
             // Store questions and post pivot table
-            foreach($questions as $question){
+            foreach($AptitudeQuestions as $question){
                 PostQuestion::create([
                     'post_id' => $post->id,
                     'question_id' => $question->id
@@ -59,13 +59,13 @@ class AssessmentController extends Controller
             // Send all applicants for the post with link with post slug parameter
         }else{
             // Get the questions which have already been assigned to the job/
-            $questions = $post->questions;
+            $AptitudeQuestions = $post->questions;
         }
         
         // Show assessment
         return view('v2.employers.assessment.create',[
             'post' => $post,
-            'AptitudeQuestions' => $questions,
+            'AptitudeQuestions' => $AptitudeQuestions,
             'personalityQuestions' => Question::personality()->get()
         ]);
     }
