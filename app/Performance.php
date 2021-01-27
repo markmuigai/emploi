@@ -38,11 +38,21 @@ class Performance extends Model
     }
 
     /**
-     * Get performance scores associated with an email
+     * Get all performance scores associated with an email
      */
     public function scopeAssessmentsForUser($query, $email)
     {
         return $query->where('email', $email)->get();
+    }
+
+    /**
+     * Aptitude assessments for a user
+     */
+    public static function aptitudeTestsForUser($email)
+    {
+        return Performance::assessmentsForUser($email)->filter(function($perf){  
+            return $perf->question->type == 'aptitude';
+        });
     }
 
     /**
@@ -51,7 +61,7 @@ class Performance extends Model
     public static function scopeLatestAssessment($query, $email)
     {
         // All performance records for a user
-        $allAssessments = Performance::assessmentsForUser($email);
+        $allAssessments = Performance::aptitudeTestsForUser($email);
 
         // Get the latest assessment
         $latest = $allAssessments->pluck('assessment_count')->max();
@@ -124,7 +134,7 @@ class Performance extends Model
         }
 
          // All performance records for a user
-        $allAssessments = Performance::assessmentsForUser($email);
+        $allAssessments = Performance::aptitudeTestsForUser($email);
 
         // Get the latest assessment
         $latest = $allAssessments->pluck('assessment_count')->max();
@@ -149,7 +159,7 @@ class Performance extends Model
      */
     public static function daysSince($email){
         // All performance records for a user
-        $latest = Performance::assessmentsForUser($email)->last();
+        $latest = Performance::aptitudeTestsForUser($email)->last();
 
         $date = Carbon::parse($latest->created_at);
         $now = Carbon::now();
