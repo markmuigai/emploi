@@ -109,7 +109,7 @@ class Performance extends Model
     public static function canDoAssessment($email)
     {   
         //check if a user has ever done assessment before
-        $created = Performance::where('email',$email)->first();
+        $created = Performance::aptitudeTestsForUser($email)->first();
 
         //get logged in user
         $user=Auth::user(); 
