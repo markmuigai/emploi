@@ -15,7 +15,7 @@ class PersonalityQuestionsSeeder extends Seeder
         $questions = [
             'You enjoy vibrant social events with lots of people',
             'You often spend time exploring unrealistic yet intriguing ideas',
-            'You enjoy vibrant social events with lots of people',
+            'You often think about what you should have said in a conversation long after it has taken place.',
             'People can rarely upset you',
             'You often rely on other people to be the ones to start a conversation and keep it going',
             'If you have to temporarily put your plans on hold, you make sure it is your top priority to get back on track as soon as possible',
