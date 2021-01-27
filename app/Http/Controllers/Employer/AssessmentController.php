@@ -137,7 +137,7 @@ class AssessmentController extends Controller
         $contents = "Your application for the ".$post->title." was successfully received and we are now at the assessment stage.<br>
 
                 <strong>".$post->company->name."</strong> has invited you to take ".$post->title." assessment.<br><br>
-                Please use the following link below to access your test. After clicking the link you will be able to go through instructions then proceed start the test.<br>
+                Please use the following link below to access your test. After clicking the link you will be able to go through instructions then proceed to start the test.<br>
                   <a href='".url('/v2/self-assessment/create?slug='.$post->slug)."'>".$post->title." assessment link</a>.
                 <br>
                 All the best.
@@ -150,6 +150,33 @@ class AssessmentController extends Controller
             Notification::send(Employer::first(),new AssessmentSent('ASSESSMENT SENT: company: '.$post->company->name. ', position: ' .$post->title.' position'));
         
             return redirect()->back()->with("message", "Assessment has been sent to ".$app->count()." candidates");    
+    }
+
+        public function sendPersonalityTest($id){
+
+        $app = JobApplication::where('post_id', $id)->get();
+        $post=Post::Where('id', $id)->first();
+
+        foreach ($app as $a){
+            $user = User::Where('id', $a->user_id)->first();
+
+        $caption = "Personality Test for ".$post->title;
+        $contents = "Your application for the ".$post->title." was successfully received.<br>
+
+                <strong>".$post->company->name."</strong> has invited you to take ".$post->title." personality assessment.<br><br>
+                Please use the following link below to access your test. After clicking the link you will be able to go through instructions then proceed to start the test.<br>
+                  <a href='".url('/v2/self-assessment/create?slug='.$post->slug)."&type=personality'>".$post->title." personality test link</a>.
+                <br>
+                All the best.
+                <br><br>
+                ";
+
+                EmailJob::dispatch($user->name, $user->email, 'Personality test invitation for '.$post->title, $caption, $contents);
+        }
+        if (app()->environment() === 'production')
+            Notification::send(Employer::first(),new AssessmentSent('ASSESSMENT SENT: company: '.$post->company->name. ', position: ' .$post->title.' position'));
+        
+            return redirect()->back()->with("message", "Personality test has been sent to ".$app->count()." candidates");    
     }
 
 
