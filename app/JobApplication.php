@@ -216,7 +216,7 @@ class JobApplication extends Model
      */
     public function score()
     {
-        return ($this->performance->pluck('correct')->avg())*100;
+        return ($this->aptitudeTestResults()->pluck('correct')->avg())*100;
     }
 
     /**
