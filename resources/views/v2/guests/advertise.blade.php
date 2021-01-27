@@ -8,7 +8,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('content')
     <!-- Navbar -->
-    @include('v2.components.jobseeker.navbar')    
+    @include('v2.components.employer.navbar')    
     <!-- End Navbar -->
     <div class="pt-5">
         <!-- Page Title -->
@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <i class="flaticon-comment"></i>
                             <h3>HR Consultancy</h3>
                             <p> </p>
-                            <a href="/employers/publish" class="btn btn-primary rounded-pill">
+                            <a href="/contact-us" class="btn btn-primary rounded-pill">
                                 HR Consultancy
                             </a>
                         </div>
