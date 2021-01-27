@@ -24,7 +24,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             </h4>
                         </div>
                     </div>
-                    <form id="assessmentForm" method="POST" action="{{Route('v2.self-assessment.store', ['slug' => request()->slug, 'email' => request()->email, 'questions' => $questions->pluck('id')->toArray()])}}" enctype="multipart/form-data">
+                    <form id="assessmentForm" method="POST" action="{{Route('v2.self-assessment.store', ['slug' => request()->slug, 'type' =>request()->type, 'email' => request()->email, 'questions' => $questions->pluck('id')->toArray()])}}" enctype="multipart/form-data">
                         @csrf
                         <div id="carouselExampleControls" id="assessment-carousel" class="carousel assessment-carousel slide" data-ride="carousel">
                             <div class="carousel-inner mb-5">

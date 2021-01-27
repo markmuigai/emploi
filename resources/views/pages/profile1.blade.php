@@ -10,6 +10,9 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
 @section('page_title', 'Profile')
 
 <!-- @include('components.ads.responsive') -->
+@if (Session::has('success'))
+   <div class="alert alert-success">{{ Session::get('success') }}</div>
+@endif
 
 @if($user->role == 'seeker')
 <div class="row align-items-center">

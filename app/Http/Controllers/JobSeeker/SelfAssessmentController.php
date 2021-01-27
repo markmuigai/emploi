@@ -229,10 +229,13 @@ class SelfAssessmentController extends Controller
                 }
             }
         });
-
-        return redirect()->route('v2.self-assessment.index', [
-            'email' => $email
-        ]);
+        if($request->type == 'personality'){ 
+             return redirect('/profile')->with('success', 'Personality test has been successfully submitted');           
+        }else{
+             return redirect()->route('v2.self-assessment.index', [
+                'email' => $email
+                ]);          
+        }
     }
 
     /**
