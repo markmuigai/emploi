@@ -10,7 +10,7 @@ use Auth;
 class Performance extends Model
 {
        protected $fillable = [
-        'user_id', 'choice_id', 'question_id', 'email', 'correct', 'optional message', 'assessment_count'
+        'user_id', 'choice_id', 'question_id', 'email', 'correct', 'optional message', 'assessment_count', 'test_result_id'
     ];
 
     /**
@@ -159,7 +159,7 @@ class Performance extends Model
      */
     public static function daysSince($email){
         // All performance records for a user
-        $latest = Performance::aptitudeTestsForUser($email)->last();
+        $latest = Performance::AssessmentsForUser($email)->last();
 
         $date = Carbon::parse($latest->created_at);
         $now = Carbon::now();
@@ -207,5 +207,27 @@ class Performance extends Model
         }elseif($this->applications->first()->aptitudeTestResults()->isNotEmpty()){
             return 'Aptitude';
         }
+    }
+
+    /**
+     * Get performance records by type
+     */
+    public static function type()
+    {
+    }
+
+    /**
+     * Populate Test results 
+     */
+    public static function testResults(){
+        // All assessed emails
+        return Performance::emailsAssessed()->map(function($email){
+            return [
+                "type" => Performance::latestAssessment($email)->first()->getType(),
+                "assessment_count" => Performance::latestAssessment($email)->first()->assessment_count,
+                "email" => Performance::latestAssessment($email)->first()->email,
+                "score" => round(Performance::latestAssessment($email)->pluck('correct')->avg()*100)
+            ];
+        });
     }
 }

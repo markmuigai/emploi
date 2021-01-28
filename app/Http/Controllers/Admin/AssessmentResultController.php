@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Carbon\Carbon;
+use App\TestResult;
 use App\Performance;
 use Illuminate\Http\Request;
 use App\Utils\CollectionHelper;
@@ -18,18 +19,10 @@ class AssessmentResultController extends Controller
      */
     public function index(Request $request)
     {   
-        if(isset($request->sortbydate)){
-            return view('v2.admin.assessmentResults.index',[
-                'emailsAssessed' => CollectionHelper::paginate(Performance::getByDate($request->sortbydate),10),
-                'assessments_count' => Performance::emailsAssessed()->count(),
-                'avg' => Performance::recentScoresAvg(),
-            ]);
-        }
-
         return view('v2.admin.assessmentResults.index',[
-            'emailsAssessed' => CollectionHelper::paginate(Performance::emailsAssessed(),10),
-            'assessments_count' => Performance::emailsAssessed()->count(),
-            'avg' => Performance::recentScoresAvg(),
+            'testResults' => TestResult::paginate(10),
+            'assessments_count' => TestResult::all()->count(),
+            'avg' => round(TestResult::all()->pluck('score')->avg()),
         ]);
     }
 

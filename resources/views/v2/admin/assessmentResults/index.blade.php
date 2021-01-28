@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 <div class="card-body text-center">
                     <h4>
                         <p>Average score:</p>
-                        {{$avg}}/10
+                        {{$avg}}%
                     </h4>
                 </div>
             </div>
@@ -54,30 +54,32 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
             <div class="card align-items-center px-2 shadow mb-5 bg-white rounded">
-                @if ($emailsAssessed->isEmpty())
+                @if ($testResults->isEmpty())
                     <h4 class="text-center m-5">
                         No assessment results available
                     </h4>
                 @else
                     <table class="table table-hover">
-                        <thead>
+                        <thead class="text-center">
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Recent Score</th>
+                            <th scope="col">Score</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Done</th>
                             <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($emailsAssessed as $key => $email)
+                            @foreach ($testResults as $key => $testResult)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$email}}</td>
-                                <td>{{ App\Performance::recentScore($email) }}\{{ App\Performance::LatestAssessment($email)->count() }}</td>
-                                <td>{{App\Performance::daysSince($email)}}</td>
+                                <td>{{$testResult->email}}</td>
+                                <td>{{$testResult->score}}%</td>
+                                <td>{{$testResult->type}}</td>
+                                <td>{{$testResult->performances->last()->created_at->diffForHumans()}}</td>
                                 <td>
-                                    <a href="{{route('assessmentResults.show', ['email' => $email])}}" class="btn btn-primary">
+                                    <a href="{{route('assessmentResults.show', ['email' => $testResult->email])}}" class="btn btn-primary">
                                         View Detailed Results
                                     </a>
                                 </td>
@@ -87,7 +89,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </table>
                 @endif
             </div>
-            {{ $emailsAssessed->links() }}
+            {{ $testResults->links() }}
         </div>
     </div>
 </div>
