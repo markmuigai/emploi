@@ -194,14 +194,14 @@ class Performance extends Model
     {
         return $this->belongsToMany('App\JobApplication', 'application_performance', 'performance_id', 'application_id');
     }
-    
+
     /**
      * Get the type of assessment of a performance record
      */
     public function getType()
     {
         if($this->applications->isEmpty()){
-            return 'Practice';
+            return 'Aptitude Practice';
         }elseif($this->applications->first()->personalityTestResults()->isNotEmpty()){
             return 'Personality';
         }elseif($this->applications->first()->aptitudeTestResults()->isNotEmpty()){
