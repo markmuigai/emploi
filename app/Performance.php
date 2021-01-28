@@ -188,6 +188,14 @@ class Performance extends Model
     }
 
     /**
+     * Get the associated application
+     */
+    public function applications()
+    {
+        return $this->belongsToMany('App\JobApplication', 'application_performance', 'performance_id', 'application_id');
+    }
+    
+    /**
      * Get the type of assessment of a performance record
      */
     public function getType()
