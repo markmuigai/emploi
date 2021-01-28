@@ -128,9 +128,11 @@ class SelfAssessmentController extends Controller
                 ){
                     return abort(403);
                 }
-            }else{
-                $application = null;
+            }else{ 
+                return abort(403);
             } 
+        }else{
+            $application = null;
         }
 
         if(auth()->user() && auth()->user()->role == 'seeker'){
