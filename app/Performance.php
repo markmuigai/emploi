@@ -10,7 +10,7 @@ use Auth;
 class Performance extends Model
 {
        protected $fillable = [
-        'user_id', 'choice_id', 'question_id', 'email', 'correct', 'optional message', 'assessment_count'
+        'user_id', 'choice_id', 'question_id', 'email', 'correct', 'optional message', 'assessment_count', 'test_result_id'
     ];
 
     /**
