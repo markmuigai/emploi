@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use App\TestResult;
 use App\Performance;
 use Illuminate\Database\Seeder;
@@ -25,7 +26,14 @@ class TestResultSeeder extends Seeder
 
         // Create test result record for each score
         foreach($results as $result){
+
+            // Fetch user
+            $user = User::where('email', $result['email'])->first();
+
+            $user ? $user_id = $user->id : $user_id = null;
+
             $testResult = TestResult::create([
+                'user_id' => $user_id,
                 'email' => $result['email'],
                 'type' => $result['type'],
                 'assessment_count' => $result['assessment_count'],
