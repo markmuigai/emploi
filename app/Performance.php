@@ -201,7 +201,7 @@ class Performance extends Model
     public function getType()
     {
         if($this->applications->isEmpty()){
-            return 'Practice';
+            return 'Aptitude Practice';
         }elseif($this->applications->first()->personalityTestResults()->isNotEmpty()){
             return 'Personality';
         }elseif($this->applications->first()->aptitudeTestResults()->isNotEmpty()){
