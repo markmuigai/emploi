@@ -11,4 +11,10 @@ class TestResult extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    // Get the associated performance records
+    public function performances()
+    {
+        return $this->hasMany('App\Performance');
+    }
 }
