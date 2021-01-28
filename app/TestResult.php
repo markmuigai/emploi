@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class TestResult extends Model
 {
+    protected $fillable = [
+        'user_id','email','type','assessment_count','score'
+    ];
+
     // Get the associated user
     public function user()
     {
