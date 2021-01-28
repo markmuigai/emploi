@@ -22,7 +22,7 @@ class AssessmentResultController extends Controller
         return view('v2.admin.assessmentResults.index',[
             'testResults' => TestResult::paginate(10),
             'assessments_count' => TestResult::all()->count(),
-            'avg' => TestResult::all()->pluck('score')->avg(),
+            'avg' => round(TestResult::all()->pluck('score')->avg()),
         ]);
     }
 
