@@ -20,7 +20,7 @@ class AssessmentResultController extends Controller
     public function index(Request $request)
     {   
         return view('v2.admin.assessmentResults.index',[
-            'testResults' => TestResult::paginate(10),
+            'testResults' => TestResult::orderBy('created_at', 'desc')->paginate(10),
             'assessments_count' => TestResult::all()->count(),
             'avg' => round(TestResult::all()->pluck('score')->avg()),
         ]);
