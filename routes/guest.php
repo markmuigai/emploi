@@ -11,3 +11,6 @@ Route::get('/media', 'MediaController@index')->name('index');
 
 // news letter
 Route::resource('/news-letter', 'NewsLetterController');
+
+//employer landing page
+Route::get('/employers/advertise-here', 'EmployerController@home');
