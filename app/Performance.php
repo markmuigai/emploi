@@ -186,4 +186,18 @@ class Performance extends Model
             }
         });
     }
+
+    /**
+     * Get the type of assessment of a performance record
+     */
+    public function getType()
+    {
+        if($this->applications->isEmpty()){
+            return 'Practice';
+        }elseif($this->applications->first()->personalityTestResults()->isNotEmpty()){
+            return 'Personality';
+        }elseif($this->applications->first()->aptitudeTestResults()->isNotEmpty()){
+            return 'Aptitude';
+        }
+    }
 }
