@@ -9,6 +9,15 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', $post->title)
 
+ <script>
+  $(document).ready(function(){
+   setTimeout(function(){
+       $('#CVEditingModal').modal('show');
+   }, 6000);
+  });
+  
+</script>
+
 <div class="card">
     <div class="card-body text-center">
         <h4 style="color: green">Application Success!</h4>
@@ -24,6 +33,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 </div>
 
+<!--     cv editing modal -->
+    @include('v2.components.modals.cv-editing-services')
+<!--     end cv editing modal -->
 
 
 @endsection
