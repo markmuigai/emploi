@@ -17,6 +17,7 @@ class CreateTestResultsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->nullable();
             $table->string('email');
+            $table->integer('test_id');
             $table->integer('assessment_count')->nullable();
             $table->string('optional_message')->nullable();
             $table->integer('score')->nullable();
