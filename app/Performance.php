@@ -159,7 +159,7 @@ class Performance extends Model
      */
     public static function daysSince($email){
         // All performance records for a user
-        $latest = Performance::aptitudeTestsForUser($email)->last();
+        $latest = Performance::AssessmentsForUser($email)->last();
 
         $date = Carbon::parse($latest->created_at);
         $now = Carbon::now();
@@ -186,4 +186,34 @@ class Performance extends Model
             }
         });
     }
+
+    /**
+     * Get the associated application
+     */
+    public function applications()
+    {
+        return $this->belongsToMany('App\JobApplication', 'application_performance', 'performance_id', 'application_id');
+    }
+
+    /**
+     * Get the type of assessment of a performance record
+     */
+    public function getType()
+    {
+        if($this->applications->isEmpty()){
+            return 'Practice';
+        }elseif($this->applications->first()->personalityTestResults()->isNotEmpty()){
+            return 'Personality';
+        }elseif($this->applications->first()->aptitudeTestResults()->isNotEmpty()){
+            return 'Aptitude';
+        }
+    }
+
+    /**
+     * Get performance records by type
+     */
+    public static function type()
+    {
+    }
+
 }
