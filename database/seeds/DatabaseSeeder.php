@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
             SeekerJobSeeder::class,
             CVKeywordSeeder::class,
             CVImprovementAreasSeeder::class,
-            EvaluationCriteriaSeeder::class
+            EvaluationCriteriaSeeder::class,
+            PersonalityTestSeeder::class,
+            ImageQuestionSeeder::class
         ]);
     }
 }
