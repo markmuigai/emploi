@@ -66,7 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <i class="flaticon-comment"></i>
                             <h3>HR Consultancy</h3>
                             <p> </p>
-                            <a href="/contact-us" class="btn btn-primary rounded-pill">
+                            <a href="/contact" class="btn btn-primary rounded-pill">
                                 HR Consultancy
                             </a>
                         </div>

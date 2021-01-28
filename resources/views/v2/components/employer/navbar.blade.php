@@ -41,6 +41,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                                                   
+                            <a href="/employers/services" class="nav-link">All Services
+                            </a>
+                        </li>
+
                         @if(isset(Auth::user()->id))
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
