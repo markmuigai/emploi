@@ -8,6 +8,7 @@ use App\User;
 use App\Choice;
 use App\Question;
 use App\Industry;
+use App\TestResult;
 use App\Performance;
 use Illuminate\Http\Request;
 use App\ApplicationPerformance;
@@ -144,7 +145,7 @@ class SelfAssessmentController extends Controller
 
         DB::transaction(function () use($request, $email, $application) {
             // Fetch previous assessments for an email
-            $perfs = Performance::where('email', $email)->get();
+            $perfs = TestResult::where('email', $email)->get();
 
             // If they have never been assessed
             if($perfs->isEmpty()){
@@ -153,6 +154,25 @@ class SelfAssessmentController extends Controller
                 // Get their most recent assessment_count + 1
                 $assessment_count = Collect($perfs)->last()->assessment_count + 1;
             }
+
+            // Check if the user exists in the system
+            $user = User::where('email', $email)->first();
+            $user ? $user_id = $user->id : $user_id = null;
+
+            // Check if application isset
+            if(isset($application)){
+                $request->type == 'aptitude' ? $type = 'apptitude' : $type = 'personality';
+            }else{
+                $type = 'Aptitude Practice';
+            }
+
+            // Create test score records
+            $testResult = TestResult::create([
+                'user_id' => $user_id,
+                'email' => $email,
+                'type' => $type,
+                'assessment_count' => $assessment_count,
+            ]);
 
             // If they have attempted any question
             if(isset($request->choices)){
@@ -193,7 +213,8 @@ class SelfAssessmentController extends Controller
                         'question_id' => $question_id,
                         'choice_id' => $choice_id,
                         'correct' => $correct,
-                        'optional_message' => $request->optional_message
+                        'optional_message' => $request->optional_message,
+                        'test_result_id' => $testResult->id
                     ]);
 
                     $scores->push($performance);
@@ -218,7 +239,8 @@ class SelfAssessmentController extends Controller
                         'question_id' => $blank,
                         'choice_id' => 0,
                         'correct' => 0,
-                        'optional_message' => $request->optional_message
+                        'optional_message' => $request->optional_message,
+                        'test_result_id' => $testResult->id
                     ]);
 
                     $scores->push($performance);
@@ -235,14 +257,19 @@ class SelfAssessmentController extends Controller
                     ]);
                 }
             }
+
+            // Update test score record
+            $testResult->update([
+                'score' => round(($scores->pluck('correct')->avg())*100)
+            ]);
         });
         
         if($request->type == 'personality'){ 
-             return redirect('/profile')->with('success', 'Personality test has been successfully submitted');           
+            return redirect('/profile')->with('success', 'Personality test has been successfully submitted');           
         }else{
-             return redirect()->route('v2.self-assessment.index', [
+            return redirect()->route('v2.self-assessment.index', [
                 'email' => $email
-                ]);          
+            ]);          
         }
     }
 
