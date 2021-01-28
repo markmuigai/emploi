@@ -89,7 +89,7 @@
 		                            </ul> -->
 		                                              
 		                        <div class="card-footer">
-		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 539<br>(one month discount of KES 49)</b></a>
+		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b></a>
 		                        </div>
 		                    </div>
                         </div>
@@ -102,7 +102,7 @@
 		                            </ul><br><br>		                                                
 		                        <div class="card-footer">
 		                            <small class="text-muted">
-		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b> </a>
+		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 2849<br>(one month discount of KES 259)</b> </a>
 		                            </small>
 		                        </div>
 		                    </div>
@@ -134,7 +134,7 @@
 		                            </ul> -->
 		                                              
 		                        <div class="card-footer">
-		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 539<br>(one month discount of KES 49)</b></a>
+		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b></a>
 		                        </div>
 		                    </div>
                         </div>
@@ -147,7 +147,7 @@
 		                            </ul><br><br>		                                                
 		                        <div class="card-footer">
 		                            <small class="text-muted">
-		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b> </a>
+		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 2849<br>(one month discount of KES 259)</b> </a>
 		                            </small>
 		                        </div>
 		                    </div>
@@ -214,7 +214,7 @@
 		                            </ul> -->
 		                                              
 		                        <div class="card-footer">
-		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 539<br>(one month discount of KES 49)</b></a>
+		                            <a href="/checkout?product=pro" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b></a>
 		                        </div>
 		                    </div>
                         </div>
@@ -227,7 +227,7 @@
 		                            </ul><br><br>		                                                
 		                        <div class="card-footer">
 		                            <small class="text-muted">
-		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 1749<br>(one month discount of KES 159)</b> </a>
+		                                <a href="/checkout?product=spotlight" target="_blank" class="btn btn-orange">Request for <b>annual subscription at KES 2849<br>(one month discount of KES 259)</b> </a>
 		                            </small>
 		                        </div>
 		                    </div>
