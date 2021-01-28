@@ -216,4 +216,20 @@ class Performance extends Model
     {
     }
 
+    /**
+     * Populate Test results 
+     */
+    public static function testResults(){
+        // All assessed emails
+        return Performance::emailsAssessed()->map(function($email){
+            return [
+                "type" => Performance::latestAssessment($email)->first()->getType(),
+                "assessment_count" => Performance::latestAssessment($email)->first()->assessment_count,
+                "email" => Performance::latestAssessment($email)->first()->email,
+                "score" => round(Performance::latestAssessment($email)->pluck('correct')->avg()*100)
+            ];
+        });
+    }
 }
+
+Performance::emailsAssessed()->map(function($email){return ["type" => Performance::latestAssessment($email)->first()->getType(),"assessment_count" => Performance::latestAssessment($email)->first()->assessment_count,"email" => Performance::latestAssessment($email)->first()->email,"score" => round(Performance::latestAssessment($email)->pluck('correct')->avg()*100)];});
