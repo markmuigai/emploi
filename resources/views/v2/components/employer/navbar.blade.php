@@ -91,7 +91,7 @@
                             <li class="nav-item dropdown">                  
                                     <li class="nav-item">
                                     <span class="tooltip-span two">New</span>
-                                <a id="forEmployers" class="nav-link" href="/register">For Jobsekers</a>
+                                <a id="forEmployers" class="nav-link" href="/register">For Jobseekers</a>
                             </li> 
                         @endif
                     </ul>
