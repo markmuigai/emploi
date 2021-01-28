@@ -101,6 +101,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     @else
                                     @endif
                                 @endforeach
+                                <a href="{{route('v2.applications.assessment.send' , ['id' => $post->id])}}" class="btn btn-success">Send Assessment</a>
                             </div>
                         </div>
                         @if(Session::has('message'))
