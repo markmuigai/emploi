@@ -258,6 +258,9 @@ class SelfAssessmentController extends Controller
                 }
             }
 
+            // Get personality test results
+            Performance::personalityScore('extroversion', $scores);
+
             // Update test score record
             $testResult->update([
                 'score' => round(($scores->pluck('correct')->avg())*100)
