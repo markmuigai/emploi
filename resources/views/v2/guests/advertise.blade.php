@@ -12,7 +12,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- End Navbar -->
     <div class="pt-5">
         <!-- Page Title -->
-        <div class="page-title-area pt-5">
+        <div class="employer-landing pt-5">
           <div class="d-table">
               <div class="d-table-cell">
                   <div class="container-fluid px-5">
