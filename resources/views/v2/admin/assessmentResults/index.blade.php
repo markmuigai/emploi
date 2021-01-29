@@ -66,6 +66,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <th scope="col">Email</th>
                             <th scope="col">Score</th>
                             <th scope="col">Type</th>
+                            <th scope="col">Experience</th>
                             <th scope="col">Done</th>
                             <th scope="col">Actions</th>
                             </tr>
@@ -73,11 +74,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <tbody>
                             @foreach ($testResults as $key => $testResult)
                             <tr>
-                                <td>{{$key+1}}</td>
-                                <td>{{$testResult->email}}</td>
-                                <td>{{$testResult->score}}%</td>
-                                <td>{{$testResult->type}}</td>
-                                <td>{{$testResult->performances->last()->created_at->diffForHumans()}}</td>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $testResult->email }}</td>
+                                <td>{{ $testResult->score }}%</td>
+                                <td>{{ $testResult->type }}</td>
+                                @if(isset($testResult->user->id))
+                                    <td>{{ $testResult->user->seeker->years_experience }} years</td>
+                                @else
+                                    <td>Unavailable</td>
+                                @endif
+                                <td>{{ $testResult->performances->last()->created_at->diffForHumans() }}</td>
                                 <td>
                                     <a href="{{route('assessmentResults.show', ['email' => $testResult->email])}}" class="btn btn-primary"><i class="far fa-eye" data-toggle="tooltip"  title="View detailed results"></i>
                                     </a>
