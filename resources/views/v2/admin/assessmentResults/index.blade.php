@@ -79,8 +79,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{$testResult->type}}</td>
                                 <td>{{$testResult->performances->last()->created_at->diffForHumans()}}</td>
                                 <td>
-                                    <a href="{{route('assessmentResults.show', ['email' => $testResult->email])}}" class="btn btn-primary">
-                                        View Detailed Results
+                                    <a href="{{route('assessmentResults.show', ['email' => $testResult->email])}}" class="btn btn-primary"><i class="far fa-eye" data-toggle="tooltip"  title="View detailed results"></i>
                                     </a>
                                 </td>
                             </tr>
