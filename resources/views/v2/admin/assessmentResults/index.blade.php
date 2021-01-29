@@ -78,7 +78,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <td>{{ $testResult->email }}</td>
                                 <td>{{ $testResult->score }}%</td>
                                 <td>{{ $testResult->type }}</td>
-                                @if(isset($testResult->user->id))
+                                @if(isset($testResult->user->seeker->id))
                                     <td>{{ $testResult->user->seeker->years_experience }} years</td>
                                 @else
                                     <td>Unavailable</td>
