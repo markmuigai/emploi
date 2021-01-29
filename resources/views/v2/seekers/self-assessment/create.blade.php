@@ -52,52 +52,60 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     
                                 </div>
                                 
-                                @foreach($questions as $key => $question)
-                                <div class="carousel-item">
-                                    <div class="ml-3">
-                                        @if (isset($question->image))
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <p class="">{{ ($key+1).'. '.$question->title }}</p>
-                                                    <img src="/storage/assessments/{{$question->id}}" height="auto" width="400px" alt="">
+                                @foreach($questions as $question_key => $question)
+                                    <div class="carousel-item">
+                                        <div class="ml-3">
+                                            @if (isset($question->image))
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <p class="">{{ ($question_key+1).'. '.$question->title }}</p>
+                                                        <img src="/storage/assessments/{{$question->id}}" height="auto" width="400px" alt="">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <p class="">Select the correct option</p>
+                                                        <div class="form-check mr-3">
+                                                            <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="a">
+                                                            <label class="form-check-label" for="exampleRadios1">
+                                                                A
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check mr-3">
+                                                            <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="b">
+                                                            <label class="form-check-label" for="exampleRadios1">
+                                                                B
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check mr-3">
+                                                            <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="c">
+                                                            <label class="form-check-label" for="exampleRadios1">
+                                                                C
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check mr-3">
+                                                            <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="d">
+                                                            <label class="form-check-label" for="exampleRadios1">
+                                                                D
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <p class="">Select the correct option</p>
-                                                    <div class="form-check mr-3">
-                                                        <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="a">
-                                                        <label class="form-check-label" for="exampleRadios1">
-                                                            A
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check mr-3">
-                                                        <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="b">
-                                                        <label class="form-check-label" for="exampleRadios1">
-                                                            B
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check mr-3">
-                                                        <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="c">
-                                                        <label class="form-check-label" for="exampleRadios1">
-                                                            C
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check mr-3">
-                                                        <input class="assessment-choice" type="radio" name="choices[{{$question->id}}]" value="d">
-                                                        <label class="form-check-label" for="exampleRadios1">
-                                                            D
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @else
-                                        <p class="">{{ ($key+1).'. '.$question->title }}</p>
-                                            @forelse($question->choices as $c)
-                                                <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}> {{ $c->value }}<br>
-                                            @empty
-                                            @endforelse 
-                                        @endif
-                                    </div>
-                                </div>                                                                 
+                                            @else
+                                            <p class="">{{ ($question_key+1).'. '.$question->title }}</p>
+                                                @forelse($question->choices as $choice_key => $c)
+                                                    @if (isset(request()->type) && request()->type == 'personality')
+                                                        <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}
+                                                            {{ testResult($question_key) == ($choice_key+1) ? 'checked' : ''}}  
+                                                        >
+                                                        {{ $c->value }}<br>
+                                                    @else
+                                                        <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}>
+                                                        {{ $c->value }}<br>
+                                                    @endif
+                                                @empty
+                                                @endforelse 
+                                            @endif
+                                        </div>
+                                    </div>                                                                 
                                 @endforeach 
                             </div>
                         </div>
