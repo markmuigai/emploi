@@ -230,4 +230,117 @@ class Performance extends Model
             ];
         });
     }
+
+    /**
+     * Personality Test algorithm
+     */
+    public function getRemark()
+    {
+
+    }
+
+    /**
+     * Get points scored
+     */
+    public static function personalityScores($scores)
+    {
+        // Rating represent points 1-5
+        $ratings = collect([
+            'Disagree', 'Slightly Disagree', 'Neutral', 'Slightly Agree', 'Agree'
+        ]);
+
+        // Get the points of the choices the candidate selected for each score
+        return $points = $scores->map(function($score) use($ratings){
+            return $ratings->search(Choice::find($score->choice_id)->value)+1;
+        });
+    }
+
+    /**
+     * Get question keys to assess a given personality
+     */
+    public static function keysByPersonality($personality)
+    {
+        switch ($personality) {
+            case 'extroversion' : 
+                return collect([
+                    0,5,10,15,20,25,30,35,40,45
+                ]);
+            case 'agreeableness' : 
+                return collect([
+                    1,6,11,16,21,26,31,36,41,46
+                ]);
+            case 'conscientiousness' : 
+                return collect([
+                   2,7,12,17,22,27,32,37,42,47
+                ]);
+            case 'neuroticism' : 
+                return collect([
+                    3,8,13,18,23,28,33,38,43,48
+                ]);
+            case 'openness to Experience' : 
+                return collect([
+                    4,9,14,19,24,29,34,39,44,49
+                ]);
+        }
+    }
+
+    /**
+     * Get the points that should be added for a given personality 
+     */
+    public function scoreToAdd($personality)
+    {
+        switch ($personality) {
+            case 'extroversion' : 
+                return collect([
+                    0,10,20,30,40
+                ]);
+            case 'agreeableness' : 
+                return collect([
+                    1,6,11,16,21,26,31,36,41,46
+                ]);
+            case 'conscientiousness' : 
+                return collect([
+                   2,7,12,17,22,27,32,37,42,47
+                ]);
+            case 'neuroticism' : 
+                return collect([
+                    3,8,13,18,23,28,33,38,43,48
+                ]);
+            case 'openness to Experience' : 
+                return collect([
+                    4,9,14,19,24,29,34,39,44,49
+                ]);
+        }
+    }
+
+    /**
+     * Extroversion score
+     */
+    public static function personalityScore($personality, $scores)
+    {
+        $points = Performance::personalityScores($scores);
+
+        $personality_keys = Performance::keysByPersonality('extroversion');
+
+        // Filter questions and points associated with a given personality
+        $personalityPoints = $points->filter(function($point, $key) use($personality_keys){
+            return $personality_keys->contains($key);
+        });
+
+        // dd($personalityPoints);
+
+        // Keys which values should be added
+        $positives = collect([0,10,20,30,40]);
+
+        // Points to be added
+        $toAdd = $personalityPoints->filter(function($point, $key) use ($positives){
+            return $positives->contains($key);
+        })->sum();
+
+        $toSubtract = $personalityPoints->filter(function($point, $key) use ($positives){
+            return !$positives->contains($key);
+        })->sum();
+
+        dd(20 - $toSubtract + $toAdd);
+    }
 }
