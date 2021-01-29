@@ -299,6 +299,20 @@ Sitemap: https://".$request->getHttpHost()."/sitemap.xml";
             die('Only job seekers can apply. <a href="/login">Login</a>');
         if(!$user->seeker->hasApplied($post))
         {
+             //create seeker cv if null
+            if($user->seeker->resume == null) {
+        
+                    $storage_path = '/public/resumes';
+                    $resume_url = basename(Storage::put($storage_path, $request->file('resume')));
+                    $parser = new Parser($resume_url);
+
+                    $seeker = $user->seeker;
+                    $seeker->resume = $resume_url;
+                    $seeker->resume_contents = $parser->convertToText();
+                    $seeker->updated_at = now();
+                    $seeker->save();
+            }
+            
             $j = JobApplication::create([
                 'user_id' => $user->id,
                 'post_id' => $post->id,
