@@ -12,6 +12,7 @@ use App\TestResult;
 use App\Performance;
 use App\PersonalityResult;
 use Illuminate\Http\Request;
+use App\ApplicationAssessment;
 use App\ApplicationPerformance;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -253,7 +254,7 @@ class SelfAssessmentController extends Controller
                 // Create application_performance pivot records
                 ApplicationAssessment::create([
                     'application_id' => $application->id,
-                    'assessment_id' => $testResult->id
+                    'test_result_id' => $testResult->id
                 ]);
             }
 
