@@ -16,25 +16,11 @@ class CVReviewController extends Controller
 
     { 
         //sort cv review results by date 
-        if(isset($request->sortbydate))
-            switch ($request->sortbydate) {
-                case 'today':
-                $cvReview =CVReviewResult::where('created_at', '>', Carbon::now()->subDays(1))->with('recommendations')->orderBy('id','DESC');
-                    break;
-
-                case 'last7':
-                    $cvReview =CVReviewResult::where('created_at', '>', Carbon::now()->subDays(7))->with('recommendations')->orderBy('id','DESC');
-                    break;
-                case 'thisMonth':
-                    $cvReview =CVReviewResult::where('created_at', '>', Carbon::now()->subDays(30))->with('recommendations')->orderBy('id','DESC');
-                    break;
-                
-                default:
-                    break;
-
-      }else{
-        $cvReview = CVReviewResult::with('recommendations')->orderBy('id','DESC');
-      } 
+        if(isset($request->sortbydate)){
+                $cvReview = CVReviewResult::filterByDate($request->sortbydate);
+            }else{
+               $cvReview = CVReviewResult::with('recommendations')->orderBy('id','DESC');
+            }       
         return view('v2.admin.cvReview.index',[
             'cvReviews' => $cvReview->paginate(15),
             'count' => $cvReview->count(),

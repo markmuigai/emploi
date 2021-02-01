@@ -89,6 +89,27 @@ class CVReviewResult extends Model
           return true;
       }
       return false;
+    }
+
+        // Filter by date
+    public static function filterByDate($dateRange)
+    {
+        switch ($dateRange) {
+            case 'today':
+            return CVReviewResult::where('created_at', '>', Carbon::now()->subDays(1))->with('recommendations')->orderBy('id','DESC');
+                break;
+
+            case 'last7':
+            return CVReviewResult::where('created_at', '>', Carbon::now()->subDays(7))->with('recommendations')->orderBy('id','DESC');
+                break;
+                
+            case 'thisMonth':
+               return CVReviewResult::where('created_at', '>', Carbon::now()->subDays(30))->with('recommendations')->orderBy('id','DESC');
+                break;
+            
+            default:
+                break;
+        }
     }    
 
 }
