@@ -100,12 +100,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <td>{{$review->score}}%</td>
                             <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>
-                                <a href="/v2/admin/cvReviews/{{ $review->id }}" class="btn btn-success">
-                                    View Detailed results
+                                 <a href="/v2/admin/cvReviews/{{ $review->id }}" class="btn btn-success">
+                                    <i class="far fa-eye" data-toggle="tooltip"  title="View detailed results"></i>
                                 </a>
                                 @if($review->path!='')
                                     <a href="/v2/admin/cv-review/download/{{ $review->id }}" class="btn btn-success">
-                                        Download CV
+                                        <i class="fa fa-download" data-toggle="tooltip"  title="Download CV"></i>
                                     </a>
                                 @endif
                             </td>
