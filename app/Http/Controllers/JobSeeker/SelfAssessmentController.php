@@ -251,12 +251,10 @@ class SelfAssessmentController extends Controller
             // Check if the assessment has been sent by an employer
             if(isset($application)){
                 // Create application_performance pivot records
-                foreach($scores as $score){
-                    ApplicationPerformance::create([
-                        'application_id' => $application->id,
-                        'performance_id' => $score->id
-                    ]);
-                }
+                ApplicationAssessment::create([
+                    'application_id' => $application->id,
+                    'assessment_id' => $testResult->id
+                ]);
             }
 
             if($request->type == 'personality'){
