@@ -225,7 +225,7 @@ class JobApplication extends Model
     public function personalityTestResults()
     {
         return $this->performance->filter(function($perf){
-            return $perf->question->type == 'personality';
+            return isset($perf->question) && $perf->question->type == 'personality';
         });
     }
 
@@ -235,7 +235,7 @@ class JobApplication extends Model
     public function aptitudeTestResults()
     {
         return $this->performance->filter(function($perf){  
-            return $perf->question->type == 'aptitude';
+            return isset($perf->question) && $perf->question->type == 'aptitude';
         });
     }
 }
