@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ApplicationPerformance extends Model
+class ApplicationAssessment extends Model
 {
-    protected $table = 'application_performance';
+    protected $table = 'application_assessment';
 
     protected $fillable = [
         'application_id',
-        'performance_id'
+        'test_result_id'
     ];
 }
