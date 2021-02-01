@@ -36,7 +36,7 @@
                 </td>
                 @if (request()->type == 'aptitude')
                     <td>
-                        @if ($s->user->applicationForPost($post->slug)->aptitudeTestResults()->isEmpty())
+                        @if ($s->user->applicationForPost($post->slug)->aptitudeTestResults())
                             Pending
                         @else
                             {{$s->user->applicationForPost($post->slug)->score()}}%
@@ -44,7 +44,7 @@
                     </td>
                 @else
                     <td>
-                        @if ($s->user->applicationForPost($post->slug)->personalityTestResults()->isEmpty())
+                        @if ($s->user->applicationForPost($post->slug)->personalityTestResults())
                             Pending
                         @else
                             Submitted
@@ -58,7 +58,7 @@
                     <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#saveSeekerModal-{{ $s->user->id }}" title="Save profile">
                        <i class='bx bxs-heart'></i>
                     </a>     
-                    @if (request()->type == 'personality' && $s->user->applicationForPost($post->slug)->personalityTestResults()->isNotEmpty())
+                    @if (request()->type == 'personality' && $s->user->applicationForPost($post->slug)->personalityTestResults())
                         <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#viewPersonalityModal-{{ $s->user->id }}" title="View Personality Test Results">
                             <i class='bx bxs-user-detail'></i>
                         </a>     
@@ -146,28 +146,30 @@
             </div>
             <!-- END SAVE PROFILE MODAL -->
             <!-- VIEW PERSONALITY MODAL -->
-            <div class="modal fade" id="viewPersonalityModal-{{ $s->user->id }}" tabindex="-1" role="dialog" aria-labelledby="viewPersonalityModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <h4 class="text-center mt-4">
-                           {{ $s->user->name }} personality
-                        </h4>
+            @if($s->user->applicationForPost($post->slug)->personalityTestResults())
+                <div class="modal fade" id="viewPersonalityModal-{{ $s->user->id }}" tabindex="-1" role="dialog" aria-labelledby="viewPersonalityModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <h4 class="text-center mt-4">
+                            {{ $s->user->name }} personality
+                            </h4>
                             <div class="modal-body">
-                                @foreach ($s->user->applicationForPost($post->slug)->personalityTestResults() as $key => $perf)
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <strong>{{($key+1).') '.$perf->question->title}}
-                                            <h5 class="my-2 text-success">
-                                                {{$perf->selectedChoice->value}}
-                                            </h5>
-                                        </strong>
+                                @foreach ($s->user->applicationForPost($post->slug)->personalityScores() as $key => $score)
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <strong>{{($key+1).') '.ucfirst($score->personality)}}
+                                                <h5 class="my-2 text-success">
+                                                    {{$score->score}}/40
+                                                </h5>
+                                            </strong>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach               
+                                @endforeach               
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
             <!-- END PERSONALITY MODAL -->
             @empty
             @endforelse

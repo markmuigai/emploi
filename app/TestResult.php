@@ -23,7 +23,7 @@ class TestResult extends Model
      */
     public function performances()
     {
-        return $this->hasMany('App\Performance');
+        return $this->hasMany('App\Performance', 'test_result_id');
     }
 
     /**
