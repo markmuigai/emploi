@@ -226,7 +226,15 @@ class JobApplication extends Model
     {
         return $this->assessmentResults->filter(function($assessment){
             return $assessment->type == 'personality';
-        });
+        })->first();
+    }
+
+    /**
+     * Personality scores
+     */
+    public function personalityScores()
+    {
+        return $this->personalityTestResults()->personalityResults;
     }
 
     /**
@@ -236,6 +244,6 @@ class JobApplication extends Model
     {
         return $this->assessmentResults->filter(function($assessment){  
             return $assessment->type == 'aptitude';
-        });
+        })->first();
     }
 }
