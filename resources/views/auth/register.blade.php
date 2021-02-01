@@ -36,7 +36,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     selected="selected"
                     @endif
                     >
-                    {{ $c->code }} {{ $c->prefix }}
+                    {{ $c->name }} {{ $c->prefix }}
                 </option>
                 @endforeach
             </select>
