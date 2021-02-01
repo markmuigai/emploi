@@ -20,38 +20,16 @@ class AssessmentResultController extends Controller
     public function index(Request $request)
     {   
         
-            if(isset($request->sortbydate))
-                switch ($request->sortbydate) {
-                    case 'today':
-                    $sort_by_date =TestResult::where('created_at', '>', Carbon::now()->subDays(1))->pluck('id')->toArray();
-                        // return $sort_by_date;
-                        break;
-
-                    case 'last7':
-                        $sort_by_date =TestResult::where('created_at', '>', Carbon::now()->subDays(7))->pluck('id')->toArray();
-                        // return $sort_by_date;
-                        break;
-                    case 'thisMonth':
-                        $sort_by_date =TestResult::where('created_at', '>', Carbon::now()->subDays(30))->pluck('id')->toArray();
-                        // return $sort_by_date;
-                        break;
-                    
-                    default:
-                        break;
-          } 
-
-          if(isset($request->sortbydate)){
-              return view('v2.admin.assessmentResults.index',[
-                    'testResults' => TestResult::whereIn('id',$sort_by_date)->orderBy('id','DESC')->paginate(10),
-                    'assessments_count' => TestResult::all()->count(),
-                    'avg' => round(TestResult::all()->pluck('score')->avg()),
-                ]);
-              }
+            if(isset($request->sortbydate)){
+                $testResults = TestResult::filterByDate($request->sortbydate);
+            }else{
+                $testResults = TestResult::orderBy('created_at', 'desc')->paginate(10);
+            }
 
           return view('v2.admin.assessmentResults.index',[
-            'testResults' => TestResult::orderBy('created_at', 'desc')->paginate(10),
-            'assessments_count' => TestResult::all()->count(),
-            'avg' => round(TestResult::all()->pluck('score')->avg()),
+            'testResults' => $testResults,
+            'assessments_count' => $testResults->count(),
+            'avg' => round($testResults->pluck('score')->avg()),
         ]);
     }
 
