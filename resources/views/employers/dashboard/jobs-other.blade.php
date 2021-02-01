@@ -55,7 +55,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 job-actions">
-                        <p><i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
+                        <p>Closing: <i class="far fa-calendar-check"></i> {{ $post->readableDeadline }}</p>
                         <p>
                             <strong>{{ $post->monthlySalary() }} p.m.</strong>
                         </p>
