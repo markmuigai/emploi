@@ -28,16 +28,16 @@ class TestResult extends Model
     {
         switch ($dateRange) {
             case 'today':
-            return TestResult::where('created_at', '>', Carbon::now()->subDays(1))->orderBy('created_at', 'desc')->paginate(10);
+            return TestResult::where('created_at', '>', Carbon::now()->subDays(1))->orderBy('created_at', 'desc');
                 // return $sort_by_date;
                 break;
 
             case 'last7':
-            return TestResult::where('created_at', '>', Carbon::now()->subDays(7))->orderBy('created_at', 'desc')->paginate(10);
+            return TestResult::where('created_at', '>', Carbon::now()->subDays(7))->orderBy('created_at', 'desc');
                 // return $sort_by_date;
                 break;
             case 'thisMonth':
-               return TestResult::where('created_at', '>', Carbon::now()->subDays(30))->orderBy('created_at', 'desc')->paginate(10);
+               return TestResult::where('created_at', '>', Carbon::now()->subDays(30))->orderBy('created_at', 'desc');
                 // return $sort_by_date;
                 break;
             
