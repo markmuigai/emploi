@@ -10,6 +10,7 @@ use App\Question;
 use App\Industry;
 use App\TestResult;
 use App\Performance;
+use App\PersonalityResult;
 use Illuminate\Http\Request;
 use App\ApplicationPerformance;
 use Illuminate\Support\Facades\DB;
@@ -258,8 +259,19 @@ class SelfAssessmentController extends Controller
                 }
             }
 
-            // Get personality test results
-            Performance::personalityScore('extroversion', $scores);
+            if($request->type == 'personality'){
+                $personalities = [
+                    'extroversion','agreeableness','conscientiousness','neuroticism','openness to experience'
+                ];
+        
+                foreach($personalities as $pers){
+                    PersonalityResult::create([
+                        'personality' => $pers,
+                        'score' => Performance::personalityResult($pers, $scores),
+                        'test_result_id' => $testResult->id
+                    ]);
+                }
+            }
 
             // Update test score record
             $testResult->update([
