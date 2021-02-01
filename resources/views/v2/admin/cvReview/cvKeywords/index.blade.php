@@ -9,7 +9,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Manage keywords used for CV review')
     <div class="container-fluid mb-5">
-        <a href="{{ url()->previous() }}" class="btn btn-primary">
+        <a href="{{ url()->previous() }}" class="btn btn-orange">
             <i class="fa fa-arrow-left"></i> Back
         </a>
         <div class="row justify-content-end">
@@ -68,7 +68,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @csrf
                     <div class="form-group">
                         <label for="keyword">Enter Keyword</label>
-                        <input class="form-control" type="text" name="keyword" id="">
+                        <input class="form-control" type="text" name="keyword" id="" required="">
                     </div>
                     <button type="submit" class="btn btn-primary ">Add Keyword</button>
                     </form>
