@@ -16,42 +16,15 @@ class CVReviewController extends Controller
 
     { 
         //sort cv review results by date 
-        if(isset($request->sortbydate))
-            switch ($request->sortbydate) {
-                case 'today':
-                $sort_by_date =CVReviewResult::where('created_at', '>', Carbon::now()->subDays(1))->pluck('user_id')->toArray();
-                    // return $sort_by_date;
-                    break;
-
-                case 'last7':
-                    $sort_by_date =CVReviewResult::where('created_at', '>', Carbon::now()->subDays(7))->pluck('user_id')->toArray();
-                    // return $sort_by_date;
-                    break;
-                case 'thisMonth':
-                    $sort_by_date =CVReviewResult::where('created_at', '>', Carbon::now()->subDays(30))->pluck('user_id')->toArray();
-                    // return $sort_by_date;
-                    break;
-                
-                default:
-                    break;
-
-      } 
-
-      if(isset($request->sortbydate)){
-          return view('v2.admin.cvReview.index',[
-                'cvReviews' => CVReviewResult::with('recommendations')->whereIn('user_id',$sort_by_date)->orderBy('id','DESC')->paginate(15),
-                'count' => CVReviewResult::all()->count(),
-                'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
-                'missingKeyword' => CVReviewResult::missingKeyword(),
-                'convertedEmails' => CVReviewResult::convertedEmails()
-            ]);
-          }
-
-          //all cv review results
+        if(isset($request->sortbydate)){
+                $cvReview = CVReviewResult::filterByDate($request->sortbydate);
+            }else{
+               $cvReview = CVReviewResult::with('recommendations')->orderBy('id','DESC');
+            }       
         return view('v2.admin.cvReview.index',[
-            'cvReviews' => CVReviewResult::with('recommendations')->orderBy('id','DESC')->paginate(15),
-            'count' => CVReviewResult::all()->count(),
-            'avg' => ceil(CVReviewResult::all()->pluck('score')->avg()),
+            'cvReviews' => $cvReview->paginate(15),
+            'count' => $cvReview->count(),
+            'avg' => ceil($cvReview->pluck('score')->avg()),
             'missingKeyword' => CVReviewResult::missingKeyword(),
             'convertedEmails' => CVReviewResult::convertedEmails()
         ]);

@@ -163,7 +163,7 @@ class SelfAssessmentController extends Controller
 
             // Check if application isset
             if(isset($application)){
-                $request->type == 'aptitude' ? $type = 'apptitude' : $type = 'personality';
+                $request->type == 'aptitude' ? $type = 'aptitude' : $type = 'personality';
             }else{
                 $type = 'Aptitude Practice';
             }

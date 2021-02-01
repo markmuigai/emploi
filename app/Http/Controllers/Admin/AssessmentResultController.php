@@ -19,10 +19,17 @@ class AssessmentResultController extends Controller
      */
     public function index(Request $request)
     {   
-        return view('v2.admin.assessmentResults.index',[
-            'testResults' => TestResult::paginate(10),
-            'assessments_count' => TestResult::all()->count(),
-            'avg' => round(TestResult::all()->pluck('score')->avg()),
+        
+            if(isset($request->sortbydate)){
+                $testResults = TestResult::filterByDate($request->sortbydate);
+            }else{
+                $testResults = TestResult::orderBy('created_at', 'desc');
+            }
+
+          return view('v2.admin.assessmentResults.index',[
+            'testResults' => $testResults->paginate(10),
+            'assessments_count' => $testResults->count(),
+            'avg' => round($testResults->pluck('score')->avg()),
         ]);
     }
 

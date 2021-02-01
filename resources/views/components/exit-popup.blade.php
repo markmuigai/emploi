@@ -240,9 +240,8 @@
     </div>
 
 
-<div class="modal fade" id="cvEditing" role="dialog" aria-labelledby="cvEditing" aria-hidden="true">	
+<!-- <div class="modal fade" id="cvEditing" role="dialog" aria-labelledby="cvEditing" aria-hidden="true">	
 		<div class="modal-dialog modal-dialog-centered" role="document">
-		    <!-- Modal content-->
 			<div class="modal-content px-3 pt-3">
 				<div class="modal-body">
 				<div class="modal-header">					
@@ -270,7 +269,7 @@
 		</div>
 	</div>
 </div>
-
+ -->
 <script type="text/javascript">
     var exit_trials = 0;
     var role = 'guest';

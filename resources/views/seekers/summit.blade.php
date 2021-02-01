@@ -216,7 +216,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
            <div class="col-lg-4">
             <div class="card mb-5 mb-lg-0">
               <div class="card-body">
-                <div class="ribbon ribbon-top-right ml-2"><span>50% Off</span></div><br><br>
+          <!--       <div class="ribbon ribbon-top-right ml-2"><span>50% Off</span></div><br><br> -->
                 <h5 class="card-title text-muted text-uppercase text-center">Professional CV Editing</h5>
                 <hr>
 
@@ -278,7 +278,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
     
     <div class="banner animate__animated animate__pulse animate__infinite	infinite animate__slow	10s">
 
-      <h1>50% Off</h1>
+     <!--  <h1>50% Off</h1> -->
       <h5>Professional CV Editing</h5>
       <a href="#" data-toggle="modal" data-target="#myModal1">Request</a>
     
@@ -533,7 +533,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                     </ul>                       
                                  </div>
                               </div>
-                                    <h6 style="text-align: center">NOTE: "These prices may vary upto 50% depending on the workload assessment"</h6>
+                                <!--     <h6 style="text-align: center">NOTE: "These prices may vary upto 50% depending on the workload assessment"</h6> -->
 
 
 

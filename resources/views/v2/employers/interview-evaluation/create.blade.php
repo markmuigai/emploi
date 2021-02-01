@@ -20,7 +20,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @include('v2.components.sidebar.employer')               
                 </div>           
                 <div class="col-lg-10 jobs-form">
-										<a href="{{ url()->previous() }}" class="btn btn-primary rounded-pill mt-2">
+										<a href="{{ url()->previous() }}" class="btn btn-orange rounded-pill mt-2">
 											<i class='bx bx-arrow-back'></i>
 											Back
 										</a>

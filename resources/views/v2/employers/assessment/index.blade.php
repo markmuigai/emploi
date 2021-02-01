@@ -23,7 +23,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                  <div class="col-lg-10 jobs-form">
                     <!-- Jobs -->
                     <div class="categories-area pb-70">
-                        <a href="{{ url()->previous() }}" class="btn btn-primary rounded-pill mb-3">
+                        <a href="{{ url()->previous() }}" class="btn btn-orange rounded-pill mb-3">
                             <i class='bx bx-left-arrow-alt'></i>Back
                          </a>
                          @if (request()->type == 'aptitude')
