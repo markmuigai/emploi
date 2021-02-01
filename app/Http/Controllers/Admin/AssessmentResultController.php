@@ -23,11 +23,11 @@ class AssessmentResultController extends Controller
             if(isset($request->sortbydate)){
                 $testResults = TestResult::filterByDate($request->sortbydate);
             }else{
-                $testResults = TestResult::orderBy('created_at', 'desc')->paginate(10);
+                $testResults = TestResult::orderBy('created_at', 'desc');
             }
 
           return view('v2.admin.assessmentResults.index',[
-            'testResults' => $testResults,
+            'testResults' => $testResults->paginate(10),
             'assessments_count' => $testResults->count(),
             'avg' => round($testResults->pluck('score')->avg()),
         ]);
