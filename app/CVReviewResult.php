@@ -23,6 +23,12 @@ class CVReviewResult extends Model
         return $this->hasMany('App\CVRecommendation', 'cvReviewResult_id');
     }
 
+       // Get the associated user
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     /**
      * Get the cv review date
      */

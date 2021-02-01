@@ -78,6 +78,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <th scope="col">#</th>
                         <th scope="col">Email</th>
                         <th scope="col">Converted</th>
+                        <th scope="col">Experience</th>
                         <th scope="col">Score</th>
                         <th scope="col">Created</th>
                         <th scope="col">Actions</th>
@@ -97,6 +98,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                     Yes
                                 @endif
                             </td>
+                            @if(isset($review->user->seeker->id))
+                                    <td>{{ $review->user->seeker->years_experience }} years</td>
+                                @else
+                                    <td>Unavailable</td>
+                                @endif
+                                
                             <td>{{$review->score}}%</td>
                             <td>{{ $review->created_at->diffForHumans() }}</td>
                             <td>
