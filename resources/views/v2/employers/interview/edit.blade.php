@@ -22,7 +22,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>           
                  <div class="col-lg-10">
                     <div class="container-fluid my-4">
-                        {{-- <a href="{{ url()->previous() }}" class="btn btn-primary rounded-pill">
+                        {{-- <a href="{{ url()->previous() }}" class="btn btn-orange rounded-pill">
                             <i class="fa fa-arrow-left"></i> Back
                          </a> --}}
                         <h4>

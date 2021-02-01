@@ -9,7 +9,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', 'Self-assessment Results')
 <div class="container-fluid mb-5">
-    <a href="{{ url()->previous() }}" class="btn btn-primary">
+    <a href="{{ url()->previous() }}" class="btn btn-orange">
        <i class="fa fa-arrow-left"></i> Back
     </a>
     <div class="row mt-3">
