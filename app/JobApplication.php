@@ -206,9 +206,9 @@ class JobApplication extends Model
     /**
      * Get the assessment performance associated with an application
      */
-    public function performance()
+    public function assessmentResults()
     {
-        return $this->belongsToMany('App\Performance', 'application_performance', 'application_id', 'performance_id');
+        return $this->belongsToMany('App\TestResult', 'application_assessment', 'application_id', 'assessment_id');
     }
 
     /**
@@ -224,9 +224,7 @@ class JobApplication extends Model
      */
     public function personalityTestResults()
     {
-        return $this->performance->filter(function($perf){
-            return isset($perf->question) && $perf->question->type == 'personality';
-        });
+        return $this->assessmentResults->where('type', 'personality')->get();
     }
 
     /**
@@ -234,8 +232,6 @@ class JobApplication extends Model
      */
     public function aptitudeTestResults()
     {
-        return $this->performance->filter(function($perf){  
-            return isset($perf->question) && $perf->question->type == 'aptitude';
-        });
+        return $this->assessmentResults->where('type', 'aptitude')->get();
     }
 }
