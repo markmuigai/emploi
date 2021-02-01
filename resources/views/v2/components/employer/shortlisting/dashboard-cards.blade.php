@@ -39,9 +39,9 @@
                 <button class="btn btn-success mr-2 mt-1 btn-sm rounded-pill" data-toggle="modal" data-target="#shareVacancy">
                     Share this vacancy
                 </button>
-                {{-- <a href="{{route('v2.employers.assessments.create', ['slug' => $post->slug])}}" class="btn btn-success mr-2 mt-1 btn-sm rounded-pill">
+                <a href="{{route('v2.employers.assessments.create', ['slug' => $post->slug])}}" class="btn btn-success mr-2 mt-1 btn-sm rounded-pill">
                     Manage Assessments
-                </a> --}}
+                </a>
             </div>
         </div>
     </div>
