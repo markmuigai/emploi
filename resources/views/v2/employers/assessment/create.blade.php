@@ -43,11 +43,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade border p-4 border-top-0 show active" id="nav-personality" role="tabpanel" aria-labelledby="nav-personality-tab">
-                                @if ($post->questions->isNotEmpty())
+                                
                                     <a href="{{route('v2.employers.assessments.index', ['slug' => $post->slug, 'type' =>'personality'])}}" class="btn btn-success mb-3">
                                         Assessment Results
                                     </a>
-                                @endif
+                                
                                 @foreach ($personalityQuestions as $key => $question)
                                     <div class="row">
                                         <div class="col-md-12">
