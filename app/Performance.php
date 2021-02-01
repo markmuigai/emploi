@@ -51,7 +51,8 @@ class Performance extends Model
     public static function aptitudeTestsForUser($email)
     {
         return Performance::assessmentsForUser($email)->filter(function($perf){  
-            return $perf->question->type == 'aptitude';
+            if(isset($perf->question))
+                return $perf->question->type == 'aptitude';
         });
     }
 
@@ -80,7 +81,6 @@ class Performance extends Model
         //check if email is there
         if(isset($user->id))        
             return Performance::latestAssessment($email)->where('correct',1)->count();
-
         else
             return NULL;
     }
@@ -277,7 +277,7 @@ class Performance extends Model
                 return collect([
                     3,8,13,18,23,28,33,38,43,48
                 ]);
-            case 'openness to Experience' : 
+            case 'openness to experience' : 
                 return collect([
                     4,9,14,19,24,29,34,39,44,49
                 ]);
@@ -287,7 +287,7 @@ class Performance extends Model
     /**
      * Get the points that should be added for a given personality 
      */
-    public function scoreToAdd($personality)
+    public static function scoreToAdd($personality)
     {
         switch ($personality) {
             case 'extroversion' : 
@@ -296,41 +296,30 @@ class Performance extends Model
                 ]);
             case 'agreeableness' : 
                 return collect([
-                    1,6,11,16,21,26,31,36,41,46
+                    6,16,26,36,41,46
                 ]);
             case 'conscientiousness' : 
                 return collect([
-                   2,7,12,17,22,27,32,37,42,47
+                   2,12,22,32,42,47
                 ]);
             case 'neuroticism' : 
                 return collect([
-                    3,8,13,18,23,28,33,38,43,48
+                    8,18
                 ]);
-            case 'openness to Experience' : 
+            case 'openness to experience' : 
                 return collect([
-                    4,9,14,19,24,29,34,39,44,49
+                    4,14,24,34,39,44,49
                 ]);
         }
     }
 
     /**
-     * Extroversion score
+     * Personality score arithmetic
      */
-    public static function personalityScore($personality, $scores)
+    public static function personalityArithmetic($personality, $personalityPoints)
     {
-        $points = Performance::personalityScores($scores);
-
-        $personality_keys = Performance::keysByPersonality('extroversion');
-
-        // Filter questions and points associated with a given personality
-        $personalityPoints = $points->filter(function($point, $key) use($personality_keys){
-            return $personality_keys->contains($key);
-        });
-
-        // dd($personalityPoints);
-
         // Keys which values should be added
-        $positives = collect([0,10,20,30,40]);
+        $positives = Performance::scoreToAdd($personality);
 
         // Points to be added
         $toAdd = $personalityPoints->filter(function($point, $key) use ($positives){
@@ -341,6 +330,45 @@ class Performance extends Model
             return !$positives->contains($key);
         })->sum();
 
-        dd(20 - $toSubtract + $toAdd);
+        return Performance::baseScore($personality) - $toSubtract + $toAdd;
+    }
+
+    /**
+     * Get base score to add or subtract from
+     */
+    public static function baseScore($personality)
+    {
+        switch ($personality) {
+            case 'extroversion' : 
+                return 20;
+            case 'agreeableness' : 
+                return 14;
+            case 'conscientiousness' : 
+                return 14;
+            case 'neuroticism' : 
+                return 38;
+            case 'openness to experience' : 
+                return 8;
+        }
+    }
+
+    /**
+     * Extroversion score
+     */
+    public static function personalityResult($personality, $scores)
+    {
+        // Get points for all personality questions
+        $points = Performance::personalityScores($scores);
+
+        // Get the question keys associated with a personality
+        $personality_keys = Performance::keysByPersonality($personality);
+
+        // Filter questions and points associated with a given personality
+        $personalityPoints = $points->filter(function($point, $key) use($personality_keys){
+            return $personality_keys->contains($key);
+        });
+
+        // Return the personality score
+        return Performance::personalityArithmetic($personality, $personalityPoints);
     }
 }
