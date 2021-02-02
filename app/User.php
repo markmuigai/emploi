@@ -427,4 +427,12 @@ class User extends Authenticatable
                 return $application->post->slug == $slug;
         })->last();
     }
+
+    /**
+     * Get a user's saved posts
+     */
+    public function savedPosts()
+    {
+        return $this->belongsToMany('App\Post', 'user_saved_posts');
+    }
 }
