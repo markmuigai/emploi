@@ -19,4 +19,12 @@ class PersonalityResult extends Model
     {
         return $this->belongsTo('App\TestResult', 'test_result_id');
     }
+
+    /**
+    * Get percentage
+    */
+    public function getScoreAttribute($value)
+    {
+        return round(($value/40)*100);
+    }
 }
