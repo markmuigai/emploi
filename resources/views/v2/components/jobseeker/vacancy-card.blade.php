@@ -1,65 +1,64 @@
 @if (auth()->user() == null)
     <div class="col-sm-6 col-lg-4 mix {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
 @else
-    <div id ="append-save-{{$post->id}}" class="{{$post->location_id}} {{$post->industry_id}} {{$post->location->country}} col-sm-6 col-lg-4 mix {{$post->savedByUser(auth()->user()->id) ? 'saved' : ''}}
-{{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
+    <div id ="append-save-{{$post->id}}" class="col-sm-6 col-lg-4 mix">
 @endif
-    <div class="cat-item">
-        <span id="vacancies-image">
-            <a href="/vacancies/{{ $post->slug }}">
-                <img src="{{ asset($post->imageUrl) }}" alt="{{ $post->title }}">
-            </a>
-        </span>
-        <h3>
-            <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
-        </h3>
-        <div class="row">
-            <div class="col-md-7">
-                <a href="/vacancies/{{ $post->slug }}"> 
-                    @if($post->featured == 'true')
-                    <span class="badge badge-pill badge-success mx-1">
-                        <i class="bx bx-star"> </i>Featured
-                    </span>
-                    @endif
+        <div class="cat-item">
+            <span id="vacancies-image">
+                <a href="/vacancies/{{ $post->slug }}">
+                    <img src="{{ asset($post->imageUrl) }}" alt="{{ $post->title }}">
                 </a>
-            </div>
-            <div class="col-md-5">
-                @if (auth()->user() && $post->savedByUser(auth()->user()->id) == 1)
-                    <span class="save-icon text-success" data-id="{{$post->id}}">
-                        <i id="heart-icon-{{$post->id}}" class='bx bxs-heart'></i>
-                        <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="remove from saved">
-                            Unsave
+            </span>
+            <h3>
+                <a href="/vacancies/{{$post->slug}}/">{{  $post->getTitle() }}</a>
+            </h3>
+            <div class="row">
+                <div class="col-md-7">
+                    <a href="/vacancies/{{ $post->slug }}"> 
+                        @if($post->featured == 'true')
+                        <span class="badge badge-pill badge-success mx-1">
+                            <i class="bx bx-star"> </i>Featured
                         </span>
-                    </span>
-                @else
-                    @if (auth()->user())
-                        <span class="save-icon" data-id="{{$post->id}}">
-                            <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
-                            <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="save for later">
-                                Save
+                        @endif
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    @if (auth()->user() && $post->savedByUser(auth()->user()->id) == 1)
+                        <span class="save-icon text-success" data-id="{{$post->id}}">
+                            <i id="heart-icon-{{$post->id}}" class='bx bxs-heart'></i>
+                            <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="remove from saved">
+                                Unsave
                             </span>
-                        </span> 
+                        </span>
                     @else
-                        <span class="save-icon" data-id="{{$post->id}}">
-                            <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
-                            <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="login to save for later">
-                                Save
-                            </span>
-                        </span> 
-                    @endif   
-                @endif
+                        @if (auth()->user())
+                            <span class="save-icon" data-id="{{$post->id}}">
+                                <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
+                                <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="save for later">
+                                    Save
+                                </span>
+                            </span> 
+                        @else
+                            <span class="save-icon" data-id="{{$post->id}}">
+                                <i id="heart-icon-{{$post->id}}" class='bx bx-heart'></i>
+                                <span class="save-text" id="save-text-{{$post->id}}" data-toggle="tooltip"  title="login to save for later">
+                                    Save
+                                </span>
+                            </span> 
+                        @endif   
+                    @endif
+                </div>
             </div>
+            <a href="/vacancies/{{ $post->slug }}">
+            <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
+                Posted {{ $post->since }}
+            </span>
+            </a>
+            <a class="link" href="/vacancies/{{ $post->slug }}">
+                <i class="flaticon-right-arrow"></i>
+            </a>
         </div>
-        <a href="/vacancies/{{ $post->slug }}">
-        <span>{{ $post->positions }} Position{{ $post->positions == 1 ? '' : 's' }} | 
-            Posted {{ $post->since }}
-        </span>
-        </a>
-        <a class="link" href="/vacancies/{{ $post->slug }}">
-            <i class="flaticon-right-arrow"></i>
-        </a>
     </div>
-</div>
 
 @section('js') 
     <script>

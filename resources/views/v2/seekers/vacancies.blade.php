@@ -117,20 +117,35 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                 <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
                                     <div class="row justify-content-between">
                                         <div class="col-md-6">
-                                            <div class="sorting-menu mt-3 float-left">
+                                            <div class="vacancies sorting-menu mt-3 float-left">
                                                 <ul> 
-                                                    <li class="filter" data-filter="all">All</li>
-                                                    @if (auth()->user() || !empty(request()->parameters))
-                                                        <li class="filter" data-filter=".recommended">Recommended</li>   
+                                                    <a href="{{route('v2.vacancies.index')}}">
+                                                        <li class="filter" data-filter="{{request()->industry || request()->saved ? '' : 'all'}}">
+                                                            All
+                                                        </li>
+                                                    </a>
+                                                    @if (auth()->user())
+                                                        <a href="{{route('v2.vacancies.index', [
+                                                                'industry' => auth()->user()->seeker->industry->id
+                                                            ])}}">
+                                                            <li class="filter" data-filter="{{request()->industry ? 'all' : ''}}">
+                                                                Recommended
+                                                            </li>
+                                                        </a>
                                                     @else
                                                         <a href="#" class="mr-3" data-toggle="modal" data-target="#recommendedModal">
-                                                            <li>
-                                                            Recommended
+                                                            <li class="filter">
+                                                                Recommended
                                                             </li>
                                                         </a>
                                                     @endif
-                                                    <li class="filter" data-filter=".saved">Saved</li>
-                                                    <li class="filter" data-filter=".internships">Internships</li>
+                                                    <a href="{{route('v2.vacancies.index', [
+                                                            'saved' => true
+                                                        ])}}">
+                                                        <li class="filter" data-filter="{{request()->saved ? 'all' : ''}}">
+                                                            Saved
+                                                        </li>
+                                                    </a>
                                                 </ul>
                                             </div>
                                         </div>
