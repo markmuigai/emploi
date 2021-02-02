@@ -59,10 +59,10 @@ class SelfAssessmentController extends Controller
                     $application = auth()->user()->applicationForPost($request->slug);
 
                     // Check for assessment type and if seeker has attempted before
-                    if($request->type == 'aptitude' && $application->aptitudeTestResults()->isEmpty()){
+                    if($request->type == 'aptitude' && $application->aptitudeTestResults() == null){
                         // Get questions
                         $questions = $post->questions;
-                    }elseif($request->type == 'personality' && $application->personalityTestResults()->isEmpty()){
+                    }elseif($request->type == 'personality' && $application->personalityTestResults() == null){
                         $questions = Question::personality()->get();
                     }else{
                         return abort(403);
@@ -132,8 +132,8 @@ class SelfAssessmentController extends Controller
                 $application = auth()->user()->applicationForPost($request->slug);
 
                 // Check for assessment type and if seeker has attempted before, abort
-                if($request->type == 'aptitude' && $application->aptitudeTestResults()->isNotEmpty() ||
-                    $request->type == 'personality' && $application->personalityTestResults()->isNotEmpty()
+                if($request->type == 'aptitude' && $application->aptitudeTestResults() != null||
+                    $request->type == 'personality' && $application->personalityTestResults() !=null
                 ){
                     return abort(403);
                 }
@@ -171,7 +171,7 @@ class SelfAssessmentController extends Controller
             if(isset($application)){
                 $request->type == 'aptitude' ? $type = 'aptitude' : $type = 'personality';
             }else{
-                $type = 'Aptitude Practice';
+                $type = 'aptitude practice';
             }
 
             // Create test score records
