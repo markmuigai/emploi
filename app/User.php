@@ -427,4 +427,12 @@ class User extends Authenticatable
                 return $application->post->slug == $slug;
         })->last();
     }
+
+    /**
+    * Get all test results for a user
+    **/
+    public function testResults()
+    {
+        return $this->hasMany('App\TestResult', 'user_id');
+    }
 }
