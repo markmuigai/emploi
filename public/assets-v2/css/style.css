@@ -967,6 +967,10 @@ button:focus {
   margin-right: 30px;
 }
 
+.vacancies.sorting-menu ul li {
+  margin-right: 0px !important;
+}
+
 .sorting-menu ul a{
   list-style-type: none;
   display: inline-block;
