@@ -109,11 +109,14 @@ class Seeker extends Model
     /**
      * Get recommended posts from parameters
      */
-    public function recommendedPosts()
+    public static function recommendedPosts($industry_id)
     {
-        return Post::where('industry_id', $this->industry_id)
-                // ->orWhere('location_id', $this->location_id)
-                ->orWhere('education_requirements', $this->education_level_id);
+        return Post::where('industry_id', $industry_id)
+            ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
+            ->where('status','active')
+            ->orderBy('featured', 'DESC')
+            ->orderBy('created_at','DESC')
+            ->paginate(27)->onEachSide(3);
     }
 
     public static function disableFeaturedUserByUserId($user_id){
