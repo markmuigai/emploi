@@ -60,38 +60,33 @@ class PostsController extends Controller
 
 
 
-    public function index(Request $request)
+    public function index()
     {
-        // Get recommended jobs
-        if(auth()->user() && auth()->user()->role == 'seeker'){
-            $query = auth()->user()->seeker->recommendedPosts();
+        if(isset(request()->industry)){
+            $posts = auth()->user()->seeker->recommendedPosts(request()->industry);
+        }elseif(isset(request()->saved)){
+            $posts = auth()->user()->savedPosts()
+                ->whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
+                // ->where('status','active')
+                ->orderBy('featured', 'DESC')
+                ->orderBy('created_at','DESC')
+                ->paginate(27)->onEachSide(3);
 
-            if(!empty($query)){
-                $recommendedJobs = $query->get()->pluck('id');
-            }
-        }elseif(!empty($request->parameters)){
-            $recommendedJobs = Post::where('industry_id', $request->parameters['industry'])
-                            ->orWhere('location_id', $request->parameters['location'])
-                            ->get()->pluck('id');
         }else{
-            $recommendedJobs = collect();
+            $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
+                ->where('status','active')
+                ->orderBy('featured', 'DESC')
+                ->orderBy('created_at','DESC')
+                ->paginate(27)->onEachSide(3);
         }
 
-        $title = "Latest Vacancies in \t" .date("F, Y");
-        $query = isset($request->q) ? $request->q : "";
-        $posts = Post::whereRaw("UPPER('title') != '". strtoupper('HOW TO APPLY')."'")
-            ->where('status','active')
-            ->orderBy('featured', 'DESC')
-            ->orderBy('created_at','DESC')
-            ->paginate(27)->onEachSide(3);
         return view('v2.seekers.vacancies',[
             'industries' => Industry::active(),
             'locations' => Location::active(),
             'vacancyTypes' => VacancyType::all(),
-            'title' => $title,
+            'title' => "Latest Vacancies in \t" .date("F, Y"),
             'posts' => $posts,
             'educationLevels' => EducationLevel::all(),
-            'recommendedJobs' => $recommendedJobs
         ]);
     }
 
@@ -696,5 +691,4 @@ class PostsController extends Controller
             'recommendedParameters' => $request->all()
         ]);
     }
-
 }
