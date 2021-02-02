@@ -1,5 +1,5 @@
 @if (auth()->user() == null)
-    <div class="col-sm-6 col-lg-4 mix {{$recommendedJobs->has($post->id) ? 'recommended' : ''}}">
+    <div class="col-sm-6 col-lg-4 mix">
 @else
     <div id ="append-save-{{$post->id}}" class="col-sm-6 col-lg-4 mix">
 @endif
