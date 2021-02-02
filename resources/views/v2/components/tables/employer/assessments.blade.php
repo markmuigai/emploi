@@ -36,15 +36,15 @@
                 </td>
                 @if (request()->type == 'aptitude')
                     <td>
-                        @if ($s->user->applicationForPost($post->slug)->aptitudeTestResults())
+                        @if ($s->user->applicationForPost($post->slug)->aptitudeTestResults() == null )
                             Pending
                         @else
-                            {{$s->user->applicationForPost($post->slug)->score()}}%
+                            {{$s->user->applicationForPost($post->slug)->aptitudeTestResults()->score}}%
                         @endif
                     </td>
                 @else
                     <td>
-                        @if ($s->user->applicationForPost($post->slug)->personalityTestResults())
+                        @if ($s->user->applicationForPost($post->slug)->personalityTestResults() == null)
                             Pending
                         @else
                             Submitted
@@ -159,7 +159,7 @@
                                         <div class="col-md-12">
                                             <strong>{{($key+1).') '.ucfirst($score->personality)}}
                                                 <h5 class="my-2 text-success">
-                                                    {{$score->score}}/40
+                                                    {{$score->score}}%
                                                 </h5>
                                             </strong>
                                         </div>

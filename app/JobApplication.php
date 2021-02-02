@@ -212,14 +212,6 @@ class JobApplication extends Model
     }
 
     /**
-     * Get the total score of an applicants assessment
-     */
-    public function score()
-    {
-        return ($this->aptitudeTestResults()->pluck('correct')->avg())*100;
-    }
-
-    /**
      * Personality test results
      */
     public function personalityTestResults()

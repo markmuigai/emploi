@@ -108,50 +108,41 @@ class Performance extends Model
      */
     public static function canDoAssessment($email)
     {   
-        //check if a user has ever done assessment before
-        $created = Performance::aptitudeTestsForUser($email)->first();
-
-        //get logged in user
-        $user=Auth::user(); 
+        // All performance records for a user
+        $assessments = Performance::getAssessmentsByType('aptitude practice' , $email);
 
         //if never done before return true(can do asssessment)     
-        if(!isset($created->id)){
+        if($assessments->isEmpty()){
             return true;
         }
 
-            //if on pro plan return true(can do asssessment)     
-        if(isset($user->seeker->id))
-           if($user->seeker->featured == -1)
-        {
-            return true;
-        }
+       
+        //get logged in user  
+        $user=Auth::user();
 
-            //if on spotlight plan return true(can do asssessment)     
-        if(isset($user->seeker->id))
-           if($user->seeker->featured >= 1)
-        {
-            return true;
-        }
+         //if on pro or spotlight plan return true(can do asssessment)    
+        if(isset($user->seeker->id)){
 
-         // All performance records for a user
-        $allAssessments = Performance::aptitudeTestsForUser($email);
+            if($user->seeker->featured == -1 || $user->seeker->featured >= 1)
+                return true;
+        }
 
         // Get the latest assessment
-        $latest = $allAssessments->pluck('assessment_count')->max();
+        if($assessments->isNotEmpty()){
+            $time = $assessments->last()->created_at;
 
-        // Get the latest date assessment was done
-       $time=Performance::Where('assessment_count', $latest)->pluck('created_at')->max();
+            // Get the current date
+           $now=Carbon::now();
 
-        // Get the current date
-       $now=Carbon::now();
-
-       // Find the difference between today and the last assessment done
-       $difference = $time->diffInDays($now);
-       
-      if ($difference > 1825) {
-          return true;
-      }
-      return false;       
+           // Find the difference between today and the last assessment done
+           $difference = $time->diffInDays($now);
+           
+          if ($difference > 1825) {
+              return true;
+          }else{
+            return false;       
+          }
+        }
     }
 
     /**
@@ -202,9 +193,9 @@ class Performance extends Model
     {
         if($this->applications->isEmpty()){
             return 'Aptitude Practice';
-        }elseif($this->applications->first()->personalityTestResults()->isNotEmpty()){
+        }elseif($this->applications->first()->personalityTestResults() != null){
             return 'Personality';
-        }elseif($this->applications->first()->aptitudeTestResults()->isNotEmpty()){
+        }elseif($this->applications->first()->aptitudeTestResults() != null){
             return 'Aptitude';
         }
     }
@@ -212,8 +203,15 @@ class Performance extends Model
     /**
      * Get performance records by type
      */
-    public static function type()
+    public static function getAssessmentsByType($type, $email)
     {
+        // Get user by email
+        $user = User::where('email', $email)->first();
+
+        // Get the users assessment
+        return $user->testResults->filter(function($result) use($type){
+            return $result->type == $type;
+        });
     }
 
     /**

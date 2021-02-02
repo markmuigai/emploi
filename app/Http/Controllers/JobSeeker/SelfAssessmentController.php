@@ -51,27 +51,33 @@ class SelfAssessmentController extends Controller
             // Find post
             $post = Post::where('slug', $request->slug)->first();
 
-            // Check if the candidate has applied for the post
-            if( null!= auth()->user()->applicationForPost($request->slug) ){
-                $application = auth()->user()->applicationForPost($request->slug);
+           //check if user is logged in
+            if(auth()->user()){
+                
+                 // Check if the candidate has applied for the post
+                if( null!= auth()->user()->applicationForPost($request->slug) ){
+                    $application = auth()->user()->applicationForPost($request->slug);
 
-                // Check for assessment type and if seeker has attempted before
-                if($request->type == 'aptitude' && $application->aptitudeTestResults()->isEmpty()){
-                    // Get questions
-                    $questions = $post->questions;
-                }elseif($request->type == 'personality' && $application->personalityTestResults()->isEmpty()){
-                    $questions = Question::personality()->get();
+                    // Check for assessment type and if seeker has attempted before
+                    if($request->type == 'aptitude' && $application->aptitudeTestResults() == null){
+                        // Get questions
+                        $questions = $post->questions;
+                    }elseif($request->type == 'personality' && $application->personalityTestResults() == null){
+                        $questions = Question::personality()->get();
+                    }else{
+                        return abort(403);
+                    }
+
+                    return view('v2.seekers.self-assessment.create',[
+                            'questions' =>  $questions
+                    ]);
+
                 }else{
+                    // abort, permission denied
                     return abort(403);
                 }
-
-                return view('v2.seekers.self-assessment.create',[
-                        'questions' =>  $questions
-                ]);
-
             }else{
-                // abort, permission denied
-                return abort(403);
+                return view('v2.auth.login');
             }
         }
 
@@ -126,8 +132,8 @@ class SelfAssessmentController extends Controller
                 $application = auth()->user()->applicationForPost($request->slug);
 
                 // Check for assessment type and if seeker has attempted before, abort
-                if($request->type == 'aptitude' && $application->aptitudeTestResults()->isNotEmpty() ||
-                    $request->type == 'personality' && $application->personalityTestResults()->isNotEmpty()
+                if($request->type == 'aptitude' && $application->aptitudeTestResults() != null||
+                    $request->type == 'personality' && $application->personalityTestResults() !=null
                 ){
                     return abort(403);
                 }
@@ -165,7 +171,7 @@ class SelfAssessmentController extends Controller
             if(isset($application)){
                 $request->type == 'aptitude' ? $type = 'aptitude' : $type = 'personality';
             }else{
-                $type = 'Aptitude Practice';
+                $type = 'aptitude practice';
             }
 
             // Create test score records

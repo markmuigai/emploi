@@ -435,4 +435,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Post', 'user_saved_posts');
     }
+    /**
+     * Get all test results for a user
+     */
+    public function testResults()
+    {
+        return $this->hasMany('App\TestResult', 'user_id');
+    }
 }
