@@ -38,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         @endif
                                         <span class="text-danger">
                                             @if(request()->type == 'personality')
-                                                You have 15 minutes to complete 10 personality questions.
+                                                You have 15 minutes to complete 50 personality questions.
                                             @else
                                                 You have 15 minutes to complete 18 questions.
                                             @endif
