@@ -157,11 +157,10 @@
                                 @foreach ($s->user->applicationForPost($post->slug)->personalityScores() as $key => $score)
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <strong>{{($key+1).') '.ucfirst($score->personality)}}
-                                                <h5 class="my-2 text-success">
-                                                    {{$score->score}}%
-                                                </h5>
+                                            <strong class="text-success">
+                                                {{($key+1).') '.ucfirst($score->personality)}} - <span>{{$score->score}}%</span>
                                             </strong>
+                                            <p>{{$score->getRemark()}}</p>
                                         </div>
                                     </div>
                                 @endforeach               

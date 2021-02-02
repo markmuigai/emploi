@@ -230,14 +230,6 @@ class Performance extends Model
     }
 
     /**
-     * Personality Test algorithm
-     */
-    public function getRemark()
-    {
-
-    }
-
-    /**
      * Get points scored
      */
     public static function personalityScores($scores)

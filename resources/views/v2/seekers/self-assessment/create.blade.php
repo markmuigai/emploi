@@ -90,7 +90,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     </div>
                                                 </div>
                                             @else
-                                            <p class="">{{ ($question_key+1).'. '.$question->title }}</p>
+                                            @if(request()->type == 'personality')
+                                                <p class="">{{ ($question_key+1).'. I '.lcfirst($question->title) }}</p>
+                                            @else
+                                                <p class="">{{ ($question_key+1).'. '.$question->title }}</p>
+                                            @endif
                                                 @forelse($question->choices as $choice_key => $c)
                                                     <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}>
                                                     {{ $c->value }}<br>
