@@ -92,15 +92,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             @else
                                             <p class="">{{ ($question_key+1).'. '.$question->title }}</p>
                                                 @forelse($question->choices as $choice_key => $c)
-                                                    @if (isset(request()->type) && request()->type == 'personality')
-                                                        <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}
-                                                            {{ testResult($question_key) == ($choice_key+1) ? 'checked' : ''}}  
-                                                        >
-                                                        {{ $c->value }}<br>
-                                                    @else
-                                                        <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}>
-                                                        {{ $c->value }}<br>
-                                                    @endif
+                                                    <input type="radio" class="assessment-choice" name="choices[{{$question->id}}][]" value={{ $c->id }}>
+                                                    {{ $c->value }}<br>
                                                 @empty
                                                 @endforelse 
                                             @endif
