@@ -77,7 +77,7 @@ class SelfAssessmentController extends Controller
                     return abort(403);
                 }
             }else{
-                return redirect('/login');
+                return view('v2.auth.login');
             }
         }
 
