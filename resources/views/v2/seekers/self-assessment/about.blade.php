@@ -10,14 +10,24 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     <!-- Navbar -->
     @include('v2.components.jobseeker.navbar')    
     <!-- End Navbar -->
-    <div class="assessment-section pt-100 pb-70 px-4">
+    
+    <!-- Page Title -->
+    <div class="pt-5">
+        <div class="self-assessment-about pt-5">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container-fluid px-5">
+                        <div class="title-item">
+                            <h2>Blast Off Your Career with our Free Self Assessment Test.</h2>
+                            <p>
+                               Psychological tests for every career question and personal development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid p-3 my-3 bg-white rounded px-5">
-            <h3 class="text-center">
-                Blast Off Your Career with our Free Self Assessment Test.
-            </h3>
-            <h5 class="text-muted text-center mb-3">
-                Psychological tests for every career question and personal development
-            </h5>
             <div class="mobile card" style="display: none">
                 <div class="card-body shadow">
                     <ul class="list-group list-group-flush">
