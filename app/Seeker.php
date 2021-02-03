@@ -489,9 +489,19 @@ class Seeker extends Model
     public function getExperienceMatch($post){
         if(isset($this->years_experience) && $this->years_experience >= ($post->industry_id)/12)
         {
-            return 1;
+            return $this->years_experience;
         }else{
             return (($this->years_experience)/2);
+        }
+    }
+
+    //get education level match
+    public function getEducationLevelMatch($post){
+        if(isset($this->education_level_id) && $this->education_level_id >= $post->education_requirements)
+        {
+            return $this->education_level_id;
+        }else{
+            return (($this->education_level_id)/2);
         }
     }
 
