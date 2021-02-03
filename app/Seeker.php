@@ -474,6 +474,27 @@ class Seeker extends Model
         return false;
     }
 
+
+    //get industry match
+    public function getIndustryMatch($post){
+        if(isset($this->industry_id) && $this->industry_id == $post->industry_id)
+        {
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    //get experience match
+    public function getExperienceMatch($post){
+        if(isset($this->years_experience) && $this->years_experience >= ($post->industry_id)/12
+        {
+            return 1;
+        }else{
+            return(($this->years_experience)/2);
+        }
+    }
+
     //function to calculate the value of job score(rsi)
     public function getRsi($post){
         //set percentage value of RSI score to zero
