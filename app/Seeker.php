@@ -487,11 +487,11 @@ class Seeker extends Model
 
     //get experience match
     public function getExperienceMatch($post){
-        if(isset($this->years_experience) && $this->years_experience >= ($post->industry_id)/12
+        if(isset($this->years_experience) && $this->years_experience >= ($post->industry_id)/12)
         {
             return 1;
         }else{
-            return(($this->years_experience)/2);
+            return (($this->years_experience)/2);
         }
     }
 
