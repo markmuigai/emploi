@@ -13,16 +13,19 @@ class CVImprovementArea extends Model
     // Generate improvements based on score
     public static function recommend($score)
     {
+        // poor, fair, good, excellent
         if($score < 40){
-            $count = 6;
+            return CVImprovementArea::all();
         }elseif($score <= 60){
-            $count = 5;
-        }elseif($score == 100){
-            $count = 2;
+            return CVImprovementArea::findMany([1, 2, 3, 5, 6]);
+        }elseif($score <= 80){
+            return CVImprovementArea::findMany([1, 6, 3]);
         }else{
-            $count = 4;
+            return CVImprovementArea::findMany([1, 6]);
         }
-
-        return CVImprovementArea::get()->random($count);
     }
+
+    /**
+     * CV Review classifications
+     */
 }
