@@ -124,7 +124,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                                             All
                                                         </li>
                                                     </a>
-                                                    @if (auth()->user()->seeker)
+                                                    @if(isset(Auth::user()->id) && Auth::user()->role == 'seeker')
                                                         <a href="{{route('v2.vacancies.index', [
                                                                 'industry' => auth()->user()->seeker->industry->id
                                                             ])}}">
