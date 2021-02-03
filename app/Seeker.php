@@ -476,7 +476,7 @@ class Seeker extends Model
 
 
     //get industry match
-    public function getIndustryMatch($post){
+    public function getIndustryMatch($post){        
         if(isset($this->industry_id) && $this->industry_id == $post->industry_id)
         {
             return 1;
@@ -487,11 +487,11 @@ class Seeker extends Model
 
     //get experience match
     public function getExperienceMatch($post){
-        if(isset($this->years_experience) && $this->years_experience >= ($post->industry_id)/12)
+        if(isset($this->years_experience) && $this->years_experience >= ($post->experience_requirements)/12)
         {
-            return $this->years_experience;
+            return 1;
         }else{
-            return (($this->years_experience)/2);
+            return ($this->years_experience)/($post->experience_requirements/12);
         }
     }
 
@@ -499,9 +499,9 @@ class Seeker extends Model
     public function getEducationLevelMatch($post){
         if(isset($this->education_level_id) && $this->education_level_id >= $post->education_requirements)
         {
-            return $this->education_level_id;
+            return 1;
         }else{
-            return (($this->education_level_id)/2);
+            return ($this->education_level_id)/($post->education_requirements);
         }
     }
 
