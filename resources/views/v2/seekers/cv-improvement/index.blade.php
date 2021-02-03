@@ -15,20 +15,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <div class="page-title-area cv-review-banner improvement-banner">
             <div class="d-table">
                 <div class="d-table-cell">
-                    <div class="container pt-5 mt-5">
-                        <div class="row text-white">
-                            <div class="col-md-3 review-banner pt-5">
+                    <div class="container pt-5 mt-5 text-white">
+       <!--                  <div class="row text-white"> -->
+               <!--              <div class="col-md-3 review-banner pt-5">
                                 <h2>Areas to <span>Improve</span></h2>
                                 <h3>{{$result->name}} Score {{$result->score}}%</h3>
-                                <a class="cmn-btn my-3" href="/job-seekers/summit">
-                                    Fix my CV
+                                <a class="cmn-btn my-3" href="/v2/job-seekers/cv-editing/create">
+                                    FIX MY CV
                                     <i class='bx bx-wrench'></i>
                                 </a>
-                            </div>
-                            <div class="col-md-9 d-flex justify-content-center">
+                            </div> -->
+                            <div class="col-md-12 d-flex justify-content-center">
                                 <div class="card cv-result">
                                     <h4>
-                                        Improve on the following areas
+                                        Improvement areas for {{$result->name}} ({{$result->score}}%).</h3>
                                     </h4>
                                     <ol>
                                         @foreach ($result->recommendations as $rec)
@@ -37,9 +37,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         </li>
                                         @endforeach
                                     </ol>
+                                       <a class="cmn-btn text-center" href="/v2/job-seekers/cv-editing/create">
+                                    FIX MY CV
+                                    <i class='bx bx-wrench'></i>
+                                </a>
                                 </div>
                             </div>
-                        </div>
+                 <!--        </div> -->
                     </div>
                 </div>
             </div>

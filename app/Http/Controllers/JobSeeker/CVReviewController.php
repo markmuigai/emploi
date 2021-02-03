@@ -123,7 +123,7 @@ class CVReviewController extends Controller
 
                 foreach($result->get('recommendations') as $keyword){
                     // Concatenate all missing keywords
-                    $missingKeywords = $missingKeywords.', '.$keyword;
+                    $missingKeywords = $missingKeywords.'; '.$keyword;
                 }
 
                 // Store missing keywords string as a recommendation
