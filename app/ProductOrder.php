@@ -99,7 +99,7 @@ class ProductOrder extends Model
         	else
         	{
         		$expiry = new Carbon($productOrder->contents);
-        		if($today->diff($expiry)->days <= 0)
+        		if($expiry->isPast())
         		{
         			$p->contents = 'completed';
         			$p->save();
@@ -170,7 +170,7 @@ class ProductOrder extends Model
         	else
         	{
         		$expiry = new Carbon($productOrder->contents);
-        		if($today->diff($expiry)->days <= 0)
+        	    if($expiry->isPast())
         		{
         			$p->contents = 'completed';
         			$p->save();
