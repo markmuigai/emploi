@@ -125,9 +125,29 @@ class ProductOrder extends Model
                     <br>";
                     EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email,  $p->product->title.' Package Expired', $caption, $contents);
         		}
-        		
+                elseif($today->diff($expiry)->days == 1)
+                {
+                    $caption = "Job Seeker Spotlight Plan is Expiring Tomorrow";
+                    $contents = "The Job Seeker Spotlight Plan, which enables you to receive comprehensive notifications and feedback in addition to being ranked first on our platform, will expire tomorrow.
+                    <br>
+                    You will no longer receive preferrential notifications from Emploi. To enable this, kindly re-activate this package below to stay in the know.
+                    <br><br>
+
+                    <a href='".url('/checkout?product='.$p->product->slug)."'>Reactivate Package</a>
+                     
+
+                    <br><br>
+
+                    <p>If you require further information regarding this package, kindly <a href='".url('/contact')."'>Contact Us</a>.</p>
+
+                    Thank you for choosing Emploi.
+
+                    <br>";
+                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Job Seeker Spotlight Plan is Expiring', $caption, $contents);
+                }        		
         	}
     	}
+
     	if($slug == 'pro' || $slug == 'entry_level_cv_edit' || $slug == 'mid_level_cv_edit' || $slug == 'c_change_cv_edit' || $slug == 's_mgnt_cv_edit')
     	{
     		if($action == 'activate')
