@@ -91,7 +91,7 @@ class ProductOrder extends Model
                     We wish you the very best in your job search. 
 
                     <br>";
-                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email,  'Featured Job Seeker Package Activated', $caption, $contents);
+                    EmailJob::dispatch($p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email,  'Spotlight Job Seeker Package Activated', $caption, $contents);
                     
                 }
         		
@@ -142,8 +142,8 @@ class ProductOrder extends Model
                     $seeker->featured = -1;
                     $seeker->save();
 
-                    $caption = "Job Seeker Basic Package was activated on Emploi";
-                    $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback from Emploi, has been activated and is functional for the next ".$p->days_duration." days. <br>
+                    $caption = "Job Seeker Pro Plan was activated on Emploi";
+                    $contents = "The Job Seeker Pro Package, which enables you to receive comprehensive notifications and feedback from Emploi, has been activated and is functional for the next ".$p->days_duration." days. <br>
                     You will receive notifications whenever: <br>
                     <ul>
                         <li>An Employer views your profile</li>
@@ -162,7 +162,7 @@ class ProductOrder extends Model
                     We wish you the very best in your job search. 
 
                     <br>";
-                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Job Seeker Basic Package Activated', $caption, $contents);
+                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Job Seeker Pro Plan Activated', $caption, $contents);
                 }
         		
 
@@ -176,8 +176,8 @@ class ProductOrder extends Model
         			$p->save();
                     Seeker::disableProUserByUserId($p->order->user_id);
 
-                    $caption = "Job Seeker Basic Package has Expired";
-                    $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback, <b>has expired</b>.
+                    $caption = "Job Seeker Pro Plan has Expired";
+                    $contents = "The Job Seeker Pro Package, which enables you to receive comprehensive notifications and feedback, <b>has expired</b>.
                     <br>
                     You will no longer receive preferrential notifications from Emploi. To enable this, kindly re-activate this package below.
                     <br><br>
@@ -192,14 +192,14 @@ class ProductOrder extends Model
                     Thank you for choosing Emploi.
 
                     <br>";
-                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name,  $p->order->invoice->email, 'Job Seeker Basic Package Expired', $caption, $contents);
+                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name,  $p->order->invoice->email, 'Job Seeker Pro Plan Expired', $caption, $contents);
 
                     //notification package ended
         		}
                 elseif($today->diff($expiry)->days == 1)
                 {
-                    $caption = "Job Seeker Basic Package is Expiring Tomorrow";
-                    $contents = "The Job Seeker Basic Package, which enables you to receive comprehensive notifications and feedback, will expire tomorrow.
+                    $caption = "Job Seeker Pro Plan is Expiring Tomorrow";
+                    $contents = "The Job Seeker Pro Package, which enables you to receive comprehensive notifications and feedback, will expire tomorrow.
                     <br>
                     You will no longer receive preferrential notifications from Emploi. To enable this, kindly re-activate this package below to stay in the know.
                     <br><br>
@@ -214,7 +214,7 @@ class ProductOrder extends Model
                     Thank you for choosing Emploi.
 
                     <br>";
-                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Job Seeker Basic Package is Expiring', $caption, $contents);
+                    EmailJob::dispatch( $p->order->invoice->first_name.' '.$p->order->invoice->last_name, $p->order->invoice->email, 'Job Seeker Pro Plan is Expiring', $caption, $contents);
                 }
         	}
 
@@ -303,7 +303,7 @@ class ProductOrder extends Model
 
 
                 <a href='".url('/vacancies/create')."'>Post a Job</a>
-                <a href='".url('/employers/browse')."'>Browse Job Seekers</a>
+                <a href='".url('/v2/seekers')."'>Browse Job Seekers</a>
                  
 
                 <br><br>
