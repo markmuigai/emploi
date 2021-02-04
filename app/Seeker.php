@@ -1476,4 +1476,30 @@ class Seeker extends Model
 
         }
     }
+
+    public function verifyAccountEmail()
+       {     
+            if(!$this->user->hasVerified()){
+            $caption = "Free spotlight plan by verifying your account.";
+            $contents = "Verify your Emploi account now by clicking <a href='".url('/verify-account/'.$this->user->email_verification)."'>here</a> to enjoy a free 14 days of our spotlight plan.<br>
+                Spotlight plan enables you to receive notifications whenever: <br>
+                <ul>
+                    <li>An Employer views your profile</li>
+                    <li>You apply for a job</li>
+                    <li>An Employer shortlists you for a position</li>
+                    <li>An Employer does not shortlist you for a job with possible reasons</li>
+                </ul>
+                <br>
+
+                Your profile will rank among the first on our database and be prioritized whenever an employer browses for potential employees. 
+                
+                <p>
+                    Do not leave your fate to chance, jump on while the offer lasts!
+                    We wish you the very best in your job search.                   
+                </p>
+                ";
+            EmailJob::dispatch($this->user->name, $this->user->email, 'VALENTINES OFFER; ENJOY A FREE SPOTLIGHT PACKAGE', $caption, $contents);
+            return true;
+            }
+        } 
 }
