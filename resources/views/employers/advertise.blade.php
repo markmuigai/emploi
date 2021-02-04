@@ -62,7 +62,7 @@ $user = isset(Auth::user()->id) ? Auth::user() : false;
       </div>
       <div class="col-lg-4 col-md-6 mt-5">
         <div class="s-block">
-          <a href="/employers/browse" class="d-block p-lg-4 p-3">
+          <a href="/v2/seekers" class="d-block p-lg-4 p-3">
             <img src="/images/zip/s2.png" alt="" class="img-fluid" />
             <h3 class="my-3">Browse Talent Pool</h3>
             <p class="">
