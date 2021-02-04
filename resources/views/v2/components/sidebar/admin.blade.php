@@ -38,12 +38,12 @@
             Paas Applications
         </div>
     </a>
-    <a class="nav-link {{ request()->routeIs('assessment*') ? 'active' : '' }}" id="v-pills-home-tab"  href="/admin/paas-applications"  aria-controls="v-pills-home" aria-selected="true">
+    <a class="nav-link {{ request()->routeIs('assessment*') ? 'active' : '' }}" id="v-pills-home-tab"  href="{{route('assessmentResults.index')}}"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
             Assessments
         </div>
     </a>
-    <a class="nav-link {{ request()->routeIs('cvReviews*') ? 'active' : '' }}" id="v-pills-home-tab"  href="/admin/paas-applications"  aria-controls="v-pills-home" aria-selected="true">
+    <a class="nav-link {{ request()->routeIs('cvReviews*') ? 'active' : '' }}" id="v-pills-home-tab"  href="{{route('cvReviews.index')}}"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
             CV Reviews
         </div>
