@@ -20,7 +20,8 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\SendCompleteProfileEmails',
         'App\Console\Commands\DeactivateSeekerPaas',
         'App\Console\Commands\DeactivateEmployerPaas',
-        'App\Console\Commands\SendMassProfileViewedEmail'
+        'App\Console\Commands\SendMassProfileViewedEmail',
+        'App\Console\Commands\SendVerifyAccountEmail'
 
     ];
 
@@ -60,6 +61,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('command:DeactivateSeekerPaas')->dailyAt('8:30');
         $schedule->command('command:DeactivateEmployerPaas')->dailyAt('9:00');
         // $schedule->command('command:SendMassProfileViewedEmail')->weeklyOn(5, '07:00')->emailOutputOnFailure('info@emploi.co');
+        $schedule->command('command:SendVerifyAccountEmail')->weeklyOn(5, '22:00')->emailOutputOnFailure('info@emploi.co');
+
         
     }
     /**
