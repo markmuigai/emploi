@@ -62,26 +62,19 @@ class ProductOrder extends Model
                     $seeker->save();
                     
                     $caption = "You are a Featured Job Seeker on Emploi";
-                    $contents = "We have marked your profile as featured on Emploi. Here are the benefits you will get in the coming ".$p->days_duration." days, or until ".$p->contects.". <br>
+                    $contents = "We have marked your profile as featured on Emploi. Here are the benefits you will get in the coming ".$p->days_duration." days. <br>
                     You will receive notifications whenever: <br>
                     <ul>
                         <li>An Employer views your profile</li>
                         <li>You apply for a job</li>
                         <li>An Employer shortlists you for a position</li>
-                        <li>An Employer rejects your application, with possible reasons</li>
-                        <li>An Employer fails to shortlist your application</li>
+                        <li>An Employer does not shortlist you for a job with possible reasons</li>
                     </ul>
 
                     <br>
 
-                    Your profile will rank first on our platform. Here are the lists which your profile will be prioritized:
-                    <br>
-                    <ul>
-                        <li>Whenever an employer browses for potential employees</li>
-                        <li>Your job application will appear first among'st applicants</li>
-                    </ul>
-
-
+                    Your profile will rank among the first on our database and be prioritized whenever an employer browses for potential employees. 
+                    
                     <p>
                     Get started by applying <a href='".url('/vacancies/featured')."'>Featured Jobs</a> on Emploi.
                     </p>
