@@ -392,4 +392,11 @@ jQuery(function ($) {
 		$('#toggleCards').removeClass('active')
 		$('#toggleTable').addClass('active')
 	});
+	
+    $('#assessmentResultsTable').DataTable({
+        "paging": false,
+		"bInfo" : false,
+		"bFilter": false
+	});
+	
 }(jQuery));
