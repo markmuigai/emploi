@@ -399,4 +399,9 @@ jQuery(function ($) {
 		"bFilter": false
 	});
 	
+	$('#cvReviewsTable').DataTable({
+        "paging": false,
+		"bInfo" : false,
+		"bFilter": false
+	});
 }(jQuery));
