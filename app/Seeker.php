@@ -1433,4 +1433,47 @@ class Seeker extends Model
         }
              
     }
+
+    public function activateFreeSpotlight($days = 14){
+        //get the first element in product collection with spotlight slug
+        $product = Product::where('slug','spotlight')->first();
+        
+        //get first name from fullnames
+        $last_name = (strpos($this->user->name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $this->user->name);
+        //get last name from fullnames
+        $first_name = trim( preg_replace('#'.preg_quote($last_name,'#').'#', '', $this->user->name ) );
+
+        if(isset($product->id))
+        {   
+            //create order
+            $order = Order::create([
+                'user_id' => $this->user->id,
+                'slug' => Order::generateUniqueSlug(15)
+            ]);
+
+            //create product order
+            $productOrder = ProductOrder::create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'days_duration' => $days,
+                'price' => 0
+            ]);
+
+            //create invoice
+            $invoice = Invoice::create([
+                'order_id' => $order->id,
+                'slug' => Invoice::generateUniqueSlug(11),
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $this->user->email,
+                'phone_number' => $this->user->seeker->phone_number,
+                'description' => $product->description,
+                'sub_total' => 0,
+                'alternative_payment_slug' => 'Free Spotlight Package'
+            ]);
+
+            // ProductOrder::enablePending();
+
+        }
+    }
 }
