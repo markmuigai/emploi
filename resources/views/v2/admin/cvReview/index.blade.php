@@ -28,9 +28,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4>
-                                                <p class="text-orange">CV Reviews done:</p>
-                                                <span class="text-success">{{$count}}</span>
+                                            <h4 class="text-black">
+                                                <p>CV Reviews done:</p>
+                                                {{$count}}
                                             </h4>
                                         </div>
                                     </div>
@@ -38,9 +38,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4>
-                                                <p class="text-orange">Average score:</p>
-                                                <span class="text-success">{{$avg}}%</span>
+                                            <h4 class="text-black">
+                                                <p>Average score:</p>
+                                                {{$avg}}%
                                             </h4>
                                         </div>
                                     </div>
@@ -48,9 +48,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4>
-                                                <p class="text-orange">Converted to CV Editing</p>
-                                                <span class="text-success">{{ $convertedEmails->count() }}</span>
+                                            <h4 class="text-black">
+                                                <p>Converted to CV Editing</p>
+                                                {{ $convertedEmails->count() }}
                                             </h4>
                                         </div>
                                     </div>

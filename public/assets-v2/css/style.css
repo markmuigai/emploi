@@ -8598,3 +8598,7 @@ h4,h3{
   font-size: 20px;
   margin-bottom: 12px;
 }
+
+.text-black{
+  color: #000 !important;
+}

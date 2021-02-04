@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4>
+                                            <h4 class="text-black">
                                                 <p>Assessments Done:</p>
                                                 {{$assessments_count}}
                                             </h4>
@@ -38,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4>
+                                            <h4 class="text-black">
                                                 <p>Average score:</p>
                                                 {{$avg}}%
                                             </h4>
