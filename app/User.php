@@ -214,13 +214,20 @@ class User extends Authenticatable
         if($this->role == 'employer')
             $credit = 20;
         Referral::creditFor($this->email,$credit);
-
+        
+        //send welcome email to jobseekers
         if($this->role == 'seeker')
         {
             $this->seeker->sendWelcomeEmail();
 
         }
+        //activate seeker spotlight: do not move this here i.e match with the above
+        if($this->role == 'seeker')
+        {   
+            $this->seeker->activateFreeSpotlight(); 
+        }    
 
+        //send welcome email to employers
         if($this->role == 'employer')
         {
             $this->employer->sendWelcomeEmail();
