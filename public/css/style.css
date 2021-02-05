@@ -1108,7 +1108,7 @@ i.tw2 {
 }
 
 .img-circle {
-    border-radius: 50%;
+    border-radius: 50% !important;
 }
 
 .follow_jobs .title, .featured-job .title {

@@ -25,7 +25,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </h4>
                     <ul>
                         <li>
-                            <a class="left-btn" href="#">
+                            <a class="left-btn" href="/post-a-job">
                                 Post a job
                                 <i class="bx bx-plus"></i>
                             </a>
@@ -74,7 +74,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <li>
                             <a class="left-btn" href="index-3.html#">
                                 Recruit Now
-                                <i class='bx bx-plus'></i>
+                                <i class='bx bx-user-voice'></i>
                             </a>
                         </li>
                     </ul>
@@ -95,7 +95,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <i class="flaticon-verify"></i>
                             <h4>Advertising</h4>
                             <p>We're established in Africa, with partners and subscribed job seekers guaranteeing you an audience of 100k+ job seekers.</p>
-                            <a href="/post-a-job" class="btn btn-primary rounded-pill">
+                            <a href="/post-a-job" class="btn btn-success rounded-pill">
                                 Advertise
                             </a>
                         </div>
@@ -109,7 +109,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <p class="description">
                                 Let us undertake the hiring process for you - we advertise your job, screen candidates, conduct background checks, and a 90 day free replacement should candidate leave.
                             </p>
-                            <a href="/employers/premium-recruitment" class="btn btn-primary rounded-pill">
+                            <a href="/employers/premium-recruitment" class="btn btn-success rounded-pill">
                                 Recruit
                             </a>
                         </div>
@@ -121,7 +121,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <i class="flaticon-comment"></i>
                             <h3>Talent Database</h3>
                             <p>Search experienced candidates in our talent pool by Industry, Location, Skills amongs't others. Download their CV's, contact them directly, and offer positions.</p>
-                            <a href="/contact" class="btn btn-primary rounded-pill">
+                            <a href="/contact" class="btn btn-success rounded-pill">
                                 Browse Talent Pool
                             </a>
                         </div>
@@ -131,46 +131,115 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         </div>
         <!-- End Services -->
 
-        <!-- Why Us -->
-        <section class="explore-area py-5">
+        <!-- Feedback -->
+        <section class="feedback-area py-3">
             <div class="container">
-                <div class="explore-item cv-editing">
-                    <div class="section-title">
-                        <h2>Why Work With Us?</h2>
-                        <p>
-                          
-                        </p>
+                <div class="section-title">
+                    <h2>Testimonials</h2>
+                </div>
+                <div class="feedback-slider owl-theme owl-carousel">
+                    <div class="feedback-item">
+                        <h3>Paul</h3>
+                        <span>Work Pay</span>
+                        <p>“It took seven days from the time we signed up with Emploi looking to hire a key account manager to the time the candidate reported for work. We were very time constrained as we had already spent a lot of time trying to hire through other platforms with no success. From the other platforms I received a lot of irrelevant CVs that honestly I didn’t even know what to do with. I would rate Emploi higher than the other platforms, because I believe the human touch from their team was critical in fast tracking the process for us.”</p>
+                        <h4>
+                            <i class="flaticon-left-quote"></i>
+                            Quite reliable
+                        </h4>
+                        <div class="img-circle">
+                            <img src="{{asset('images/testimonials/paul.jpeg')}}" class="img-fluid rounded img-rounded" alt="Paul - WorkPay">
+                        </div>
                     </div>
-                    <ul class="row justify-content">
-                            <div class="col-md-8 pl-0">
-                                <li>
-                                    <i class='bx bxs-check-circle'></i>
-                                    Convenience (<i>Sourcing, management and growth tools at one stop.</i>)
-                                </li>
-                                <li>
-                                    <i class='bx bxs-check-circle'></i>
-                                    Top quality performance (<i>Thorough professional vetting</i>)
-                                </li>
-                                <li>
-                                    <i class='bx bxs-check-circle'></i>
-                                    Assurance (<i>Performance tracking</i>)
-                                </li>
-                                <li>
-                                    <i class='bx bxs-check-circle'></i>
-                                    Speed (<i>48 hour turn around time</i>)
-                                </li>
-                                <li>
-                                    <i class='bx bxs-check-circle'></i>
-                                    Enjoy E-Club (<i>Membership and its benefits</i>)
-                                </li>
-                                <li>
-                                    <i class='bx bxs-check-circle'></i>
-                                    Affordable (<i>Staggered and shared payment methods</i>)
-                                </li>
-                            </div>
-                    </ul>
+                    <div class="feedback-item">
+                        <h3>Calvin Njoroge</h3>
+                        <span>Director – Quality Car Imports</span>
+                        <p>“Emploi did the recruitment for us, did the interviews and conducted background checks.
+                                  All we had to do was doing a final interview and give them jobs. With regards to results,
+                                   the team that we got…WOW! They helped us grow, we have 360 turnaround, we have a team that
+                                    is now performing and because of that, I would recommend Emploi anytime to any businesses
+                                     like ours that want to grow.”</p>
+                        <h4>
+                            <i class="flaticon-left-quote"></i>
+                            Just, WOW!
+                        </h4>
+                        <div class="img-circle">
+                            <img src="/images/avatar.png" class="img-fluid rounded img-rounded" alt="Calvin Njoroge, Director – Quality Car Imports">
+                        </div>
+                    </div>
+                    <div class="feedback-item">
+                        <h3>Elijah Gathogo</h3>
+                        <span>Sales and Marketing Director – Mizizi Africa Homes</span>
+                        <p>“I contacted Emploi for support in recruiting sales agents and they recommended the best qualified 
+                            candidates and their rankings. What we liked [about Emploi] is the speed and affordable cost which
+                             is unlike any other service we’ve seen in the market”</p>
+                        <h4>
+                            <i class="flaticon-left-quote"></i>
+                            Fast and Affordable
+                        </h4>
+                        <div class="img-circle">
+                            <img src="{{asset('images/testimonials/elijah.jpeg')}}" class="img-fluid rounded img-rounded" alt="Elijah Gathogo, Sales and Marketing Director – Mizizi Africa Homes">
+                        </div>
+                    </div>
+                    <div class="feedback-item">
+                        <h3>Sandra Eshitemi</h3>
+                        <span> Employer</span>
+                        <p>“Working with Emploi was an enabling experience. They work with a schedule and to rubber stamp it all
+                             they are reputable.”</p>
+                        <h4>
+                            <i class="flaticon-left-quote"></i>
+                            Reputable
+                        </h4>
+                        <div class="img-circle">
+                            <img src="{{asset('images/testimonials/sandra.webp')}}" class="img-fluid rounded img-rounded" alt="Sandra Eshitemi – Employer">
+                          </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!--     End Why Us -->
+        <!-- End Feedback -->
+
+        <!-- Contact Us -->
+        <div class="job-details-area employer-details-area ptb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="details-item">
+                            <div class="review">
+                                <h4 class="text-center">Get in touch with us</h4>
+                                <form>
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck59">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <i class='bx bx-user'></i>
+                                                <input type="text" class="form-control" placeholder="Name*">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <i class='bx bx-mail-send'></i>
+                                                <input type="email" class="form-control" placeholder="Email*">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <i class='bx bx-mail-send'></i>
+                                                <textarea id="your-message" rows="10" class="form-control" placeholder="Write message"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="btn">Submit Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Conact -->
+
 @endsection
