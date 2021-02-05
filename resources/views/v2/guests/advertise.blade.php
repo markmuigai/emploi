@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </li>
                         <li>
                             <span>CEO Message</span>
-                            <a class="right-btn popup-youtube" href="https://www.youtube.com/watch?v=07d2dXHYb94&t=88s">
+                            <a class="right-btn popup-youtube" href="https://www.youtube.com/watch?v=7pj-dCfYptc">
                                 <i class='bx bx-play'></i>
                             </a>
                         </li>
@@ -72,7 +72,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </ul>
                     <ul class="system-video">
                         <li>
-                            <a class="left-btn" href="index-3.html#">
+                            <a class="left-btn" href="/employers/premium-recruitment">
                                 Recruit Now
                                 <i class='bx bx-user-voice'></i>
                             </a>
@@ -121,7 +121,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <i class="flaticon-comment"></i>
                             <h3>Talent Database</h3>
                             <p>Search experienced candidates in our talent pool by Industry, Location, Skills amongs't others. Download their CV's, contact them directly, and offer positions.</p>
-                            <a href="/contact" class="btn btn-success rounded-pill">
+                            <a href="/v2/seekers" class="btn btn-success rounded-pill">
                                 Browse Talent Pool
                             </a>
                         </div>
@@ -206,27 +206,34 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="details-item">
                             <div class="review">
                                 <h4 class="text-center">Get in touch with us</h4>
-                                <form>
+                                <form method="post" action="/contact">
+                                   @csrf
                                     <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="exampleCheck59">
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <i class='bx bx-user'></i>
-                                                <input type="text" class="form-control" placeholder="Name*">
+                                                <input type="text" class="form-control" name="name" placeholder="Name*">
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <i class='bx bx-phone'></i>
+                                                <input type="number" class="form-control" name="phone" placeholder="Phone number*">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <i class='bx bx-mail-send'></i>
-                                                <input type="email" class="form-control" placeholder="Email*">
+                                                <input type="email" class="form-control" name="email" placeholder="Email*">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <i class='bx bx-mail-send'></i>
-                                                <textarea id="your-message" rows="10" class="form-control" placeholder="Write message"></textarea>
+                                                <textarea id="your-message" rows="6" class="form-control" name="message" placeholder="Write message"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
