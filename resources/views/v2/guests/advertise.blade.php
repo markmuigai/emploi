@@ -215,25 +215,25 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <i class='bx bx-user'></i>
-                                                <input type="text" class="form-control" name="name" placeholder="Name*">
+                                                <input type="text" class="form-control" name="name" placeholder="Name*" required="">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <i class='bx bx-phone'></i>
-                                                <input type="number" class="form-control" name="phone" placeholder="Phone number*">
+                                                <input type="number" class="form-control" name="phone" placeholder="Phone number*" required="">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <i class='bx bx-mail-send'></i>
-                                                <input type="email" class="form-control" name="email" placeholder="Email*">
+                                                <input type="email" class="form-control" name="email" placeholder="Email*" required="">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <i class='bx bx-mail-send'></i>
-                                                <textarea id="your-message" rows="6" class="form-control" name="message" placeholder="Write message"></textarea>
+                                                <textarea id="your-message" rows="6" class="form-control" name="message" placeholder="Write message" required=""></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
