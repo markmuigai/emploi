@@ -32,7 +32,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         </li>
                         <li>
                             <span>CEO Message</span>
-                            <a class="right-btn popup-youtube" href="https://www.youtube.com/watch?v=7pj-dCfYptc">
+                            <a class="right-btn popup-youtube" href="https://www.youtube.com/watch?v=fMkCW5yIYLs">
                                 <i class='bx bx-play'></i>
                             </a>
                         </li>
