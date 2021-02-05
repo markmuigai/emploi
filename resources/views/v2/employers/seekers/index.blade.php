@@ -1,6 +1,6 @@
 @extends('v2.layouts.app')
 
-@section('title','Browse Jobseekrs :: Emploi')
+@section('title','Browse Jobseekers :: Emploi')
 
 @section('description')
 Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs in the job marketplace.
