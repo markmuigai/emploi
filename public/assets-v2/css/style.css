@@ -2738,7 +2738,7 @@ button:focus {
 /*-- End Company --*/
 /*-- Explore --*/
 .explore-area.two {
-  background-color: #e15419;
+  background-color: #55469529;
   background-image: unset;
 }
 
@@ -2753,10 +2753,12 @@ button:focus {
 .explore-area.two .explore-item {
   text-align: center;
   margin-left: 0;
+  position: relative;
+  max-width: 590px;
 }
 
 .explore-area.two .explore-item .section-title .sub-title {
-  color: #e15419;
+  color: #21a212;
 }
 
 .explore-area.two .explore-item .section-title .sub-title:before {
@@ -2773,7 +2775,7 @@ button:focus {
 
 .explore-area.two .explore-item ul li .left-btn {
   color: #fff;
-  background-color: #e15419;
+  background-color: #21a212;
 }
 
 .explore-area.two .explore-item ul li .left-btn i {
@@ -2789,20 +2791,20 @@ button:focus {
 }
 
 .explore-area.two .explore-item ul li .right-btn {
-  color: #e15419;
-  border: 1px solid #e15419;
+  color: #21a212;
+  border: 1px solid #21a212;
 }
 
 .explore-area.two .explore-item ul li .right-btn:hover {
   color: #fff;
-  background-color: #e15419;
+  background-color: #21a212;
 }
 
 .explore-area.two .explore-img {
   position: absolute;
-  top: -130px;
+  top: -149px;
   right: 0;
-  max-width: 600px;
+  max-width: 500px;
   -webkit-animation: explore-img-ani 5s infinite linear;
           animation: explore-img-ani 5s infinite linear;
 }
@@ -3934,9 +3936,9 @@ button:focus {
 /*-- End Employer --*/
 /*-- System --*/
 .system-area {
-  background-image: url("../img/home-three/system-bg.jpg");
+  background-image: url("../../images/homepage-cv.jpg");
   background-size: cover;
-  background-position: center center;
+  /* background-position: center center; */
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
@@ -3971,7 +3973,7 @@ button:focus {
 
 .system-area .system-item {
   position: relative;
-  max-width: 660px;
+  max-width: 1060px;
 }
 
 .system-area .system-item .section-title {

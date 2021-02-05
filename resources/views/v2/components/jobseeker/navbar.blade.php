@@ -116,7 +116,7 @@
                             <li class="nav-item dropdown">                  
                                     <li class="nav-item">
                                     <span class="tooltip-span two">New</span>
-                                <a id="forEmployers" class="nav-link" href="/employers/publish">Employers</a>
+                                <a id="forEmployers" class="nav-link" href="/v2/employers/advertise-here">Employers</a>
                             </li> 
                         @endif
                     </ul>
