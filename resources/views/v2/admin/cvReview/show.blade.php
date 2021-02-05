@@ -9,6 +9,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('content')
 @section('page_title', $review->name.' CV Review')
 <div class="container-fluid mb-5">
+    <a href="/v2/admin/cvReviews" class="btn btn-orange">
+        <i class="fa fa-arrow-left"></i> Back
+    </a>
     <div class="row">
         <div class="col-md-12">
             <strong>
