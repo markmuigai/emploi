@@ -6,7 +6,11 @@
             </a>
         </span>
         <h3>
-            <a href="/employers/browse/{{ $s->user->username }}" target="_blank">{{ $s->user->name }}</a>
+            @if(Auth::user()->employer->isOnStawiPackage())
+                <a href="/employers/browse/{{ $s->user->username }}" target="_blank">{{ $s->user->name }}</a>
+            @else
+                <a href="/employers/browse/{{ $s->user->username }}" target="_blank">{{ $s->user->seeker->public_name }}</a>
+            @endif
         </h3>
         <div class="row">
             <div class="col-md-7">
