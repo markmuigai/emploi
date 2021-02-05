@@ -505,6 +505,16 @@ class Seeker extends Model
         }
     }
 
+    //get location match
+    public function getLocationMatch($post){
+        if(isset($this->location_id) && $this->location_id == $post->location_id)
+        {
+            return 1;
+        }else{
+            return 0.5;
+        }
+    }
+
     //function to calculate the value of job score(rsi)
     public function getRsi($post){
         //set percentage value of RSI score to zero
