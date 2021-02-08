@@ -12,10 +12,16 @@
         </thead>
         <tbody>
             @forelse($seekers as $s)
-            <tr>
-                <td>
-                    <a href="/employers/browse/{{ $s->user->username }}" target="_blank">{{ $s->user->name }}</a>
-                </td>
+            <tr> 
+                @if(Auth::user()->employer->isOnStawiPackage())
+                    <td>
+                        <a href="/employers/browse/{{ $s->user->username }}" target="_blank">{{ $s->user->name }}</a>
+                    </td>
+                @else
+                    <td>
+                        <a href="/employers/browse/{{ $s->user->username }}" target="_blank">{{ $s->user->seeker->public_name }}</a>
+                    </td>
+                @endif
                 <td>
                     {{ $s->industry->name }}
                 </td>

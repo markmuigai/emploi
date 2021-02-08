@@ -26,8 +26,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
         <a href="/home" class="btn btn-sm btn-orange">Home</a>
         @else
         <a href="/employers/register" class="btn btn-sm btn-orange">Employer Registration</a>
-        <a href="/employers/register" class="btn btn-sm btn-orange-alt">Job Seeker Registration</a>
-        <a href="/employers/register" class="btn btn-sm btn-purple">Login</a>
+        <a href="/register" class="btn btn-sm btn-orange-alt">Job Seeker Registration</a>
+        <a href="/login" class="btn btn-sm btn-purple">Login</a>
         @endif
     </div>
 
