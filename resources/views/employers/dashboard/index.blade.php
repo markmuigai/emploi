@@ -38,9 +38,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                   <li>
                         <a href="/employers/browse/{{ $application->username }}">
                             {{ $application->name }}
-                            <?php $c = \Carbon\Carbon::createFromDate($application->created_at); ?>
                         </a> applied for 
-                        <a href="/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job, {{ $c->diffForHumans() }}
+                        <a href="/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job, {{ CarbonParse($application->created_at)->diffForHumans() }}
                     </li>
 
                 @empty

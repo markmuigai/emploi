@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
@@ -117,3 +118,7 @@ function testResult($key)
     return $results[$key];
 }
 
+function carbonParse($date)
+{
+    return Carbon::Parse($date);
+}
