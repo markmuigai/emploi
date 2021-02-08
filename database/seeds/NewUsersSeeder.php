@@ -18,7 +18,9 @@ class NewUsersSeeder extends Seeder
 
         DB::transaction(function () {
  
-            $users = DB::table('unregistered_users')->select('email')->get();     
+            $users = DB::table('unregistered_users')
+			->whereBetween('id',[1, 5000])
+			->select('email')->get();     
 
 
         	$password = User::generateRandomString(10);
