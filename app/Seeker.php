@@ -163,6 +163,31 @@ class Seeker extends Model
                 }
     }
 
+    public function getProductDays()
+    { 
+        //fetch all orders for this user
+        $orders = $this->user->orders;
+
+        //if any order is found continue
+        if($orders){
+
+                   //loop through all orders
+                   for($i=0; $i<count($orders); $i++)
+                    {
+                        for($k=0; $k<count($orders[$i]->productOrders); $k++)
+                        {
+                            $productOrder = $orders[$i]->productOrders[$k];
+
+                            //fetch only active spotlight product
+                            if($productOrder->product->slug == 'spotlight' && $productOrder->contents != null && $productOrder->contents != 'completed')
+                        
+                                //return spotlight days
+                                return ($productOrder->days_duration);
+                        }
+                    }
+                }
+    }
+
     //check if jobseeker has resume
     public function hasResume(){
        if( is_null($this->resume) )
