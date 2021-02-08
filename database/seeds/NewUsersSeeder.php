@@ -19,7 +19,7 @@ class NewUsersSeeder extends Seeder
         DB::transaction(function () {
  
             $users = DB::table('unregistered_users')
-			->whereBetween('id',[35001, 40000])
+			->whereBetween('id',[40001, 47000])
 			->select('email')->get();     
 
 
