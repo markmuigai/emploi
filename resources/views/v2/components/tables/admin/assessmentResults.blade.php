@@ -1,5 +1,5 @@
 <table id="assessmentResultsTable" class="table table-bordered table-hover">
-    <thead class="">
+    <thead class="primary-color">
         <tr>
             <th>#</th>
             <th>Email</th>

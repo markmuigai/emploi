@@ -28,7 +28,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4 class="text-black">
+                                            <h4 class="primary-color">
                                                 <p>CV Reviews done:</p>
                                                 {{$count}}
                                             </h4>
@@ -38,7 +38,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4 class="text-black">
+                                            <h4 class="primary-color">
                                                 <p>Average score:</p>
                                                 {{$avg}}%
                                             </h4>
@@ -48,7 +48,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <h4 class="text-black">
+                                            <h4 class="primary-color">
                                                 <p>Converted to CV Editing</p>
                                                 {{ $convertedEmails->count() }}
                                             </h4>

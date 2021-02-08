@@ -8618,3 +8618,7 @@ h4,h3{
     position: relative;
     overflow: hidden;
 }
+
+.primary-color{
+  color: #32174d !important;
+}

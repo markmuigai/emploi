@@ -1,5 +1,5 @@
 <table id="cvReviewsTable" class="table table-hover table-bordered">
-    <thead>
+    <thead class="primary-color">
         <tr>
         <th scope="col">#</th>
         <th scope="col">Email</th>
