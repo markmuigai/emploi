@@ -3,7 +3,7 @@
  ?>
 @if(isset($user) && $user->role == 'admin')
 <div class="nav flex-column nav-pills border rounded" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <a class="nav-link" id="v-pills-home-tab"  href="/admin/panel"  aria-controls="v-pills-home" aria-selected="true">
+    <a class="nav-link {{ request()->routeIs('v2.employers.dashboard*') ? 'active' : '' }}" id="v-pills-home-tab"  href="{{route('v2.employers.dashboard')}}"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
             Dashboard
         </div>

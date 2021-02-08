@@ -1,7 +1,6 @@
 <?php
 
 Route::group(['prefix' => 'employers',  'middleware' => 'employer'], function(){
-    Route::get('dashboard', 'EmployerController@dashboard');
     Route::get('dashboard/applications', 'EmployerController@internalApp');
     Route::get('dashboard-data', 'EmployerController@dashboardData');
     Route::get('dashboard-stats', 'EmployerController@dashboardStats');
@@ -155,3 +154,6 @@ Route::group([ 'prefix' => 'interviews/{interview}/'], function(){
 
 // Seekers
 Route::resource('seekers', 'SeekerController');
+
+// Employer dashboard
+Route::get('employers/admin/panel', 'DashboardController@index')->name('employers.dashboard');

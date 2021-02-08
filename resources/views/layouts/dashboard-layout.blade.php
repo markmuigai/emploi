@@ -103,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <!-- EMPLOYER SIDEBAR -->
                         @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="v-pills-home-tab" href="/employers/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link active" id="v-pills-home-tab" href="{{route('v2.employers.dashboard')}}" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile" role="tab" aria-controls="v-pills-messages" aria-selected="false">Profile <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="{{route('v2.seekers.index')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">Browse Candidates <i class="fas fa-chevron-right"></i></a>
