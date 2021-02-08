@@ -61,7 +61,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('command:DeactivateSeekerPaas')->dailyAt('8:30');
         $schedule->command('command:DeactivateEmployerPaas')->dailyAt('9:00');
         // $schedule->command('command:SendMassProfileViewedEmail')->weeklyOn(5, '07:00')->emailOutputOnFailure('info@emploi.co');
-        // $schedule->command('command:SendVerifyAccountEmail')->weeklyOn(5, '09:11')->emailOutputOnFailure('info@emploi.co');
+        $schedule->command('command:SendVerifyAccountEmail')->weeklyOn(2, '00:15')->emailOutputOnFailure('info@emploi.co');
 
         
     }
