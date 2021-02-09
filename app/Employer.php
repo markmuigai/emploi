@@ -615,7 +615,19 @@ class Employer extends Model
     public function jobApplications(){
         $posts = $this->posts->pluck('id');
         return JobApplication::whereIn('post_id',$posts)->get();
-        dd($companies);
+    }
+
+    //get the number of jobs applications per employer
+    public function jobApplicationsCount(){
+        $posts = $this->posts->pluck('id');
+        return JobApplication::whereIn('post_id',$posts)->count();
+    }
+
+
+    //get the number of job posts for employer
+    public function jobPostsCount(){
+        $companies = Company::where('user_id',$this->user_id)->pluck('id');
+            return Post::whereIn('company_id',$companies)->count();
     }
 
     public function canPostJob($counter = 1){
