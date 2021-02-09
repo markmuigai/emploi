@@ -1545,4 +1545,69 @@ class Seeker extends Model
     {
         return Seeker::where('featured','>=', 1)->get();
     }
+
+    /**
+     * Get jobseeker experience level
+     */
+    public static function getSeekerExperienceLevel($yearsOfExperience) 
+    {
+        switch ($yearsOfExperience) {
+            case 0:
+            case 1:
+                return 'entry level';
+                break;
+
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                return 'mid level';
+                break;
+                
+            case 6:
+            case 7:
+            case 8:
+                return 'management level';
+                break;
+
+            case $yearsOfExperience > 8:
+                return 'senior management level';
+                break;
+            
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Get applicable CV Editing package
+     */
+    public static function getCvEditingPackage($ExperienceLevel) 
+    {
+        $experience_level = Seeker::getSeekerExperienceLevel($ExperienceLevel);
+
+        switch ($experience_level) {
+            case 'entry level':
+                return 'entry_level_cv_edit';
+                break;
+
+            case 'mid level':
+                return 'mid_level_cv_edit';
+                break;
+                
+            case 'mid level':
+                return 'c_change_cv_edit';
+                break;
+
+            case 'management level':
+                return 'mgnt_cv_edit';
+                break;
+            case 'senior management level':
+                return 's_mgnt_cv_edit';
+                break;
+            
+            default:
+                break;
+        }
+    }
 }
