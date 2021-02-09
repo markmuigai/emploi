@@ -41,9 +41,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     </div>
                                                 @endforeach
                                             </div>
-                                            <button class="btn btn-primary btn-sm btn-success float-right">
+                                            <a href="/employers/jobs" class="btn btn-primary btn-sm btn-success float-right">
                                                 View All
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -53,17 +53,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             <div class="row">
                                                 <div class="col">
                                                     <h4 class="mb-1">Applicants</h4>
-                                                    <span class="h2 font-weight-bold mb-0">28</span>
+                                                    <span class="h2 font-weight-bold mb-0">{{ Auth::user()->employer->jobApplicationsCount() }}</span>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <div class="icon icon-shape bg-success text-white rounded-circle shadow">
-                                                        <i class='bx bxs-user-detail'></i>
-                                                    </div>
+                                                    <a href="/employers/jobs">
+                                                        <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                                                            <i class='bx bxs-user-detail'></i>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <p class="mt-3 mb-0 primary-color text-sm">
-                                                <span class="text-success mr-2"><i class='bx bx-up-arrow-alt' ></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span>
+                                <!--                 <span class="text-success mr-2"><i class='bx bx-up-arrow-alt' ></i> 3.48%</span>
+                                                <span class="text-nowrap">Since last month</span> -->
                                             </p>
                                         </div>
                                     </div>
@@ -72,17 +74,19 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             <div class="row">
                                                 <div class="col">
                                                     <h4 class="mb-1">My Jobs</h4>
-                                                    <span class="h2 font-weight-bold mb-0">5</span>
+                                                    <span class="h2 font-weight-bold mb-0">{{ Auth::user()->employer->jobPostsCount() }}</span>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <div class="icon icon-shape bg-success text-white rounded-circle shadow">
-                                                        <i class='bx bx-briefcase-alt'></i>
-                                                    </div>
+                                                    <a href="/employers/jobs">
+                                                        <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                                                            <i class='bx bx-briefcase-alt'></i>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <p class="mt-3 mb-0 text-muted text-sm">
-                                                <span class="text-success mr-2"><i class='bx bx-up-arrow-alt' ></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span>
+                                 <!--                <span class="text-success mr-2"><i class='bx bx-up-arrow-alt' ></i> 3.48%</span>
+                                                <span class="text-nowrap">Since last month</span> -->
                                             </p>
                                         </div>
                                     </div>
