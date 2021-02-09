@@ -87,7 +87,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 @section('js')
     <script type="text/javascript">
         $("#assessmentResultsRange").change(function() {
-            console.log('hey');
             this.form.submit();
         });
     </script>
@@ -104,6 +103,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             function cb(start, end) {
                 $('#assessmentResultsRange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                this.form.submit();
                 console.log(start,end)
             }
 

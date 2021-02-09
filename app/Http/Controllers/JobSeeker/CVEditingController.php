@@ -34,8 +34,11 @@ class CVEditingController extends Controller
      */
     public function create()
     {
-        return view('v2.seekers.cv-editing.create')
-               ->with('faqs',Faq::where('permission_id',4)->orderBy('created_at', 'desc')->paginate(10));
+        // if(isset(request()->years_experience)){
+        //     Seeker::getCvEditingPackage($years);
+        // }
+        // request()->years_experience ? Seeker::getCvEditingPackage($years)
+        return view('v2.seekers.cv-editing.create');
     }
 
     /**

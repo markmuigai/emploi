@@ -152,9 +152,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="entry_level_cv_edit">
-                            <div class="end">
+                            {{-- <div class="end">
                                 <input type="submit" name="" value="Request" class="btn btn-success ">
-                            </div>
+                            </div> --}}
                         </form>
                       </div>
                   </div>
@@ -176,9 +176,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="mid_level_cv_edit">
-                            <div class="end">
+                            {{-- <div class="end">
                                 <input type="submit" name="" value="Request" class="btn btn-success ">
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>
@@ -200,9 +200,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                           <form method="POST" action="/checkout" >
                               @csrf
                             <input type="hidden" name="product" value="c_change_cv_edit">
-                            <div class="end">
+                            {{-- <div class="end">
                                 <input type="submit" name="" value="Request" class="btn btn-success ">
-                            </div>
+                            </div> --}}
                           </form>
                       </div>
                   </div>
@@ -233,9 +233,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="mgnt_cv_edit">
-                            <div class="end">
+                            {{-- <div class="end">
                                 <input type="submit" name="" value="Request" class="btn btn-success ">
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>
@@ -257,12 +257,18 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <form method="POST" action="/checkout" >
                             @csrf
                             <input type="hidden" name="product" value="s_mgnt_cv_edit">
-                            <div class="end">
+                            {{-- <div class="end">
                                 <input type="submit" name="" value="Request" class="btn btn-success ">
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="row justify-content-center">
+                <a id="checkoutLink" class="cmn-btn mb-2" href="/v2/vacancies">
+                    Proceed to Checkout
+                    <i class='bx bx-credit-card'></i>
+                </a>
             </div>
         </div>
     </section>
