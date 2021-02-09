@@ -1563,8 +1563,11 @@ class Seeker extends Model
             case 5:
                 return 'mid level';
                 break;
-                
+            
             case 6:
+                return 'career change';
+                break;
+
             case 7:
             case 8:
                 return 'management level';
@@ -1595,7 +1598,7 @@ class Seeker extends Model
                 return 'mid_level_cv_edit';
                 break;
                 
-            case 'mid level':
+            case 'career change':
                 return 'c_change_cv_edit';
                 break;
 
