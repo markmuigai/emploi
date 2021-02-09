@@ -120,7 +120,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 </div>
                                 @endforeach
                             </div>
-                            <div class="pagination-area">
+                  <!--           <div class="pagination-area">
                                 <ul>
                                     <li>
                                         <a href="candidates.html#">Prev</a>
@@ -138,7 +138,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <a href="candidates.html#">Next</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- End Candidate -->
