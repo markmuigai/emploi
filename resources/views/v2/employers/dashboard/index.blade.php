@@ -95,22 +95,26 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         <div class="container">
                             <h4 class="mb-4 text-center">Featured Job Seekers</h4>
                             <div class="row">
+                                @foreach ($featuredSeekers as $seeker)
                                 <div class="col-lg-4">
-                                    @foreach ($featuredSeekers as $seeker)
-                                        <div class="candidate-item two">
-                                            <div class="left">
-                                                <h3>
+                                    <div class="candidate-item two">
+                                        <div class="left">
+                                            <h3>
+                                                @if(Auth::user()->employer->isOnStawiPackage())
                                                     <a href="/employers/browse/{{$seeker->user->username}}">{{ $seeker->user->name }}</a>
-                                                </h3>
-                                                <span>{{$seeker->industry->name}}</span>
-                                                <ul class="experience">
-                                                    <li>Experience: <span>{{$seeker->years_experience}} years</span></li>
-                                                </ul>
-                                            </div>
-                                            <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" alt="{{ $seeker->user->username }}">
+                                                @else
+                                                    <a href="/employers/browse/{{$seeker->user->username}}">{{ $seeker->user->seeker->public_name }}</a>
+                                                @endif
+                                            </h3>
+                                            <span>{{$seeker->industry->name}}</span>
+                                            <ul class="experience">
+                                                <li>Experience: <span>{{$seeker->years_experience}} years</span></li>
+                                            </ul>
                                         </div>
-                                    @endforeach
+                                        <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" alt="{{ $seeker->user->username }}">
+                                    </div>
                                 </div>
+                                @endforeach
                             </div>
                             <div class="pagination-area">
                                 <ul>
