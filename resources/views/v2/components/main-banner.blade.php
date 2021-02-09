@@ -88,7 +88,7 @@
                                 <div class="col-sm-3 col-lg-3">
                                     <div class="register-item">
                                         <h3>
-                                            <span class="odometer">{{ count(\App\Country::all()) }}</span>
+                                            <span class="odometer">{{ count(\App\Country::where('status', 'active')->get()) }}</span>
                                         </h3>
                                         <p>Countries</p>
                                     </div>
