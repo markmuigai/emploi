@@ -10,9 +10,9 @@
                     <div class="job-filter-area pt-2">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-12 col-lg-12">
+                                <div class="col-sm-12 col-lg-12" style="display: none;">
                                     <div class="form-group">
-                                        <select name="current_position" required="">
+                                        <select name="current_position">
                                             <option value="">Your Current Job Posiion</option>
                                             <option value="graduate">Fresh Graduate</option>
                                             <option value="intern">Intern</option>
