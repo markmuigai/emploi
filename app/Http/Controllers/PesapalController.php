@@ -14,6 +14,7 @@ use App\Product;
 use App\ProductOrder;
 use App\Referral;
 use App\User;
+use App\Seeker;
 
 
 use Auth;
@@ -26,6 +27,11 @@ class PesapalController extends Controller
 {
     public function checkout(Request $request)
     {
+        if(isset($request->experience)){
+            $product = Seeker::getCvEditingPackage($request->experience);
+            $request->request->add(['product' => $product]);
+        }
+
         //Auth::user()->redeemCredits(1000);
 
         if(isset($request->product))

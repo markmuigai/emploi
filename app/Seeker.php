@@ -1582,9 +1582,9 @@ class Seeker extends Model
     /**
      * Get applicable CV Editing package
      */
-    public static function getCvEditingPackage($ExperienceLevel) 
+    public static function getCvEditingPackage($yearsOfExperience) 
     {
-        $experience_level = Seeker::getSeekerExperienceLevel($ExperienceLevel);
+        $experience_level = Seeker::getSeekerExperienceLevel($yearsOfExperience);
 
         switch ($experience_level) {
             case 'entry level':

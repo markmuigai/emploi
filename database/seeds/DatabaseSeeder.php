@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             CVImprovementAreasSeeder::class,
             EvaluationCriteriaSeeder::class,
             PersonalityTestSeeder::class,
-            ImageQuestionSeeder::class
+            ImageQuestionSeeder::class,
+            ProductsSeeder::class
         ]);
     }
 }
