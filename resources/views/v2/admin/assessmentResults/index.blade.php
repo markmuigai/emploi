@@ -51,8 +51,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                 <div class="col-md-12">
                                     <div class="row justify-content-end">
                                         <div class="form-group col-md-4 pr-0 my-2">
-                                            <form>
-                                                <div id="assessmentResultsRange" name="sortbydate" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
+                                            <form id='formId'  name="sortbydate">
+                                                <div id="assessmentResultsRange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
                                                     <i class='bx bx-calendar'></i>&nbsp;
                                                     <span></span><i class='bx bx-caret-down'></i></i>
                                                 </div>
@@ -103,7 +103,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
             function cb(start, end) {
                 $('#assessmentResultsRange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                this.form.submit();
+                // this.form.submit();
+                  // $('#formId').submit();
                 console.log(start,end)
             }
 
