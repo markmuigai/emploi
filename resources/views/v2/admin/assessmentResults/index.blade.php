@@ -50,21 +50,13 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row justify-content-end">
-                                       <div class="form-group col-md-2 pr-0 my-2">
+                                        <div class="form-group col-md-4 pr-0 my-2">
                                             <form>
-                                                <select id="inputRating" name="sortbydate">
-                                                  <option value="">Select Date Range</option>
-                                                  <option value="today">Today</option>
-                                                  <option value="last7">Last 7 days</option>
-                                                  <option value="thisMonth">This month</option>
-                                                </select>
+                                                <div id="assessmentResultsRange" name="sortbydate" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
+                                                    <i class='bx bx-calendar'></i>&nbsp;
+                                                    <span></span><i class='bx bx-caret-down'></i></i>
+                                                </div>
                                             </form>
-
-                                            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; display: none;">
-                                                <i class="fa fa-calendar"></i>&nbsp;
-                                                <span></span> <i class="fa fa-caret-down"></i>
-                                            </div>
-
                                         </div>
                                         <div class="col-md-3 my-2">
                                             <a href="{{Route('assessments.index')}}" class="btn btn-success">
@@ -94,7 +86,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
 @section('js')
     <script type="text/javascript">
-        $("#inputRating").change(function() {
+        $("#assessmentResultsRange").change(function() {
+            console.log('hey');
             this.form.submit();
         });
     </script>
@@ -110,10 +103,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             var end = moment();
 
             function cb(start, end) {
-                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                $('#assessmentResultsRange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                console.log(start,end)
             }
 
-            $('#reportrange').daterangepicker({
+            $('#assessmentResultsRange').daterangepicker({
                 startDate: start,
                 endDate: end,
                 ranges: {
