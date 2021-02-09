@@ -265,7 +265,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                 </div>
             </div>
             <div class="row justify-content-center">
-                <a id="checkoutLink" class="cmn-btn mb-2" href="/v2/vacancies">
+                <a id="checkoutLink" class="cmn-btn mb-2" href="#" data-toggle="modal" data-target="#cvEditingRequest">
                     Proceed to Checkout
                     <i class='bx bx-credit-card'></i>
                 </a>
@@ -349,4 +349,8 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
     </div>
 
 
+@endsection
+
+@section('modal') 
+    @include('v2.components.modals.cv-editing-request')   
 @endsection

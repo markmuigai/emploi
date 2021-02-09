@@ -8507,7 +8507,7 @@ h4,h3{
 }
 
 .job-filter-area .nice-select .list {
-  width: auto !important;
+  width: 100%;
   display: block !important;
   height: 200px;
 }
