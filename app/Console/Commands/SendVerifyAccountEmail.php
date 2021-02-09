@@ -38,7 +38,7 @@ class SendVerifyAccountEmail extends Command
     public function handle()
     {
 
-        $seekers = Seeker::all();
+        $seekers = Seeker::where('id', '>', 30000)->get();
         $this->info('Sending verify account email to jobseekers:  '.count($seekers));
 
         $success = 0;
