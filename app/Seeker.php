@@ -540,6 +540,17 @@ class Seeker extends Model
         }
     }
 
+    //get Assessment Score
+    public function getAssessmentScore(){
+        $score= TestResult::where('email', $this->user->email)->where('type', 'aptitude')->get()->pluck('score')->last();
+        if(isset($score))
+        {
+            return $score/10;
+        }else{
+            return 0.1;
+        }
+    }
+
     //function to calculate the value of job score(rsi)
     public function getRsi($post){
         //set percentage value of RSI score to zero
