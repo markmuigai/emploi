@@ -9,7 +9,7 @@ return [
     'a_locs' => 'All Locations',
     'search' => 'Search',
     'who_r_we' => 'Who Are We',
-    'who_r_we_txt' => 'Emploi is a technology platform that streamlines talent assessment,acquisition & management for entry level positions.',
+    'who_r_we_txt' => 'Emploi is a technology platform that streamlines talent assessment,acquisition & management for SMEs.',
     'm_abt_us' => 'More About Us',
     'o_serv' => 'Our Services',
     'o_serv_txt' => 'We provide you with seamless job placement through superior candidate selection tools that allow the employer to hire very fast, aggregated market vacancies through job boards.',
