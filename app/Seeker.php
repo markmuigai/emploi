@@ -506,7 +506,7 @@ class Seeker extends Model
         {
             return 1;
         }else{
-            return 0;
+            return 0.1;
         }
     }
 
@@ -544,11 +544,38 @@ class Seeker extends Model
     public function getAssessmentScore(){
         $score= TestResult::where('email', $this->user->email)->where('type', 'aptitude')->get()->pluck('score')->last();
         if(isset($score))
-        {
-            return $score/10;
+        {   
+            return ($score/100);
         }else{
             return 0.1;
         }
+    }
+
+    //RSI calculation
+    public function calculateRsi($post){
+        //experience
+        $experience = (Seeker::getExperienceMatch($post))/1*40;
+
+        //industry
+        $industry = (Seeker::getIndustryMatch($post))/1*20;
+        
+        //referee feedback      
+        $referee_assessment = (JobApplicationReferee::scoreRefereeReport($this->id))/1*15;
+
+        //assessment results
+        $assessment = (Seeker::getAssessmentScore())/1*10;
+
+        //education
+        $education = (Seeker::getEducationLevelMatch($post))/1*10;
+
+        //location
+        $location =  (Seeker::getLocationMatch($post))/1*5;
+         
+        //add all
+        $total = $experience+$industry+$referee_assessment+$assessment+$education+$location;
+
+        //return RSI final value
+        return $total;           
     }
 
     //function to calculate the value of job score(rsi)
