@@ -118,8 +118,12 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <img src="{{ asset($seeker->user->getPublicAvatarUrl()) }}" alt="{{ $seeker->user->username }}">
                                     </div>
                                 </div>
-                                @endforeach
+                                @endforeach                             
                             </div>
+                            <div class="text-center">
+                                {{ $featuredSeekers->links() }}
+                            </div>
+
                   <!--           <div class="pagination-area">
                                 <ul>
                                     <li>
