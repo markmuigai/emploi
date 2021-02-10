@@ -70,7 +70,7 @@ class HomeController extends Controller
         }
         switch ($user->role) {
             case 'employer':
-                return redirect('/employers/dashboard');
+                return redirect('/v2/employers/dashboard');
                 break;
 
             case 'admin':

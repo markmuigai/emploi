@@ -11,7 +11,7 @@
                 <!-- EMPLOYER SIDEBAR -->
                 @if( isset(Auth::user()->id) && Auth::user()->role == 'employer' )
                 <li class="nav-item d-md-none d-block">
-                    <a class="nav-link" href="/employers/dashboard">{{ __('other.dashboard') }}</a>
+                    <a class="nav-link" href="/v2/employers/dashboard">{{ __('other.dashboard') }}</a>
                 </li>
                 <li class="nav-item d-md-none d-block">
                     <a class="nav-link" href="/profile">{{ __('other.profile') }}</a>
