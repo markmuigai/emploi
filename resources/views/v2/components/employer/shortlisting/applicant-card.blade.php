@@ -19,7 +19,7 @@
         </div>
         <span>
             <?php
-                $rsi=$a->user->seeker->getRsi($post)
+                $rsi=$a->user->seeker->calculateRsi($post)
             ?>
             <span class="text-success d-inline">
                 Job Score 
