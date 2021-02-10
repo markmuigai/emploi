@@ -156,4 +156,4 @@ Route::group([ 'prefix' => 'interviews/{interview}/'], function(){
 Route::resource('seekers', 'SeekerController');
 
 // Employer dashboard
-Route::get('employers/admin/panel', 'DashboardController@index')->name('employers.dashboard');
+Route::get('employers/dashboard', 'DashboardController@index')->name('employers.dashboard');
