@@ -14,9 +14,9 @@
             </div>
             <p class="collapse" id="collapseRSI">By creating an RSI Model, you will be able to rank applicants through different criteria e.g education, experience and skills</p>
             <div class="row px-3">
-                <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="mr-2 mt-1 btn btn-success btn-sm rounded-pill">
+            <!--     <a href="{{route('v2.employers.rsi.show', ['slug' => $post->slug])}}" class="mr-2 mt-1 btn btn-success btn-sm rounded-pill">
                     Generate ranking criteria
-                </a>
+                </a> -->
                 <a href="{{route('v2.seekers.index', ['post' => $post])}}" class="mr-2 mt-1 btn btn-primary btn-sm rounded-pill"> Browse More Candidates</a>
             </div>
         </div>
