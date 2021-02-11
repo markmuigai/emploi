@@ -15,7 +15,7 @@ class DashboardController extends Controller
     	$featuredSeekers = Seeker::getFeaturedSeekers();
         return view('v2.employers.dashboard.index',[
             'recentApplications' => auth()->user()->employer->recentApplications(),
-            'featuredSeekers' => CollectionHelper::paginate($featuredSeekers,6),
+            'featuredSeekers' => CollectionHelper::paginate($featuredSeekers,12),
             'industries' => Industry::active(),
             'industry' => ''
         ]);
