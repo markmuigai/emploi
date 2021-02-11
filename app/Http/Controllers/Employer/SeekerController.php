@@ -32,9 +32,9 @@ class SeekerController extends Controller
 
         // Check for filters
         if(isset(request()->industry) || isset(request()->location ) || isset(request()->educationLevel) || isset(request()->sort)){
-            $seekers = CollectionHelper::paginate(Seeker::filteredSeekers(request()->all()), 10);
+            $seekers = CollectionHelper::paginate(Seeker::filteredSeekers(request()->all()), 12);
         }else{
-            $seekers = Seeker::orderBy('featured')->paginate(10);
+            $seekers = Seeker::orderBy('featured')->paginate(12);
         }
 
         return view('v2.employers.seekers.index', [
