@@ -21,12 +21,10 @@
             </div>
         </div>
         <span>
-            <?php
-                $rsi=$a->user->seeker->getRsi($post)
-            ?>
+     \
             <span class="text-success d-inline">
                 Job Score 
-                {{ $rsi }}%
+                {{ $a->user->seeker->calculateRsi($post) }}%
             </span> |
             Applied {{ $a->created_at->diffForHumans() }}           
         </span>

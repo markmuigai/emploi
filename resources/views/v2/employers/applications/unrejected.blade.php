@@ -103,7 +103,7 @@ $last_rsi = [];
                 <p class="py-1">
                     {{ $a->user->name }} | <span class="pull-right">
                         <a href="/employers/applications/{{ $post->slug }}/{{ $a->id }}/rsi">
-                            {{ $a->user->seeker->getRsi($post) }}%
+                            {{ $a->user->seeker->calculateRsi($post) }}%
                         </a>
                     </span>
                 </p>
