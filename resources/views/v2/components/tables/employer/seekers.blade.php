@@ -7,6 +7,9 @@
                 <th>Industry</th>
                 <th>Education Level</th>
                 <th>Experience</th>
+                @if(isset(request()->post))
+                <th>Job suitability score</th>
+                @endif
                 <th>Actions</th>
             </tr>
         </thead>
@@ -39,6 +42,11 @@
                         Not Provided
                     @endif
                 </td>
+                @if(isset(request()->post))
+                <td> 
+                    {{ $s->user->seeker->calculateRsi($post) }}%
+                </td>
+                @endif
                 <td>
   
                     <a class="btn btn-success rounded-pill" type="button" data-toggle="modal" data-target="#shortlistSeekerModal-{{ $s->user->id }}" title="Shortlist">
