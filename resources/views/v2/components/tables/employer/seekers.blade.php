@@ -154,6 +154,9 @@
                 <th>Industry</th>
                 <th>Education Level</th>
                 <th>Experience</th>
+                @if(isset(request()->post))
+                <th>Job suitability score</th>
+                @endif
                 <th>Actions</th>
             </tr>
         </tfoot>
