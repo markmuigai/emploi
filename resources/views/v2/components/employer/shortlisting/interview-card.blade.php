@@ -10,6 +10,7 @@
         </h3>
         <div class="row">
             <div class="col-md-7">
+                Applied {{ $a->created_at->diffForHumans() }}   
                 @if($a->user->seeker->featured > 0)
                 <span class="badge badge-pill badge-success mx-1">
                     <i class="bx bx-star"> </i>Featured
@@ -21,13 +22,10 @@
             Job Suitability Score: 
             {{ $a->user->seeker->calculateRsi($post) }}%
         </h5>
-        <span>
-            Applied {{ $a->created_at->diffForHumans() }}           
-        </span>
         <div class="row my-2">
             <a href="#" class="btn btn-success rounded-pill">Submit Interview Score Sheet</a>
         </div>
-        <a class="link" href="#">
+        <a class="link" href="/employers/browse/{{ $a->user->username }}" target="_blank">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>

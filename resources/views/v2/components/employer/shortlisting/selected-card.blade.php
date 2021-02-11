@@ -29,7 +29,7 @@
             <button class="btn btn-success rounded-pill"><a href="#" data-toggle="modal" data-target="#selectCandidateModal-{{ $a->user->id }}"><span style="color: #fff">Give Job Offer</span></a></button>
             @endif
         </div>
-        <a class="link" href="#">
+        <a class="link" href="/employers/browse/{{ $a->user->username }}" target="_blank">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>

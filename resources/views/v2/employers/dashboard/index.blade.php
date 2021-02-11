@@ -63,10 +63,6 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     </a>
                                                 </div>
                                             </div>
-                                            <p class="mt-3 mb-0 primary-color text-sm">
-                                <!--                 <span class="text-success mr-2"><i class='bx bx-up-arrow-alt' ></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span> -->
-                                            </p>
                                         </div>
                                     </div>
                                     <div class="card card-stats mb-4">
@@ -84,12 +80,16 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                     </a>
                                                 </div>
                                             </div>
-                                            <p class="mt-3 mb-0 text-muted text-sm">
-                                 <!--                <span class="text-success mr-2"><i class='bx bx-up-arrow-alt' ></i> 3.48%</span>
-                                                <span class="text-nowrap">Since last month</span> -->
-                                            </p>
                                         </div>
                                     </div>
+                                    <a class="cmn-btn mt-1" href="/post-a-job">
+                                        Post a job
+                                        <i class="bx bx-plus"></i>
+                                    </a> 
+                                    <a class="cmn-btn mt-1" href="/employers/rate-card">
+                                        Our Packages
+                                        <i class='bx bxs-package'></i>
+                                    </a>                        
                                 </div>
                             </div>
                         </div>
