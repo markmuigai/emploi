@@ -575,7 +575,7 @@ class Seeker extends Model
         $total = $experience+$industry+$referee_assessment+$assessment+$education+$location;
 
         //return RSI final value
-        return $total;           
+        return round($total);           
     }
 
     //function to calculate the value of job score(rsi)
