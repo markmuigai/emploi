@@ -34,10 +34,10 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                                 @foreach($recentApplications as $application)
                                                     <div class="feed-item">
                                                         <div class="date">{{ CarbonParse($application->created_at)->diffForHumans()}}</div>
-                                                        <a href="/employers/browse/{{ $application->username }}">
+                                                        <a href="/v2/employers/browse/{{ $application->username }}">
                                                             {{ $application->name }}
                                                         </a> applied for 
-                                                        <a href="/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job 
+                                                        <a href="/v2/employers/applications/{{ $application->slug }}">{{ $application->title }}</a> job 
                                                     </div>
                                                 @endforeach
                                             </div>
