@@ -30,7 +30,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     @include('v2.components.employer.browse.filter') 
                     <!-- Jobs -->
                     <div class="job-showing-area">
-                        <div class="container">
+                        <div class="container-fluid">
                             <div class="showing">
                                 <div class="row">
                                     <div class="col-sm-6 col-lg-6">

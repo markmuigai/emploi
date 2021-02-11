@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-lg-4 mix saved">
+<div class="col-sm-6 col-lg-4 saved">
     <div class="cat-item">
         <span id="vacancies-image">
             <a href="/vacancies/{{ $a->slug }}">
@@ -10,6 +10,7 @@
         </h3>
         <div class="row">
             <div class="col-md-7">
+                Applied {{ $a->created_at->diffForHumans() }}   
                 @if($a->user->seeker->featured > 0)
                 <span class="badge badge-pill badge-success mx-1">
                     <i class="bx bx-star"> </i>Featured
@@ -21,9 +22,6 @@
             Job Suitability Score: 
             {{ $a->user->seeker->calculateRsi($post) }}%
         </h5>
-        <span>
-            Applied {{ $a->created_at->diffForHumans() }}           
-        </span>
         <div class="row my-2">
             {{-- @if ($a->user->assessed())
                 <a href="{{route('v2.assessment-results.show', ['email' => $a->user->email])}}" class="btn btn-primary rounded-pill">Assessment Results</a>
@@ -42,7 +40,7 @@
                 <a href="/v2/employers/reject/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-danger ml-2 mt-1 rounded-pill disabled">Rejected</a>
             @endif
         </div>
-        <a class="link" href="#">
+        <a class="link" href="/employers/browse/{{ $a->user->username }}" target="_blank">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>
