@@ -19,7 +19,7 @@
             </div>
         </div>
         <h5>
-            Job Suitability Score: 
+            Job suitability score: 
             {{ $a->user->seeker->calculateRsi($post) }}%
         </h5>
         <div class="row my-2">
