@@ -20,7 +20,7 @@
                 </span>
                 @endif
             </div>
-        22</div>
+        </div>
         <h5>
             Job Suitability Score: 
             {{ $a->user->seeker->calculateRsi($post) }}%
@@ -33,7 +33,7 @@
                 <a href="{{route('v2.interviews.create' , ['post' => $post, 'application' => $a])}}" class="btn btn-primary ml-2 rounded-pill">Invite to Interview</a>
             @endif
         </div>
-        <a class="link" href="/employers/browse/{{ $a->user->username }}" target="_blank">
+        <a class="link" href="#">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>
