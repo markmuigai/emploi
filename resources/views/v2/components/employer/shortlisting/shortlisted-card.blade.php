@@ -20,18 +20,15 @@
                 @endif
             </div>
         </div>
+        <h5>
+            Job Suitability Score: 
+            {{ $a->user->seeker->calculateRsi($post) }}%
+        </h5>
         <span>
-            <?php
-                $rsi=$a->user->seeker->getRsi($post)
-            ?>
-            <span class="text-success d-inline">
-                Job Score 
-                {{ $rsi }}%
-            </span> |
             Applied {{ $a->created_at->diffForHumans() }}           
         </span>
         <div class="row my-2">
-            <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 mt-1 rounded-pill">Remove from Shortlist</a>
+            <a href="/v2/employers/shortlist/{{ $post->slug }}/{{ $a->user->username }}" class="btn btn-primary ml-2 my-1 rounded-pill">Remove from Shortlist</a>
             @if ($a->interview()->exists())
                 <a href="{{route('v2.interviews.edit' , ['post' => $post, 'interview' => $a->interview])}}" class="btn btn-success ml-2 mt-1 rounded-pill">Update Interview Details</a>
             @else

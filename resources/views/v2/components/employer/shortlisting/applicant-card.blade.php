@@ -17,14 +17,11 @@
                 @endif
             </div>
         </div>
+        <h5>
+            Job Suitability Score: 
+            {{ $a->user->seeker->calculateRsi($post) }}%
+        </h5>
         <span>
-            <?php
-                $rsi=$a->user->seeker->calculateRsi($post)
-            ?>
-            <span class="text-success d-inline">
-                Job Score 
-                {{ $rsi }}%
-            </span> |
             Applied {{ $a->created_at->diffForHumans() }}           
         </span>
         <div class="row my-2">

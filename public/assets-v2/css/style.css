@@ -948,7 +948,7 @@ button:focus {
 }
 
 .sorting-menu {
-  text-align: right;
+  /* text-align: right; */
 }
 
 .sorting-menu ul {
@@ -8696,5 +8696,6 @@ font-size: 1.25rem;
   height: 110px !important;
   width: auto !important;
   margin-top: 25px;
-  border-radius: 50%
+  border-radius: 50%;
+  margin-right: 10% !important;
 }

@@ -96,7 +96,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                     </div>
                     <!-- Candidate -->
                     <div class="candidate-area pb-100">
-                        <div class="container">
+                        <div class="container-fluid">
                             <h4 class="mb-4 text-center">Featured Job Seekers</h4>
                             <div class="row">
                                 @foreach ($featuredSeekers as $seeker)
