@@ -47,7 +47,7 @@
             </a>  
         </div>   
 
-        <a class="link" href="/employers/browse/{{ $a->user->username }}" target="_blank">
+        <a class="link" href="/employers/browse/{{ $s->user->username }}" target="_blank">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>
