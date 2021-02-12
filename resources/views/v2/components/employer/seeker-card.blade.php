@@ -12,6 +12,9 @@
                 <a href="/employers/browse/{{ $s->user->username }}" target="_blank">{{ $s->user->seeker->public_name }}</a>
             @endif
         </h3>
+        @if(isset(request()->post))
+            <h6>Job suitability score: {{ $s->user->seeker->calculateRsi($post) }}%</h6>
+        @endif
         <div class="row">
             <div class="col-md-7">
                 @if($s->user->seeker->featured > 0)
@@ -44,7 +47,7 @@
             </a>  
         </div>   
 
-        <a class="link" href="/employers/browse/{{ $a->user->username }}" target="_blank">
+        <a class="link" href="/employers/browse/{{ $s->user->username }}" target="_blank">
             <i class="flaticon-right-arrow"></i>
         </a>
     </div>

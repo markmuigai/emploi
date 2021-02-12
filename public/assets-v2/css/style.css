@@ -2924,6 +2924,7 @@ button:focus {
   position: absolute;
   top: 25px;
   left: 15px;
+  border-radius: 50%;
 }
 
 .categories-area .cat-item h3 {

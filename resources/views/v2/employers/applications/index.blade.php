@@ -36,24 +36,52 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             <div class="sorting-menu mt-3 float-left">
                                                 <ul> 
                                                     <li class="filter" data-filter="all">1.All Applications ({{ count($post->applications) }})</li>
+
+                                                    @if(Auth::user()->employer->isOnStawiPackage())
                                                     <a href="/v2/employers/applications/{{ $post->slug }}/shortlisted">
                                                         <li class="filter pl-2" data-filter="false">2.Shortlisted ({{ count($post->shortlisted) }})</li>   
                                                     </a>
+                                                    @else
+                                                    <a href="/checkout?product=stawi">
+                                                        <li class="filter pl-2" data-toggle="tooltip" title="Purchase stawi to unlock this feature" >2.Shortlisted ({{ count($post->shortlisted) }})</li>   
+                                                    </a>
+                                                    @endif
+
+                                                    @if(Auth::user()->employer->isOnStawiPackage())
                                                     <a href="{{route('v2.interviews.index', ['post' => $post])}}">
                                                         <li class="filter" data-filter="false">
                                                             3.Manage Interviews ({{ count($post->toInterview) }})
                                                         </li>
                                                     </a>
+                                                    @else
+                                                    <a href="/checkout?product=stawi">
+                                                        <li class="filter pl-2" data-toggle="tooltip" title="Purchase stawi to unlock this feature" > 3.Manage Interviews ({{ count($post->toInterview) }}))</li>   
+                                                    </a>
+                                                    @endif
+
+                                                    @if(Auth::user()->employer->isOnStawiPackage())
                                                     <a href="{{route('v2.referees.index', ['slug' => $post->slug])}}">
                                                         <li class="filter" data-filter="false">
                                                             4. Manage Referees
                                                         </li>
                                                     </a>
+                                                    @else
+                                                    <a href="/checkout?product=stawi">
+                                                        <li class="filter pl-2" data-toggle="tooltip" title="Purchase stawi to unlock this feature" >4.Manage Referees</li>   
+                                                    </a>
+                                                    @endif
+
+                                                    @if(Auth::user()->employer->isOnStawiPackage())
                                                     <a href="/v2/employers/applications/{{$post->slug}}/selection">
                                                         <li class="filter" data-filter="false">
                                                             5. Select Candidate
                                                         </li>
                                                     </a>
+                                                    @else
+                                                    <a href="/checkout?product=stawi">
+                                                        <li class="filter pl-2" data-toggle="tooltip" title="Purchase stawi to unlock this feature" >5. Select Candidate</li>   
+                                                    </a>
+                                                    @endif
                                                 </ul>
                                             </div>
                                         </div>
