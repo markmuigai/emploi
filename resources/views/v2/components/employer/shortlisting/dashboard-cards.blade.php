@@ -4,7 +4,7 @@
         <div class="card p-3 mb-2">
             <div class="row">
                 <div class="col-md-6">
-                    <h4>Emploi Talent Database</h4>
+                    <h4>Talent Database</h4>
                 </div>
                 <div class="col-md-6 px-0">
                     <a class="mt-2 badge badge-pill badge-secondary" data-toggle="collapse" href="#collapseRSI" role="button" aria-expanded="false" aria-controls="collapseExample">
