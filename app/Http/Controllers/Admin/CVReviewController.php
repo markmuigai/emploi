@@ -17,16 +17,16 @@ class CVReviewController extends Controller
     { 
         //sort cv review results by date 
         if(isset($request->sortbydate)){
-                $cvReview = CVReviewResult::filterByDate($request->sortbydate);
-            }else{
-               $cvReview = CVReviewResult::with('recommendations')->orderBy('id','DESC');
-            }       
+						$cvReviews = CVReviewResult::filterByDate($request->sortbydate);
+				}else{
+						$cvReviews = CVReviewResult::with('recommendations')->orderBy('id','DESC');
+				}       
         return view('v2.admin.cvReview.index',[
-            'cvReviews' => $cvReview->paginate(15),
-            'count' => $cvReview->count(),
-            'avg' => ceil($cvReview->pluck('score')->avg()),
+            'cvReviews' => $cvReviews->paginate(15),
+            'count' => $cvReviews->count(),
+            'avg' => ceil($cvReviews->pluck('score')->avg()),
             'missingKeyword' => CVReviewResult::missingKeyword(),
-            'convertedEmails' => CVReviewResult::convertedEmails()
+            'convertedEmails' => CVReviewResult::convertedEmails($cvReviews)
         ]);
     }
 
