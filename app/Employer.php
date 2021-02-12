@@ -96,10 +96,10 @@ class Employer extends Model
         $orders = $this->user->orders;
         foreach ($orders as $order) {
             foreach ($order->productOrders as $po) {
-                if($po->slug == 'stawi' && $po->contents != null)
+                if($po->product->slug == 'stawi' && $po->contents != null)
                 {
                     $cont = $po->contents;
-                    $cont = explode("|", $cont_);
+                    $cont = explode("|", $cont);
 
                     if($cont[2] != 'completed')
                         return true;
