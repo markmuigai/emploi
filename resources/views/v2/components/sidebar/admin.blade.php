@@ -48,6 +48,11 @@
             CV Reviews
         </div>
     </a>
+    <a class="nav-link {{ request()->routeIs('rsi*') ? 'active' : '' }}" id="v-pills-home-tab"  href="{{route('rsi.index')}}"  aria-controls="v-pills-home" aria-selected="true">
+        <div class="profile-list">
+            RSI Scores
+        </div>
+    </a>
 </div>
 @endif
 {{-- @include('components.ads.vertical_responsive') --}}

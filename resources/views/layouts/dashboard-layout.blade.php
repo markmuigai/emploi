@@ -142,6 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a class="nav-link" id="v-pills-messages-tab" href="/admin/paas-applications" role="tab" aria-controls="v-pills-messages" aria-selected="false">Paas Applications <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/assessmentResults" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assessments <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/cvReviews" role="tab" aria-controls="v-pills-messages" aria-selected="false">CV Reviews<i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/rsi" role="tab" aria-controls="v-pills-messages" aria-selected="false">RSI Scores<i class="fas fa-chevron-right"></i></a>
                             
                         </div>
 

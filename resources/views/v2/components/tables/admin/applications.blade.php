@@ -1,7 +1,6 @@
-<table id="assessmentResultsTable" class="table table-bordered table-hover">
+<table id="applicationsTable" class="table table-bordered table-hover">
   <thead class="primary-color">
       <tr>
-          <th>#</th>
           <th>Name</th>
           <th>Job Title</th>
           <th>Industry</th>
@@ -10,15 +9,15 @@
           <th>Education Level Required</th>
           <th>Experience</th>
           <th>Experience Required</th>
-          <th>Referee score</th>
           <th>Assessment Score</th>
+          <th>Referee score</th>
+          <th>RSI score</th>
           <th>Actions</th>
       </tr>
   </thead>
   <tbody>
       @foreach ($applications as $key => $application)
       <tr>
-          <td>{{ $key+1 }}</td>
           <td>{{ $application->user->name }}</td>
           <td>{{$application->post->title}}</td>
           @if (isset($application->user->seeker->industry))
@@ -26,6 +25,7 @@
           @else
             <td>Not provided</td>
           @endif
+          @if (isset($application->post->industry))
             <td>{{$application->post->industry->name}}</td>
           @else
             <td>Not provided</td>
@@ -33,23 +33,36 @@
           @if (isset($application->user->seeker->educationLevel))
             {{$application->user->seeker->educationLevel->name}}
           @else
-
+            <td>Not provided</td>
           @endif
           @if (isset($application->post->educationLevel))
-            {{$application->post->educationLevel->name}}
+          <td>{{$application->post->educationLevel->name}}</td>
           @else
             <td>Not Provided</td>
           @endif
-          <td>{{ $testResult->score }}%</td>
-          <td>{{ $testResult->type }}</td>
-          @if(isset($testResult->user->seeker->id))
-              <td>{{ $testResult->user->seeker->years_experience }} years</td>
+          @if(isset($application->user->seeker->id))
+              <td>{{ $application->user->seeker->years_experience }} years</td>
           @else
-              <td>Unavailable</td>
+              <td>Not Provided</td>
           @endif
-          <td>{{ $testResult->performances->last()->created_at->diffForHumans() }}</td>
+          @if(isset($application->post->years_experience))
+              <td>{{ $application->post->years_experience }} years</td>
+          @else
+              <td>Not Provided</td>
+          @endif
+          @if(null !== $application->user->seeker->getAssessmentScore())
+            <td>{{ $application->user->seeker->getAssessmentScore()/1*100 }}%</td>
+          @else
+            <td>Not Provided</td>
+          @endif
+          @if(null !== App\JobApplicationReferee::scoreRefereeReport($application->user->seeker->id))
+            <td>{{ App\JobApplicationReferee::scoreRefereeReport($application->user->seeker->id)/1*100 }}%</td>
+          @else
+            <td>Not Provided</td>
+          @endif
+          <td>{{$application->rsiScore}}%</td>
           <td>
-              <a href="{{route('assessmentResults.show', ['email' => $testResult->email])}}" class="btn btn-primary rounded-pill" title="View Detailed Results">
+              <a href="#" class="btn btn-primary rounded-pill" title="View Detailed Analysis">
                   <i class='bx bx-line-chart'></i>
               </a>
           </td>

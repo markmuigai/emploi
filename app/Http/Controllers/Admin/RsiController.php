@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\JobApplication;
 use Illuminate\Http\Request;
+use App\Utils\CollectionHelper;
 use App\Http\Controllers\Controller;
 
 class RsiController extends Controller
@@ -13,10 +14,12 @@ class RsiController extends Controller
      */
     public function index()
     {
-        $applications = JobApplication::with('user', 'post');
-        
+        $applications = JobApplication::with('user', 'post')->get();
+
         return view('v2.admin.rsi.index', [
-            'applications' => $applications->orderBy('created_at', 'desc')->get()
+            'applications' => CollectionHelper::paginate($applications->sortByDesc('rsiScore'), 10),
+            'applications_count' => $applications->count(),
+            'avg' => JobApplication::averageRsiScore()
         ]);
     }
 }

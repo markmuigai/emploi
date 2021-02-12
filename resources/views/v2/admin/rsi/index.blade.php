@@ -31,7 +31,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <div class="card-body text-center">
                                             <h4 class="primary-color">
                                                 <p>All applications:</p>
-                                                {{$assessments_count}}
+                                                {{$applications->count()}}
                                             </h4>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <div class="card-body text-center">
                                             <h4 class="primary-color">
                                                 <p>Average rsi score:</p>
-                                                80%
+                                                {{$avg}}
                                             </h4>
                                         </div>
                                     </div>
@@ -50,17 +50,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row justify-content-end">
-                                        <div class="form-group col-md-4 pr-0 my-2">
-                                            <form id='formId'  name="sortbydate">
-                                                <div id="assessmentResultsRange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%;">
-                                                    <i class='bx bx-calendar'></i>&nbsp;
-                                                    <span></span><i class='bx bx-caret-down'></i></i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="col-md-3 my-2">
-                                            <a href="#" class="btn btn-success">
-                                                Manaage rsi metrics
+                                        <div class="col-md-2 my-2">
+                                            <a href="#" class="btn btn-success float-right">
+                                                Manage rsi metrics
                                             </a>
                                         </div>
                                     </div>
@@ -69,9 +61,11 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                             No assessment results available
                                         </h4>
                                     @else
-                                        @include('v2.components.tables.admin.jobApplications')
+                                        @include('v2.components.tables.admin.applications')
                                     @endif
-                                    {{ $testResults->links() }}
+                                    <div class="my-2">
+                                        {{ $applications->links() }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
