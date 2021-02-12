@@ -394,14 +394,21 @@ jQuery(function ($) {
 	});
 	
     $('#assessmentResultsTable').DataTable({
-        "paging": false,
-		"bInfo" : false,
-		"bFilter": false
-	});
+      "paging": false,
+			"bInfo" : false,
+			"bFilter": false
+		});
+
+	$('#applicationsTable').DataTable({
+			"paging": false,
+			"bInfo" : false,
+			"bFilter": false,
+			"order": [[ 11, "desc" ]]
+		});
 	
 	$('#cvReviewsTable').DataTable({
-        "paging": false,
-		"bInfo" : false,
-		"bFilter": false
-	});
+      "paging": false,
+			"bInfo" : false,
+			"bFilter": false
+		});
 }(jQuery));

@@ -118,4 +118,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
 
     // Metrics
     Route::get('/metrics', 'MetricsController@index');
+
+    // RSI scores
+    Route::resource('rsi', 'RsiController');
 });

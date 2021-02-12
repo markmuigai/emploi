@@ -50,16 +50,15 @@ class CVReviewResult extends Model
     /**
      * Get the emails converted to CV Editing
      */
-    public static function convertedEmails(){
+    public static function convertedEmails($cvReviewsResults){
         // removes any values from the original collection that are not present in the given collection and return count of the result
-        $collection = CVReviewResult::pluck('email')->unique();
-        $email=CvEditRequest::pluck('email')->unique();
+        $collection = $cvReviewsResults->pluck('email')->unique();
+        $email= CvEditRequest::pluck('email')->unique();
 
         return $collection->intersect($email)->unique();
     }
 
-
-           /**
+    /**
      * Get those eligible to do automatic CV review
      */
     public static function canDoReview()

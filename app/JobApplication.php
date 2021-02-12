@@ -238,4 +238,23 @@ class JobApplication extends Model
             return $assessment->type == 'aptitude';
         })->first();
     }
+
+    /**
+     * Get the rsi score tied to an application
+     *
+     */
+    public function getRsiScoreAttribute()
+    {
+        return $this->user->seeker->calculateRsi($this->post);
+    }
+
+    /**
+     * Get the averate score of all job applciations
+     */
+    public static function averageRsiScore()
+    {
+        return JobApplication::all()->map(function ($application){
+            return $application->rsiScore;
+        })->avg();
+    }
 }
