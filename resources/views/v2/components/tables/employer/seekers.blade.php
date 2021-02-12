@@ -166,6 +166,7 @@
     <script>
         $('#allSeekers').DataTable({
             "paging": false,
+            "bFilter": false,
             "bInfo" : false
         });
     </script>
