@@ -87,7 +87,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         </div>
                                     @endif
                                 
-                                    <a class="cmn-btn mt-1" href="/post-a-job">
+                                    <a class="cmn-btn mt-1" href="/vacancies/create">
                                         Post a job
                                         <i class="bx bx-plus"></i>
                                     </a> 
