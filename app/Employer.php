@@ -93,6 +93,8 @@ class Employer extends Model
     public function isOnStawiPackage(){
         if($this->user->email == 'jobs@emploi.co')
             return true;
+        if($this->user->email == 'hr@emploi.co')
+            return true;
         $orders = $this->user->orders;
         foreach ($orders as $order) {
             foreach ($order->productOrders as $po) {
