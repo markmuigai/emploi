@@ -44,6 +44,20 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </ul>
         </div>
     </div>
+
+    <h4 class="orange text-center">Head Hunting</h4>
+        <p>Companies empanel headhunting firms to find best talents who can improve
+        the quality of work, build their businesses, develop new and maintain
+        existing clients.</p>
+        <p>As a headhunting company, we target senior people 
+        working in top similar companies, get reference from them and develop a
+        wide network to get the right hire for you. We also target top passive
+        candidates, have a personal discussion with them and convince them to
+        become open-minded for a career change to your company.</p>
+        <p>With our well-maintained headhunted database through references and
+        network, we develop continuous relationships with employees and fill the
+        post with rich source of candidates for you.</p><br>
+
     <div class="text-center">
         <p>Want to hire the best?</p>
         <a href="/contact" class="btn btn-orange">Contact Us Today</a>
