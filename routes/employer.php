@@ -157,3 +157,8 @@ Route::resource('seekers', 'SeekerController');
 
 // Employer dashboard
 Route::get('employers/dashboard', 'DashboardController@index')->name('employers.dashboard');
+
+// Jobs
+Route::group([ 'prefix' => 'employers', 'as' => 'employers.'], function(){
+    Route::resource('jobs', 'JobController');
+});
