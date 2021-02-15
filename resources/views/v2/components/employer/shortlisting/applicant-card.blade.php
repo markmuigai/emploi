@@ -25,25 +25,25 @@
                 </a> 
             </h5>
                 <p class="collapse" id="collapseRSIFeedback">
-                    @if($a->user->seeker->getExperienceMatch($post) != 1)
+                    @if($a->user->seeker->getExperienceMatch($post) == 1)
                       <span class="text-success">Experience match  &#10004;&#65039;</i></span>                 
                     @else
                       <span class="text-danger">Experience match &#10060;</span>
                     @endif
 
-                    @if($a->user->seeker->getIndustryMatch($post) != 1)
+                    @if($a->user->seeker->getIndustryMatch($post) == 1)
                       <span class="text-success">Industry match  &#10004;&#65039;</i></span>                 
                     @else
                       <span class="text-danger">Industry match &#10060;</span>
                     @endif
 
-                    @if($a->user->seeker->getEducationLevelMatch($post) != 1)
+                    @if($a->user->seeker->getEducationLevelMatch($post) == 1)
                       <span class="text-success">Education match &#10004;&#65039;</i></span>                 
                     @else
                       <span class="text-danger">Education match &#10060;</span>
                     @endif
 
-                    @if($a->user->seeker->getLocationMatch($post) != 1)
+                    @if($a->user->seeker->getLocationMatch($post) == 1)
                       <span class="text-success">Location match  &#10004;&#65039;</i></span>                 
                     @else
                       <span class="text-danger">Location match &#10060;</span>
