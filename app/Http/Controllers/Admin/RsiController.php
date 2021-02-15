@@ -14,7 +14,7 @@ class RsiController extends Controller
      */
     public function index()
     {
-        $applications =  JobApplication::with('user', 'post')->take(50)->get();
+        $applications =  JobApplication::with('user', 'post')->take(20)->get();
 
 
         return view('v2.admin.rsi.index', [
