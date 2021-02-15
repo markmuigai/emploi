@@ -722,7 +722,15 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                             <ul class="fa-ul card-body">
                                               <li><span class="fa-li" style="text-align:center;"><i class="fas fa-check orange"></i></span>Featured jobseeker tag for 3 months on the website to appear on all searches and applicant lists</li>
                                             </ul>
-                                    </div>    
+                                    </div>
+                                <h4>We also offer Executive Coaching.</h4>
+                                    <p>We support you in developing a clear and successful path by offering
+                                      integral executive coaching on skills, knowledge and personal abilities
+                                    & attributes that you need to succeed in your career.</p>
+                                    <p>In this 5 personalized sessions of 3-4 hours per session, we walk with your in
+                                      your professional journey and goals. We also pair you with industry
+                                      leaders and mentors within your career line or industry to support you.</p>
+                                    <p>Having difficulties in efficiently delivering at work, talk to us.</p>    
 
                                 <div class="text-center">
                                     <a href="/job-seekers/placement-request" class="btn btn-orange">Make Request</a>
