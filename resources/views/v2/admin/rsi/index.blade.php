@@ -41,7 +41,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                                         <div class="card-body text-center">
                                             <h4 class="primary-color">
                                                 <p>Average rsi score:</p>
-                                                {{$avg}}
+                                                {{$avg}}%
                                             </h4>
                                         </div>
                                     </div>

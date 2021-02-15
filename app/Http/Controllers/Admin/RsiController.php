@@ -14,12 +14,13 @@ class RsiController extends Controller
      */
     public function index()
     {
-        $applications = JobApplication::with('user', 'post')->get();
+        $applications =  JobApplication::with('user', 'post')->take(50)->get();
+
 
         return view('v2.admin.rsi.index', [
             'applications' => CollectionHelper::paginate($applications->sortByDesc('rsiScore'), 10),
             'applications_count' => $applications->count(),
-            'avg' => JobApplication::averageRsiScore()
+            'avg' => round(JobApplication::averageRsiScore())
         ]);
     }
 }
