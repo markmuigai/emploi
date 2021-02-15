@@ -412,8 +412,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         
                                       ?>
                                          <p>1. Entry Level</p>
-                                         <h5><del>Kshs {{ $price }}</del></h5>
-                                          <h5>Kshs 1000</h5>
+                                         <h5>Kshs {{ $price }}</h5>
                                           <form method="POST" action="/checkout" >
                                         @csrf
                                         <input type="hidden" name="product" value="entry_level_cv_edit">
@@ -435,8 +434,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                         
                                       ?>
                                          <p>2. Mid Level</p>
-                                         <h5><del>Kshs {{ $price }}</del></h5>
-                                          <h5>Kshs 2000</h5>
+                                         <h5>Kshs {{ $price }}</h5>
                                           <form method="POST" action="/checkout" >
                                         @csrf
                                         <input type="hidden" name="product" value="mid_level_cv_edit">
@@ -460,8 +458,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                           
                                       ?>
                                         <p>3. Career Change / Promotion Seeking CV</p>
-                                        <h5><del>Kshs {{ $price }}</del></h5>
-                                          <h5>Kshs 3000</h5>
+                                        <h5>Kshs {{ $price }}</h5>
                                         <form method="POST" action="/checkout">
                                         @csrf
                                         <input type="hidden" name="product" value="c_change_cv_edit">
@@ -483,8 +480,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                           
                                       ?>
                                       <p>4. Management Level</p>
-                                      <h5><del>Kshs {{ $price }}</del></h5>
-                                        <h5>Kshs 3000</h5>
+                                      <h5>Kshs {{ $price }}/h5>
                                       <form method="POST" action="/checkout">
                                       @csrf
                                       <input type="hidden" name="product" value="mgnt_cv_edit">
@@ -508,8 +504,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                                           
                                       ?>
                                         5. Senior Management Level</p>
-                                        <del>Kshs {{ $price }}</del></h5>
-                                        <h5>Kshs 5000</h5>
+                                        <h5>Kshs {{ $price }}</h5>
                                         <form method="POST" action="/checkout">
                                         @csrf
                                         <input type="hidden" name="product" value="s_mgnt_cv_edit">
