@@ -109,9 +109,9 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
                         {{ $seeker->user->name }}
                         @if($seeker->featured == 1 || $seeker->featured ==2)
                             <span style='color: #500095; font-weight: bold'>*FEATURED*</span>
-                                @if($seeker->getProductDays() == 14)
-                               <span class="text-success">(14 days trial)</span>
-                                @endif
+                            @if($seeker->getProductDays() == 14)
+                               <span class="text-success">(14 days trial)</span> <span style='color: #500095;'>{{  $seeker->getRemainingProductDays() }} days to go</span>
+                            @endif
                         @endif
                     </a>
                 </h4>
