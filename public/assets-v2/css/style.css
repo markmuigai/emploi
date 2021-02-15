@@ -8700,3 +8700,7 @@ font-size: 1.25rem;
   border-radius: 50%;
   margin-right: 10% !important;
 }
+
+.candidate-item .job {
+  max-width: 100% !important;
+}
