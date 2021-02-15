@@ -133,7 +133,7 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
 
         <!-- Feedback -->
         <section class="feedback-area py-3">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="section-title">
                     <h2>Testimonials</h2>
                 </div>
