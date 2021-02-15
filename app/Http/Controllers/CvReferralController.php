@@ -87,7 +87,7 @@ class cvreferralcontroller extends Controller
         ]);
 
 
-        $contents = "You have been invited to request CV Editing services we offer on Emploi at a 50% discount,so you too can have access to our professional services to equip you with a good CV so that you stand out from the rest.<br>Click <a href='".url('/job-seekers/cv-editing')."'>here</a> to request or Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a><br>
+        $contents = "You have been invited to request CV Editing services we offer on Emploi,so you too can have access to our professional services to equip you with a good CV so that you stand out from the rest.<br>Click <a href='".url('/job-seekers/cv-editing')."'>here</a> to request or Contact us directly by calling us: <a href='tel:+254702068282'>+254 702 068 282</a><br>
          <br>
           <b>Benefits of CV-Editing</b>
         <ul>
