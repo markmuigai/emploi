@@ -371,6 +371,7 @@ class PostsController extends Controller
 
         if($param == 'search')
         {
+            $user = Auth::user();
             $title = 'Search Vacancies';
             $params = "";
 
@@ -469,10 +470,10 @@ class PostsController extends Controller
 
                 // Get recommended jobs
             if(auth()->user() && auth()->user()->role == 'seeker'){
-                $query = auth()->user()->seeker->recommendedPosts();
+                $query = auth()->user()->seeker->recommendedPosts($user->seeker->industry_id);
 
                 if(!empty($query)){
-                    $recommendedJobs = $query->get()->pluck('id');
+                    $recommendedJobs = $query->pluck('id');
                 }
             }elseif(!empty($request->parameters)){
                 $recommendedJobs = Post::where('industry_id', $request->parameters['industry'])
