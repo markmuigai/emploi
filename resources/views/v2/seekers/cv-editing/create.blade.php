@@ -272,6 +272,28 @@ Emploi is the Leading Platform for Recruitment and Placement Solutions for SMEs 
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="col-md-12 pb-4">
+            <div class="container-fluid text-center">
+                <div class="h3 font-weight-bold">SEE THE DIFFERENCE A PROFESSIONAL RESUME MAKES</div>
+            </div>
+            <div class="row mx-auto pt-3">
+                <div class="row col-md-6 mx-auto mr-1" style="background-color:#554594">
+                    <div class="container-fluid text-center pt-3">
+                        <div class="h5 font-weight-bold" style="color:white;">BEFORE</div>
+                        <img src="/images/cv91.jpg" style="width:100%; height:90%;pointer-events: none;" class="shadow">
+                    </div>
+                </div>
+                <div class="row col-md-6 mx-auto ml-1" style="background-color:#554594">
+                    <div class="container-fluid text-center pt-3">
+                        <div class="h5 font-weight-bold" style="color:white;">AFTER</div>
+                        <img src="/images/cv103.jpg" style="width:100%; height:90%;pointer-events: none;" class="shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- End Pricing -->
 
     {{-- CV Editing form --}}
