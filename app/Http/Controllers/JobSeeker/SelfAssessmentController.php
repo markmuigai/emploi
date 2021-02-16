@@ -76,7 +76,13 @@ class SelfAssessmentController extends Controller
                     // abort, permission denied
                     return abort(403);
                 }
-            }else{
+            }elseif($request->type == 'personality-practice'){
+                  $questions = Question::personality()->get();
+                   return view('v2.seekers.self-assessment.create',[
+                            'questions' =>  $questions
+                    ]);
+            }
+            else{
                 return view('v2.auth.login');
             }
         }
@@ -123,8 +129,8 @@ class SelfAssessmentController extends Controller
     public function store(Request $request)
     {  
         // Check if the assessment has been sent by an employer
-        if(isset($request->slug)){
-            // Find post
+        if($request->type == 'aptitude' || $request->type == 'personality'){
+            if(isset($request->slug))            // Find post
             $post = Post::where('slug', $request->slug)->first();
 
             // Check if the candidate has applied for the post
@@ -141,7 +147,7 @@ class SelfAssessmentController extends Controller
                 return abort(403);
             } 
         }else{
-            $application = null;
+        $email=$request->email;
         }
 
         if(auth()->user() && auth()->user()->role == 'seeker'){
@@ -151,7 +157,7 @@ class SelfAssessmentController extends Controller
             $email = $request->email;
         }
 
-        DB::transaction(function () use($request, $email, $application) {
+        DB::transaction(function () use($request, $email) {
             // Fetch previous assessments for an email
             $perfs = TestResult::where('email', $email)->get();
 
@@ -171,7 +177,7 @@ class SelfAssessmentController extends Controller
             if(isset($application)){
                 $request->type == 'aptitude' ? $type = 'aptitude' : $type = 'personality';
             }else{
-                $type = 'aptitude practice';
+               $request->type == 'personality-practice' ? $type = 'personality practice' : $type = 'aptitude';
             }
 
             // Create test score records
@@ -250,6 +256,7 @@ class SelfAssessmentController extends Controller
                         'optional_message' => $request->optional_message,
                         'test_result_id' => $testResult->id
                     ]);
+                    return ($performance);
 
                     $scores->push($performance);
                 };
@@ -264,7 +271,7 @@ class SelfAssessmentController extends Controller
                 ]);
             }
 
-            if($request->type == 'personality'){
+            if($request->type == 'personality' || $request->type == 'personality-practice'){
                 $personalities = [
                     'extroversion','agreeableness','conscientiousness','neuroticism','openness to experience'
                 ];
@@ -354,6 +361,23 @@ class SelfAssessmentController extends Controller
                 'industry' => $request->industry
             ],
             'email' => $email
+        ]);
+    }
+
+        /**
+     * Show questions based on user email
+     */
+    public function getpersonalityPracticeTest(Request $request)
+    {
+        if(auth()->user() && auth()->user()->role == 'seeker'){
+            $email = auth()->user()->email;
+        }else{
+            $email = $request->email;
+        }
+        return redirect()->route('v2.self-assessment.create',[
+            'email' => $email,
+            'slug' => $email.'-personality',
+            'type' => 'personality-practice'
         ]);
     }
 
