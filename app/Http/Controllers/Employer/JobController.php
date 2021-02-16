@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Employer;
 
-use App\Post;
+use App\Utils\CollectionHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,32 +11,40 @@ class JobController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
-        $q = isset($request->q) ? $request->q : '';
         $employer = auth()->user()->employer;
 
         $companies = $employer->user->companies;
-        $company_ids = array();
 
-        for($i=0; $i<count($companies); $i++)
-        {
-            array_push($company_ids, $companies[$i]->id);
+        // Get posts associated with the companies of the employer
+        $posts = $companies->map(function($company){
+            return $company->posts;
+        })->flatten()->sortByDesc('id');
+
+        if(request()->job_category == 'shortlisting'){
+            $posts = $posts->filter(function($post){
+                return $post->how_to_apply == null;
+            });
         }
 
-        if(isset($request->q)){
-            $posts = Post::whereIn('company_id',$company_ids)->where('title','like','%'.$request->q.'%')->orderBy('id','DESC')->paginate(20);
-        }else{
-            $posts = Post::whereIn('company_id',$company_ids)->orderBy('id','DESC')->paginate(20);
+        if(request()->job_category == 'active'){
+            $posts = $posts->filter(function($post){
+                return $post->status == 'active';
+            });
         }
 
+        if(request()->job_category == 'other'){
+            $posts = $posts->filter(function($post){
+                return $post->status != 'active';
+            });
+        }
 
         return view('v2.employers.jobs.index',[
-            'q' => $q,
-            'posts' => $posts,
-            'recentApplications' => auth()->user()->employer->recentApplications()
+            'posts' => CollectionHelper::paginate($posts, 10),
+            'recentApplications' => $employer->recentApplications()
         ]);
     }
 
