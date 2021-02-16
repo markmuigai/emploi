@@ -43,6 +43,9 @@ Route::get('assessment/about', 'SelfAssessmentController@about');
 // Filter assessment questions based on paramenters
 Route::post('self-assessment/filter', 'SelfAssessmentController@filterAssessments')->name('self-assessment.filter') ;
 
+// personality assessment for practice
+Route::post('self-assessment/personality-practice', 'SelfAssessmentController@getPersonalityPracticeTest')->name('personality.practice') ;
+
 // Recommended Jobs
 Route::resource('recommendation', 'RecommendationController');
 
