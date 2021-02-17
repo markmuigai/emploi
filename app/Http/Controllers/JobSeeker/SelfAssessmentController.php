@@ -19,369 +19,367 @@ use App\Http\Controllers\Controller;
 
 class SelfAssessmentController extends Controller
 {
-    /**
-     * Display a listing of the self assessment.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        if(isset(Auth::user()->id)){
-            if(request()->email !== auth()->user()->email){
-                return abort(403);
-            }
-        }
-        
-        // Show assessment
-        return view('v2.seekers.self-assessment.index',[
-            'score' => Performance::recentScore(request()->email),
-            'performances' => Performance::LatestAssessment(request()->email)
-        ]);
-    }
+	/**
+	 * Display a listing of the self assessment.
+	 *
+	 */
+	public function index()
+	{
+		if (isset(Auth::user()->id)) {
+			if (request()->email !== auth()->user()->email) {
+				return abort(403);
+			}
+		}
 
-    /**
-     * Show the form for creating a new self assessment.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {   
-        // Check if the assessment has been sent by an employer
-        if(isset($request->slug)){
-            // Find post
-            $post = Post::where('slug', $request->slug)->first();
+		// Show assessment
+		return view('v2.seekers.self-assessment.index', [
+			'score' => Performance::recentScore(request()->email),
+			'performances' => Performance::LatestAssessment(request()->email)
+		]);
+	}
 
-           //check if user is logged in
-            if(auth()->user()){
-                
-                 // Check if the candidate has applied for the post
-                if( null!= auth()->user()->applicationForPost($request->slug) ){
-                    $application = auth()->user()->applicationForPost($request->slug);
+	/**
+	 * Show the form for creating a new self assessment.
+	 *
+	 */
+	public function create(Request $request)
+	{
+		// Check if the assessment has been sent by an employer
+		if (isset($request->slug)) {
+			// Find post
+			$post = Post::where('slug', $request->slug)->first();
 
-                    // Check for assessment type and if seeker has attempted before
-                    if($request->type == 'aptitude' && $application->aptitudeTestResults() == null){
-                        // Get questions
-                        $questions = $post->questions;
-                    }elseif($request->type == 'personality' && $application->personalityTestResults() == null){
-                        $questions = Question::personality()->get();
-                    }else{
-                        return abort(403);
-                    }
+			//check if user is logged in
+			if (auth()->user()) {
 
-                    return view('v2.seekers.self-assessment.create',[
-                            'questions' =>  $questions
-                    ]);
+				// Check if the candidate has applied for the post
+				if (null != auth()->user()->applicationForPost($request->slug)) {
+					$application = auth()->user()->applicationForPost($request->slug);
 
-                }else{
-                    // abort, permission denied
-                    return abort(403);
-                }
-            }elseif($request->type == 'personality-practice'){
-                  $questions = Question::personality()->get();
-                   return view('v2.seekers.self-assessment.create',[
-                            'questions' =>  $questions
-                    ]);
-            }
-            else{
-                return view('v2.auth.login');
-            }
-        }
+					// Check for assessment type and if seeker has attempted before
+					if ($request->type == 'aptitude' && $application->aptitudeTestResults() == null) {
+						// Get questions
+						$questions = $post->questions;
+					} elseif ($request->type == 'personality' && $application->personalityTestResults() == null) {
+						$questions = Question::personality()->get();
+					} else {
+						return abort(403);
+					}
 
-        $user=Auth::user();
+					return view('v2.seekers.self-assessment.create', [
+						'questions' => $questions
+					]);
 
-        if(auth()->user() && auth()->user()->role == 'seeker'){
+				} elseif ($request->type == 'personality-practice') {
+					$questions = Question::personality()->get();
+					return view('v2.seekers.self-assessment.create', [
+						'questions' => $questions
+					]);
+				} else {
+					// abort, permission denied
+					return abort(403);
+				}
+			} elseif ($request->type == 'personality-practice') {
+				$questions = Question::personality()->get();
+				return view('v2.seekers.self-assessment.create', [
+					'questions' => $questions
+				]);
+			} else {
+				return view('v2.auth.login');
+			}
+		}
 
-            if (Performance::canDoAssessment($user->email)) {
-            $questions = Industry::findOrFail(auth()->user()->seeker->industry_id)
-                                        ->getAssessmentQuestions((auth()->user()->seeker->years_experience)*12);   
-            }
-            else{
-               return view('v2.seekers.self-assessment.cannot',[
-                            'email' => $user->email]);
-            }
-            
-        }else
+		$user = Auth::user();
 
-            if (Performance::canDoAssessment(request()->email)) {
-             // Get industry and fetch questions based on user profile
-                $questions = Industry::findOrFail($request->payload['industry'])->getAssessmentQuestions($request->payload['experience']);   
-            }
-            else{
-               return view('v2.seekers.self-assessment.cannot',[
-                           'email' => request()->email]);
-            }
+		if (auth()->user() && auth()->user()->role == 'seeker') {
 
-            // Take 5 questions generated by the algorithm and 5 diagramatic questions
-            $withImg = Question::has('image')->with('image')->get()->random(8);
+			if (Performance::canDoAssessment($user->email)) {
+				$questions = Industry::findOrFail(auth()->user()->seeker->industry_id)
+					->getAssessmentQuestions((auth()->user()->seeker->years_experience) * 12);
+			} else {
+				return view('v2.seekers.self-assessment.cannot', [
+					'email' => $user->email]);
+			}
 
-        // Return view
-        return view('v2.seekers.self-assessment.create',[
-            'questions' => $questions->take(10)->push($withImg)->flatten()->shuffle()
-        ]);
-    }
+		} else
 
-    /**
-     * Store a newly created self assessment in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {  
-        // Check if the assessment has been sent by an employer
-        if($request->type == 'aptitude' || $request->type == 'personality'){
-            if(isset($request->slug))            // Find post
-            $post = Post::where('slug', $request->slug)->first();
+			if (Performance::canDoAssessment(request()->email)) {
+				// Get industry and fetch questions based on user profile
+				$questions = Industry::findOrFail($request->payload['industry'])->getAssessmentQuestions($request->payload['experience']);
+			} else {
+				return view('v2.seekers.self-assessment.cannot', [
+					'email' => request()->email]);
+			}
 
-            // Check if the candidate has applied for the post
-            if( null!= auth()->user()->applicationForPost($request->slug) ){
-                $application = auth()->user()->applicationForPost($request->slug);
+		// Take 5 questions generated by the algorithm and 5 diagramatic questions
+		$withImg = Question::has('image')->with('image')->get()->random(8);
 
-                // Check for assessment type and if seeker has attempted before, abort
-                if($request->type == 'aptitude' && $application->aptitudeTestResults() != null||
-                    $request->type == 'personality' && $application->personalityTestResults() !=null
-                ){
-                    return abort(403);
-                }
-            }else{ 
-                return abort(403);
-            } 
-        }else{
-        $email=$request->email;
-        }
+		// Return view
+		return view('v2.seekers.self-assessment.create', [
+			'questions' => $questions->take(10)->push($withImg)->flatten()->shuffle()
+		]);
+	}
 
-        if(auth()->user() && auth()->user()->role == 'seeker'){
-            $email = auth()->user()->email;
+	/**
+	 * Store a newly created self assessment in storage.
+	 *
+	 */
+	public function store(Request $request)
+	{
+		// Check if the assessment has been sent by an employer
+		if ($request->type == 'aptitude' || $request->type == 'personality') {
+			if (isset($request->slug))            // Find post
+				$post = Post::where('slug', $request->slug)->first();
 
-        }else{
-            $email = $request->email;
-        }
+			// Check if the candidate has applied for the post
+			if (null != auth()->user()->applicationForPost($request->slug)) {
+				$application = auth()->user()->applicationForPost($request->slug);
 
-        DB::transaction(function () use($request, $email) {
-            // Fetch previous assessments for an email
-            $perfs = TestResult::where('email', $email)->get();
+				// Check for assessment type and if seeker has attempted before, abort
+				if ($request->type == 'aptitude' && $application->aptitudeTestResults() != null ||
+					$request->type == 'personality' && $application->personalityTestResults() != null
+				) {
+					return abort(403);
+				}
+			} else {
+				return abort(403);
+			}
+		} else {
+			$email = $request->email;
+		}
 
-            // If they have never been assessed
-            if($perfs->isEmpty()){
-                $assessment_count = 1;            
-            }else{
-                // Get their most recent assessment_count + 1
-                $assessment_count = Collect($perfs)->last()->assessment_count + 1;
-            }
+		if (auth()->user() && auth()->user()->role == 'seeker') {
+			$email = auth()->user()->email;
 
-            // Check if the user exists in the system
-            $user = User::where('email', $email)->first();
-            $user ? $user_id = $user->id : $user_id = null;
+		} else {
+			$email = $request->email;
+		}
 
-            // Check if application isset
-            if(isset($application)){
-                $request->type == 'aptitude' ? $type = 'aptitude' : $type = 'personality';
-            }else{
-               $request->type == 'personality-practice' ? $type = 'personality practice' : $type = 'aptitude';
-            }
+		DB::transaction(function () use ($request, $email) {
+			// Fetch previous assessments for an email
+			$perfs = TestResult::where('email', $email)->get();
 
-            // Create test score records
-            $testResult = TestResult::create([
-                'user_id' => $user_id,
-                'email' => $email,
-                'type' => $type,
-                'assessment_count' => $assessment_count,
-            ]);
+			// If they have never been assessed
+			if ($perfs->isEmpty()) {
+				$assessment_count = 1;
+			} else {
+				// Get their most recent assessment_count + 1
+				$assessment_count = Collect($perfs)->last()->assessment_count + 1;
+			}
 
-            // If they have attempted any question
-            if(isset($request->choices)){
-                // questions done
-                $questionsDone = array_keys($request->choices);
+			// Check if the user exists in the system
+			$user = User::where('email', $email)->first();
+			$user ? $user_id = $user->id : $user_id = null;
 
-                // Intialize scores collection to store results temporarily
-                $scores = collect();
+			// Check if application isset
+			if (isset($application)) {
+				$request->type == 'aptitude' ? $type = 'aptitude' : $type = 'personality';
+			} else {
+				$request->type == 'personality-practice' ? $type = 'personality practice' : $type = 'aptitude';
+			}
 
-                foreach($request->choices as $question_id => $choice_id)
-                {
-                    $question = Question::findOrFail($question_id);
-                    // if the question is a diagram
-                    if(isset($question->image)){
-                        // Get choice id
-                        $options = collect(['a','b','c','d']);
+			// Create test score records
+			$testResult = TestResult::create([
+				'user_id' => $user_id,
+				'email' => $email,
+				'type' => $type,
+				'assessment_count' => $assessment_count,
+			]);
 
-                        // choice id is either a,b,c,d
-                        // Check if correct value provided
-                        if($choice_id == $question->image->correct_value){
-                            // dd($choice_id[0],$question->image->correct_value);
-                            $choice_id = $options->search($choice_id);
-                            $correct = 1;
-                        }else{
-                            $choice_id = $options->search($choice_id);
-                            $correct = 0;
-                        }
-                    }else{
-                        $choice_id = (int)$choice_id[0];
-                        $correct = Choice::find($choice_id)->correct_value;
-                    }
+			// If they have attempted any question
+			if (isset($request->choices)) {
+				// questions done
+				$questionsDone = array_keys($request->choices);
 
-                    // Create performance record
-                    $performance = Performance::create([
-                        'user_id' => null,
-                        'assessment_count' => $assessment_count,
-                        'email' => $email,           
-                        'question_id' => $question_id,
-                        'choice_id' => $choice_id,
-                        'correct' => $correct,
-                        'optional_message' => $request->optional_message,
-                        'test_result_id' => $testResult->id
-                    ]);
+				// Intialize scores collection to store results temporarily
+				$scores = collect();
 
-                    $scores->push($performance);
-                }
-            }else{
-                $questionsDone = [];
-            }
+				foreach ($request->choices as $question_id => $choice_id) {
+					$question = Question::findOrFail($question_id);
+					// if the question is a diagram
+					if (isset($question->image)) {
+						// Get choice id
+						$options = collect(['a', 'b', 'c', 'd']);
 
-            // questions assigned
-            $questionsAssigned = $request->questions;
+						// choice id is either a,b,c,d
+						// Check if correct value provided
+						if ($choice_id == $question->image->correct_value) {
+							// dd($choice_id[0],$question->image->correct_value);
+							$choice_id = $options->search($choice_id);
+							$correct = 1;
+						} else {
+							$choice_id = $options->search($choice_id);
+							$correct = 0;
+						}
+					} else {
+						$choice_id = (int)$choice_id[0];
+						$correct = Choice::find($choice_id)->correct_value;
+					}
 
-            // unattemped questions
-            $blank = array_diff($questionsAssigned, $questionsDone);
+					// Create performance record
+					$performance = Performance::create([
+						'user_id' => null,
+						'assessment_count' => $assessment_count,
+						'email' => $email,
+						'question_id' => $question_id,
+						'choice_id' => $choice_id,
+						'correct' => $correct,
+						'optional_message' => $request->optional_message,
+						'test_result_id' => $testResult->id
+					]);
 
-            // Null scores for questions that have not been attempted
-            if(isset($blank)){
-                foreach($blank as $blank){
-                    $performance = Performance::create([
-                        'user_id' => null,
-                        'assessment_count' => $assessment_count,
-                        'email' => $email,           
-                        'question_id' => $blank,
-                        'choice_id' => 0,
-                        'correct' => 0,
-                        'optional_message' => $request->optional_message,
-                        'test_result_id' => $testResult->id
-                    ]);
-                    return ($performance);
+					$scores->push($performance);
+				}
+			} else {
+				$questionsDone = [];
+			}
 
-                    $scores->push($performance);
-                };
-            }
+			// questions assigned
+			$questionsAssigned = $request->questions;
 
-            // Check if the assessment has been sent by an employer
-            if(isset($application)){
-                // Create application_performance pivot records
-                ApplicationAssessment::create([
-                    'application_id' => $application->id,
-                    'test_result_id' => $testResult->id
-                ]);
-            }
+			// unattemped questions
+			$blank = array_diff($questionsAssigned, $questionsDone);
 
-            if($request->type == 'personality' || $request->type == 'personality-practice'){
-                $personalities = [
-                    'extroversion','agreeableness','conscientiousness','neuroticism','openness to experience'
-                ];
-        
-                foreach($personalities as $pers){
-                    PersonalityResult::create([
-                        'personality' => $pers,
-                        'score' => Performance::personalityResult($pers, $scores),
-                        'test_result_id' => $testResult->id
-                    ]);
-                }
-            }
+			// Null scores for questions that have not been attempted
+			if (isset($blank)) {
+				foreach ($blank as $blank) {
+					$performance = Performance::create([
+						'user_id' => null,
+						'assessment_count' => $assessment_count,
+						'email' => $email,
+						'question_id' => $blank,
+						'choice_id' => 0,
+						'correct' => 0,
+						'optional_message' => $request->optional_message,
+						'test_result_id' => $testResult->id
+					]);
+					return ($performance);
 
-            // Update test score record
-            $testResult->update([
-                'score' => round(($scores->pluck('correct')->avg())*100)
-            ]);
-        });
-        
-        if($request->type == 'personality'){ 
-            return redirect('/profile')->with('success', 'Personality test has been successfully submitted');           
-        }else{
-            return redirect()->route('v2.self-assessment.index', [
-                'email' => $email
-            ]);          
-        }
-    }
+					$scores->push($performance);
+				};
+			}
 
-    /**
-     * Display the specified self assessment.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
+			// Check if the assessment has been sent by an employer
+			if (isset($application)) {
+				// Create application_performance pivot records
+				ApplicationAssessment::create([
+					'application_id' => $application->id,
+					'test_result_id' => $testResult->id
+				]);
+			}
 
-    }
+			if ($request->type == 'personality' || $request->type == 'personality-practice') {
+				$personalities = [
+					'extroversion', 'agreeableness', 'conscientiousness', 'neuroticism', 'openness to experience'
+				];
 
-    /**
-     * Show the form for editing the specified self assessment.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+				foreach ($personalities as $pers) {
+					PersonalityResult::create([
+						'personality' => $pers,
+						'score' => Performance::personalityResult($pers, $scores),
+						'test_result_id' => $testResult->id
+					]);
+				}
+			}
 
-    /**
-     * Update the specified self assessment in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+			// Update test score record
+			$testResult->update([
+				'score' => round(($scores->pluck('correct')->avg()) * 100)
+			]);
+		});
 
-    /**
-     * Remove the specified self assessment from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+		if ($request->type == 'personality') {
+			return redirect('/profile')->with('success', 'Personality test has been successfully submitted');
+		} else {
+			return redirect()->route('v2.self-assessment.index', [
+				'email' => $email
+			]);
+		}
+	}
 
-    /**
-     * Show questions based on parameters
-     */
-    public function filterAssessments(Request $request)
-    {
-        if(auth()->user() && auth()->user()->role == 'seeker'){
-            $email = auth()->user()->email;
-        }else{
-            $email = $request->email;
-        }
-        return redirect()->route('v2.self-assessment.create',[
-            'payload' => [
-                'experience' => $request->experience,
-                'industry' => $request->industry
-            ],
-            'email' => $email
-        ]);
-    }
+	/**
+	 * Display the specified self assessment.
+	 *
+	 * @param int $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show()
+	{
 
-        /**
-     * Show questions based on user email
-     */
-    public function getpersonalityPracticeTest(Request $request)
-    {
-        if(auth()->user() && auth()->user()->role == 'seeker'){
-            $email = auth()->user()->email;
-        }else{
-            $email = $request->email;
-        }
-        return redirect()->route('v2.self-assessment.create',[
-            'email' => $email,
-            'slug' => $email.'-personality',
-            'type' => 'personality-practice'
-        ]);
-    }
+	}
 
-    public function about(){
-        return view('v2.seekers.self-assessment.about');
-    }
+	/**
+	 * Show the form for editing the specified self assessment.
+	 *
+	 * @param int $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit($id)
+	{
+		//
+	}
+
+	/**
+	 * Update the specified self assessment in storage.
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param int $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(Request $request, $id)
+	{
+		//
+	}
+
+	/**
+	 * Remove the specified self assessment from storage.
+	 *
+	 * @param int $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy($id)
+	{
+		//
+	}
+
+	/**
+	 * Show questions based on parameters
+	 */
+	public function filterAssessments(Request $request)
+	{
+		if (auth()->user() && auth()->user()->role == 'seeker') {
+			$email = auth()->user()->email;
+		} else {
+			$email = $request->email;
+		}
+		return redirect()->route('v2.self-assessment.create', [
+			'payload' => [
+				'experience' => $request->experience,
+				'industry' => $request->industry
+			],
+			'email' => $email
+		]);
+	}
+
+	/**
+	 * Show questions based on user email
+	 */
+	public function getpersonalityPracticeTest(Request $request)
+	{
+		if (auth()->user() && auth()->user()->role == 'seeker') {
+			$email = auth()->user()->email;
+		} else {
+			$email = $request->email;
+		}
+		return redirect()->route('v2.self-assessment.create', [
+			'email' => $email,
+			'slug' => $email . '-personality',
+			'type' => 'personality-practice'
+		]);
+	}
+
+	public function about()
+	{
+		return view('v2.seekers.self-assessment.about');
+	}
 }
