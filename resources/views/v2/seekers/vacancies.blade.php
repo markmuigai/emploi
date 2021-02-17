@@ -69,7 +69,7 @@ Emploi is the Leading Platform for Talent Assessment and Matching for SME's in A
                     <div class="container pt-3 pb-3">                    
                         <button class="btn btn-success mb-1"><a href="{{Route('v2.cv-review.create')}}"><span style="color: white"> Automatic CV Review</i></span></a></button>
                         <button class="btn btn-success mb-1"><a href="/v2/assessment/about"><span style="color: white">  Self Assessment</i></span></a></button>
-                         <a class="btn btn-success mb-1" href="#" data-toggle="modal" data-target="#personalityTestModal"><span style="color: white">Personality Test</i></span></a>
+                       <!--   <a class="btn btn-success mb-1" href="#" data-toggle="modal" data-target="#personalityTestModal"><span style="color: white">Personality Test</i></span></a> -->
                     </div>
                     <div class="{{ auth()->user() ? 'col-lg-12' : 'col-lg-10'}}">
                         <h3 style="text-align: center">Get all the latest jobs at one stop and apply.</h3>
