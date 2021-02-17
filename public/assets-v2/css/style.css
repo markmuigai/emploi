@@ -8565,7 +8565,7 @@ h4,h3{
 }
 
 .self-assessment-about {
-  background: linear-gradient(#500095 100%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,160,.3)), url("../../images/self-assessment.jpg");
+  background: linear-gradient(#60199D 100%,#f2f2f2 100%);background:linear-gradient(to right,#60199D,rgba(40,20,160,.7)), url("../../images/self-assessment.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
