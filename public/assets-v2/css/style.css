@@ -4571,12 +4571,12 @@ button:focus {
 /*----- End Home Demo Three CSS -----*/
 /*----- About CSS -----*/
 .page-title-area {
-  background: linear-gradient(#500095 100%,#f2f2f2 100%);background:linear-gradient(to right,#500095,rgba(80,0,160,.3)), url("../../images/seeker_services.jpg");
+  background: linear-gradient(#60199D 100%,#f2f2f2 100%);background:linear-gradient(to right,#60199D,rgba(40,20,160,.7)), url("../../images/seeker_services.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-  height: 500px;
+  height: 400px;
 }
 
 .page-title-area:before {
