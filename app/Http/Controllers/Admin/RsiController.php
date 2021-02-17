@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\JobApplication;
-use Illuminate\Http\Request;
 use App\Utils\CollectionHelper;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +13,7 @@ class RsiController extends Controller
      */
     public function index()
     {
-        $applications =  JobApplication::with('user', 'post')->take(20)->get();
+        $applications =  JobApplication::with('user', 'post')->take(10)->get();
 
 
         return view('v2.admin.rsi.index', [
