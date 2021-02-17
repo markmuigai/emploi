@@ -11,3 +11,13 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/.idea/.gitignore
+/.idea/dataSources/231a642b-fa1a-4b4c-8482-1f57f3bf2139.xml
+/.idea/dataSources.xml
+/.idea/emploi.iml
+/.idea/dataSources/231a642b-fa1a-4b4c-8482-1f57f3bf2139/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
+/.idea/laravel-plugin.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/phpunit.xml
+/.idea/vcs.xml
