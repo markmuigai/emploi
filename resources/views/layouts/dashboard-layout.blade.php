@@ -105,7 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" href="{{route('v2.employers.dashboard')}}" role="tab" aria-controls="v-pills-home" aria-selected="true">Dashboard <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/profile" role="tab" aria-controls="v-pills-messages" aria-selected="false">Profile <i class="fas fa-chevron-right"></i></a>
-                            <a class="nav-link" id="v-pills-profile-tab" href="/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
+                            <a class="nav-link" id="v-pills-profile-tab" href="/v2/employers/jobs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Jobs <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="{{route('v2.seekers.index')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">Browse Candidates <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/employers/saved" role="tab" aria-controls="v-pills-messages" aria-selected="false">Saved Profiles <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/employers/paas-dash" role="tab" aria-controls="v-pills-messages" aria-selected="false">Management Dashboard<i class="fas fa-chevron-right"></i></a>
@@ -143,7 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/assessmentResults" role="tab" aria-controls="v-pills-messages" aria-selected="false">Assessments <i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/cvReviews" role="tab" aria-controls="v-pills-messages" aria-selected="false">CV Reviews<i class="fas fa-chevron-right"></i></a>
                             <a class="nav-link" id="v-pills-messages-tab" href="/v2/admin/rsi" role="tab" aria-controls="v-pills-messages" aria-selected="false">RSI Scores<i class="fas fa-chevron-right"></i></a>
-                            
+
                         </div>
 
                         <!-- END OF ADMIN SIDEBAR -->
@@ -152,7 +152,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         @else
                         <div class="card guest-sidebar py-3">
                          <h5 style="text-align: center">Trending Opportunities</h5>
-                            <ul >                           
+                            <ul >
                                 <li>
                                     <a href="companies?hiring=true">Companies Hiring</a>
                                 </li>
@@ -184,12 +184,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             <br>
                             <div class="card">
                                 <div class="card-body text-center">
-                                    
+
                                     <a href="/join" class="btn btn-orange">{{ __('auth.register') }}</a>
                                  <!--    <h6 class="mt-3">- Have An Account -</h6> -->
                                     <a href="/login" class="btn btn-orange-alt">{{ __('auth.login') }}</a>
 
-                                    
+
                                 </div>
                             </div>
                             <!-- END OF GUEST SIDEBAR -->
@@ -221,7 +221,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <!-- ADD JOB AS AN EMPLOYER -->
                     <div id="postJob" class="mb-2">
                         <h2>@yield('page_title')</h2>
-                        
+
 
                         <div class="row">
                     <!--         @if(isset(Auth::user()->id) && Auth::user()->role == 'employer' && Auth::user()->employer->isOnPaas())
@@ -250,17 +250,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </h3>
                             @endif
                         </div>
-                        
+
                     </div>
-                    
+
                     <!-- END OF ADD JOB AS AN EMPLOYER -->
                     @yield('content')
                 </div>
 
             </div>
         </div>
-    </main>                      
-        
+    </main>
+
 
     <!-- END OF MAIN CONTENT FOR EMPLOYER -->
 <!--     <div style="text-align: right;">
@@ -285,7 +285,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span style="display: none">Subscribe on Youtube</span>
                 <i class="fab fa-youtube" style="color:  #c4302b; font-size: 30px"></i>
             </a>
-        </div> 
+        </div>
     </div> -->
     @if( isset(Auth::user()->id) && Auth::user()->role == 'seeker' )
     @include('components.search-form')
@@ -308,7 +308,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- MODALS -->
     @yield('modals')
     <!-- END OF MODALS -->
-    
+
     <!-- INLINE SCRIPTS -->
     <script type="text/javascript">
         // Post a Job Alternative

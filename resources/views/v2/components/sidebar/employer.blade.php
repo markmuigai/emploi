@@ -13,7 +13,7 @@
             My Profile
         </div>
     </a>
-    <a class="nav-link {{ request()->routeIs('v2.employers.jobs*') ? 'active' : '' }}" id="v-pills-home-tab"  href="/employers/jobs"  aria-controls="v-pills-home" aria-selected="true">
+    <a class="nav-link {{ request()->routeIs('v2.employers.jobs*') ? 'active' : '' }}" id="v-pills-home-tab"  href="/v2/employers/jobs"  aria-controls="v-pills-home" aria-selected="true">
         <div class="profile-list">
             My Jobs
         </div>
