@@ -68,22 +68,19 @@
 											</table>
 									<div class="img-container center fullwidthOnMobile autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
 												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-												<div style="font-size:1px;line-height:20px">&nbsp;</div><a href="https://emploi.co/v2/job-seekers/cv-editing/create" target="_blank" style="outline:none" tabindex="-1"> <img class="center fullwidthOnMobile autowidth" align="center" border="0" src="https://emploi.co/images/email-templates/cv-editing.png" alt="Emploi" title="Emploi" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 755px; display: block;" width="755"></a>
+												<div style="font-size:1px;line-height:20px">&nbsp;</div><a href="https://emploi.co/" target="_blank" style="outline:none" tabindex="-1"> <img class="center fullwidthOnMobile autowidth" align="center" border="0" src="https://emploi.co/images/email-templates/cv-editing.jpg" alt="Emploi" title="Emploi" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 755px; display: block;" width="755"></a>
 												<div style="font-size:1px;line-height:20px">&nbsp;</div>
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 35px; padding-left: 35px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
-											<div style="color:#fff;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.8;padding-top:10px;padding-right:35px;padding-bottom:10px;padding-left:35px;">
+								<!-- 			<div style="color:#fff;font-family:'Raleway', 'Trebuchet MS', Helvetica, sans-serif;line-height:1.8;padding-top:10px;padding-right:35px;padding-bottom:10px;padding-left:35px;">
 												<div style="line-height: 1.8; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #fff; mso-line-height-alt: 22px;">
-													<p style="text-align: center; line-height: 1.8; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; font-size: 16px; mso-line-height-alt: 29px; margin: 0;"><span style="font-size: 16px;"></span></p>
+													<p style="text-align: center; line-height: 1.8; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; font-size: 16px; mso-line-height-alt: 29px; margin: 0;"><span style="font-size: 16px;">Subscribe to the annual Spotlight subscription today and let employers notice you all year long.</span></p>
 												</div>
-											</div>
+											</div> -->
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="button-container" align="center" style="padding-top:5px;padding-right:20px;padding-bottom:5px;padding-left:0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 5px; padding-right: 20px; padding-bottom: 5px; padding-left: 0px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bit.ly/33U8Aaq" style="height:30pt; width:106.5pt; v-text-anchor:middle;" arcsize="150%" stroke="false" fillcolor="#ff5e00"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:'Trebuchet MS', sans-serif; font-size:20px"><![endif]-->
-
-													<a href="https://emploi.co/v2/job-seekers/cv-editing/create" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:20px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;"><strong><span style="font-size: 20px; line-height: 40px;" data-mce-style="font-size: 20px; line-height: 40px;">Request Now</span></strong></span></span></a>
-											
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 5px; padding-right: 20px; padding-bottom: 5px; padding-left: 0px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bit.ly/33U8Aaq" style="height:30pt; width:106.5pt; v-text-anchor:middle;" arcsize="150%" stroke="false" fillcolor="#ff5e00"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:'Trebuchet MS', sans-serif; font-size:20px"><![endif]--><a href="https://bit.ly/2KQyk1y" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:20px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;"><strong><span style="font-size: 20px; line-height: 40px;" data-mce-style="font-size: 20px; line-height: 40px;">Fix Now</span></strong></span></span></a>
 												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
 											</div>
 											<table class="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" role="presentation" valign="top">
@@ -111,7 +108,7 @@
 							</div>
 						</div>
 					</div>
-				    <div style="background-color:#fff;">
+					<div style="background-color:#fff;">
 						<div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #fff;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#fff;">
 								<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fff;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:755px"><tr class="layout-full-width" style="background-color:#fff"><![endif]-->
@@ -122,7 +119,7 @@
 										<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 15px; padding-left: 15px;">
 											<!--<![endif]-->								
 											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="/images/email-templates/assessment.png" alt="self assessment" title="self assessment" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
+												<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img class="center fixedwidth" align="center" border="0" src="https://emploi.co/images/email-templates/icon_spotlight.png" alt="Spotlight" title="spotlight" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 60px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
@@ -130,17 +127,17 @@
                                                 <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;">
                                                     <center>
                                                         <p style="line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; font-size: 20px; mso-line-height-alt: 30px; margin: 0;">
-                                                            <span style="font-size: 20px;"><strong>Self Assessment</strong></span>
+                                                            <span style="font-size: 20px;"><strong>Spotlight</strong></span>
                                                         </p>
                                                     </center>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="button-container" align="center" style="padding-top:5px;padding-bottom:5px;padding-left:0px;">
-                                                    <a href="https://emploi.co/v2/vacancies" target="_blank" 
+                                                    <a href="https://emploi.co/job-seekers/services" target="_blank" 
                                                     style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:15px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;">
                                                         <span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;">
-                                                        <strong>TAKE TEST</strong>
+                                                        <strong>REQUEST</strong>
                                                         </span></span></span>
                                                     </a>
 											</div>
@@ -158,7 +155,7 @@
 											<!--<![endif]-->
 											<div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
                                                 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-                                                    <img class="center fixedwidth" align="center" border="0" src="/images/email-templates/cvReview.png" alt="cv review" title="cv review" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
+                                                    <img class="center fixedwidth" align="center" border="0" src="https://emploi.co/images/email-templates/icon_pro.png" alt="pro" title="pro" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 104px; display: block;" width="104">
 												<!--[if mso]></td></tr></table><![endif]-->
 											</div>
 											<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 60px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', sans-serif"><![endif]-->
@@ -166,16 +163,16 @@
                                                 <div style="line-height: 1.5; font-size: 12px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; color: #000000; mso-line-height-alt: 18px;">
                                                     <center>
                                                         <p style="line-height: 1.5; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif; mso-line-height-alt: 18px; margin: 0;"><strong><span style="font-size: 20px;">
-                                                            Automatic CV Review</span></strong>
+                                                            Pro</span></strong>
                                                         </p>
                                                     </center>
 												</div>
 											</div>
 											<!--[if mso]></td></tr></table><![endif]-->
 											<div class="button-container" align="center" style="padding-top:5px;padding-right:0px;padding-bottom:5px;">
-                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 5px; padding-right: 0px; padding-bottom: 5px; padding-left: 20px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bit.ly/33U8Aaq" style="height:22.5pt; width:97.5pt; v-text-anchor:middle;" arcsize="200%" stroke="false" fillcolor="#ff5e00"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:'Trebuchet MS', sans-serif; font-size:15px"><![endif]--><a href="https://emploi.co/v2/cv-review/create" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:15px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;">
+                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 5px; padding-right: 0px; padding-bottom: 5px; padding-left: 20px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bit.ly/33U8Aaq" style="height:22.5pt; width:97.5pt; v-text-anchor:middle;" arcsize="200%" stroke="false" fillcolor="#ff5e00"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#000000; font-family:'Trebuchet MS', sans-serif; font-size:15px"><![endif]--><a href="https://emploi.co/job-seekers/services" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #000000; background-color: #ff5e00; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; width: auto; width: auto; border-top: 0px solid #FF5E00; border-right: 0px solid #FF5E00; border-bottom: 0px solid #FF5E00; border-left: 0px solid #FF5E00; padding-top: 0px; padding-bottom: 0px; font-family: 'Raleway', 'Trebuchet MS', Helvetica, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:5px;padding-right:5px;font-size:15px;display:inline-block;"><span style="line-height: 24px; word-break: break-word; font-family: Raleway, 'Trebuchet MS', Helvetica, sans-serif;">
                                                 <span style="font-size: 15px; line-height: 30px;" data-mce-style="font-size: 15px; line-height: 30px;">
-                                                    <strong>UPLOAD CV</strong>
+                                                    <strong>REQUEST</strong>
                                                 </span></span></span></a>
 												<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
 											</div>
@@ -357,7 +354,6 @@
 							</div>
 						</div>
                     </div>
-              
                     @php
 					    $user = App\User::where('email',$email)->first();
 					@endphp
@@ -373,7 +369,6 @@
 								->limit(6)
 								->get();
                     @endphp
-
                     @foreach($posts->chunk(2) as $chunk)
                         <div style="background-color:#ffffff;">
                             <div class="block-grid two-up" style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #f5eded;">
@@ -404,7 +399,7 @@
                         </div>
                     @endforeach
                     @endif
-                    
+                
 					<div style="background-color:#ffffff;">
 						<div class="block-grid " style="min-width: 320px; max-width: 755px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #500095;">
 							<div style="border-collapse: collapse;display: table;width: 100%;background-color:#500095;">

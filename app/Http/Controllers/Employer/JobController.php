@@ -31,7 +31,7 @@ class JobController extends Controller
 		}
 
 		return view('v2.employers.jobs.index', [
-			'posts' => CollectionHelper::paginate($posts, 10),
+			'posts' => CollectionHelper::paginate($posts, 12),
 			'recentApplications' => $employer->recentApplications()
 		]);
 	}
