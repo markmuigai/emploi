@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use App\PersonalityResult;
 use Illuminate\Database\Eloquent\Model;
 
 class TestResult extends Model
@@ -55,6 +56,24 @@ class TestResult extends Model
             
             default:
                 break;
+        }
+    }
+
+        /**
+     * Personality test results
+     */
+    public static function personalityTestResults($email)
+    {
+        return TestResult::where('email', $email)->where('type','personality practice')->get()->last();  
+    }
+
+    /**
+     * Personality scores
+     */
+    public static function personalityScores($email)
+    {   
+        if (TestResult::personalityTestResults($email) != null) {
+            return TestResult::personalityTestResults($email)->personalityResults;
         }
     }
 }
