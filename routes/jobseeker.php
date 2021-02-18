@@ -63,3 +63,7 @@ Route::get('about', 'AboutController@index');
 
 //resend referee assessment link
 Route::get('/referees/{id}/resend', 'RefereeController@resendLink');
+
+//register route
+Route::get('/register/create', 'RegisterController@create');
+Route::post('/register/store', 'RegisterController@store');
