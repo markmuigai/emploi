@@ -24,7 +24,7 @@
 			@endif
 			<td>{{ $testResult->performances->last()->created_at->diffForHumans() }}</td>
 			<td>
-				@if($testResult->type == 'aptitude' || $testResult->type == 'aptitude_practice')
+				@if($testResult->type == 'aptitude' || $testResult->type == 'aptitude practice')
 					<a href="{{route('assessmentResults.show', ['email' => $testResult->email])}}"
 						 class="btn btn-primary rounded-pill" title="View Detailed Results">
 						<i class='bx bx-line-chart'></i>
