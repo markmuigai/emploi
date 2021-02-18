@@ -205,13 +205,7 @@ class Performance extends Model
      */
     public static function getAssessmentsByType($type, $email)
     {
-        // Get user by email
-        $user = User::where('email', $email)->first();
-
-        // Get the users assessment
-        return $user->testResults->filter(function($result) use($type){
-            return $result->type == $type;
-        });
+        return TestResult::where('email', $email)->where('type', $type)->get();
     }
 
     /**
