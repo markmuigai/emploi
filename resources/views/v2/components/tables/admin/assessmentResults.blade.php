@@ -31,20 +31,21 @@
 					</a>
 				@else
 					<a class="btn btn-success rounded-pill" type="button" data-toggle="modal"
-						 data-target="#viewPersonalityModal-{{ $testResult->user->id }}" title="View Personality Test Results">
+						 data-target="#viewPersonalityModal-{{ $key }}" title="View Personality Test Results">
 						<i class='bx bxs-user-detail'></i>
 					</a>
 				@endif
 			</td>
-			<div class="modal fade" id="viewPersonalityModal-{{ $testResult->user->id }}" tabindex="-1" role="dialog"
+			@if($testResult->type == 'personality practice')
+			<div class="modal fade" id="viewPersonalityModal-{{ $key }}" tabindex="-1" role="dialog"
 					 aria-labelledby="viewPersonalityModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-scrollable" role="document">
 					<div class="modal-content">
 						<h4 class="text-center mt-4">
-							{{ $testResult->user->name }} personality
+							{{ $testResult->email }} personality
 						</h4>
 						<div class="modal-body">
-							@foreach ($testResult->user->personalityScores() as $key => $score)
+							@foreach ($testResult->personalityScores($testResult->email) as $key => $score)
 								<div class="row">
 									<div class="col-md-12">
 										<strong class="text-success">
@@ -58,6 +59,7 @@
 					</div>
 				</div>
 			</div>
+			@endif
 		</tr>
 	@endforeach
 	</tbody>
